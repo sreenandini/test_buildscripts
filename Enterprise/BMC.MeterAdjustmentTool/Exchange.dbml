@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Exchange" Class="ExchangeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ws-in009;Initial Catalog=Exchange;Persist Security Info=True;User ID=sa" SettingsObjectName="BMC.MeterAdjustmentTool.Properties.Settings" SettingsPropertyName="ExchangeConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetRiskyCollections" Method="GetRiskyCollections">
+    <Parameter Name="BatchID" Parameter="batchID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Threshold" Parameter="threshold" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetRiskyCollectionsResult">
+      <Column Name="Collection_No" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Installation_No" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bar_pos_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stock_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Collection_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PreviousCollectionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CASH_IN_100P" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CASH_IN_500P" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CASH_IN_1000P" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CASH_IN_2000P" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CASH_IN_5000P" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CASH_IN_10000P" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COLLECTION_RDC_JACKPOT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COLLECTION_RDC_HANDPAY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COLLECTION_RDC_TICKETS_INSERTED_VALUE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="COLLECTION_RDC_TICKETS_PRINTED_VALUE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="progressive_win_value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="progressive_win_Handpay_value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MeterVar" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HandpayVar" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Note_Var" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Coin_Var" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TicketVar" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Progressive_Value_Variance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.pGETSuspectedDailyReads" Method="pGETSuspectedDailyReads">
+    <Parameter Name="Installation_ID" Parameter="installation_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PreviousCollDate" Parameter="previousCollDate" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="CollectionDate" Parameter="collectionDate" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Threshold" Parameter="threshold" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pGETSuspectedHourlyReads" Method="pGETSuspectedHourlyReads">
+    <Parameter Name="Installation_ID" Parameter="installation_ID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CollectionDate" Parameter="collectionDate" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="PreviousCollectionDate" Parameter="previousCollectionDate" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Threshold" Parameter="threshold" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateHourlyDetails" Method="UpdateHourlyDetails">
+    <Parameter Name="Installation_ID" Parameter="installation_ID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Collection_ID" Parameter="collection_ID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CollectionDate" Parameter="collectionDate" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Hours" Parameter="hours" Type="System.String" DbType="VarChar(2000)" />
+    <Parameter Name="BatchID" Parameter="batchID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="UpdateSet" Parameter="updateSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CurrentSet" Parameter="currentSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateDailyRead" Method="UpdateDailyRead">
+    <Parameter Name="ReadID" Parameter="readID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BatchID" Parameter="batchID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="UpdateSet" Parameter="updateSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CurrentSet" Parameter="currentSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CollectionID" Parameter="collectionID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateCollection" Method="UpdateCollection">
+    <Parameter Name="CollectionID" Parameter="collectionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BatchID" Parameter="batchID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="UpdateSet" Parameter="updateSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CurrentSet" Parameter="currentSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.rsp_GetAllInstallationsWithStatus" Method="FuncGetAllInstallationsWithStatus">
+    <ElementType Name="rsp_GetAllInstallationsWithStatusResult">
+      <Column Name="[Serial No]" Member="Serial_No" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Installation_No" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InstallationStatus" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Stock_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Bar_Pos_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Model_Code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Machine_Manufacturers_Serial_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Machine_Alternative_Serial_Numbers" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Installation_Price_Of_Play" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Installation_Token_Value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Installation_Jackpot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Anticipated_Percentage_Payout" Type="System.Single" DbType="Real" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_UpdateMGMDDelta" Method="FuncUpdateMGMDDelta">
+    <Parameter Name="MGMD_Session_ID" Parameter="mGMD_Session_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="UpdateSet" Parameter="updateSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CurrentSet" Parameter="currentSet" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

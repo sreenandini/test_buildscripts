@@ -1,0 +1,14 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.BusinessClasses.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.BusinessClasses.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.CoreLib.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.EventsTransmitter.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.Migration114.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.CoreLib.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.EventsTransmitter.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\obj\x86\Release\BMC.BusinessClasses.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\obj\x86\Release\BMC.BusinessClasses.csproj.ResolveComReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\obj\x86\Release\BMC.BusinessClasses.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\obj\x86\Release\BMC.BusinessClasses.pdb

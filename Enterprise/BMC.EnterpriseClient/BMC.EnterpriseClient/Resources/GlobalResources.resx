@@ -1,0 +1,4509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Key_1month" xml:space="preserve">
+    <value>1 month</value>
+  </data>
+  <data name="Key_3rdPartyPositionCode" xml:space="preserve">
+    <value>3rd Party Position Code:</value>
+  </data>
+  <data name="Key_About" xml:space="preserve">
+    <value>&amp;About...</value>
+  </data>
+  <data name="Key_AcceptCaption" xml:space="preserve">
+    <value>&amp;Accept</value>
+  </data>
+  <data name="Key_AccessKeyColon" xml:space="preserve">
+    <value>Access Key:</value>
+  </data>
+  <data name="Key_AccountNumberColon" xml:space="preserve">
+    <value>Account Number:</value>
+  </data>
+  <data name="Key_AccountRefColon" xml:space="preserve">
+    <value>Account Ref:</value>
+  </data>
+  <data name="Key_AcDenom" xml:space="preserve">
+    <value>A/c Denom</value>
+  </data>
+  <data name="Key_ActivatedByColon" xml:space="preserve">
+    <value>Activated By:</value>
+  </data>
+  <data name="Key_ActivateLicenseCaption" xml:space="preserve">
+    <value>&amp;Activate License</value>
+  </data>
+  <data name="Key_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Key_ActiveAssets" xml:space="preserve">
+    <value>Active Assets</value>
+  </data>
+  <data name="Key_ActiveCard" xml:space="preserve">
+    <value>Active Card</value>
+  </data>
+  <data name="Key_ActiveExpiredCalendars" xml:space="preserve">
+    <value>Active Expired Calendars</value>
+  </data>
+  <data name="Key_ActiveItems" xml:space="preserve">
+    <value>Active Items</value>
+  </data>
+  <data name="Key_ActiveSites" xml:space="preserve">
+    <value>Active Sites</value>
+  </data>
+  <data name="Key_ActiveVouchersColon" xml:space="preserve">
+    <value>Active Vouchers:</value>
+  </data>
+  <data name="Key_ActualColon" xml:space="preserve">
+    <value>Actual:</value>
+  </data>
+  <data name="Key_ActualTotal" xml:space="preserve">
+    <value>Actual Total</value>
+  </data>
+  <data name="Key_AddCaption" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="Key_AddCategory" xml:space="preserve">
+    <value>Add Category</value>
+  </data>
+  <data name="Key_AddDot" xml:space="preserve">
+    <value>Add..</value>
+  </data>
+  <data name="Key_AddEditProfitShare" xml:space="preserve">
+    <value>Add/Edit Profit Share</value>
+  </data>
+  <data name="Key_AddEditProfitShareHolder" xml:space="preserve">
+    <value>Add/Edit Profit Share Holder</value>
+  </data>
+  <data name="Key_AddEditShareHolder" xml:space="preserve">
+    <value>Add/Edit Share Holder</value>
+  </data>
+  <data name="Key_AddEmployeeCard" xml:space="preserve">
+    <value>Add Employee Card</value>
+  </data>
+  <data name="Key_AddManualCash" xml:space="preserve">
+    <value>&amp;Add Manual Cash</value>
+  </data>
+  <data name="Key_AddNew" xml:space="preserve">
+    <value>&amp;Add New</value>
+  </data>
+  <data name="Key_AddNewCaption" xml:space="preserve">
+    <value>Add &amp;New</value>
+  </data>
+  <data name="Key_AddNewGroup" xml:space="preserve">
+    <value>&amp;Add New Group</value>
+  </data>
+  <data name="Key_AddressColon" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="Key_AddressColonMandatoryColon" xml:space="preserve">
+    <value>* Address:</value>
+  </data>
+  <data name="Key_AddShortpayinVoucherOut" xml:space="preserve">
+    <value>Add Shortpay in Voucher Out</value>
+  </data>
+  <data name="Key_AddTrueCoinIntoCoinDrop" xml:space="preserve">
+    <value>Add True Coin In to Coin Drop?</value>
+  </data>
+  <data name="Key_AddType" xml:space="preserve">
+    <value>Add Type</value>
+  </data>
+  <data name="Key_AddVault" xml:space="preserve">
+    <value>Add Vault</value>
+  </data>
+  <data name="Key_Adjust" xml:space="preserve">
+    <value>&amp;Adjust</value>
+  </data>
+  <data name="Key_Adjustment" xml:space="preserve">
+    <value>Adjustment</value>
+  </data>
+  <data name="Key_AdjustmentAmountColon" xml:space="preserve">
+    <value>Adjustment Amount:</value>
+  </data>
+  <data name="Key_Adjustments" xml:space="preserve">
+    <value>Adjustments</value>
+  </data>
+  <data name="Key_Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="Key_AdvanceToRetailerColon" xml:space="preserve">
+    <value>Advance to Retailer:</value>
+  </data>
+  <data name="Key_AFTEnabled" xml:space="preserve">
+    <value>AFT Enabled</value>
+  </data>
+  <data name="Key_AFTSettings" xml:space="preserve">
+    <value>AFT Settings</value>
+  </data>
+  <data name="Key_AFTTransactionsAllowed" xml:space="preserve">
+    <value>AFT Transactions Allowed:</value>
+  </data>
+  <data name="Key_AGSCombination" xml:space="preserve">
+    <value>AGS Combination</value>
+  </data>
+  <data name="Key_AGSDuplicates" xml:space="preserve">
+    <value>AGS Duplicates</value>
+  </data>
+  <data name="Key_AlertBeforeColon" xml:space="preserve">
+    <value>Alert Before:</value>
+  </data>
+  <data name="Key_AlertLevel" xml:space="preserve">
+    <value>Alert Level (%)</value>
+  </data>
+  <data name="Key_AlertLevelMandatoryColon" xml:space="preserve">
+    <value>* Alert Level (%):</value>
+  </data>
+  <data name="Key_AlertRequired" xml:space="preserve">
+    <value>Alert Required</value>
+  </data>
+  <data name="Key_AlertRequiredColon" xml:space="preserve">
+    <value>Alert Required:</value>
+  </data>
+  <data name="Key_AliasColonMandatoryColon" xml:space="preserve">
+    <value>* Alias:</value>
+  </data>
+  <data name="Key_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Key_ALLCaps" xml:space="preserve">
+    <value>ALL</value>
+  </data>
+  <data name="Key_Allowbulkpurchaseofassetitems" xml:space="preserve">
+    <value>Allow bulk purchase of asset items:</value>
+  </data>
+  <data name="Key_AllowCashableDeposits" xml:space="preserve">
+    <value>Allow Cashable Deposits:</value>
+  </data>
+  <data name="Key_AllowCashWithdrawal" xml:space="preserve">
+    <value>Allow Cash Withdrawal:</value>
+  </data>
+  <data name="Key_AllowEmployeeToReserveGame" xml:space="preserve">
+    <value>Allow Employee To Reserve Game:</value>
+  </data>
+  <data name="Key_AllowEnableDisableBarPosition" xml:space="preserve">
+    <value>AllowEnableDisableBarPosition</value>
+  </data>
+  <data name="Key_AllowNonCashableDeposits" xml:space="preserve">
+    <value>Allow Non Cashable Deposits:</value>
+  </data>
+  <data name="Key_AllowOffers" xml:space="preserve">
+    <value>Allow Offers:</value>
+  </data>
+  <data name="Key_AllowOfflineDeclaration" xml:space="preserve">
+    <value>Allow Offline Declaration</value>
+  </data>
+  <data name="Key_AllowPartialTransfers" xml:space="preserve">
+    <value>Allow Partial Transfers:</value>
+  </data>
+  <data name="Key_AllowPlayerToReserveGame" xml:space="preserve">
+    <value>Allow Player To Reserve Game:</value>
+  </data>
+  <data name="Key_AllowPointsWithdrawal" xml:space="preserve">
+    <value>Allow Points Withdrawal:</value>
+  </data>
+  <data name="Key_AllowRedeemOffers" xml:space="preserve">
+    <value>Allow Redeem Offers:</value>
+  </data>
+  <data name="Key_AlternateSerialNumber" xml:space="preserve">
+    <value>Alternate Serial Number:</value>
+  </data>
+  <data name="Key_AltSerialColon" xml:space="preserve">
+    <value>Alt Serial:</value>
+  </data>
+  <data name="Key_AltSerialNoSortForm" xml:space="preserve">
+    <value>Alt Serial No</value>
+  </data>
+  <data name="Key_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Key_Analysis" xml:space="preserve">
+    <value>Analysis</value>
+  </data>
+  <data name="Key_ANANumberColon" xml:space="preserve">
+    <value>ANA Number:</value>
+  </data>
+  <data name="Key_Apply" xml:space="preserve">
+    <value>App&amp;ly</value>
+  </data>
+  <data name="Key_ApplyCaption" xml:space="preserve">
+    <value>&amp;Apply</value>
+  </data>
+  <data name="Key_ApplyCaption1" xml:space="preserve">
+    <value>A&amp;pply</value>
+  </data>
+  <data name="Key_ApplyProfileCaption" xml:space="preserve">
+    <value>&amp;Apply Profile</value>
+  </data>
+  <data name="Key_AreaColon" xml:space="preserve">
+    <value>Area:</value>
+  </data>
+  <data name="Key_AreaInSqM" xml:space="preserve">
+    <value>Area [in sqm]:</value>
+  </data>
+  <data name="Key_Areas" xml:space="preserve">
+    <value>Areas</value>
+  </data>
+  <data name="Key_AreasColon" xml:space="preserve">
+    <value>Areas:</value>
+  </data>
+  <data name="Key_AssetColon" xml:space="preserve">
+    <value>Asset:</value>
+  </data>
+  <data name="Key_AssetGMUSerialNumberNotUnique" xml:space="preserve">
+    <value>The combination of the Asset number, GMU Number and Serial Number are not unique. Please find the duplicate stock numbers. Please update the excel with unique combination.</value>
+  </data>
+  <data name="Key_AssetHistory" xml:space="preserve">
+    <value>Asset History</value>
+  </data>
+  <data name="Key_AssetManagement" xml:space="preserve">
+    <value>Asset Management</value>
+  </data>
+  <data name="Key_AssetNo" xml:space="preserve">
+    <value>Asset No</value>
+  </data>
+  <data name="Key_AssetNoColon" xml:space="preserve">
+    <value>AssetNo:</value>
+  </data>
+  <data name="Key_AssetNumber" xml:space="preserve">
+    <value>Asset Number</value>
+  </data>
+  <data name="Key_AssetNumberMinLength" xml:space="preserve">
+    <value>Asset Number Min Length:</value>
+  </data>
+  <data name="Key_AssetNumberPrefix" xml:space="preserve">
+    <value>Asset Number Prefix:</value>
+  </data>
+  <data name="Key_AssetReport" xml:space="preserve">
+    <value>Asset Report</value>
+  </data>
+  <data name="Key_Assets" xml:space="preserve">
+    <value>Assets</value>
+  </data>
+  <data name="Key_AssetSettings" xml:space="preserve">
+    <value>Asset Settings</value>
+  </data>
+  <data name="Key_AssetTemplate" xml:space="preserve">
+    <value>AssetTemplate</value>
+  </data>
+  <data name="Key_AssetTitleColon" xml:space="preserve">
+    <value>Asset Title:</value>
+  </data>
+  <data name="Key_Assign" xml:space="preserve">
+    <value>A&amp;ssign</value>
+  </data>
+  <data name="Key_AssignedCards" xml:space="preserve">
+    <value>Assigned Cards</value>
+  </data>
+  <data name="Key_AssignedUsers" xml:space="preserve">
+    <value>Assigned Users:</value>
+  </data>
+  <data name="Key_AssignEmpCards" xml:space="preserve">
+    <value>Assign Emp Cards</value>
+  </data>
+  <data name="Key_AssignEmpCardsCaption" xml:space="preserve">
+    <value>Assign Emp &amp;Cards</value>
+  </data>
+  <data name="Key_AssigningVaulttoSite" xml:space="preserve">
+    <value>Assigning Vault to Site:</value>
+  </data>
+  <data name="Key_AssignSites" xml:space="preserve">
+    <value>Assign Sites</value>
+  </data>
+  <data name="Key_AssignSitesCaption" xml:space="preserve">
+    <value>&amp;Assign Sites</value>
+  </data>
+  <data name="Key_AssignVaulttoSite" xml:space="preserve">
+    <value>Assign Vault to Site</value>
+  </data>
+  <data name="Key_AssociateUsertoEmployeeCard" xml:space="preserve">
+    <value>Associate User to Employee Card</value>
+  </data>
+  <data name="Key_AsyncConsoleDialogForm" xml:space="preserve">
+    <value>AsyncConsoleDialogForm</value>
+  </data>
+  <data name="Key_Attendantpay" xml:space="preserve">
+    <value>Attendant pay</value>
+  </data>
+  <data name="Key_AttendantpayProgressiveVar" xml:space="preserve">
+    <value>Attendantpay Progressive Var</value>
+  </data>
+  <data name="Key_AttendantPaysColon" xml:space="preserve">
+    <value>Attendant Pays:</value>
+  </data>
+  <data name="Key_AttendantpayVar" xml:space="preserve">
+    <value>Attendantpay Var</value>
+  </data>
+  <data name="Key_AttnPayColon" xml:space="preserve">
+    <value>Attn' Pay:</value>
+  </data>
+  <data name="Key_AttnPayMeterProgressive" xml:space="preserve">
+    <value>Attn\' Pay Meter Progressive</value>
+  </data>
+  <data name="Key_AttnPayProgressive" xml:space="preserve">
+    <value>Attn\' Pay Progressive</value>
+  </data>
+  <data name="Key_AttnPayProgVar" xml:space="preserve">
+    <value>Attn\' Pay Prog Var</value>
+  </data>
+  <data name="Key_AttnPayVar" xml:space="preserve">
+    <value>Attn\' Pay Var</value>
+  </data>
+  <data name="Key_AttnPayVarColon" xml:space="preserve">
+    <value>Attn' Pay Var:</value>
+  </data>
+  <data name="Key_Audit" xml:space="preserve">
+    <value>Audit</value>
+  </data>
+  <data name="Key_AuditAdjustment" xml:space="preserve">
+    <value>Audit Adjustment</value>
+  </data>
+  <data name="Key_AuditMonitoring" xml:space="preserve">
+    <value>Audit &amp;&amp; Monitoring</value>
+  </data>
+  <data name="Key_AuthorizationScreen" xml:space="preserve">
+    <value>Authorization Screen</value>
+  </data>
+  <data name="Key_Authorize" xml:space="preserve">
+    <value>&amp;Authorize</value>
+  </data>
+  <data name="Key_Autoadjustondrop" xml:space="preserve">
+    <value>Auto adjust on drop</value>
+  </data>
+  <data name="Key_AutoDepositCashableCredits" xml:space="preserve">
+    <value>AutoDeposit Cashable Credits On CardOut:</value>
+  </data>
+  <data name="Key_AutoDepositNonCashableCredits" xml:space="preserve">
+    <value>AutoDeposit Non-Cashable Credits on CardOut:</value>
+  </data>
+  <data name="Key_AutoGenerateAssetNumber" xml:space="preserve">
+    <value>Auto Generate Asset Number:</value>
+  </data>
+  <data name="Key_AutoGenerateGameCodes" xml:space="preserve">
+    <value>Auto Generate Game Codes:</value>
+  </data>
+  <data name="Key_AutomaticSchedule" xml:space="preserve">
+    <value>Automatic Schedule</value>
+  </data>
+  <data name="Key_AutomaticScheduler" xml:space="preserve">
+    <value>Automatic Scheduler for all Regions and Sites</value>
+  </data>
+  <data name="Key_AutoRefresh" xml:space="preserve">
+    <value>Auto Refresh</value>
+  </data>
+  <data name="Key_AutoUpdate" xml:space="preserve">
+    <value>Auto Update</value>
+  </data>
+  <data name="Key_AxDockPanel" xml:space="preserve">
+    <value>AxDockPanel</value>
+  </data>
+  <data name="Key_BalanceDueColon" xml:space="preserve">
+    <value>Balance Due:</value>
+  </data>
+  <data name="Key_BallyMultiConnect" xml:space="preserve">
+    <value>Bally MultiConnect</value>
+  </data>
+  <data name="Key_BallyMultiConnectEnterprise" xml:space="preserve">
+    <value>Bally MultiConnect - Enterprise</value>
+  </data>
+  <data name="Key_BallyMultiConnectMeterAnalysis" xml:space="preserve">
+    <value>Bally Multi Connect - Meter Analysis</value>
+  </data>
+  <data name="Key_BallyTechnologiesInc" xml:space="preserve">
+    <value>Bally Technologies Inc</value>
+  </data>
+  <data name="Key_BankAccountName" xml:space="preserve">
+    <value>Bank Account Name:</value>
+  </data>
+  <data name="Key_Banking" xml:space="preserve">
+    <value>Banking</value>
+  </data>
+  <data name="Key_BarPosition" xml:space="preserve">
+    <value>BarPosition</value>
+  </data>
+  <data name="Key_BaseDenomCents" xml:space="preserve">
+    <value>Base Denom (Cents):</value>
+  </data>
+  <data name="Key_BaseDenomMandatoryColon" xml:space="preserve">
+    <value>* Base Denom:</value>
+  </data>
+  <data name="Key_BasedOnColon" xml:space="preserve">
+    <value>Based On:</value>
+  </data>
+  <data name="Key_Batch" xml:space="preserve">
+    <value>Batch</value>
+  </data>
+  <data name="Key_BatchNoMandatoryColon" xml:space="preserve">
+    <value>* Batch No:</value>
+  </data>
+  <data name="Key_Bills" xml:space="preserve">
+    <value>Bills</value>
+  </data>
+  <data name="Key_BillsCountedColon" xml:space="preserve">
+    <value>Bills Counted:</value>
+  </data>
+  <data name="Key_BillsVar" xml:space="preserve">
+    <value>Bills Var</value>
+  </data>
+  <data name="Key_BillsVarColon" xml:space="preserve">
+    <value>Bills Var:</value>
+  </data>
+  <data name="Key_BillValStatus" xml:space="preserve">
+    <value>Bill Val Status</value>
+  </data>
+  <data name="Key_BleedAmountColon" xml:space="preserve">
+    <value>Bleed Amount:</value>
+  </data>
+  <data name="Key_Bleeds" xml:space="preserve">
+    <value>Bleeds</value>
+  </data>
+  <data name="Key_BMCConfigStoreUpdator" xml:space="preserve">
+    <value>BMC Config Store Updator</value>
+  </data>
+  <data name="Key_BMCDataSheet" xml:space="preserve">
+    <value>BMC Data Sheet</value>
+  </data>
+  <data name="Key_BMCDataSheetResultsGrid" xml:space="preserve">
+    <value>BMC DataSheet Results Grid</value>
+  </data>
+  <data name="Key_BMCEnterpriseClient" xml:space="preserve">
+    <value>BMC Enterprise Client</value>
+  </data>
+  <data name="Key_BMCReportAdministration" xml:space="preserve">
+    <value>BMC Report Administration</value>
+  </data>
+  <data name="Key_BMCReports" xml:space="preserve">
+    <value>BMC Reports</value>
+  </data>
+  <data name="Key_BMCRoleAdministration" xml:space="preserve">
+    <value>BMC Role Administration</value>
+  </data>
+  <data name="Key_BMCTotal" xml:space="preserve">
+    <value>BMC Total</value>
+  </data>
+  <data name="Key_BMCTotalColon" xml:space="preserve">
+    <value>BMC Total:</value>
+  </data>
+  <data name="Key_BMCUserSiteAdministration" xml:space="preserve">
+    <value>BMC User Site Administration</value>
+  </data>
+  <data name="Key_BMCVaraince" xml:space="preserve">
+    <value>BMC Variance</value>
+  </data>
+  <data name="Key_BMCVarainceColon" xml:space="preserve">
+    <value>BMC Varaince:</value>
+  </data>
+  <data name="Key_Browse" xml:space="preserve">
+    <value>&amp;Browse...</value>
+  </data>
+  <data name="Key_HideRAMReset" xml:space="preserve">
+    <value>Hide RAM Reset</value>
+  </data>
+  <data name="Key_BulkCopyPositions" xml:space="preserve">
+    <value>Bulk Copy Positions</value>
+  </data>
+  <data name="Key_Buy" xml:space="preserve">
+    <value>&amp;Buy</value>
+  </data>
+  <data name="Key_BuyMachine" xml:space="preserve">
+    <value>Buy Machine</value>
+  </data>
+  <data name="Key_ByDay" xml:space="preserve">
+    <value>By Day</value>
+  </data>
+  <data name="Key_ByPeriod" xml:space="preserve">
+    <value>By Period</value>
+  </data>
+  <data name="Key_ByWeek" xml:space="preserve">
+    <value>By Week</value>
+  </data>
+  <data name="Key_CabinetModelDescriptionMandatoryColon" xml:space="preserve">
+    <value>* Cabinet/Model Description:</value>
+  </data>
+  <data name="Key_CabinetModelType" xml:space="preserve">
+    <value>Cabinet/Model Type</value>
+  </data>
+  <data name="Key_CabinetModelTypeColon" xml:space="preserve">
+    <value>Cabinet/Model Type:</value>
+  </data>
+  <data name="Key_CabinetModelTypeMandatory" xml:space="preserve">
+    <value>* Cabinet/Model Type:</value>
+  </data>
+  <data name="Key_CabinetModelTypeNameMandatory" xml:space="preserve">
+    <value>* Cabinet/Model Type Name:</value>
+  </data>
+  <data name="Key_CadastreCodeColon" xml:space="preserve">
+    <value>Cadastre Code:</value>
+  </data>
+  <data name="Key_CalculatedMetersMandatory" xml:space="preserve">
+    <value>*** Calculated Meters</value>
+  </data>
+  <data name="Key_CalendarDay" xml:space="preserve">
+    <value>Calendar Day?</value>
+  </data>
+  <data name="Key_CalendarHistoryColon" xml:space="preserve">
+    <value>Calendar History</value>
+  </data>
+  <data name="Key_CalendarId" xml:space="preserve">
+    <value>CalendarId</value>
+  </data>
+  <data name="Key_Calendars" xml:space="preserve">
+    <value>Calendars</value>
+  </data>
+  <data name="Key_Cancel" xml:space="preserve">
+    <value>Canc&amp;el</value>
+  </data>
+  <data name="Key_CancelCaption" xml:space="preserve">
+    <value>Ca&amp;ncel</value>
+  </data>
+  <data name="Key_CancelCaption1" xml:space="preserve">
+    <value>C&amp;ancel</value>
+  </data>
+  <data name="Key_CancelledByColon" xml:space="preserve">
+    <value>Cancelled By:</value>
+  </data>
+  <data name="Key_CancelLicense" xml:space="preserve">
+    <value>Ca&amp;ncel License</value>
+  </data>
+  <data name="Key_Cancelreport" xml:space="preserve">
+    <value>Cancel - Cancel report.</value>
+  </data>
+  <data name="Key_CanDelete" xml:space="preserve">
+    <value>CanDelete</value>
+  </data>
+  <data name="Key_CapacityColon" xml:space="preserve">
+    <value>Capacity:</value>
+  </data>
+  <data name="Key_CapReleaseColon" xml:space="preserve">
+    <value>Cap Release on Player Upon Card Insert:</value>
+  </data>
+  <data name="Key_CAPS" xml:space="preserve">
+    <value>CAPS</value>
+  </data>
+  <data name="Key_CardLevelSettings" xml:space="preserve">
+    <value>Card Level Settings</value>
+  </data>
+  <data name="Key_CardNumberMandatory" xml:space="preserve">
+    <value>*Card Number:</value>
+  </data>
+  <data name="Key_CardTypeColon" xml:space="preserve">
+    <value>Card Type:</value>
+  </data>
+  <data name="Key_CardTypeMandatory" xml:space="preserve">
+    <value>*Card Type:</value>
+  </data>
+  <data name="Key_CardTypes" xml:space="preserve">
+    <value>Card Types</value>
+  </data>
+  <data name="Key_CardTypesCaption" xml:space="preserve">
+    <value>Car&amp;d Types</value>
+  </data>
+  <data name="Key_CarryForwardAmountColon" xml:space="preserve">
+    <value>Carry Forward Amount:</value>
+  </data>
+  <data name="Key_CascadeTypeColon" xml:space="preserve">
+    <value>Cascade Type:</value>
+  </data>
+  <data name="Key_CashableVouchersInColon" xml:space="preserve">
+    <value>Cashable Vouchers In:</value>
+  </data>
+  <data name="Key_CashableVouchersOutColon" xml:space="preserve">
+    <value>Cashable Vouchers Out:</value>
+  </data>
+  <data name="Key_CashCollectionReport" xml:space="preserve">
+    <value>Cash Collection Report</value>
+  </data>
+  <data name="Key_CashDeskMovement" xml:space="preserve">
+    <value>Cash Desk Movement</value>
+  </data>
+  <data name="Key_CashDeskReconciliation" xml:space="preserve">
+    <value>Cash Desk Reconciliation</value>
+  </data>
+  <data name="Key_CashDeskTransactions" xml:space="preserve">
+    <value>Cash Desk Transactions</value>
+  </data>
+  <data name="Key_CashierHistory" xml:space="preserve">
+    <value>Cashier History</value>
+  </data>
+  <data name="Key_CashierTransactions" xml:space="preserve">
+    <value>Cashier Transactions</value>
+  </data>
+  <data name="Key_CashierTransactionsDetails" xml:space="preserve">
+    <value>Cashier Transactions Details</value>
+  </data>
+  <data name="Key_CassetteHopperDetails" xml:space="preserve">
+    <value>Cassette/Hopper Details:</value>
+  </data>
+  <data name="Key_CassetteName" xml:space="preserve">
+    <value>Cassette Name</value>
+  </data>
+  <data name="Key_CassetteNameColon" xml:space="preserve">
+    <value>Cassette Name:</value>
+  </data>
+  <data name="Key_Cassettes" xml:space="preserve">
+    <value>C&amp;assettes</value>
+  </data>
+  <data name="Key_CategoryColon" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="Key_Caution" xml:space="preserve">
+    <value>Caution - combining certain selections will give conflicting results</value>
+  </data>
+  <data name="Key_CentralizedDeclaration" xml:space="preserve">
+    <value>Centralized Declaration</value>
+  </data>
+  <data name="Key_Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="Key_ChangeCredentials" xml:space="preserve">
+    <value>Change Credentials</value>
+  </data>
+  <data name="Key_ChangeDateColon" xml:space="preserve">
+    <value>Change Date:</value>
+  </data>
+  <data name="Key_ChangeFrom" xml:space="preserve">
+    <value>Change From Schedule to Rent</value>
+  </data>
+  <data name="Key_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Key_ChooseaSiteColon" xml:space="preserve">
+    <value>Choose a Site:</value>
+  </data>
+  <data name="Key_ChooseTypeColon" xml:space="preserve">
+    <value>Choose Type:</value>
+  </data>
+  <data name="Key_ClassificationColon" xml:space="preserve">
+    <value>Classification:</value>
+  </data>
+  <data name="Key_Clear" xml:space="preserve">
+    <value>Clea&amp;r</value>
+  </data>
+  <data name="Key_ClearAll" xml:space="preserve">
+    <value>&amp;Clear All</value>
+  </data>
+  <data name="Key_ClearCaption" xml:space="preserve">
+    <value>&amp;Clear</value>
+  </data>
+  <data name="Key_ClearCaption1" xml:space="preserve">
+    <value>C&amp;lear</value>
+  </data>
+  <data name="Key_Clearonsave" xml:space="preserve">
+    <value>Clear on save</value>
+  </data>
+  <data name="Key_Close" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="Key_CloseAll" xml:space="preserve">
+    <value>Close &amp;All</value>
+  </data>
+  <data name="Key_CloseCaption" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="Key_CloseCaption1" xml:space="preserve">
+    <value>Clos&amp;e</value>
+  </data>
+  <data name="Key_CloseCaption2" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="Key_Closed" xml:space="preserve">
+    <value>C&amp;losed</value>
+  </data>
+  <data name="Key_ClosedCalls" xml:space="preserve">
+    <value>Closed Calls</value>
+  </data>
+  <data name="Key_CMPGameTypeMandatory" xml:space="preserve">
+    <value>* CMP Game Type:</value>
+  </data>
+  <data name="Key_CMPGatewayCode" xml:space="preserve">
+    <value>CMP Gateway Code:</value>
+  </data>
+  <data name="Key_CodeColon" xml:space="preserve">
+    <value>Code:</value>
+  </data>
+  <data name="Key_CodeMandatory" xml:space="preserve">
+    <value>* Code:</value>
+  </data>
+  <data name="Key_CoinFillsColon" xml:space="preserve">
+    <value>Coin Fills:</value>
+  </data>
+  <data name="Key_CoinHopperFloat" xml:space="preserve">
+    <value>Coin Hopper Float:</value>
+  </data>
+  <data name="Key_CoinRefunds" xml:space="preserve">
+    <value>Coin Refunds:</value>
+  </data>
+  <data name="Key_CoinType" xml:space="preserve">
+    <value>Coin Type</value>
+  </data>
+  <data name="Key_CoinVar" xml:space="preserve">
+    <value>Coin Var</value>
+  </data>
+  <data name="Key_CoinVarColon" xml:space="preserve">
+    <value>Coin Var:</value>
+  </data>
+  <data name="Key_Collectedeverydays" xml:space="preserve">
+    <value>Collected every (days):</value>
+  </data>
+  <data name="Key_CollectionBasedLiquidation" xml:space="preserve">
+    <value>Collection Based Liquidation</value>
+  </data>
+  <data name="Key_CollectionDate" xml:space="preserve">
+    <value>Collection Date</value>
+  </data>
+  <data name="Key_CollectionDateColon" xml:space="preserve">
+    <value>Collection Date:</value>
+  </data>
+  <data name="Key_CollectionDayColon" xml:space="preserve">
+    <value>Collection Day:</value>
+  </data>
+  <data name="Key_CollectionRemarks" xml:space="preserve">
+    <value>Collection Remarks</value>
+  </data>
+  <data name="Key_Collections" xml:space="preserve">
+    <value>Collections</value>
+  </data>
+  <data name="Key_CollHistoryBreakDown" xml:space="preserve">
+    <value>CollHistoryBreakDownForm</value>
+  </data>
+  <data name="Key_CommandPane" xml:space="preserve">
+    <value>Command Pane</value>
+  </data>
+  <data name="Key_CommandTimeoutColon" xml:space="preserve">
+    <value>Command Timeout:</value>
+  </data>
+  <data name="Key_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Key_Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Key_CommentsColon" xml:space="preserve">
+    <value>Comments:</value>
+  </data>
+  <data name="Key_Comms" xml:space="preserve">
+    <value>Comms</value>
+  </data>
+  <data name="Key_Companies" xml:space="preserve">
+    <value>Companies</value>
+  </data>
+  <data name="Key_Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="Key_CompanyAdministration" xml:space="preserve">
+    <value>Company Administration</value>
+  </data>
+  <data name="Key_CompanyColon" xml:space="preserve">
+    <value>Company:</value>
+  </data>
+  <data name="Key_CompanyNameColon" xml:space="preserve">
+    <value>Company Name:</value>
+  </data>
+  <data name="Key_CompanyNameMandatory" xml:space="preserve">
+    <value>* Company Name:</value>
+  </data>
+  <data name="Key_CompanyPercent" xml:space="preserve">
+    <value>Company %</value>
+  </data>
+  <data name="Key_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Key_ConfirmCaption" xml:space="preserve">
+    <value>&amp;Confirm</value>
+  </data>
+  <data name="Key_ConfirmPasswordMandatory" xml:space="preserve">
+    <value>* Confir&amp;m Password:</value>
+  </data>
+  <data name="Key_Connect" xml:space="preserve">
+    <value>&amp;Connect</value>
+  </data>
+  <data name="Key_ConnectionTimeoutColon" xml:space="preserve">
+    <value>Connection Timeout:</value>
+  </data>
+  <data name="Key_Connectsite" xml:space="preserve">
+    <value>Connect site...</value>
+  </data>
+  <data name="Key_ConnecttoSite" xml:space="preserve">
+    <value>Connect to Site...</value>
+  </data>
+  <data name="Key_ContactColon" xml:space="preserve">
+    <value>Contact:</value>
+  </data>
+  <data name="Key_ContactEMailColon" xml:space="preserve">
+    <value>Contact E-Mail:</value>
+  </data>
+  <data name="Key_ContactNameColon" xml:space="preserve">
+    <value>Contact Name:</value>
+  </data>
+  <data name="Key_ContactPhoneNumber" xml:space="preserve">
+    <value>Contact Phone Number:</value>
+  </data>
+  <data name="Key_Control" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="Key_CopyAsset" xml:space="preserve">
+    <value>CopyAsset</value>
+  </data>
+  <data name="Key_Copyrights" xml:space="preserve">
+    <value>© 2013 Bally Technologies Inc. All Rights Reserved</value>
+  </data>
+  <data name="Key_CopyVaultDevice" xml:space="preserve">
+    <value>Copy Vault Device</value>
+  </data>
+  <data name="Key_CreateCall" xml:space="preserve">
+    <value>Create Call</value>
+  </data>
+  <data name="Key_CreatedByColon" xml:space="preserve">
+    <value>Created By:</value>
+  </data>
+  <data name="Key_CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="Key_CreateReport" xml:space="preserve">
+    <value>Create Report</value>
+  </data>
+  <data name="Key_Criteria" xml:space="preserve">
+    <value>Criteria</value>
+  </data>
+  <data name="Key_CriteriaColon" xml:space="preserve">
+    <value>Criteria:</value>
+  </data>
+  <data name="Key_CrossTicketingConfig" xml:space="preserve">
+    <value>Cross Ticketing Config</value>
+  </data>
+  <data name="Key_CrossTicketingEnabled" xml:space="preserve">
+    <value>Cross Ticketing Enabled</value>
+  </data>
+  <data name="Key_CurrencyFormatColon" xml:space="preserve">
+    <value>Currency Format:</value>
+  </data>
+  <data name="Key_Current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="Key_CurrentCalendarColon" xml:space="preserve">
+    <value>Current Calendar:</value>
+  </data>
+  <data name="Key_CurrentCalenders" xml:space="preserve">
+    <value>Current Calendars</value>
+  </data>
+  <data name="Key_CurrentCalls" xml:space="preserve">
+    <value>Current Calls</value>
+  </data>
+  <data name="Key_CurrentInstallations" xml:space="preserve">
+    <value>Current Installations</value>
+  </data>
+  <data name="Key_CurrentMachineColon" xml:space="preserve">
+    <value>Current Machine:</value>
+  </data>
+  <data name="Key_CurrentNBVColon" xml:space="preserve">
+    <value>Current NBV:</value>
+  </data>
+  <data name="Key_CurrentPasswordColon" xml:space="preserve">
+    <value>Current Password:</value>
+  </data>
+  <data name="Key_CurrentPasswordMandatory" xml:space="preserve">
+    <value>* Current Password:</value>
+  </data>
+  <data name="Key_CurrentPeriodColon" xml:space="preserve">
+    <value>Current Period:</value>
+  </data>
+  <data name="Key_CurrentWeekColon" xml:space="preserve">
+    <value>Current Week:</value>
+  </data>
+  <data name="Key_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Key_CustomerAccessGroup" xml:space="preserve">
+    <value>Customer Access Group</value>
+  </data>
+  <data name="Key_CustomerAccessSecurity" xml:space="preserve">
+    <value>Customer Access Security Groups</value>
+  </data>
+  <data name="Key_Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="Key_Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Key_DatabaseNameColon" xml:space="preserve">
+    <value>Database Name:</value>
+  </data>
+  <data name="Key_DatabaseServerColon" xml:space="preserve">
+    <value>&amp;Database Server:</value>
+  </data>
+  <data name="Key_DataSheet" xml:space="preserve">
+    <value>Data Sheet</value>
+  </data>
+  <data name="Key_DataTypeColon" xml:space="preserve">
+    <value>Data Type:</value>
+  </data>
+  <data name="Key_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Key_DateClosedColon" xml:space="preserve">
+    <value>Date Closed:</value>
+  </data>
+  <data name="Key_DateCollectedColon" xml:space="preserve">
+    <value>Date Collected:</value>
+  </data>
+  <data name="Key_DateColon" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="Key_DateFormatColon" xml:space="preserve">
+    <value>Date Format:</value>
+  </data>
+  <data name="Key_DateTime" xml:space="preserve">
+    <value>DateTime</value>
+  </data>
+  <data name="Key_Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Key_Days" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="Key_Declaration" xml:space="preserve">
+    <value>Declaration</value>
+  </data>
+  <data name="Key_DeclarationDateTime" xml:space="preserve">
+    <value>Declaration Date\Time</value>
+  </data>
+  <data name="Key_DeclarationDetails" xml:space="preserve">
+    <value>Declaration Details</value>
+  </data>
+  <data name="Key_Declare" xml:space="preserve">
+    <value>&amp;Declare</value>
+  </data>
+  <data name="Key_DeclaredBalanceColon" xml:space="preserve">
+    <value>Declared Balance:</value>
+  </data>
+  <data name="Key_DeclaredbatchDetails" xml:space="preserve">
+    <value>Declared batch Details</value>
+  </data>
+  <data name="Key_DeclaredTotalColon" xml:space="preserve">
+    <value>Declared Total :</value>
+  </data>
+  <data name="Key_DecWinLossColon" xml:space="preserve">
+    <value>Dec Win/Loss:</value>
+  </data>
+  <data name="Key_Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Key_Default0" xml:space="preserve">
+    <value>Default {0}</value>
+  </data>
+  <data name="Key_DefaultAssetDetail" xml:space="preserve">
+    <value>Default Asset Detail</value>
+  </data>
+  <data name="Key_Defaults" xml:space="preserve">
+    <value>Defaults</value>
+  </data>
+  <data name="Key_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Key_DeleteCaption" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="Key_DeleteCollectionBatch" xml:space="preserve">
+    <value>Delete Collection Batch</value>
+  </data>
+  <data name="Key_DeleteDot" xml:space="preserve">
+    <value>Delete..</value>
+  </data>
+  <data name="Key_DeleteRole" xml:space="preserve">
+    <value>Delete Role</value>
+  </data>
+  <data name="Key_DeleteRoute" xml:space="preserve">
+    <value>&amp;Delete Route</value>
+  </data>
+  <data name="Key_DeleteTemplate" xml:space="preserve">
+    <value>Delete Template</value>
+  </data>
+  <data name="Key_DeListedModel" xml:space="preserve">
+    <value>De-Listed Model:</value>
+  </data>
+  <data name="Key_DeliveredToMandatory" xml:space="preserve">
+    <value>* Delivered To:</value>
+  </data>
+  <data name="Key_DeliveryDateColon" xml:space="preserve">
+    <value>Delivery Date:</value>
+  </data>
+  <data name="Key_DeltaAdjustment" xml:space="preserve">
+    <value>Delta Adjustment</value>
+  </data>
+  <data name="Key_DeMergeBatch" xml:space="preserve">
+    <value>DeMergeBatch</value>
+  </data>
+  <data name="Key_Denom" xml:space="preserve">
+    <value>Denom</value>
+  </data>
+  <data name="Key_DenomColon" xml:space="preserve">
+    <value>Denom:</value>
+  </data>
+  <data name="Key_DenomMandatory" xml:space="preserve">
+    <value>* Denom ({0})</value>
+  </data>
+  <data name="Key_DepartmentColon" xml:space="preserve">
+    <value>Department:</value>
+  </data>
+  <data name="Key_Depot" xml:space="preserve">
+    <value>Depot</value>
+  </data>
+  <data name="Key_DepotAddressMandatory" xml:space="preserve">
+    <value>* Depot Address:</value>
+  </data>
+  <data name="Key_DepotColon" xml:space="preserve">
+    <value>Depot:</value>
+  </data>
+  <data name="Key_DepotIsServiceDepotMsg" xml:space="preserve">
+    <value>This Depot is a Service Depot</value>
+  </data>
+  <data name="Key_DepotNameMandatory" xml:space="preserve">
+    <value>* Depot Name:</value>
+  </data>
+  <data name="Key_DepotPhoneNo" xml:space="preserve">
+    <value>Depot Phone No:</value>
+  </data>
+  <data name="Key_DepotPostcodeMandatory" xml:space="preserve">
+    <value>* Depot Postcode:</value>
+  </data>
+  <data name="Key_Depreciation" xml:space="preserve">
+    <value>Depreciation</value>
+  </data>
+  <data name="Key_DepreciationCaption1" xml:space="preserve">
+    <value>D&amp;epreciation</value>
+  </data>
+  <data name="Key_DepreciationDetails" xml:space="preserve">
+    <value>Depreciation Details</value>
+  </data>
+  <data name="Key_DepreciationPolicy" xml:space="preserve">
+    <value>Depreciation Policy</value>
+  </data>
+  <data name="Key_DepreciationPolicyColon" xml:space="preserve">
+    <value>Depreciation Policy:</value>
+  </data>
+  <data name="Key_DepreciationStartDate" xml:space="preserve">
+    <value>Depreciation Start Date:</value>
+  </data>
+  <data name="Key_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Key_DescriptionCaptionColon" xml:space="preserve">
+    <value>&amp;Description:</value>
+  </data>
+  <data name="Key_DescriptionColon" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="Key_DescriptionMandatory" xml:space="preserve">
+    <value>* Description:</value>
+  </data>
+  <data name="Key_DescriptionPane" xml:space="preserve">
+    <value>Description Pane</value>
+  </data>
+  <data name="Key_DetailedDepreciationReport" xml:space="preserve">
+    <value>Detailed Depreciation Report</value>
+  </data>
+  <data name="Key_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Key_Details1" xml:space="preserve">
+    <value>Details 1</value>
+  </data>
+  <data name="Key_Details2" xml:space="preserve">
+    <value>Details 2</value>
+  </data>
+  <data name="Key_DetailsCaption" xml:space="preserve">
+    <value>&amp;Details</value>
+  </data>
+  <data name="Key_DialogFormBase" xml:space="preserve">
+    <value>DialogFormBase</value>
+  </data>
+  <data name="Key_Diff" xml:space="preserve">
+    <value>Diff</value>
+  </data>
+  <data name="Key_DisableAll" xml:space="preserve">
+    <value>Disable All</value>
+  </data>
+  <data name="Key_DisableEDIExport" xml:space="preserve">
+    <value>Disable EDI Export for this position (Overrides all other values)</value>
+  </data>
+  <data name="Key_DisableEGMs" xml:space="preserve">
+    <value>Disable EGMs</value>
+  </data>
+  <data name="Key_DisableEGMsColon" xml:space="preserve">
+    <value>Disable EGM's:</value>
+  </data>
+  <data name="Key_Disconnectsite" xml:space="preserve">
+    <value>Disconnect site...</value>
+  </data>
+  <data name="Key_Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Key_DisplayActiveSitesOnly" xml:space="preserve">
+    <value>Display Active Sites Only</value>
+  </data>
+  <data name="Key_DisplayCaption" xml:space="preserve">
+    <value>&amp;Display</value>
+  </data>
+  <data name="Key_DisplayInstallationDetails" xml:space="preserve">
+    <value>Display Installation Details</value>
+  </data>
+  <data name="Key_DisplayNameColon" xml:space="preserve">
+    <value>Display Name:</value>
+  </data>
+  <data name="Key_DisplayNameForCompany" xml:space="preserve">
+    <value>Display Name For 'Company':</value>
+  </data>
+  <data name="Key_DisplayNameForPosition" xml:space="preserve">
+    <value>Display Name For 'Position':</value>
+  </data>
+  <data name="Key_DisplayNameForSite" xml:space="preserve">
+    <value>Display Name For 'Site':</value>
+  </data>
+  <data name="Key_DisplayNameForSubCompany" xml:space="preserve">
+    <value>Display Name For 'Sub- Company':</value>
+  </data>
+  <data name="Key_DisplayNameForZone" xml:space="preserve">
+    <value>Display Name For 'Zone':</value>
+  </data>
+  <data name="Key_DisplaySettings" xml:space="preserve">
+    <value>Display Settings</value>
+  </data>
+  <data name="Key_DistrictColon" xml:space="preserve">
+    <value>District:</value>
+  </data>
+  <data name="Key_Districts" xml:space="preserve">
+    <value>Districts</value>
+  </data>
+  <data name="Key_DistrictsColon" xml:space="preserve">
+    <value>Districts:</value>
+  </data>
+  <data name="Key_Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="Key_Door" xml:space="preserve">
+    <value>Door</value>
+  </data>
+  <data name="Key_Drop" xml:space="preserve">
+    <value>Drop</value>
+  </data>
+  <data name="Key_DropBatch" xml:space="preserve">
+    <value>Drop Batch</value>
+  </data>
+  <data name="Key_DropBatchBreakdown" xml:space="preserve">
+    <value>Drop Batch Breakdown</value>
+  </data>
+  <data name="Key_DropBreakdown" xml:space="preserve">
+    <value>Drop Breakdown</value>
+  </data>
+  <data name="Key_DropCreated" xml:space="preserve">
+    <value>Drop Created</value>
+  </data>
+  <data name="Key_DropDateTime" xml:space="preserve">
+    <value>Drop Date\Time</value>
+  </data>
+  <data name="Key_DropDetails" xml:space="preserve">
+    <value>Drop Details</value>
+  </data>
+  <data name="Key_DropID" xml:space="preserve">
+    <value>Drop ID</value>
+  </data>
+  <data name="Key_DropMeteredBreakdown" xml:space="preserve">
+    <value>Drop/Metered Breakdown</value>
+  </data>
+  <data name="Key_DropSchedule" xml:space="preserve">
+    <value>Drop Schedule</value>
+  </data>
+  <data name="Key_DropScheduleUtility" xml:space="preserve">
+    <value>Drop Schedule Utility</value>
+  </data>
+  <data name="Key_DropSummaries" xml:space="preserve">
+    <value>Drop Summaries</value>
+  </data>
+  <data name="Key_DueInStock" xml:space="preserve">
+    <value>Due In Stock</value>
+  </data>
+  <data name="Key_Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="Key_DurationColon" xml:space="preserve">
+    <value>Duration:</value>
+  </data>
+  <data name="Key_DurationMonths" xml:space="preserve">
+    <value>Duration(Months)</value>
+  </data>
+  <data name="Key_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Key_EditCaption" xml:space="preserve">
+    <value>Ed&amp;it</value>
+  </data>
+  <data name="Key_EditCaption2" xml:space="preserve">
+    <value>E&amp;dit</value>
+  </data>
+  <data name="Key_EditCaption3" xml:space="preserve">
+    <value>Ed&amp;it</value>
+  </data>
+  <data name="Key_EditCategory" xml:space="preserve">
+    <value>Edit Category</value>
+  </data>
+  <data name="Key_EditDot" xml:space="preserve">
+    <value>Edit..</value>
+  </data>
+  <data name="Key_EditGameTitle" xml:space="preserve">
+    <value>Edit Game Title</value>
+  </data>
+  <data name="Key_EditMachine" xml:space="preserve">
+    <value>Edit Machine</value>
+  </data>
+  <data name="Key_EditManufacturer" xml:space="preserve">
+    <value>Edit Manufacturer</value>
+  </data>
+  <data name="Key_EditPayTable" xml:space="preserve">
+    <value>&amp;Edit Pay Table</value>
+  </data>
+  <data name="Key_EditPosition" xml:space="preserve">
+    <value>Edit Position</value>
+  </data>
+  <data name="Key_EditProfile" xml:space="preserve">
+    <value>EditProfile</value>
+  </data>
+  <data name="Key_EditSettings" xml:space="preserve">
+    <value>Edit Settings</value>
+  </data>
+  <data name="Key_EditTemplate" xml:space="preserve">
+    <value>Edit Template</value>
+  </data>
+  <data name="Key_EditType" xml:space="preserve">
+    <value>Edit Type</value>
+  </data>
+  <data name="Key_EFTInVar" xml:space="preserve">
+    <value>EFT In Var</value>
+  </data>
+  <data name="Key_EFTOutVar" xml:space="preserve">
+    <value>EFT Out Var</value>
+  </data>
+  <data name="Key_EFTTimeOutValueMandatory" xml:space="preserve">
+    <value>* EFT TimeOut Value:</value>
+  </data>
+  <data name="Key_EMailColon" xml:space="preserve">
+    <value>E-Mail:</value>
+  </data>
+  <data name="Key_EmployeeCardTracking" xml:space="preserve">
+    <value>Employee Card Tracking</value>
+  </data>
+  <data name="Key_EmployeeNameMandatory" xml:space="preserve">
+    <value>* Employee Name:</value>
+  </data>
+  <data name="Key_Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="Key_EnableAll" xml:space="preserve">
+    <value>Enable All</value>
+  </data>
+  <data name="Key_EnableSite" xml:space="preserve">
+    <value>Enable Site</value>
+  </data>
+  <data name="Key_EndafterColon" xml:space="preserve">
+    <value>End after:</value>
+  </data>
+  <data name="Key_EndbyColon" xml:space="preserve">
+    <value>End by:</value>
+  </data>
+  <data name="Key_EndColon" xml:space="preserve">
+    <value>End:</value>
+  </data>
+  <data name="Key_EndDate" xml:space="preserve">
+    <value>EndDate</value>
+  </data>
+  <data name="Key_EndDateColon" xml:space="preserve">
+    <value>End Date:</value>
+  </data>
+  <data name="Key_EndDateTime" xml:space="preserve">
+    <value>End Date/Time:</value>
+  </data>
+  <data name="Key_EnforceCodesToSite" xml:space="preserve">
+    <value>Enforce Codes To Site:</value>
+  </data>
+  <data name="Key_EnrolmentTypeColon" xml:space="preserve">
+    <value>Enrolment Type:</value>
+  </data>
+  <data name="Key_EnteredBy" xml:space="preserve">
+    <value>Entered By</value>
+  </data>
+  <data name="Key_Enterprise" xml:space="preserve">
+    <value>Enterprise</value>
+  </data>
+  <data name="Key_EnterpriseSetup" xml:space="preserve">
+    <value>Enterprise Setup</value>
+  </data>
+  <data name="Key_Enterthecredentialstoproceedlogin" xml:space="preserve">
+    <value>Enter the credentials to proceed login</value>
+  </data>
+  <data name="Key_Enterthenewcustomeraccessgroupname" xml:space="preserve">
+    <value>Enter the new customer access group name:</value>
+  </data>
+  <data name="Key_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Key_EventViewer" xml:space="preserve">
+    <value>Event Viewer</value>
+  </data>
+  <data name="Key_ExceptionSummaryReport" xml:space="preserve">
+    <value>Exception Summary Report</value>
+  </data>
+  <data name="Key_ExceptionVouchers" xml:space="preserve">
+    <value>Exception Vouchers</value>
+  </data>
+  <data name="Key_ExchangeAdmin" xml:space="preserve">
+    <value>Exchange Admin</value>
+  </data>
+  <data name="Key_ExchangeAdminCaption" xml:space="preserve">
+    <value>Exc&amp;hange Admin</value>
+  </data>
+  <data name="Key_ExcludeVacantSites" xml:space="preserve">
+    <value>Exclude Vacant Sites?</value>
+  </data>
+  <data name="Key_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Key_ExitCaption" xml:space="preserve">
+    <value>&amp;Exit</value>
+  </data>
+  <data name="Key_ExitCaption1" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="Key_ExpenseAmountColon" xml:space="preserve">
+    <value>Expense Amount:</value>
+  </data>
+  <data name="Key_ExpenseShareAmountColon" xml:space="preserve">
+    <value>Expense Share Amount:</value>
+  </data>
+  <data name="Key_ExpenseShareColon" xml:space="preserve">
+    <value>Expense Share:</value>
+  </data>
+  <data name="Key_ExpenseShareGroup" xml:space="preserve">
+    <value>Expense Share Group</value>
+  </data>
+  <data name="Key_ExpenseShareGroupColon" xml:space="preserve">
+    <value>Expense Share Group:</value>
+  </data>
+  <data name="Key_ExpenseShareGroupNameColon" xml:space="preserve">
+    <value>Expense Share Group Name:</value>
+  </data>
+  <data name="Key_ExpenseShareGroups" xml:space="preserve">
+    <value>Expense Share Groups</value>
+  </data>
+  <data name="Key_ExpenseSharePercentage" xml:space="preserve">
+    <value>ExpenseSharePercentage</value>
+  </data>
+  <data name="Key_ExpiredColon" xml:space="preserve">
+    <value>Expired:</value>
+  </data>
+  <data name="Key_ExpiryDate" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="Key_ExpiryDateMandatory" xml:space="preserve">
+    <value>* Expiry Date:</value>
+  </data>
+  <data name="Key_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Key_ExportAssetdetails" xml:space="preserve">
+    <value>Export &amp;Asset details</value>
+  </data>
+  <data name="Key_ExportCalendarCaption" xml:space="preserve">
+    <value>&amp;Export Calendar</value>
+  </data>
+  <data name="Key_ExportCaption" xml:space="preserve">
+    <value>&amp;Export</value>
+  </data>
+  <data name="Key_ExportCollectionsColon" xml:space="preserve">
+    <value>Export Collections:</value>
+  </data>
+  <data name="Key_ExportCurrentCalendarToSite" xml:space="preserve">
+    <value>Export Current Calendar To Site</value>
+  </data>
+  <data name="Key_ExportEDCColon" xml:space="preserve">
+    <value>Export EDC:</value>
+  </data>
+  <data name="Key_ExportEnterpriseandSiteKeys" xml:space="preserve">
+    <value>Export Enterprise and Site Keys</value>
+  </data>
+  <data name="Key_ExportGameDetailstoSite" xml:space="preserve">
+    <value>Export Game Details to Site</value>
+  </data>
+  <data name="Key_ExportImportForm" xml:space="preserve">
+    <value>ExportImportForm</value>
+  </data>
+  <data name="Key_ExportModelDetailstoSite" xml:space="preserve">
+    <value>Export Model Details to Site</value>
+  </data>
+  <data name="Key_ExportMovementsColon" xml:space="preserve">
+    <value>Export Movements:</value>
+  </data>
+  <data name="Key_ExportOpenReport" xml:space="preserve">
+    <value>Export/Open Report</value>
+  </data>
+  <data name="Key_ExportSiteDetailsToSite" xml:space="preserve">
+    <value>Export Site Details To Site</value>
+  </data>
+  <data name="Key_ExporttoSiteCaption1" xml:space="preserve">
+    <value>E&amp;xport to Site</value>
+  </data>
+  <data name="Key_ExtColon" xml:space="preserve">
+    <value>Ext:</value>
+  </data>
+  <data name="Key_FactoryReset" xml:space="preserve">
+    <value>Factory Reset</value>
+  </data>
+  <data name="Key_Faults" xml:space="preserve">
+    <value>Faults</value>
+  </data>
+  <data name="Key_FaxNumberColon" xml:space="preserve">
+    <value>Fax Number:</value>
+  </data>
+  <data name="Key_FileCaption" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="Key_FillAmountColon" xml:space="preserve">
+    <value>Fill Amount:</value>
+  </data>
+  <data name="Key_FillRejection" xml:space="preserve">
+    <value>Fill Rejection</value>
+  </data>
+  <data name="Key_Fills" xml:space="preserve">
+    <value>Fills</value>
+  </data>
+  <data name="Key_Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Key_FilterByColon" xml:space="preserve">
+    <value>Filter By:</value>
+  </data>
+  <data name="Key_FilterCriteria" xml:space="preserve">
+    <value>Filter Criteria</value>
+  </data>
+  <data name="Key_Finance" xml:space="preserve">
+    <value>Finance</value>
+  </data>
+  <data name="Key_Financial" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+  <data name="Key_FinancialCalender" xml:space="preserve">
+    <value>Financial Calendar</value>
+  </data>
+  <data name="Key_FinishCaption" xml:space="preserve">
+    <value>&amp;Finish</value>
+  </data>
+  <data name="Key_FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Key_FirstNameCaptionMandatory" xml:space="preserve">
+    <value>* FirstName:</value>
+  </data>
+  <data name="Key_FirstNameColon" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+  <data name="Key_FloatRec" xml:space="preserve">
+    <value>Float Rec</value>
+  </data>
+  <data name="Key_FloatRecColon" xml:space="preserve">
+    <value>Float Rec:</value>
+  </data>
+  <data name="Key_ForceAssetitemstohaveasiterep" xml:space="preserve">
+    <value>Force Asset items to have a site rep:</value>
+  </data>
+  <data name="Key_FormTitle" xml:space="preserve">
+    <value>Form Title</value>
+  </data>
+  <data name="Key_Freeze" xml:space="preserve">
+    <value>Freeze</value>
+  </data>
+  <data name="Key_Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Key_frmEmployeeCardTypes" xml:space="preserve">
+    <value>frmEmployeeCardTypes</value>
+  </data>
+  <data name="Key_frmInUseMachines" xml:space="preserve">
+    <value>frmInUseMachines</value>
+  </data>
+  <data name="Key_frmShareHolders" xml:space="preserve">
+    <value>frmShareHolders</value>
+  </data>
+  <data name="Key_FromColon" xml:space="preserve">
+    <value>From:</value>
+  </data>
+  <data name="Key_FromLicenseExpiredDate" xml:space="preserve">
+    <value>From (License Expired Date):</value>
+  </data>
+  <data name="Key_FromLicenseStartDate" xml:space="preserve">
+    <value>From (License Start Date):</value>
+  </data>
+  <data name="Key_Future" xml:space="preserve">
+    <value>Future</value>
+  </data>
+  <data name="Key_Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Key_GameCapping" xml:space="preserve">
+    <value>Game Capping</value>
+  </data>
+  <data name="Key_GameCappingEnabled" xml:space="preserve">
+    <value>Game Capping Enabled</value>
+  </data>
+  <data name="Key_GameCappingSettings" xml:space="preserve">
+    <value>Game Capping Settings</value>
+  </data>
+  <data name="Key_GameCategory" xml:space="preserve">
+    <value>Game Category</value>
+  </data>
+  <data name="Key_GameCategoryAdmin" xml:space="preserve">
+    <value>Game Category Admin</value>
+  </data>
+  <data name="Key_GameCategoryColon" xml:space="preserve">
+    <value>Game Category:</value>
+  </data>
+  <data name="Key_GameCode" xml:space="preserve">
+    <value>Game Code</value>
+  </data>
+  <data name="Key_GameCodeMinLength" xml:space="preserve">
+    <value>Game Code Min Length:</value>
+  </data>
+  <data name="Key_GameCodePrefixColon" xml:space="preserve">
+    <value>Game Code Prefix:</value>
+  </data>
+  <data name="Key_GameColon" xml:space="preserve">
+    <value>Game:</value>
+  </data>
+  <data name="Key_GameLibrary" xml:space="preserve">
+    <value>Game Library</value>
+  </data>
+  <data name="Key_GameManufacturerColon" xml:space="preserve">
+    <value>Game Manufacturer:</value>
+  </data>
+  <data name="Key_GameMasterMapping" xml:space="preserve">
+    <value>Game Master Mapping</value>
+  </data>
+  <data name="Key_GameName" xml:space="preserve">
+    <value>Game Name</value>
+  </data>
+  <data name="Key_GameNameColon" xml:space="preserve">
+    <value>Game Name:</value>
+  </data>
+  <data name="Key_GamePartNumber" xml:space="preserve">
+    <value>Game Part Number</value>
+  </data>
+  <data name="Key_GamePrefixMandatory" xml:space="preserve">
+    <value>* Game Prefix:</value>
+  </data>
+  <data name="Key_GameReports" xml:space="preserve">
+    <value>Game Reports</value>
+  </data>
+  <data name="Key_GameTitle" xml:space="preserve">
+    <value>Game Title</value>
+  </data>
+  <data name="Key_GameTitleAssetNoSerialNo" xml:space="preserve">
+    <value>Game Title/Asset No/Serial No:</value>
+  </data>
+  <data name="Key_GameTitleColon" xml:space="preserve">
+    <value>Game Title:</value>
+  </data>
+  <data name="Key_GameTitleDetails" xml:space="preserve">
+    <value>Game Title Details</value>
+  </data>
+  <data name="Key_GameTitleMandatory" xml:space="preserve">
+    <value>* Game Title:</value>
+  </data>
+  <data name="Key_GamingDayColon" xml:space="preserve">
+    <value>Gaming Day:</value>
+  </data>
+  <data name="Key_GamingFloorTransactions" xml:space="preserve">
+    <value>Gaming Floor Transactions</value>
+  </data>
+  <data name="Key_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Key_GenerateAuthorizationKey" xml:space="preserve">
+    <value>&amp;Generate Authorization Key</value>
+  </data>
+  <data name="Key_GenerateCaption" xml:space="preserve">
+    <value>&amp;Generate</value>
+  </data>
+  <data name="Key_GenerateLicense" xml:space="preserve">
+    <value>Generate License</value>
+  </data>
+  <data name="Key_GenerateScheduleColon" xml:space="preserve">
+    <value>Generate Schedule:</value>
+  </data>
+  <data name="Key_GenericFormBase" xml:space="preserve">
+    <value>GenericFormBase</value>
+  </data>
+  <data name="Key_GetGameDetails" xml:space="preserve">
+    <value>Get Game Details</value>
+  </data>
+  <data name="Key_GMUEvents" xml:space="preserve">
+    <value>GMU Events</value>
+  </data>
+  <data name="Key_GMUNo" xml:space="preserve">
+    <value>GMU No</value>
+  </data>
+  <data name="Key_GMUNoColon" xml:space="preserve">
+    <value>GMU No:</value>
+  </data>
+  <data name="Key_GoCaption" xml:space="preserve">
+    <value>&amp;Go</value>
+  </data>
+  <data name="Key_GradientFormBase" xml:space="preserve">
+    <value>GradientFormBase</value>
+  </data>
+  <data name="Key_GreaterThan" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="Key_GreaterThanDouble" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="Key_GreaterThanTriple" xml:space="preserve">
+    <value>&gt;&gt;&gt;</value>
+  </data>
+  <data name="Key_GrossCoin" xml:space="preserve">
+    <value>Gross Coin</value>
+  </data>
+  <data name="Key_GrossCoinColon" xml:space="preserve">
+    <value>Gross Coin:</value>
+  </data>
+  <data name="Key_GrossMetersInColon" xml:space="preserve">
+    <value>Gross (Meters In):</value>
+  </data>
+  <data name="Key_GroupBox" xml:space="preserve">
+    <value>Group Box</value>
+  </data>
+  <data name="Key_GroupBy" xml:space="preserve">
+    <value>Group By</value>
+  </data>
+  <data name="Key_GroupByColon" xml:space="preserve">
+    <value>Group By:</value>
+  </data>
+  <data name="Key_GroupStockByColon" xml:space="preserve">
+    <value>Group Stock By:</value>
+  </data>
+  <data name="Key_Handle" xml:space="preserve">
+    <value>Handle</value>
+  </data>
+  <data name="Key_HandleColon" xml:space="preserve">
+    <value>Handle:</value>
+  </data>
+  <data name="Key_HandpayincJPColon" xml:space="preserve">
+    <value>Handpay (inc JP):</value>
+  </data>
+  <data name="Key_HelpCaption" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="Key_HHMM" xml:space="preserve">
+    <value>HH:MM</value>
+  </data>
+  <data name="Key_HideInfoCaption" xml:space="preserve">
+    <value>&amp;Hide Info</value>
+  </data>
+  <data name="Key_HideZeroVarianceCollections" xml:space="preserve">
+    <value>Hide Zero Variance Collections</value>
+  </data>
+  <data name="Key_HoldPercent" xml:space="preserve">
+    <value>Hold %</value>
+  </data>
+  <data name="Key_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Key_HoppersCaption" xml:space="preserve">
+    <value>&amp;Hoppers</value>
+  </data>
+  <data name="Key_Hourly" xml:space="preserve">
+    <value>Hourly</value>
+  </data>
+  <data name="Key_HrsOn" xml:space="preserve">
+    <value>Hrs On</value>
+  </data>
+  <data name="Key_Images" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="Key_ImplementationsColon" xml:space="preserve">
+    <value>Implementations:</value>
+  </data>
+  <data name="Key_Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Key_ImportAssetdetailCaption" xml:space="preserve">
+    <value>&amp;Import Asset details</value>
+  </data>
+  <data name="Key_ImportCaption" xml:space="preserve">
+    <value>&amp;Import</value>
+  </data>
+  <data name="Key_ImportCollectionsColon" xml:space="preserve">
+    <value>Import Collections:</value>
+  </data>
+  <data name="Key_ImportEDCColon" xml:space="preserve">
+    <value>Import EDC:</value>
+  </data>
+  <data name="Key_ImportExportAssetFile" xml:space="preserve">
+    <value>Import/Export Asset File</value>
+  </data>
+  <data name="Key_ImportMovementsColon" xml:space="preserve">
+    <value>Import Movements:</value>
+  </data>
+  <data name="Key_InactivationDateColon" xml:space="preserve">
+    <value>Inactivation Date:</value>
+  </data>
+  <data name="Key_InActive" xml:space="preserve">
+    <value>In Active</value>
+  </data>
+  <data name="Key_InActiveCard" xml:space="preserve">
+    <value>InActive Card</value>
+  </data>
+  <data name="Key_IncludeAuditedMovements" xml:space="preserve">
+    <value>Include Audited Movements</value>
+  </data>
+  <data name="Key_IncludeCharts" xml:space="preserve">
+    <value>Include Charts</value>
+  </data>
+  <data name="Key_IncludedColon" xml:space="preserve">
+    <value>Included:</value>
+  </data>
+  <data name="Key_IncludeRepSummary" xml:space="preserve">
+    <value>Include Rep Summary</value>
+  </data>
+  <data name="Key_IncludeSiteSummary" xml:space="preserve">
+    <value>Include Site Summary</value>
+  </data>
+  <data name="Key_IncomeLedgerCodeColon" xml:space="preserve">
+    <value>Income Ledger Code:</value>
+  </data>
+  <data name="Key_indayscolon" xml:space="preserve">
+    <value>(in days)</value>
+  </data>
+  <data name="Key_InputFileColon" xml:space="preserve">
+    <value>Input &amp;File:</value>
+  </data>
+  <data name="Key_InstallationDetails" xml:space="preserve">
+    <value>Installation Details</value>
+  </data>
+  <data name="Key_Installations" xml:space="preserve">
+    <value>Installations</value>
+  </data>
+  <data name="Key_InstallationsColon" xml:space="preserve">
+    <value>Installations:</value>
+  </data>
+  <data name="Key_InstallationStatus" xml:space="preserve">
+    <value>Installation Status</value>
+  </data>
+  <data name="Key_Installed" xml:space="preserve">
+    <value>Installed</value>
+  </data>
+  <data name="Key_InstanceNameColon" xml:space="preserve">
+    <value>Instance Name:</value>
+  </data>
+  <data name="Key_InUseTerminateMachines" xml:space="preserve">
+    <value>In Use/Terminate Machines</value>
+  </data>
+  <data name="Key_InvalidVouchersCounted" xml:space="preserve">
+    <value>Invalid Vouchers Counted</value>
+  </data>
+  <data name="Key_Invoice" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="Key_InvoiceAddressColon" xml:space="preserve">
+    <value>Invoice Address:</value>
+  </data>
+  <data name="Key_InvoiceNameColon" xml:space="preserve">
+    <value>Invoice Name:</value>
+  </data>
+  <data name="Key_InvoiceNoColon" xml:space="preserve">
+    <value>Invoice No:</value>
+  </data>
+  <data name="Key_InvoicePeriodColon" xml:space="preserve">
+    <value>Invoice Period:</value>
+  </data>
+  <data name="Key_InvoicePostCode" xml:space="preserve">
+    <value>Invoice PostCode:</value>
+  </data>
+  <data name="Key_Invoicing" xml:space="preserve">
+    <value>Invoicing</value>
+  </data>
+  <data name="Key_IsActive" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="Key_IsActiveColon" xml:space="preserve">
+    <value>Is Active:</value>
+  </data>
+  <data name="Key_IsEmployeeCardTrackingEnabled" xml:space="preserve">
+    <value>Is Employee Card Tracking Enabled</value>
+  </data>
+  <data name="Key_IsEngineer" xml:space="preserve">
+    <value>Is Engineer</value>
+  </data>
+  <data name="Key_IsGameActive" xml:space="preserve">
+    <value>IsGameActive</value>
+  </data>
+  <data name="Key_IsNonGamingAsset" xml:space="preserve">
+    <value>Is Non Gaming Asset</value>
+  </data>
+  <data name="Key_IsPromotionEnabled" xml:space="preserve">
+    <value>Is Promotion Enabled</value>
+  </data>
+  <data name="Key_IsRepresentative" xml:space="preserve">
+    <value>Is Representative</value>
+  </data>
+  <data name="Key_IsSingleCardEmployee" xml:space="preserve">
+    <value>Is Single Card Employee</value>
+  </data>
+  <data name="Key_IsStockController" xml:space="preserve">
+    <value>Is Stock Controller</value>
+  </data>
+  <data name="Key_IssuedBy" xml:space="preserve">
+    <value>Issued By</value>
+  </data>
+  <data name="Key_Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="Key_Items" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="Key_ItemsREQUIRED" xml:space="preserve">
+    <value>Items REQUIRED</value>
+  </data>
+  <data name="Key_ItemsthatareOptional" xml:space="preserve">
+    <value>Items that are Optional</value>
+  </data>
+  <data name="Key_Jackpot" xml:space="preserve">
+    <value>Jackpot</value>
+  </data>
+  <data name="Key_JackpotAddedtoCancelledCredits" xml:space="preserve">
+    <value>Jackpot Added to Cancelled Credits?</value>
+  </data>
+  <data name="Key_JackPotColon" xml:space="preserve">
+    <value>JackPot:</value>
+  </data>
+  <data name="Key_JackpotsColon" xml:space="preserve">
+    <value>Jackpots:</value>
+  </data>
+  <data name="Key_JobTitleDescriptionColon" xml:space="preserve">
+    <value>Job Title/Description:</value>
+  </data>
+  <data name="Key_KeepWindowActive" xml:space="preserve">
+    <value>Keep Window Active ?</value>
+  </data>
+  <data name="Key_KeyGeneration" xml:space="preserve">
+    <value>Key Generation</value>
+  </data>
+  <data name="Key_KeyStatusColon" xml:space="preserve">
+    <value>Key Status:</value>
+  </data>
+  <data name="Key_Label" xml:space="preserve">
+    <value>Variance:</value>
+  </data>
+  <data name="Key_LastColon" xml:space="preserve">
+    <value>Last:</value>
+  </data>
+  <data name="Key_LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Key_lblFromDay" xml:space="preserve">
+    <value>lblFromDay</value>
+  </data>
+  <data name="Key_lblToDay" xml:space="preserve">
+    <value>lblToDay</value>
+  </data>
+  <data name="Key_LedgerCodeColon" xml:space="preserve">
+    <value>Ledger Code:</value>
+  </data>
+  <data name="Key_LedgerCodes" xml:space="preserve">
+    <value>Ledger Codes</value>
+  </data>
+  <data name="Key_LessThan" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="Key_LessThanDouble" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="Key_LessThanDoubleTree" xml:space="preserve">
+    <value>&lt;&lt; TREE</value>
+  </data>
+  <data name="Key_LessThanTriple" xml:space="preserve">
+    <value>&lt;&lt;&lt;</value>
+  </data>
+  <data name="Key_Licence" xml:space="preserve">
+    <value>Licence</value>
+  </data>
+  <data name="Key_LicenseDetails" xml:space="preserve">
+    <value>License Details</value>
+  </data>
+  <data name="Key_LicenseGeneration" xml:space="preserve">
+    <value>License Generation</value>
+  </data>
+  <data name="Key_LicenseHistory" xml:space="preserve">
+    <value>License History</value>
+  </data>
+  <data name="Key_LicenseKeyMandatory" xml:space="preserve">
+    <value>* License Key:</value>
+  </data>
+  <data name="Key_LicenseSettings" xml:space="preserve">
+    <value>License Settings</value>
+  </data>
+  <data name="Key_LoadfromDatabaseDot" xml:space="preserve">
+    <value>Load from &amp;Database…</value>
+  </data>
+  <data name="Key_LoadingDot" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="Key_LoadingDots" xml:space="preserve">
+    <value>Loading . . .</value>
+  </data>
+  <data name="Key_LocalAudit" xml:space="preserve">
+    <value>Local Audit</value>
+  </data>
+  <data name="Key_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Key_LocationPercent" xml:space="preserve">
+    <value>Location %</value>
+  </data>
+  <data name="Key_LockSite" xml:space="preserve">
+    <value>Lock Site</value>
+  </data>
+  <data name="Key_LockSiteColon" xml:space="preserve">
+    <value>Lock Site:</value>
+  </data>
+  <data name="Key_LockUser" xml:space="preserve">
+    <value>Lock User</value>
+  </data>
+  <data name="Key_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Key_LoginCaption" xml:space="preserve">
+    <value>&amp;Login</value>
+  </data>
+  <data name="Key_LoginFormTitle" xml:space="preserve">
+    <value> - [Login]</value>
+  </data>
+  <data name="Key_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Key_MACAddressColon" xml:space="preserve">
+    <value>MAC Address:</value>
+  </data>
+  <data name="Key_MachineAvaliabilityColon" xml:space="preserve">
+    <value>Machine Avaliability:</value>
+  </data>
+  <data name="Key_MachineDetails" xml:space="preserve">
+    <value>MachineDetails</value>
+  </data>
+  <data name="Key_MachineManufacturer" xml:space="preserve">
+    <value>Machine Manufacturer</value>
+  </data>
+  <data name="Key_MachineModelAdministration" xml:space="preserve">
+    <value>Machine Model Administration</value>
+  </data>
+  <data name="Key_MachineModelColon" xml:space="preserve">
+    <value>Machine Model:</value>
+  </data>
+  <data name="Key_MachineName" xml:space="preserve">
+    <value>Machine Name</value>
+  </data>
+  <data name="Key_MachineNameColon" xml:space="preserve">
+    <value>Machine Name:</value>
+  </data>
+  <data name="Key_MachinePurchasedFromColon" xml:space="preserve">
+    <value>Machine Purchased From:</value>
+  </data>
+  <data name="Key_MachinesCannotBeImportedMsg" xml:space="preserve">
+    <value>The Machine(s) InUse/Terminated cannot be Imported</value>
+  </data>
+  <data name="Key_Machinetypeadmin" xml:space="preserve">
+    <value>Machine type admin</value>
+  </data>
+  <data name="Key_MachineTypeColon" xml:space="preserve">
+    <value>Machine Type:</value>
+  </data>
+  <data name="Key_MachineTypesColon" xml:space="preserve">
+    <value>Machine Types:</value>
+  </data>
+  <data name="Key_Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="Key_MainForm" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="Key_Maintenance" xml:space="preserve">
+    <value>Maintenance</value>
+  </data>
+  <data name="Key_ManagerColon" xml:space="preserve">
+    <value>Manager:</value>
+  </data>
+  <data name="Key_MandatoryShareHolders" xml:space="preserve">
+    <value>Mandatory Share Holders</value>
+  </data>
+  <data name="Key_ManualCashEntryCaption" xml:space="preserve">
+    <value>&amp;Manual Cash Entry</value>
+  </data>
+  <data name="Key_ManualDropAlertCaption" xml:space="preserve">
+    <value>&amp;Manual Drop Alert</value>
+  </data>
+  <data name="Key_ManualSchedule" xml:space="preserve">
+    <value>Manual Schedule</value>
+  </data>
+  <data name="Key_Manufacturer" xml:space="preserve">
+    <value>Manufacturer</value>
+  </data>
+  <data name="Key_ManufacturerColon" xml:space="preserve">
+    <value>Manufacturer:</value>
+  </data>
+  <data name="Key_ManufacturerForm" xml:space="preserve">
+    <value>ManufacturerForm</value>
+  </data>
+  <data name="Key_ManufacturerMandatory" xml:space="preserve">
+    <value>* Manufacturer:</value>
+  </data>
+  <data name="Key_MapGame" xml:space="preserve">
+    <value>&amp;Map Game</value>
+  </data>
+  <data name="Key_MappedMcProtocolGameInfromation" xml:space="preserve">
+    <value>Mapped M/c Protocol Game Infromation</value>
+  </data>
+  <data name="Key_MappedMcProtocolGames" xml:space="preserve">
+    <value>Mapped M/c Protocol Games</value>
+  </data>
+  <data name="Key_MasterCardColon" xml:space="preserve">
+    <value>Master Card:</value>
+  </data>
+  <data name="Key_MaxBet" xml:space="preserve">
+    <value>Max Bet</value>
+  </data>
+  <data name="Key_MaxDepositAmountMandatory" xml:space="preserve">
+    <value>* MaxDeposit Amount:</value>
+  </data>
+  <data name="Key_MaxFillAmount" xml:space="preserve">
+    <value>Max Fill Amount</value>
+  </data>
+  <data name="Key_MaxFillAmountMandatory" xml:space="preserve">
+    <value>* Max Fill Amount ({0}):</value>
+  </data>
+  <data name="Key_MaxVLTColon" xml:space="preserve">
+    <value>Max VLT:</value>
+  </data>
+  <data name="Key_MaxWithdrawalAmountMandatory" xml:space="preserve">
+    <value>* Max Withdrawal Amount:</value>
+  </data>
+  <data name="Key_MCManufacturerColon" xml:space="preserve">
+    <value>M/C Manufacturer:</value>
+  </data>
+  <data name="Key_MCProtocolGameDetails" xml:space="preserve">
+    <value>M/C Protocol- Game Details</value>
+  </data>
+  <data name="Key_MCProtocolPayTableDetails" xml:space="preserve">
+    <value>M/C Protocol- Pay Table Details</value>
+  </data>
+  <data name="Key_MCSerialNo" xml:space="preserve">
+    <value>M/C Serial No</value>
+  </data>
+  <data name="Key_McStatus" xml:space="preserve">
+    <value>M/c Status</value>
+  </data>
+  <data name="Key_MCTypeColon" xml:space="preserve">
+    <value>M/C Type:</value>
+  </data>
+  <data name="Key_MergeAnotherBatch" xml:space="preserve">
+    <value>Merge Another Batch</value>
+  </data>
+  <data name="Key_Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Key_MeterAnalysisGraph" xml:space="preserve">
+    <value>Meter Analysis - Graph</value>
+  </data>
+  <data name="Key_MeterAttnPay" xml:space="preserve">
+    <value>Meter Attn\' Pay</value>
+  </data>
+  <data name="Key_MeterBalanceColon" xml:space="preserve">
+    <value>Meter Balance:</value>
+  </data>
+  <data name="Key_MeterBills" xml:space="preserve">
+    <value>Meter Bills</value>
+  </data>
+  <data name="Key_MeterCoin" xml:space="preserve">
+    <value>Meter Coin</value>
+  </data>
+  <data name="Key_MeterVoucher" xml:space="preserve">
+    <value>Meter Voucher</value>
+  </data>
+  <data name="Key_MeterWinLoss" xml:space="preserve">
+    <value>Meter Win/Loss</value>
+  </data>
+  <data name="Key_MGMDSession" xml:space="preserve">
+    <value>MGMD Session</value>
+  </data>
+  <data name="Key_Midnight" xml:space="preserve">
+    <value>Midnight</value>
+  </data>
+  <data name="Key_MintsToExpire" xml:space="preserve">
+    <value>Mints To Expire Game Capping (0 for No Alert):</value>
+  </data>
+  <data name="Key_MissingDailyDataMsg" xml:space="preserve">
+    <value>There appears to be missing Daily data for the period selected.</value>
+  </data>
+  <data name="Key_MobileColon" xml:space="preserve">
+    <value>Mobile:</value>
+  </data>
+  <data name="Key_ModelAdministrator" xml:space="preserve">
+    <value>Model Administrator</value>
+  </data>
+  <data name="Key_ModelCodeColon" xml:space="preserve">
+    <value>Model Code:</value>
+  </data>
+  <data name="Key_ModelColon" xml:space="preserve">
+    <value>Model:</value>
+  </data>
+  <data name="Key_ModelNameColon" xml:space="preserve">
+    <value>Model Name:</value>
+  </data>
+  <data name="Key_ModelSetColon" xml:space="preserve">
+    <value>Model Set:</value>
+  </data>
+  <data name="Key_ModifyDeclaration" xml:space="preserve">
+    <value>Modify Declaration</value>
+  </data>
+  <data name="Key_ModuleColon" xml:space="preserve">
+    <value>Module:</value>
+  </data>
+  <data name="Key_Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="Key_Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="Key_months" xml:space="preserve">
+    <value>month(s)</value>
+  </data>
+  <data name="Key_MultiGame" xml:space="preserve">
+    <value>MultiGame</value>
+  </data>
+  <data name="Key_MunicipalityColon" xml:space="preserve">
+    <value>Municipality:</value>
+  </data>
+  <data name="Key_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Key_NameCaptionMandatoryColon" xml:space="preserve">
+    <value>* &amp;Name:</value>
+  </data>
+  <data name="Key_NameColon" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Key_NameMandatory" xml:space="preserve">
+    <value>* Name:</value>
+  </data>
+  <data name="Key_NBV" xml:space="preserve">
+    <value>NBV</value>
+  </data>
+  <data name="Key_NetCoinColon" xml:space="preserve">
+    <value>Net Coin:</value>
+  </data>
+  <data name="Key_NetColon" xml:space="preserve">
+    <value>Net:</value>
+  </data>
+  <data name="Key_NetMandatoryColon" xml:space="preserve">
+    <value>*Net :</value>
+  </data>
+  <data name="Key_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Key_NewCaption" xml:space="preserve">
+    <value>Ne&amp;w</value>
+  </data>
+  <data name="Key_NewCaption1" xml:space="preserve">
+    <value>N&amp;ew</value>
+  </data>
+  <data name="Key_NewCategory" xml:space="preserve">
+    <value>New Category</value>
+  </data>
+  <data name="Key_NewCompany" xml:space="preserve">
+    <value>New Company</value>
+  </data>
+  <data name="Key_NewEmployeeCard" xml:space="preserve">
+    <value>New Employee Card</value>
+  </data>
+  <data name="Key_NewEmployeeCardCaption" xml:space="preserve">
+    <value>&amp;New Employee Card</value>
+  </data>
+  <data name="Key_NewGameTitle" xml:space="preserve">
+    <value>New Game Title</value>
+  </data>
+  <data name="Key_NewGroup" xml:space="preserve">
+    <value>New Group</value>
+  </data>
+  <data name="Key_NewGroupCaption4" xml:space="preserve">
+    <value>New &amp;Group</value>
+  </data>
+  <data name="Key_NewGroupNameColon" xml:space="preserve">
+    <value>New Group Name:</value>
+  </data>
+  <data name="Key_NewMachineModelDetails" xml:space="preserve">
+    <value>New Machine Model Details</value>
+  </data>
+  <data name="Key_NewManufacturer" xml:space="preserve">
+    <value>New Manufacturer</value>
+  </data>
+  <data name="Key_NewPasswordMandatoryColon" xml:space="preserve">
+    <value>* &amp;New Password:</value>
+  </data>
+  <data name="Key_NewPosition" xml:space="preserve">
+    <value>New Position</value>
+  </data>
+  <data name="Key_NewRole" xml:space="preserve">
+    <value>New Role</value>
+  </data>
+  <data name="Key_NewSite" xml:space="preserve">
+    <value>New Site</value>
+  </data>
+  <data name="Key_NewSubCompany" xml:space="preserve">
+    <value>New Sub Company</value>
+  </data>
+  <data name="Key_NewUser" xml:space="preserve">
+    <value>New User</value>
+  </data>
+  <data name="Key_NewUserCaption" xml:space="preserve">
+    <value>&amp;New User</value>
+  </data>
+  <data name="Key_NewVaultDetailsColon" xml:space="preserve">
+    <value>New Vault Details:</value>
+  </data>
+  <data name="Key_NewZone" xml:space="preserve">
+    <value>New Zone</value>
+  </data>
+  <data name="Key_NextPeriodEndColon" xml:space="preserve">
+    <value>Next Period End:</value>
+  </data>
+  <data name="Key_NextSubCompanyChangeoverDateColon" xml:space="preserve">
+    <value>Next Sub Company Changeover Date:</value>
+  </data>
+  <data name="Key_NextSubCompanyColon" xml:space="preserve">
+    <value>Next Sub Company:</value>
+  </data>
+  <data name="Key_NextYearEndColon" xml:space="preserve">
+    <value>Next Year End:</value>
+  </data>
+  <data name="Key_NoCaption" xml:space="preserve">
+    <value>&amp;No</value>
+  </data>
+  <data name="Key_Noenddate" xml:space="preserve">
+    <value>No end date</value>
+  </data>
+  <data name="Key_NonCashableVoucher" xml:space="preserve">
+    <value>Non Cashable Voucher</value>
+  </data>
+  <data name="Key_NonCashableVoucherInColon" xml:space="preserve">
+    <value>Non Cashable Voucher In:</value>
+  </data>
+  <data name="Key_NonCashableVoucherOutColon" xml:space="preserve">
+    <value>Non Cashable Voucher Out:</value>
+  </data>
+  <data name="Key_NonTradingPeriodColon" xml:space="preserve">
+    <value>Non Trading Period:</value>
+  </data>
+  <data name="Key_NoofCassettesColon" xml:space="preserve">
+    <value>No of Cassettes:</value>
+  </data>
+  <data name="Key_NoofCoinHoppersColon" xml:space="preserve">
+    <value>No of Coin Hoppers:</value>
+  </data>
+  <data name="Key_NoofRecordsColon" xml:space="preserve">
+    <value>No of Records:</value>
+  </data>
+  <data name="Key_Noon" xml:space="preserve">
+    <value>Noon</value>
+  </data>
+  <data name="Key_NoteMax" xml:space="preserve">
+    <value>Note:Max Withdrawal and Max Deposit Amount are in Dollars and other Withdrawal Amount are in cents</value>
+  </data>
+  <data name="Key_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Key_NotesColon" xml:space="preserve">
+    <value>Notes:</value>
+  </data>
+  <data name="Key_NotesCounter" xml:space="preserve">
+    <value>Notes Counter</value>
+  </data>
+  <data name="Key_NotesCounterCaption" xml:space="preserve">
+    <value>&amp;Notes Counter</value>
+  </data>
+  <data name="Key_NotesMandatory" xml:space="preserve">
+    <value>* Notes</value>
+  </data>
+  <data name="Key_NotIncludedColon" xml:space="preserve">
+    <value>Not Included:</value>
+  </data>
+  <data name="Key_NUM" xml:space="preserve">
+    <value>NUM</value>
+  </data>
+  <data name="Key_Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Key_NumberColon" xml:space="preserve">
+    <value>Number:</value>
+  </data>
+  <data name="Key_OccupancyHr" xml:space="preserve">
+    <value>Occupancy / Hr:</value>
+  </data>
+  <data name="Key_occurrences" xml:space="preserve">
+    <value>occurrences</value>
+  </data>
+  <data name="Key_ofevery" xml:space="preserve">
+    <value>of every</value>
+  </data>
+  <data name="Key_OfflineVoucherColon" xml:space="preserve">
+    <value>Offline Voucher:</value>
+  </data>
+  <data name="Key_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Key_OKCaption" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="Key_OldPasswordMandatory" xml:space="preserve">
+    <value>* Old &amp;Password:</value>
+  </data>
+  <data name="Key_OpenCaption1" xml:space="preserve">
+    <value>O&amp;pen</value>
+  </data>
+  <data name="Key_OpenHours" xml:space="preserve">
+    <value>Open Hours</value>
+  </data>
+  <data name="Key_OpeningHours" xml:space="preserve">
+    <value>Opening Hours</value>
+  </data>
+  <data name="Key_OpeningHoursColon" xml:space="preserve">
+    <value>Opening Hours:</value>
+  </data>
+  <data name="Key_OpeningTimesColon" xml:space="preserve">
+    <value>Opening Times:</value>
+  </data>
+  <data name="Key_OpenMeterSetCaption" xml:space="preserve">
+    <value>&amp;Open Meter Set</value>
+  </data>
+  <data name="Key_Operator" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="Key_OperatorAddressColon" xml:space="preserve">
+    <value>Operator Address:</value>
+  </data>
+  <data name="Key_OperatorAreaColon" xml:space="preserve">
+    <value>Operator Area:</value>
+  </data>
+  <data name="Key_OperatorCodeColon" xml:space="preserve">
+    <value>Operator Code:</value>
+  </data>
+  <data name="Key_OperatorColon" xml:space="preserve">
+    <value>Operator:</value>
+  </data>
+  <data name="Key_OperatorContactNameColon" xml:space="preserve">
+    <value>Operator Contact Name:</value>
+  </data>
+  <data name="Key_OperatorEmailColon" xml:space="preserve">
+    <value>Operator Email:</value>
+  </data>
+  <data name="Key_OperatorFaxColon" xml:space="preserve">
+    <value>Operator Fax:</value>
+  </data>
+  <data name="Key_OperatorInvoiceAddressColon" xml:space="preserve">
+    <value>Operator Invoice Address:</value>
+  </data>
+  <data name="Key_OperatorInvoiceNameColon" xml:space="preserve">
+    <value>Operator Invoice Name:</value>
+  </data>
+  <data name="Key_OperatorInvoicePostcodeColon" xml:space="preserve">
+    <value>Operator Invoice Postcode:</value>
+  </data>
+  <data name="Key_OperatorMandatory" xml:space="preserve">
+    <value>* Operator:</value>
+  </data>
+  <data name="Key_OperatorNameMandatory" xml:space="preserve">
+    <value>* Operator Name:</value>
+  </data>
+  <data name="Key_OperatorPercent" xml:space="preserve">
+    <value>Operator %</value>
+  </data>
+  <data name="Key_OperatorPhoneColon" xml:space="preserve">
+    <value>Operator Phone:</value>
+  </data>
+  <data name="Key_OperatorPositionCodeColon" xml:space="preserve">
+    <value>Operator Position Code:</value>
+  </data>
+  <data name="Key_OperatorPostcodeColon" xml:space="preserve">
+    <value>Operator Postcode:</value>
+  </data>
+  <data name="Key_Operators" xml:space="preserve">
+    <value>Operators</value>
+  </data>
+  <data name="Key_OperatorServiceAreaColon" xml:space="preserve">
+    <value>Operator Service Area:</value>
+  </data>
+  <data name="Key_OperatorSiteCodeColon" xml:space="preserve">
+    <value>Operator Site Code:</value>
+  </data>
+  <data name="Key_Option1WithdrawalAmountMandatory" xml:space="preserve">
+    <value>* Option1 Withdrawal Amount:</value>
+  </data>
+  <data name="Key_Option2WithdrawalAmountMandatory" xml:space="preserve">
+    <value>* Option2 Withdrawal Amount:</value>
+  </data>
+  <data name="Key_Option3WithdrawalAmountMandatory" xml:space="preserve">
+    <value>* Option3 Withdrawal Amount:</value>
+  </data>
+  <data name="Key_Option4WithdrawalAmountMandatory" xml:space="preserve">
+    <value>* Option4 Withdrawal Amount:</value>
+  </data>
+  <data name="Key_Option5WithdrawalAmountMandatory" xml:space="preserve">
+    <value>* Option5 Withdrawal Amount:</value>
+  </data>
+  <data name="Key_OptionsColon" xml:space="preserve">
+    <value>Options:</value>
+  </data>
+  <data name="Key_OrderByColon" xml:space="preserve">
+    <value>Order By:</value>
+  </data>
+  <data name="Key_Organisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="Key_OrgHierarchicalView" xml:space="preserve">
+    <value>Org Hierarchical View</value>
+  </data>
+  <data name="Key_OtherCards" xml:space="preserve">
+    <value>Other Cards</value>
+  </data>
+  <data name="Key_Others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="Key_OutstandingMCDropsColon" xml:space="preserve">
+    <value>Outstanding M/C Drops:</value>
+  </data>
+  <data name="Key_OutstandingVaultDrops" xml:space="preserve">
+    <value>Outstanding Vault Drops</value>
+  </data>
+  <data name="Key_Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="Key_PasswordCaptionColon" xml:space="preserve">
+    <value>&amp;Password:</value>
+  </data>
+  <data name="Key_PasswordCheckColon" xml:space="preserve">
+    <value>Password Check:</value>
+  </data>
+  <data name="Key_PasswordCheckMandatory" xml:space="preserve">
+    <value>* Password Check:</value>
+  </data>
+  <data name="Key_PasswordColon" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="Key_PasswordMandatory" xml:space="preserve">
+    <value>* Password:</value>
+  </data>
+  <data name="Key_PasswordMandatoryColon" xml:space="preserve">
+    <value>* &amp;Password:</value>
+  </data>
+  <data name="Key_PayouPercent" xml:space="preserve">
+    <value>Payout %</value>
+  </data>
+  <data name="Key_PayoutPercent" xml:space="preserve">
+    <value>Payout %</value>
+  </data>
+  <data name="Key_PayPeriodColon" xml:space="preserve">
+    <value>Pay Period:</value>
+  </data>
+  <data name="Key_PayTable" xml:space="preserve">
+    <value>Pay Table</value>
+  </data>
+  <data name="Key_PayTableAdministration" xml:space="preserve">
+    <value>Pay Table Administration</value>
+  </data>
+  <data name="Key_PayTableBet" xml:space="preserve">
+    <value>Pay Table Bet</value>
+  </data>
+  <data name="Key_PayTableBetCreditsColon" xml:space="preserve">
+    <value>Pay Table Bet (Credits):</value>
+  </data>
+  <data name="Key_PayTableDescription" xml:space="preserve">
+    <value>Pay Table Description</value>
+  </data>
+  <data name="Key_PaytableID" xml:space="preserve">
+    <value>PaytableID</value>
+  </data>
+  <data name="Key_PayTableIDColon" xml:space="preserve">
+    <value>PayTable ID:</value>
+  </data>
+  <data name="Key_PayTablePayoutColon" xml:space="preserve">
+    <value>Pay Table % Payout:</value>
+  </data>
+  <data name="Key_Percentage" xml:space="preserve">
+    <value>Percentage</value>
+  </data>
+  <data name="Key_PercentageMandatoryColon" xml:space="preserve">
+    <value>* &amp;Percentage:</value>
+  </data>
+  <data name="Key_PercentagePayoutColon" xml:space="preserve">
+    <value>Percentage Payout:</value>
+  </data>
+  <data name="Key_PercentDrop" xml:space="preserve">
+    <value>%Drop</value>
+  </data>
+  <data name="Key_PercentDropColon" xml:space="preserve">
+    <value>% Drop:</value>
+  </data>
+  <data name="Key_PercentHold" xml:space="preserve">
+    <value>% Hold</value>
+  </data>
+  <data name="Key_PercentHoldColon" xml:space="preserve">
+    <value>% Hold:</value>
+  </data>
+  <data name="Key_PercentPayout" xml:space="preserve">
+    <value>% Payout</value>
+  </data>
+  <data name="Key_PercentPayoutColon" xml:space="preserve">
+    <value>% Payout:</value>
+  </data>
+  <data name="Key_PercPayoutColon" xml:space="preserve">
+    <value>Perc Payout:</value>
+  </data>
+  <data name="Key_PerformCaption" xml:space="preserve">
+    <value>&amp;Perform</value>
+  </data>
+  <data name="Key_PerformLiquidation" xml:space="preserve">
+    <value>Perform Liquidation</value>
+  </data>
+  <data name="Key_Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Key_PeriodColon" xml:space="preserve">
+    <value>Period:</value>
+  </data>
+  <data name="Key_PeriodFromColon" xml:space="preserve">
+    <value>Period From:</value>
+  </data>
+  <data name="Key_Periods" xml:space="preserve">
+    <value>Periods</value>
+  </data>
+  <data name="Key_PersonnelNoColon" xml:space="preserve">
+    <value>Personnel No:</value>
+  </data>
+  <data name="Key_PersonnelNoDot" xml:space="preserve">
+    <value>Personnel No.</value>
+  </data>
+  <data name="Key_PhoneNumberColon" xml:space="preserve">
+    <value>Phone Number:</value>
+  </data>
+  <data name="Key_Pleaseenterthenameofthenewdepot" xml:space="preserve">
+    <value>Please enter the name of the new depot:</value>
+  </data>
+  <data name="Key_Pleaseselectadefault" xml:space="preserve">
+    <value>Please select a default {0} for assets whose {0} are empty.</value>
+  </data>
+  <data name="Key_PleaseSelectaTemplateName" xml:space="preserve">
+    <value>Please Select a Template Name</value>
+  </data>
+  <data name="Key_Pleaseselectfromthefollowingoptions" xml:space="preserve">
+    <value>Please select from the following options:</value>
+  </data>
+  <data name="Key_Pleasewaitwhilethedocumentisprocessing" xml:space="preserve">
+    <value>Please wait while the document is processing.</value>
+  </data>
+  <data name="Key_Pos" xml:space="preserve">
+    <value>Pos</value>
+  </data>
+  <data name="Key_PosColon" xml:space="preserve">
+    <value>Pos:</value>
+  </data>
+  <data name="Key_Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Key_PositionColon" xml:space="preserve">
+    <value>Position:</value>
+  </data>
+  <data name="Key_PositionDepotColon" xml:space="preserve">
+    <value>Position Depot:</value>
+  </data>
+  <data name="Key_PositionDescriptionColon" xml:space="preserve">
+    <value>Position Description:</value>
+  </data>
+  <data name="Key_PositionEvents" xml:space="preserve">
+    <value>Position Events</value>
+  </data>
+  <data name="Key_PositionImageColon" xml:space="preserve">
+    <value>Position Image:</value>
+  </data>
+  <data name="Key_PositionNameMandatory" xml:space="preserve">
+    <value>* Position Name:</value>
+  </data>
+  <data name="Key_PositionNo" xml:space="preserve">
+    <value>Position No</value>
+  </data>
+  <data name="Key_PositionOperator" xml:space="preserve">
+    <value>Position Operator:</value>
+  </data>
+  <data name="Key_PositionOrderColon" xml:space="preserve">
+    <value>Position Order:</value>
+  </data>
+  <data name="Key_PostcodeColon" xml:space="preserve">
+    <value>Postcode:</value>
+  </data>
+  <data name="Key_PostZipCodeMandatory" xml:space="preserve">
+    <value>* Post/Zip Code:</value>
+  </data>
+  <data name="Key_POS_ADMIN" xml:space="preserve">
+    <value>POS_ADMIN</value>
+  </data>
+  <data name="Key_Power" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="Key_PowerPromoReports" xml:space="preserve">
+    <value>Power Promo Reports</value>
+  </data>
+  <data name="Key_PrefixColon" xml:space="preserve">
+    <value>Prefix:</value>
+  </data>
+  <data name="Key_Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="Key_PreviousSubCompanyChangeoverDate" xml:space="preserve">
+    <value>Previous Sub Company Changeover Date:</value>
+  </data>
+  <data name="Key_PreviousSubCompanyColon" xml:space="preserve">
+    <value>Previous Sub Company:</value>
+  </data>
+  <data name="Key_PricePerPlayColon" xml:space="preserve">
+    <value>Price Per Play:</value>
+  </data>
+  <data name="Key_Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Key_PrintCaption" xml:space="preserve">
+    <value>&amp;Print</value>
+  </data>
+  <data name="Key_PrintDetails" xml:space="preserve">
+    <value>Print De&amp;tails</value>
+  </data>
+  <data name="Key_PrintSchedule" xml:space="preserve">
+    <value>&amp;Print Schedule</value>
+  </data>
+  <data name="Key_PrizemoneyLOSoverrideterms" xml:space="preserve">
+    <value>Prize money LOS (override terms)</value>
+  </data>
+  <data name="Key_Process" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="Key_ProductColon" xml:space="preserve">
+    <value>Product:</value>
+  </data>
+  <data name="Key_ProfileNameColon" xml:space="preserve">
+    <value>Profile Name:</value>
+  </data>
+  <data name="Key_ProfitShare" xml:space="preserve">
+    <value>Profit Share</value>
+  </data>
+  <data name="Key_ProfitShareCaption" xml:space="preserve">
+    <value>&amp;Profit Share</value>
+  </data>
+  <data name="Key_ProfitShareGroup" xml:space="preserve">
+    <value>Profit Share Group</value>
+  </data>
+  <data name="Key_ProfitShareGroupColon" xml:space="preserve">
+    <value>Profit Share Group:</value>
+  </data>
+  <data name="Key_ProfitShareGroups" xml:space="preserve">
+    <value>Profit Share Groups</value>
+  </data>
+  <data name="Key_ProfitShareGroupTitle" xml:space="preserve">
+    <value>Profit Share Group</value>
+  </data>
+  <data name="Key_ProfitSharePercentageColon" xml:space="preserve">
+    <value>Profit SharePercentage:</value>
+  </data>
+  <data name="Key_ProgHandpayColon" xml:space="preserve">
+    <value>Prog Handpay:</value>
+  </data>
+  <data name="Key_ProgressiveColon" xml:space="preserve">
+    <value>Progressive:</value>
+  </data>
+  <data name="Key_ProgressiveJackpotsColon" xml:space="preserve">
+    <value>Progressive Jackpots:</value>
+  </data>
+  <data name="Key_ProgressiveVarColon" xml:space="preserve">
+    <value>Progressive Var:</value>
+  </data>
+  <data name="Key_PromoCashableColon" xml:space="preserve">
+    <value>Promo. Cashable:</value>
+  </data>
+  <data name="Key_PromoCashableIn" xml:space="preserve">
+    <value>Promo Cashable In</value>
+  </data>
+  <data name="Key_PromoNonCashableIn" xml:space="preserve">
+    <value>Promo NonCashable In</value>
+  </data>
+  <data name="Key_ProvinceColon" xml:space="preserve">
+    <value>Province:</value>
+  </data>
+  <data name="Key_PurchaseDateColon" xml:space="preserve">
+    <value>Purchase Date:</value>
+  </data>
+  <data name="Key_PurchasedFromColon" xml:space="preserve">
+    <value>Purchased From:</value>
+  </data>
+  <data name="Key_PurchaseInvoiceNumberColon" xml:space="preserve">
+    <value>Purchase Invoice Number:</value>
+  </data>
+  <data name="Key_PurchaseInvoiceNumberMandatory" xml:space="preserve">
+    <value>* Purchase Invoice Number:</value>
+  </data>
+  <data name="Key_PurchaseMachine" xml:space="preserve">
+    <value>Purchase Machine</value>
+  </data>
+  <data name="Key_PurchasePriceColon" xml:space="preserve">
+    <value>Purchase Price:</value>
+  </data>
+  <data name="Key_PurchasePriceMandatory" xml:space="preserve">
+    <value>* Purchase Price:</value>
+  </data>
+  <data name="Key_QMarkTerminated" xml:space="preserve">
+    <value>?Terminated</value>
+  </data>
+  <data name="Key_QMarkUseDefault" xml:space="preserve">
+    <value>?Use Default</value>
+  </data>
+  <data name="Key_QtyColon" xml:space="preserve">
+    <value>Qty:</value>
+  </data>
+  <data name="Key_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Key_QuantityColon" xml:space="preserve">
+    <value>Quantity:</value>
+  </data>
+  <data name="Key_Rangeofrecurrence" xml:space="preserve">
+    <value>Range of recurrence</value>
+  </data>
+  <data name="Key_ReadBasedLiquidation" xml:space="preserve">
+    <value>Read Based Liquidation</value>
+  </data>
+  <data name="Key_ReadDetails" xml:space="preserve">
+    <value>Read Details</value>
+  </data>
+  <data name="Key_ReadLiquidation" xml:space="preserve">
+    <value>Read Liquidation</value>
+  </data>
+  <data name="Key_ReadLiquidationDetails" xml:space="preserve">
+    <value>Read Liquidation Details</value>
+  </data>
+  <data name="Key_ReadVTP" xml:space="preserve">
+    <value>Read &amp;&amp; VTP</value>
+  </data>
+  <data name="Key_ReadWrite" xml:space="preserve">
+    <value>ReadWrite</value>
+  </data>
+  <data name="Key_ReasonMandatory" xml:space="preserve">
+    <value>* Reason:</value>
+  </data>
+  <data name="Key_Records" xml:space="preserve">
+    <value>Records</value>
+  </data>
+  <data name="Key_RecordsColon" xml:space="preserve">
+    <value>Records:</value>
+  </data>
+  <data name="Key_RecreateCancelledCredits" xml:space="preserve">
+    <value>Recreate Cancelled Credits?</value>
+  </data>
+  <data name="Key_RecreateTicketsInsertedfromDrop" xml:space="preserve">
+    <value>Recreate Tickets Inserted from Drop?</value>
+  </data>
+  <data name="Key_RefColon" xml:space="preserve">
+    <value>Ref:</value>
+  </data>
+  <data name="Key_ReferenceColon" xml:space="preserve">
+    <value>Reference:</value>
+  </data>
+  <data name="Key_RefillsColon" xml:space="preserve">
+    <value>Refills:</value>
+  </data>
+  <data name="Key_RefillsHeader" xml:space="preserve">
+    <value>Refills</value>
+  </data>
+  <data name="Key_Refresh" xml:space="preserve">
+    <value>&amp;Refresh</value>
+  </data>
+  <data name="Key_RefundsColon" xml:space="preserve">
+    <value>Refunds:</value>
+  </data>
+  <data name="Key_RefundsHeader" xml:space="preserve">
+    <value>Refunds</value>
+  </data>
+  <data name="Key_RegColon" xml:space="preserve">
+    <value>Reg:</value>
+  </data>
+  <data name="Key_RegionColon" xml:space="preserve">
+    <value>Region:</value>
+  </data>
+  <data name="Key_Regions" xml:space="preserve">
+    <value>Regions</value>
+  </data>
+  <data name="Key_RegionsColon" xml:space="preserve">
+    <value>Regions:</value>
+  </data>
+  <data name="Key_RejectionCassette" xml:space="preserve">
+    <value>&amp;Rejection Cassette</value>
+  </data>
+  <data name="Key_RelatedMeters" xml:space="preserve">
+    <value>Related Meters</value>
+  </data>
+  <data name="Key_ReleaseDateColon" xml:space="preserve">
+    <value>Release Date:</value>
+  </data>
+  <data name="Key_Reload" xml:space="preserve">
+    <value>&amp;Reload</value>
+  </data>
+  <data name="Key_Remarks" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="Key_RentSchedule" xml:space="preserve">
+    <value>Rent Schedule</value>
+  </data>
+  <data name="Key_RentShares" xml:space="preserve">
+    <value>Rent\Shares</value>
+  </data>
+  <data name="Key_RepColon" xml:space="preserve">
+    <value>Rep:</value>
+  </data>
+  <data name="Key_Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="Key_ReportAdmin" xml:space="preserve">
+    <value>Report Admin</value>
+  </data>
+  <data name="Key_ReportAdminCaption" xml:space="preserve">
+    <value>&amp;Report Admin</value>
+  </data>
+  <data name="Key_ReportAdministration" xml:space="preserve">
+    <value>Report Administration</value>
+  </data>
+  <data name="Key_Reportisbeinggenerated" xml:space="preserve">
+    <value>Report is being generated</value>
+  </data>
+  <data name="Key_ReportNameColon" xml:space="preserve">
+    <value>Report Name:</value>
+  </data>
+  <data name="Key_Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Key_ReportsMenu" xml:space="preserve">
+    <value>Reports Menu</value>
+  </data>
+  <data name="Key_ReportViewer" xml:space="preserve">
+    <value>ReportViewer</value>
+  </data>
+  <data name="Key_RepresentativeColon" xml:space="preserve">
+    <value>Representative:</value>
+  </data>
+  <data name="Key_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Key_ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="Key_ResetPasswordCaption" xml:space="preserve">
+    <value>&amp;Reset Password</value>
+  </data>
+  <data name="Key_ResidualValueColon" xml:space="preserve">
+    <value>Residual Value:</value>
+  </data>
+  <data name="Key_Results" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="Key_RetailerColon" xml:space="preserve">
+    <value>Retailer:</value>
+  </data>
+  <data name="Key_RetailerNameColon" xml:space="preserve">
+    <value>Retailer Name:</value>
+  </data>
+  <data name="Key_RetailerShareBeforeFixedExpenseColon" xml:space="preserve">
+    <value>Retailer Share Before Fixed Expense:</value>
+  </data>
+  <data name="Key_RetailerShareColon" xml:space="preserve">
+    <value>Retailer Share:</value>
+  </data>
+  <data name="Key_RetailersLiquidationDetails" xml:space="preserve">
+    <value>Retailer's Liquidation Details:</value>
+  </data>
+  <data name="Key_RetailersNegativeNetPriorCollection" xml:space="preserve">
+    <value>Retailer's Negative Net:(Prior Collection)</value>
+  </data>
+  <data name="Key_RetailersNegativeNetPriorRead" xml:space="preserve">
+    <value>Retailer's Negative Net(Prior Read):</value>
+  </data>
+  <data name="Key_RetailersNegativeNetPriorWeeksCollection" xml:space="preserve">
+    <value>Retailers Negative Net:(Prior Week's Collection)</value>
+  </data>
+  <data name="Key_Revoke" xml:space="preserve">
+    <value>&amp;Revoke</value>
+  </data>
+  <data name="Key_RevokeAll" xml:space="preserve">
+    <value>Revoke &amp;All</value>
+  </data>
+  <data name="Key_RoleAdministration" xml:space="preserve">
+    <value>Role Administration</value>
+  </data>
+  <data name="Key_RoleNameColon" xml:space="preserve">
+    <value>Role Name:</value>
+  </data>
+  <data name="Key_RouteApplicateToSiteMsg" xml:space="preserve">
+    <value>These are all schedules/routes applicable to this site, selected items relate to this position</value>
+  </data>
+  <data name="Key_RouteColon" xml:space="preserve">
+    <value>Route:</value>
+  </data>
+  <data name="Key_Routed" xml:space="preserve">
+    <value>Routed</value>
+  </data>
+  <data name="Key_RouteManager" xml:space="preserve">
+    <value>RouteManager</value>
+  </data>
+  <data name="Key_RouteName" xml:space="preserve">
+    <value>Route Name</value>
+  </data>
+  <data name="Key_RoutePositions" xml:space="preserve">
+    <value>Route Positions</value>
+  </data>
+  <data name="Key_Routes" xml:space="preserve">
+    <value>Routes</value>
+  </data>
+  <data name="Key_RouteStatusColon" xml:space="preserve">
+    <value>Route Status:</value>
+  </data>
+  <data name="Key_Route_ID" xml:space="preserve">
+    <value>Route_ID</value>
+  </data>
+  <data name="Key_RuleAssociatedSites" xml:space="preserve">
+    <value>Rule Associated Sites</value>
+  </data>
+  <data name="Key_RuleInformation" xml:space="preserve">
+    <value>Rule Information</value>
+  </data>
+  <data name="Key_RuleNameColon" xml:space="preserve">
+    <value>Rule Name:</value>
+  </data>
+  <data name="Key_RuleNameMandatory" xml:space="preserve">
+    <value>* Rule Name:</value>
+  </data>
+  <data name="Key_RuleNames" xml:space="preserve">
+    <value>Rule Names</value>
+  </data>
+  <data name="Key_RuleSettings" xml:space="preserve">
+    <value>Rule Settings</value>
+  </data>
+  <data name="Key_SaleDetails" xml:space="preserve">
+    <value>SaleDetails</value>
+  </data>
+  <data name="Key_Sales" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="Key_SASMeterCalculations" xml:space="preserve">
+    <value>SAS Meter Calculations</value>
+  </data>
+  <data name="Key_Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Key_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Key_SaveAsNewProfile" xml:space="preserve">
+    <value>&amp;Save As New Profile</value>
+  </data>
+  <data name="Key_SaveAsTemplate" xml:space="preserve">
+    <value>Save As Template</value>
+  </data>
+  <data name="Key_SaveAsTemplateDots" xml:space="preserve">
+    <value>Save As &amp;Template…</value>
+  </data>
+  <data name="Key_SaveCaption" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="Key_SaveClose" xml:space="preserve">
+    <value>Save &amp;&amp; Close</value>
+  </data>
+  <data name="Key_SaveDetails" xml:space="preserve">
+    <value>Save Details</value>
+  </data>
+  <data name="Key_SaveDot" xml:space="preserve">
+    <value>&amp;Save…</value>
+  </data>
+  <data name="Key_SaveProfile" xml:space="preserve">
+    <value>Save &amp;Profile</value>
+  </data>
+  <data name="Key_SaveRoutes" xml:space="preserve">
+    <value>Save &amp;Routes</value>
+  </data>
+  <data name="Key_SaveSettings" xml:space="preserve">
+    <value>Save Settings</value>
+  </data>
+  <data name="Key_Schedules" xml:space="preserve">
+    <value>Schedules</value>
+  </data>
+  <data name="Key_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Key_SearchCaption" xml:space="preserve">
+    <value>&amp;Search</value>
+  </data>
+  <data name="Key_SearchCaption1" xml:space="preserve">
+    <value>S&amp;earch</value>
+  </data>
+  <data name="Key_SearchCardLevelColon" xml:space="preserve">
+    <value>Search Card Level:</value>
+  </data>
+  <data name="Key_SearchCriteria" xml:space="preserve">
+    <value>Search Criteria</value>
+  </data>
+  <data name="Key_SearchOtherCards" xml:space="preserve">
+    <value>Search Other Cards</value>
+  </data>
+  <data name="Key_SearchResult" xml:space="preserve">
+    <value>Search Result</value>
+  </data>
+  <data name="Key_SearchResults" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="Key_SearchText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Key_SearchUnmappedMcProtocolGames" xml:space="preserve">
+    <value>Search Unmapped M/c Protocol Games</value>
+  </data>
+  <data name="Key_SecBrewColon" xml:space="preserve">
+    <value>Sec Brew:</value>
+  </data>
+  <data name="Key_Seconds" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="Key_SecSharePerc" xml:space="preserve">
+    <value>Sec Share %</value>
+  </data>
+  <data name="Key_SelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="Key_SelectAllCaption" xml:space="preserve">
+    <value>Selec&amp;t All</value>
+  </data>
+  <data name="Key_SelectAllQuestion" xml:space="preserve">
+    <value>Select All?</value>
+  </data>
+  <data name="Key_SelectDepotThatGroupHasAccess" xml:space="preserve">
+    <value>Select the Depots that this group has access to</value>
+  </data>
+  <data name="Key_SelectedGroupColon" xml:space="preserve">
+    <value>Selected Group:</value>
+  </data>
+  <data name="Key_SelectedSite" xml:space="preserve">
+    <value>Selected Site:</value>
+  </data>
+  <data name="Key_SelectNone" xml:space="preserve">
+    <value>Select None</value>
+  </data>
+  <data name="Key_SelectNoneCaption" xml:space="preserve">
+    <value>&amp;Select None</value>
+  </data>
+  <data name="Key_SelectSiteColon" xml:space="preserve">
+    <value>Select Site:</value>
+  </data>
+  <data name="Key_SelectSitesThatGroupHasAccess" xml:space="preserve">
+    <value>Select the Sites that this group has access to</value>
+  </data>
+  <data name="Key_SelectSubCompaniesThatGroupHasAccess" xml:space="preserve">
+    <value>Select the Sub Companies that this group has access to</value>
+  </data>
+  <data name="Key_SelectUser" xml:space="preserve">
+    <value>Select User</value>
+  </data>
+  <data name="Key_SellMachine" xml:space="preserve">
+    <value>Sell Machine</value>
+  </data>
+  <data name="Key_SellVaultColon" xml:space="preserve">
+    <value>Sell Vault:</value>
+  </data>
+  <data name="Key_SendDropAlert" xml:space="preserve">
+    <value>&amp;Send Drop Alert</value>
+  </data>
+  <data name="Key_SerialNoColon" xml:space="preserve">
+    <value>Serial No:</value>
+  </data>
+  <data name="Key_SerialNoHeader" xml:space="preserve">
+    <value>Serial No</value>
+  </data>
+  <data name="Key_SerialNoMandatory" xml:space="preserve">
+    <value>* Serial No:</value>
+  </data>
+  <data name="Key_SerialNumberColon" xml:space="preserve">
+    <value>Serial Number:</value>
+  </data>
+  <data name="Key_SerialNumberHeader" xml:space="preserve">
+    <value>Serial Number</value>
+  </data>
+  <data name="Key_SerialNumberMandatory" xml:space="preserve">
+    <value>* Serial Number:</value>
+  </data>
+  <data name="Key_ServerNameColon" xml:space="preserve">
+    <value>Server Name:</value>
+  </data>
+  <data name="Key_Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Key_ServiceAdmin" xml:space="preserve">
+    <value>Service Admin</value>
+  </data>
+  <data name="Key_ServiceArea" xml:space="preserve">
+    <value>ServiceArea</value>
+  </data>
+  <data name="Key_ServiceAreaColon" xml:space="preserve">
+    <value>Service Area:</value>
+  </data>
+  <data name="Key_ServiceCalls" xml:space="preserve">
+    <value>Service Calls</value>
+  </data>
+  <data name="Key_ServiceDepotColon" xml:space="preserve">
+    <value>Service Depot:</value>
+  </data>
+  <data name="Key_ServiceNotUsingHandheldDevices" xml:space="preserve">
+    <value>Service is not using handheld devices.</value>
+  </data>
+  <data name="Key_ServiceOperatorColon" xml:space="preserve">
+    <value>Service Operator:</value>
+  </data>
+  <data name="Key_ServiceServerNameColon" xml:space="preserve">
+    <value>Service Server Name:</value>
+  </data>
+  <data name="Key_Set" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="Key_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Key_SFGroup" xml:space="preserve">
+    <value>SF Group</value>
+  </data>
+  <data name="Key_SFSecGroup" xml:space="preserve">
+    <value>SF Sec Group</value>
+  </data>
+  <data name="Key_SFSite" xml:space="preserve">
+    <value>SF Site</value>
+  </data>
+  <data name="Key_SFSupplier" xml:space="preserve">
+    <value>SF Supplier</value>
+  </data>
+  <data name="Key_SGVILiquidationReport" xml:space="preserve">
+    <value>SGVI Liquidation Report</value>
+  </data>
+  <data name="Key_Share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="Key_ShareGroupName" xml:space="preserve">
+    <value>Share Group Name</value>
+  </data>
+  <data name="Key_ShareHolderMandatory" xml:space="preserve">
+    <value>* Share &amp;Holder:</value>
+  </data>
+  <data name="Key_ShareHolderNameColon" xml:space="preserve">
+    <value>Share Holder Name:</value>
+  </data>
+  <data name="Key_ShareHolders" xml:space="preserve">
+    <value>Share Holders</value>
+  </data>
+  <data name="Key_Shares" xml:space="preserve">
+    <value>Shares</value>
+  </data>
+  <data name="Key_ShareSchedule" xml:space="preserve">
+    <value>Share Schedule</value>
+  </data>
+  <data name="Key_Shortfall" xml:space="preserve">
+    <value>Shortfall</value>
+  </data>
+  <data name="Key_Shortpay" xml:space="preserve">
+    <value>Shortpay</value>
+  </data>
+  <data name="Key_ShortpayColon" xml:space="preserve">
+    <value>Shortpay:</value>
+  </data>
+  <data name="Key_ShowAccessories" xml:space="preserve">
+    <value>Show Accessories</value>
+  </data>
+  <data name="Key_Showonlylast20Records" xml:space="preserve">
+    <value>Show only last 20 Records</value>
+  </data>
+  <data name="Key_SingleCoinBuild" xml:space="preserve">
+    <value>Single Coin Build</value>
+  </data>
+  <data name="Key_Site" xml:space="preserve">
+    <value>Site</value>
+  </data>
+  <data name="Key_SiteActive" xml:space="preserve">
+    <value>Site Active</value>
+  </data>
+  <data name="Key_SiteAdministration" xml:space="preserve">
+    <value>Site Administration</value>
+  </data>
+  <data name="Key_SiteAdministrator" xml:space="preserve">
+    <value>Site Administrator</value>
+  </data>
+  <data name="Key_SiteCaptionColon" xml:space="preserve">
+    <value>&amp;Site:</value>
+  </data>
+  <data name="Key_SiteClassification" xml:space="preserve">
+    <value>Site Classification</value>
+  </data>
+  <data name="Key_SiteClosed" xml:space="preserve">
+    <value>Site Closed</value>
+  </data>
+  <data name="Key_SiteCode" xml:space="preserve">
+    <value>Site Code</value>
+  </data>
+  <data name="Key_SiteCodeColon" xml:space="preserve">
+    <value>Site Code:</value>
+  </data>
+  <data name="Key_SiteCodeMandatory" xml:space="preserve">
+    <value>* Site Code:</value>
+  </data>
+  <data name="Key_SiteColon" xml:space="preserve">
+    <value>Site:</value>
+  </data>
+  <data name="Key_SiteConnectionIPAddress" xml:space="preserve">
+    <value>Site Connection IP Address:</value>
+  </data>
+  <data name="Key_SiteDetails" xml:space="preserve">
+    <value>Site Details</value>
+  </data>
+  <data name="Key_SiteDisconnected" xml:space="preserve">
+    <value>Site disconnected.</value>
+  </data>
+  <data name="Key_SiteDropRef" xml:space="preserve">
+    <value>Site Drop Ref</value>
+  </data>
+  <data name="Key_SiteIconColon" xml:space="preserve">
+    <value>Site Icon:</value>
+  </data>
+  <data name="Key_SiteImageColon" xml:space="preserve">
+    <value>Site Image:</value>
+  </data>
+  <data name="Key_SiteLanguageMandatory" xml:space="preserve">
+    <value>* Site Language:</value>
+  </data>
+  <data name="Key_SiteLevelAudit" xml:space="preserve">
+    <value>Site Level Audit</value>
+  </data>
+  <data name="Key_SiteLicensing" xml:space="preserve">
+    <value>Site Licensing</value>
+  </data>
+  <data name="Key_SiteLicensingEnabled" xml:space="preserve">
+    <value>Site Licensing Enabled</value>
+  </data>
+  <data name="Key_SiteList" xml:space="preserve">
+    <value>Site List</value>
+  </data>
+  <data name="Key_SiteMachineControl" xml:space="preserve">
+    <value>Site Machine Control</value>
+  </data>
+  <data name="Key_SiteMandatory" xml:space="preserve">
+    <value>* Site:</value>
+  </data>
+  <data name="Key_SiteName" xml:space="preserve">
+    <value>Site Name</value>
+  </data>
+  <data name="Key_SiteNameColon" xml:space="preserve">
+    <value>Site Name:</value>
+  </data>
+  <data name="Key_SiteNameMandatory" xml:space="preserve">
+    <value>* Site Name:</value>
+  </data>
+  <data name="Key_SiteOrderColon" xml:space="preserve">
+    <value>Site Order:</value>
+  </data>
+  <data name="Key_SiteOwnersCode" xml:space="preserve">
+    <value>Site Owners Code:</value>
+  </data>
+  <data name="Key_SitePlanColon" xml:space="preserve">
+    <value>Site Plan:</value>
+  </data>
+  <data name="Key_SiteRecovery" xml:space="preserve">
+    <value>Site Recovery</value>
+  </data>
+  <data name="Key_SiteRepColon" xml:space="preserve">
+    <value>Site Rep:</value>
+  </data>
+  <data name="Key_SiteRepresentatives" xml:space="preserve">
+    <value>Site Representatives</value>
+  </data>
+  <data name="Key_Sites" xml:space="preserve">
+    <value>Sites</value>
+  </data>
+  <data name="Key_SitesColon" xml:space="preserve">
+    <value>Sites:</value>
+  </data>
+  <data name="Key_SiteSearchColon" xml:space="preserve">
+    <value>Site Search:</value>
+  </data>
+  <data name="Key_SiteSelection" xml:space="preserve">
+    <value>Site Selection</value>
+  </data>
+  <data name="Key_SiteSettings" xml:space="preserve">
+    <value>Site Settings</value>
+  </data>
+  <data name="Key_SitesInstalledMachines" xml:space="preserve">
+    <value>Sites &amp;&amp; Installed Machines</value>
+  </data>
+  <data name="Key_SiteWebURLMandatory" xml:space="preserve">
+    <value>* Site Web URL:</value>
+  </data>
+  <data name="Key_SizeMandatory" xml:space="preserve">
+    <value>* Size:</value>
+  </data>
+  <data name="Key_SNo" xml:space="preserve">
+    <value>S.No.</value>
+  </data>
+  <data name="Key_SoldDateColon" xml:space="preserve">
+    <value>Sold Date:</value>
+  </data>
+  <data name="Key_SoldInvoiceNumber" xml:space="preserve">
+    <value>Sold Invoice Number:</value>
+  </data>
+  <data name="Key_SoldPriceColon" xml:space="preserve">
+    <value>Sold Price:</value>
+  </data>
+  <data name="Key_SoldToColon" xml:space="preserve">
+    <value>SoldTo:</value>
+  </data>
+  <data name="Key_SoldTypeColon" xml:space="preserve">
+    <value>Sold Type:</value>
+  </data>
+  <data name="Key_SortCodeColon" xml:space="preserve">
+    <value>Sort Code:</value>
+  </data>
+  <data name="Key_SourceVault" xml:space="preserve">
+    <value>Source Vault</value>
+  </data>
+  <data name="Key_SqrBrktHEADER" xml:space="preserve">
+    <value>[HEADER]</value>
+  </data>
+  <data name="Key_SqrBrktHeaderText" xml:space="preserve">
+    <value>[HeaderText]</value>
+  </data>
+  <data name="Key_SrcvaultName" xml:space="preserve">
+    <value>Src vault Name</value>
+  </data>
+  <data name="Key_Stacker" xml:space="preserve">
+    <value>Stacker</value>
+  </data>
+  <data name="Key_StackerAddEdit" xml:space="preserve">
+    <value>Stacker - Add &amp; Edit</value>
+  </data>
+  <data name="Key_StackerDetails" xml:space="preserve">
+    <value>Stacker Details</value>
+  </data>
+  <data name="Key_StackerLevelColon" xml:space="preserve">
+    <value>Stacker Level:</value>
+  </data>
+  <data name="Key_StackerNameMandatory" xml:space="preserve">
+    <value>* Stacker Name:</value>
+  </data>
+  <data name="Key_StackerPerclimitMandatory" xml:space="preserve">
+    <value>* Stacker % limit:</value>
+  </data>
+  <data name="Key_StackerType" xml:space="preserve">
+    <value>Stacker Type</value>
+  </data>
+  <data name="Key_StaffColon" xml:space="preserve">
+    <value>Staff:</value>
+  </data>
+  <data name="Key_StandardFillAmount" xml:space="preserve">
+    <value>Standard Fill Amount</value>
+  </data>
+  <data name="Key_StandardFillAmountMandatory" xml:space="preserve">
+    <value>*Standard Fill Amount ({0}):</value>
+  </data>
+  <data name="Key_StandardHoursColon" xml:space="preserve">
+    <value>Standard &amp;Hours:</value>
+  </data>
+  <data name="Key_StandardOpeningTimes" xml:space="preserve">
+    <value>Standard Opening Times</value>
+  </data>
+  <data name="Key_StandingOpeningHoursColon" xml:space="preserve">
+    <value>Standing Opening Hours:</value>
+  </data>
+  <data name="Key_StartColon" xml:space="preserve">
+    <value>Start:</value>
+  </data>
+  <data name="Key_StartCounter" xml:space="preserve">
+    <value>Start Counter</value>
+  </data>
+  <data name="Key_StartCounterCaption" xml:space="preserve">
+    <value>S&amp;tart Counter</value>
+  </data>
+  <data name="Key_StartDate" xml:space="preserve">
+    <value>StartDate</value>
+  </data>
+  <data name="Key_StartDateColon" xml:space="preserve">
+    <value>Start Date:</value>
+  </data>
+  <data name="Key_StartDateMandatory" xml:space="preserve">
+    <value>* Start Date:</value>
+  </data>
+  <data name="Key_StartDateTimeColon" xml:space="preserve">
+    <value>Start Date/Time:</value>
+  </data>
+  <data name="Key_StatementNumberColon" xml:space="preserve">
+    <value>Statement Number:</value>
+  </data>
+  <data name="Key_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Key_Statusbar" xml:space="preserve">
+    <value>&amp;Statusbar</value>
+  </data>
+  <data name="Key_StatusColon" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="Key_Stock" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="Key_StreetNumberColon" xml:space="preserve">
+    <value>Street Number:</value>
+  </data>
+  <data name="Key_SubCategoryColon" xml:space="preserve">
+    <value>Sub Category:</value>
+  </data>
+  <data name="Key_SubCompany" xml:space="preserve">
+    <value>Sub Company</value>
+  </data>
+  <data name="Key_SubCompanyAdministration" xml:space="preserve">
+    <value>Sub Company Administration</value>
+  </data>
+  <data name="Key_SubCompanyColon" xml:space="preserve">
+    <value>Sub Company:</value>
+  </data>
+  <data name="Key_SubCompanyNameColon" xml:space="preserve">
+    <value>Sub Company Name:</value>
+  </data>
+  <data name="Key_SubCompanyNameMandatory" xml:space="preserve">
+    <value>* Sub Company Name:</value>
+  </data>
+  <data name="Key_SummaryOnlyColon" xml:space="preserve">
+    <value>Summary Only:</value>
+  </data>
+  <data name="Key_Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="Key_SupplierColon" xml:space="preserve">
+    <value>Supplier:</value>
+  </data>
+  <data name="Key_SuppressGroupByZone" xml:space="preserve">
+    <value>Suppress GroupBy Zone</value>
+  </data>
+  <data name="Key_SurnameColon" xml:space="preserve">
+    <value>Surname:</value>
+  </data>
+  <data name="Key_SurnameMandatory" xml:space="preserve">
+    <value>* Surname:</value>
+  </data>
+  <data name="Key_SuspectedBatchDetails" xml:space="preserve">
+    <value>Suspected Batch Details</value>
+  </data>
+  <data name="Key_SuspectedCollectionDetails" xml:space="preserve">
+    <value>Suspected Collection Details</value>
+  </data>
+  <data name="Key_SuspectedDailyReads" xml:space="preserve">
+    <value>Suspected Daily Reads</value>
+  </data>
+  <data name="Key_SuspectedHourlyData" xml:space="preserve">
+    <value>Suspected Hourly Data</value>
+  </data>
+  <data name="Key_SuspectedMGMDSessionDeltas" xml:space="preserve">
+    <value>Suspected MGMD Session Deltas</value>
+  </data>
+  <data name="Key_SwitchboardPhoneNumber" xml:space="preserve">
+    <value>Switchboard Phone Number:</value>
+  </data>
+  <data name="Key_SystemBalancing" xml:space="preserve">
+    <value>System Balancing</value>
+  </data>
+  <data name="Key_SystemSettings" xml:space="preserve">
+    <value>System Settings</value>
+  </data>
+  <data name="Key_TabPage" xml:space="preserve">
+    <value>Variance History</value>
+  </data>
+  <data name="Key_TelColon" xml:space="preserve">
+    <value>Tel:</value>
+  </data>
+  <data name="Key_TelephoneColon" xml:space="preserve">
+    <value>Telephone:</value>
+  </data>
+  <data name="Key_TemplateNameColon" xml:space="preserve">
+    <value>Template Name:</value>
+  </data>
+  <data name="Key_Terminate" xml:space="preserve">
+    <value>&amp;Terminate</value>
+  </data>
+  <data name="Key_TerminateMachine" xml:space="preserve">
+    <value>Terminate Machine</value>
+  </data>
+  <data name="Key_TerminateUser" xml:space="preserve">
+    <value>Terminate User</value>
+  </data>
+  <data name="Key_TerminateVault" xml:space="preserve">
+    <value>Terminate Vault</value>
+  </data>
+  <data name="Key_TerminationDateColon" xml:space="preserve">
+    <value>Termination Date:</value>
+  </data>
+  <data name="Key_TerminationReasonColon" xml:space="preserve">
+    <value>Termination Reason:</value>
+  </data>
+  <data name="Key_Terms" xml:space="preserve">
+    <value>Terms</value>
+  </data>
+  <data name="Key_TermsGroupChangeoverDate" xml:space="preserve">
+    <value>Terms Group changeover date:</value>
+  </data>
+  <data name="Key_TermsGroupColon" xml:space="preserve">
+    <value>Terms Group:</value>
+  </data>
+  <data name="Key_TermsGroupFuture" xml:space="preserve">
+    <value>Terms Group Future:</value>
+  </data>
+  <data name="Key_TermsGroupPrevious" xml:space="preserve">
+    <value>Terms Group Previous:</value>
+  </data>
+  <data name="Key_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Key_TestConnection" xml:space="preserve">
+    <value>Test Connection</value>
+  </data>
+  <data name="Key_TestMachine" xml:space="preserve">
+    <value>Test Machine:</value>
+  </data>
+  <data name="Key_The" xml:space="preserve">
+    <value>The</value>
+  </data>
+  <data name="Key_TheoPayoutPerc" xml:space="preserve">
+    <value>Theo % Payout</value>
+  </data>
+  <data name="Key_TheoPayoutPercColon" xml:space="preserve">
+    <value>Theo % Payout:</value>
+  </data>
+  <data name="Key_TheoPayoutPercHeader" xml:space="preserve">
+    <value>Theo Payout %</value>
+  </data>
+  <data name="Key_Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="Key_TicketsExpectedMetersOut" xml:space="preserve">
+    <value>Tickets Expected (Meters Out):</value>
+  </data>
+  <data name="Key_TicketsInColon" xml:space="preserve">
+    <value>Tickets In:</value>
+  </data>
+  <data name="Key_TicketsOutColon" xml:space="preserve">
+    <value>Tickets Out:</value>
+  </data>
+  <data name="Key_TicketsPaidColon" xml:space="preserve">
+    <value>Tickets Paid:</value>
+  </data>
+  <data name="Key_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Key_TimeoutColon" xml:space="preserve">
+    <value>&amp;Timeout:</value>
+  </data>
+  <data name="Key_TitleColon" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="Key_TITOEnabled" xml:space="preserve">
+    <value>TITO Enabled</value>
+  </data>
+  <data name="Key_ToColon" xml:space="preserve">
+    <value>To:</value>
+  </data>
+  <data name="Key_ToLicenseExpiredDate" xml:space="preserve">
+    <value>To (License Expired Date):</value>
+  </data>
+  <data name="Key_ToLicenseStartDate" xml:space="preserve">
+    <value>To (License Start Date):</value>
+  </data>
+  <data name="Key_Toolbar" xml:space="preserve">
+    <value>&amp;Toolbar</value>
+  </data>
+  <data name="Key_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Key_TotalAmountColon" xml:space="preserve">
+    <value>Total Amount:</value>
+  </data>
+  <data name="Key_TotalBillsColon" xml:space="preserve">
+    <value>Total Bills:</value>
+  </data>
+  <data name="Key_TotalCoinsColon" xml:space="preserve">
+    <value>Total Coins:</value>
+  </data>
+  <data name="Key_TotalColon" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="Key_TotalDeclaredInColon" xml:space="preserve">
+    <value>Total Declared In:</value>
+  </data>
+  <data name="Key_TotalDeclaredOutColon" xml:space="preserve">
+    <value>Total Declared Out:</value>
+  </data>
+  <data name="Key_TotalInColon" xml:space="preserve">
+    <value>Total In:</value>
+  </data>
+  <data name="Key_TotalMeterInColon" xml:space="preserve">
+    <value>Total Meter In:</value>
+  </data>
+  <data name="Key_TotalMeterOutColon" xml:space="preserve">
+    <value>Total Meter Out:</value>
+  </data>
+  <data name="Key_TotalOutColon" xml:space="preserve">
+    <value>Total Out:</value>
+  </data>
+  <data name="Key_TotalsOnly" xml:space="preserve">
+    <value>Totals Only</value>
+  </data>
+  <data name="Key_TransactionKey" xml:space="preserve">
+    <value>Transaction Key</value>
+  </data>
+  <data name="Key_Tree" xml:space="preserve">
+    <value>Tree</value>
+  </data>
+  <data name="Key_Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="Key_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Key_TypeColon" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="Key_TypeMandatory" xml:space="preserve">
+    <value>* Type:</value>
+  </data>
+  <data name="Key_TypeofTradeColon" xml:space="preserve">
+    <value>Type of Trade:</value>
+  </data>
+  <data name="Key_TypePrefixColon" xml:space="preserve">
+    <value>Type Prefix:</value>
+  </data>
+  <data name="Key_UnallocatedGameColon" xml:space="preserve">
+    <value>Unallocated Game:</value>
+  </data>
+  <data name="Key_UnallocatedMachineColon" xml:space="preserve">
+    <value>Unallocated Machine:</value>
+  </data>
+  <data name="Key_UnallocatedTypeColon" xml:space="preserve">
+    <value>Unallocated Type:</value>
+  </data>
+  <data name="Key_Unassigned" xml:space="preserve">
+    <value>Unassigned</value>
+  </data>
+  <data name="Key_UnassignedUsersColon" xml:space="preserve">
+    <value>Unassigned Users:</value>
+  </data>
+  <data name="Key_UndeclaredVaultDrops" xml:space="preserve">
+    <value>Undeclared Vault Drops</value>
+  </data>
+  <data name="Key_UnLockUser" xml:space="preserve">
+    <value>UnLock User</value>
+  </data>
+  <data name="Key_UnMappedMcProtocolGameInfromation" xml:space="preserve">
+    <value>UnMapped M/c Protocol Game Infromation</value>
+  </data>
+  <data name="Key_UnmappedMcProtocolGames" xml:space="preserve">
+    <value>Unmapped M/c Protocol Games:</value>
+  </data>
+  <data name="Key_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Key_UpdateCaption" xml:space="preserve">
+    <value>&amp;Update</value>
+  </data>
+  <data name="Key_UpdateCaption2" xml:space="preserve">
+    <value>U&amp;pdate</value>
+  </data>
+  <data name="Key_UpdateCaption3" xml:space="preserve">
+    <value>Up&amp;date</value>
+  </data>
+  <data name="Key_UpdateDefaults" xml:space="preserve">
+    <value>&amp;Update Defaults</value>
+  </data>
+  <data name="Key_UpdateRole" xml:space="preserve">
+    <value>Update Role</value>
+  </data>
+  <data name="Key_UpdateSite" xml:space="preserve">
+    <value>Update Site &gt;&gt;</value>
+  </data>
+  <data name="Key_UseCancelledCreditsAsPrintedTickets" xml:space="preserve">
+    <value>Use Cancelled Credits As Printed Tickets?</value>
+  </data>
+  <data name="Key_UseDepreciationDefault" xml:space="preserve">
+    <value>Use Depreciation Default:</value>
+  </data>
+  <data name="Key_UsePurchaseDateFilter" xml:space="preserve">
+    <value>Use Purchase Date Filter</value>
+  </data>
+  <data name="Key_User" xml:space="preserve">
+    <value>User:</value>
+  </data>
+  <data name="Key_UserAdmin" xml:space="preserve">
+    <value>User Administration</value>
+  </data>
+  <data name="Key_UserColon" xml:space="preserve">
+    <value>User:</value>
+  </data>
+  <data name="Key_UserDetails" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="Key_UserFilter" xml:space="preserve">
+    <value>User Filter</value>
+  </data>
+  <data name="Key_UserGroupAdministration" xml:space="preserve">
+    <value>User Group Administration</value>
+  </data>
+  <data name="Key_UserLanguageColon" xml:space="preserve">
+    <value>User Language:</value>
+  </data>
+  <data name="Key_UserLevelColon" xml:space="preserve">
+    <value>User Level:</value>
+  </data>
+  <data name="Key_UserName" xml:space="preserve">
+    <value>User Name:</value>
+  </data>
+  <data name="Key_UserNameCaptionMandatoryColon" xml:space="preserve">
+    <value>* &amp;User Name:</value>
+  </data>
+  <data name="Key_UserNameColon" xml:space="preserve">
+    <value>&amp;User Name:</value>
+  </data>
+  <data name="Key_UserNameMandatory" xml:space="preserve">
+    <value>* UserName:</value>
+  </data>
+  <data name="Key_UserRoles" xml:space="preserve">
+    <value>&amp;User Roles</value>
+  </data>
+  <data name="Key_UsersCaption" xml:space="preserve">
+    <value>Us&amp;ers</value>
+  </data>
+  <data name="Key_UsersColon" xml:space="preserve">
+    <value>Users:</value>
+  </data>
+  <data name="Key_UserSiteAccess" xml:space="preserve">
+    <value>Assign Sites</value>
+  </data>
+  <data name="Key_UserSiteAccessCaption" xml:space="preserve">
+    <value>U&amp;ser Site Access</value>
+  </data>
+  <data name="Key_UseSiteShareForSecondaryBrewery" xml:space="preserve">
+    <value>Use Site Share For Secondary Brewery</value>
+  </data>
+  <data name="Key_UseSiteTimes" xml:space="preserve">
+    <value>&amp;Use Site Times</value>
+  </data>
+  <data name="Key_UseSplitRents" xml:space="preserve">
+    <value>Use Split Rents?</value>
+  </data>
+  <data name="Key_ValidateAGSForGMUNoUpdation" xml:space="preserve">
+    <value>Validate AGS For GMU No Updation</value>
+  </data>
+  <data name="Key_ValidateDot" xml:space="preserve">
+    <value>&amp;Validate...</value>
+  </data>
+  <data name="Key_Validateincomingdatathroughterms" xml:space="preserve">
+    <value>Validate incoming data through terms?</value>
+  </data>
+  <data name="Key_ValidationLengthMandatory" xml:space="preserve">
+    <value>* Validation Length:</value>
+  </data>
+  <data name="Key_ValidationParameters" xml:space="preserve">
+    <value>Validation Parameters</value>
+  </data>
+  <data name="Key_ValidationRequired" xml:space="preserve">
+    <value>Validation Required</value>
+  </data>
+  <data name="Key_ValidationRequiredColon" xml:space="preserve">
+    <value>Validation Required:</value>
+  </data>
+  <data name="Key_ValidVouchersCounted" xml:space="preserve">
+    <value>Valid Vouchers Counted</value>
+  </data>
+  <data name="Key_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Key_ValueColon" xml:space="preserve">
+    <value>Value:</value>
+  </data>
+  <data name="Key_Values" xml:space="preserve">
+    <value>Values</value>
+  </data>
+  <data name="Key_Vault" xml:space="preserve">
+    <value>Vault</value>
+  </data>
+  <data name="Key_VaultAdmin" xml:space="preserve">
+    <value>Vault Admin</value>
+  </data>
+  <data name="Key_VaultBalance" xml:space="preserve">
+    <value>Vault Balance:</value>
+  </data>
+  <data name="Key_VaultColon" xml:space="preserve">
+    <value>Vault:</value>
+  </data>
+  <data name="Key_VaultDeclaration" xml:space="preserve">
+    <value>VaultDeclaration</value>
+  </data>
+  <data name="Key_VaultDetails" xml:space="preserve">
+    <value>Vault Details</value>
+  </data>
+  <data name="Key_VaultDetailsColon" xml:space="preserve">
+    <value>Vault Details:</value>
+  </data>
+  <data name="Key_VaultDeviceTerminateMsg" xml:space="preserve">
+    <value>Vault device will be terminated and will not be usable. Do you want to Terminate ?</value>
+  </data>
+  <data name="Key_VaultDropHistory" xml:space="preserve">
+    <value>Vault Drop History</value>
+  </data>
+  <data name="Key_VaultFinance" xml:space="preserve">
+    <value>Vault Finance</value>
+  </data>
+  <data name="Key_VaultInterfaceEnabled" xml:space="preserve">
+    <value>Vault Interface Enabled:</value>
+  </data>
+  <data name="Key_VaultName" xml:space="preserve">
+    <value>Vault Name</value>
+  </data>
+  <data name="Key_VaultNameColon" xml:space="preserve">
+    <value>Vault Name:</value>
+  </data>
+  <data name="Key_Vaults" xml:space="preserve">
+    <value>Vaults</value>
+  </data>
+  <data name="Key_VaultsColon" xml:space="preserve">
+    <value>Vaults:</value>
+  </data>
+  <data name="Key_VaultTotal" xml:space="preserve">
+    <value>Vault Total</value>
+  </data>
+  <data name="Key_VaultTotalColon" xml:space="preserve">
+    <value>Vault Total :</value>
+  </data>
+  <data name="Key_VaultVariance" xml:space="preserve">
+    <value>Vault Variance</value>
+  </data>
+  <data name="Key_VaultVarianceColon" xml:space="preserve">
+    <value>Vault Variance :</value>
+  </data>
+  <data name="Key_View" xml:space="preserve">
+    <value>&amp;View</value>
+  </data>
+  <data name="Key_ViewAllCompanies" xml:space="preserve">
+    <value>View All Companies ?</value>
+  </data>
+  <data name="Key_ViewAllDepots" xml:space="preserve">
+    <value>View All Depots</value>
+  </data>
+  <data name="Key_ViewAuditReport" xml:space="preserve">
+    <value>View Audit Report</value>
+  </data>
+  <data name="Key_ViewCancelActivateLicense" xml:space="preserve">
+    <value>View/Cancel/Activate License</value>
+  </data>
+  <data name="Key_ViewCollectionDetails" xml:space="preserve">
+    <value>View Collection Details</value>
+  </data>
+  <data name="Key_ViewExceptions" xml:space="preserve">
+    <value>View Exceptions</value>
+  </data>
+  <data name="Key_ViewExceptionsReport" xml:space="preserve">
+    <value>View Exceptions - Displays exception report.</value>
+  </data>
+  <data name="Key_ViewInfo" xml:space="preserve">
+    <value>&amp;View Info</value>
+  </data>
+  <data name="Key_ViewingOptions" xml:space="preserve">
+    <value>Viewing Options</value>
+  </data>
+  <data name="Key_ViewModes" xml:space="preserve">
+    <value>View Modes</value>
+  </data>
+  <data name="Key_ViewOnly" xml:space="preserve">
+    <value>View Only</value>
+  </data>
+  <data name="Key_ViewRAMReset" xml:space="preserve">
+    <value>View &amp;RAM Reset</value>
+  </data>
+  <data name="Key_ViewReport" xml:space="preserve">
+    <value>View Report</value>
+  </data>
+  <data name="Key_ViewReportDisplay" xml:space="preserve">
+    <value>View Report - Displays the report.</value>
+  </data>
+  <data name="Key_ViewSites" xml:space="preserve">
+    <value>View Sites</value>
+  </data>
+  <data name="Key_ViewSitesPartiallyConfigured" xml:space="preserve">
+    <value>View Sites Partially Configured</value>
+  </data>
+  <data name="Key_ViewTerminationDetails" xml:space="preserve">
+    <value>View Termination Details</value>
+  </data>
+  <data name="Key_VoidCancelledColon" xml:space="preserve">
+    <value>Void/Cancelled:</value>
+  </data>
+  <data name="Key_VoidTransactionsColon" xml:space="preserve">
+    <value>Void Transactions:</value>
+  </data>
+  <data name="Key_VoidVoucher" xml:space="preserve">
+    <value>Void Voucher</value>
+  </data>
+  <data name="Key_VoidVouchersColon" xml:space="preserve">
+    <value>Void Vouchers:</value>
+  </data>
+  <data name="Key_VoucherEntry" xml:space="preserve">
+    <value>Voucher Entry</value>
+  </data>
+  <data name="Key_VoucherExceptionsColon" xml:space="preserve">
+    <value>Voucher Exceptions:</value>
+  </data>
+  <data name="Key_VoucherInVar" xml:space="preserve">
+    <value>Voucher In Var</value>
+  </data>
+  <data name="Key_VoucherLiabilityColon" xml:space="preserve">
+    <value>Voucher Liability:</value>
+  </data>
+  <data name="Key_VoucherNumberMandatory" xml:space="preserve">
+    <value>* Voucher Number:</value>
+  </data>
+  <data name="Key_VoucherOutVar" xml:space="preserve">
+    <value>Voucher Out Var</value>
+  </data>
+  <data name="Key_Vouchers" xml:space="preserve">
+    <value>Vouchers</value>
+  </data>
+  <data name="Key_VouchersColon" xml:space="preserve">
+    <value>Vouchers:</value>
+  </data>
+  <data name="Key_VouchersInColon" xml:space="preserve">
+    <value>Vouchers In:</value>
+  </data>
+  <data name="Key_VouchersOutColon" xml:space="preserve">
+    <value>Vouchers Out:</value>
+  </data>
+  <data name="Key_VouchersVarColon" xml:space="preserve">
+    <value>Vouchers Var:</value>
+  </data>
+  <data name="Key_VoucherVar" xml:space="preserve">
+    <value>Voucher Var</value>
+  </data>
+  <data name="Key_WarningOnly" xml:space="preserve">
+    <value>Warning Only</value>
+  </data>
+  <data name="Key_WarningOnlyColon" xml:space="preserve">
+    <value>Warning Only:</value>
+  </data>
+  <data name="Key_Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="Key_Week" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="Key_Weekly" xml:space="preserve">
+    <value>Weekly</value>
+  </data>
+  <data name="Key_WeeklyDep" xml:space="preserve">
+    <value>Weekly Dep</value>
+  </data>
+  <data name="Key_WeeklyDepColon" xml:space="preserve">
+    <value>Weekly Dep:</value>
+  </data>
+  <data name="Key_WeeklyRevenueLiquidation" xml:space="preserve">
+    <value>Weekly Revenue Liquidation</value>
+  </data>
+  <data name="Key_WeeklyTarget" xml:space="preserve">
+    <value>Weekly Target</value>
+  </data>
+  <data name="Key_Weeks" xml:space="preserve">
+    <value>Weeks</value>
+  </data>
+  <data name="Key_WindowsUserNameColon" xml:space="preserve">
+    <value>Windows User Name:</value>
+  </data>
+  <data name="Key_WindowsUserNameMandatory" xml:space="preserve">
+    <value>* WindowsUserName:</value>
+  </data>
+  <data name="Key_WinLoss" xml:space="preserve">
+    <value>Win/Loss</value>
+  </data>
+  <data name="Key_WinLossVar" xml:space="preserve">
+    <value>Win/Loss Var</value>
+  </data>
+  <data name="Key_WriteOffExpenseAmountColon" xml:space="preserve">
+    <value>Write-Off Expense Amount:</value>
+  </data>
+  <data name="Key_WriteOffExpenseColon" xml:space="preserve">
+    <value>Write-Off Expense:</value>
+  </data>
+  <data name="Key_YearBeginsColon" xml:space="preserve">
+    <value>Year Begins:</value>
+  </data>
+  <data name="Key_YearEndColon" xml:space="preserve">
+    <value>Year End:</value>
+  </data>
+  <data name="Key_Yes" xml:space="preserve">
+    <value>&amp;Yes</value>
+  </data>
+  <data name="Key_Zone" xml:space="preserve">
+    <value>Zone</value>
+  </data>
+  <data name="Key_ZoneColon" xml:space="preserve">
+    <value>Zone:</value>
+  </data>
+  <data name="Key_ZonePos" xml:space="preserve">
+    <value>Zone/Pos</value>
+  </data>
+  <data name="Key_ZonesColon" xml:space="preserve">
+    <value>Zones:</value>
+  </data>
+  <data name="Key_ZoneTimes" xml:space="preserve">
+    <value>Zone Times</value>
+  </data>
+  <data name="Key_ZoomGraph" xml:space="preserve">
+    <value>Zoom Graph</value>
+  </data>
+  <data name="Key_SpaceSingle" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Key_Arrow" xml:space="preserve">
+    <value>-&gt;</value>
+  </data>
+  <data name="Key_ActivatedBy" xml:space="preserve">
+    <value>Activated By</value>
+  </data>
+  <data name="Key_ActivatedDateTime" xml:space="preserve">
+    <value>Activated Date and Time</value>
+  </data>
+  <data name="Key_AlertBefore" xml:space="preserve">
+    <value>Alert Before (in days)</value>
+  </data>
+  <data name="Key_CancelledBy" xml:space="preserve">
+    <value>Cancelled By</value>
+  </data>
+  <data name="Key_CancelledDateTime" xml:space="preserve">
+    <value>Cancelled Date and Time</value>
+  </data>
+  <data name="Key_CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Key_DisableGames" xml:space="preserve">
+    <value>Disable Games</value>
+  </data>
+  <data name="Key_ExpiryDateTime" xml:space="preserve">
+    <value>Expiry Date and Time</value>
+  </data>
+  <data name="Key_GeneratedBy" xml:space="preserve">
+    <value>Generated By</value>
+  </data>
+  <data name="Key_GeneratedDateTime" xml:space="preserve">
+    <value>Generated Date and Time</value>
+  </data>
+  <data name="Key_KeyStatus" xml:space="preserve">
+    <value>Key Status</value>
+  </data>
+  <data name="Key_LicenseKey" xml:space="preserve">
+    <value>License Key</value>
+  </data>
+  <data name="Key_RuleName" xml:space="preserve">
+    <value>Rule Name</value>
+  </data>
+  <data name="Key_StartDateTime" xml:space="preserve">
+    <value>Start Date and Time</value>
+  </data>
+  <data name="Key_SubCompanyName" xml:space="preserve">
+    <value>Sub Company Name</value>
+  </data>
+  <data name="Key_SelectCompany" xml:space="preserve">
+    <value>Select Company</value>
+  </data>
+  <data name="Key_SelectRule" xml:space="preserve">
+    <value>Select Rule</value>
+  </data>
+  <data name="Key_SelectSite" xml:space="preserve">
+    <value>Select Site</value>
+  </data>
+  <data name="Key_SelectSubCompany" xml:space="preserve">
+    <value>Select Sub Company</value>
+  </data>
+  <data name="Key_AllCompanies" xml:space="preserve">
+    <value>All Companies</value>
+  </data>
+  <data name="Key_ReportViewerTitle" xml:space="preserve">
+    <value> - [Report Viewer]</value>
+  </data>
+  <data name="Key_AverageBetFormula" xml:space="preserve">
+    <value> 'AverageBet' = 'CreditsWagered' / 'GamesBet'</value>
+  </data>
+  <data name="Key_CasinoWinFormula" xml:space="preserve">
+    <value> 'CasinoWin' = 'CreditsWagered' - 'CreditsWon'</value>
+  </data>
+  <data name="Key_OccupancyFormula" xml:space="preserve">
+    <value> 'Occupancy' = ('Games_Bet'/'Games per hour') * 100</value>
+  </data>
+  <data name="Key_Connected" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="Key_Disconnected" xml:space="preserve">
+    <value>Disconnected</value>
+  </data>
+  <data name="Key_MeterAdjustmentTool" xml:space="preserve">
+    <value>BMC Meter Adjustment Tool</value>
+  </data>
+  <data name="Key_CurrentDelta" xml:space="preserve">
+    <value>CurrentDelta</value>
+  </data>
+  <data name="Key_End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="Key_Meter" xml:space="preserve">
+    <value>Meter</value>
+  </data>
+  <data name="Key_ModifiedValue" xml:space="preserve">
+    <value>ModifiedValue</value>
+  </data>
+  <data name="Key_Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Key_DateCollected" xml:space="preserve">
+    <value>Date Collected</value>
+  </data>
+  <data name="Key_GamingDate" xml:space="preserve">
+    <value>Gaming Date</value>
+  </data>
+  <data name="Key_Route" xml:space="preserve">
+    <value>Route</value>
+  </data>
+  <data name="Key_SiteBatchNo" xml:space="preserve">
+    <value>Site Batch No</value>
+  </data>
+  <data name="Key_UserNo" xml:space="preserve">
+    <value>User_No</value>
+  </data>
+  <data name="Key_AllCriteria" xml:space="preserve">
+    <value>-- ALL --</value>
+  </data>
+  <data name="Key_PositionNameStar" xml:space="preserve">
+    <value>* Position Name:</value>
+  </data>
+  <data name="Key_CollectionDaysAny" xml:space="preserve">
+    <value>--Any--</value>
+  </data>
+  <data name="Key_AudittrailReport" xml:space="preserve">
+    <value>Audit Trail Report</value>
+  </data>
+  <data name="key_AuditViewer" xml:space="preserve">
+    <value>Audit Viewer</value>
+  </data>
+  <data name="key_CrystalReportViewer" xml:space="preserve">
+    <value>BMC Reports</value>
+  </data>
+  <data name="key_liquidationDetail" xml:space="preserve">
+    <value>Liquidation Details:</value>
+  </data>
+  <data name="Key_ManualCash" xml:space="preserve">
+    <value>Manual Cash Entry</value>
+  </data>
+  <data name="key_BMC_ENTERPRISE_REPORTS" xml:space="preserve">
+    <value>BMC Enterprise Reports</value>
+  </data>
+  <data name="key_Deprecation" xml:space="preserve">
+    <value>Deprecation Report</value>
+  </data>
+  <data name="Key_Exception_Report_Name" xml:space="preserve">
+    <value>Exception Report</value>
+  </data>
+  <data name="key_frmReportViewer" xml:space="preserve">
+    <value>frmReportViewer</value>
+  </data>
+  <data name="Key_CancelCaption2" xml:space="preserve">
+    <value>Ca&amp;ncel</value>
+  </data>
+  <data name="Key_Depreciation_Policy" xml:space="preserve">
+    <value>Please enter the name of the new depreciation policy</value>
+  </data>
+  <data name="Key_NA" xml:space="preserve">
+    <value>n/a</value>
+  </data>
+  <data name="Key_None" xml:space="preserve">
+    <value>[None]</value>
+  </data>
+  <data name="Key_DisableSite" xml:space="preserve">
+    <value>Disable Site</value>
+  </data>
+  <data name="Key_CardLevel" xml:space="preserve">
+    <value>Card Level</value>
+  </data>
+  <data name="Key_MaxMintsToCap" xml:space="preserve">
+    <value>Max No of Machines To Cap</value>
+  </data>
+  <data name="Key_MaxMintsToCapWithCommas" xml:space="preserve">
+    <value>Max Minutes To Cap(Separated By Commas)</value>
+  </data>
+  <data name="Key_AdvanceToRetailer" xml:space="preserve">
+    <value>Advance To Retailer</value>
+  </data>
+  <data name="Key_BalanceDue" xml:space="preserve">
+    <value>Balance Due</value>
+  </data>
+  <data name="Key_CalendarPeriod" xml:space="preserve">
+    <value>Calendar Period</value>
+  </data>
+  <data name="Key_CashIn" xml:space="preserve">
+    <value>Cash In</value>
+  </data>
+  <data name="Key_CashOut" xml:space="preserve">
+    <value>Cash Out</value>
+  </data>
+  <data name="Key_CashTake" xml:space="preserve">
+    <value>Cash Take</value>
+  </data>
+  <data name="Key_LiquidationDate" xml:space="preserve">
+    <value>Liquidation Date</value>
+  </data>
+  <data name="Key_LiquidationId" xml:space="preserve">
+    <value>Liquidation Id</value>
+  </data>
+  <data name="Key_ReadDate" xml:space="preserve">
+    <value>Read Date</value>
+  </data>
+  <data name="Key_Retailer" xml:space="preserve">
+    <value>Retailer</value>
+  </data>
+  <data name="Key_RetailerNegativeNet" xml:space="preserve">
+    <value>Retailer Negative Net</value>
+  </data>
+  <data name="Key_RetailerNetRevenue" xml:space="preserve">
+    <value>Retailer Net Revenue</value>
+  </data>
+  <data name="Key_SiteLiquidationId" xml:space="preserve">
+    <value>Site Liquidation Id</value>
+  </data>
+  <data name="Key_TicketPaid" xml:space="preserve">
+    <value>Ticket Paid</value>
+  </data>
+  <data name="Key_TotalCoinsIn" xml:space="preserve">
+    <value>Total Coins In</value>
+  </data>
+  <data name="Key_TotalMeterIn" xml:space="preserve">
+    <value>Total Meter In</value>
+  </data>
+  <data name="Key_TotalMeterOut" xml:space="preserve">
+    <value>Total Meter Out</value>
+  </data>
+  <data name="Key_VouchersIn" xml:space="preserve">
+    <value>Vouchers In</value>
+  </data>
+  <data name="Key_VouchersOut" xml:space="preserve">
+    <value>Vouchers Out</value>
+  </data>
+  <data name="Key_Handpay" xml:space="preserve">
+    <value>Handpay</value>
+  </data>
+  <data name="Key_Net" xml:space="preserve">
+    <value>Net</value>
+  </data>
+  <data name="Key_Cassette" xml:space="preserve">
+    <value>Cassette/Hopper</value>
+  </data>
+  <data name="Key_DeclaredAmount" xml:space="preserve">
+    <value>Declared Amount ({0})</value>
+  </data>
+  <data name="Key_DenomCurrency" xml:space="preserve">
+    <value>Denom ({0})</value>
+  </data>
+  <data name="Key_DroppedAmount" xml:space="preserve">
+    <value>Dropped Amount ({0})</value>
+  </data>
+  <data name="Key_BMCEnterpriseConfig" xml:space="preserve">
+    <value>Bally Multi Connect - Enterprise Configuration </value>
+  </data>
+  <data name="Key_DBServer" xml:space="preserve">
+    <value>DB SERVER</value>
+  </data>
+  <data name="Key_InstanceColon" xml:space="preserve">
+    <value>Instance:</value>
+  </data>
+  <data name="Key_NewProfile" xml:space="preserve">
+    <value>New Profile</value>
+  </data>
+  <data name="Key_RecreateVouchersInsertedfromDrop" xml:space="preserve">
+    <value>Recreate Vouchers Inserted from Drop?</value>
+  </data>
+  <data name="Key_RouteStatus" xml:space="preserve">
+    <value>   route</value>
+  </data>
+  <data name="Key_ServerColon" xml:space="preserve">
+    <value>Server:</value>
+  </data>
+  <data name="Key_SqrBrktSite" xml:space="preserve">
+    <value>[Site]</value>
+  </data>
+  <data name="Key_SqrBrktUser" xml:space="preserve">
+    <value>[User]</value>
+  </data>
+  <data name="Key_UseCancelledCreditsAsPrintedVouchers" xml:space="preserve">
+    <value>Use Cancelled Credits As Printed Vouchers?</value>
+  </data>
+  <data name="Key_VoucherExceptionsInOutColon" xml:space="preserve">
+    <value>Voucher Exceptions In/Out:</value>
+  </data>
+  <data name="Key_Denom_Centavo" xml:space="preserve">
+    <value>Base Denom (Centavo)</value>
+  </data>
+  <data name="Key_Denom_Penny" xml:space="preserve">
+    <value>Base Denom (Penny)</value>
+  </data>
+  <data name="Key_Load" xml:space="preserve">
+    <value>&amp;Load</value>
+  </data>
+  <data name="Key_IsAlertEnabled" xml:space="preserve">
+    <value>Is Alert Enabled</value>
+  </data>
+  <data name="Key_IsAutoCalendarEnabled" xml:space="preserve">
+    <value>Is AutoCalendar Enabled</value>
+  </data>
+  <data name="Key_MailAlert" xml:space="preserve">
+    <value>Is Email Alert Enabled</value>
+  </data>
+  <data name="Key_SendMailFromEnterprise" xml:space="preserve">
+    <value>Send mail from Enterprise</value>
+  </data>
+</root>

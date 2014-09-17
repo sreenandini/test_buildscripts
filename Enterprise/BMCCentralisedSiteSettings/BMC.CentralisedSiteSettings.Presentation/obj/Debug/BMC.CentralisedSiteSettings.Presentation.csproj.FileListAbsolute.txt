@@ -1,0 +1,1 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCCentralisedSiteSettings\BMC.CentralisedSiteSettings.Presentation\bin\Debug\BMCCentralisedSiteSettings.exe.config

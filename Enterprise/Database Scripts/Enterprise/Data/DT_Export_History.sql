@@ -1,0 +1,9 @@
+USE [Enterprise]
+GO
+
+INSERT INTO Export_History(EH_Date,EH_Reference1,EH_Type,EH_Site_Code)
+SELECT GETDATE(),1,'ROLEACCESSLINK' ,Site_Code
+FROM SITE (NOLOCK)
+WHERE 
+SiteStatus = 'FULLYCONFIGURED'
+GO

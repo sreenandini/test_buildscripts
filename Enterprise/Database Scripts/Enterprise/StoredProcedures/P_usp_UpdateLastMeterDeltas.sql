@@ -1,0 +1,402 @@
+USE [Enterprise]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[usp_UpdateLastMeterDeltas]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[usp_UpdateLastMeterDeltas]
+GO
+
+USE [Enterprise]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+-------------------------------------------------------------------------- 
+--
+-- Description: Inserts the records into Meter_History by calling the usp_InsertMeterHistory
+--
+-- Inputs:     Installation_No,@Process (COLL/INST/READ/VTP)
+-- Outputs:     
+--
+-- =======================================================================
+-- 
+-- Revision History
+-- 
+-- Rakesh Marwaha 22/05/07   Created   This SP is used to calculate the C-P deltas and store the values into Collection/read/VTP tables
+-- 
+-- 
+--------------------------------------------------------------------------- 
+
+CREATE    Procedure [dbo].[usp_UpdateLastMeterDeltas] (
+@Installation_No int,
+@Process varchar(10),
+@LinkReference int=0,
+@Reference varchar(20)=NULL
+)
+as
+SET DATEFORMAT DMY
+DECLARE  
+          @IsSAS                      bit,
+          @PoP                        int,
+          @Token                      int,
+		
+          @AddTrueCoinInToDrop        bit,
+         
+          @ssql                       varchar(4000),
+          @BCashIn                    money,
+          @BCashOut                   money,
+          @BCashRefills               money,
+          @VTP                        int,
+          @SCashIn                    money,
+          @SCashOut                   money,
+          @SCashRefills               money,
+          @SCashHandPay               money,
+          @SCashCoinDrop              money,
+          @STrueCoinIn                money,
+		  @VNo						  int,
+		  @TheHour					  nvarchar(255),
+		  @mRead_Date                 Varchar(12),
+          @mRead_Time                 Varchar(8),
+		  @localLinkReference		  int 
+		  
+
+
+  SET @IsSAS = 0
+  SET @PoP =0
+  SET @Token =0
+  
+
+--1. dump the C record of Meter_History into the temp table
+select * into #tempMH from Meter_History  where MH_ID in 
+(Select top 1 MH_ID from Meter_history where MH_Type='C' and MH_Process=@Process and MH_Installation_No=@Installation_No 
+and 
+(		@LinkReference = 0
+		or 
+		MH_LinkReference=@LinkReference
+)
+and 
+(
+		@Reference is  null
+		or 
+		MH_Reference=@Reference
+)
+order by MH_ID desc)
+
+--2. Update the temp table with C-P(Deltas) from Meter_History
+Update #tempMH set
+#tempMH.MH_PAYOUT_FLOAT_TOKEN= #tempMH.MH_PAYOUT_FLOAT_TOKEN - MH.MH_PAYOUT_FLOAT_TOKEN, #tempMH.MH_PAYOUT_FLOAT_10P= #tempMH.MH_PAYOUT_FLOAT_10P - MH.MH_PAYOUT_FLOAT_10P, #tempMH.MH_PAYOUT_FLOAT_20P= #tempMH.MH_PAYOUT_FLOAT_20P - MH.MH_PAYOUT_FLOAT_20P, #tempMH.MH_PAYOUT_FLOAT_50P= #tempMH.MH_PAYOUT_FLOAT_50P - MH.MH_PAYOUT_FLOAT_50P, #tempMH.MH_PAYOUT_FLOAT_100P= #tempMH.MH_PAYOUT_FLOAT_100P - MH.MH_PAYOUT_FLOAT_100P, #tempMH.MH_CASH_IN_2P= #tempMH.MH_CASH_IN_2P - MH.MH_CASH_IN_2P, #tempMH.MH_CASH_IN_5P= #tempMH.MH_CASH_IN_5P - MH.MH_CASH_IN_5P, #tempMH.MH_CASH_IN_10P= #tempMH.MH_CASH_IN_10P - MH.MH_CASH_IN_10P, #tempMH.MH_CASH_IN_20P= #tempMH.MH_CASH_IN_20P - MH.MH_CASH_IN_20P, #tempMH.MH_CASH_IN_50P= #tempMH.MH_CASH_IN_50P - MH.MH_CASH_IN_50P, #tempMH.MH_CASH_IN_100P= #tempMH.MH_CASH_IN_100P - MH.MH_CASH_IN_100P, #tempMH.MH_CASH_IN_200P= #tempMH.MH_CASH_IN_200P - MH.MH_CASH_IN_200P, #tempMH.MH_CASH_IN_500P= #tempMH.MH_CASH_IN_500P - MH.MH_CASH_IN_500P, #tempMH.MH_CASH_IN_1000P= #tempMH.MH_CASH_IN_1000P - MH.MH_CASH_IN_1000P, #tempMH.MH_CASH_IN_2000P= #tempMH.MH_CASH_IN_2000P - MH.MH_CASH_IN_2000P, #tempMH.MH_CASH_IN_5000P= #tempMH.MH_CASH_IN_5000P - MH.MH_CASH_IN_5000P, #tempMH.MH_CASH_IN_10000P= #tempMH.MH_CASH_IN_10000P - MH.MH_CASH_IN_10000P, #tempMH.MH_CASH_IN_20000P= #tempMH.MH_CASH_IN_20000P - MH.MH_CASH_IN_20000P, #tempMH.MH_CASH_IN_50000P= #tempMH.MH_CASH_IN_50000P - MH.MH_CASH_IN_50000P, #tempMH.MH_CASH_IN_100000P= #tempMH.MH_CASH_IN_100000P - MH.MH_CASH_IN_100000P, #tempMH.MH_TOKEN_IN_5P= #tempMH.MH_TOKEN_IN_5P - MH.MH_TOKEN_IN_5P, #tempMH.MH_TOKEN_IN_10P= #tempMH.MH_TOKEN_IN_10P - MH.MH_TOKEN_IN_10P, #tempMH.MH_TOKEN_IN_20P= #tempMH.MH_TOKEN_IN_20P - MH.MH_TOKEN_IN_20P, #tempMH.MH_TOKEN_IN_50P= #tempMH.MH_TOKEN_IN_50P - MH.MH_TOKEN_IN_50P, #tempMH.MH_TOKEN_IN_100P= #tempMH.MH_TOKEN_IN_100P - MH.MH_TOKEN_IN_100P, #tempMH.MH_TOKEN_IN_200P= #tempMH.MH_TOKEN_IN_200P - MH.MH_TOKEN_IN_200P, #tempMH.MH_TOKEN_IN_500P= #tempMH.MH_TOKEN_IN_500P - MH.MH_TOKEN_IN_500P, #tempMH.MH_TOKEN_IN_1000P= #tempMH.MH_TOKEN_IN_1000P - MH.MH_TOKEN_IN_1000P, #tempMH.MH_CASH_OUT_2P= #tempMH.MH_CASH_OUT_2P - MH.MH_CASH_OUT_2P, #tempMH.MH_CASH_OUT_5P= #tempMH.MH_CASH_OUT_5P - MH.MH_CASH_OUT_5P, #tempMH.MH_CASH_OUT_10P= #tempMH.MH_CASH_OUT_10P - MH.MH_CASH_OUT_10P, #tempMH.MH_CASH_OUT_20P= #tempMH.MH_CASH_OUT_20P - MH.MH_CASH_OUT_20P, #tempMH.MH_CASH_OUT_50P= #tempMH.MH_CASH_OUT_50P - MH.MH_CASH_OUT_50P, #tempMH.MH_CASH_OUT_100P= #tempMH.MH_CASH_OUT_100P - MH.MH_CASH_OUT_100P, #tempMH.MH_CASH_OUT_200P= #tempMH.MH_CASH_OUT_200P - MH.MH_CASH_OUT_200P, #tempMH.MH_CASH_OUT_500P= #tempMH.MH_CASH_OUT_500P - MH.MH_CASH_OUT_500P, #tempMH.MH_CASH_OUT_1000P= #tempMH.MH_CASH_OUT_1000P - MH.MH_CASH_OUT_1000P, #tempMH.MH_CASH_OUT_2000P= #tempMH.MH_CASH_OUT_2000P - MH.MH_CASH_OUT_2000P, #tempMH.MH_CASH_OUT_5000P= #tempMH.MH_CASH_OUT_5000P - MH.MH_CASH_OUT_5000P, #tempMH.MH_CASH_OUT_10000P= #tempMH.MH_CASH_OUT_10000P - MH.MH_CASH_OUT_10000P, #tempMH.MH_CASH_OUT_20000P= #tempMH.MH_CASH_OUT_20000P - MH.MH_CASH_OUT_20000P, #tempMH.MH_CASH_OUT_50000P= #tempMH.MH_CASH_OUT_50000P - MH.MH_CASH_OUT_50000P, #tempMH.MH_CASH_OUT_100000P= #tempMH.MH_CASH_OUT_100000P - MH.MH_CASH_OUT_100000P, #tempMH.MH_TOKEN_OUT_5P= #tempMH.MH_TOKEN_OUT_5P - MH.MH_TOKEN_OUT_5P, #tempMH.MH_TOKEN_OUT_10P= #tempMH.MH_TOKEN_OUT_10P - MH.MH_TOKEN_OUT_10P, #tempMH.MH_TOKEN_OUT_20P= #tempMH.MH_TOKEN_OUT_20P - MH.MH_TOKEN_OUT_20P, #tempMH.MH_TOKEN_OUT_50P= #tempMH.MH_TOKEN_OUT_50P - MH.MH_TOKEN_OUT_50P, #tempMH.MH_TOKEN_OUT_100P= #tempMH.MH_TOKEN_OUT_100P - MH.MH_TOKEN_OUT_100P, #tempMH.MH_TOKEN_OUT_200P= #tempMH.MH_TOKEN_OUT_200P - MH.MH_TOKEN_OUT_200P, #tempMH.MH_TOKEN_OUT_500P= #tempMH.MH_TOKEN_OUT_500P - MH.MH_TOKEN_OUT_500P, #tempMH.MH_TOKEN_OUT_1000P= #tempMH.MH_TOKEN_OUT_1000P - MH.MH_TOKEN_OUT_1000P, #tempMH.MH_CASH_REFILL_5P= #tempMH.MH_CASH_REFILL_5P - MH.MH_CASH_REFILL_5P, #tempMH.MH_CASH_REFILL_10P= #tempMH.MH_CASH_REFILL_10P - MH.MH_CASH_REFILL_10P, #tempMH.MH_CASH_REFILL_20P= #tempMH.MH_CASH_REFILL_20P - MH.MH_CASH_REFILL_20P, #tempMH.MH_CASH_REFILL_50P= #tempMH.MH_CASH_REFILL_50P - MH.MH_CASH_REFILL_50P, #tempMH.MH_CASH_REFILL_100P= #tempMH.MH_CASH_REFILL_100P - MH.MH_CASH_REFILL_100P, #tempMH.MH_CASH_REFILL_200P= #tempMH.MH_CASH_REFILL_200P - MH.MH_CASH_REFILL_200P, #tempMH.MH_CASH_REFILL_500P= #tempMH.MH_CASH_REFILL_500P - MH.MH_CASH_REFILL_500P, #tempMH.MH_CASH_REFILL_1000P= #tempMH.MH_CASH_REFILL_1000P - MH.MH_CASH_REFILL_1000P, #tempMH.MH_CASH_REFILL_2000P= #tempMH.MH_CASH_REFILL_2000P - MH.MH_CASH_REFILL_2000P, #tempMH.MH_CASH_REFILL_5000P= #tempMH.MH_CASH_REFILL_5000P - MH.MH_CASH_REFILL_5000P, #tempMH.MH_CASH_REFILL_10000P= #tempMH.MH_CASH_REFILL_10000P - MH.MH_CASH_REFILL_10000P, #tempMH.MH_CASH_REFILL_20000P= #tempMH.MH_CASH_REFILL_20000P - MH.MH_CASH_REFILL_20000P, #tempMH.MH_CASH_REFILL_50000P= #tempMH.MH_CASH_REFILL_50000P - MH.MH_CASH_REFILL_50000P, #tempMH.MH_CASH_REFILL_100000P= #tempMH.MH_CASH_REFILL_100000P - MH.MH_CASH_REFILL_100000P, #tempMH.MH_TOKEN_REFILL_5P= #tempMH.MH_TOKEN_REFILL_5P - MH.MH_TOKEN_REFILL_5P, #tempMH.MH_TOKEN_REFILL_10P= #tempMH.MH_TOKEN_REFILL_10P - MH.MH_TOKEN_REFILL_10P, #tempMH.MH_TOKEN_REFILL_20P= #tempMH.MH_TOKEN_REFILL_20P - MH.MH_TOKEN_REFILL_20P, #tempMH.MH_TOKEN_REFILL_50P= #tempMH.MH_TOKEN_REFILL_50P - MH.MH_TOKEN_REFILL_50P, #tempMH.MH_TOKEN_REFILL_100P= #tempMH.MH_TOKEN_REFILL_100P - MH.MH_TOKEN_REFILL_100P, #tempMH.MH_TOKEN_REFILL_200P= #tempMH.MH_TOKEN_REFILL_200P - MH.MH_TOKEN_REFILL_200P, #tempMH.MH_TOKEN_REFILL_500P= #tempMH.MH_TOKEN_REFILL_500P - MH.MH_TOKEN_REFILL_500P, #tempMH.MH_TOKEN_REFILL_1000P= #tempMH.MH_TOKEN_REFILL_1000P - MH.MH_TOKEN_REFILL_1000P, #tempMH.MH_COINS_IN= #tempMH.MH_COINS_IN - MH.MH_COINS_IN, #tempMH.MH_COINS_OUT= #tempMH.MH_COINS_OUT - MH.MH_COINS_OUT, #tempMH.MH_COIN_DROP= #tempMH.MH_COIN_DROP - MH.MH_COIN_DROP, #tempMH.MH_HANDPAY= #tempMH.MH_HANDPAY - MH.MH_HANDPAY, #tempMH.MH_EXTERNAL_CREDIT= #tempMH.MH_EXTERNAL_CREDIT - MH.MH_EXTERNAL_CREDIT, #tempMH.MH_GAMES_BET= #tempMH.MH_GAMES_BET - MH.MH_GAMES_BET, #tempMH.MH_GAMES_WON= #tempMH.MH_GAMES_WON - MH.MH_GAMES_WON, #tempMH.MH_NOTES= #tempMH.MH_NOTES - MH.MH_NOTES, #tempMH.MH_VTP= #tempMH.MH_VTP - MH.MH_VTP, #tempMH.MH_CANCELLED_CREDITS= #tempMH.MH_CANCELLED_CREDITS - MH.MH_CANCELLED_CREDITS, #tempMH.MH_GAMES_LOST= #tempMH.MH_GAMES_LOST - MH.MH_GAMES_LOST, #tempMH.MH_GAMES_SINCE_POWER_UP= #tempMH.MH_GAMES_SINCE_POWER_UP - MH.MH_GAMES_SINCE_POWER_UP, #tempMH.MH_TRUE_COIN_IN= #tempMH.MH_TRUE_COIN_IN - MH.MH_TRUE_COIN_IN, #tempMH.MH_TRUE_COIN_OUT= #tempMH.MH_TRUE_COIN_OUT - MH.MH_TRUE_COIN_OUT, #tempMH.MH_CURRENT_CREDITS= #tempMH.MH_CURRENT_CREDITS - MH.MH_CURRENT_CREDITS, #tempMH.MH_JACKPOT= #tempMH.MH_JACKPOT - MH.MH_JACKPOT, #tempMH.MH_BILL_1= #tempMH.MH_BILL_1 - MH.MH_BILL_1, #tempMH.MH_BILL_2= #tempMH.MH_BILL_2 - MH.MH_BILL_2, #tempMH.MH_BILL_5= #tempMH.MH_BILL_5 - MH.MH_BILL_5, #tempMH.MH_BILL_10= #tempMH.MH_BILL_10 - MH.MH_BILL_10, #tempMH.MH_BILL_20= #tempMH.MH_BILL_20 - MH.MH_BILL_20, #tempMH.MH_BILL_50= #tempMH.MH_BILL_50 - MH.MH_BILL_50, #tempMH.MH_BILL_100= #tempMH.MH_BILL_100 - MH.MH_BILL_100, #tempMH.MH_BILL_250= #tempMH.MH_BILL_250 - MH.MH_BILL_250, #tempMH.MH_BILL_10000= #tempMH.MH_BILL_10000 - MH.MH_BILL_10000, #tempMH.MH_BILL_20000= #tempMH.MH_BILL_20000 - MH.MH_BILL_20000, #tempMH.MH_BILL_50000= #tempMH.MH_BILL_50000 - MH.MH_BILL_50000, #tempMH.MH_BILL_100000= #tempMH.MH_BILL_100000 - MH.MH_BILL_100000, #tempMH.MH_TICKET_PRINTED_QTY= #tempMH.MH_TICKET_PRINTED_QTY - MH.MH_TICKET_PRINTED_QTY, #tempMH.MH_TICKET_PRINTED_VALUE= #tempMH.MH_TICKET_PRINTED_VALUE - MH.MH_TICKET_PRINTED_VALUE, #tempMH.MH_TICKET_INSERTED_QTY= #tempMH.MH_TICKET_INSERTED_QTY - MH.MH_TICKET_INSERTED_QTY, #tempMH.MH_TICKET_INSERTED_VALUE= #tempMH.MH_TICKET_INSERTED_VALUE - MH.MH_TICKET_INSERTED_VALUE
+From Meter_History MH where MH.MH_ID in 
+(Select top 1 Meter_history.MH_ID from Meter_history,#tempMH where Meter_history.MH_Type='P' and Meter_history.MH_Process=@Process and Meter_history.MH_Installation_No=@Installation_No and  Meter_history.MH_LinkReference = #tempMH.MH_LinkReference  and Meter_history.MH_Reference = #tempMH.MH_Reference   order by Meter_history.MH_ID desc)
+
+--3. if Collection update the Collection table with deltas
+if @Process='COLL'
+Begin
+	Update Collection SET
+			CASH_IN_1P 		 =	MH_CASH_IN_1P ,
+			CASH_IN_2P 		 =	MH_CASH_IN_2P ,
+			CASH_IN_5P		 =	MH_CASH_IN_5P,
+			CASH_IN_10P		 =	MH_CASH_IN_10P,
+			CASH_IN_20P 	 =	MH_CASH_IN_20P ,
+			CASH_IN_50P 	 =	MH_CASH_IN_50P ,
+			CASH_IN_100P 	 =	MH_CASH_IN_100P ,
+			CASH_IN_200P 	 =	MH_CASH_IN_200P ,
+			CASH_IN_500P	 =	MH_CASH_IN_500P,
+			CASH_IN_1000P 	 =	MH_CASH_IN_1000P, 
+			CASH_IN_2000P	 =	MH_CASH_IN_2000P,
+			CASH_IN_5000P 	 =	MH_CASH_IN_5000P ,
+			CASH_IN_10000P 	 =	MH_CASH_IN_10000P ,
+			CASH_IN_20000P	 =	MH_CASH_IN_20000P,
+			CASH_IN_50000P 	 =	MH_CASH_IN_50000P ,
+			CASH_IN_100000P	 =	MH_CASH_IN_100000P,
+			 		
+			TOKEN_IN_5P		 =	MH_TOKEN_IN_5P,
+			TOKEN_IN_10P 	 =	MH_TOKEN_IN_10P, 
+			TOKEN_IN_20P 	 =	MH_TOKEN_IN_20P ,
+			TOKEN_IN_50P 	 =	MH_TOKEN_IN_50P ,
+			TOKEN_IN_100P 	 =	MH_TOKEN_IN_100P ,
+			TOKEN_IN_200P 	 =	MH_TOKEN_IN_200P ,
+			TOKEN_IN_500P 	 =	MH_TOKEN_IN_500P ,
+			TOKEN_IN_1000P	 =	MH_TOKEN_IN_1000P,
+			
+			CASH_OUT_1P 	 =	MH_CASH_OUT_1P ,		
+			CASH_OUT_2P 	 =	MH_CASH_OUT_2P ,
+			CASH_OUT_5P 	 =	MH_CASH_OUT_5P ,
+			CASH_OUT_10P	 =	MH_CASH_OUT_10P,
+			CASH_OUT_20P	 =	MH_CASH_OUT_20P,
+			CASH_OUT_50P	 =	MH_CASH_OUT_50P,
+			CASH_OUT_100P 	 =	MH_CASH_OUT_100P, 
+			CASH_OUT_200P 	 =	MH_CASH_OUT_200P ,
+			CASH_OUT_500P 	 =	MH_CASH_OUT_500P ,
+			CASH_OUT_1000P	 =	MH_CASH_OUT_1000P,
+			CASH_OUT_2000P	 =	MH_CASH_OUT_2000P,
+			CASH_OUT_5000P	 =	MH_CASH_OUT_5000P,
+			CASH_OUT_10000P  =	MH_CASH_OUT_10000P,
+			CASH_OUT_20000P  =	MH_CASH_OUT_20000P ,
+			CASH_OUT_50000P  =	MH_CASH_OUT_50000P ,
+			CASH_OUT_100000P =	MH_CASH_OUT_100000P,
+			 		
+			TOKEN_OUT_5P 	 =	MH_TOKEN_OUT_5P ,
+			TOKEN_OUT_10P	 =	MH_TOKEN_OUT_10P,
+			TOKEN_OUT_20P	 =	MH_TOKEN_OUT_20P,
+			TOKEN_OUT_50P	 =	MH_TOKEN_OUT_50P,
+			TOKEN_OUT_100P 	 =	MH_TOKEN_OUT_100P ,
+			TOKEN_OUT_200P 	 =	MH_TOKEN_OUT_200P ,
+			TOKEN_OUT_500P 	 =	MH_TOKEN_OUT_500P ,
+			TOKEN_OUT_1000P  =	MH_TOKEN_OUT_1000P ,
+					
+			CASH_REFILL_5P 		 =	MH_CASH_REFILL_5P ,
+			CASH_REFILL_10P		 =	MH_CASH_REFILL_10P,
+			CASH_REFILL_20P 	 =	MH_CASH_REFILL_20P ,
+			CASH_REFILL_50P 	 =	MH_CASH_REFILL_50P ,
+			CASH_REFILL_100P	 =	MH_CASH_REFILL_100P,
+			CASH_REFILL_200P 	 =	MH_CASH_REFILL_200P ,
+			CASH_REFILL_500P 	 =	MH_CASH_REFILL_500P ,
+			CASH_REFILL_1000P	 =	MH_CASH_REFILL_1000P,
+			CASH_REFILL_2000P	 =	MH_CASH_REFILL_2000P,
+			CASH_REFILL_5000P	 =	MH_CASH_REFILL_5000P,
+			CASH_REFILL_10000P   =	MH_CASH_REFILL_10000P, 
+			CASH_REFILL_20000P	 =	MH_CASH_REFILL_20000P,
+			CASH_REFILL_50000P	 =	MH_CASH_REFILL_50000P,
+			CASH_REFILL_100000P  =	MH_CASH_REFILL_100000P, 
+			
+			TOKEN_REFILL_5P 	 =	MH_TOKEN_REFILL_5P ,
+			TOKEN_REFILL_10P 	 =	MH_TOKEN_REFILL_10P ,
+			TOKEN_REFILL_20P 	 =	MH_TOKEN_REFILL_20P ,
+			TOKEN_REFILL_50P 	 =	MH_TOKEN_REFILL_50P ,
+			TOKEN_REFILL_100P 	 =	MH_TOKEN_REFILL_100P ,
+			TOKEN_REFILL_200P 	 =	MH_TOKEN_REFILL_200P ,
+			TOKEN_REFILL_500P 	 =	MH_TOKEN_REFILL_500P ,
+			TOKEN_REFILL_1000P	 =	MH_TOKEN_REFILL_1000P,
+
+			Collection_RDC_CoinsIn 	 =	MH_COINS_IN ,
+			Collection_RDC_CoinsOut 	 =	MH_COINS_OUT ,
+			Collection_RDC_CoinsDrop 	 =	MH_COIN_DROP ,
+			Collection_RDC_Handpay 		 =	MH_HANDPAY ,
+				
+			COLLECTION_RDC_EXTERNALCREDIT		 =	MH_EXTERNAL_CREDIT ,
+			COLLECTION_RDC_GAMESBET 			 =	MH_GAMES_BET ,
+			COLLECTION_RDC_GAMESWON 			 =	MH_GAMES_WON ,
+			COLLECTION_RDC_NOTES 	 			 = 	MH_NOTES ,
+				
+			COLLECTION_RDC_CANCELLED_CREDITS	 =	MH_CANCELLED_CREDITS,
+			COLLECTION_RDC_GAMES_LOST 			 =	MH_GAMES_LOST ,
+			COLLECTION_RDC_GAMES_SINCE_POWER_UP	 =	MH_GAMES_SINCE_POWER_UP ,
+			COLLECTION_RDC_TRUE_COIN_IN 		 =	MH_TRUE_COIN_IN ,
+			COLLECTION_RDC_TRUE_COIN_OUT 		 =	MH_TRUE_COIN_OUT ,
+			COLLECTION_RDC_CURRENT_CREDITS		 =	MH_CURRENT_CREDITS,
+			 		
+			  		
+			COLLECTION_RDC_VTP  					 =	MH_VTP  ,
+			COLLECTION_RDC_JACKPOT 					 =	MH_JACKPOT ,
+			COLLECTION_RDC_TICKETS_INSERTED_VALUE 	 =	MH_TICKET_INSERTED_VALUE ,
+			COLLECTION_RDC_TICKETS_PRINTED_VALUE	 =	MH_TICKET_PRINTED_VALUE
+
+	From #tempMH
+	where Installation_ID=@Installation_No and Collection_ID=MH_LinkReference
+End
+
+--4. if read update the VTP with Deltas
+
+if @Process='READ'
+Begin
+
+	Update [Read] Set
+		 PAYOUT_FLOAT_TOKEN= MH_PAYOUT_FLOAT_TOKEN,
+		 PAYOUT_FLOAT_10P= MH_PAYOUT_FLOAT_10P,
+		 PAYOUT_FLOAT_20P= MH_PAYOUT_FLOAT_20P, 
+		 PAYOUT_FLOAT_50P= MH_PAYOUT_FLOAT_50P,
+		 PAYOUT_FLOAT_100P= MH_PAYOUT_FLOAT_100P,
+		 CASH_IN_1P= MH_CASH_IN_1P,
+		 CASH_IN_2P= MH_CASH_IN_2P,
+		 CASH_IN_5P= MH_CASH_IN_5P,
+		 CASH_IN_10P= MH_CASH_IN_10P,
+		 CASH_IN_20P= MH_CASH_IN_20P,
+		 CASH_IN_50P= MH_CASH_IN_50P,
+		 CASH_IN_100P= MH_CASH_IN_100P,
+		 CASH_IN_200P= MH_CASH_IN_200P,
+		 CASH_IN_500P= MH_CASH_IN_500P,
+		 CASH_IN_1000P= MH_CASH_IN_1000P,
+		 CASH_IN_2000P= MH_CASH_IN_2000P,
+		 CASH_IN_5000P= MH_CASH_IN_5000P,
+		 CASH_IN_10000P= MH_CASH_IN_10000P,
+		 CASH_IN_20000P= MH_CASH_IN_20000P,
+		 CASH_IN_50000P= MH_CASH_IN_50000P,
+		 CASH_IN_100000P= MH_CASH_IN_100000P, 
+		 
+		 TOKEN_IN_5P= MH_TOKEN_IN_5P,
+		 TOKEN_IN_10P= MH_TOKEN_IN_10P,
+		 TOKEN_IN_20P= MH_TOKEN_IN_20P,
+		 TOKEN_IN_50P= MH_TOKEN_IN_50P, 
+		 TOKEN_IN_100P= MH_TOKEN_IN_100P,
+		 TOKEN_IN_200P= MH_TOKEN_IN_200P, 
+		 TOKEN_IN_500P= MH_TOKEN_IN_500P,
+		 TOKEN_IN_1000P= MH_TOKEN_IN_1000P,
+		 
+		 CASH_OUT_1P= MH_CASH_OUT_1P, 
+		 CASH_OUT_2P= MH_CASH_OUT_2P, 
+		 CASH_OUT_5P= MH_CASH_OUT_5P, 
+		 CASH_OUT_10P= MH_CASH_OUT_10P, 
+		 CASH_OUT_20P= MH_CASH_OUT_20P, 
+		 CASH_OUT_50P= MH_CASH_OUT_50P,
+		 CASH_OUT_100P= MH_CASH_OUT_100P, 
+		 CASH_OUT_200P= MH_CASH_OUT_200P, 
+		 CASH_OUT_500P= MH_CASH_OUT_500P, 
+		 CASH_OUT_1000P= MH_CASH_OUT_1000P,
+		 CASH_OUT_2000P= MH_CASH_OUT_2000P, 
+		 CASH_OUT_5000P= MH_CASH_OUT_5000P, 
+		 CASH_OUT_10000P= MH_CASH_OUT_10000P,
+		 CASH_OUT_20000P= MH_CASH_OUT_20000P,
+		 CASH_OUT_50000P= MH_CASH_OUT_50000P,
+		 CASH_OUT_100000P= MH_CASH_OUT_100000P,
+		 
+		 TOKEN_OUT_5P= MH_TOKEN_OUT_5P,
+		 TOKEN_OUT_10P= MH_TOKEN_OUT_10P,
+		 TOKEN_OUT_20P= MH_TOKEN_OUT_20P,
+		 TOKEN_OUT_50P= MH_TOKEN_OUT_50P,
+		 TOKEN_OUT_100P= MH_TOKEN_OUT_100P,
+		 TOKEN_OUT_200P= MH_TOKEN_OUT_200P,
+		 TOKEN_OUT_500P= MH_TOKEN_OUT_500P, 
+		 TOKEN_OUT_1000P= MH_TOKEN_OUT_1000P,
+		 
+		 CASH_REFILL_5P= MH_CASH_REFILL_5P,
+		 CASH_REFILL_10P= MH_CASH_REFILL_10P,
+		 CASH_REFILL_20P= MH_CASH_REFILL_20P,
+		 CASH_REFILL_50P= MH_CASH_REFILL_50P, 
+		 CASH_REFILL_100P= MH_CASH_REFILL_100P, 
+		 CASH_REFILL_200P= MH_CASH_REFILL_200P, 
+		 CASH_REFILL_500P= MH_CASH_REFILL_500P,
+		 CASH_REFILL_1000P= MH_CASH_REFILL_1000P,
+		 CASH_REFILL_2000P= MH_CASH_REFILL_2000P,
+		 CASH_REFILL_5000P= MH_CASH_REFILL_5000P, 
+		 CASH_REFILL_10000P= MH_CASH_REFILL_10000P, 
+		 CASH_REFILL_20000P= MH_CASH_REFILL_20000P, 
+		 CASH_REFILL_50000P= MH_CASH_REFILL_50000P, 
+		 CASH_REFILL_100000P= MH_CASH_REFILL_100000P, 
+		 
+		 TOKEN_REFILL_5P= MH_TOKEN_REFILL_5P, 
+		 TOKEN_REFILL_10P= MH_TOKEN_REFILL_10P, 
+		 TOKEN_REFILL_20P= MH_TOKEN_REFILL_20P,
+		 TOKEN_REFILL_50P= MH_TOKEN_REFILL_50P, 
+		 TOKEN_REFILL_100P= MH_TOKEN_REFILL_100P, 
+		 TOKEN_REFILL_200P= MH_TOKEN_REFILL_200P, 
+		 TOKEN_REFILL_500P= MH_TOKEN_REFILL_500P, 
+		 TOKEN_REFILL_1000P= MH_TOKEN_REFILL_1000P, 
+		 
+		 READ_COINS_IN= MH_COINS_IN, 
+		 READ_COINS_OUT= MH_COINS_OUT, 
+		 READ_COIN_DROP= MH_COIN_DROP, 
+		 READ_HANDPAY= MH_HANDPAY, 
+		 READ_EXTERNAL_CREDIT= MH_EXTERNAL_CREDIT, 
+		 READ_GAMES_BET= MH_GAMES_BET, 
+		 READ_GAMES_WON= MH_GAMES_WON,
+		 READ_NOTES= MH_NOTES, 
+		 VTP= MH_VTP, 
+		 READ_RDC_CANCELLED_CREDITS= MH_CANCELLED_CREDITS, 
+		 READ_RDC_GAMES_LOST= MH_GAMES_LOST, 
+		 READ_RDC_GAMES_SINCE_POWER_UP= MH_GAMES_SINCE_POWER_UP, 
+		 READ_RDC_TRUE_COIN_IN= MH_TRUE_COIN_IN,
+		 READ_RDC_TRUE_COIN_OUT= MH_TRUE_COIN_OUT,
+		 READ_RDC_CURRENT_CREDITS= MH_CURRENT_CREDITS,
+		 
+		 READ_RDC_BILL_1= MH_BILL_1, 
+		 READ_RDC_BILL_2= MH_BILL_2,
+		 READ_RDC_BILL_5= MH_BILL_5,
+		 READ_RDC_BILL_10= MH_BILL_10, 
+		 READ_RDC_BILL_20= MH_BILL_20, 
+		 READ_RDC_BILL_50= MH_BILL_50, 
+		 READ_RDC_BILL_100= MH_BILL_100, 
+		 READ_RDC_BILL_250= MH_BILL_250, 
+		 READ_RDC_BILL_10000= MH_BILL_10000, 
+		 READ_RDC_BILL_20000= MH_BILL_20000, 
+		 READ_RDC_BILL_50000= MH_BILL_50000, 
+		 READ_RDC_BILL_100000= MH_BILL_100000
+	 From #tempMH
+	 where [Read].Installation_ID = @Installation_no and [Read].Read_ID=MH_LinkReference
+End
+
+--5. if VTP update the VTP with deltas
+
+if @Process='VTP'
+Begin
+	
+	--take from deltas
+		Select   
+	       @localLinkReference=MH_LinkReference,
+ 
+    	   @SCashIn	 	= MH_Coins_In,
+
+           @SCashOut		 = MH_Coins_Out,
+
+           @SCashHandPay	 = MH_Handpay,
+
+           @SCashCoinDrop	 = MH_COIN_DROP,
+
+           @STrueCoinIn		 = MH_TRUE_COIN_IN,
+
+           @VTP				 = MH_VTP,
+		   
+		   @TheHour			 = MH_Reference
+
+      FROM #tempMH
+
+     IF @TheHour > 0 
+     BEGIN
+ 
+			 -- take Price of Play - POP
+			SELECT @PoP = Installation_Price_Per_Play          
+			FROM (
+					(
+					Installation WITH (NOLOCK) INNER JOIN Machine WITH (NOLOCK) 
+					ON Machine.Machine_ID = Installation.Machine_ID
+					) 
+				JOIN Machine_Class WITH (NOLOCK) 
+				ON Machine.Machine_Class_ID = Machine_Class.Machine_Class_ID
+				) 
+			WHERE Installation.Installation_ID = @Installation_No
+
+				--Calculate
+			SELECT @SCashIn = ((COALESCE ( @SCashIn, 0 )* @Pop) / 100)
+				  SELECT @SCashOut = ((COALESCE ( @SCashOut, 0 )* @Pop) / 100)
+				  SELECT @SCashRefills = ((COALESCE ( @SCashRefills, 0 )* @Pop) / 100)
+				  SELECT @SCashHandPay = ((COALESCE ( @SCashHandPay, 0 )* @Pop) / 100)
+			        
+		  IF @AddTrueCoinInToDrop = 1 
+			SELECT @SCashCoinDrop = ((COALESCE ( @SCashCoinDrop, 0 )* @Pop) / 100) + ((COALESCE ( @STrueCoinIn, 0 )* @Token) / 100) 
+		  ELSE
+			SELECT @SCashCoinDrop = ((COALESCE ( @SCashCoinDrop, 0 )* @Pop) / 100) 
+	  
+		  --SELECT @VTP = COALESCE ( @VTP, 0 )
+		  SELECT @VTP = COALESCE ( @SCashIn*10, 0 )
+		  
+			-- Format the SQL to update the VTP
+		  SET @sSQL = 'UPDATE VTP SET VTP_Hour' + ltrim(rtrim(Cast( @TheHour as varchar(2)))) + '_Cash_In = ' + ltrim(rtrim(cast( @SCashIn as varchar(20)))) + ', '
+		  SET @sSQL = @sSQL + ' VTP_Hour' + ltrim(rtrim(Cast( @TheHour as varchar(2)))) + '_Cash_Refills = ' + ltrim(rtrim(cast( @SCashRefills as varchar(20)))) + ', '
+		  SET @sSQL = @sSQL + ' VTP_Hour' + ltrim(rtrim(Cast( @TheHour as varchar(2)))) + '_Handpay = ' + ltrim(rtrim(cast( @SCashHandPay as varchar(20)))) + ', '
+--		  SET @sSQL = @sSQL + ' VTP_Hour' + ltrim(rtrim(Cast( @TheHour as varchar(2)))) + '_Coin_Drop = ' + ltrim(rtrim(cast( @SCashCoinDrop as varchar(20)))) + ', '
+		  SET @sSQL = @sSQL + ' VTP_Hour' + ltrim(rtrim(Cast( @TheHour as varchar(2)))) + ' = ' + ltrim(rtrim(cast( @VTP  as varchar(20)))) + ', '
+
+--		  SET @sSQL = @sSQL + ' VTP_Uploaded_HQ = 0, '
+		  SET @sSQL = @sSQL + ' VTP_Hour' + ltrim(rtrim(Cast( @TheHour as varchar(2)))) + '_Cash_Out = ' + ltrim(rtrim(cast( @SCashOut as varchar(20)))) + ''
+		  SET @sSQL = @sSQL + ' WHERE VTP.Installation_ID = ' +ltrim(rtrim(Cast(@Installation_No as varchar(20)))) + ' and VTP.VTP_ID='+ ltrim(rtrim(Cast(@localLinkReference as varchar(20))))
+			
+		--execute the SQL
+	Execute (@sSQL)
+   END
+
+End
+drop table #tempMH
+--select * from #tempMH
+if @@ERROR>0
+drop table #tempMH
+
+
+
+GO
+

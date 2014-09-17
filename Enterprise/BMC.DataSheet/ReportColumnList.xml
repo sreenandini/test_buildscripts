@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Reports>
+  <Report Name="PerUnitPerDay Performance Report" Value="rsp_Report_PerUnitPerDayPerformanceReport">
+    <Column>Site_Name</Column>
+    <Column>Sub_Company_Name</Column>
+    <Column>Company_Name</Column>
+    <Column>Zone_Name</Column>
+    <Column>AssetNo</Column>
+	<Column>Bar_Position_Name</Column>
+    <Column>GameType</Column>
+    <Column>GameName</Column>
+    <Column>Denom</Column>
+    <Column>DaysOnline</Column>
+    <Column>Bets</Column>
+    <Column>Wins</Column>
+    <Column>TheoWin</Column>
+    <Column>GamesPlayed</Column>
+    <Column>Jackpots</Column>
+    <Column>CoinInPerDay</Column>
+    <Column>WinsPerDay</Column>
+    <Column>JackpotsPerDay</Column>
+    <Column>ActWinPerDay</Column>
+    <Column>TheoWinPerDay</Column>
+    <Column>GPPerDay</Column>
+    <Column>AvgBetsPerHP</Column>
+    <Column>TheoHoldPercent</Column>
+    <Column>ActHoldPercent</Column>
+    <Column>Variance</Column>
+  </Report>
+</Reports>

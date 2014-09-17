@@ -1,0 +1,14 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\CombineProcedures.exe.config
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\CombineProcedures.exe
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\CombineProcedures.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.CoreLib.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.EnterpriseDataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.CoreLib.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.EnterpriseDataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.Common.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\bin\x86\Debug\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\obj\x86\Debug\CombineProcedures.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\obj\x86\Debug\CombineProcedures.exe
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\CombineProcedures\obj\x86\Debug\CombineProcedures.pdb

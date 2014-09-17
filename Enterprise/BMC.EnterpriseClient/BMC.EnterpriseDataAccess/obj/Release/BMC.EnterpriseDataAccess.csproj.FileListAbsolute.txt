@@ -1,0 +1,9 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\bin\Release\BMC.EnterpriseDataAccess.dll.config
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\bin\Release\BMC.EnterpriseDataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\bin\Release\BMC.EnterpriseDataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\bin\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\bin\Release\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\bin\Release\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\obj\Release\BMC.EnterpriseDataAccess.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\obj\Release\BMC.EnterpriseDataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseDataAccess\obj\Release\BMC.EnterpriseDataAccess.pdb

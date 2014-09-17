@@ -1,0 +1,12 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.EnterpriseReportsDataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.EnterpriseReportsDataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.EnterpriseReportsTransport.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.Security.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.Security.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\bin\Release\BMC.EnterpriseReportsTransport.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\obj\Release\BMC.EnterpriseReportsDataAccess.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\obj\Release\BMC.EnterpriseReportsDataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\obj\Release\BMC.EnterpriseReportsDataAccess.pdb

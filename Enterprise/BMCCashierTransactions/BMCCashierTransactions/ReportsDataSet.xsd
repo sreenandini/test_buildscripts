@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportsDataSet" targetNamespace="http://tempuri.org/ReportsDataSet.xsd" xmlns:mstns="http://tempuri.org/ReportsDataSet.xsd" xmlns="http://tempuri.org/ReportsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MyConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="MyConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BMCCashierTransactions.Properties.Settings.GlobalReference.Default.MyConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ExchangeConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="ExchangeConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BMCCashierTransactions.Properties.Settings.GlobalReference.Default.ExchangeConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportsDataSet" msprop:Generator_UserDSName="ReportsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DetailsView" msprop:Generator_UserTableName="DetailsView" msprop:Generator_RowEvArgName="DetailsViewRowChangeEvent" msprop:Generator_TableVarName="tableDetailsView" msprop:Generator_TablePropName="DetailsView" msprop:Generator_RowDeletingName="DetailsViewRowDeleting" msprop:Generator_RowChangingName="DetailsViewRowChanging" msprop:Generator_RowDeletedName="DetailsViewRowDeleted" msprop:Generator_RowEvHandlerName="DetailsViewRowChangeEventHandler" msprop:Generator_TableClassName="DetailsViewDataTable" msprop:Generator_RowChangedName="DetailsViewRowChanged" msprop:Generator_RowClassName="DetailsViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Trans_Type" msprop:Generator_ColumnVarNameInTable="columnTrans_Type" msprop:Generator_ColumnPropNameInRow="Trans_Type" msprop:Generator_ColumnPropNameInTable="Trans_TypeColumn" msprop:Generator_UserColumnName="Trans_Type" type="xs:string" minOccurs="0" />
+              <xs:element name="PrintAsset" msprop:Generator_ColumnVarNameInTable="columnPrintAsset" msprop:Generator_ColumnPropNameInRow="PrintAsset" msprop:Generator_ColumnPropNameInTable="PrintAssetColumn" msprop:Generator_UserColumnName="PrintAsset" type="xs:string" minOccurs="0" />
+              <xs:element name="PrintPosition" msprop:Generator_ColumnVarNameInTable="columnPrintPosition" msprop:Generator_ColumnPropNameInRow="PrintPosition" msprop:Generator_ColumnPropNameInTable="PrintPositionColumn" msprop:Generator_UserColumnName="PrintPosition" type="xs:string" minOccurs="0" />
+              <xs:element name="PrintedDate" msprop:Generator_ColumnVarNameInTable="columnPrintedDate" msprop:Generator_ColumnPropNameInRow="PrintedDate" msprop:Generator_ColumnPropNameInTable="PrintedDateColumn" msprop:Generator_UserColumnName="PrintedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PaidAsset" msprop:Generator_ColumnVarNameInTable="columnPaidAsset" msprop:Generator_ColumnPropNameInRow="PaidAsset" msprop:Generator_ColumnPropNameInTable="PaidAssetColumn" msprop:Generator_UserColumnName="PaidAsset" type="xs:string" minOccurs="0" />
+              <xs:element name="PaidPosition" msprop:Generator_ColumnVarNameInTable="columnPaidPosition" msprop:Generator_ColumnPropNameInRow="PaidPosition" msprop:Generator_ColumnPropNameInTable="PaidPositionColumn" msprop:Generator_UserColumnName="PaidPosition" type="xs:string" minOccurs="0" />
+              <xs:element name="PaidDate" msprop:Generator_ColumnVarNameInTable="columnPaidDate" msprop:Generator_ColumnPropNameInRow="PaidDate" msprop:Generator_ColumnPropNameInTable="PaidDateColumn" msprop:Generator_UserColumnName="PaidDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Ticket" msprop:Generator_ColumnVarNameInTable="columnTicket" msprop:Generator_ColumnPropNameInRow="Ticket" msprop:Generator_ColumnPropNameInTable="TicketColumn" msprop:Generator_UserColumnName="Ticket" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CashDeskReconcilation" msprop:Generator_UserTableName="CashDeskReconcilation" msprop:Generator_RowEvArgName="CashDeskReconcilationRowChangeEvent" msprop:Generator_TableVarName="tableCashDeskReconcilation" msprop:Generator_TablePropName="CashDeskReconcilation" msprop:Generator_RowDeletingName="CashDeskReconcilationRowDeleting" msprop:Generator_RowChangingName="CashDeskReconcilationRowChanging" msprop:Generator_RowDeletedName="CashDeskReconcilationRowDeleted" msprop:Generator_RowEvHandlerName="CashDeskReconcilationRowChangeEventHandler" msprop:Generator_TableClassName="CashDeskReconcilationDataTable" msprop:Generator_RowChangedName="CashDeskReconcilationRowChanged" msprop:Generator_RowClassName="CashDeskReconcilationRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="site_name" msprop:Generator_ColumnVarNameInTable="columnsite_name" msprop:Generator_ColumnPropNameInRow="site_name" msprop:Generator_ColumnPropNameInTable="site_nameColumn" msprop:Generator_UserColumnName="site_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zone_name" msprop:Generator_ColumnVarNameInTable="columnzone_name" msprop:Generator_ColumnPropNameInRow="zone_name" msprop:Generator_ColumnPropNameInTable="zone_nameColumn" msprop:Generator_UserColumnName="zone_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bar_position_name" msprop:Generator_ColumnVarNameInTable="columnbar_position_name" msprop:Generator_ColumnPropNameInRow="bar_position_name" msprop:Generator_ColumnPropNameInTable="bar_position_nameColumn" msprop:Generator_UserColumnName="bar_position_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="machine_type_code" msprop:Generator_ColumnVarNameInTable="columnmachine_type_code" msprop:Generator_ColumnPropNameInRow="machine_type_code" msprop:Generator_ColumnPropNameInTable="machine_type_codeColumn" msprop:Generator_UserColumnName="machine_type_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="machine_name" msprop:Generator_ColumnVarNameInTable="columnmachine_name" msprop:Generator_ColumnPropNameInRow="machine_name" msprop:Generator_ColumnPropNameInTable="machine_nameColumn" msprop:Generator_UserColumnName="machine_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Machine_stock_no" msprop:Generator_ColumnVarNameInTable="columnMachine_stock_no" msprop:Generator_ColumnPropNameInRow="Machine_stock_no" msprop:Generator_ColumnPropNameInTable="Machine_stock_noColumn" msprop:Generator_UserColumnName="Machine_stock_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="claimed_in_cashdesk" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnclaimed_in_cashdesk" msprop:Generator_ColumnPropNameInRow="claimed_in_cashdesk" msprop:Generator_ColumnPropNameInTable="claimed_in_cashdeskColumn" msprop:Generator_UserColumnName="claimed_in_cashdesk" type="xs:double" minOccurs="0" />
+              <xs:element name="claimed_in_cashdesk_qty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnclaimed_in_cashdesk_qty" msprop:Generator_ColumnPropNameInRow="claimed_in_cashdesk_qty" msprop:Generator_ColumnPropNameInTable="claimed_in_cashdesk_qtyColumn" msprop:Generator_UserColumnName="claimed_in_cashdesk_qty" type="xs:int" minOccurs="0" />
+              <xs:element name="Shortpays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShortpays" msprop:Generator_ColumnPropNameInRow="Shortpays" msprop:Generator_ColumnPropNameInTable="ShortpaysColumn" msprop:Generator_UserColumnName="Shortpays" type="xs:double" minOccurs="0" />
+              <xs:element name="Handpays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHandpays" msprop:Generator_ColumnPropNameInRow="Handpays" msprop:Generator_ColumnPropNameInTable="HandpaysColumn" msprop:Generator_UserColumnName="Handpays" type="xs:double" minOccurs="0" />
+              <xs:element name="Refills" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRefills" msprop:Generator_ColumnPropNameInRow="Refills" msprop:Generator_ColumnPropNameInTable="RefillsColumn" msprop:Generator_UserColumnName="Refills" type="xs:double" minOccurs="0" />
+              <xs:element name="Refunds" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRefunds" msprop:Generator_ColumnPropNameInRow="Refunds" msprop:Generator_ColumnPropNameInTable="RefundsColumn" msprop:Generator_UserColumnName="Refunds" type="xs:double" minOccurs="0" />
+              <xs:element name="Void" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVoid" msprop:Generator_ColumnPropNameInRow="Void" msprop:Generator_ColumnPropNameInTable="VoidColumn" msprop:Generator_UserColumnName="Void" type="xs:double" minOccurs="0" />
+              <xs:element name="Expired" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpired" msprop:Generator_ColumnPropNameInRow="Expired" msprop:Generator_ColumnPropNameInTable="ExpiredColumn" msprop:Generator_UserColumnName="Expired" type="xs:double" minOccurs="0" />
+              <xs:element name="Progressive_Value_Declared" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnProgressive_Value_Declared" msprop:Generator_ColumnPropNameInRow="Progressive_Value_Declared" msprop:Generator_ColumnPropNameInTable="Progressive_Value_DeclaredColumn" msprop:Generator_UserColumnName="Progressive_Value_Declared" type="xs:double" minOccurs="0" />
+              <xs:element name="printed_by_cashdesk" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnprinted_by_cashdesk" msprop:Generator_ColumnPropNameInRow="printed_by_cashdesk" msprop:Generator_ColumnPropNameInTable="printed_by_cashdeskColumn" msprop:Generator_UserColumnName="printed_by_cashdesk" type="xs:double" minOccurs="0" />
+              <xs:element name="RouteName" msprop:Generator_ColumnVarNameInTable="columnRouteName" msprop:Generator_ColumnPropNameInRow="RouteName" msprop:Generator_ColumnPropNameInTable="RouteNameColumn" msprop:Generator_UserColumnName="RouteName" type="xs:string" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SystemBalancing" msprop:Generator_UserTableName="SystemBalancing" msprop:Generator_RowEvArgName="SystemBalancingRowChangeEvent" msprop:Generator_TableVarName="tableSystemBalancing" msprop:Generator_TablePropName="SystemBalancing" msprop:Generator_RowDeletingName="SystemBalancingRowDeleting" msprop:Generator_RowChangingName="SystemBalancingRowChanging" msprop:Generator_RowDeletedName="SystemBalancingRowDeleted" msprop:Generator_RowEvHandlerName="SystemBalancingRowChangeEventHandler" msprop:Generator_TableClassName="SystemBalancingDataTable" msprop:Generator_RowChangedName="SystemBalancingRowChanged" msprop:Generator_RowClassName="SystemBalancingRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="site_name" msprop:Generator_ColumnVarNameInTable="columnsite_name" msprop:Generator_ColumnPropNameInRow="site_name" msprop:Generator_ColumnPropNameInTable="site_nameColumn" msprop:Generator_UserColumnName="site_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zone_name" msprop:Generator_ColumnVarNameInTable="columnzone_name" msprop:Generator_ColumnPropNameInRow="zone_name" msprop:Generator_ColumnPropNameInTable="zone_nameColumn" msprop:Generator_UserColumnName="zone_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="posname" msprop:Generator_ColumnVarNameInTable="columnposname" msprop:Generator_ColumnPropNameInRow="posname" msprop:Generator_ColumnPropNameInTable="posnameColumn" msprop:Generator_UserColumnName="posname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="machine_type_code" msprop:Generator_ColumnVarNameInTable="columnmachine_type_code" msprop:Generator_ColumnPropNameInRow="machine_type_code" msprop:Generator_ColumnPropNameInTable="machine_type_codeColumn" msprop:Generator_UserColumnName="machine_type_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="machinename" msprop:Generator_ColumnVarNameInTable="columnmachinename" msprop:Generator_ColumnPropNameInRow="machinename" msprop:Generator_ColumnPropNameInTable="machinenameColumn" msprop:Generator_UserColumnName="machinename" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_no" msprop:Generator_ColumnVarNameInTable="columnstock_no" msprop:Generator_ColumnPropNameInRow="stock_no" msprop:Generator_ColumnPropNameInTable="stock_noColumn" msprop:Generator_UserColumnName="stock_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cash_collected_5000p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_5000p" msprop:Generator_ColumnPropNameInRow="cash_collected_5000p" msprop:Generator_ColumnPropNameInTable="cash_collected_5000pColumn" msprop:Generator_UserColumnName="cash_collected_5000p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_2000p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_2000p" msprop:Generator_ColumnPropNameInRow="cash_collected_2000p" msprop:Generator_ColumnPropNameInTable="cash_collected_2000pColumn" msprop:Generator_UserColumnName="cash_collected_2000p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_1000p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_1000p" msprop:Generator_ColumnPropNameInRow="cash_collected_1000p" msprop:Generator_ColumnPropNameInTable="cash_collected_1000pColumn" msprop:Generator_UserColumnName="cash_collected_1000p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_500p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_500p" msprop:Generator_ColumnPropNameInRow="cash_collected_500p" msprop:Generator_ColumnPropNameInTable="cash_collected_500pColumn" msprop:Generator_UserColumnName="cash_collected_500p" type="xs:double" minOccurs="0" />
+              <xs:element name="net_coin" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnnet_coin" msprop:Generator_ColumnPropNameInRow="net_coin" msprop:Generator_ColumnPropNameInTable="net_coinColumn" msprop:Generator_UserColumnName="net_coin" type="xs:double" minOccurs="0" />
+              <xs:element name="claimed_in_cashdesk" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnclaimed_in_cashdesk" msprop:Generator_ColumnPropNameInRow="claimed_in_cashdesk" msprop:Generator_ColumnPropNameInTable="claimed_in_cashdeskColumn" msprop:Generator_UserColumnName="claimed_in_cashdesk" type="xs:double" minOccurs="0" />
+              <xs:element name="claimed_in_cashdesk_qty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnclaimed_in_cashdesk_qty" msprop:Generator_ColumnPropNameInRow="claimed_in_cashdesk_qty" msprop:Generator_ColumnPropNameInTable="claimed_in_cashdesk_qtyColumn" msprop:Generator_UserColumnName="claimed_in_cashdesk_qty" type="xs:int" minOccurs="0" />
+              <xs:element name="Shortpays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShortpays" msprop:Generator_ColumnPropNameInRow="Shortpays" msprop:Generator_ColumnPropNameInTable="ShortpaysColumn" msprop:Generator_UserColumnName="Shortpays" type="xs:double" minOccurs="0" />
+              <xs:element name="Handpays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHandpays" msprop:Generator_ColumnPropNameInRow="Handpays" msprop:Generator_ColumnPropNameInTable="HandpaysColumn" msprop:Generator_UserColumnName="Handpays" type="xs:double" minOccurs="0" />
+              <xs:element name="Refills" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRefills" msprop:Generator_ColumnPropNameInRow="Refills" msprop:Generator_ColumnPropNameInTable="RefillsColumn" msprop:Generator_UserColumnName="Refills" type="xs:double" minOccurs="0" />
+              <xs:element name="Refunds" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRefunds" msprop:Generator_ColumnPropNameInRow="Refunds" msprop:Generator_ColumnPropNameInTable="RefundsColumn" msprop:Generator_UserColumnName="Refunds" type="xs:double" minOccurs="0" />
+              <xs:element name="Void" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVoid" msprop:Generator_ColumnPropNameInRow="Void" msprop:Generator_ColumnPropNameInTable="VoidColumn" msprop:Generator_UserColumnName="Void" type="xs:double" minOccurs="0" />
+              <xs:element name="Expired" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpired" msprop:Generator_ColumnPropNameInRow="Expired" msprop:Generator_ColumnPropNameInTable="ExpiredColumn" msprop:Generator_UserColumnName="Expired" type="xs:double" minOccurs="0" />
+              <xs:element name="Liability" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLiability" msprop:Generator_ColumnPropNameInRow="Liability" msprop:Generator_ColumnPropNameInTable="LiabilityColumn" msprop:Generator_UserColumnName="Liability" type="xs:double" minOccurs="0" />
+              <xs:element name="wl_cashtake" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnwl_cashtake" msprop:Generator_ColumnPropNameInRow="wl_cashtake" msprop:Generator_ColumnPropNameInTable="wl_cashtakeColumn" msprop:Generator_UserColumnName="wl_cashtake" type="xs:double" minOccurs="0" />
+              <xs:element name="wl_takevar" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnwl_takevar" msprop:Generator_ColumnPropNameInRow="wl_takevar" msprop:Generator_ColumnPropNameInTable="wl_takevarColumn" msprop:Generator_UserColumnName="wl_takevar" type="xs:double" minOccurs="0" />
+              <xs:element name="RDCCashIn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRDCCashIn" msprop:Generator_ColumnPropNameInRow="RDCCashIn" msprop:Generator_ColumnPropNameInTable="RDCCashInColumn" msprop:Generator_UserColumnName="RDCCashIn" type="xs:double" minOccurs="0" />
+              <xs:element name="RDCCashOut" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRDCCashOut" msprop:Generator_ColumnPropNameInRow="RDCCashOut" msprop:Generator_ColumnPropNameInTable="RDCCashOutColumn" msprop:Generator_UserColumnName="RDCCashOut" type="xs:double" minOccurs="0" />
+              <xs:element name="RDCCashTake" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRDCCashTake" msprop:Generator_ColumnPropNameInRow="RDCCashTake" msprop:Generator_ColumnPropNameInTable="RDCCashTakeColumn" msprop:Generator_UserColumnName="RDCCashTake" type="xs:double" minOccurs="0" />
+              <xs:element name="Progressive_Value_Declared" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnProgressive_Value_Declared" msprop:Generator_ColumnPropNameInRow="Progressive_Value_Declared" msprop:Generator_ColumnPropNameInTable="Progressive_Value_DeclaredColumn" msprop:Generator_UserColumnName="Progressive_Value_Declared" type="xs:double" minOccurs="0" />
+              <xs:element name="RouteName" msprop:Generator_ColumnVarNameInTable="columnRouteName" msprop:Generator_ColumnPropNameInRow="RouteName" msprop:Generator_ColumnPropNameInTable="RouteNameColumn" msprop:Generator_UserColumnName="RouteName" type="xs:string" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CashDeskMovement" msdata:CaseSensitive="False" msprop:Generator_UserTableName="CashDeskMovement" msprop:Generator_RowEvArgName="CashDeskMovementRowChangeEvent" msprop:Generator_TableVarName="tableCashDeskMovement" msprop:Generator_TablePropName="CashDeskMovement" msprop:Generator_RowDeletingName="CashDeskMovementRowDeleting" msprop:Generator_RowChangingName="CashDeskMovementRowChanging" msprop:Generator_RowDeletedName="CashDeskMovementRowDeleted" msprop:Generator_RowEvHandlerName="CashDeskMovementRowChangeEventHandler" msprop:Generator_TableClassName="CashDeskMovementDataTable" msprop:Generator_RowChangedName="CashDeskMovementRowChanged" msprop:Generator_RowClassName="CashDeskMovementRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="site_name" msprop:Generator_ColumnVarNameInTable="columnsite_name" msprop:Generator_ColumnPropNameInRow="site_name" msprop:Generator_ColumnPropNameInTable="site_nameColumn" msprop:Generator_UserColumnName="site_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zone_name" msprop:Generator_ColumnVarNameInTable="columnzone_name" msprop:Generator_ColumnPropNameInRow="zone_name" msprop:Generator_ColumnPropNameInTable="zone_nameColumn" msprop:Generator_UserColumnName="zone_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="posname" msprop:Generator_ColumnVarNameInTable="columnposname" msprop:Generator_ColumnPropNameInRow="posname" msprop:Generator_ColumnPropNameInTable="posnameColumn" msprop:Generator_UserColumnName="posname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="machine_type_code" msprop:Generator_ColumnVarNameInTable="columnmachine_type_code" msprop:Generator_ColumnPropNameInRow="machine_type_code" msprop:Generator_ColumnPropNameInTable="machine_type_codeColumn" msprop:Generator_UserColumnName="machine_type_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="machinename" msprop:Generator_ColumnVarNameInTable="columnmachinename" msprop:Generator_ColumnPropNameInRow="machinename" msprop:Generator_ColumnPropNameInTable="machinenameColumn" msprop:Generator_UserColumnName="machinename" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_no" msprop:Generator_ColumnVarNameInTable="columnstock_no" msprop:Generator_ColumnPropNameInRow="stock_no" msprop:Generator_ColumnPropNameInTable="stock_noColumn" msprop:Generator_UserColumnName="stock_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cash_collected_10000p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_10000p" msprop:Generator_ColumnPropNameInRow="cash_collected_10000p" msprop:Generator_ColumnPropNameInTable="cash_collected_10000pColumn" msprop:Generator_UserColumnName="cash_collected_10000p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_5000p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_5000p" msprop:Generator_ColumnPropNameInRow="cash_collected_5000p" msprop:Generator_ColumnPropNameInTable="cash_collected_5000pColumn" msprop:Generator_UserColumnName="cash_collected_5000p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_2000p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_2000p" msprop:Generator_ColumnPropNameInRow="cash_collected_2000p" msprop:Generator_ColumnPropNameInTable="cash_collected_2000pColumn" msprop:Generator_UserColumnName="cash_collected_2000p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_1000p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_1000p" msprop:Generator_ColumnPropNameInRow="cash_collected_1000p" msprop:Generator_ColumnPropNameInTable="cash_collected_1000pColumn" msprop:Generator_UserColumnName="cash_collected_1000p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_500p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_500p" msprop:Generator_ColumnPropNameInRow="cash_collected_500p" msprop:Generator_ColumnPropNameInTable="cash_collected_500pColumn" msprop:Generator_UserColumnName="cash_collected_500p" type="xs:double" minOccurs="0" />
+              <xs:element name="cash_collected_100p" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncash_collected_100p" msprop:Generator_ColumnPropNameInRow="cash_collected_100p" msprop:Generator_ColumnPropNameInTable="cash_collected_100pColumn" msprop:Generator_UserColumnName="cash_collected_100p" type="xs:double" minOccurs="0" />
+              <xs:element name="net_coin" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnnet_coin" msprop:Generator_ColumnPropNameInRow="net_coin" msprop:Generator_ColumnPropNameInTable="net_coinColumn" msprop:Generator_UserColumnName="net_coin" type="xs:double" minOccurs="0" />
+              <xs:element name="claimed_in_cashdesk" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnclaimed_in_cashdesk" msprop:Generator_ColumnPropNameInRow="claimed_in_cashdesk" msprop:Generator_ColumnPropNameInTable="claimed_in_cashdeskColumn" msprop:Generator_UserColumnName="claimed_in_cashdesk" type="xs:double" minOccurs="0" />
+              <xs:element name="claimed_in_cashdesk_qty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnclaimed_in_cashdesk_qty" msprop:Generator_ColumnPropNameInRow="claimed_in_cashdesk_qty" msprop:Generator_ColumnPropNameInTable="claimed_in_cashdesk_qtyColumn" msprop:Generator_UserColumnName="claimed_in_cashdesk_qty" type="xs:int" minOccurs="0" />
+              <xs:element name="printed_by_machine" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnprinted_by_machine" msprop:Generator_ColumnPropNameInRow="printed_by_machine" msprop:Generator_ColumnPropNameInTable="printed_by_machineColumn" msprop:Generator_UserColumnName="printed_by_machine" type="xs:double" minOccurs="0" />
+              <xs:element name="Claimed_by_machine" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnClaimed_by_machine" msprop:Generator_ColumnPropNameInRow="Claimed_by_machine" msprop:Generator_ColumnPropNameInTable="Claimed_by_machineColumn" msprop:Generator_UserColumnName="Claimed_by_machine" type="xs:double" minOccurs="0" />
+              <xs:element name="Shortpays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnShortpays" msprop:Generator_ColumnPropNameInRow="Shortpays" msprop:Generator_ColumnPropNameInTable="ShortpaysColumn" msprop:Generator_UserColumnName="Shortpays" type="xs:double" minOccurs="0" />
+              <xs:element name="Handpays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHandpays" msprop:Generator_ColumnPropNameInRow="Handpays" msprop:Generator_ColumnPropNameInTable="HandpaysColumn" msprop:Generator_UserColumnName="Handpays" type="xs:double" minOccurs="0" />
+              <xs:element name="Refills" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRefills" msprop:Generator_ColumnPropNameInRow="Refills" msprop:Generator_ColumnPropNameInTable="RefillsColumn" msprop:Generator_UserColumnName="Refills" type="xs:double" minOccurs="0" />
+              <xs:element name="Refunds" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRefunds" msprop:Generator_ColumnPropNameInRow="Refunds" msprop:Generator_ColumnPropNameInTable="RefundsColumn" msprop:Generator_UserColumnName="Refunds" type="xs:double" minOccurs="0" />
+              <xs:element name="Void" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVoid" msprop:Generator_ColumnPropNameInRow="Void" msprop:Generator_ColumnPropNameInTable="VoidColumn" msprop:Generator_UserColumnName="Void" type="xs:double" minOccurs="0" />
+              <xs:element name="Expired" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpired" msprop:Generator_ColumnPropNameInRow="Expired" msprop:Generator_ColumnPropNameInTable="ExpiredColumn" msprop:Generator_UserColumnName="Expired" type="xs:double" minOccurs="0" />
+              <xs:element name="Liability" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLiability" msprop:Generator_ColumnPropNameInRow="Liability" msprop:Generator_ColumnPropNameInTable="LiabilityColumn" msprop:Generator_UserColumnName="Liability" type="xs:double" minOccurs="0" />
+              <xs:element name="Progressive_Value_Declared" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnProgressive_Value_Declared" msprop:Generator_ColumnPropNameInRow="Progressive_Value_Declared" msprop:Generator_ColumnPropNameInTable="Progressive_Value_DeclaredColumn" msprop:Generator_UserColumnName="Progressive_Value_Declared" type="xs:double" minOccurs="0" />
+              <xs:element name="Void_Voucher_Amount" msprop:Generator_ColumnVarNameInTable="columnVoid_Voucher_Amount" msprop:Generator_ColumnPropNameInRow="Void_Voucher_Amount" msprop:Generator_ColumnPropNameInTable="Void_Voucher_AmountColumn" msprop:Generator_UserColumnName="Void_Voucher_Amount" type="xs:double" minOccurs="0" />
+              <xs:element name="RouteName" msprop:Generator_ColumnVarNameInTable="columnRouteName" msprop:Generator_ColumnPropNameInRow="RouteName" msprop:Generator_ColumnPropNameInTable="RouteNameColumn" msprop:Generator_UserColumnName="RouteName" type="xs:string" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tickets" msprop:Generator_UserTableName="Tickets" msprop:Generator_RowEvArgName="TicketsRowChangeEvent" msprop:Generator_TableVarName="tableTickets" msprop:Generator_TablePropName="Tickets" msprop:Generator_RowDeletingName="TicketsRowDeleting" msprop:Generator_RowChangingName="TicketsRowChanging" msprop:Generator_RowDeletedName="TicketsRowDeleted" msprop:Generator_RowEvHandlerName="TicketsRowChangeEventHandler" msprop:Generator_TableClassName="TicketsDataTable" msprop:Generator_RowChangedName="TicketsRowChanged" msprop:Generator_RowClassName="TicketsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SEGM" msprop:Generator_ColumnVarNameInTable="columnSEGM" msprop:Generator_ColumnPropNameInRow="SEGM" msprop:Generator_ColumnPropNameInTable="SEGMColumn" msprop:Generator_UserColumnName="SEGM" type="xs:string" minOccurs="0" />
+              <xs:element name="Machine" msprop:Generator_ColumnVarNameInTable="columnMachine" msprop:Generator_ColumnPropNameInRow="Machine" msprop:Generator_ColumnPropNameInTable="MachineColumn" msprop:Generator_UserColumnName="Machine" type="xs:string" minOccurs="0" />
+              <xs:element name="CurrentCashDesk" msprop:Generator_ColumnVarNameInTable="columnCurrentCashDesk" msprop:Generator_ColumnPropNameInRow="CurrentCashDesk" msprop:Generator_ColumnPropNameInTable="CurrentCashDeskColumn" msprop:Generator_UserColumnName="CurrentCashDesk" type="xs:double" minOccurs="0" />
+              <xs:element name="CashDeskClaimedQty" msprop:Generator_ColumnVarNameInTable="columnCashDeskClaimedQty" msprop:Generator_ColumnPropNameInRow="CashDeskClaimedQty" msprop:Generator_ColumnPropNameInTable="CashDeskClaimedQtyColumn" msprop:Generator_UserColumnName="CashDeskClaimedQty" type="xs:int" minOccurs="0" />
+              <xs:element name="CashDeskPrintedQty" msprop:Generator_ColumnVarNameInTable="columnCashDeskPrintedQty" msprop:Generator_ColumnPropNameInRow="CashDeskPrintedQty" msprop:Generator_ColumnPropNameInTable="CashDeskPrintedQtyColumn" msprop:Generator_UserColumnName="CashDeskPrintedQty" type="xs:int" minOccurs="0" />
+              <xs:element name="Reference" msprop:Generator_ColumnVarNameInTable="columnReference" msprop:Generator_ColumnPropNameInRow="Reference" msprop:Generator_ColumnPropNameInTable="ReferenceColumn" msprop:Generator_UserColumnName="Reference" type="xs:string" minOccurs="0" />
+              <xs:element name="Details" msprop:Generator_ColumnVarNameInTable="columnDetails" msprop:Generator_ColumnPropNameInRow="Details" msprop:Generator_ColumnPropNameInTable="DetailsColumn" msprop:Generator_UserColumnName="Details" type="xs:string" minOccurs="0" />
+              <xs:element name="currEGM" msprop:Generator_ColumnVarNameInTable="columncurrEGM" msprop:Generator_ColumnPropNameInRow="currEGM" msprop:Generator_ColumnPropNameInTable="currEGMColumn" msprop:Generator_UserColumnName="currEGM" type="xs:double" minOccurs="0" />
+              <xs:element name="MachineClaimedQty" msprop:Generator_ColumnVarNameInTable="columnMachineClaimedQty" msprop:Generator_ColumnPropNameInRow="MachineClaimedQty" msprop:Generator_ColumnPropNameInTable="MachineClaimedQtyColumn" msprop:Generator_UserColumnName="MachineClaimedQty" type="xs:int" minOccurs="0" />
+              <xs:element name="MachinePrintedQty" msprop:Generator_ColumnVarNameInTable="columnMachinePrintedQty" msprop:Generator_ColumnPropNameInRow="MachinePrintedQty" msprop:Generator_ColumnPropNameInTable="MachinePrintedQtyColumn" msprop:Generator_UserColumnName="MachinePrintedQty" type="xs:int" minOccurs="0" />
+              <xs:element name="currValue" msprop:Generator_ColumnVarNameInTable="columncurrValue" msprop:Generator_ColumnPropNameInRow="currValue" msprop:Generator_ColumnPropNameInTable="currValueColumn" msprop:Generator_UserColumnName="currValue" type="xs:double" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Position" msprop:Generator_ColumnVarNameInTable="columnPosition" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_ColumnPropNameInTable="PositionColumn" msprop:Generator_UserColumnName="Position" type="xs:string" minOccurs="0" />
+              <xs:element name="Reason" msprop:Generator_ColumnVarNameInTable="columnReason" msprop:Generator_ColumnPropNameInRow="Reason" msprop:Generator_ColumnPropNameInTable="ReasonColumn" msprop:Generator_UserColumnName="Reason" type="xs:string" minOccurs="0" />
+              <xs:element name="ReasonCode" msprop:Generator_ColumnVarNameInTable="columnReasonCode" msprop:Generator_ColumnPropNameInRow="ReasonCode" msprop:Generator_ColumnPropNameInTable="ReasonCodeColumn" msprop:Generator_UserColumnName="ReasonCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TransactionType" msprop:Generator_ColumnVarNameInTable="columnTransactionType" msprop:Generator_ColumnPropNameInRow="TransactionType" msprop:Generator_ColumnPropNameInTable="TransactionTypeColumn" msprop:Generator_UserColumnName="TransactionType" type="xs:string" minOccurs="0" />
+              <xs:element name="Zone" msprop:Generator_ColumnVarNameInTable="columnZone" msprop:Generator_ColumnPropNameInRow="Zone" msprop:Generator_ColumnPropNameInTable="ZoneColumn" msprop:Generator_UserColumnName="Zone" type="xs:string" minOccurs="0" />
+              <xs:element name="PrintDate" msprop:Generator_ColumnVarNameInTable="columnPrintDate" msprop:Generator_ColumnPropNameInRow="PrintDate" msprop:Generator_ColumnPropNameInTable="PrintDateColumn" msprop:Generator_UserColumnName="PrintDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PayDate" msprop:Generator_ColumnVarNameInTable="columnPayDate" msprop:Generator_ColumnPropNameInRow="PayDate" msprop:Generator_ColumnPropNameInTable="PayDateColumn" msprop:Generator_UserColumnName="PayDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ClaimedTerminal" msprop:Generator_ColumnVarNameInTable="columnClaimedTerminal" msprop:Generator_ColumnPropNameInRow="ClaimedTerminal" msprop:Generator_ColumnPropNameInTable="ClaimedTerminalColumn" msprop:Generator_UserColumnName="ClaimedTerminal" type="xs:string" minOccurs="0" />
+              <xs:element name="Ticket" msprop:Generator_ColumnVarNameInTable="columnTicket" msprop:Generator_ColumnPropNameInRow="Ticket" msprop:Generator_ColumnPropNameInTable="TicketColumn" msprop:Generator_UserColumnName="Ticket" type="xs:string" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnPropNameInTable="ValueColumn" msprop:Generator_UserColumnName="Value" type="xs:double" minOccurs="0" />
+              <xs:element name="Asset" msprop:Generator_ColumnVarNameInTable="columnAsset" msprop:Generator_ColumnPropNameInRow="Asset" msprop:Generator_ColumnPropNameInTable="AssetColumn" msprop:Generator_UserColumnName="Asset" type="xs:string" minOccurs="0" />
+              <xs:element name="PayDevice" msprop:Generator_ColumnVarNameInTable="columnPayDevice" msprop:Generator_ColumnPropNameInRow="PayDevice" msprop:Generator_ColumnPropNameInTable="PayDeviceColumn" msprop:Generator_UserColumnName="PayDevice" type="xs:string" minOccurs="0" />
+              <xs:element name="COLINSTALLID" msprop:Generator_ColumnVarNameInTable="columnCOLINSTALLID" msprop:Generator_ColumnPropNameInRow="COLINSTALLID" msprop:Generator_ColumnPropNameInTable="COLINSTALLIDColumn" msprop:Generator_UserColumnName="COLINSTALLID" type="xs:int" minOccurs="0" />
+              <xs:element name="CreateCompleted" msdata:Caption="Amount" msprop:Generator_ColumnVarNameInTable="columnCreateCompleted" msprop:Generator_ColumnPropNameInRow="CreateCompleted" msprop:Generator_ColumnPropNameInTable="CreateCompletedColumn" msprop:Generator_UserColumnName="CreateCompleted" type="xs:string" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:string" minOccurs="0" />
+              <xs:element name="cTicketTotal" msprop:Generator_ColumnVarNameInTable="columncTicketTotal" msprop:Generator_ColumnPropNameInRow="cTicketTotal" msprop:Generator_ColumnPropNameInTable="cTicketTotalColumn" msprop:Generator_UserColumnName="cTicketTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="cExceptionsTotal" msprop:Generator_ColumnVarNameInTable="columncExceptionsTotal" msprop:Generator_ColumnPropNameInRow="cExceptionsTotal" msprop:Generator_ColumnPropNameInTable="cExceptionsTotalColumn" msprop:Generator_UserColumnName="cExceptionsTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="bExceptionRecordFound" msprop:Generator_ColumnVarNameInTable="columnbExceptionRecordFound" msprop:Generator_ColumnPropNameInRow="bExceptionRecordFound" msprop:Generator_ColumnPropNameInTable="bExceptionRecordFoundColumn" msprop:Generator_UserColumnName="bExceptionRecordFound" type="xs:boolean" minOccurs="0" />
+              <xs:element name="VoucherStatus" msprop:Generator_ColumnVarNameInTable="columnVoucherStatus" msprop:Generator_ColumnPropNameInRow="VoucherStatus" msprop:Generator_ColumnPropNameInTable="VoucherStatusColumn" msprop:Generator_UserColumnName="VoucherStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="TicketAddedtoList" msprop:Generator_ColumnVarNameInTable="columnTicketAddedtoList" msprop:Generator_ColumnPropNameInRow="TicketAddedtoList" msprop:Generator_ColumnPropNameInTable="TicketAddedtoListColumn" msprop:Generator_UserColumnName="TicketAddedtoList" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="TreasuryDate" msprop:Generator_ColumnVarNameInTable="columnTreasuryDate" msprop:Generator_ColumnPropNameInRow="TreasuryDate" msprop:Generator_ColumnPropNameInTable="TreasuryDateColumn" msprop:Generator_UserColumnName="TreasuryDate" type="xs:string" minOccurs="0" />
+              <xs:element name="TreasuryDateTime" msprop:Generator_ColumnVarNameInTable="columnTreasuryDateTime" msprop:Generator_ColumnPropNameInRow="TreasuryDateTime" msprop:Generator_ColumnPropNameInTable="TreasuryDateTimeColumn" msprop:Generator_UserColumnName="TreasuryDateTime" type="xs:string" minOccurs="0" />
+              <xs:element name="TreasuryTime" msprop:Generator_ColumnVarNameInTable="columnTreasuryTime" msprop:Generator_ColumnPropNameInRow="TreasuryTime" msprop:Generator_ColumnPropNameInTable="TreasuryTimeColumn" msprop:Generator_UserColumnName="TreasuryTime" type="xs:string" minOccurs="0" />
+              <xs:element name="TreasuryType" msprop:Generator_ColumnVarNameInTable="columnTreasuryType" msprop:Generator_ColumnPropNameInRow="TreasuryType" msprop:Generator_ColumnPropNameInTable="TreasuryTypeColumn" msprop:Generator_UserColumnName="TreasuryType" type="xs:string" minOccurs="0" />
+              <xs:element name="TreasuryAmount" msprop:Generator_ColumnVarNameInTable="columnTreasuryAmount" msprop:Generator_ColumnPropNameInRow="TreasuryAmount" msprop:Generator_ColumnPropNameInTable="TreasuryAmountColumn" msprop:Generator_UserColumnName="TreasuryAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="ZoneName" msprop:Generator_ColumnVarNameInTable="columnZoneName" msprop:Generator_ColumnPropNameInRow="ZoneName" msprop:Generator_ColumnPropNameInTable="ZoneNameColumn" msprop:Generator_UserColumnName="ZoneName" type="xs:string" minOccurs="0" />
+              <xs:element name="MachineName" msprop:Generator_ColumnVarNameInTable="columnMachineName" msprop:Generator_ColumnPropNameInRow="MachineName" msprop:Generator_ColumnPropNameInTable="MachineNameColumn" msprop:Generator_UserColumnName="MachineName" type="xs:string" minOccurs="0" />
+              <xs:element name="PositionName" msprop:Generator_ColumnVarNameInTable="columnPositionName" msprop:Generator_ColumnPropNameInRow="PositionName" msprop:Generator_ColumnPropNameInTable="PositionNameColumn" msprop:Generator_UserColumnName="PositionName" type="xs:string" minOccurs="0" />
+              <xs:element name="HandpayQty" msprop:Generator_ColumnVarNameInTable="columnHandpayQty" msprop:Generator_ColumnPropNameInRow="HandpayQty" msprop:Generator_ColumnPropNameInTable="HandpayQtyColumn" msprop:Generator_UserColumnName="HandpayQty" type="xs:int" minOccurs="0" />
+              <xs:element name="JackPotQty" msprop:Generator_ColumnVarNameInTable="columnJackPotQty" msprop:Generator_ColumnPropNameInRow="JackPotQty" msprop:Generator_ColumnPropNameInTable="JackPotQtyColumn" msprop:Generator_UserColumnName="JackPotQty" type="xs:int" minOccurs="0" />
+              <xs:element name="ProgQty" msprop:Generator_ColumnVarNameInTable="columnProgQty" msprop:Generator_ColumnPropNameInRow="ProgQty" msprop:Generator_ColumnPropNameInTable="ProgQtyColumn" msprop:Generator_UserColumnName="ProgQty" type="xs:int" minOccurs="0" />
+              <xs:element name="RefundQty" msprop:Generator_ColumnVarNameInTable="columnRefundQty" msprop:Generator_ColumnPropNameInRow="RefundQty" msprop:Generator_ColumnPropNameInTable="RefundQtyColumn" msprop:Generator_UserColumnName="RefundQty" type="xs:int" minOccurs="0" />
+              <xs:element name="RefillQty" msprop:Generator_ColumnVarNameInTable="columnRefillQty" msprop:Generator_ColumnPropNameInRow="RefillQty" msprop:Generator_ColumnPropNameInTable="RefillQtyColumn" msprop:Generator_UserColumnName="RefillQty" type="xs:int" minOccurs="0" />
+              <xs:element name="ShortQty" msprop:Generator_ColumnVarNameInTable="columnShortQty" msprop:Generator_ColumnPropNameInRow="ShortQty" msprop:Generator_ColumnPropNameInTable="ShortQtyColumn" msprop:Generator_UserColumnName="ShortQty" type="xs:int" minOccurs="0" />
+              <xs:element name="FloatQty" msprop:Generator_ColumnVarNameInTable="columnFloatQty" msprop:Generator_ColumnPropNameInRow="FloatQty" msprop:Generator_ColumnPropNameInTable="FloatQtyColumn" msprop:Generator_UserColumnName="FloatQty" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

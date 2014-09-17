@@ -1,0 +1,11 @@
+<publishData>
+  <publishTarget publishUrl="C:\Baly\">
+    <file relUrl="bin/BMC.Common.dll" publishTime="03/28/2013 01:51:58" />
+    <file relUrl="bin/BMC.DataAccess.dll" publishTime="03/28/2013 01:51:58" />
+    <file relUrl="bin/BMC.EnterpriseWebService.pdb" publishTime="03/28/2013 01:51:58" />
+    <file relUrl="bin/BMC.EnterpriseWebService.dll" publishTime="03/28/2013 01:51:59" />
+    <file relUrl="EnterpriseWebService.asmx" publishTime="03/23/2013 00:28:02" />
+    <file relUrl="bin/BMC.DataAccess.pdb" publishTime="03/28/2013 01:51:58" />
+    <file relUrl="Web.config" publishTime="03/23/2013 00:30:48" />
+  </publishTarget>
+</publishData>

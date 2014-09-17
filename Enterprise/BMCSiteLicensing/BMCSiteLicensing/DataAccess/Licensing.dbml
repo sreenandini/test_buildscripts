@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Enterprise" Class="LicensingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Enterprise;User ID=sa" SettingsObjectName="BMC.SiteLicensing.Properties.Settings" SettingsPropertyName="EnterpriseConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SL_KeyStatus" Member="SL_KeyStatus">
+    <Type Name="SL_KeyStatus">
+      <Column Name="KeyStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KeyText" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SL_KeyStatus_SL_LicenseInfo" Member="SL_LicenseInfos" ThisKey="KeyStatusID" OtherKey="KeyStatusID" Type="SL_LicenseInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Site" Member="Sites">
+    <Type Name="Site">
+      <Column Name="Site_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Site_Reference" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sub_Company_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_ID_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Access_Key_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Access_Key_ID_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Terms_Group_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Terms_Group_ID_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Computer_Build_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Standard_Opening_Hours_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Secondary_Sub_Company_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_London_Rent" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_Supplier_Area" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Supplier_Service_Area" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Grade" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Site_Permit_Needed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Supplier_Code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Address" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Site_Postcode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_Phone_No" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_Fax_No" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_Email_Address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Site_Manager" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Computer_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Open_Monday" Type="System.String" DbType="VarChar(96)" CanBeNull="true" />
+      <Column Name="Site_Open_Tuesday" Type="System.String" DbType="VarChar(96)" CanBeNull="true" />
+      <Column Name="Site_Open_Wednesday" Type="System.String" DbType="VarChar(96)" CanBeNull="true" />
+      <Column Name="Site_Open_Thursday" Type="System.String" DbType="VarChar(96)" CanBeNull="true" />
+      <Column Name="Site_Open_Friday" Type="System.String" DbType="VarChar(96)" CanBeNull="true" />
+      <Column Name="Site_Open_Saturday" Type="System.String" DbType="VarChar(96)" CanBeNull="true" />
+      <Column Name="Site_Open_Sunday" Type="System.String" DbType="VarChar(96)" CanBeNull="true" />
+      <Column Name="Site_Invoice_Address" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Site_Invoice_Postcode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_Invoice_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Dial_Up_Number" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Domain" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Local_Inbox" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Site_Local_Outbox" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Site_Remote_Inbox" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Site_Remote_Outbox" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Site_FTPServerAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Site_ConnType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Price_Per_Play" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Price_Per_Play_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_Jackpot" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Jackpot_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_Percentage_Payout" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Percentage_Payout_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_Start_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Site_End_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Sage_Account_Ref" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Memo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Site_Company_Code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Previous_Sub_Company_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Licensee_Commenced_Date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Site_Licensee_Agreement_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Depot_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Service_Depot_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_VAT_Exempt_Flag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_Company_Target" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Site_Company_Barrellage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Image_Reference" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Site_Image_Reference_2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Site_Trade_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sub_Company_Region_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sub_Company_Area_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sub_Company_District_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Address_1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Address_2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Address_3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Address_4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Address_5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_TX_Collection" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_TX_Collection_Use_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_TX_Movement" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_TX_Movement_Use_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_TX_EDC" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_TX_EDC_Use_Detault" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_TX_Format" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_TX_Format_Use_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_RX_Collection" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_RX_Collection_Use_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_RX_Movement" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_RX_Movement_Use_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_RX_EDC" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_RX_EDC_Use_Detault" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_RX_Format" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_RX_Format_Use_Default" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NT_Phone_Book_Entry" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Next_Secondary_Sub_Company_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Secondary_Sub_Company_Changeover" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Site_GPS_Location" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Stop_Importing_EDI_On" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Site_Non_Trading_Period_From" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Site_Non_Trading_Period_To" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Service_Area_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Service_Supplier_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Next_Sub_Company_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Next_Sub_Company_Change_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Previous_Sub_Company_Change_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Previous_Secondary_Sub_Company_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Previous_Secondary_Sub_Company_Change_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Site_Honeyframe_EDI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Datapak_Protocol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Is_FreeFloat" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_Classification_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Site_Licensee_Agreement_End_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Site_Licence_Number" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Site_Application" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="WebURL" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="ConnectionString" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Site_Status" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Last_Updated_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Apply_Retailer_Share" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Site_Status_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Inactive_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NGA_Machine_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Setting_Profile_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SiteStatus" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="ExchangeKey" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Site_Fiscal_Code" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="Site_Street_Number" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_Province" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_Municipality" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Site_Cadastral_Code" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_Area" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Location_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Closed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Workstation" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Site_Toponym" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Closed_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="AFT_Settings_Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Site_Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Site_Region_Code" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="Site_Connection_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_MaxNumber_VLT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Connection_IPAddress" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Site_AAMS_Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Site_Modified_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Site_Termination_Status" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Site_ZonaRice" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IsTITOEnabled" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsNonCashVoucherEnabled" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Site_SL_LicenseInfo" Member="SL_LicenseInfos" ThisKey="Site_ID" OtherKey="Site_ID" Type="SL_LicenseInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="Staff_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Operator_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Computer_Build_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="User_Group_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_First_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Last_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Title" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Staff_Address" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Staff_Postcode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Staff_Phone_No" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Staff_Extension_No" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Staff_Mobile_No" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Staff_Job_Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Department" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_IsACollector" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Staff_IsAnEngineer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Staff_IsARepresentative" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Staff_IsAStockController" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Staff_Start_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Staff_End_Date" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Staff_Modem_Phone_No" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Staff_Remote_Inbox" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Staff_Remote_Outbox" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Staff_Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_1_Back_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_1_Front_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_1_Back_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_1_Front_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_2_Back_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_2_Front_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_2_Back_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_2_Front_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_3_Back_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_3_Front_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_3_Back_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_3_Front_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_4_Back_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_4_Front_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_4_Back_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_4_Front_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_5_Back_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_5_Front_Neg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_5_Back_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Analysis_D_R_5_Front_Pos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Tree_Checked_Back" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Tree_Checked_Front" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Tree_UnChecked_Back" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Tree_UnChecked_Front" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Tree_Mixed_Back" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Tree_Mixed_Front" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_MAN_Number" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Depot_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_GPS_Location" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Service_Area_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Supplier_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_Personel_No" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Staff_Terminated" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Staff_Collector_Current_Version" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Collector_Uploaded_Version" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Engineer_Current_Version" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Engineer_Uploaded_Version" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Staff_Notes" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Staff_Last_Comms_Test_Sent" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Staff_Last_Comms_Test_Received" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email_Address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="UserTableID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Staff_SL_Rule" Member="SL_Rules" ThisKey="Staff_ID" OtherKey="CreatedStaffID" Type="SL_Rule" />
+      <Association Name="Staff_SL_Rule1" Member="SL_Rules1" ThisKey="Staff_ID" OtherKey="ModifiedStaffID" Type="SL_Rule" />
+      <Association Name="Staff_SL_LicenseInfo" Member="SL_LicenseInfos" ThisKey="Staff_ID" OtherKey="ActivatedStaffID" Type="SL_LicenseInfo" />
+      <Association Name="Staff_SL_LicenseInfo1" Member="SL_LicenseInfos1" ThisKey="Staff_ID" OtherKey="CancelledStaffID" Type="SL_LicenseInfo" />
+      <Association Name="Staff_SL_LicenseInfo2" Member="SL_LicenseInfos2" ThisKey="Staff_ID" OtherKey="CreatedStaffID" Type="SL_LicenseInfo" />
+      <Association Name="Staff_SL_LicenseInfo3" Member="SL_LicenseInfos3" ThisKey="Staff_ID" OtherKey="ModifiedStaffID" Type="SL_LicenseInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SL_Rules" Member="SL_Rules">
+    <Type Name="SL_Rule">
+      <Column Name="RuleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RuleName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ValidationRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockSite" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DisableGames" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="WarningOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AlertRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedStaffID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedStaffID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="SL_Rule_SL_LicenseInfo" Member="SL_LicenseInfos" ThisKey="RuleID" OtherKey="RuleID" Type="SL_LicenseInfo" />
+      <Association Name="Staff_SL_Rule" Member="Staff" ThisKey="CreatedStaffID" OtherKey="Staff_ID" Type="Staff" IsForeignKey="true" />
+      <Association Name="Staff_SL_Rule1" Member="Staff1" ThisKey="ModifiedStaffID" OtherKey="Staff_ID" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SL_LicenseInfo" Member="SL_LicenseInfos">
+    <Type Name="SL_LicenseInfo">
+      <Column Name="LicenseInfoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExpireDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Site_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LicenseKey" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AlertBeforeDays" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="KeyStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedStaffID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedStaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActivatedDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CancelledDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActivatedStaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CancelledStaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Staff_SL_LicenseInfo" Member="Staff" ThisKey="ActivatedStaffID" OtherKey="Staff_ID" Type="Staff" IsForeignKey="true" />
+      <Association Name="Staff_SL_LicenseInfo1" Member="Staff1" ThisKey="CancelledStaffID" OtherKey="Staff_ID" Type="Staff" IsForeignKey="true" />
+      <Association Name="Staff_SL_LicenseInfo2" Member="Staff2" ThisKey="CreatedStaffID" OtherKey="Staff_ID" Type="Staff" IsForeignKey="true" />
+      <Association Name="Staff_SL_LicenseInfo3" Member="Staff3" ThisKey="ModifiedStaffID" OtherKey="Staff_ID" Type="Staff" IsForeignKey="true" />
+      <Association Name="Site_SL_LicenseInfo" Member="Site" ThisKey="Site_ID" OtherKey="Site_ID" Type="Site" IsForeignKey="true" />
+      <Association Name="SL_KeyStatus_SL_LicenseInfo" Member="SL_KeyStatus" ThisKey="KeyStatusID" OtherKey="KeyStatusID" Type="SL_KeyStatus" IsForeignKey="true" />
+      <Association Name="SL_Rule_SL_LicenseInfo" Member="SL_Rule" ThisKey="RuleID" OtherKey="RuleID" Type="SL_Rule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.rsp_GetCompanyDetails" Method="rsp_GetCompanyDetails">
+    <ElementType Name="rsp_GetCompanyDetailsResult">
+      <Column Name="Company_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Company_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_GetSiteLicensingRights" Method="rsp_GetSiteLicensingRights">
+    <Parameter Name="StaffID" Parameter="staffID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_GetSiteLicensingRightsResult">
+      <Column Name="HQ_Admin_SiteLicensing" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HQ_Admin_SiteLicensing_LicenseGen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HQ_Admin_SiteLicensing_LicenseGen_RuleInfo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HQ_Admin_SiteLicensing_LicenseGen_RuleInfo_AddorEditRule" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HQ_Admin_SiteLicensing_LicenseGen_KeyGen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HQ_Admin_SiteLicensing_ViewCancelLicense" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HQ_Admin_SiteLicensing_LicenseHistory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_GetSubCompanyDetails" Method="rsp_GetSubCompanyDetails">
+    <Parameter Name="company" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_GetSubCompanyDetailsResult">
+      <Column Name="Sub_Company_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sub_Company_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_SL_GetKeyStatus" Method="rsp_SL_GetKeyStatus">
+    <ElementType Name="rsp_SL_GetKeyStatusResult">
+      <Column Name="KeyStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeyText" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_SL_GetRuleDetails" Method="rsp_SL_GetRuleDetails">
+    <ElementType Name="rsp_SL_GetRuleDetailsResult">
+      <Column Name="RuleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RuleName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_SL_ValidateLicenseDates" Method="rsp_SL_ValidateLicenseDates">
+    <Parameter Name="SiteID" Parameter="siteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewStartDate" Parameter="newStartDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="NewExpiryDate" Parameter="newExpiryDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SL_InsertLicenseDetails" Method="usp_SL_InsertLicenseDetails">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ExpireDate" Parameter="expireDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="RuleID" Parameter="ruleID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SiteID" Parameter="siteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LicenseKey" Parameter="licenseKey" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AlertBeforeDays" Parameter="alertBeforeDays" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="KeyStatusID" Parameter="keyStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StaffID" Parameter="staffID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SL_InsertorUpdateRule" Method="usp_SL_InsertorUpdateRule">
+    <Parameter Name="RuleName" Parameter="ruleName" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="ValidationRequired" Parameter="validationRequired" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LockSite" Parameter="lockSite" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DisableGames" Parameter="disableGames" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="WarningOnly" Parameter="warningOnly" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="AlertRequired" Parameter="alertRequired" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="StaffID" Parameter="staffID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SL_UpdateLicenseStatus" Method="usp_SL_UpdateLicenseStatus">
+    <Parameter Name="LicenseInfoId" Parameter="licenseInfoId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StatusKey" Parameter="statusKey" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.rsp_SL_GetLicenseDetails" Method="rsp_SL_GetLicenseDetails">
+    <Parameter Name="SiteID" Parameter="siteID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_SL_GetLicenseDetailsResult">
+      <Column Name="LicenseInfoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SiteName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SiteCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Licensekey" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KeyStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeyText" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ValidationRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockSite" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DisableGames" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="WarningOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AlertRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AlertBefore" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="GeneratedBy" Type="System.String" DbType="VarChar(102)" CanBeNull="true" />
+      <Column Name="GeneratedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActivatedBy" Type="System.String" DbType="VarChar(102)" CanBeNull="true" />
+      <Column Name="ActivatedDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CancelledBy" Type="System.String" DbType="VarChar(102)" CanBeNull="true" />
+      <Column Name="CancelledDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_GetSystemSettings" Method="GetSystemSettings">
+    <ElementType Name="rsp_GetSystemSettingsResult">
+      <Column Name="BarPosition" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Site" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SubCompany" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Zone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AutoGenerateModelCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ModelCodePrefix" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ModelCodeMinLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AutoGenerateStockCode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StockCodePrefix" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StockCodeMinLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllowStockBulkPurchase" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ForceSiteRepsOnStock" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ServiceHandheld" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ServerName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Machine_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Machine_Class_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Machine_Type_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegionCulture" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsSiteLicensingEnabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImportExport_AssetFile" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsPowerPromoReportsRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CentralizedDeclaration" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsEmployeecardTrackingEnabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowOfflineDeclaration" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AddShortpayInVoucherOut" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SystemSettingsDisplayTabVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SystemSettingsServiceTabVisible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ValidateAGSForGMU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_SL_GetSites" Method="GetSitesByCompanyID">
+    <Parameter Name="company_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="subcompany_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_SL_GetSitesResult">
+      <Column Name="Site_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_GetSiteInfo" Method="rsp_GetSiteInfo">
+    <Parameter Name="SubCompanyId" Parameter="subCompanyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_GetSiteInfoResult">
+      <Column Name="Site_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_SL_GetLicenseHistoryDetails" Method="GetLicenseHistoryDetails">
+    <Parameter Name="CompanyId" Parameter="companyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubCompanyId" Parameter="subCompanyId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SiteId" Parameter="siteId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FromStartDate" Parameter="fromStartDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ToStartDate" Parameter="toStartDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="FromExpiryDate" Parameter="fromExpiryDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ToExpiryDate" Parameter="toExpiryDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="KeyStatusId" Parameter="keyStatusId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ValidationReq" Parameter="validationReq" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LockSite" Parameter="lockSite" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DisableEGM" Parameter="disableEGM" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="WarningOnly" Parameter="warningOnly" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="AlertRequired" Parameter="alertRequired" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_SL_GetLicenseHistoryDetailsResult">
+      <Column Name="CompanyName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SubCompanyName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SiteName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SiteCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LicenseInfoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LicenseKey" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExpireDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KeyText" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RuleName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ValidationRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockSite" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DisableGames" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="WarningOnly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AlertRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AlertBefore" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="GeneratedBy" Type="System.String" DbType="VarChar(102)" CanBeNull="true" />
+      <Column Name="GeneratedDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActivatedBy" Type="System.String" DbType="VarChar(102)" CanBeNull="true" />
+      <Column Name="ActivatedDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CancelledBy" Type="System.String" DbType="VarChar(102)" CanBeNull="true" />
+      <Column Name="CancelledDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_SL_GetAssociatedSites" Method="GetAssociatedSites">
+    <Parameter Name="ruleID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_SL_GetAssociatedSitesResult">
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_SL_GetSitesWithLicenseDetails" Method="rsp_SL_GetSitesWithLicenseDetails">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_SL_GetSitesWithLicenseDetailsResult">
+      <Column Name="Company_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Sub_Company_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Company_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sub_Company_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Site_Code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SiteStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

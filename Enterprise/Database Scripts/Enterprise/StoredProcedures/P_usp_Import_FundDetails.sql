@@ -1,0 +1,188 @@
+USE Enterprise
+GO
+
+IF EXISTS (
+       SELECT 1
+       FROM   dbo.sysobjects
+       WHERE  NAME = 'usp_Import_FundDetails'
+   )
+BEGIN
+	DROP PROCEDURE usp_Import_FundDetails
+END
+GO
+
+
+CREATE PROCEDURE usp_Import_FundDetails    
+	@doc VARCHAR(MAX),    
+	@IsSuccess INT OUTPUT    
+AS    
+BEGIN    
+  
+	DECLARE @idoc INT    
+	SET @IsSuccess = 0    
+
+	IF ISNULL(@doc,'') = ''    
+	RETURN 0    
+
+	SET @doc = '<?xml version="1.0" encoding="ISO-8859-1"?>' + @doc    
+
+	EXEC sp_xml_preparedocument @idoc OUTPUT, @doc    
+
+	DECLARE @HQ_Installation_No INT  
+	SELECT @HQ_Installation_No = HQ_Installation_No FROM OPENXML(@idoc, './/Fund/Fund_Details', 1) WITH    
+	(    
+		HQ_Installation_No int './HQ_Installation_No'  
+	)  
+
+	IF NOT EXISTS(SELECT Installation_No FROM tblFund WHERE Installation_No = @HQ_Installation_No)  
+	BEGIN  
+		INSERT INTO dbo.tblFund(Installation_No) Values (@HQ_Installation_No)   
+	END  
+
+	UPDATE F    
+	SET 
+		F.[Site_Code] = A.[Site_Code],
+		F.[CASH_IN_2P] = A.[CASH_IN_2P],
+		F.[CASH_IN_5P] = A.[CASH_IN_5P],
+		F.[CASH_IN_10P] = A.[CASH_IN_10P],
+		F.[CASH_IN_20P] = A.[CASH_IN_20P],
+		F.[CASH_IN_50P] = A.[CASH_IN_50P],
+		F.[CASH_IN_100P] = A.[CASH_IN_100P],
+		F.[CASH_IN_200P] = A.[CASH_IN_200P],
+		F.[CASH_IN_500P] = A.[CASH_IN_500P],
+		F.[CASH_IN_1000P] = A.[CASH_IN_1000P],
+		F.[CASH_IN_2000P] = A.[CASH_IN_2000P],
+		F.[CASH_IN_5000P] = A.[CASH_IN_5000P],
+		F.[CASH_IN_10000P] = A.[CASH_IN_10000P],
+		F.[CASH_IN_20000P] = A.[CASH_IN_20000P],
+		F.[CASH_IN_50000P] = A.[CASH_IN_50000P],
+		F.[CASH_IN_100000P] = A.[CASH_IN_100000P],
+		F.[CASH_OUT_2P] = A.[CASH_OUT_2P],
+		F.[CASH_OUT_5P] = A.[CASH_OUT_5P],
+		F.[CASH_OUT_10P] = A.[CASH_OUT_10P],
+		F.[CASH_OUT_20P] = A.[CASH_OUT_20P],
+		F.[CASH_OUT_50P] = A.[CASH_OUT_50P],
+		F.[CASH_OUT_100P] = A.[CASH_OUT_100P],
+		F.[CASH_OUT_200P] = A.[CASH_OUT_200P],
+		F.[CASH_OUT_500P] = A.[CASH_OUT_500P],
+		F.[CASH_OUT_1000P] = A.[CASH_OUT_1000P],
+		F.[CASH_OUT_2000P] = A.[CASH_OUT_2000P],
+		F.[CASH_OUT_5000P] = A.[CASH_OUT_5000P],
+		F.[CASH_OUT_10000P] = A.[CASH_OUT_10000P],
+		F.[CASH_OUT_20000P] = A.[CASH_OUT_20000P],
+		F.[CASH_OUT_50000P] = A.[CASH_OUT_50000P],
+		F.[CASH_OUT_100000P] = A.[CASH_OUT_100000P],
+		F.[FUND_RDC_VTP] = A.[FUND_RDC_VTP],
+		F.[FUND_RDC_COINS_IN] = A.[FUND_RDC_COINS_IN],
+		F.[FUND_RDC_COINS_OUT] = A.[FUND_RDC_COINS_OUT],
+		F.[FUND_RDC_COIN_DROP] = A.[FUND_RDC_COIN_DROP],
+		F.[FUND_RDC_HANDPAY] = A.[FUND_RDC_HANDPAY],
+		F.[FUND_RDC_EXTERNAL_CREDIT] = A.[FUND_RDC_EXTERNAL_CREDIT],
+		F.[FUND_RDC_GAMES_BET] = A.[FUND_RDC_GAMES_BET],
+		F.[FUND_RDC_GAMES_WON] = A.[FUND_RDC_GAMES_WON],
+		F.[FUND_RDC_NOTES] = A.[FUND_RDC_NOTES],
+		F.[FUND_RDC_CANCELLED_CREDITS] = A.[FUND_RDC_CANCELLED_CREDITS],
+		F.[FUND_RDC_GAMES_LOST] = A.[FUND_RDC_GAMES_LOST],
+		F.[FUND_RDC_GAMES_SINCE_POWER_UP] = A.[FUND_RDC_GAMES_SINCE_POWER_UP],
+		F.[FUND_RDC_TRUE_COIN_IN] = A.[FUND_RDC_TRUE_COIN_IN],
+		F.[FUND_RDC_TRUE_COIN_OUT] = A.[FUND_RDC_TRUE_COIN_OUT],
+		F.[FUND_RDC_CURRENT_CREDITS] = A.[FUND_RDC_CURRENT_CREDITS],
+		F.[Fund_Created_Date] = A.[Fund_Created_Date],
+		F.[Fund_LastModified_Date] = A.[Fund_LastModified_Date],
+		F.[FUND_RDC_JACKPOT] = A.[FUND_RDC_JACKPOT],
+		F.[FUND_RDC_TICKETS_INSERTED_VALUE] = A.[FUND_RDC_TICKETS_INSERTED_VALUE],
+		F.[FUND_RDC_TICKETS_PRINTED_VALUE] = A.[FUND_RDC_TICKETS_PRINTED_VALUE],
+		F.[Mystery_Machine_Paid] = A.[Mystery_Machine_Paid],
+		F.[Mystery_Attendant_Paid] = A.[Mystery_Attendant_Paid],
+		F.[RDC_TICKETS_INSERTED_NONCASHABLE_VALUE] = A.[RDC_TICKETS_INSERTED_NONCASHABLE_VALUE],
+		F.[RDC_TICKETS_PRINTED_NONCASHABLE_VALUE] = A.[RDC_TICKETS_PRINTED_NONCASHABLE_VALUE],
+		F.[Promo_Cashable_EFT_IN] = A.[Promo_Cashable_EFT_IN],
+		F.[Promo_Cashable_EFT_OUT] = A.[Promo_Cashable_EFT_OUT],
+		F.[NonCashable_EFT_IN] = A.[NonCashable_EFT_IN],
+		F.[NonCashable_EFT_OUT] = A.[NonCashable_EFT_OUT],
+		F.[Cashable_EFT_IN] = A.[Cashable_EFT_IN],
+		F.[Cashable_EFT_OUT] = A.[Cashable_EFT_OUT],
+		F.[TICKETS_INSERTED_QTY] = A.[TICKETS_INSERTED_QTY],
+		F.[TICKETS_INSERTED_NONCASHABLE_QTY] = A.[TICKETS_INSERTED_NONCASHABLE_QTY],
+		F.[CASH_IN_1P] = A.[CASH_IN_1P],
+		F.[CASH_OUT_1P] = A.[CASH_OUT_1P],
+		F.[Last_Drop_Date] = A.[Last_Drop_Date]
+	FROM tblFund F INNER JOIN OPENXML(@idoc, './/Fund/Fund_Details', 2) WITH    
+	(
+	  [Site_Code] VARCHAR(50) './Site_Code',
+      [CASH_IN_2P] INT './CASH_IN_2P',
+      [CASH_IN_5P] INT './CASH_IN_5P',
+      [CASH_IN_10P] INT './CASH_IN_10P',
+      [CASH_IN_20P] INT './CASH_IN_20P',
+      [CASH_IN_50P] INT './CASH_IN_50P',
+      [CASH_IN_100P] INT './CASH_IN_100P',
+      [CASH_IN_200P] INT './CASH_IN_200P',
+      [CASH_IN_500P] INT './CASH_IN_500P',
+      [CASH_IN_1000P] INT './CASH_IN_1000P',
+      [CASH_IN_2000P] INT './CASH_IN_2000P',
+      [CASH_IN_5000P] INT './CASH_IN_5000P',
+      [CASH_IN_10000P] INT './CASH_IN_10000P',
+      [CASH_IN_20000P] INT './CASH_IN_20000P',
+      [CASH_IN_50000P] INT './CASH_IN_50000P',
+      [CASH_IN_100000P] INT './CASH_IN_100000P',
+      [CASH_OUT_2P] INT './CASH_OUT_2P',
+      [CASH_OUT_5P] INT './CASH_OUT_5P',
+      [CASH_OUT_10P] INT './CASH_OUT_10P',
+      [CASH_OUT_20P] INT './CASH_OUT_20P',
+      [CASH_OUT_50P] INT './CASH_OUT_50P',
+      [CASH_OUT_100P] INT './CASH_OUT_100P',
+      [CASH_OUT_200P] INT './CASH_OUT_200P',
+      [CASH_OUT_500P] INT './CASH_OUT_500P',
+      [CASH_OUT_1000P] INT './CASH_OUT_1000P',
+      [CASH_OUT_2000P] INT './CASH_OUT_2000P',
+      [CASH_OUT_5000P] INT './CASH_OUT_5000P',
+      [CASH_OUT_10000P] INT './CASH_OUT_10000P',
+      [CASH_OUT_20000P] INT './CASH_OUT_20000P',
+      [CASH_OUT_50000P] INT './CASH_OUT_50000P',
+      [CASH_OUT_100000P] INT './CASH_OUT_100000P',
+      [FUND_RDC_VTP] INT './FUND_RDC_VTP',
+      [FUND_RDC_COINS_IN] INT './FUND_RDC_COINS_IN',
+      [FUND_RDC_COINS_OUT] INT './FUND_RDC_COINS_OUT',
+      [FUND_RDC_COIN_DROP] INT './FUND_RDC_COIN_DROP',
+      [FUND_RDC_HANDPAY] INT './FUND_RDC_HANDPAY',
+      [FUND_RDC_EXTERNAL_CREDIT] INT './FUND_RDC_EXTERNAL_CREDIT',
+      [FUND_RDC_GAMES_BET] INT './FUND_RDC_GAMES_BET',
+      [FUND_RDC_GAMES_WON] INT './FUND_RDC_GAMES_WON',
+      [FUND_RDC_NOTES] INT './FUND_RDC_NOTES',
+      [FUND_RDC_CANCELLED_CREDITS] INT './FUND_RDC_CANCELLED_CREDITS',
+      [FUND_RDC_GAMES_LOST] INT './FUND_RDC_GAMES_LOST',
+      [FUND_RDC_GAMES_SINCE_POWER_UP] INT './FUND_RDC_GAMES_SINCE_POWER_UP',
+      [FUND_RDC_TRUE_COIN_IN] INT './FUND_RDC_TRUE_COIN_IN',
+      [FUND_RDC_TRUE_COIN_OUT] INT './FUND_RDC_TRUE_COIN_OUT',
+      [FUND_RDC_CURRENT_CREDITS] INT './FUND_RDC_CURRENT_CREDITS',
+      [Fund_Created_Date] DATETIME './Fund_Created_Date',
+      [Fund_LastModified_Date] DATETIME './Fund_LastModified_Date',
+      [FUND_RDC_JACKPOT] INT './FUND_RDC_JACKPOT',
+      [FUND_RDC_TICKETS_INSERTED_VALUE] INT './FUND_RDC_TICKETS_INSERTED_VALUE',
+      [FUND_RDC_TICKETS_PRINTED_VALUE] INT './FUND_RDC_TICKETS_PRINTED_VALUE',
+      [Mystery_Machine_Paid] INT './Mystery_Machine_Paid',
+      [Mystery_Attendant_Paid] INT './Mystery_Attendant_Paid',
+      [RDC_TICKETS_INSERTED_NONCASHABLE_VALUE] INT './RDC_TICKETS_INSERTED_NONCASHABLE_VALUE',
+      [RDC_TICKETS_PRINTED_NONCASHABLE_VALUE] INT './RDC_TICKETS_PRINTED_NONCASHABLE_VALUE',
+      [Promo_Cashable_EFT_IN] INT './Promo_Cashable_EFT_IN',
+      [Promo_Cashable_EFT_OUT] INT './Promo_Cashable_EFT_OUT',
+      [NonCashable_EFT_IN] INT './NonCashable_EFT_IN',
+      [NonCashable_EFT_OUT] INT './NonCashable_EFT_OUT',
+      [Cashable_EFT_IN] INT './Cashable_EFT_IN',
+      [Cashable_EFT_OUT] INT './Cashable_EFT_OUT',
+      [TICKETS_INSERTED_QTY] INT './TICKETS_INSERTED_QTY',
+      [TICKETS_INSERTED_NONCASHABLE_QTY] INT './TICKETS_INSERTED_NONCASHABLE_QTY',
+      CASH_IN_1P INT './CASH_IN_1P',
+      [CASH_OUT_1P] INT './CASH_OUT_1P',
+	  [HQ_Installation_No] INT './HQ_Installation_No',
+	  [Last_Drop_Date] DATETIME './Last_Drop_Date'
+	)A ON F.Installation_No = A.HQ_Installation_No  
+
+	IF @@Error <> 0    
+	BEGIN    
+		SET @IsSuccess = -1     
+	END   
+
+END
+GO
+  

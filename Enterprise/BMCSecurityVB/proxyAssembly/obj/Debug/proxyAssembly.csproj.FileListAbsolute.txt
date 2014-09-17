@@ -1,0 +1,9 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\bin\Debug\proxyAssembly.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\bin\Debug\proxyAssembly.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\bin\Debug\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\bin\Debug\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\bin\Debug\BMC.Common.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\bin\Debug\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\obj\Debug\proxyAssembly.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\obj\Debug\proxyAssembly.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCSecurityVB\proxyAssembly\obj\Debug\proxyAssembly.pdb

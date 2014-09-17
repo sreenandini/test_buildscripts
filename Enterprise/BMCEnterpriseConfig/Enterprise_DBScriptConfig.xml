@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Root>
+<Databases>
+	<name>Exchange</name>
+	<name>Ticketing</name>
+</Databases>
+<Order> 
+	<name>Defaults</name>
+	<name>Rules</name>
+	<name>Types</name>
+	<name>Tables</name>
+	<name>ForeignKeys</name>
+	<name>Indexes</name>
+	<name>Functions</name>
+	<name>Views</name>
+	<name>StoredProcedures</name>
+	<name>Triggers</name>
+	<name>Roles</name>
+	<name>Schemas</name>
+	<name>Assembly</name>
+	<name>Data</name>
+	<name>Job</name>
+</Order>
+</Root>

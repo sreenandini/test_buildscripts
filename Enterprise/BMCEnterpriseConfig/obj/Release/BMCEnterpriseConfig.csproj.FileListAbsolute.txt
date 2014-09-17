@@ -1,0 +1,2 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCEnterpriseConfig\bin\Release\BMCEnterpriseConfig.exe.config
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMCEnterpriseConfig\obj\Release\BMCEnterpriseConfig.csproj.ResolveComReference.cache

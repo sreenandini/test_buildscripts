@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MGMD_BILL_1" xml:space="preserve">
+    <value>1# (Count)</value>
+  </data>
+  <data name="MGMD_BILL_10" xml:space="preserve">
+    <value>10# (Count)</value>
+  </data>
+  <data name="MGMD_BILL_100" xml:space="preserve">
+    <value>100# (Count)</value>
+  </data>
+  <data name="MGMD_BILL_20" xml:space="preserve">
+    <value>20# (Count)</value>
+  </data>
+  <data name="MGMD_BILL_200" xml:space="preserve">
+    <value>200# (Count)</value>
+  </data>
+  <data name="MGMD_BILL_5" xml:space="preserve">
+    <value>5# (Count)</value>
+  </data>
+  <data name="MGMD_BILL_50" xml:space="preserve">
+    <value>50# (Count)</value>
+  </data>
+  <data name="MGMD_BILL_500" xml:space="preserve">
+    <value>500# (Count)</value>
+  </data>
+  <data name="MGMD_CANCELLED_CREDITS" xml:space="preserve">
+    <value>Cancelled Credits (#)</value>
+  </data>
+  <data name="MGMD_Cashable_EFT_IN" xml:space="preserve">
+    <value>Cashable Eft In (#)</value>
+  </data>
+  <data name="MGMD_Cashable_EFT_OUT" xml:space="preserve">
+    <value>Cashable Eft Out (#)</value>
+  </data>
+  <data name="MGMD_COINS_IN" xml:space="preserve">
+    <value>Coins In (#)</value>
+  </data>
+  <data name="MGMD_COINS_OUT" xml:space="preserve">
+    <value>Coins Out (#)</value>
+  </data>
+  <data name="MGMD_COIN_DROP" xml:space="preserve">
+    <value>Coin Drop (#)</value>
+  </data>
+  <data name="MGMD_CURRENT_CREDITS" xml:space="preserve">
+    <value>Current Credits (#)</value>
+  </data>
+  <data name="MGMD_GAMES_BET" xml:space="preserve">
+    <value>Games Bet</value>
+  </data>
+  <data name="MGMD_GAMES_LOST" xml:space="preserve">
+    <value>Games Lost</value>
+  </data>
+  <data name="MGMD_GAMES_WON" xml:space="preserve">
+    <value>Games Won</value>
+  </data>
+  <data name="MGMD_HANDPAY" xml:space="preserve">
+    <value>Handpay (#)</value>
+  </data>
+  <data name="MGMD_JACKPOT" xml:space="preserve">
+    <value>Jackpot (#)</value>
+  </data>
+  <data name="MGMD_Mystery_Attendant_Paid" xml:space="preserve">
+    <value>Mystery Attendant Paid (#)</value>
+  </data>
+  <data name="MGMD_Mystery_Machine_Paid" xml:space="preserve">
+    <value>Mystery Machine Paid (#)</value>
+  </data>
+  <data name="MGMD_NonCashable_EFT_IN" xml:space="preserve">
+    <value>NonCashable Eft In (#)</value>
+  </data>
+  <data name="MGMD_NonCashable_EFT_OUT" xml:space="preserve">
+    <value>NonCashable Eft Out (#)</value>
+  </data>
+  <data name="MGMD_progressive_win_Handpay_value" xml:space="preserve">
+    <value>Progressive Win Handpay value (#)</value>
+  </data>
+  <data name="MGMD_progressive_win_value" xml:space="preserve">
+    <value>Progressive win value (#)</value>
+  </data>
+  <data name="MGMD_Promo_Cashable_EFT_IN" xml:space="preserve">
+    <value>Promo Cashable Eft In (#)</value>
+  </data>
+  <data name="MGMD_Promo_Cashable_EFT_OUT" xml:space="preserve">
+    <value>Promo Cashable Eft Out (#)</value>
+  </data>
+  <data name="MGMD_TICKETS_INSERTED_NONCASHABLE_QTY" xml:space="preserve">
+    <value>Tickets Inserted Quantity (Non Cashable)</value>
+  </data>
+  <data name="MGMD_TICKETS_INSERTED_NONCASHABLE_VALUE" xml:space="preserve">
+    <value>Tickets Inserted Value (Non Cashable) (#)</value>
+  </data>
+  <data name="MGMD_TICKETS_PRINTED_NONCASHABLE_QTY" xml:space="preserve">
+    <value>Tickets Printed Quantity (Non Cashable)</value>
+  </data>
+  <data name="MGMD_TICKETS_PRINTED_NONCASHABLE_VALUE" xml:space="preserve">
+    <value>Tickets Printed Value (Non Cashable) (#)</value>
+  </data>
+  <data name="MGMD_TICKET_INSERTED_QTY" xml:space="preserve">
+    <value>Tickets Inserted Quantity</value>
+  </data>
+  <data name="MGMD_TICKET_INSERTED_VALUE" xml:space="preserve">
+    <value>Tickets Inserted Value (#)</value>
+  </data>
+  <data name="MGMD_TICKET_PRINTED_QTY" xml:space="preserve">
+    <value>Tickets Printed Quantity</value>
+  </data>
+  <data name="MGMD_TICKET_PRINTED_VALUE" xml:space="preserve">
+    <value>Tickets Printed Value (#)</value>
+  </data>
+  <data name="MGMD_TRUE_COIN_IN" xml:space="preserve">
+    <value>True Coin In (#)</value>
+  </data>
+  <data name="MGMD_TRUE_COIN_OUT" xml:space="preserve">
+    <value>True Coin Out (#)</value>
+  </data>
+  <data name="Bar_Pos_Name" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="MGMD_Installation_No" xml:space="preserve">
+    <value>Installation No</value>
+  </data>
+  <data name="Read_Date" xml:space="preserve">
+    <value>Read Date</value>
+  </data>
+  <data name="MGMD_End_DateTime" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="MGMD_Start_DateTime" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+</root>

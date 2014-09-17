@@ -1,0 +1,1604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59440B93-CD63-446E-B6BA-F5D9B99BB664}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.EnterpriseClient</RootNamespace>
+    <AssemblyName>BMC.EnterpriseClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>BMC_Icon.ico</ApplicationIcon>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/BMC.EnterpriseClient/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0" />
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppEntryPoint.cs" />
+    <Compile Include="AppGlobals.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="CashierTransactions\CashDeskManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierTransactions\CashDeskManager.Designer.cs">
+      <DependentUpon>CashDeskManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierTransactions\DetailsScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierTransactions\DetailsScreen.Designer.cs">
+      <DependentUpon>DetailsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Helpers\BmcComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\ComboBoxItem.cs" />
+    <Compile Include="Helpers\Datawatcher.cs" />
+    <Compile Include="Helpers\EmbeddedExeMetadata.cs" />
+    <Compile Include="Helpers\GridViewSorter.cs" />
+    <Compile Include="Helpers\ProcessActivator.cs" />
+    <Compile Include="Helpers\frmAdminUtilities.cs" />
+    <Compile Include="Helpers\ControlExtensions.cs" />
+    <Compile Include="Helpers\GenericFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\GenericFormBase.designer.cs">
+      <DependentUpon>GenericFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\GlobalHelper.cs" />
+    <Compile Include="Helpers\IUserInterface.cs" />
+    <Compile Include="Helpers\ListviewColumnsort.cs" />
+    <Compile Include="Helpers\NativeMethods.cs" />
+    <Compile Include="Helpers\ProcessMutexHelper.cs" />
+    <Compile Include="Helpers\AppSubTaskLink.cs" />
+    <Compile Include="Helpers\ViewSiteHelpers.cs" />
+    <Compile Include="Helpers\Win32Extensions.cs" />
+    <Compile Include="HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreen.Designer.cs">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAssociateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAssociateEmployee.Designer.cs">
+      <DependentUpon>frmAssociateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAssociateGMUModes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAssociateGMUModes.Designer.cs">
+      <DependentUpon>frmAssociateGMUModes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmMeterAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmMeterAnalysis.Designer.cs">
+      <DependentUpon>frmMeterAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CashierTransactions\CashDeskManager.resx">
+      <DependentUpon>CashDeskManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierTransactions\DetailsScreen.resx">
+      <DependentUpon>DetailsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\GenericFormBase.resx">
+      <DependentUpon>GenericFormBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeScreen.resx">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAssociateEmployee.resx">
+      <DependentUpon>frmAssociateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAssociateGMUModes.resx">
+      <DependentUpon>frmAssociateGMUModes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCrystalReportViewer.resx">
+      <DependentUpon>frmCrystalReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmMeterAnalysis.resx">
+      <DependentUpon>frmMeterAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\GlobalResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MessageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ToolStripResources.es-AR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ToolStripResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToolStripResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCassette.resx">
+      <DependentUpon>ucCassette.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CollHistoryBreakDownForm.resx">
+      <DependentUpon>CollHistoryBreakDownForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAssetTemplate.resx">
+      <DependentUpon>frmAssetTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAuthorizationScreen.resx">
+      <DependentUpon>frmAuthorizationScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAddVault.resx">
+      <DependentUpon>frmAddVault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAdminBarPos.resx">
+      <DependentUpon>frmAdminBarPos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAdminOpeningTimes.resx">
+      <DependentUpon>frmAdminOpeningTimes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAdminSettings.resx">
+      <DependentUpon>frmAdminSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAGSCombination.resx">
+      <DependentUpon>frmAGSCombination.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAuditAdjustment.resx">
+      <DependentUpon>frmAuditAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCassetteDetails.resx">
+      <DependentUpon>frmCassetteDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCollectionHistory.resx">
+      <DependentUpon>frmCollectionHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCollectionRemarks.resx">
+      <DependentUpon>frmCollectionRemarks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCompanyCalender.resx">
+      <DependentUpon>frmCompanyCalender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmExpenseShareGroup.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmLiquidationBatch.resx">
+      <DependentUpon>frmLiquidationBatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConnectionConfigForm.resx">
+      <DependentUpon>ConnectionConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmModifyDeclaration.resx">
+      <DependentUpon>frmModifyDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmOpeningHours.resx">
+      <DependentUpon>frmOpeningHours.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmMachineModelAdmin.resx">
+      <DependentUpon>frmMachineModelAdmin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmGameTitle.resx">
+      <DependentUpon>frmGameTitle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmMachineModelAdminNGA.resx">
+      <DependentUpon>frmMachineModelAdminNGA.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmOutStandingVaultDrops.resx">
+      <DependentUpon>frmOutStandingVaultDrops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmReadLiquidation.resx">
+      <DependentUpon>frmReadLiquidation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmReadLiquidationDetails.resx">
+      <DependentUpon>frmReadLiquidationDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmModelType.resx">
+      <DependentUpon>frmModelType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmSellMachine.resx">
+      <DependentUpon>frmSellMachine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmShare.resx">
+      <DependentUpon>frmShare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmSiteMachineControl.resx">
+      <DependentUpon>frmSiteMachineControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmTerminteVault.resx">
+      <DependentUpon>frmTerminteVault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmUserGroup.resx">
+      <DependentUpon>frmUserGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmVaultAdmin.resx">
+      <DependentUpon>frmVaultAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmVaultCopy.resx">
+      <DependentUpon>frmVaultCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmVaultDeclaration.resx">
+      <DependentUpon>frmVaultDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmVaultDropHistory.resx">
+      <DependentUpon>frmVaultDropHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmViewModes.resx">
+      <DependentUpon>frmViewModes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LiquidationDetails.resx">
+      <DependentUpon>LiquidationDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucAdminCompany.resx">
+      <DependentUpon>ucAdminCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucAdminSubCompany.resx">
+      <DependentUpon>ucAdminSubCompany.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcAftsettings.resx">
+      <DependentUpon>UcAftsettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucAssociateEmployeeGMUModes.resx">
+      <DependentUpon>ucAssociateEmployeeGMUModes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucAssociateEvents.resx">
+      <DependentUpon>ucAssociateEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcAssociateGMUMode.resx">
+      <DependentUpon>UcAssociateGMUMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucBarPosition.resx">
+      <DependentUpon>ucBarPosition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucCalenders.resx">
+      <DependentUpon>ucCalenders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucCassetteHeader.resx">
+      <DependentUpon>ucCassetteHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucCompanyCalender.resx">
+      <DependentUpon>ucCompanyCalender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcDefaults2.resx">
+      <DependentUpon>UcDefaults2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UCGameCapping.resx">
+      <DependentUpon>UCGameCapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Ucimages.resx">
+      <DependentUpon>Ucimages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Ucnotes.resx">
+      <DependentUpon>Ucnotes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucOperatorCalendar.resx">
+      <DependentUpon>ucOperatorCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucowner.resx">
+      <DependentUpon>ucowner.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucReadLiquidationReport.resx">
+      <DependentUpon>ucReadLiquidationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucSiteMaintenance.resx">
+      <DependentUpon>ucSiteMaintenance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucUserAdmin.resx">
+      <DependentUpon>ucUserAdmin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucUserGroup.resx">
+      <DependentUpon>ucUserGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Areas.resx">
+      <DependentUpon>Areas.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Details1UC.resx">
+      <DependentUpon>Details1UC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Details2UC.resx">
+      <DependentUpon>Details2UC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAddEditExpenseShare.resx">
+      <DependentUpon>frmAddEditExpenseShare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAddMachineType.resx">
+      <DependentUpon>frmAddMachineType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAdminSite.resx">
+      <DependentUpon>frmAdminSite.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAdminSiteClass.resx">
+      <DependentUpon>frmAdminSiteClass.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAddEmployeeCard.resx">
+      <DependentUpon>frmAddEmployeeCard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAssetManagement.resx">
+      <DependentUpon>frmAssetManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAssociateUsertoEmployeeCard.resx">
+      <DependentUpon>frmAssociateUsertoEmployeeCard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmBuy.resx">
+      <DependentUpon>frmBuy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCommonShareAddEdit.resx">
+      <DependentUpon>frmCommonShareAddEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCommonShareGroupAddEdit.resx">
+      <DependentUpon>frmCommonShareGroupAddEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmEmployeeCardTypes.resx">
+      <DependentUpon>frmEmployeeCardTypes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCommonShareGroupList.resx">
+      <DependentUpon>frmCommonShareGroupList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmDepreciation.resx">
+      <DependentUpon>frmDepreciation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmNewGroup.resx">
+      <DependentUpon>frmNewGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmOperator.resx">
+      <DependentUpon>frmOperator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmOrganisation.resx">
+      <DependentUpon>frmOrganisation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmProfitShare.resx">
+      <DependentUpon>frmProfitShare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmReadBasedLiquidation.resx">
+      <DependentUpon>frmReadBasedLiquidation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmShareHolderAddEdit.resx">
+      <DependentUpon>frmShareHolderAddEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmDepot.resx">
+      <DependentUpon>frmDepot.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmDropScheduleUtility.resx">
+      <DependentUpon>frmDropScheduleUtility.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmShareHolderList.resx">
+      <DependentUpon>frmShareHolderList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmShareHolders.resx">
+      <DependentUpon>frmShareHolders.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmStackerAddEdit.resx">
+      <DependentUpon>frmStackerAddEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmStackerDetails.resx">
+      <DependentUpon>frmStackerDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmTerminateMachine.resx">
+      <DependentUpon>frmTerminateMachine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmGameCategoryAdmin.resx">
+      <DependentUpon>frmGameCategoryAdmin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmGameLibrary.resx">
+      <DependentUpon>frmGameLibrary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmGamesMasterMap.resx">
+      <DependentUpon>frmGamesMasterMap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmUserAdministration.resx">
+      <DependentUpon>frmUserAdministration.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmNewCustomeraccessGroup.resx">
+      <DependentUpon>frmNewCustomeraccessGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmManufacturer.resx">
+      <DependentUpon>frmManufacturer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmPayTableMaster.resx">
+      <DependentUpon>frmPayTableMaster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucAdminSite.resx">
+      <DependentUpon>ucAdminSite.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucComms.resx">
+      <DependentUpon>ucComms.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucMonthlySchedule.resx">
+      <DependentUpon>ucMonthlySchedule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucReadBasedLiquidation.resx">
+      <DependentUpon>ucReadBasedLiquidation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucRecurrenceRange.resx">
+      <DependentUpon>ucRecurrenceRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucUsers.resx">
+      <DependentUpon>ucUsers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucUserSiteAccess.resx">
+      <DependentUpon>ucUserSiteAccess.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcVSAssets.resx">
+      <DependentUpon>UcVSAssets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcVSDrop.resx">
+      <DependentUpon>UcVSDrop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcVSHourlyDetails.resx">
+      <DependentUpon>UcVSHourlyDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcVSInstallations.resx">
+      <DependentUpon>UcVSInstallations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UcVSSiteDetails.resx">
+      <DependentUpon>UcVSSiteDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserAdminForm.resx">
+      <DependentUpon>UserAdminForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewSitesForm.resx">
+      <DependentUpon>ViewSitesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewSitesSearchForm.resx">
+      <DependentUpon>ViewSitesSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ZonePosition.resx">
+      <DependentUpon>ZonePosition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Resources\TextResources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Resources\GlobalResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MessageResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TextResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ToolStripResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToolStripResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ucCassette.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCassette.Designer.cs">
+      <DependentUpon>ucCassette.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CollHistoryBreakDownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CollHistoryBreakDownForm.Designer.cs">
+      <DependentUpon>CollHistoryBreakDownForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CPeriodCount.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\CPeriodUnits.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\DenomText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\DenomText.Designer.cs">
+      <DependentUpon>DenomText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAuthorizationScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAuthorizationScreen.Designer.cs">
+      <DependentUpon>frmAuthorizationScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAddVault.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\frmAddVault.Designer.cs">
+      <DependentUpon>frmAddVault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAdminBarPos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAdminBarPos.Designer.cs">
+      <DependentUpon>frmAdminBarPos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAdminOpeningTimes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAdminOpeningTimes.Designer.cs">
+      <DependentUpon>frmAdminOpeningTimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAdminSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAdminSettings.Designer.cs">
+      <DependentUpon>frmAdminSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAGSCombination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAGSCombination.designer.cs">
+      <DependentUpon>frmAGSCombination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAssetTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAssetTemplate.designer.cs">
+      <DependentUpon>frmAssetTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAuditAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAuditAdjustment.Designer.cs">
+      <DependentUpon>frmAuditAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCassetteDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCassetteDetails.designer.cs">
+      <DependentUpon>frmCassetteDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCollectionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCollectionHistory.Designer.cs">
+      <DependentUpon>frmCollectionHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCollectionRemarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCollectionRemarks.Designer.cs">
+      <DependentUpon>frmCollectionRemarks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCompanyCalender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCompanyCalender.Designer.cs">
+      <DependentUpon>frmCompanyCalender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmExpenseShareGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmExpenseShareGroup.designer.cs">
+      <DependentUpon>frmExpenseShareGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmLiquidationBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmLiquidationBatch.Designer.cs">
+      <DependentUpon>frmLiquidationBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConnectionConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmModifyDeclaration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmModifyDeclaration.Designer.cs">
+      <DependentUpon>frmModifyDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmOpeningHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmOpeningHours.Designer.cs">
+      <DependentUpon>frmOpeningHours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmGameTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmGameTitle.Designer.cs">
+      <DependentUpon>frmGameTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmOutStandingVaultDrops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmOutStandingVaultDrops.Designer.cs">
+      <DependentUpon>frmOutStandingVaultDrops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmReadLiquidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmReadLiquidation.designer.cs">
+      <DependentUpon>frmReadLiquidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmShare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmShare.designer.cs">
+      <DependentUpon>frmShare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmSiteMachineControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmSiteMachineControl.designer.cs">
+      <DependentUpon>frmSiteMachineControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmTerminteVault.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmTerminteVault.Designer.cs">
+      <DependentUpon>frmTerminteVault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmUserGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmUserGroup.designer.cs">
+      <DependentUpon>frmUserGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmMachineModelAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmMachineModelAdmin.Designer.cs">
+      <DependentUpon>frmMachineModelAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmMachineModelAdminNGA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmMachineModelAdminNGA.Designer.cs">
+      <DependentUpon>frmMachineModelAdminNGA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmReadLiquidationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmReadLiquidationDetails.Designer.cs">
+      <DependentUpon>frmReadLiquidationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmVaultAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmVaultAdmin.Designer.cs">
+      <DependentUpon>frmVaultAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmVaultCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmVaultCopy.Designer.cs">
+      <DependentUpon>frmVaultCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmVaultDeclaration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmVaultDeclaration.Designer.cs">
+      <DependentUpon>frmVaultDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmVaultDropHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmVaultDropHistory.Designer.cs">
+      <DependentUpon>frmVaultDropHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmViewModes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmViewModes.Designer.cs">
+      <DependentUpon>frmViewModes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LiquidationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LiquidationDetails.designer.cs">
+      <DependentUpon>LiquidationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmModelType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmModelType.Designer.cs">
+      <DependentUpon>frmModelType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmSellMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmSellMachine.Designer.cs">
+      <DependentUpon>frmSellMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucAdminCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucAdminCompany.Designer.cs">
+      <DependentUpon>ucAdminCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucAdminSubCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucAdminSubCompany.Designer.cs">
+      <DependentUpon>ucAdminSubCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcAftsettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcAftsettings.Designer.cs">
+      <DependentUpon>UcAftsettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucAssociateEmployeeGMUModes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucAssociateEmployeeGMUModes.Designer.cs">
+      <DependentUpon>ucAssociateEmployeeGMUModes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucAssociateEvents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucAssociateEvents.Designer.cs">
+      <DependentUpon>ucAssociateEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcAssociateGMUMode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcAssociateGMUMode.Designer.cs">
+      <DependentUpon>UcAssociateGMUMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucCalenders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucCalenders.Designer.cs">
+      <DependentUpon>ucCalenders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucCassetteHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucCassetteHeader.Designer.cs">
+      <DependentUpon>ucCassetteHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucCompanyCalender.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucCompanyCalender.Designer.cs">
+      <DependentUpon>ucCompanyCalender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcDefaults2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcDefaults2.Designer.cs">
+      <DependentUpon>UcDefaults2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucBarPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucBarPosition.designer.cs">
+      <DependentUpon>ucBarPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCGameCapping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UCGameCapping.Designer.cs">
+      <DependentUpon>UCGameCapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ucimages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Ucimages.Designer.cs">
+      <DependentUpon>Ucimages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ucnotes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Ucnotes.Designer.cs">
+      <DependentUpon>Ucnotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucNumerictext.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\ucNumerictext.designer.cs">
+      <DependentUpon>ucNumerictext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucOperatorCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucOperatorCalendar.Designer.cs">
+      <DependentUpon>ucOperatorCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucowner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucowner.Designer.cs">
+      <DependentUpon>ucowner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucReadLiquidationReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucReadLiquidationReport.Designer.cs">
+      <DependentUpon>ucReadLiquidationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucSiteMaintenance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucSiteMaintenance.Designer.cs">
+      <DependentUpon>ucSiteMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucUserAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucUserAdmin.Designer.cs">
+      <DependentUpon>ucUserAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucUserGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucUserGroup.Designer.cs">
+      <DependentUpon>ucUserGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Areas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Areas.designer.cs">
+      <DependentUpon>Areas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details1UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Details1UC.designer.cs">
+      <DependentUpon>Details1UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Details2UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Details2UC.designer.cs">
+      <DependentUpon>Details2UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAddEditExpenseShare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAddEditExpenseShare.designer.cs">
+      <DependentUpon>frmAddEditExpenseShare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAddMachineType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAddMachineType.Designer.cs">
+      <DependentUpon>frmAddMachineType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAdminSite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAdminSite.Designer.cs">
+      <DependentUpon>frmAdminSite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAdminSiteClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAdminSiteClass.Designer.cs">
+      <DependentUpon>frmAdminSiteClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAssetManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAssetManagement.designer.cs">
+      <DependentUpon>frmAssetManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmBuy.designer.cs">
+      <DependentUpon>frmBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCommonShareAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCommonShareAddEdit.designer.cs">
+      <DependentUpon>frmCommonShareAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCommonShareGroupAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCommonShareGroupAddEdit.designer.cs">
+      <DependentUpon>frmCommonShareGroupAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAddEmployeeCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAddEmployeeCard.Designer.cs">
+      <DependentUpon>frmAddEmployeeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAssociateUsertoEmployeeCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAssociateUsertoEmployeeCard.Designer.cs">
+      <DependentUpon>frmAssociateUsertoEmployeeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCommonShareGroupList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCommonShareGroupList.Designer.cs">
+      <DependentUpon>frmCommonShareGroupList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormEditTypes.cs" />
+    <Compile Include="Views\frmCrystalReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCrystalReportViewer.designer.cs">
+      <DependentUpon>frmCrystalReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDepreciation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmEmployeeCardTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmEmployeeCardTypes.Designer.cs">
+      <DependentUpon>frmEmployeeCardTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDepreciation.Designer.cs">
+      <DependentUpon>frmDepreciation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmNewGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmNewGroup.designer.cs">
+      <DependentUpon>frmNewGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmOperator.Designer.cs">
+      <DependentUpon>frmOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmProfitShare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmProfitShare.designer.cs">
+      <DependentUpon>frmProfitShare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmReadBasedLiquidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmReadBasedLiquidation.designer.cs">
+      <DependentUpon>frmReadBasedLiquidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmShareHolderAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmShareHolderAddEdit.Designer.cs">
+      <DependentUpon>frmShareHolderAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmDepot.Designer.cs">
+      <DependentUpon>frmDepot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDropScheduleUtility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmDropScheduleUtility.Designer.cs">
+      <DependentUpon>frmDropScheduleUtility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmInputBox.Designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmShareHolderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmShareHolderList.designer.cs">
+      <DependentUpon>frmShareHolderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmShareHolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmShareHolders.designer.cs">
+      <DependentUpon>frmShareHolders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmStackerAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmStackerAddEdit.Designer.cs">
+      <DependentUpon>frmStackerAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmStackerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmStackerDetails.Designer.cs">
+      <DependentUpon>frmStackerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmTerminateMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmTerminateMachine.Designer.cs">
+      <DependentUpon>frmTerminateMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmGameCategoryAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmUserAdministration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmUserAdministration.Designer.cs">
+      <DependentUpon>frmUserAdministration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmGameCategoryAdmin.designer.cs">
+      <DependentUpon>frmGameCategoryAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmGameLibrary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmGameLibrary.designer.cs">
+      <DependentUpon>frmGameLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmGamesMasterMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmGamesMasterMap.designer.cs">
+      <DependentUpon>frmGamesMasterMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IAdminSite.cs" />
+    <Compile Include="Views\frmOrganisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmOrganisation.Designer.cs">
+      <DependentUpon>frmOrganisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmManufacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmManufacturer.designer.cs">
+      <DependentUpon>frmManufacturer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmPayTableMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmPayTableMaster.designer.cs">
+      <DependentUpon>frmPayTableMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfitShareFunctionalEnums.cs" />
+    <Compile Include="Views\ucAdminSite.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucAdminSite.Designer.cs">
+      <DependentUpon>ucAdminSite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucComms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucComms.Designer.cs">
+      <DependentUpon>ucComms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucMonthlySchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\frmNewCustomeraccessGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmNewCustomeraccessGroup.Designer.cs">
+      <DependentUpon>frmNewCustomeraccessGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucMonthlySchedule.Designer.cs">
+      <DependentUpon>ucMonthlySchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucReadBasedLiquidation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucReadBasedLiquidation.designer.cs">
+      <DependentUpon>ucReadBasedLiquidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucRecurrenceRange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucRecurrenceRange.Designer.cs">
+      <DependentUpon>ucRecurrenceRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucUsers.Designer.cs">
+      <DependentUpon>ucUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucUserSiteAccess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucUserSiteAccess.Designer.cs">
+      <DependentUpon>ucUserSiteAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcVSAssets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcVSAssets.Designer.cs">
+      <DependentUpon>UcVSAssets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcVSDrop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcVSDrop.Designer.cs">
+      <DependentUpon>UcVSDrop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcVSHourlyDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcVSHourlyDetails.Designer.cs">
+      <DependentUpon>UcVSHourlyDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcVSInstallations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcVSInstallations.Designer.cs">
+      <DependentUpon>UcVSInstallations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UcVSSiteDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UcVSSiteDetails.Designer.cs">
+      <DependentUpon>UcVSSiteDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucWeeklySchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucWeeklySchedule.Designer.cs">
+      <DependentUpon>ucWeeklySchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserAdminForm.designer.cs">
+      <DependentUpon>UserAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewFormInfo.cs" />
+    <Compile Include="Views\ViewSitesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ViewSitesForm.Designer.cs">
+      <DependentUpon>ViewSitesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewSitesSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ViewSitesSearchForm.Designer.cs">
+      <DependentUpon>ViewSitesSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZonePosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ZonePosition.designer.cs">
+      <DependentUpon>ZonePosition.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BallyIcon.ico" />
+    <Content Include="BMC_Icon.ico" />
+    <EmbeddedResource Include="Helpers\EmbeddedExeMetadata.xml" />
+    <Content Include="Resources\BMC_Enterprise_Transparent3.png" />
+    <None Include="Resources\BMC_Icon.ico" />
+    <None Include="Resources\Error.png" />
+    <None Include="Resources\errorIcon.png" />
+    <Content Include="Resources\fontColorImage.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\ICO_DB_NO.ico" />
+    <None Include="Resources\ICO_DB_OK.ico" />
+    <None Include="Resources\ICO_DB_OK.bmp" />
+    <None Include="Resources\ICO_DB_NO.bmp" />
+    <None Include="Resources\tick.PNG" />
+    <None Include="Resources\BMC_Enterprise_Transparent2.png" />
+    <None Include="Resources\BMC_Enterprise.PNG" />
+    <None Include="Resources\ICO_SRV_NO.bmp" />
+    <None Include="Resources\ICO_NET_OK.bmp" />
+    <None Include="Resources\ICO_NET_NO.bmp" />
+    <None Include="Resources\ICO_SRV_OK.bmp" />
+    <None Include="Resources\ServiceCalls.bmp" />
+    <None Include="Resources\Admin.bmp" />
+    <None Include="Resources\ViewSites.bmp" />
+    <None Include="Resources\Login.bmp" />
+    <None Include="Resources\Org2.bmp" />
+    <None Include="Resources\Admin2.bmp" />
+    <None Include="Resources\User.bmp" />
+    <None Include="Resources\Logoff2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\BMC.CommonLiquidation\BMC.CommonLiquidation.csproj">
+      <Project>{CD3E8F84-E7B8-4175-B3E1-B00BCB96ACAA}</Project>
+      <Name>BMC.CommonLiquidation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.CommonLiquidation\BMC.CommonLiquidation.csproj">
+      <Project>{CD3E8F84-E7B8-4175-B3E1-B00BCB96ACAA}</Project>
+      <Name>BMC.CommonLiquidation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.Common\BMC.Common.csproj">
+      <Project>{4d507c5e-48b8-4e3f-8de1-a233c43e97e8}</Project>
+      <Name>BMC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.Common\BMC.Common.csproj">
+      <Project>{b67464f4-37cc-48d6-8a17-204f6e7a18c5}</Project>
+      <Name>BMC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.CoreLib\BMC.CoreLib.csproj">
+      <Project>{8BD66A0A-49F9-497F-914C-BF8926336848}</Project>
+      <Name>BMC.CoreLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.ExcelLibrary\BMC.ExcelLibrary.csproj">
+      <Project>{7d28eb59-7198-4429-97f3-49a97544c134}</Project>
+      <Name>BMC.ExcelLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.Security\BMC.Security.csproj">
+      <Project>{71855481-D14B-470A-86AE-466991820B2E}</Project>
+      <Name>BMC.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ClosedXML\ClosedXML.csproj">
+      <Project>{bd5e6bfe-e837-4a35-bca9-39667d873a20}</Project>
+      <Name>ClosedXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Site Controller\AuditViewer\Audit.Transport\Audit.Transport.csproj">
+      <Project>{CA65745D-44CB-431A-BF12-1E47E753FF93}</Project>
+      <Name>Audit.Transport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Site Controller\AuditViewer\AuditBusiness\Audit.BusinessClasses.csproj">
+      <Project>{9ccc92bd-6595-4e79-80d3-cf7e0e1662b0}</Project>
+      <Name>Audit.BusinessClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.Reports\EnterpriseReports\EnterpriseReportsBusiness\BMC.EnterpriseReportsBusiness.csproj">
+      <Project>{ece7c148-84c2-43a1-a968-fb6627b985e0}</Project>
+      <Name>BMC.EnterpriseReportsBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.Reports\EnterpriseReports\EnterpriseReportsDataAccess\BMC.EnterpriseReportsDataAccess.csproj">
+      <Project>{b854c390-9668-4da9-ba48-890919f692ba}</Project>
+      <Name>BMC.EnterpriseReportsDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.Reports\EnterpriseReports\EnterpriseReportsTransport\BMC.EnterpriseReportsTransport.csproj">
+      <Project>{e980d881-bb8c-4205-a355-89032d99a1ca}</Project>
+      <Name>BMC.EnterpriseReportsTransport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.Reports\EnterpriseReports\ReportViewer\ReportViewer.csproj">
+      <Project>{7ea79f57-e1d5-4095-8c9a-6c902758c03d}</Project>
+      <Name>ReportViewer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.Resources\BMC.Resources.csproj">
+      <Project>{f323d0fc-ac6e-4e17-84f7-91440ba59c61}</Project>
+      <Name>BMC.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMCSecurityVB\BMC.SecurityVB.vbproj">
+      <Project>{57FB7DFB-23A6-46E4-9828-ECF970695413}</Project>
+      <Name>BMC.SecurityVB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.EnterpriseBusiness\BMC.EnterpriseBusiness.csproj">
+      <Project>{14DD989A-C3E5-4001-BBFE-AA43229950B3}</Project>
+      <Name>BMC.EnterpriseBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.EnterpriseDataAccess\BMC.EnterpriseDataAccess.csproj">
+      <Project>{D2178B4D-F501-4FB0-96C9-B888C8843761}</Project>
+      <Name>BMC.EnterpriseDataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NoteCumTktScanLib">
+      <Guid>{3DA5504B-F12A-429F-A73A-E867636AC142}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

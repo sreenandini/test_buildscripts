@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Enterprise" Class="EnterpriseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.2.108.179\mssql2008r2;Initial Catalog=Enterprise;User ID=sa" SettingsObjectName="BMC.MeterAdjustmentTool.Properties.Settings" SettingsPropertyName="EnterpriseConnectionString2" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.usp_UpdateSiteDBConnectionString" Method="FuncUpdateSiteDBConnectionString">
+    <Parameter Name="Site_ID" Parameter="site_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Site_DB_ConnectionString" Parameter="site_DB_ConnectionString" Type="System.Data.Linq.Binary" DbType="VarBinary(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.rsp_AuthenticateAndGetUser" Method="FuncAuthenticateAndGetUser">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="IsAuthenticated" Parameter="isAuthenticated" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="rsp_AuthenticateAndGetUserResult">
+      <Column Name="SecurityUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WindowsUserName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CurrencyCulture" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateCulture" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChangePassword" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PasswordChangeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="isReset" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isLocked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_GetSiteDetails" Method="FuncGetSiteDetails">
+    <Parameter Name="Site_Name" Parameter="site_Name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Site_Status" Parameter="site_Status" Type="System.Int32" DbType="Int" />
+    <ElementType Name="rsp_GetSiteDetailsResult">
+      <Column Name="Site_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Site_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Status" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" />
+      <Column Name="WEBUrl" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="Site_code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Site_Status_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SettingsProfile_Description" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Site_DB_ConnectionString" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_RemoveSiteDBConnectionString" Method="usp_RemoveSiteDBConnectionString">
+    <Parameter Name="Site_ID" Parameter="site_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

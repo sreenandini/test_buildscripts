@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 31.625" name="Licensing">
+  <DataContextMoniker Name="/LicensingDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7f70fba0-f0c4-48d8-8d3c-955220bdfc5d" absoluteBounds="4, 10.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/LicensingDataContext/SL_KeyStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0c1a13d-de0f-459b-a434-8af979fc7ae2" absoluteBounds="4.015, 10.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="422ec396-54dc-42d3-88ea-823af77c506e" absoluteBounds="7.25, 1.875, 2, 29.462303059895834">
+      <DataClassMoniker Name="/LicensingDataContext/Site" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4acfc961-299e-43f1-9cc7-d4cc85ed0739" absoluteBounds="7.265, 2.335, 1.9700000000000002, 28.902303059895832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="717445c2-2bad-451b-ac67-984803dee108" absoluteBounds="0.5, 1.875, 2, 13.693585611979165">
+      <DataClassMoniker Name="/LicensingDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83a2248d-dc46-4e87-9c81-1b766fa2dbd8" absoluteBounds="0.51499999999999968, 2.335, 1.9700000000000002, 13.133585611979166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c2d288a0-33b3-4b07-a37c-e3ffee3dae54" absoluteBounds="4, 1.875, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/LicensingDataContext/SL_Rule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65aae289-6354-4a13-8c38-abfcdf100af6" absoluteBounds="4.015, 2.3350000000000009, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 3.16263956705729); (4 : 3.16263956705729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/Staff/Staff_SL_Rule" />
+      <nodes>
+        <classShapeMoniker Id="717445c2-2bad-451b-ac67-984803dee108" />
+        <classShapeMoniker Id="c2d288a0-33b3-4b07-a37c-e3ffee3dae54" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 2.45631978352865); (4 : 2.45631978352865)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/Staff/Staff_SL_Rule1" />
+      <nodes>
+        <classShapeMoniker Id="717445c2-2bad-451b-ac67-984803dee108" />
+        <classShapeMoniker Id="c2d288a0-33b3-4b07-a37c-e3ffee3dae54" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" absoluteBounds="4.25, 5.75, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/LicensingDataContext/SL_LicenseInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="523f5589-ffc3-4de9-ab7c-889152cec0c1" absoluteBounds="4.265, 6.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 7.44850789388021); (4.25 : 7.44850789388021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/Staff/Staff_SL_LicenseInfo" />
+      <nodes>
+        <classShapeMoniker Id="717445c2-2bad-451b-ac67-984803dee108" />
+        <classShapeMoniker Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 6.5367539469401); (4.25 : 6.5367539469401)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/Staff/Staff_SL_LicenseInfo1" />
+      <nodes>
+        <classShapeMoniker Id="717445c2-2bad-451b-ac67-984803dee108" />
+        <classShapeMoniker Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 8.36026184082031); (4.25 : 8.36026184082031)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/Staff/Staff_SL_LicenseInfo2" />
+      <nodes>
+        <classShapeMoniker Id="717445c2-2bad-451b-ac67-984803dee108" />
+        <classShapeMoniker Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 7.90438486735026); (4.25 : 7.90438486735026)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/Staff/Staff_SL_LicenseInfo3" />
+      <nodes>
+        <classShapeMoniker Id="717445c2-2bad-451b-ac67-984803dee108" />
+        <classShapeMoniker Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 7.44850789388021); (6.25 : 7.44850789388021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/Site/Site_SL_LicenseInfo" />
+      <nodes>
+        <classShapeMoniker Id="422ec396-54dc-42d3-88ea-823af77c506e" />
+        <classShapeMoniker Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 10.375); (5.125 : 9.14701578776042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/SL_KeyStatus/SL_KeyStatus_SL_LicenseInfo" />
+      <nodes>
+        <classShapeMoniker Id="7f70fba0-f0c4-48d8-8d3c-955220bdfc5d" />
+        <classShapeMoniker Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 4.45027913411458); (5.125 : 5.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LicensingDataContext/SL_Rule/SL_Rule_SL_LicenseInfo" />
+      <nodes>
+        <classShapeMoniker Id="c2d288a0-33b3-4b07-a37c-e3ffee3dae54" />
+        <classShapeMoniker Id="bf9df5c5-0eec-4788-9276-33a4b5aa5315" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

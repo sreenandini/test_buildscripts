@@ -1,0 +1,28 @@
+USE [Enterprise]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[rsp_SelectBAD_AAMS_Code]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[rsp_SelectBAD_AAMS_Code]
+GO
+
+USE [Enterprise]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE rsp_SelectBAD_AAMS_Code
+@BadAAMSCode VARCHAR(12)
+AS
+BEGIN
+	SELECT BAD_AAMS_Code 
+FROM BMC_AAMS_Details 
+WHERE BAD_AAMS_Code = @BadAAMSCode
+END
+
+
+GO
+
