@@ -1,0 +1,10 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\bin\BGSMachineManagerNET.dll.config
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\bin\BGSMachineManagerNET.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\bin\BGSMachineManagerNET.xml
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\bin\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\bin\Interop.ComExchangeLib.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\obj\Release\BGSMachineManager.vbprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\obj\Release\Interop.ComExchangeLib.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\obj\Release\BGSMachineManager.vbproj.ResolveComReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\obj\Release\BGSMachineManagerNET.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\obj\Release\BGSMachineManagerNET.xml

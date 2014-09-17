@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{686CC41E-6A27-4F58-BFAC-0A88035DA1E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.Business.NetworkService</RootNamespace>
+    <AssemblyName>BMC.Business.NetworkService</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/BMC.Business.NetworkService/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AFTEnableDisable.cs" />
+    <Compile Include="EmployeeMasterCard.cs" />
+    <Compile Include="InstantPeriodicIntervalHandler.cs" />
+    <Compile Include="TITO.cs" />
+    <Compile Include="EnableDisable.cs" />
+    <Compile Include="Observers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadDispatcher.cs" />
+    <Compile Include="WSCalls\BGSProxy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Release\BGSComExchange.dll" />
+    <Content Include="bin\Release\BGSExComms.dll" />
+    <Content Include="bin\Release\BGSMachineManagerNET.dll" />
+    <Content Include="bin\Release\BMC.Business.NetworkService.dll" />
+    <Content Include="bin\Release\BMC.Common.dll" />
+    <Content Include="bin\Release\BMC.DataAccess.dll" />
+    <Content Include="bin\Release\BMC.DBInterface.NetworkService.dll" />
+    <Content Include="bin\Release\BMC.Transport.NetworkService.dll" />
+    <Content Include="bin\Release\ComExchange.dll" />
+    <Content Include="bin\Release\Interop.BGSEncryptDecrypt.dll" />
+    <Content Include="bin\Release\Interop.BGSGeneral.dll" />
+    <Content Include="bin\Release\Interop.ComExchangeLib.dll" />
+    <Content Include="obj\Release\BMC.Business.NetworkService.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\Interop.ComExchangeLib.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Release\BMC.Business.NetworkService.csproj.ResolveComReference.cache" />
+    <None Include="obj\Release\build.force" />
+    <None Include="obj\Release\ResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Release\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\BMC.Common\BMC.Common.csproj">
+      <Project>{4d507c5e-48b8-4e3f-8de1-a233c43e97e8}</Project>
+      <Name>BMC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.DataAccess\BMC.DataAccess.csproj">
+      <Project>{c4f3ac89-4ebe-461d-82b3-0f7850a5a41b}</Project>
+      <Name>BMC.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.EnterpriseProxy\BMC.EnterpriseProxy\BMC.EnterpriseProxy.csproj">
+      <Project>{d2a9f84a-6802-44ac-94e7-80078d25032e}</Project>
+      <Name>BMC.EnterpriseProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.DBInterface.NetworkService\BMC.DBInterface.NetworkService.csproj">
+      <Project>{20ee44f7-a648-4d4b-9ee2-81d3ebc3a920}</Project>
+      <Name>BMC.DBInterface.NetworkService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.Transport.NetworkService\BMC.Transport.NetworkService.csproj">
+      <Project>{507c34b5-bb86-4d1d-ad9f-986869fe00a3}</Project>
+      <Name>BMC.Transport.NetworkService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ComExchangeLib">
+      <Guid>{DA653477-8D24-4AB5-9D8F-5729D2954413}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

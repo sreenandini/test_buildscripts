@@ -1,0 +1,12 @@
+﻿<Window
+	x:Uid="Window" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="BMC.ExchangeConfig.NumberPadWind"
+	x:Name="Window"
+	Title="NumberPadWind"
+	Width="336" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top" AllowsTransparency="True" WindowStyle="None" Background="#00FFFFFF" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:BMC_ExchangeConfig="clr-namespace:BMC.ExchangeConfig" MouseDown="Drag_Event" WindowStartupLocation="CenterScreen">
+
+	<Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Height="472">
+		<BMC_ExchangeConfig:CTicketEntry x:Uid="ucTicketEntry" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" IsAcceptCancelVisible="True" Width="336" EnterClicked="CTicketEntry_EnterClicked" CancelClicked="CTicketEntry_CancelClicked" x:Name="ucTicketEntry"/>
+	</Grid>
+</Window>

@@ -1,0 +1,9 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\bin\Debug\Audit.DBBuilder.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\bin\Debug\Audit.DBBuilder.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\bin\Debug\Audit.Transport.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\bin\Debug\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\bin\Debug\BMC.Common.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\bin\Debug\Audit.Transport.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\obj\Debug\Audit.DBBuilder.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\obj\Debug\Audit.DBBuilder.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.DBBuilder\obj\Debug\Audit.DBBuilder.pdb

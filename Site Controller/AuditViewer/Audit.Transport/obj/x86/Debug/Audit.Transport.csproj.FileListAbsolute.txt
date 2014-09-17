@@ -1,0 +1,4 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.Transport\bin\x86\Debug\Audit.Transport.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.Transport\bin\x86\Debug\Audit.Transport.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.Transport\obj\x86\Debug\Audit.Transport.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\Audit.Transport\obj\x86\Debug\Audit.Transport.pdb

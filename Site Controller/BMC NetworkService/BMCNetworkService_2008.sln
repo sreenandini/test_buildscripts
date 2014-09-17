@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.Business.NetworkService", "BMC.Business.NetworkService\BMC.Business.NetworkService_2008.csproj", "{686CC41E-6A27-4F58-BFAC-0A88035DA1E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.Transport.NetworkService", "BMC.Transport.NetworkService\BMC.Transport.NetworkService_2008.csproj", "{507C34B5-BB86-4D1D-AD9F-986869FE00A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.DBInterface.NetworkService", "BMC.DBInterface.NetworkService\BMC.DBInterface.NetworkService_2008.csproj", "{20EE44F7-A648-4D4B-9EE2-81D3EBC3A920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.Common_2008", "..\..\Common\BMC.Common\BMC.Common_2008.csproj", "{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.DataAccess_2008", "..\..\Common\BMC.DataAccess\BMC.DataAccess_2008.csproj", "{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.EnterpriseProxy_2008", "..\BMC.EnterpriseProxy\BMC.EnterpriseProxy\BMC.EnterpriseProxy_2008.csproj", "{D2A9F84A-6802-44AC-94E7-80078D25032E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{686CC41E-6A27-4F58-BFAC-0A88035DA1E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686CC41E-6A27-4F58-BFAC-0A88035DA1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686CC41E-6A27-4F58-BFAC-0A88035DA1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686CC41E-6A27-4F58-BFAC-0A88035DA1E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{507C34B5-BB86-4D1D-AD9F-986869FE00A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507C34B5-BB86-4D1D-AD9F-986869FE00A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507C34B5-BB86-4D1D-AD9F-986869FE00A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507C34B5-BB86-4D1D-AD9F-986869FE00A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20EE44F7-A648-4D4B-9EE2-81D3EBC3A920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EE44F7-A648-4D4B-9EE2-81D3EBC3A920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EE44F7-A648-4D4B-9EE2-81D3EBC3A920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EE44F7-A648-4D4B-9EE2-81D3EBC3A920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A9F84A-6802-44AC-94E7-80078D25032E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A9F84A-6802-44AC-94E7-80078D25032E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A9F84A-6802-44AC-94E7-80078D25032E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A9F84A-6802-44AC-94E7-80078D25032E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

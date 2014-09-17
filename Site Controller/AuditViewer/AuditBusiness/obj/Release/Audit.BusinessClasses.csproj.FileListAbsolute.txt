@@ -1,0 +1,12 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Business.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Business.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.DBBuilder.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Transport.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\BMC.Security.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\BMC.Security.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.DBBuilder.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Transport.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\obj\Release\Audit.BusinessClasses.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\obj\Release\Audit.Business.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\AuditViewer\AuditBusiness\obj\Release\Audit.Business.pdb
