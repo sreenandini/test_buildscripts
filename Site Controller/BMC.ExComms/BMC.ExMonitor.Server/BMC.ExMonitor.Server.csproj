@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D34855A-B2C7-40A4-BCCD-A4CD38C19CE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.ExMonitor.Server</RootNamespace>
+    <AssemblyName>BMC.ExMonitor.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ExMonitorServerConfigStore.cs" />
+    <Compile Include="ExMonitorServerHosting.cs" />
+    <Compile Include="ExMonitorServerImpl.cs" />
+    <Compile Include="Handlers\Bonus\ExternalBonusWin.cs" />
+    <Compile Include="Handlers\Comm\Comms.cs" />
+    <Compile Include="Handlers\Comm\CommsBase.cs" />
+    <Compile Include="Handlers\Comm\MachineData.cs" />
+    <Compile Include="Handlers\Comm\NonPriorityEvents.cs" />
+    <Compile Include="Handlers\Comm\Polling.cs" />
+    <Compile Include="Handlers\Credit\NonZeroCredit.cs" />
+    <Compile Include="Handlers\DeviceError\DeviceError.cs" />
+    <Compile Include="Handlers\DirectedMessages\DMResponseHandler.cs" />
+    <Compile Include="Handlers\Door\Door.cs" />
+    <Compile Include="Handlers\EPI\Balance.cs" />
+    <Compile Include="Handlers\EPI\Deposit.cs" />
+    <Compile Include="Handlers\EPI\EnableDisable.cs" />
+    <Compile Include="Handlers\EPI\EPIBase.cs" />
+    <Compile Include="Handlers\EPI\Card.cs" />
+    <Compile Include="Handlers\EPI\GameCapping.cs" />
+    <Compile Include="Handlers\EPI\SDTMessages.cs" />
+    <Compile Include="Handlers\EPI\Withdrawal.cs" />
+    <Compile Include="Handlers\Error\Error.cs" />
+    <Compile Include="Handlers\Fault\Fault.cs" />
+    <Compile Include="Handlers\Game\CardLessPlay.cs" />
+    <Compile Include="Handlers\Game\GameInfo.cs" />
+    <Compile Include="Handlers\GameGMU\GameGMU.cs" />
+    <Compile Include="Handlers\GatewayMessageStructures.cs" />
+    <Compile Include="Handlers\General Events\GeneralEventsBase.cs" />
+    <Compile Include="Handlers\GeneralInfo\GeneralInfo.cs" />
+    <Compile Include="Handlers\GIM\GameIdInfo.cs" />
+    <Compile Include="Handlers\GMUVarAction\GVABase.cs" />
+    <Compile Include="Handlers\GMUVarAction\Ticket.cs" />
+    <Compile Include="Handlers\HandlerHelper.cs" />
+    <Compile Include="Handlers\HandpayJackpot\HandpayJackpot.cs" />
+    <Compile Include="Handlers\Hopper\Hopper.cs" />
+    <Compile Include="Handlers\IMonitorHandler.cs" />
+    <Compile Include="Handlers\LongPoll\TotalGames.cs" />
+    <Compile Include="Handlers\LongPoll\EnableDisableMachine.cs" />
+    <Compile Include="Handlers\LongPoll\ForcePeriodic.cs" />
+    <Compile Include="Handlers\LongPoll\InstantPeriodic.cs" />
+    <Compile Include="Handlers\Meter\Meter.cs" />
+    <Compile Include="Handlers\MonitorHandler.cs" />
+    <Compile Include="Handlers\MonitorHandlerMappingAttribute.cs" />
+    <Compile Include="Handlers\NonPriority\GMUHeartBeat.cs" />
+    <Compile Include="Handlers\NonPriority\Periodic.cs" />
+    <Compile Include="Handlers\Power\Power.cs" />
+    <Compile Include="Handlers\Power\PowerBase.cs" />
+    <Compile Include="Handlers\Precommitment\Enrollment.cs" />
+    <Compile Include="Handlers\Precommitment\IntervalRating.cs" />
+    <Compile Include="Handlers\Precommitment\Notification.cs" />
+    <Compile Include="Handlers\Precommitment\PCBase.cs" />
+    <Compile Include="Handlers\Precommitment\PCGatewayMessages.cs" />
+    <Compile Include="Handlers\Precommitment\Status.cs" />
+    <Compile Include="Handlers\Printer\Printer.cs" />
+    <Compile Include="Handlers\Credit\ZeroCredit.cs" />
+    <Compile Include="Handlers\Tickets\JackpotOrHandpay.cs" />
+    <Compile Include="Handlers\Tickets\NOVOTicket.cs" />
+    <Compile Include="Handlers\Tickets\TicketBase.cs" />
+    <Compile Include="Handlers\Tickets\TicketRedeemStart.cs" />
+    <Compile Include="Handlers\Tickets\TicketVoid.cs" />
+    <Compile Include="Handlers\Tickets\TicketPrinted.cs" />
+    <Compile Include="Handlers\Tickets\TicketRedemption.cs" />
+    <Compile Include="Handlers\Tilt\Tilt.cs" />
+    <Compile Include="Implementation\EPIManager.cs" />
+    <Compile Include="Implementation\ModuleHelper.cs" />
+    <Compile Include="Implementation\MonitorConstants.cs" />
+    <Compile Include="Implementation\MonitorServer4MonProcessorProxy.cs" />
+    <Compile Include="ExMonServerInterfaces.cs" />
+    <Compile Include="Implementation\MonitorServer4MonitorClient.cs" />
+    <Compile Include="Implementation\MonitorServer4CommServer.cs" />
+    <Compile Include="Implementation\MonitorServer4MonProcessor.cs" />
+    <Compile Include="Implementation\MonitorServer4MonProcessorCallback.cs" />
+    <Compile Include="Implementation\MonitorServerTransceiver.cs" />
+    <Compile Include="Implementation\PlayerGatewayProxy.cs" />
+    <Compile Include="Implementation\TaskHelper.cs" />
+    <Compile Include="Precommitment\PCResponseHandler.cs" />
+    <Compile Include="Transceiver\ITransceiver.cs" />
+    <Compile Include="Transceiver\TransceiverBase.cs" />
+    <Compile Include="Transceiver\Transeiver_InMemory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\BMC.Common\BMC.Common.csproj">
+      <Project>{4d507c5e-48b8-4e3f-8de1-a233c43e97e8}</Project>
+      <Name>BMC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.CoreLib\BMC.CoreLib.csproj">
+      <Project>{8bd66a0a-49f9-497f-914c-bf8926336848}</Project>
+      <Name>BMC.CoreLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AuditViewer\Audit.Transport\Audit.Transport.csproj">
+      <Project>{ca65745d-44cb-431a-bf12-1e47e753ff93}</Project>
+      <Name>Audit.Transport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AuditViewer\AuditBusiness\Audit.BusinessClasses.csproj">
+      <Project>{9ccc92bd-6595-4e79-80d3-cf7e0e1662b0}</Project>
+      <Name>Audit.BusinessClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Comms\TicketingCOM\TicketingCOM\TicketingCOM.csproj">
+      <Project>{3cc3e051-d2cf-4e07-99f7-7aca0ad2de00}</Project>
+      <Name>TicketingCOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MSMQ\BMC.Crypto\BMC.Crypto.csproj">
+      <Project>{85bd4210-4dd7-4e32-9b64-a0b93bea8ced}</Project>
+      <Name>BMC.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MSMQ\BMC.PlayerGateway\BMC.PlayerGateway\BMC.PlayerGateway.csproj">
+      <Project>{01e1f132-b8dd-42c5-8160-094ecd839b70}</Project>
+      <Name>BMC.PlayerGateway</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.ExComms.Contracts\BMC.ExComms.Contracts.csproj">
+      <Project>{add1395a-60a3-42e0-b231-81f1badfc28a}</Project>
+      <Name>BMC.ExComms.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.ExComms.DataLayer\BMC.ExComms.DataLayer.csproj">
+      <Project>{BB812B74-4D34-40FB-BB16-5BCA5E701EEC}</Project>
+      <Name>BMC.ExComms.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\Priority\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{245EE6E2-195F-4A3A-98C2-CDD4060CE402}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.ExComms.Simulator</RootNamespace>
+    <AssemblyName>BMC.ExComms.Simulator</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>BMC_Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\UdpRawRequestItemModelCollectionConverter.cs" />
+    <Compile Include="Converters\NetworkInterfaceConverter.cs" />
+    <Compile Include="DataLayer\FFTblCardInformation.cs" />
+    <Compile Include="DataLayer\FFTblSettings.cs" />
+    <Compile Include="DataLayer\FFTblGIMInformation.cs" />
+    <Compile Include="DataLayer\FFDbManager.cs" />
+    <Compile Include="Handlers\SocketReceiver.cs" />
+    <Compile Include="Models\CardInfoModel.cs" />
+    <Compile Include="Models\ECashModels.cs" />
+    <Compile Include="Models\ExceptionModel.cs" />
+    <Compile Include="Models\ExecutionStepChangedModel.cs" />
+    <Compile Include="Models\GIMInformationModel.cs" />
+    <Compile Include="Models\GmuEventModel.cs" />
+    <Compile Include="Models\GmuIpGenerationModel.cs" />
+    <Compile Include="Models\TicketInfoModel.cs" />
+    <Compile Include="Models\UdpResponseItemModel.cs" />
+    <Compile Include="Resources\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MainConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\AxMainConfiguration.xaml.cs">
+      <DependentUpon>AxMainConfiguration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AxMainConsole.xaml.cs">
+      <DependentUpon>AxMainConsole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AxMainRequest.xaml.cs">
+      <DependentUpon>AxMainRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AxMainRawMessages.xaml.cs">
+      <DependentUpon>AxMainRawMessages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\General\AxConfigGeneral.xaml.cs">
+      <DependentUpon>AxConfigGeneral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\General\AxECashConfig.xaml.cs">
+      <DependentUpon>AxECashConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\General\AxGmuIPDetails.xaml.cs">
+      <DependentUpon>AxGmuIPDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\GMU\AxConfigGmu.xaml.cs">
+      <DependentUpon>AxConfigGmu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\GMU\GIMDetails.xaml.cs">
+      <DependentUpon>GIMDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RawMessages\AxRawMessageGrid.xaml.cs">
+      <DependentUpon>AxRawMessageGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Request\AxECashRequest.xaml.cs">
+      <DependentUpon>AxECashRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Request\AxEvents.xaml.cs">
+      <DependentUpon>AxEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Request\AxExecutionSteps.xaml.cs">
+      <DependentUpon>AxExecutionSteps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Request\AxRawRequest.xaml.cs">
+      <DependentUpon>AxRawRequest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Request\AxTicketRequest.xaml.cs">
+      <DependentUpon>AxTicketRequest.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\StaticTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AxMainConfiguration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AxMainConsole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AxMainRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AxMainRawMessages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\General\AxConfigGeneral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\General\AxECashConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\General\AxGmuIPDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\GMU\AxConfigGmu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration\GMU\GIMDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RawMessages\AxRawMessageGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Request\AxECashRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Request\AxEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Request\AxExecutionSteps.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Request\AxRawRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Request\AxTicketRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BMC_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\BMC.Common\BMC.Common.csproj">
+      <Project>{4d507c5e-48b8-4e3f-8de1-a233c43e97e8}</Project>
+      <Name>BMC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\BMC.CoreLib\BMC.CoreLib.csproj">
+      <Project>{8bd66a0a-49f9-497f-914c-bf8926336848}</Project>
+      <Name>BMC.CoreLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\BMC.SQLite\BMC.SQLite.csproj">
+      <Project>{b79e5285-6972-40a6-b946-26f1f6032671}</Project>
+      <Name>BMC.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.ExComms.Contracts\BMC.ExComms.Contracts.csproj">
+      <Project>{add1395a-60a3-42e0-b231-81f1badfc28a}</Project>
+      <Name>BMC.ExComms.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.ExComms.Server\BMC.ExComms.Server.csproj">
+      <Project>{d477c22c-1b3e-4c86-a61a-3da4ced7ddf4}</Project>
+      <Name>BMC.ExComms.Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AGS_G1.png" />
+    <Resource Include="Images\AGS_S1.png" />
+    <Resource Include="Images\IPAddress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AGS_A1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Request\Tickets\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_GMUEvent_CouponData">
+    <Position X="6" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAoAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAA=</HashCode>
+      <FileName>DTO\Freeform\Targets\GMUEvent\Coupon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_GMUEvent_EFTData">
+    <Position X="14.5" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAgAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\Freeform\Targets\GMUEvent\EFT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_GMUEventData">
+    <Position X="11.5" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\Freeform\Targets\GMUEvent\GMUEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_GMUEvent_NoteAcceptorData">
+    <Position X="21.25" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>DTO\Freeform\Targets\GMUEvent\NoteAcceptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_GMUEvent_PrinterData">
+    <Position X="9.75" Y="3" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>DTO\Freeform\Targets\GMUEvent\Printer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_GMUEvent_StdData">
+    <Position X="1.25" Y="3" Width="4" />
+    <TypeIdentifier>
+      <HashCode>ABEQAAIAKAIAAAAQABAAICAAAEAEAAAIACAAAAAAIAA=</HashCode>
+      <FileName>DTO\Freeform\Targets\GMUEvent\Standard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_GMUEvent_TicketData">
+    <Position X="17.75" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAgAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>DTO\Freeform\Targets\GMUEvent\Ticket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

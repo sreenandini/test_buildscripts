@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="FullSignature">
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketAttribute">
+    <Position X="11.25" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAEAAAAAAAAEEAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_TicketInfo" Collapsed="true">
+    <Position X="51.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEEAACAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketingEnablement">
+    <Position X="6.25" Y="4.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketingEnablement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_H2G_TicketingEnablement">
+    <Position X="15.25" Y="4.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketingEnablement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketPrinted_Request">
+    <Position X="3" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQBAAAAAACAAgAAAAAAAQBAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketPrinted.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_H2G_TicketPrinted_Response">
+    <Position X="27.25" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketPrinted.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketPrint_ResultStatus">
+    <Position X="23.5" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAgAAAAAAAACAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketPrinted.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketRedemption_Request">
+    <Position X="20" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketRedemption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_H2G_TicketRedemption_Response">
+    <Position X="39.25" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQBAAAAAACAAgAAAAAAAQBAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketRedemption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketRedemption_Close">
+    <Position X="34.75" Y="4.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAgEAAAQAAAAAAACAAAAAAAAAAQBAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketRedemption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_H2G_TicketRedemption_Close">
+    <Position X="47" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketRedemption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketSeqNoUpdate">
+    <Position X="43" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAgkAAQAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketSequenceNumber.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_TicketVoid">
+    <Position X="31.25" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQABAAAAAAAAAgAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Tickets\TicketVoid.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

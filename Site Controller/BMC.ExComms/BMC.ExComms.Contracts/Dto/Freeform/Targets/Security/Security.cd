@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security">
+    <Position X="30" Y="2.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\Security.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_PartialKey">
+    <Position X="11.5" Y="5.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\KeyExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_KeyExchange_Status">
+    <Position X="25" Y="5.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\KeyExchange.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_Indexed_KeyExchange">
+    <Position X="19" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAUAAACAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\IndexKeyExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_Security_BMCEncryption_Response">
+    <Position X="43.5" Y="5.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\BMCEncryption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_H2G_Security_BMCEncryption_Response">
+    <Position X="51.25" Y="5.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\BMCEncryption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_EncryptAuthentication">
+    <Position X="39.75" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAIAAAQA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\BMCEncryptAuth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_BMCAuthentication">
+    <Position X="29" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\BMCAuthentication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_KeyExchange_Request">
+    <Position X="47.5" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\KeyExchange.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_KeyExchange_PartialKey">
+    <Position X="9.25" Y="8" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\KeyExchange.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_KeyExchange_End">
+    <Position X="13.25" Y="8" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\KeyExchange.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_Indexed_KeyExchange_Start">
+    <Position X="16.75" Y="8.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\IndexKeyExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_B2B_Security_Indexed_KeyExchange_End">
+    <Position X="21" Y="8.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\IndexKeyExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_G2H_Security_BMCEncryption">
+    <Position X="32.75" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\BMCEncryption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BMC.ExComms.Contracts.DTO.Freeform.FFTgt_H2G_Security_BMCEncryption">
+    <Position X="36.25" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dto\Freeform\Targets\Security\BMCEncryption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,8 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\bin\Release\BMC.ExComms.Contracts.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\bin\Release\BMC.ExComms.Contracts.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\bin\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\bin\Release\BMC.CoreLib.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\bin\Release\BMC.CoreLib.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\obj\Release\BMC.ExComms.Contracts.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\obj\Release\BMC.ExComms.Contracts.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExComms\BMC.ExComms.Contracts\obj\Release\BMC.ExComms.Contracts.pdb
