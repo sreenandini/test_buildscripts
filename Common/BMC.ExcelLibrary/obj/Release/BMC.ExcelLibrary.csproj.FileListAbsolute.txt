@@ -1,0 +1,8 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\bin\Release\BMC.ExcelLibrary.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\bin\Release\BMC.ExcelLibrary.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\bin\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\bin\Release\BMC.CoreLib.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\bin\Release\BMC.CoreLib.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\obj\Release\BMC.ExcelLibrary.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\obj\Release\BMC.ExcelLibrary.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.ExcelLibrary\obj\Release\BMC.ExcelLibrary.pdb

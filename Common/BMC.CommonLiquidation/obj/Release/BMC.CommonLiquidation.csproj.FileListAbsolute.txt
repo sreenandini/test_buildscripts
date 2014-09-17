@@ -1,0 +1,4 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.CommonLiquidation\bin\Release\BMC.CommonLiquidation.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.CommonLiquidation\bin\Release\BMC.CommonLiquidation.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.CommonLiquidation\obj\Release\BMC.CommonLiquidation.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.CommonLiquidation\obj\Release\BMC.CommonLiquidation.pdb

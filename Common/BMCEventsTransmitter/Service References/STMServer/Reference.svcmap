@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="92a0b471-5b3a-445f-9f38-5c795263fa0b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.11.144.35:9078/XMLDRService?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="XMLDRService.wsdl" MetadataType="Wsdl" ID="7f0c7863-f8f0-402f-820d-e611f96d927c" SourceId="1" SourceUrl="http://10.11.144.35:9078/XMLDRService?wsdl" />
+    <MetadataFile FileName="XMLDRService.xsd" MetadataType="Schema" ID="eb01bde1-5d6b-419d-9e90-315a86d73f62" SourceId="1" SourceUrl="http://10.11.144.35:9078/XMLDRService?xsd=xsd1" />
+    <MetadataFile FileName="XMLDRService1.xsd" MetadataType="Schema" ID="2330e079-927f-44fd-b9f3-4506d234f4ab" SourceId="1" SourceUrl="http://10.11.144.35:9078/XMLDRService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

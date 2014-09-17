@@ -1,0 +1,6 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.DataAccess\bin\x86\Release\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.DataAccess\bin\x86\Release\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.DataAccess\bin\x86\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.DataAccess\obj\x86\Release\BMC.DataAccess.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.DataAccess\obj\x86\Release\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.DataAccess\obj\x86\Release\BMC.DataAccess.pdb

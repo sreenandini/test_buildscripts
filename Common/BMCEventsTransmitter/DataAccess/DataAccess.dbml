@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Exchange" Class="DataAccessDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ws-in469;Initial Catalog=Exchange;User ID=sa" SettingsObjectName="BMC.EventsTransmitter.Properties.Settings" SettingsPropertyName="ExchangeConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.rsp_EventTransmitter_GetExcludedEvents" Method="rsp_EventTransmitter_GetExcludedEvents">
+    <ElementType Name="rsp_EventTransmitter_GetExcludedEventsResult">
+      <Column Name="EventID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EventDescription" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_GetSetting" Method="rsp_GetSetting">
+    <Parameter Name="Setting_ID" Parameter="setting_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Setting_Name" Parameter="setting_Name" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Setting_Default" Parameter="setting_Default" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Setting_Value" Parameter="setting_Value" Type="System.String" DbType="VarChar(1000)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.rsp_GetInstallationDetails_STM" Method="rsp_GetInstallationDetails">
+    <ElementType Name="rsp_GetInstallationDetails_STMResult">
+      <Column Name="Machine_No" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Installation_No" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bar_Pos_No" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Bar_Pos_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stock_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Machine_Manufacturers_Serial_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.rsp_EventTransmitter_GetSiteDetails" Method="rsp_EventTransmitter_GetSiteDetails">
+    <ElementType Name="rsp_EventTransmitter_GetSiteDetailsResult">
+      <Column Name="Site_Code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Company_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sub_company_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sub_Company_Region_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sub_company_area_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sub_company_District_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

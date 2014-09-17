@@ -1,0 +1,8 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\bin\Release\BMC.EventsTransmitter.dll.config
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\bin\Release\BMC.EventsTransmitter.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\bin\Release\BMC.EventsTransmitter.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\bin\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\obj\Release\BMCEventsTransmitter.csproj.ResolveComReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\obj\Release\BMC.EventsTransmitter.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\obj\Release\BMC.EventsTransmitter.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMCEventsTransmitter\obj\Release\BMCEventsTransmitter.csprojResolveAssemblyReference.cache

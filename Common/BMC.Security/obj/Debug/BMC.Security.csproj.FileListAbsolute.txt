@@ -1,0 +1,4 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.Security\bin\Debug\BMC.Security.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.Security\bin\Debug\BMC.Security.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.Security\obj\Debug\BMC.Security.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.Security\obj\Debug\BMC.Security.pdb

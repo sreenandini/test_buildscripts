@@ -1,0 +1,839 @@
+SET ANSI_NULLS ON    
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_RemoveUser]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ASPNET_SP_RemoveUser](@Username VARCHAR(200), @DeletedUserID INT)
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM [USER] WHERE UserName = @username )	
+		SELECT ''ERROR:01'' AS RESULT
+	ELSE
+	BEGIN
+		INSERT INTO [INACTIVEUSER] (SecurityUserID, DELETEDBY) SELECT SecurityUserID,  @DeletedUserID FROM [USER] WHERE UserName = @username
+		DELETE FROM [USER] WHERE UserName = @username
+		SELECT ''SUCCESS'' AS RESULT
+	END
+END
+
+
+
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_MapUserToRole]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ASPNET_SP_MapUserToRole](@RoleID INT, @UserID INT)
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM [ROLE] WHERE SecurityRoleID = @RoleID)
+	BEGIN
+		SELECT ''ERROR:02'' AS RESULT
+	END
+	ELSE
+	BEGIN
+		IF EXISTS (SELECT * FROM [USER] WHERE SecurityUserID = @UserID )	
+		BEGIN
+			SELECT ''ERROR:01'' AS RESULT
+		END
+		ELSE
+		BEGIN
+			IF EXISTS (SELECT * FROM [UserRole_lnk] WHERE SecurityUserID = @UserID AND SecurityRoleID = @RoleID )	
+			BEGIN
+				SELECT ''ERROR:03'' AS RESULT
+			END
+			ELSE
+			BEGIN
+				INSERT INTO [UserRole_lnk] (SecurityUserID, SecurityRoleID) VALUES (@UserID, @RoleID)
+				SELECT ''SUCCESS'' AS RESULT
+			END
+		END
+	END
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_CreateUser]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_CreateUser](@username VARCHAR(200), @password VARCHAR(200), @windowsUserName VARCHAR(200))
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM [USER] WHERE UserName = @username )	
+		SELECT ''ERROR:01'' AS RESULT
+	ELSE
+	BEGIN
+		INSERT INTO [USER] (UserName, WindowsUserName, Password) VALUES (@username, @windowsUserName, @password)
+		SELECT ''SUCCESS'' AS RESULT
+	END
+END
+
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SecurityObjectType]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[SecurityObjectType](
+	[SecurityObjectTypeID] [int] IDENTITY(1,1) NOT NULL,
+	[ObjectDescription] [varchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SecurityObjectTypeID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[USER]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[USER](
+	[SecurityUserID] [int] IDENTITY(1,1) NOT NULL,
+	[WindowsUserName] [varchar](200) NULL DEFAULT (''),
+	[UserName] [varchar](200) NULL,
+	[Password] [varchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SecurityUserID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[UserName] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[WindowsUserName] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Right]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Right](
+	[SecurityRightID] [int] NOT NULL,
+	[RightName] [varchar](200) NULL,
+	[RightDescription] [varchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SecurityRightID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ROLE]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[ROLE](
+	[SecurityRoleID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleName] [varchar](100) NULL,
+	[RoleDescription] [varchar](300) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SecurityRoleID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[RoleName] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+
+
+INSERT into [role] select user_group_name, User_group_name from user_Group 
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RoleAccess]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RoleAccess](
+	[RoleAccessID] [int] IDENTITY(1,1) NOT NULL,
+	[ParentID] [int] NULL,
+	[RoleAccessName] [varchar](200) NULL,
+	[Description] [varchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RoleAccessID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+Insert into RoleAccess values (null, 'Exchange','Exchange')
+insert into RoleAccess values (1,'Current Calls','Current Calls')
+insert into RoleAccess values (1,'Floor View','Floor View')
+insert into RoleAccess values (1,'Handpay','Handpay')
+insert into RoleAccess values (1,'Hourly','Hourly')
+insert into RoleAccess values (1,'M/C Drop','M/c Drop')
+insert into RoleAccess values (1,'Player Club','Player Club')
+insert into RoleAccess values (1,'Reports','Reports')
+insert into RoleAccess values (1,'Ticket Redeem','Ticket Redeem')
+insert into RoleAccess values (1,'Void Tickets','Void Tickets')
+
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[dbo].[RoleAccess]') AND name = N'IX_RoleAccess')
+CREATE UNIQUE NONCLUSTERED INDEX [IX_RoleAccess] ON [dbo].[RoleAccess] 
+(
+	[RoleAccessID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Object]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Object](
+	[SecurityObjectID] [int] IDENTITY(1,1) NOT NULL,
+	[Description] [varchar](200) NULL,
+	[ObjectName] [varchar](200) NULL,
+	[ObjectType] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SecurityObjectID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserRole_lnk]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[UserRole_lnk](
+	[SecurityUserID] [int] NOT NULL,
+	[SecurityRoleID] [int] NOT NULL,
+ CONSTRAINT [PKey_SecurityUserRole_lkp] PRIMARY KEY CLUSTERED 
+(
+	[SecurityUserID] ASC,
+	[SecurityRoleID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[INACTIVEUSER]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[INACTIVEUSER](
+	[SecurityUserID] [int] NOT NULL,
+	[DELETEDBY] [int] NOT NULL,
+	[DELETEDTIME] [datetime] NULL DEFAULT (getdate()),
+PRIMARY KEY CLUSTERED 
+(
+	[SecurityUserID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RoleAccessRole_lnk]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RoleAccessRole_lnk](
+	[SecurityRoleID] [int] NOT NULL,
+	[RoleAccessID] [int] NOT NULL,
+ CONSTRAINT [PK_RoleAccessRole_lnk] PRIMARY KEY CLUSTERED 
+(
+	[SecurityRoleID] ASC,
+	[RoleAccessID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RoleAccessObjectRight_lnk]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RoleAccessObjectRight_lnk](
+	[RoleAccessID] [int] NOT NULL,
+	[SecurityObjectID] [int] NOT NULL,
+	[SecurityRightID] [int] NOT NULL,
+ CONSTRAINT [PKey_ObjectRoleAccess_lnk] PRIMARY KEY CLUSTERED 
+(
+	[RoleAccessID] ASC,
+	[SecurityObjectID] ASC,
+	[SecurityRightID] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_GetUser]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ASPNET_SP_GetUser]
+	(
+	@ID INT = 0,
+	@Name VARCHAR(200) = ''''
+	)	
+AS	
+BEGIN
+
+SELECT 
+	SecurityUserID, 
+	WindowsUserName, 
+	UserName, 
+	Password  
+FROM 
+	[USER] 
+WHERE 
+	(@ID = 0 OR SecurityUserID = ISNULL(@ID, 0))
+	AND (@Name = '''' OR	UserName = @Name)
+
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_ChangePassword]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_ChangePassword](@username VARCHAR(200), @password VARCHAR(200))
+AS
+BEGIN
+	IF NOT EXISTS (SELECT * FROM [USER] WHERE UserName = @username )	
+		SELECT ''ERROR:01'' AS RESULT
+	ELSE
+	BEGIN
+		UPDATE [USER] SET Password = @password WHERE UserName = @username		
+		SELECT ''SUCCESS'' AS RESULT
+	END
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_ResetPassword]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_ResetPassword](@username VARCHAR(200), @password VARCHAR(200))
+AS
+BEGIN
+	IF NOT EXISTS (SELECT * FROM [USER] WHERE UserName = @username )	
+		SELECT ''ERROR:01'' AS RESULT
+	ELSE
+	BEGIN
+		UPDATE [USER] SET Password = '''' WHERE UserName = @username AND Password = @Password 
+		SELECT ''SUCCESS'' AS RESULT
+	END
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_AddWindowsUserName]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_AddWindowsUserName](@username VARCHAR(200), @password VARCHAR(200))
+AS
+BEGIN
+	IF NOT EXISTS (SELECT * FROM [USER] WHERE UserName = @username )	
+		SELECT ''ERROR:01'' AS RESULT
+	ELSE
+	BEGIN
+		UPDATE [USER] SET Password = @password WHERE UserName = @username AND Password = @Password
+		SELECT ''SUCCESS'' AS RESULT
+	END
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[rsp_Security_GetData]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE Procedure [dbo].[rsp_Security_GetData] (
+@UserName Varchar(200),
+@Password Varchar(200),
+@WindowsUserName Varchar(200) )
+AS
+BEGIN
+
+DECLARE @USERID INT
+
+IF (LTRIM(RTRIM(ISNULL(@WindowsUserName,''''))) = '''')
+BEGIN
+	SELECT @USERID = SecurityUserID FROM [USER] WHERE UserName = @UserName AND Password = @Password
+END
+ELSE
+BEGIN
+	SELECT @USERID = SecurityUserID FROM [USER] WHERE WindowsUserName = @WindowsUserName
+END
+
+SELECT * FROM [USER] WHERE SecurityUserID = ISNULL(@USERID, 0)
+
+
+SELECT 
+	tObject.ObjectName AS ObjectName,
+	tObject.ObjectType AS ObjectType,
+	tRight.SecurityRightID AS [Right]
+FROM 
+	[UserRole_lnk] tUserRole
+INNER JOIN [RoleAccessRole_lnk] tRAR ON tUserRole.SecurityRoleID = tRAR.SecurityRoleID
+INNER JOIN [RoleAccessObjectRight_lnk] tORR ON tORR.RoleAccessID = tRAR.RoleAccessID  
+INNER JOIN [Object] tObject ON tORR.SecurityObjectID = tObject.SecurityObjectID  
+INNER JOIN [Right] tRight ON tORR.SecurityRightID = tRight.SecurityRightID  
+WHERE
+	tUserRole.SecurityUserID = @USERID
+
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_GetSecurityInformation]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ASPNET_SP_GetSecurityInformation] (  
+@UserName VARCHAR(200),  
+@Password VARCHAR(200),  
+@WindowsUserName VARCHAR(200) )  
+AS  
+BEGIN  
+  
+DECLARE @USERID INT  
+  
+IF (LTRIM(RTRIM(ISNULL(@WindowsUserName,''''))) = '''')  
+BEGIN  
+ SELECT @USERID = SecurityUserID FROM [USER] WHERE UserName = @UserName AND Password = @Password  
+END  
+ELSE  
+BEGIN  
+ SELECT @USERID = SecurityUserID FROM [USER] WHERE WindowsUserName = @WindowsUserName  
+END  
+  
+SELECT * FROM [USER] WHERE SecurityUserID = ISNULL(@USERID, 0)  
+  
+  
+SELECT   
+ tObject.ObjectName AS ObjectName,  
+ tObject.ObjectType AS ObjectType,  
+ tRight.SecurityRightID AS [Right]  
+FROM   
+ [UserRole_lnk] tUserRole
+INNER JOIN [RoleAccessRole_lnk] tRAR ON tUserRole.SecurityRoleID = tRAR.SecurityRoleID
+INNER JOIN [RoleAccessObjectRight_lnk] tORR ON tORR.RoleAccessID = tRAR.RoleAccessID  
+INNER JOIN [Object] tObject ON tORR.SecurityObjectID = tObject.SecurityObjectID  
+INNER JOIN [Right] tRight ON tORR.SecurityRightID = tRight.SecurityRightID  
+WHERE  
+ tUserRole.SecurityUserID = @USERID  
+  
+END  ' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_CreateRole]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_CreateRole](@RoleName VARCHAR(100), @RoleDescription VARCHAR(300))
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM [ROLE] WHERE RoleName = @RoleName )	
+		SELECT ''ERROR:02'' AS RESULT
+	ELSE
+	BEGIN
+		INSERT INTO [ROLE] (RoleName, RoleDescription) Values (@RoleName, @RoleDescription)
+		SELECT ''SUCCESS'' AS RESULT
+	END
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_UpdateRole]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_UpdateRole](@RoleID INT , @RoleName VARCHAR(100), @RoleDescription VARCHAR(300))
+AS
+BEGIN
+	IF NOT EXISTS (SELECT * FROM [ROLE] WHERE SecurityRoleID = @RoleID)
+		SELECT ''ERROR:02'' AS RESULT
+	ELSE
+	BEGIN
+		UPDATE [ROLE] SET RoleName = @RoleName, RoleDescription = @RoleDescription WHERE SecurityRoleID = @RoleID 
+		SELECT ''SUCCESS'' AS RESULT
+	END
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_GetUserRoleMapping]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_GetUserRoleMapping](@USERID INT)
+AS
+BEGIN
+	SELECT 
+		tRole.SecurityRoleID,
+		tRole.RoleName,
+		tRole.RoleDescription
+	FROM 
+		[ROLE] tRole
+	INNER JOIN [UserRole_lnk] tUserRole_Lnk 
+		On tUserRole_Lnk.SecurityRoleID = tRole.SecurityRoleID
+	WHERE 
+		tUserRole_Lnk.SecurityUserID = @USERID 
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_RemoveRole]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ASPNET_SP_RemoveRole]	
+	(
+	@RoleID int	
+	)	
+AS
+Begin
+	DELETE FROM Role WHERE SecurityRoleID = @RoleID
+	If @@Rowcount > 0
+		SELECT ''SUCCESS'' AS RESULT
+	Else
+		SELECT ''ERROR:02'' AS RESULT
+End
+		' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_GetRole]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ASPNET_SP_GetRole]
+	(
+	@ID INT = 0,
+	@Name VARCHAR(200) = ''''
+	)	
+AS	
+BEGIN
+
+SELECT 
+	SecurityRoleID,
+	RoleName,
+	RoleDescription 
+FROM 
+	[Role] 
+WHERE 
+	(@ID = 0 OR SecurityRoleID = ISNULL(@ID, 0))
+	AND (@Name = '''' OR	RoleName = @Name)
+
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_RemoveUserRoleMapping]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_RemoveUserRoleMapping](@UserID INT, @RoleID INT)
+AS
+BEGIN
+	DELETE FROM [UserRole_lnk] WHERE SecurityUserID = @USERID AND SecurityRoleID = @RoleID
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_CreateRoleAccess]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ASPNET_SP_CreateRoleAccess](@ParentID INT, @RoleAccessName VARCHAR(200), @Description VARCHAR(200))
+AS
+BEGIN
+
+IF EXISTS (SELECT * FROM RoleAccess WHERE RoleAccessName = @RoleAccessName)
+BEGIN
+	SELECT ''ERROR:04'' AS RESULT
+END
+ELSE
+BEGIN
+	INSERT INTO RoleAccess (ParentID, RoleAccessName, Description) VALUES (@ParentID, @RoleAccessName, @Description)
+	IF @@rowcount > 0 
+	BEGIN
+		SELECT ''SUCCESS'' AS RESULT
+	END
+	ELSE
+	BEGIN
+		SELECT ''ERROR:05'' AS RESULT
+	END
+END
+
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_UpdateRoleAccess]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[ASPNET_SP_UpdateRoleAccess](@RoleAccessID INT, @ParentID INT, @RoleAccessName VARCHAR(200), @Description VARCHAR(200))
+AS
+BEGIN
+
+IF EXISTS (SELECT * FROM RoleAccess WHERE RoleAccessID = @RoleAccessID)
+BEGIN
+	SELECT ''ERROR:04'' AS RESULT
+END
+ELSE
+BEGIN
+	Update 
+		RoleAccess 
+	Set 
+		ParentID = @ParentID, 
+		RoleAccessName = @RoleAccessName, 
+		Description = @Description 
+	Where
+		RoleAccessID = @RoleAccessID
+
+	IF @@rowcount > 0 
+	BEGIN
+		SELECT ''SUCCESS'' AS RESULT
+	END
+	ELSE
+	BEGIN
+		SELECT ''ERROR:05'' AS RESULT
+	END
+END
+
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_RemoveRoleAccess]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+
+CREATE PROCEDURE [dbo].[ASPNET_SP_RemoveRoleAccess](@RoleAccessID INT)
+AS
+BEGIN
+
+IF EXISTS (Select * From RoleAccess tRA INNER JOIN  RoleAccessRole_lnk tRAR On tRAR.RoleAccessID = tRA.RoleAccessID Where tRA.RoleAccessID = @RoleAccessID)
+BEGIN
+	SELECT ''ERROR:05'' AS RESULT
+END
+ELSE
+BEGIN
+
+	Delete From RoleAccess Where RoleAccessID = @RoleAccessID
+
+	IF @@rowcount > 0
+	BEGIN
+		SELECT ''SUCCESS'' AS RESULT
+	END
+	ELSE
+	BEGIN
+		SELECT ''ERROR:05'' AS RESULT
+	END
+END
+
+END
+' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_GetRoleAccess]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+
+CREATE PROCEDURE [dbo].[ASPNET_SP_GetRoleAccess](@RoleAccessID INT = 0,@RoleAccessName VARCHAR(200) = '''' )
+AS
+BEGIN
+
+	SELECT 
+		tR.RoleAccessID,
+		tRParent.RoleAccessName As ParentName,
+		tR.ParentID,
+		tR.RoleAccessName,
+		tR.Description 
+	FROM 
+		ROLEACCESS tR
+	LEFT OUTER JOin ROLEACCESS tRParent 
+		On tRParent.RoleAccessID = tR.ParentID
+	WHERE
+		(@RoleAccessID = 0 OR @RoleAccessID = tR.RoleAccessID)
+		AND
+		(@RoleAccessName = '''' OR tR.RoleAccessName = @RoleAccessName)
+
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_GetRoleAccessForRole]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+
+CREATE PROCEDURE [dbo].[ASPNET_SP_GetRoleAccessForRole](@RoleID INT)
+AS
+BEGIN
+	SELECT 
+		tR.RoleAccessID,
+		tRParent.RoleAccessName As ParentName,
+		tR.ParentID,
+		tR.RoleAccessName,
+		tR.Description 
+	FROM 
+		ROLEACCESS tR
+	INNER JOIN RoleAccessRole_lnk tRAR On tRAR.RoleAccessID = tR.RoleAccessID
+	LEFT OUTER JOin ROLEACCESS tRParent 
+		On tRParent.RoleAccessID = tR.ParentID
+	WHERE tRAR.SecurityRoleID = @RoleID
+END' 
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_MAPRoleToRoleAccess]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'Create Procedure [dbo].[ASPNET_SP_MAPRoleToRoleAccess] (@RoleID INT, @RoleAccessID INT)
+AS
+BEGIN
+
+IF NOT EXISTS (SELECT * FROM RoleAccessRole_lnk WHERE SecurityRoleID = @RoleID AND RoleAccessID = @RoleAccessID)
+BEGIN
+	INSERT INTO RoleAccessRole_lnk (SecurityRoleID, RoleAccessID) VALUES (@RoleID, @RoleAccessID)
+END
+END'
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ASPNET_SP_RemoveRoleToRoleAccessMapping]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+Create Procedure [dbo].[ASPNET_SP_RemoveRoleToRoleAccessMapping] (@RoleID INT, @RoleAccessID INT)
+AS
+BEGIN
+
+IF EXISTS (SELECT * FROM RoleAccessRole_lnk WHERE SecurityRoleID = @RoleID AND RoleAccessID = @RoleAccessID)
+BEGIN
+	DELETE FROM RoleAccessRole_lnk WHERE SecurityRoleID = @RoleID AND RoleAccessID = @RoleAccessID
+	SELECT ''SUCCESS'' AS RESULT	
+END
+ELSE
+BEGIN
+	SELECT ''ERROR:06'' AS RESULT
+END
+END' 
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__Object__ObjectTy__3B75D760]') AND parent_object_id = OBJECT_ID(N'[dbo].[Object]'))
+ALTER TABLE [dbo].[Object]  WITH CHECK ADD FOREIGN KEY([ObjectType])
+REFERENCES [dbo].[SecurityObjectType] ([SecurityObjectTypeID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__UserRole___Secur__34C8D9D1]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserRole_lnk]'))
+ALTER TABLE [dbo].[UserRole_lnk]  WITH CHECK ADD FOREIGN KEY([SecurityUserID])
+REFERENCES [dbo].[USER] ([SecurityUserID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__UserRole___Secur__35BCFE0A]') AND parent_object_id = OBJECT_ID(N'[dbo].[UserRole_lnk]'))
+ALTER TABLE [dbo].[UserRole_lnk]  WITH CHECK ADD FOREIGN KEY([SecurityRoleID])
+REFERENCES [dbo].[ROLE] ([SecurityRoleID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__INACTIVEU__DELET__2E1BDC42]') AND parent_object_id = OBJECT_ID(N'[dbo].[INACTIVEUSER]'))
+ALTER TABLE [dbo].[INACTIVEUSER]  WITH CHECK ADD FOREIGN KEY([DELETEDBY])
+REFERENCES [dbo].[USER] ([SecurityUserID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__INACTIVEU__Secur__2D27B809]') AND parent_object_id = OBJECT_ID(N'[dbo].[INACTIVEUSER]'))
+ALTER TABLE [dbo].[INACTIVEUSER]  WITH CHECK ADD FOREIGN KEY([SecurityUserID])
+REFERENCES [dbo].[USER] ([SecurityUserID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__RoleAcces__RoleA__5CD6CB2B]') AND parent_object_id = OBJECT_ID(N'[dbo].[RoleAccessRole_lnk]'))
+ALTER TABLE [dbo].[RoleAccessRole_lnk]  WITH CHECK ADD FOREIGN KEY([RoleAccessID])
+REFERENCES [dbo].[RoleAccess] ([RoleAccessID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__RoleAcces__Secur__5BE2A6F2]') AND parent_object_id = OBJECT_ID(N'[dbo].[RoleAccessRole_lnk]'))
+ALTER TABLE [dbo].[RoleAccessRole_lnk]  WITH CHECK ADD FOREIGN KEY([SecurityRoleID])
+REFERENCES [dbo].[ROLE] ([SecurityRoleID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__ObjectRol__RoleA__5812160E]') AND parent_object_id = OBJECT_ID(N'[dbo].[RoleAccessObjectRight_lnk]'))
+ALTER TABLE [dbo].[RoleAccessObjectRight_lnk]  WITH CHECK ADD  CONSTRAINT [FK__ObjectRol__RoleA__5812160E] FOREIGN KEY([RoleAccessID])
+REFERENCES [dbo].[RoleAccess] ([RoleAccessID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK__ObjectRol__Secur__59063A47]') AND parent_object_id = OBJECT_ID(N'[dbo].[RoleAccessObjectRight_lnk]'))
+ALTER TABLE [dbo].[RoleAccessObjectRight_lnk]  WITH CHECK ADD  CONSTRAINT [FK__ObjectRol__Secur__59063A47] FOREIGN KEY([SecurityObjectID])
+REFERENCES [dbo].[Object] ([SecurityObjectID])
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_RoleAccessObjectRight_lnk_Right]') AND parent_object_id = OBJECT_ID(N'[dbo].[RoleAccessObjectRight_lnk]'))
+ALTER TABLE [dbo].[RoleAccessObjectRight_lnk]  WITH CHECK ADD  CONSTRAINT [FK_RoleAccessObjectRight_lnk_Right] FOREIGN KEY([SecurityRightID])
+REFERENCES [dbo].[Right] ([SecurityRightID])

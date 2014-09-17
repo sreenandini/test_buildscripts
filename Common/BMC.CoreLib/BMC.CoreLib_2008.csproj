@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8BD66A0A-49F9-497F-914C-BF8926336848}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.CoreLib</RootNamespace>
+    <AssemblyName>BMC.CoreLib</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>BallyIcon.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>http://localhost/BMC.CoreLib/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BMCLogger.cs" />
+    <Compile Include="Collections\BinaryTree!1.cs" />
+    <Compile Include="Collections\Rbtree!1.cs" />
+    <Compile Include="Collections\BlockingBoundQueueKernal.cs" />
+    <Compile Include="Collections\BlockingBoundQueueUser.cs" />
+    <Compile Include="Collections\ListStructures!1.cs" />
+    <Compile Include="Comparers\TypeComparer.cs" />
+    <Compile Include="Concurrent\CriticalSections.cs" />
+    <Compile Include="Concurrent\DisposableObjectCS.cs" />
+    <Compile Include="Concurrent\DynamicThreadPoolExecutor!1.cs" />
+    <Compile Include="Concurrent\ExecutorThreadBase.cs" />
+    <Compile Include="Concurrent\Future!1.cs" />
+    <Compile Include="Concurrent\LazyInit!1.cs" />
+    <Compile Include="Concurrent\QueueThreadPoolExecutor!1.cs" />
+    <Compile Include="Concurrent\QueueThreadPoolExecutorImpl!1.cs" />
+    <Compile Include="Concurrent\ThinEvent.cs" />
+    <Compile Include="Concurrent\ThreadPoolExecutorBase!1.cs" />
+    <Compile Include="Concurrent\ThreadPoolExecutorFactory.cs" />
+    <Compile Include="Configuration\ConfigAppSettingWatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConfigSettingAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConfigStoreManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConfigStoreServices.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConfigStoreUpdator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConfigStoreUpdator.Designer.cs">
+      <DependentUpon>ConfigStoreUpdator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\FileModificationWatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\IConfigStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoreLibManager.cs" />
+    <Compile Include="Cryptography\BGSEncryption.cs" />
+    <Compile Include="Cryptography\CryptoHelperFactory.cs" />
+    <Compile Include="Cryptography\CryptoHelperImpl.cs" />
+    <Compile Include="Cryptography\CryptoType.cs" />
+    <Compile Include="Cryptography\EncryptionConstants.cs" />
+    <Compile Include="Cryptography\ICryptoHelper.cs" />
+    <Compile Include="Cryptography\MD5Hash.cs" />
+    <Compile Include="Cryptography\RSAEncryption.cs" />
+    <Compile Include="Cryptography\RSATripleDESEncryption.cs" />
+    <Compile Include="Cryptography\TripleDESEncryption.cs" />
+    <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\DbFactory.cs" />
+    <Compile Include="Data\SqlConvert.cs" />
+    <Compile Include="Data\SqlDatabase.cs" />
+    <Compile Include="Data\SqlHelper.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="Diagnostics\AppFileLoggingSystem.cs" />
+    <Compile Include="Diagnostics\ConsoleLoggingSystem.cs" />
+    <Compile Include="Diagnostics\FileLoggingSystem.cs" />
+    <Compile Include="Diagnostics\FormLoggingSystem.cs" />
+    <Compile Include="Diagnostics\ILogger.cs" />
+    <Compile Include="Diagnostics\ILoggingSystem.cs" />
+    <Compile Include="Diagnostics\LogEntryType.cs" />
+    <Compile Include="Diagnostics\Logger.cs" />
+    <Compile Include="Diagnostics\LoggerExtensionMethods.cs" />
+    <Compile Include="Diagnostics\LoggingSystemBase.cs" />
+    <Compile Include="Diagnostics\LogItem.cs" />
+    <Compile Include="Diagnostics\ModuleProc.cs" />
+    <Compile Include="Diagnostics\ObjectBaseLogger.cs" />
+    <Compile Include="Diagnostics\QueueProcessManager!1.cs" />
+    <Compile Include="Diagnostics\QueueProcessMode.cs" />
+    <Compile Include="DisposableObject.cs" />
+    <Compile Include="DisposableObjectNotify.cs" />
+    <Compile Include="DisposableObjectQueryInterface.cs" />
+    <Compile Include="Entrypoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="ExcelPackage\ExcelCell.cs" />
+    <Compile Include="ExcelPackage\ExcelColumn.cs" />
+    <Compile Include="ExcelPackage\ExcelHeaderFooter.cs" />
+    <Compile Include="ExcelPackage\ExcelPackage.cs" />
+    <Compile Include="ExcelPackage\ExcelRow.cs" />
+    <Compile Include="ExcelPackage\ExcelStyles.cs" />
+    <Compile Include="ExcelPackage\ExcelWorkbook.cs" />
+    <Compile Include="ExcelPackage\ExcelWorkheetDimension.cs" />
+    <Compile Include="ExcelPackage\ExcelWorksheet.cs" />
+    <Compile Include="ExcelPackage\ExcelWorksheets.cs" />
+    <Compile Include="ExcelPackage\ExcelWorksheetView.cs" />
+    <Compile Include="ExcelPackage\OfficeProperties.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IConfigValue.cs" />
+    <Compile Include="IoC\MEFHelper.cs" />
+    <Compile Include="IoC\MEFOrder.cs" />
+    <Compile Include="IQueryInterface.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Messages\TransferMessage.cs" />
+    <Compile Include="MSMQ\MessageQueueWorker.cs" />
+    <Compile Include="Concurrent\ExecutorService.cs" />
+    <Compile Include="Concurrent\ExecutorServiceBase.cs" />
+    <Compile Include="Comparers\GenericComparer.cs" />
+    <Compile Include="Concurrent\IExecutor!1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MSMQ\IMessageQueueProcessor.cs" />
+    <Compile Include="Collections\IThreadSafeQueue.cs" />
+    <Compile Include="MSMQ\MessageQueueManager.cs" />
+    <Compile Include="MSMQ\MessageQueueProcessor.cs" />
+    <Compile Include="MSMQ\MessageQueueProcessorInternal.cs" />
+    <Compile Include="Messages\PolledEventMessageCollection.cs" />
+    <Compile Include="Messages\PolledEventMessageFactory.cs" />
+    <Compile Include="Messages\PolledEventMessageFormatter.cs" />
+    <Compile Include="Messages\PolledEventMessage.cs" />
+    <Compile Include="Messages\PolledEventMessageMeter.cs" />
+    <Compile Include="Messages\PolledEventMessageMeters.cs" />
+    <Compile Include="Messages\PolledEventMessageMeterType.cs" />
+    <Compile Include="Messages\RawMessage.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Net\INetSocketHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\NetSocketHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\TcpSocketClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\TcpSocketClient2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\TcpSocketClient3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\TcpSocketServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\TcpSocketServerClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\UdpSocketClientServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessMessageBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Registry\RegistryHelper.cs" />
+    <Compile Include="Registry\RegistrySubKey.cs" />
+    <Compile Include="Registry\RegistryValue.cs" />
+    <Compile Include="Registry\RegistryWatcher.cs" />
+    <Compile Include="Registry\VBRegistry.cs" />
+    <Compile Include="Services\AppNotifyService.cs" />
+    <Compile Include="Services\AppNotifyServiceClient.cs" />
+    <Compile Include="Services\AppNotifyServiceClientCallback.cs" />
+    <Compile Include="Services\AppNotifyServiceClientFactory.cs" />
+    <Compile Include="Services\AppNotifyServiceFactory.cs" />
+    <Compile Include="Services\AppNotifyServiceHelper.cs" />
+    <Compile Include="Services\IAppNotifyService.cs" />
+    <Compile Include="Services\IServiceHost.cs" />
+    <Compile Include="Services\NativeMethods.cs" />
+    <Compile Include="Services\ServiceEntryPoint.cs" />
+    <Compile Include="Services\ServiceControllerEx.cs" />
+    <Compile Include="Services\ServiceMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services\ServiceMainForm.designer.cs">
+      <DependentUpon>ServiceMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\WindowsServiceManager.cs" />
+    <Compile Include="SharedData.cs" />
+    <Compile Include="Collections\SynchronizedDictionary.cs" />
+    <Compile Include="Concurrent\ThreadExecutor!1.cs" />
+    <Compile Include="Concurrent\FreeThreadPoolExecutor!1.cs" />
+    <Compile Include="Tasks\AsyncResult!1.cs" />
+    <Compile Include="Tasks\AsyncResult.cs" />
+    <Compile Include="Tasks\AsyncResultInvoker.cs" />
+    <Compile Include="Tasks\CountdownEvent.cs" />
+    <Compile Include="Tasks\IRunnableObject.cs" />
+    <Compile Include="Tasks\ParallelTaskOptions.cs" />
+    <Compile Include="Tasks\ParallelTasks.cs" />
+    <Compile Include="Tasks\RunnableObjectBase.cs" />
+    <Compile Include="TransactionHelper.cs" />
+    <Compile Include="TypeSystem.cs" />
+    <Compile Include="WcfHelper\Behaviors\WcfCustomBehavior.cs" />
+    <Compile Include="WcfHelper\Behaviors\WcfCustomBehaviorBase.cs" />
+    <Compile Include="WcfHelper\Behaviors\WcfCustomWsdlExportEndpoint.cs" />
+    <Compile Include="WcfHelper\Behaviors\WcfSingleWsdlExportEndpoint.cs" />
+    <Compile Include="WcfHelper\Bindings\ServiceBindingMapper.cs" />
+    <Compile Include="WcfHelper\Bindings\ServiceBindings.cs" />
+    <Compile Include="WcfHelper\Contracts\CustomHeaderExportInfo.cs" />
+    <Compile Include="WcfHelper\Contracts\IServiceContractBase.cs" />
+    <Compile Include="WcfHelper\Contracts\WcfExceptionDetail.cs" />
+    <Compile Include="WcfHelper\Contracts\WcfMessageContextBase.cs" />
+    <Compile Include="WcfHelper\Helpers\AddressHelper.cs" />
+    <Compile Include="WcfHelper\Helpers\ContractBindingsHelper.cs" />
+    <Compile Include="WcfHelper\Hosting\IWcfServiceHostFactory.cs" />
+    <Compile Include="WcfHelper\Hosting\SingleWsdlExtension.cs" />
+    <Compile Include="WcfHelper\Hosting\WcfClientChannel.cs" />
+    <Compile Include="WcfHelper\Hosting\WcfRoutingService.cs" />
+    <Compile Include="WcfHelper\Hosting\WcfServiceHostFactory.cs" />
+    <Compile Include="WcfHelper\Hosting\WcfServiceHostWrapper.cs" />
+    <Compile Include="WcfHelper\Hosting\WcfWebServiceHostBase.cs" />
+    <Compile Include="WcfHelper\Hosting\IWcfServiceHost.cs" />
+    <Compile Include="WcfHelper\Hosting\WcfServiceHost.cs" />
+    <Compile Include="WcfHelper\Hosting\WcfServiceHostBase.cs" />
+    <Compile Include="WcfHelper\Proxies\GenericProxy.cs" />
+    <Compile Include="Win32\AsyncConsoleDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Win32\AsyncConsoleDialogForm.Designer.cs">
+      <DependentUpon>AsyncConsoleDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\AsyncDialogContinuousForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Win32\AsyncDialogContinuousForm.designer.cs">
+      <DependentUpon>AsyncDialogContinuousForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\AsyncDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Win32\AsyncDialogForm.designer.cs">
+      <DependentUpon>AsyncDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\AxAsyncProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win32\AxAsyncProgress.designer.cs">
+      <DependentUpon>AxAsyncProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\AxAsyncProgress2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win32\AxAsyncProgress2.Designer.cs">
+      <DependentUpon>AxAsyncProgress2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\BMCDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Win32\BMCDialogForm.designer.cs">
+      <DependentUpon>BMCDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\CloseButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\ComboBoxItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\ComponentBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\ConsoleColorMapping.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\ContentDesigners.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\ContinuousProgress.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\ControlBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Delegates.cs" />
+    <Compile Include="Win32\DialogFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Win32\DialogFormBase.designer.cs">
+      <DependentUpon>DialogFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\ExpandOrCollapsedEventHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Win32\FormBase.designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\GradientHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\GradientHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\IAsyncProgress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\IGradientHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\IUserInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\MarqueeLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\MDIClientWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\PagingDataGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win32\PagingDataGridView.Designer.cs">
+      <DependentUpon>PagingDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\PagingDataGridViewDelegates.cs" />
+    <Compile Include="Win32\PopupWindowHelper.cs" />
+    <Compile Include="Win32\PreviewWidget.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\HomeScreenWidgets.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\ThreadInvoker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\UserControlUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win32\UserControlUI.designer.cs">
+      <DependentUpon>UserControlUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\UxDockPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win32\UxDockPanel.designer.cs">
+      <DependentUpon>UxDockPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\UxHeaderContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Win32\UxHeaderContent.designer.cs">
+      <DependentUpon>UxHeaderContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\Validation\BaseValidator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Validation\RegExFieldValidator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Validation\CustomValidator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Validation\IValidator.cs" />
+    <Compile Include="Win32\Validation\RequiredFieldValidator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Validation\ValidationSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Win32Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WMI\Win32\Win32_Process.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WMI\Win32\Win32_Service.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WMI\WmiSearcher.cs" />
+    <Compile Include="WPF\ApplicationManager.cs" />
+    <Compile Include="WPF\AxWpfAsyncProgress.xaml.cs">
+      <DependentUpon>AxWpfAsyncProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\Controls\BindingProxy.cs" />
+    <Compile Include="WPF\Controls\FrameworkElementBehaviors.cs" />
+    <Compile Include="WPF\Controls\PasswordBoxEx.cs" />
+    <Compile Include="WPF\Converters\CommonConverters.cs" />
+    <Compile Include="WPF\Converters\TypeConverterBase.cs" />
+    <Compile Include="WPF\DelegateCommand.cs" />
+    <Compile Include="WPF\IViewManager.cs" />
+    <Compile Include="WPF\Validation\RequiredFieldValidationRule.cs" />
+    <Compile Include="WPF\Validation\ValidationRuleBase.cs" />
+    <Compile Include="WPF\WpfAsyncProgress.xaml.cs">
+      <DependentUpon>WpfAsyncProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\WPFExtensions.cs" />
+    <Compile Include="Xml\XmlWriterHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BallyIcon.ico" />
+    <Content Include="Resources\MultiConnect_Logo.png" />
+    <EmbeddedResource Include="Services\ServiceMainForm.resx">
+      <DependentUpon>ServiceMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\AsyncDialogContinuousForm.resx">
+      <DependentUpon>AsyncDialogContinuousForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\AxAsyncProgress.resx">
+      <DependentUpon>AxAsyncProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\AxAsyncProgress2.resx">
+      <DependentUpon>AxAsyncProgress2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\BMCDialogForm.resx">
+      <DependentUpon>BMCDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\Close18Grey.bmp" />
+    <EmbeddedResource Include="Win32\Close18.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\ConfigStoreUpdator.resx">
+      <DependentUpon>ConfigStoreUpdator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\AsyncConsoleDialogForm.resx">
+      <DependentUpon>AsyncConsoleDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\AsyncDialogForm.resx">
+      <DependentUpon>AsyncDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\DialogFormBase.resx">
+      <DependentUpon>DialogFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\PagingDataGridView.resx">
+      <DependentUpon>PagingDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\UserControlUI.resx">
+      <DependentUpon>UserControlUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\UxDockPanel.resx">
+      <DependentUpon>UxDockPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32\UxHeaderContent.resx">
+      <DependentUpon>UxHeaderContent.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="WMI\IIS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="WPF\AxWpfAsyncProgress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WPF\WpfAsyncProgress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

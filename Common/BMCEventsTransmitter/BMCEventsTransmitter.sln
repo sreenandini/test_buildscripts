@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMCEventsTransmitter", "BMCEventsTransmitter.csproj", "{F9442793-0332-47D0-9095-2E9A9E7603ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.Common", "..\BMC.Common\BMC.Common.csproj", "{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9442793-0332-47D0-9095-2E9A9E7603ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9442793-0332-47D0-9095-2E9A9E7603ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9442793-0332-47D0-9095-2E9A9E7603ED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9442793-0332-47D0-9095-2E9A9E7603ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9442793-0332-47D0-9095-2E9A9E7603ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9442793-0332-47D0-9095-2E9A9E7603ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|x86.ActiveCfg = Debug|x86
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|x86.Build.0 = Debug|x86
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|x86.ActiveCfg = Release|x86
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

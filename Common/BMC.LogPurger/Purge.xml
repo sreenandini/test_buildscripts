@@ -1,0 +1,90 @@
+﻿<Logs>
+	<Log>
+		<path>C:\Logs</path>
+		<Files>
+			<File Age ="30" Extenstions=".log">otherlogging</File>
+			<File Age ="30" Extenstions=".txt">CashdeskOperator</File>
+			<File Age ="30" Extenstions=".txt">BGSExchangeMonitor</File>
+			<File Age ="30" Extenstions=".log">BGSExchangeMonitor</File>
+			<File Age ="30" Extenstions=".txt">DialupServiceLog</File>
+			<File Age ="30" Extenstions=".txt">GuardianLog</File>
+			<File Age ="30" Extenstions=".txt">BGSWSAdmin</File>
+			<File Age ="30" Extenstions=".txt">LogPurger</File>
+			<File Age ="30" Extenstions=".txt">BMCHostService</File>
+			<File Age ="30" Extenstions=".txt">BMCNetworkService</File>
+			<File Age ="30" Extenstions=".txt">ExchangeDialupServiceLog</File>
+			<File Age ="30" Extenstions=".txt">HourlyDailyReadJobs</File>
+			<File Age ="30" Extenstions=".txt">TicketExportService</File>
+			<File Age ="30" Extenstions=".txt">EnterpriseImportExportService</File>
+			<File Age ="30" Extenstions=".txt">ReportService</File>
+			<File Age ="30" Extenstions=".txt">BASWindowsService</File>
+			<File Age ="30" Extenstions=".txt">BMCBASImportWebService</File>
+			<File Age ="30" Extenstions=".txt">BMCBASExportImportService</File>
+			<File Age ="30" Extenstions=".txt">BAS</File>
+      <File Age ="30" Extenstions=".txt">LFMWebService</File>
+      <File Age ="30" Extenstions=".txt">EnterpriseExportService</File>
+      <File Age ="30" Extenstions=".txt">EnterpriseImportService</File>			
+		</Files>
+	</Log>
+	<Log>
+		<path>C:\CashmasterExchange</path>
+		<Files>
+			<File Age ="30" Extenstions=".txt">Ethernet_Com</File>
+			<File Age ="30" Extenstions=".txt">SesManLog</File>
+			<File Age ="30" Extenstions=".txt">DhcpServerLog</File>
+			<File Age ="30" Extenstions=".txt">ComExchangeServer</File>
+			<File Age ="30" Extenstions=".txt">ComExchangeClient</File>
+			<File Age ="30" Extenstions=".txt">EventLog_</File>
+			<File Age ="30" Extenstions=".txt">FreeFormLog_</File>
+			<File Age ="30" Extenstions=".txt">GIM_MC300</File>
+			<File Age ="30" Extenstions=".txt">GmuLoginLog_</File>
+			<File Age ="30" Extenstions=".txt">TitoLog_</File>
+      <File Age ="30" Extenstions=".old">Ethernet_Com</File>
+      <File Age ="30" Extenstions=".old">PosLog_</File>
+		</Files>		
+	</Log>
+	<Log>
+		<path>D:\Logs</path>
+		<Files>
+			<File Age ="30" Extenstions=".log">otherlogging</File>
+			<File Age ="30" Extenstions=".txt">CashdeskOperator</File>
+			<File Age ="30" Extenstions=".txt">BGSExchangeMonitor</File>
+			<File Age ="30" Extenstions=".log">BGSExchangeMonitor</File>
+			<File Age ="30" Extenstions=".txt">DialupServiceLog</File>
+			<File Age ="30" Extenstions=".txt">GuardianLog</File>
+			<File Age ="30" Extenstions=".txt">BGSWSAdmin</File>
+			<File Age ="30" Extenstions=".txt">LogPurger</File>
+			<File Age ="30" Extenstions=".txt">BMCHostService</File>
+			<File Age ="30" Extenstions=".txt">BMCNetworkService</File>
+			<File Age ="30" Extenstions=".txt">ExchangeDialupServiceLog</File>
+			<File Age ="30" Extenstions=".txt">HourlyDailyReadJobs</File>
+			<File Age ="30" Extenstions=".txt">TicketExportService</File>
+			<File Age ="30" Extenstions=".txt">EnterpriseImportExportService</File>
+			<File Age ="30" Extenstions=".txt">ReportService</File>
+			<File Age ="30" Extenstions=".txt">BASWindowsService</File>
+			<File Age ="30" Extenstions=".txt">BMCBASImportWebService</File>
+			<File Age ="30" Extenstions=".txt">BMCBASExportImportService</File>
+			<File Age ="30" Extenstions=".txt">BAS</File>
+      <File Age ="30" Extenstions=".txt">LFMWebService</File>
+      <File Age ="30" Extenstions=".txt">EnterpriseExportService</File>
+      <File Age ="30" Extenstions=".txt">EnterpriseImportService</File>			
+		</Files>
+	</Log>
+	<Log>
+		<path>D:\CashmasterExchange</path>
+		<Files>
+			<File Age ="30" Extenstions=".txt">Ethernet_Com</File>
+			<File Age ="30" Extenstions=".txt">SesManLog</File>
+			<File Age ="30" Extenstions=".txt">DhcpServerLog</File>
+			<File Age ="30" Extenstions=".txt">ComExchangeServer</File>
+			<File Age ="30" Extenstions=".txt">ComExchangeClient</File>
+			<File Age ="30" Extenstions=".txt">EventLog_</File>
+			<File Age ="30" Extenstions=".txt">FreeFormLog_</File>
+			<File Age ="30" Extenstions=".txt">GIM_MC300</File>
+			<File Age ="30" Extenstions=".txt">GmuLoginLog_</File>
+			<File Age ="30" Extenstions=".txt">TitoLog_</File>
+  <File Age ="30" Extenstions=".old">PosLog_</File>
+      <File Age ="30" Extenstions=".old">Ethernet_Com</File>
+		</Files>		
+	</Log>
+</Logs>

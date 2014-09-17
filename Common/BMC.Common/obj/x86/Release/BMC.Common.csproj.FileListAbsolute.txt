@@ -1,0 +1,3 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.Common\bin\x86\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.Common\obj\x86\Release\BMC.Common.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\BMC.Common\obj\x86\Release\BMC.Common.dll
