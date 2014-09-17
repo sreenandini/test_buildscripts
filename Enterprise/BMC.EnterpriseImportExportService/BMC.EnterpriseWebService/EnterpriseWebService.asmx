@@ -1,1 +1,0 @@
-﻿<%@ WebService Language="C#" CodeBehind="EnterpriseWebService.asmx.cs" Class="BMC.EnterpriseWebService.EnterpriseWebService" %>

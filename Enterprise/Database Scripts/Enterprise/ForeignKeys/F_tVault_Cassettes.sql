@@ -1,3 +1,0 @@
-USE ENTERPRISE
-GO
-

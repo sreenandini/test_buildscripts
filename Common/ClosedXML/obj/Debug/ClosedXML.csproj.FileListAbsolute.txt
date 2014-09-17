@@ -1,0 +1,10 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\bin\Debug\ClosedXML.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\bin\Debug\ClosedXML.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\bin\Debug\BMC.CoreLib.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\bin\Debug\DocumentFormat.OpenXml.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\bin\Debug\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\bin\Debug\BMC.CoreLib.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\bin\Debug\BMC.Common.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\obj\Debug\ClosedXML.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\obj\Debug\ClosedXML.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Common\ClosedXML\obj\Debug\ClosedXML.pdb

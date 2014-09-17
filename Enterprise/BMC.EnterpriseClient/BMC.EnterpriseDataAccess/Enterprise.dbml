@@ -1,3 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Enterprise" Class="EnterpriseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=10.2.46.111;Initial Catalog=Enterprise;Persist Security Info=True;User ID=sa" SettingsObjectName="BMC.EnterpriseDataAccess.Properties.Settings" SettingsPropertyName="EnterpriseConnectionString10" Provider="System.Data.SqlClient" />
-</Database>

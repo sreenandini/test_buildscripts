@@ -1,5 +1,0 @@
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsTransport\bin\Release\BMC.EnterpriseReportsTransport.dll
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsTransport\bin\Release\BMC.EnterpriseReportsTransport.pdb
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsTransport\obj\Release\BMC.EnterpriseReportsTransport.dll
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsTransport\obj\Release\BMC.EnterpriseReportsTransport.pdb
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsTransport\obj\Release\BMC.EnterpriseReportsTransport.csprojResolveAssemblyReference.cache

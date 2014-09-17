@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BallyOneEnterprise_AccountDetail">
-  <ConnectionProperties>
-    <Extension>SQL</Extension>
-    <ConnectString>Data Source=ws-in274\SQL2012;Initial Catalog=Enterprise</ConnectString>
-  </ConnectionProperties>
-  <DataSourceID>9f568741-8d10-4db7-9bbc-b018b10145db</DataSourceID>
-</RptDataSource>

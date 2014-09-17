@@ -1,8 +1,0 @@
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\bin\Debug\BMC.Resources.dll
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\bin\Debug\BMC.Resources.pdb
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\obj\Debug\BMC.Resources.MessageResources.resources
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\obj\Debug\BMC.Resources.TextResources.resources
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\obj\Debug\BMC.Resources.csproj.GenerateResource.Cache
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\obj\Debug\BMC.Resources.dll
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\obj\Debug\BMC.Resources.pdb
-C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Enterprise\BMC.Resources\obj\Debug\BMC.Resources.csprojResolveAssemblyReference.cache
