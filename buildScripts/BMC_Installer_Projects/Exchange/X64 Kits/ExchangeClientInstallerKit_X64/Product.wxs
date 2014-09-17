@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension">
+
+	<Product
+   Id="50a932a3-7d8f-48a0-a615-98b2d2475ae9"
+   Name="BMC Site Controller Client 12.5"
+   Language="1033"
+   Version="12.5.0"
+   Manufacturer="Bally Technologies"
+   UpgradeCode="3b0fcf2d-f797-4a8c-b24a-cf960f5ce698">
+
+		<Package
+		  InstallerVersion="200"
+		  Compressed="no"
+		  Id="123456ab-abcd-9234-bdc1-93fed8916471" />
+
+		<Media Id="1" Cabinet="WebAppWixProject.cab" EmbedCab="no"/>
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFiles64Folder">
+        <!--for 64bit 'ProgramFiles64Folder' should be used and for 32 bit 'ProgramFilesFolder' will be used-->
+				<Directory Id="BallyTechFolder" Name="Bally Technologies">
+					<Directory Id="InstallDir" Name="Exchange Client">
+						<Component Id="MainFolder" Guid="8123122a-4123-423c-1256-1232130134ac" Win64="yes" Permanent="no">
+							<File Id="BMC.Presentation.POS.exe" Name="BMC.Presentation.POS.exe"
+								 Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Presentation.POS.exe"
+								 Vital="yes">
+								<Shortcut Advertise="yes" Id='desktopPOS' Directory='DesktopFolder' Name='BMC Site Controller' Icon='ShortcutIcon.exe'
+										  WorkingDirectory='InstallDir' Show='maximized'>
+									<Icon Id="ShortcutIcon.exe" SourceFile="BMC_Icon.ico" />
+								</Shortcut>
+							</File>
+              <!--***********************************************BMC COMMON BINARIES START***********************************************-->
+              <File Id="BMCCommondll"             Name="BMC.Common.dll"         Source="$(var.SRC)\Common\BMC.Common\Bin\Release\BMC.Common.dll"></File>
+              <File Id="BMCDataAccessDll"         Name="BMC.DataAccess.dll"     Source="$(var.SRC)\Common\BMC.DataAccess\bin\Release\BMC.DataAccess.dll"></File>
+              <File Id="BMCSecurityDll"           Name="BMC.Security.dll"       Source="$(var.SRC)\Common\BMC.Security\bin\Release\BMC.Security.dll"></File>
+              <File Id="Audit.Business.dll"       Name="Audit.Business.dll"     Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Business.dll"></File>
+              <File Id="Audit.Transport.dll"      Name="Audit.Transport.dll"    Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Transport.dll"></File>
+              <File Id="Audit.DBBuilder.dll"      Name="Audit.DBBuilder.dll"    Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.DBBuilder.dll"></File>
+              <!--***********************************************BMC COMMON BINARIES END***********************************************-->
+
+              <!--***********************************************BMC CDO BINARIES START***********************************************-->
+              <File Id="BMC.Presentation.POS.exe.config"      Name="BMC.Presentation.POS.exe.config"      Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Presentation.POS.exe.config"></File>
+              <File Id="BMC.Business.CashDeskOperator.dll"    Name="BMC.Business.CashDeskOperator.dll"    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Business.CashDeskOperator.dll"></File>
+              <File Id="BMC.CashDeskOperator.dll"             Name="BMC.CashDeskOperator.dll"             Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.CashDeskOperator.dll"></File>
+              <File Id="BMC.DBInterface.CashDeskOperator.dll" Name="BMC.DBInterface.CashDeskOperator.dll" Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.DBInterface.CashDeskOperator.dll"></File>
+             <File Id="BMC.Transport.dll"		      Name="BMC.Transport.dll"			  Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Transport.dll"></File>
+              <File Id="Menudata.XML"                         Name="Menudata.XML"                         Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata.XML"></File>
+              <File Id="Menudata_es_ar.XML"                   Name="Menudata_es-ar.XML"                   Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata_es-ar.XML"></File>
+              <File Id="Menudata_it_IT.XML"                   Name="Menudata_it-IT.XML"                   Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata_it-IT.XML"></File>
+              <File Id="Menudata_en_gb.XML"	                  Name="Menudata_en-gb.XML"	                  Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata_en-gb.XML"></File>
+              <!--***********************************************BMC CDO BINARIES END***********************************************-->
+
+
+              <!--RegChange  Start-->
+              <File Id="BMC.RegisterInstallation.exe"                   Name="BMC.RegisterInstallation.exe"                Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.RegisterInstallation\bin\Release\BMC.RegisterInstallation.exe"></File>
+              <File Id="BMC.ConfigurationEditor.exe"                    Name="BMC.ConfigurationEditor.exe"                 Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.ConfigurationEditor\bin\Release\BMC.ConfigurationEditor.exe"></File>
+              <File Id="BMC.RegParser.exe.config"                       Name="BMC.RegParser.exe.config"                    Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.RegParser\bin\Release\BMC.RegParser.exe.config"></File>
+              <File Id="BMC.ComConfigEditor.exe"                       Name="ComConfigEditor.exe"                    Source="$(var.SRC)\Site Controller\Comms\ComConfigEditor\bin\Release\ComConfigEditor.exe"></File>
+              <File Id="BMC.ComConfigEditor.exe.config"                       Name="ComConfigEditor.exe.config"                    Source="$(var.SRC)\Site Controller\Comms\ComConfigEditor\bin\Release\ComConfigEditor.exe.config"></File>
+              
+              
+              
+              <!--RegChange End-->
+
+              <!-- com RegChange Start-->
+              <File Id="BMC.PrinterConfig.config"                       Name="PrinterConfig.config"                 Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\PrinterConfig.config"></File>
+              <!-- com RegChange End-->
+              <!--***********************************************BMC COMM BINARIES START***********************************************-->
+              <File Id="PrinterComm.dll"                Name="PrinterComm.dll"                Source="$(var.SRC)\Site Controller\Comms\Com Dlls\PrinterComm.dll"></File>
+              <File Id="Gen2Printer.dll"                Name="Gen2Printer.dll"                Source="$(var.SRC)\Site Controller\Comms\Com Dlls\Gen2Printer.dll"></File>
+              <File Id="NoteCumTktScan.dll"             Name="NoteCumTktScan.dll"             Source="$(var.SRC)\Site Controller\Comms\Com Dlls\NoteCumTktScan.dll"></File>
+              <File Id="ComExchange.dll"                Name="ComExchange.dll"                Source="$(var.SRC)\Site Controller\Comms\Com Dlls\ComExchange.dll"></File>
+              <File Id="BMCExComms.dll"                 Name="BMCExComms.dll"                 Source="$(var.SRC)\Site Controller\Comms\Com Dlls\BMCExComms.dll"></File>
+              <File Id="JetScan.dll"                    Name="JetScan.dll"                    Source="$(var.SRC)\Site Controller\Comms\Com Dlls\JetScan.dll"></File>
+              <File Id="SDGTicketGen.dll"               Name="SDGTicketGen.dll"               Source="$(var.SRC)\Site Controller\Comms\Com Dlls\SDGTicketGen.dll"></File>
+              <File Id="POSPrinter.ocx"                 Name="POSPrinter.ocx"                 Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\POSPrinter.ocx"></File>
+              <!--***********************************************BMC COMM BINARIES END***********************************************-->
+
+              <!--***********************************************INTEROP BINARIES START***********************************************-->
+              <File Id="Interop.ComExchangeLib.dll"         Name="Interop.ComExchangeLib.dll"           Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.ComExchangeLib.dll"></File>
+              <File Id="Interop.PrinterCommLib.dll"         Name="Interop.PrinterCommLib.dll"           Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.PrinterCommLib.dll"></File>
+              <File Id="Interop.Gen2PrinterLib.dll"         Name="Interop.Gen2PrinterLib.dll"           Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.Gen2PrinterLib.dll"></File>
+              <File Id="Interop.NoteCumTktScanLib.dll"      Name="Interop.NoteCumTktScanLib.dll"        Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.NoteCumTktScanLib.dll"></File>
+              <File Id="Interop.SDGTicketGenLib.dll"        Name="Interop.SDGTicketGenLib.dll"          Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.SDGTicketGenLib.dll"></File>
+              <File Id="Interop.JetScanLib.dll"             Name="Interop.JetScanLib.dll"               Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.JetScanLib.dll"></File>
+              <File Id="Microsoft.Office.Interop.Excel.dll" Name="Microsoft.Office.Interop.Excel.dll"   Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Microsoft.Office.Interop.Excel.dll"></File>
+              <!--<File Id="Interop.POSPRINTERLib.dll"            Name="Interop.POSPRINTERLib.dll"              Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.POSPRINTERLib.dll"></File>-->
+              <!--***********************************************INTEROP BINARIES START***********************************************-->
+
+              <!--***********************************************EXCHANGE CONFIG BINARIES START***********************************************-->
+              <File Id="BMC.ExchangeConfig.Client.exe"          Name="BMC.ExchangeConfig.Client.exe"        Source="$(var.SRC)\Site Controller\BMC.Configuration.Client\bin\Release\BMC.ExchangeConfig.Client.exe"></File>
+              <File Id="BMC.ExchangeConfig.Client.exe.config"   Name="BMC.ExchangeConfig.Client.exe.config" Source="$(var.SRC)\Site Controller\BMC.Configuration.Client\bin\Release\BMC.ExchangeConfig.Client.exe.config"></File>
+              <File Id="BMC.Business.ExchangeConfig.dll"        Name="BMC.Business.ExchangeConfig.dll"      Source="$(var.SRC)\Site Controller\BMC.ExchangeConfiguration\BMC.Business.ExchangeConfig\bin\Release\BMC.Business.ExchangeConfig.dll"></File>
+              <File Id="BMC.DBInterface.ExchangeConfig.dll"     Name="BMC.DBInterface.ExchangeConfig.dll"   Source="$(var.SRC)\Site Controller\BMC.ExchangeConfiguration\BMC.DBInterface.ExchangeConfig\bin\Release\BMC.DBInterface.ExchangeConfig.dll"></File>
+              <File Id="BMC.Transport.ExchangeConfig.dll"       Name="BMC.Transport.ExchangeConfig.dll"     Source="$(var.SRC)\Site Controller\BMC.ExchangeConfiguration\BMC.Transport.ExchangeConfig\bin\Release\BMC.Transport.ExchangeConfig.dll"></File>
+              <!--***********************************************EXCHANGE CONFIG BINARIES START***********************************************-->
+
+              <!--***********************************************BINARIES FROM DEPLOY START***********************************************-->
+              <!--<File Id='RegEntry.exe'                               Name='RegEntry.exe'                                   Source='$(var.DEPLOY)\RegEntry.exe'></File>-->
+              <File Id="WINGDNG3.TTF"                         Name="WINGDNG3.TTF"                         Source="$(var.DEPLOY)\WINGDNG3.TTF"></File>
+              <File Id="Microsoft.SqlServer.BatchParser.dll"  Name="Microsoft.SqlServer.BatchParser.dll"  Source="$(var.DEPLOY)\Microsoft.SqlServer.BatchParser.dll"></File>
+              <File Id="Microsoft.SqlServer.Replication.dll"  Name="Microsoft.SqlServer.Replication.dll"  Source="$(var.DEPLOY)\Microsoft.SqlServer.Replication.dll"></File>
+
+              <!--***********************************************BINARIES FROM DEPLOY END***********************************************-->
+              
+							<File Id="BMCEnterpriseProxyDll"              Name="BMC.EnterpriseProxy.dll"              Source="$(var.SRC)\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\bin\Release\BMC.EnterpriseProxy.dll"></File>
+							<!--<File Id="BMC.Transport.dll"                  Name="BMC.Transport.dll"                    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Transport.dll"></File>-->
+							<File Id="BGSMachineManagerNET.dll"           Name="BGSMachineManagerNET.dll"             Source="$(var.SRC)\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\bin\BGSMachineManagerNET.dll"></File>
+							<File Id="BMC.Monitoring.dll"                 Name="BMC.Monitoring.dll"                   Source="$(var.SRC)\Site Controller\BMC.Monitoring\bin\Release\BMC.Monitoring.dll"></File>
+							<File Id="ICSharpCode.SharpZipLib.dll"        Name="ICSharpCode.SharpZipLib.dll"          Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\ICSharpCode.SharpZipLib.dll"></File>
+							<File Id="office.dll"                         Name="office.dll"                           Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\office.dll"></File>
+							<File Id="EnhancedEnrollmentChange.bat"       Name="EnhancedEnrollmentChange.bat"         Source="$(var.DEPLOY)\EnhancedEnrollmentChange.bat"></File>
+							<!--<File Id="RemoveOldExchangeHostService.bat" Name="RemoveOldExchangeHostService.bat" Source="$(var.DEPLOY)\RemoveOldExchangeHostService.bat"></File>-->
+							<File Id="RegFont.bat"                        Name="RegFont.bat"                          Source="$(var.DEPLOY)\RegFont.bat"></File>
+							<File Id="regFont.reg"                        Name="regFont.reg"                          Source="$(var.DEPLOY)\regFont.reg"></File>
+							<File Id="HandPayChanges.bat"                 Name="HandPayChanges.bat"                   Source="$(var.DEPLOY)\HandPayChanges.bat"></File>
+							<File Id="cmdline.bat"                        Name="cmdline.bat"                          Source="$(var.DEPLOY)\cmdline.bat"></File>
+							<File Id="HFXVH.dll"                          Name="HFXVH.dll"                            Source="$(var.DEPLOY)\HFXVH.dll"></File>
+							<File Id="msvcp71.dll"                        Name="msvcp71.dll"                          Source="$(var.DEPLOY)\msvcp71.dll"></File>
+							<File Id="msvcr71.dll"                        Name="msvcr71.dll"                          Source="$(var.DEPLOY)\msvcr71.dll"></File>
+							
+							<File Id="TCKPrint.dll"                       Name="TCKPrint.dll"                         Source="$(var.DEPLOY)\TCKPrint.dll"></File>
+							<File Id="ExchangeDLLReg.bat"                 Name="ExchangeDLLReg.bat"                   Source="$(var.DEPLOY)\ExchangeDLLReg.bat"></File>
+							<File Id="crviewer.dll"                       Name="crviewer.dll"                         Source="$(var.DEPLOY)\crviewer.dll"></File>
+							<File Id="ServiceAutoStart_Exchange.reg"      Name="ServiceAutoStart_Exchange.reg"        Source="$(var.DEPLOY)\ServiceAutoStart_Exchange.reg"></File>
+							
+							<!--Begin Framework Files--> 
+							<File Id="PresentationCore.dll"             Name="PresentationCore.dll"               Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationCore.dll"></File>
+							<File Id="PresentationFramework.dll"        Name="PresentationFramework.dll"          Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationFramework.dll"></File>
+							<File Id="PresentationFramework.Luna.dll"   Name="PresentationFramework.Luna.dll"     Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationFramework.Luna.dll"></File>
+							<File Id="PresentationFramework.Royale.dll" Name="PresentationFramework.Royale.dll"   Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationFramework.Royale.dll"></File>
+							<File Id="UIAutomationProvider.dll"         Name="UIAutomationProvider.dll"           Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\UIAutomationProvider.dll"></File>
+							<File Id="WPFToolkit.dll"                   Name="WPFToolkit.dll"                     Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\WPFToolkit.dll"></File>
+							<File Id="AvalonControlsLibrary.dll"        Name="AvalonControlsLibrary.dll"          Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\AvalonControlsLibrary.dll"></File>
+							<!--End Framework Files-->
+  
+							<!--<File Id="CRRedist2008_x86.msi" Name="CRRedist2008_x86.msi" Source="$(var.DEPLOY)\CRRedist2008_x86.msi"></File>-->
+							<File Id="ReportViewer.exe"     Name="ReportViewer.exe"     Source="$(var.DEPLOY)\ReportViewer.exe"></File>
+
+							<File Id="BMC.CashDispenser.Core.dll" Name="BMC.CashDispenser.Core.dll" Source="$(var.SRC)\Site Controller\CashDispenser\BMC.CashDispenser.Core\bin\Release\BMC.CashDispenser.Core.dll"></File>
+							<File Id="BMC.CoreLib.dll"            Name="BMC.CoreLib.dll"            Source="$(var.SRC)\Common\BMC.CoreLib\bin\Release\BMC.CoreLib.dll"></File>
+							<File Id="BMC.PlayerGateway.dll"      Name="BMC.PlayerGateway.dll"      Source="$(var.SRC)\Site Controller\MSMQ\BMC.PlayerGateway\BMC.PlayerGateway\bin\Release\BMC.PlayerGateway.dll"></File>
+							<File Id="BMCIPC.dll"                 Name="BMCIPC.dll"                 Source="$(var.SRC)\Site Controller\MSMQ\BMCIPC\bin\Release\BMCIPC.dll"></File>
+							<File Id="CashDispenser.dll"          Name="CashDispenser.dll"          Source="$(var.SRC)\Site Controller\CashDispenser\BMC.CashDispenser.Core\bin\Release\CashDispenser.dll"></File>
+							
+							<File Id="TicketingClient.dll" Name="TicketingClient.dll" Source="$(var.SRC)\Site Controller\TicketingClient\bin\Release\TicketingClient.dll"></File>
+
+							<File Id="SiteLicensing.DataViewer.exe"         Name="SiteLicensing DataViewer.exe"         Source="$(var.SRC)\Site Controller\SiteLicensing DataViewer\bin\Release\SiteLicensing DataViewer.exe"></File>
+              <File Id="SiteLicensing.DataViewer.exe.config"  Name="SiteLicensing DataViewer.exe.config"  Source="$(var.SRC)\Site Controller\SiteLicensing DataViewer\bin\Release\SiteLicensing DataViewer.exe.config"></File>
+	      <File Id="FreeForm.dll"		                      Name="FreeForm.dll"		                        Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\FreeForm.dll"></File>
+	      <File Id ="BMC.CommonLiquidation.dll"           Name="BMC.CommonLiquidation.dll"            Source="$(var.SRC)\Common\BMC.CommonLiquidation\bin\Release\BMC.CommonLiquidation.dll"></File>
+
+             <!-- <RegistryKey Root ="HKLM" Key ="Software\Honeyframe" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="InstallationPath" Type="string" Value=" C:\Program Files\Bally Technologies\Exchange Client\"></RegistryValue>
+                <RegistryValue Name="InstallationType" Type="string" Value="ExchangeClient"></RegistryValue>
+              </RegistryKey>
+
+							<RegistryKey Root="HKLM" Key="Software\Honeyframe\NoteCounter" Action="createAndRemoveOnUninstall">
+								<RegistryValue Name="Location" Type="string" Value="C:\\CashmasterExchange" />
+								<RegistryValue Name="SimulateNoteCounter" Type="integer" Value="0" />
+							</RegistryKey>
+  
+							<RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster" Action="createAndRemoveOnUninstall">
+								<RegistryValue Name="ExchangeKey" Type="string" Value="" />
+								<RegistryValue Name="EnterpriseKey" Type="string" Value="" />
+								<RegistryValue Name="IsRSAEnabled" Type="string" Value="false" />
+								<RegistryValue Name="IsTripleDES" Type="string" Value="true" />
+								<RegistryValue Name="SQLConnect" Type="string" Value="" />
+								<RegistryValue Name="IsRSAEnabled" Type="string" Value="False" />
+								<RegistryValue Name="RSAPublicKeyPath" Type="string" Value="[PublicKeyCertificatePath]" />
+								<RegistryValue Name="RSAPrivateKeyPath" Type="string" Value="[PrivateKeyCertificatePath]" />
+								<RegistryValue Name="RSAPrivateKeyPassword" Type="string" Value="[CertificatePassword]" />
+							</RegistryKey>
+							<RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange" Action="createAndRemoveOnUninstall">
+								<RegistryValue Name="default_server_ip" Type="string" Value="" />
+								<RegistryValue Name="BindIPAddress" Type="string" Value="" />
+								<RegistryValue Name="ExchangeDir" Type="string" Value="C:\CashmasterExchange" />
+                <RegistryValue Name="ServerIPPort"						Type="integer"	Value="6810" />
+							</RegistryKey> -->
+
+            </Component>
+						<Directory Id="PrintFunction" Name="Print">
+							<Component Id="PrintFunction" Guid="1abd1bda-243e-4aec-bdbd-50b1732aaa41" Win64="yes" Permanent="no">
+								<File Id="ManualCashEntryRecepit" Name="ManualReceipt.html" Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\Print\ManualReceipt.html">
+								</File>
+
+							</Component>
+						</Directory>
+						<Directory Id="EnhancedEnrollmentFolder" Name="EnhancedEnrollment">
+							<Component Id="EnhancedEnrollment" Guid="123456da-adec-ba23-adeb-321321321123" Win64="yes" Permanent="no">
+								<File Id="EnhancedEnrollment.EnhancedEnrollment.dll.config" Name="EnhancedEnrollment.dll.config" Source="$(var.DEPLOY)\EnhancedEnrollment.dll.config"></File>
+								<File Id="EnhancedEnrollment.BMC.Common.dll" Name="BMC.Common.dll" Source="$(var.SRC)\Common\BMC.Common\Bin\Release\BMC.Common.dll"></File>
+								<File Id="EnhancedEnrollment.EnhancedEnrollment.dll" Name="EnhancedEnrollment.dll" Source="$(var.DEPLOY)\EnhancedEnrollment.dll"></File>
+								<File Id="EnhancedEnrollment.BMC.DataAccess.Dll" Name="BMC.DataAccess.dll" Source="$(var.SRC)\Common\BMC.DataAccess\bin\Release\BMC.DataAccess.dll"></File>
+								<!--<File Id="EnhancedEnrollment.BGSExComms.dll" Name="BGSExComms.dll" Source="$(var.DEPLOY)\EnhancedEnrollment\BGSExComms.dll"></File>-->
+							</Component>
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+			<Directory Id='DesktopFolder' Name='Desktop' />
+		</Directory>
+
+  <CustomAction Id="RegisterFontCustomAction"
+				  FileKey="RegFont.bat"
+				  ExeCommand="" Return="asyncNoWait" />
+		<InstallExecuteSequence>
+			<Custom Action="RegisterFontCustomAction" After="InstallFinalize">NOT Installed</Custom>
+		</InstallExecuteSequence>
+
+		<CustomAction Id="HandPayCustomAction"
+			  FileKey="HandPayChanges.bat"
+			  ExeCommand="" Return="asyncNoWait" />
+		<InstallExecuteSequence>
+			<Custom Action="HandPayCustomAction" After="InstallFinalize">NOT Installed</Custom>
+		</InstallExecuteSequence>
+
+		<CustomAction Id="ExchangeDLLRegCustomAction"
+				  FileKey="ExchangeDLLReg.bat"
+				  ExeCommand="" Return="asyncNoWait" />
+		<InstallExecuteSequence>
+			<Custom Action="ExchangeDLLRegCustomAction" After="InstallFinalize">NOT Installed</Custom>
+		</InstallExecuteSequence>
+
+    <CustomAction Id="LaunchRegisterInstallation"        FileKey="BMC.RegisterInstallation.exe"  ExeCommand="Exchangeclient" Return="ignore" />
+    <InstallExecuteSequence>
+      <Custom Action="LaunchRegisterInstallation" After="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
+    <CustomAction Id="BMC.ExchangeConfig.Client.exe" FileKey="BMC.ExchangeConfig.Client.exe" ExeCommand="" Return="asyncNoWait" />
+    <InstallExecuteSequence>
+      <Custom Action="BMC.ExchangeConfig.Client.exe" After="LaunchRegisterInstallation">NOT Installed</Custom>
+    </InstallExecuteSequence>
+
+
+
+		<Feature Id="ProductFeature" Title="ExchangeClientInstallerKit" Level="1">
+			<ComponentRef Id="MainFolder" />
+			<ComponentRef Id="EnhancedEnrollment" />
+			<ComponentRef Id="PrintFunction"/>
+		</Feature>
+
+		<Property Id="WIXUI_INSTALLDIR" Value="InstallDir" ></Property>
+		<UIRef Id="WixUI_InstallDir" />
+		<UIRef Id="WixUI_ErrorProgressText" />
+		<WixVariable Id="WixUILicenseRtf" Value="eula.rtf" />
+		<WixVariable Id="WixUIBannerBmp" Value="ballyLogo.bmp" />
+		<WixVariable Id="WixUIDialogBmp" Value="Banner_Logo.bmp" />
+	</Product>
+</Wix>

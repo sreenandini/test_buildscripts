@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension"
+	 xmlns:complus="http://schemas.microsoft.com/wix/ComPlusExtension">
+
+  <Product
+	  Id="7b523f47-ef58-4d3c-8ca1-fea6be516471"
+	  Name="BMC Site Controller Server 12.5"
+	  Language="1033"
+	  Version="12.5.0"
+	  Manufacturer="Bally Technologies"
+	  UpgradeCode="0a8c10df-fe3e-4aec-8954-50b9ecdb0a41">
+
+    <Package
+		  InstallerVersion="200"
+		  Compressed="no"
+		  Id="82372348-abcd-9234-bdc1-93fed8916471"  InstallScope="perMachine" />
+
+    <Media Id="1" Cabinet="WebAppWixProject.cab" EmbedCab="no" />
+
+    <iis:WebApplication Id="BallyWebApp" Name="BallyWebApp" WebAppPool="BallyAppPool"></iis:WebApplication>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id='SystemFolder' Name='SysDir'>
+      </Directory>
+      <Directory Id="ProgramFiles64Folder">
+        <!--for 64bit 'ProgramFiles64Folder' should be used and for 32 bit 'ProgramFilesFolder' will be used-->
+        <Directory Id="BallyTechnologies" Name="Bally Technologies">
+          <Directory Id="InstallDir" Name="Exchange Server">
+            <Component Id="MainFolder" Guid="80b0ee2a-4324-46ec-a456-1283bd0934ac" Win64="yes" Permanent="no">
+              <File Id="BMC.Presentation.POS.exe" Name="BMC.Presentation.POS.exe"
+								 Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Presentation.POS.exe"
+								 Vital="yes">
+                <Shortcut Advertise="yes" Id='desktopPOS' Directory ='DesktopFolder' Name='BMC Site Controller'
+										  WorkingDirectory='InstallDir' Show='maximized' Icon='POSShortcutIcon.exe'>
+                  <Icon Id="POSShortcutIcon.exe"
+									SourceFile="BMC_Icon.ico" />
+                </Shortcut>
+                <!--<Shortcut Advertise="yes" Id='ProgramFilesShortcut' Directory ='ProgramMenuDir' Name='BMC Site Controller'
+										  WorkingDirectory='InstallDir' Show='maximized' Icon='POSShortcutIconProg.exe'>
+									<Icon Id="POSShortcutIconProg.exe"
+									SourceFile="BMC_Icon.ico" />
+								</Shortcut>-->
+              </File>
+
+              <!--File Placed inside the Exchange Server Folder Start-->
+
+              <!--********************************************COMMON DLLS START********************************************-->
+              <File Id="BMC.Commondll"							          Name="BMC.Common.dll"						              Source="$(var.SRC)\Common\BMC.Common\Bin\Release\BMC.Common.dll"></File>
+              <File Id="BMC.DataAccess.dll"						        Name="BMC.DataAccess.dll"					            Source="$(var.SRC)\Common\BMC.DataAccess\bin\Release\BMC.DataAccess.dll"></File>
+              <File Id="BMC.CommonLiquidation.dll"			      Name="BMC.CommonLiquidation.dll"			        Source="$(var.SRC)\Common\BMC.CommonLiquidation\bin\Release\BMC.CommonLiquidation.dll"></File>
+              <File Id="BMC.CoreLib.dll"						          Name="BMC.CoreLib.dll"						            Source="$(var.SRC)\Common\BMC.CoreLib\bin\Release\BMC.CoreLib.dll"></File>
+              <File Id="BMC.EventsTransmitter.dll"						Name="BMC.EventsTransmitter.dll"						  Source="$(var.SRC)\Common\BMCEventsTransmitter\bin\Release\BMC.EventsTransmitter.dll"></File>
+              <File Id="Audit.Business.dll"					          Name="Audit.Business.dll"					            Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Business.dll"></File>
+              <File Id="Audit.DBBuilder.dll"					        Name="Audit.DBBuilder.dll"					          Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.DBBuilder.dll"></File>
+              <File Id="Audit.Transport.dll"					        Name="Audit.Transport.dll"					          Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\Release\Audit.Transport.dll"></File>
+              <!--********************************************COMMON DLLS END********************************************-->
+
+              <!--********************************************CDO DLLS START********************************************-->
+              <File Id="BMC.Presentation.POS.exe.config"		  Name="BMC.Presentation.POS.exe.config"		    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Presentation.POS.exe.config"></File>
+              <File Id="BMC.Business.CashDeskOperator.dll"	  Name="BMC.Business.CashDeskOperator.dll"	    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Business.CashDeskOperator.dll"></File>
+              <File Id="BMC.CashDeskOperator.dll"				      Name="BMC.CashDeskOperator.dll"				        Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.CashDeskOperator.dll"></File>
+              <File Id="BMC.DBInterface.CashDeskOperator.dll" Name="BMC.DBInterface.CashDeskOperator.dll"	  Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.DBInterface.CashDeskOperator.dll"></File>
+              <File Id="BMC.Transport.dll"					          Name="BMC.Transport.dll"					            Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\BMC.Transport.dll"></File>
+              <File Id="Menudata.XML"						              Name="Menudata.XML"						                Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata.XML"></File>
+              <File Id="Menudata_es_ar.XML"				            Name="Menudata_es-ar.XML"				              Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata_es-ar.XML"></File>
+              <File Id="Menudata_it_IT.XML"				            Name="Menudata_it-IT.XML"				              Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata_it-IT.XML"></File>
+              <File Id="Menudata_en_gb.XML"				            Name="Menudata_en-gb.XML"				              Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\XMLData\Menudata_en-gb.XML"></File>
+              <!--********************************************CDO DLLS END********************************************-->
+
+
+              <!--RegChange  Start-->
+              <File Id="BMC.RegisterInstallation.exe"                   Name="BMC.RegisterInstallation.exe"                Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.RegisterInstallation\bin\Release\BMC.RegisterInstallation.exe"></File>
+              <File Id="BMC.ConfigurationEditor.exe"                    Name="BMC.ConfigurationEditor.exe"                 Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.ConfigurationEditor\bin\Release\BMC.ConfigurationEditor.exe"></File>
+              <File Id="BMC.RegParser.exe.config"                       Name="BMC.RegParser.exe.config"                    Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.RegParser\bin\Release\BMC.RegParser.exe.config"></File>
+              <!--RegChange End-->
+
+              <!--Com config file  Start-->
+              <File Id="BMC.CommServer.config"                         Name="CommServer.config"                 Source="$(var.SRC)\Site Controller\Comms\CommonComExchange\ComExchange\CommServer.config"></File>
+              <File Id="BMC.PrinterConfig.config"                       Name="PrinterConfig.config"                 Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\PrinterConfig.config"></File>
+              <File Id="BMC.ComConfigEditor.exe"                       Name="ComConfigEditor.exe"                    Source="$(var.SRC)\Site Controller\Comms\ComConfigEditor\bin\Release\ComConfigEditor.exe"></File>
+              <File Id="BMC.ComConfigEditor.exe.config"                       Name="ComConfigEditor.exe.config"                    Source="$(var.SRC)\Site Controller\Comms\ComConfigEditor\bin\Release\ComConfigEditor.exe.config"></File>
+              <!--com config file End-->
+
+
+              <!--********************************************EXCHANGE CONFIG DLLS START********************************************-->
+              <File Id="BMC.ExchangeConfig.exe" 				      Name="BMC.ExchangeConfig.exe" 				        Source="$(var.SRC)\Site Controller\BMC.Configuration\bin\Release\BMC.ExchangeConfig.exe"></File>
+              <File Id="BMC.ExchangeConfig.exe.config"		    Name="BMC.ExchangeConfig.exe.config"		      Source="$(var.SRC)\Site Controller\BMC.Configuration\bin\Release\BMC.ExchangeConfig.exe.config"></File>
+              <File Id="BMC.Business.ExchangeConfig.dll"		  Name="BMC.Business.ExchangeConfig.dll"		    Source="$(var.SRC)\Site Controller\BMC.Configuration\bin\Release\BMC.Business.ExchangeConfig.dll"></File>
+              <File Id="BMC.DBInterface.ExchangeConfig.dll"	  Name="BMC.DBInterface.ExchangeConfig.dll"	    Source="$(var.SRC)\Site Controller\BMC.Configuration\bin\Release\BMC.DBInterface.ExchangeConfig.dll"></File>
+              <File Id="BMC.Transport.ExchangeConfig.dll"		  Name="BMC.Transport.ExchangeConfig.dll"		    Source="$(var.SRC)\Site Controller\BMC.Configuration\bin\Release\BMC.Transport.ExchangeConfig.dll"></File>
+              <!--********************************************EXCHANGE CONFIG DLLS END********************************************-->
+
+              <!--********************************************INTEROP DLLS START********************************************-->
+              <File Id="Interop.ComExchangeLib.dll"		        Name="Interop.ComExchangeLib.dll"		          Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.ComExchangeLib.dll"></File>
+              <File Id="Interop.SDGTicketGenLib.dll"			    Name="Interop.SDGTicketGenLib.dll"			      Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.SDGTicketGenLib.dll"></File>
+              <File Id="Interop.PrinterCommLib.dll"		        Name="Interop.PrinterCommLib.dll"		          Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.PrinterCommLib.dll"></File>
+              <File Id="Interop.Gen2PrinterLib.dll"		        Name="Interop.Gen2PrinterLib.dll"		          Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.Gen2PrinterLib.dll"></File>
+              <File Id="Interop.NoteCumTktScanLib.dll"	      Name="Interop.NoteCumTktScanLib.dll"	        Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.NoteCumTktScanLib.dll"></File>
+              <File Id="Interop.JetScanLib.dll"               Name="Interop.JetScanLib.dll"                 Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.JetScanLib.dll"></File>
+              <!--<File Id="Interop.POSPRINTERLib.dll"            Name="Interop.POSPRINTERLib.dll"              Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.POSPRINTERLib.dll"></File>-->
+              <!--********************************************INTEROP DLLS END********************************************-->
+
+              <!--********************************************COMM DLLS START********************************************-->
+              <File Id="BMCExComms.dll"						            Name="BMCExComms.dll" 			          	      Source="$(var.SRC)\Site Controller\Comms\CommonComExchange\ComExchange\BMCExComms\X64\Release\BMCExComms.dll"></File>
+              <File Id="ComExchange.dll"					            Name="ComExchange.dll"			          	      Source="$(var.SRC)\Site Controller\Comms\CommonComExchange\ComExchange\ComExchange\X64\Release\ComExchange.dll"></File>
+              <File Id="Gen2Printer.dll"					            Name="Gen2Printer.dll" 			          	      Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\Gen2Printer\X64\Release\Gen2Printer.dll"></File>
+              <File Id="PrinterComm.dll"					            Name="PrinterComm.dll" 			          	      Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\Printercomm\X64\Release\PrinterComm.dll"></File>
+              <File Id="NoteCumTktScan.dll"				            Name="NoteCumTktScan.dll"		          	      Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\NoteCumTktScan\X64\Release\NoteCumTktScan.dll"></File>
+              <File Id="JetScan.dll"						              Name="JetScan.dll" 					          	      Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\JetScan\X64\Release\JetScan.dll"></File>
+              <File Id="SDGTicketGen.dll"					            Name="SDGTicketGen.dll"			          	      Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\SDGTicketGen\X64\Release\SDGTicketGen.dll"></File>
+              <File Id="POSPrinter.ocx"                       Name="POSPrinter.ocx"                         Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\POSPrinter.ocx"></File>
+              <!--********************************************COMM DLLS END********************************************-->
+
+              <!--********************************************FRAMEWORK DLLS START********************************************-->
+              <File Id="PresentationCore.dll"					        Name="PresentationCore.dll"					          Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationCore.dll"></File>
+              <File Id="PresentationFramework.dll"			      Name="PresentationFramework.dll"			        Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationFramework.dll"></File>
+              <File Id="PresentationFramework.Luna.dll"		    Name="PresentationFramework.Luna.dll"		      Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationFramework.Luna.dll"></File>
+              <File Id="PresentationFramework.Royale.dll"		  Name="PresentationFramework.Royale.dll"		    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\PresentationFramework.Royale.dll"></File>
+              <File Id="UIAutomationProvider.dll"				      Name="UIAutomationProvider.dll"				        Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\UIAutomationProvider.dll"></File>
+              <File Id="WPFToolkit.dll"						            Name="WPFToolkit.dll"						              Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\WPFToolkit.dll"></File>
+              <!--********************************************FRAMEWORK DLLS END********************************************-->
+
+              <!--********************************************BAT FILES START********************************************-->
+              <File Id="EnhancedEnrollmentChange.bat"			    Name="EnhancedEnrollmentChange.bat"			      Source="$(var.DEPLOY)\EnhancedEnrollmentChange.bat"></File>
+              <File Id="ExchangeDLLReg.bat"					          Name="ExchangeDLLReg.bat"					            Source="$(var.DEPLOY)\ExchangeDLLReg.bat"></File>
+              <File Id="GACUTIL.bat"							            Name="GACUTIL.bat"							              Source="$(var.DEPLOY)\GACUTIL.bat"></File>
+              <File Id='GetInstallationPath.bat'				      Name='GetInstallationPath.bat'				        Source='$(var.DEPLOY)\GetInstallationPath.bat'></File>
+              <File Id="RegFont.bat"							            Name="RegFont.bat"							              Source="$(var.DEPLOY)\RegFont.bat"></File>
+              <!--<File Id="RemoveOldExchangeHostService.bat"		  Name="RemoveOldExchangeHostService.bat"		    Source="$(var.DEPLOY)\RemoveOldExchangeHostService.bat"></File>-->
+              <!--********************************************BAT FILES END********************************************-->
+
+              <File Id="AvalonControlsLibrary.dll"			      Name="AvalonControlsLibrary.dll"			        Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\AvalonControlsLibrary.dll"></File>
+              <File Id="BGSMachineManagerNET.dll"				      Name="BGSMachineManagerNET.dll"				        Source="$(var.SRC)\Site Controller\BGSMachineManager.NET\BGSMachineManager.NET\bin\BGSMachineManagerNET.dll"></File>
+              <File Id="BMC.CashDispenser.Core.dll"			      Name="BMC.CashDispenser.Core.dll"			        Source="$(var.SRC)\Site Controller\CashDispenser\BMC.CashDispenser.Core\bin\Release\BMC.CashDispenser.Core.dll"></File>
+              <File Id="BMCEnterpriseProxyDll"				        Name="BMC.EnterpriseProxy.dll"				        Source="$(var.SRC)\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\bin\Release\BMC.EnterpriseProxy.dll"></File>
+              <File Id="BMC.Monitoring.dll"					          Name="BMC.Monitoring.dll"					            Source="$(var.SRC)\Site Controller\BMC.Monitoring\bin\Release\BMC.Monitoring.dll"></File>
+              <File Id="BMC.PlayerGateway.dll"				        Name="BMC.PlayerGateway.dll"				          Source="$(var.SRC)\Site Controller\MSMQ\BMC.PlayerGateway\BMC.PlayerGateway\bin\Release\BMC.PlayerGateway.dll"></File>
+              <File Id="BMCSecurityDll"						            Name="BMC.Security.dll"						            Source="$(var.SRC)\Common\BMC.Security\bin\Release\BMC.Security.dll"></File>
+              <File Id="BMCIPC.dll"							              Name="BMCIPC.dll"							                Source="$(var.SRC)\Site Controller\MSMQ\BMCIPC\bin\Release\BMCIPC.dll"></File>
+              <File Id="CashDispenser.dll"					          Name="CashDispenser.dll"					            Source="$(var.SRC)\Site Controller\CashDispenser\BMC.CashDispenser.Core\bin\Release\CashDispenser.dll"></File>
+              <!--<File Id="CRRedist2008_x86.msi"					        Name="CRRedist2008_x86.msi"					          Source="$(var.DEPLOY)\CRRedist2008_x86.msi"></File>-->
+              <File Id="ReportViewer.exe"						          Name="ReportViewer.exe"						            Source="$(var.DEPLOY)\ReportViewer.exe"></File>
+              <File Id="crviewer.dll"							            Name="crviewer.dll" 						              Source="$(var.DEPLOY)\crviewer.dll"></File>
+              <File Id="ICSharpCode.SharpZipLib.dll"			    Name="ICSharpCode.SharpZipLib.dll"			      Source="$(var.SRC)\Site Controller\CashDeskOperator\DLLs\ICSharpCode.SharpZipLib.dll"></File>
+              <!--<File Id='RegEntry.exe'                               Name='RegEntry.exe'                                   Source='$(var.DEPLOY)\RegEntry.exe'></File>-->
+              <File Id="WINGDNG3.TTF"						              Name="WINGDNG3.TTF"						                Source="$(var.DEPLOY)\WINGDNG3.TTF"></File>
+              <File Id="Microsoft.SqlServer.BatchParser.dll"	Name="Microsoft.SqlServer.BatchParser.dll"	  Source="$(var.DEPLOY)\Microsoft.SqlServer.BatchParser.dll"></File>
+              <File Id="Microsoft.SqlServer.Replication.dll"	Name="Microsoft.SqlServer.Replication.dll"	  Source="$(var.DEPLOY)\Microsoft.SqlServer.Replication.dll"></File>
+              <File Id="Microsoft.Office.Interop.Excel.dll"	  Name="Microsoft.Office.Interop.Excel.dll"	    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Microsoft.Office.Interop.Excel.dll"></File>
+              <File Id="office.dll"							              Name="office.dll"							                Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\office.dll"></File>
+              <File Id="regFont.reg"							            Name="regFont.reg"							              Source="$(var.DEPLOY)\regFont.reg"></File>
+              <File Id="msvcp71.dll"						              Name="msvcp71.dll" 						                Source="$(var.DEPLOY)\msvcp71.dll"></File>
+              <File Id="msvcr71.dll"						              Name="msvcr71.dll" 						                Source="$(var.DEPLOY)\msvcr71.dll"></File>
+              <File Id="ServiceAutoStart_Exchange.reg"	      Name="ServiceAutoStart_Exchange.reg"	        Source="$(var.DEPLOY)\ServiceAutoStart_Exchange.reg"></File>
+              <File Id="TicketingClient.dll"				          Name="TicketingClient.dll"				            Source="$(var.SRC)\Site Controller\BMC.Configuration\bin\Release\TicketingClient.dll"></File>
+              <File Id="SiteLicensing.DataViewer.exe"		      Name="SiteLicensing DataViewer.exe"		        Source="$(var.SRC)\Site Controller\SiteLicensing DataViewer\bin\Release\SiteLicensing DataViewer.exe"></File>
+              <File Id="FreeForm.dll"		                      Name="FreeForm.dll"		                        Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\FreeForm.dll"></File>
+              
+              <!--********************************************LIQUIDATION FILES START******************************************-->
+              <File Id="PerformLiquidation.bat"  Name="Perform Liquidation.bat"  Source="$(var.SRC)\Site Controller\Database Scripts\Exchange\Liquidation Script\Perform Liquidation.bat"></File>
+              <File Id="Script.sql"               Name="Script.sql"               Source="$(var.SRC)\Site Controller\Database Scripts\Exchange\Liquidation Script\Script.sql"></File>
+              <!--********************************************LIQUIDATION FILES END********************************************-->
+
+              <!--<RegistryKey Root="HKLM" Key="Software\Honeyframe" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="InstallationPath"        Type="string" Value="C:\Program Files\Bally Technologies\Exchange Server\"></RegistryValue>
+                <RegistryValue Name="InstallationType"        Type="string" Value="ExchangeServer" />
+                <RegistryValue Name="SQLCommandTimeout"       Type="string" Value="60"/>
+                <RegistryValue Name="CertificateSerialNumber" Type="string" Value="0E8DB4B5BD770F972F2974C381CF0CDD" />
+              </RegistryKey>
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="ExchangeKey"						            Type="string" Value="" />
+                <RegistryValue Name="LFMWebService"						          Type="string" Value="" />
+                <RegistryValue Name="EnterpriseKey"						          Type="string" Value="" />
+                <RegistryValue Name="IsRSAEnabled"					        Type="string" Value="false" />
+                <RegistryValue Name="IsTripleDES"						            Type="string" Value="true" />
+                <RegistryValue Name="UpdateAvalible"					          Type="string" Value="False" />
+                <RegistryValue Name="SiteDatapackNotUsed"				        Type="string" Value="False" />
+                <RegistryValue Name="NoSingleCoinModelsDisplayed"		    Type="string" Value="False" />
+                <RegistryValue Name="SiteManualMetersNotUsed"			      Type="string" Value="False" />
+                <RegistryValue Name="NoSerialNumberDisplayed"			      Type="string" Value="False" />
+                <RegistryValue Name="NoAltSerialNumberDisplayed"		    Type="string" Value="False" />
+                <RegistryValue Name="BufferDatapak"						          Type="string" Value="True" />
+                <RegistryValue Name="SiteTokensNotUsed"					        Type="string" Value="True" />
+                <RegistryValue Name="SiteSingleCoinNotUsed"				      Type="string" Value="False" />
+                <RegistryValue Name="AddCashToExistingBreakdown"		    Type="string" Value="True" />
+                <RegistryValue Name="SiteMeterRefillsNotUsed"			      Type="string" Value="True" />
+                <RegistryValue Name="SiteHandpayNotUsed"				        Type="string" Value="True" />
+                <RegistryValue Name="SiteTreasuryMemberNoNotUsed"		    Type="string" Value="True" />
+                <RegistryValue Name="VTPNotesUsed"						          Type="string" Value="True" />
+                <RegistryValue Name="TreasuryDateTimeEnabled"			      Type="string" Value="True" />
+                <RegistryValue Name="HandHeldUsed"						          Type="string" Value="False" />
+                <RegistryValue Name="ResetDatapakFloat"					        Type="string" Value="False" />
+                <RegistryValue Name="CashBankedReport"					        Type="string" Value="False" />
+                <RegistryValue Name="MaxMeterCash"						          Type="string" Value="10000" />
+                <RegistryValue Name="XMLExport"							            Type="string" Value="True" />
+                <RegistryValue Name="CurrentView"						            Type="string" Value="List" />
+                <RegistryValue Name="Open_Mon" 							            Type="string" Value="" />
+                <RegistryValue Name="Open_Tue" 							            Type="string" Value="" />
+                <RegistryValue Name="Open_Wed" 							            Type="string" Value="" />
+                <RegistryValue Name="Open_Thu" 							            Type="string" Value="" />
+                <RegistryValue Name="Open_Fri" 							            Type="string" Value="" />
+                <RegistryValue Name="Open_Sat" 							            Type="string" Value="" />
+                <RegistryValue Name="Open_Sun" 							            Type="string" Value="" />
+                <RegistryValue Name="CashCounterType"					          Type="string" Value="14" />
+                <RegistryValue Name="CashCounterComPort"				        Type="string" Value="1" />
+                <RegistryValue Name="CoinSlot_1_Value" 					        Type="string" Value="1" />
+                <RegistryValue Name="CoinSlot_2_Value" 					        Type="string" Value="2" />
+                <RegistryValue Name="CoinSlot_3_Value" 					        Type="string" Value="5" />
+                <RegistryValue Name="CoinSlot_4_Value" 					        Type="string" Value="10" />
+                <RegistryValue Name="CoinSlot_5_Value" 					        Type="string" Value="20" />
+                <RegistryValue Name="CoinSlot_6_Value" 					        Type="string" Value="50" />
+                <RegistryValue Name="CoinSlot_7_Value" 					        Type="string" Value="50" />
+                <RegistryValue Name="CoinSlot_8_Value" 					        Type="string" Value="100" />
+                <RegistryValue Name="CoinSlot_9_Value" 					        Type="string" Value="200" />
+                <RegistryValue Name="Presentation"						          Type="string" Value="True" />
+                <RegistryValue Name="FullCollectionsAcceptAll"			    Type="string" Value="False" />
+                <RegistryValue Name="DeclarationRefills"				        Type="string" Value="False" />
+                <RegistryValue Name="MaxVariationBetweenRDCCashMeters"	Type="string" Value="3" />
+                <RegistryValue Name="MaxPercentageAgainstAverage"		    Type="string" Value="5" />
+                <RegistryValue Name="MaxMeterTolerance"					        Type="string" Value="1000" />
+                <RegistryValue Name="IgnoreRDCNotes"					          Type="string" Value="False" />
+                <RegistryValue Name="CashCounterWithNoteCounter"		    Type="string" Value="True" />
+                <RegistryValue Name="SitePartialMetersNotUsed"			    Type="string" Value="True" />
+                <RegistryValue Name="Connection"						            Type="string" Value="1" />
+                <RegistryValue Name="SiteRDCRefillsNotUsed"				      Type="string" Value="True" />
+                <RegistryValue Name="LogDoor"							              Type="string" Value="True" />
+                <RegistryValue Name="LogEvent"							            Type="string" Value="True" />
+                <RegistryValue Name="ComExchange"						            Type="string" Value="True" />
+                <RegistryValue Name="DBServer"							            Type="string" Value="" />
+                <RegistryValue Name="offlinereads"						          Type="string" Value="True" />
+                <RegistryValue Name="TimeSyncDelay"						          Type="string" Value="5" />
+                <RegistryValue Name="AutoRead"							            Type="string" Value="True" />
+                <RegistryValue Name="AutoFrequency"						          Type="string" Value="Daily" />
+                <RegistryValue Name="LastAutoRead"						          Type="string" Value="" />
+                <RegistryValue Name="LastUser"							            Type="string" Value="Bally" />
+                <RegistryValue Name="CollectionDisplayByZone"			      Type="string" Value="True" />
+                <RegistryValue Name="SpotCheckDisplayByZone"			      Type="string" Value="False" />
+                <RegistryValue Name="SQLConnect"						            Type="string" Value="" />
+                <RegistryValue Name="IsRSAEnabled"						          Type="string" Value="False" />
+                <RegistryValue Name="RSAPublicKeyPath"					        Type="string" Value="[PublicKeyCertificatePath]" />
+                <RegistryValue Name="RSAPrivateKeyPath"					        Type="string" Value="[PrivateKeyCertificatePath]" />
+                <RegistryValue Name="RSAPrivateKeyPassword"				      Type="string" Value="[CertificatePassword]" />
+                <RegistryValue Name="LimitTimeSync"						          Type="string" Value="15,16" />
+                <RegistryValue Name="SAS_UpdateTicketDetails"			      Type="string" Value="True" />
+                <RegistryValue Name="HourlyReadHour"					          Type="string" Value="12" />
+                <RegistryValue Name="NoteSlot_1_Value" 					        Type="string" Value="1" />
+                <RegistryValue Name="NoteSlot_2_Value" 					        Type="string" Value="5" />
+                <RegistryValue Name="NoteSlot_3_Value" 					        Type="string" Value="10" />
+                <RegistryValue Name="NoteSlot_4_Value" 					        Type="string" Value="20" />
+                <RegistryValue Name="NoteSlot_5_Value" 					        Type="string" Value="50" />
+                <RegistryValue Name="NoteSlot_6_Value" 					        Type="string" Value="100" />
+                <RegistryValue Name="NoteSlot_7_Value" 					        Type="string" Value="0" />
+                <RegistryValue Name="NoteSlot_8_Value" 					        Type="string" Value="0" />
+                <RegistryValue Name="NoteSlot_9_Value" 					        Type="string" Value="0" />
+                <RegistryValue Name="NoteSlot_10_Value"					        Type="string" Value="0" />
+                <RegistryValue Name="BGSWebService"						          Type="string" Value="" />
+                <RegistryValue Name="EnhancedEnrollmentStatus"			    Type="string" Value="ONLINE" />
+
+              </RegistryKey> 
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\NoteCounter" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Location"				Type="string"	Value="C:\\CashmasterExchange" />
+                <RegistryValue Name="SimulateNoteCounter"	Type="integer"	Value="0" />
+              </RegistryKey>
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BGSLogger" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="DefaultFile"	Type="string" Value="c:\\logs\\otherlogging.txt" />
+                <RegistryValue Name="maxlogs"		Type="string" Value="100" />
+                <RegistryValue Name="maxfilesize"	Type="string" Value="2000" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BGSLogger\BGSComExchange" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="DefaultFile" Type="string" Value="c:\\Logs\\BGSExchangeMonitor.txt" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BGSLogger\BGSExchangeHost" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Mtrchk"	Type="integer"	Value="1" />
+                <RegistryValue Name="Mtrlog"	Type="integer"	Value="1" />
+                <RegistryValue Name="Location"	Type="string"	Value="C:\\CashmasterExchange" />
+                <RegistryValue Name="Log"		Type="integer"	Value="1" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BGSLogger\BGSExchangeMonitor" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="DefaultFile" Type="string" Value="c:\\Logs\\BGSExchangeMonitor.txt" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BGSLogger\BGSVTP" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="DefaultFile" Type="string" Value="c:\\Logs\\VTP.txt"  />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BGSLogger\ExServiceThread" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="DefaultFile" Type="string" Value="c:\\Logs\\BGSExchangeMonitor.txt" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="multicastip"						Type="string"	Value="239.192.1.1" />
+                <RegistryValue Name="interface"							Type="string"	Value="10.0.1.2" />
+                <RegistryValue Name="TktExpDays"						Type="integer"	Value="10" />
+                <RegistryValue Name="ServerIPPort"						Type="integer"	Value="6810" />
+                <RegistryValue Name="BindIPAddress"						Type="string"	Value="255.255.0.0" />
+                <RegistryValue Name="ExchangeDir"						Type="string" 	Value="c:\CashmasterExchange" />
+                <RegistryValue Name="Use_Total_Financials"				Type="string" 	Value="10.0.0.1" />
+                <RegistryValue Name="SERVICE_IP_PORT"					Type="string" 	Value="60000" />
+                <RegistryValue Name="ignore_last_counter"				Type="string" 	Value="False" />
+                <RegistryValue Name="Debug_Logging"						Type="string" 	Value="True" />
+                <RegistryValue Name="max_mins_between_meters"			Type="string" 	Value="1" />
+                <RegistryValue Name="Exchange_Multi_Max_Processors"		Type="string" 	Value="50" />
+                <RegistryValue Name="Exchange_Multi_ReadSector_Timeout" Type="string" 	Value="60" />
+                <RegistryValue Name="Max_Ticket_Timeout" 				Type="string" 	Value="2" />
+                <RegistryValue Name="meter_read_timeout" 				Type="string" 	Value="20" />
+                <RegistryValue Name="Version11Code"						Type="string" 	Value="True" />
+                <RegistryValue Name="Async_readsector_timeout"			Type="string" 	Value="60" />
+                <RegistryValue Name="EnableDhcp"						Type="integer"	Value="1" />
+                <RegistryValue Name="default_server_ip"					Type="string"	Value="" />
+                <RegistryValue Name="MaxOffLineTkt"						Type="integer"	Value="36" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\Aft" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="EFTTrans"		Type="integer" Value="0" />
+                <RegistryValue Name="CashDep"		Type="integer" Value="0" />
+                <RegistryValue Name="NonCashDep"	Type="integer" Value="0" />
+                <RegistryValue Name="RedeemOffer"	Type="integer" Value="0" />
+                <RegistryValue Name="PtsWhdrw"		Type="integer" Value="0" />
+                <RegistryValue Name="CashWhdrw"		Type="integer" Value="0" />
+                <RegistryValue Name="PartTrans"		Type="integer" Value="0" />
+                <RegistryValue Name="AutoDepNCC"	Type="integer" Value="0" />
+                <RegistryValue Name="AutoDepCC"		Type="integer" Value="0" />
+                <RegistryValue Name="AFTTimeOut"	Type="integer" Value="0" />
+                <RegistryValue Name="Opt1WhdrwAmt"	Type="integer" Value="0" />
+                <RegistryValue Name="Opt2WhdrwAmt" 	Type="integer" Value="0" />
+                <RegistryValue Name="Opt3WhdrwAmt" 	Type="integer" Value="0" />
+                <RegistryValue Name="Opt4WhdrwAmt" 	Type="integer" Value="0" />
+                <RegistryValue Name="Opt5WhdrwAmt" 	Type="integer" Value="0" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\EPI" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Card_ID_Store"		Type="string" Value="1" />
+                <RegistryValue Name="debug_logging"		Type="string" Value="True" />
+                <RegistryValue Name="Connection"		Type="string" Value="" />
+                <RegistryValue Name="InactivityTimeout" Type="string" Value="10" />
+                <RegistryValue Name="MeterUpdate"		Type="string" Value="15" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\Events" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="AFTEnable"				  Type="integer" Value="0" />
+                <RegistryValue Name="AFTMsgTimeOut"			Type="integer" Value="25000" />
+                <RegistryValue Name="CardLesPlyTO"			Type="integer" Value="10" />
+                <RegistryValue Name="CashlessPlayer"		Type="integer" Value="10" />
+                <RegistryValue Name="DepositOk"				  Type="integer" Value="1" />
+                <RegistryValue Name="DispCode"				  Type="integer" Value="9" />
+                <RegistryValue Name="dwWaitTime"			  Type="integer" Value="10" />
+                <RegistryValue Name="EnDisCCMtr"			  Type="integer" Value="1" />
+                <RegistryValue Name="EnterAmnt"				  Type="integer" Value="1" />
+                <RegistryValue Name="Event"					    Type="integer" Value="50" />
+                <RegistryValue Name="GmMtrTimeOut"			Type="integer" Value="2000" />
+                <RegistryValue Name="GmPlayedPoll"			Type="integer" Value="1000" />
+                <RegistryValue Name="GMUTimeOut"			  Type="integer" Value="10000" />
+                <RegistryValue Name="HPClearEn"				  Type="integer" Value="0" />
+                <RegistryValue Name="HPClearPos"			  Type="integer" Value="0" />
+                <RegistryValue Name="InitTimeOut"			  Type="integer" Value="500" />
+                <RegistryValue Name="IsHPPollEn"			  Type="integer" Value="0" />
+                <RegistryValue Name="MeterAckTimeout"		Type="integer" Value="10000" />
+                <RegistryValue Name="MeterDataTimeout"	Type="integer" Value="60000" />
+                <RegistryValue Name="MtrReqTimeInt"			Type="integer" Value="30000" />
+                <RegistryValue Name="PinReqd"				    Type="integer" Value="1" />
+                <RegistryValue Name="RebootOnFail"			Type="integer" Value="0" />
+                <RegistryValue Name="Releaselock"			  Type="integer" Value="3" />
+                <RegistryValue Name="Reset"					    Type="integer" Value="1000" />
+                <RegistryValue Name="SASMeterReadInt"		Type="integer" Value="200" />
+                <RegistryValue Name="Sector200FailCnt"	Type="integer" Value="5" />
+                <RegistryValue Name="SplPlayer"				  Type="integer" Value="1" />
+                <RegistryValue Name="IsACKReqForCCMtr"  Type="integer" Value="0" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\Logging" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Log" Type="integer" Value="0" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\MC\Switch" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Create"				      Type="integer" Value="1" />
+                <RegistryValue Name="Interval"				    Type="integer" Value="500" />
+                <RegistryValue Name="unkwn_UDP_Interval"	Type="integer" Value="0" />
+                <RegistryValue Name="Server_Protect"		  Type="integer" Value="1000" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\MC\TIME" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Interval" Type="string" Value="23" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\MSMQ" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Path"							          Type="string" Value=".\private$\Exchangequeue" />
+                <RegistryValue Name="ExceptionTimeDelay"			    Type="string" Value="5" />
+                <RegistryValue Name="CheckDenomChangeForRamReset"	Type="string" Value="False" />
+                <RegistryValue Name="QueueWaitTimeOut"				    Type="string" Value="20" />
+                <RegistryValue Name="TicketPriorityQueuePath"		  Type="string" Value=".\Private$\ticketprtqueue" />
+                <RegistryValue Name="TicketPriorityQueueLabel"		Type="string" Value="TicketPrint" />
+                <RegistryValue Name="SDTMessageQueuePath"			    Type="string" Value=".\Private$\sdtqueue"/>
+                <RegistryValue Name="SDTSingleSocketMessageQueue" Type="string" Value="False"/>
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\Polling" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Retry"					      Type="integer" Value="5" />
+                <RegistryValue Name="Interval"				    Type="integer" Value="500" />
+                <RegistryValue Name="unkwn_UDP_Interval"	Type="integer" Value="1000" />
+                <RegistryValue Name="Server_Protect"		  Type="integer" Value="0" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\Exchange\Timeouts" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Read"		  Type="integer" Value="8192" />
+                <RegistryValue Name="Interval"	Type="integer" Value="500" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\NetLogger" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="ServerIP"		Type="string"	Value="" />
+                <RegistryValue Name="ServerPort"	Type="integer"	Value="6850" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BMCDHCP" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="ServerIP"		Type="string" Value="10.0.0.10" />
+                <RegistryValue Name="NetMask"		  Type="string" Value="255.255.0.0" />
+                <RegistryValue Name="GatewayIP"		Type="string" Value="10.0.0.1" />
+                <RegistryValue Name="DNSIP"			  Type="string" Value="10.0.0.1" />
+                <RegistryValue Name="LeaseTime"		Type="integer" Value="6850" />
+              </RegistryKey>
+
+              <RegistryKey Root="HKLM" Key="Software\Honeyframe\Cashmaster\BMCDHCP\STATIC_IP" Action="createAndRemoveOnUninstall">
+                <RegistryValue Name="Default" Type="string" Value="" />
+              </RegistryKey> -->
+
+            </Component>
+
+            <Component Id="ExchangeHostServices" Guid="983615ea-bdac-1a3c-a456-1283adbc34ac" Win64="yes" Permanent="no">
+              <File Id="ExchangeHostServices.BMCExchangeHost.exe"			Name="BMCExchangeHost.exe"			Source="$(var.SRC)\Site Controller\ExchangeHost\bin\Release\BMCExchangeHost.exe" KeyPath="yes"></File>
+              <File Id="ExchangeHostServices.BMCExchangeHost.exe.config"	Name="BMCExchangeHost.exe.config"	Source="$(var.SRC)\Site Controller\ExchangeHost\bin\Release\BMCExchangeHost.exe.config"></File>
+              <File Id="ExchangeHostServices.BMCExchangeHost.exe.manifest"	Name="BMCExchangeHost.exe.manifest"	Source="$(var.SRC)\Site Controller\ExchangeHost\bin\Release\BMCExchangeHost.exe.manifest"></File>
+              <ServiceInstall Id="BMCExchangeHostServices" Name="BMCExchangeHost"
+										  DisplayName="BMC Exchange Host"
+										  Type="ownProcess"
+										  Start="auto"
+										  ErrorControl="normal"
+										  Description="BMC ExchangeHostServices" >
+              </ServiceInstall>
+              <ServiceControl Id="StopBMCExchangeHostServices" Name="BMCExchangeHost"
+							 Stop="uninstall" Wait="no" Remove="uninstall" />
+            </Component>
+            <!-- EBS SERVICE START
+            <Directory Id="BMCEBSCommunicationInstallFolder" Name="BMCEBSCommunication">
+            <Component Id="BMCEBSCommunication" Guid="983415ea-bdac-1a3c-a436-1283adbc59ac" Win64="yes" Permanent="no">
+              <File Id="BMCEBSCommunication.BMC.EBSComms.Hosting.exe"			Name="BMC.EBSComms.Hosting.exe"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.EBSComms.Hosting.exe" KeyPath="yes"></File>
+              <File Id="BMCEBSCommunication.BMC.EBSComms.Hosting.exe.config"			Name="BMC.EBSComms.Hosting.exe.config"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.EBSComms.Hosting.exe.config"></File>
+              <File Id="BMCEBSCommunication.BMC.EBSComms.Server.dll"			Name="BMC.EBSComms.Server.dll"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.EBSComms.Server.dll"></File>
+              <File Id="BMCEBSCommunication.BMC.EBSComms.DataLayer.Exchange.dll"			Name="BMC.EBSComms.DataLayer.Exchange.dll"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.EBSComms.DataLayer.Exchange.dll"></File>
+              <File Id="BMCEBSCommunication.BMC.EBSComms.DataLayer.dll"			Name="BMC.EBSComms.DataLayer.dll"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.EBSComms.DataLayer.dll"></File>
+              <File Id="BMCEBSCommunication.BMC.EBSComms.Contracts.dll"			Name="BMC.EBSComms.Contracts.dll"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.EBSComms.Contracts.dll"></File>
+              <File Id="BMCEBSCommunication.BMC.BMC.CoreLib.dll"			Name="BMC.CoreLib.dll"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.CoreLib.dll"></File>
+              <File Id="BMCEBSCommunication.BMC.Common.dll"			Name="BMC.Common.dll"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\Release\BMC.Common.dll"></File>
+              <ServiceInstall Id="BMCEBSCommunicationServices" Name="BMCEBSCommunication"
+										  DisplayName="BMC  EBSCommunicationServices"
+										  Type="ownProcess"
+										  Start="auto"
+										  ErrorControl="normal"
+										  Description="BMC  EBSCommunicationServices" >
+              </ServiceInstall>
+              <ServiceControl Id="StopBMCEBSCommunicationServices" Name="BMCEBSCommunication"
+							 Stop="uninstall" Wait="no" Remove="uninstall" />
+            </Component>
+            </Directory>
+           EBS SERVICE END-->
+
+            <Directory Id="BMCVaultWebService" Name="BMC.VaultWebService">
+              <Directory Id ="VaultWebServicebin" Name="Bin">
+                <Component Id ="VaultWebServicebin" Guid="80b1a102-a112-41ec-41ec-31a23eb0588e">
+                  <File Id="BMC.VaultWebServicebin.BMC.Common.dll"					        Name="BMC.Common.dll"					          Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\bin\BMC.Common.dll"></File>
+                  <File Id="BMC.VaultWebServicebin.BMC.DataAccess.dll"				      Name="BMC.DataAccess.dll"				        Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\bin\BMC.DataAccess.dll"></File>
+                  <File Id="BMC.VaultWebServicebin.BMC.VaultInterface.Business.dll"	Name="BMC.VaultInterface.Business.dll"	Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\bin\BMC.VaultInterface.Business.dll"></File>
+                  <File Id="BMC.VaultWebServicebin.BMC.VaultWebService.dll"			    Name="BMC.VaultWebService.dll"			    Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\bin\BMC.VaultWebService.dll"></File>
+                  <!--<File Id="BMC.VaultWebServicebin.Interop.BGSEncryptDecrypt.dll"		Name="Interop.BGSEncryptDecrypt.dll"	  Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\bin\Interop.BGSEncryptDecrypt.dll"></File>
+									<File Id="BMC.VaultWebServicebin.Interop.BGSGeneral.dll"			Name="Interop.BGSGeneral.dll"			Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\bin\Interop.BGSGeneral.dll"></File>-->
+                </Component>
+              </Directory>
+              <Component Id="BMC.VaultWebService" Guid="80b0ee2a-a102-36ec-a456-33a23eb0588e" Win64="yes" Permanent="no">
+                <File Id="BMC.VaultWebService.VaultService.asmx"	Name="VaultService.asmx"	Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\VaultService.asmx"></File>
+                <File Id="BMC.VaultWebService.Web.config"			    Name="Web.config"			    Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\Web.config"></File>
+                <File Id="BMC.VaultWebService.Global.asax"        Name="Global.asax"        Source="$(var.SRC)\Site Controller\BMC.VaultInterface\BMC.VaultWebService\Global.asax"></File>
+                
+                <iis:WebVirtualDir Id="VaultWebService" Alias="BMC.VaultWebService" Directory="BMCVaultWebService" WebSite="BallyWebSite">
+                  <iis:WebApplication Id="VWSWebApplication" Name="BMC.VaultWebService" WebAppPool="BallyAppPool" />
+                </iis:WebVirtualDir>
+              </Component>
+            </Directory>
+
+            <Directory Id="MSMQInstallFolder" Name="MSMQ">
+              <Component Id="MSMQInstall" Guid="babababa-baba-2121-3343-badaefaa1232" Win64="yes" Permanent="no">
+                <File Id="MSMQInstall.BGSExchangeMonitorMSMQ.exe"			    Name="BGSExchangeMonitorMSMQ.exe"			    Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BGSExchangeMonitorMSMQ.exe" KeyPath="yes"></File>
+                <File Id="MSMQInstall.BGSExchangeMonitorMSMQ.exe.config"	Name="BGSExchangeMonitorMSMQ.exe.config"	Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BGSExchangeMonitorMSMQ.exe.config"></File>
+                <File Id="MSMQInstall.BGSExchangeMonitorMSMQ.xml"			    Name="BGSExchangeMonitorMSMQ.xml"			    Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BGSExchangeMonitorMSMQ.xml"></File>
+                <File Id="MSMQInstall.BMC.Common.dll"						          Name="BMC.Common.dll" 						        Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.Common.dll"></File>
+                <File Id="MSMQInstall.BMC.DataAccess.dll"					        Name="BMC.DataAccess.dll"					        Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.DataAccess.dll"></File>
+                <File Id="MSMQInstall.BMC.Security.dll"						        Name="BMC.Security.dll"						        Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.Security.dll"></File>
+                <File Id="MSMQInstall.BMC.Crypto.dll"						          Name="BMC.Crypto.dll"						          Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.Crypto.dll"></File>
+                <File Id="MSMQInstall.Interop.ComExchangeLib.dll"			    Name="Interop.ComExchangeLib.dll"			    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.ComExchangeLib.dll"></File>
+                <File Id="MSMQInstall.Interop.VBA.dll"						        Name="Interop.VBA.dll"						        Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\Interop.VBA.dll"></File>
+                <File Id="MSMQInstall.BGSMachineManagerNET.dll"				    Name="BGSMachineManagerNET.dll"				    Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BGSMachineManagerNET.dll"></File>
+                <File Id="MSMQInstall.Audit.Business.dll"					        Name="Audit.Business.dll"					        Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\Audit.Business.dll"></File>
+                <File Id="MSMQInstall.Audit.Transport.dll" 					      Name="Audit.Transport.dll"					      Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\Audit.Transport.dll"></File>
+                <File Id="MSMQInstall.Audit.DBBuilder.dll" 					      Name="Audit.DBBuilder.dll"					      Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\Audit.DBBuilder.dll"></File>
+                <File Id="MSMQInstall.BMC.PlayerGateway.dll"				      Name="BMC.PlayerGateway.dll"				      Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.PlayerGateway.dll"></File>
+                <File Id="MSMQInstall.BMC.BMCIPC.dll"						          Name="BMCIPC.dll"							            Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMCIPC.dll" ></File>
+                <File Id="MSMQInstall.BMC.EventsTransmitter.dll"			    Name="BMC.EventsTransmitter.dll"		      Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.EventsTransmitter.dll"></File>
+                <File Id="MSMQInstall.CoreLib.dll"							          Name="BMC.CoreLib.dll"						        Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.CoreLib.dll"></File>
+                <File Id="MSMQInstall.EncryptionAlgorithm.dll"				    Name="BMC.EncryptionAlgorithm.dll"	      Source="$(var.SRC)\Site Controller\MSMQ\BGSExchangeMonitor\bin\BMC.EncryptionAlgorithm.dll"></File>
+                <File Id="MSMQInstall.FreeForm.dll"		                    Name="FreeForm.dll"		                    Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\FreeForm.dll"></File>
+
+                <ServiceInstall Id="BMC.MSMQ" Name="BMC.MSMQ"
+											DisplayName="BMC Exchange Monitor Service MSMQ"
+											Type="ownProcess"
+											Start="auto"
+											ErrorControl="normal"
+											Description="BMC Exchange Monitor Service MSMQ" Account="LocalSystem">
+                  <ServiceDependency Id="MSMQ"/>
+                </ServiceInstall>
+                <ServiceControl Id="StopMSMQService" Name="BMC.MSMQ"
+												Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+
+            <Directory Id="PCIntegrationInstallFolder" Name="BMC PCIntegrationService">
+              <Component Id="PCIntegrationInstall" Guid="babababa-baba-2121-3343-badaefaa1432" Win64="yes" Permanent="no">
+                <File Id="PCIntegrationInstall.DataXChangeEndPointService.exe"			    Name="DataXChangeEndPointService.exe"			    Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\DataXChangeEndPointService.exe" KeyPath="yes"></File>
+                <File Id="PCIntegrationInstall.DataXChangeEndPointService.exe.config"	  Name="DataXChangeEndPointService.exe.config"	Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\DataXChangeEndPointService.exe.config"></File>
+                <File Id="PCIntegrationInstall.BMC.CoreLib.dll"			                     Name="BMC.CoreLib.dll"			                        Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\BMC.CoreLib.dll"></File>
+                <File Id="PCIntegrationInstall.BMC.Crypto.dll"						               Name="BMC.Crypto.dll" 						                  Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\BMC.Crypto.dll"></File>
+                <File Id="PCIntegrationInstall.BMC.DataAccess.dll"					             Name="BMC.DataAccess.dll"					                Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\BMC.DataAccess.dll"></File>
+                <File Id="PCIntegrationInstall.BMC.Common.dll"					                 Name="BMC.Common.dll"					                    Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\BMC.Common.dll"></File>
+                <File Id="PCIntegrationInstall.BMC.PlayerGateway.dll"						         Name="BMC.PlayerGateway.dll"						           Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\BMC.PlayerGateway.dll"></File>
+                <File Id="PCIntegrationInstall.BMC.PlayerGateway.XmlSerializers.dll"		 Name="BMC.PlayerGateway.XmlSerializers.dll"			 Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\BMC.PlayerGateway.XmlSerializers.dll"></File>
+                <File Id="PCIntegrationInstall.FreeForm.dll"						                 Name="FreeForm.dll"						                    Source="$(var.SRC)\Site Controller\BMC.PCIntegrationService\DataXChangeEndPointService\bin\Release\FreeForm.dll"></File>
+
+               <ServiceInstall Id="PCIntegrationService" Name="BMC PCIntegrationService"
+											DisplayName="BMC.PCIntegrationService"
+											Type="ownProcess"
+											Start="auto"
+											ErrorControl="normal"
+											Description="BMC PCIntegrationService" Account="LocalSystem">
+
+                </ServiceInstall>
+                <ServiceControl Id="StopBMCPCIntegrationService" Name="BMC PCIntegrationService"
+												Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id="BMCTISInstallFolder" Name="BMC TISService">
+              <Component Id="BMCTISInstall" Guid="babababa-baba-2121-3343-badaefaa1433" Win64="yes" Permanent="no">
+                <File Id="BMCTISInstall.TISWinService.exe"			      Name="TISWinService.exe"			                     Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\TISWinService.exe" KeyPath="yes"></File>
+                <File Id="BMCTISInstall.TISWinService.exe.config"	  Name="TISWinService.exe.config"	                    Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\TISWinService.exe.config"></File>
+                <File Id="BMCTISInstall.BMC.Common.dll"			                    Name="BMC.Common.dll"			                         Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\BMC.Common.dll"></File>
+                <File Id="BMCTISInstall.BMC.CoreLib.dll"						            Name="BMC.CoreLib.dll" 						                 Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\BMC.CoreLib.dll"></File>
+                <File Id="BMCTISInstall.BMC.Crypto.dll"					                Name="BMC.Crypto.dll"					                     Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\BMC.Crypto.dll"></File>
+                <File Id="BMCTISInstall.BMC.PlayerGateway.dll"						        Name="BMC.PlayerGateway.dll"						           Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\BMC.PlayerGateway.dll"></File>
+                <File Id="BMCTISInstall.BMC.PlayerGateway.XmlSerializers.dll"		Name="BMC.PlayerGateway.XmlSerializers.dll"			   Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\BMC.PlayerGateway.XmlSerializers.dll"></File>
+                <File Id="BMCTISInstall.TISCoreService.dll"						          Name="TISCoreService.dll"						               Source="$(var.SRC)\Site Controller\TIS\TISWinService\bin\Release\TISCoreService.dll"></File>
+
+               <ServiceInstall Id="TISWinService" Name="BMC TISService"
+											DisplayName="BMC TISService"
+											Type="ownProcess"
+											Start="auto"
+											ErrorControl="normal"
+											Description="BMC TISService" Account="LocalSystem">
+
+                </ServiceInstall>
+                <ServiceControl Id="StopBMCTISService" Name="BMC TISService"
+												Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id="PrintFunction" Name="Print">
+              <Component Id="PrintFunction" Guid="1abd1bda-243e-4aec-bdbd-50b1632aaa41" Win64="yes" Permanent="no">
+                <File Id="ManualCashEntryRecepit" Name="ManualReceipt.html" Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\Print\ManualReceipt.html">
+                </File>
+              </Component>
+            </Directory>
+
+
+            <Directory Id="HourlyServiceFolder" Name="HourlyRead">
+              <Component Id="HourlyService" Guid="0abdabda-243e-4aec-bdbd-50b1232aaa41" Win64="yes" Permanent="no">
+                <File Id="HourlyService.BMC.HourlyDailyReadJobs.exe"		    Name="BMC.HourlyDailyReadJobs.exe"			  Source="$(var.SRC)\Site Controller\BMCHourlyDailyReadService\bin\Release\BMC.HourlyDailyReadJobs.exe" KeyPath="yes"></File>
+                <File Id="HourlyService.BMC.Common.dll"						          Name="BMC.Common.dll"						          Source="$(var.SRC)\Site Controller\BMCHourlyDailyReadService\bin\Release\BMC.Common.dll"></File>
+                <File Id="HourlyService.BMC.DataAccess.dll"					        Name="BMC.DataAccess.dll"					        Source="$(var.SRC)\Site Controller\BMCHourlyDailyReadService\bin\Release\BMC.DataAccess.dll"></File>
+                <File Id="HourlyService.BMC.HourlyDailyReadJobs.exe.config" Name="BMC.HourlyDailyReadJobs.exe.config"	Source="$(var.SRC)\Site Controller\BMCHourlyDailyReadService\bin\Release\BMC.HourlyDailyReadJobs.exe.config"></File>
+                <ServiceInstall Id="BMC.HourlyReadService" Name="BMCHourlyReadService"
+										DisplayName="BMC Hourly Read Service"
+										Type="ownProcess"
+										Start="auto"
+										ErrorControl="normal"
+										Description="BMC Hourly Read Service">
+                </ServiceInstall>
+                <ServiceControl Id="StopHourlyReadService" Name="BMCHourlyReadService"
+												Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id="BMCUtilitiesService" Name="BMCUtilitiesService">
+              <Component Id="BMCUtilitiesService"  Guid="823564ad-bda4-95dc-acc2-19a633e9f873" Win64="yes" Permanent="no">
+
+                <File Id="BMCUtilitiesService.BMC.Utilities.exe"		    Name="BMC.Utilities.exe"			   Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\Release\BMC.Utilities.exe"></File>
+                <File Id="BMCUtilitiesService.BMC.Utilities.exe.config"	Name="BMC.Utilities.exe.config"	 Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\Release\BMC.Utilities.exe.config"></File>
+                <File Id="BMCUtilitiesService.BMCDataAccessDll"				  Name="BMC.DataAccess.dll"				 Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\Release\BMC.DataAccess.dll"></File>
+                <File Id="BMCUtilitiesService.BMC.BusinessClasses.dll"	Name="BMC.BusinessClasses.dll"	 Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\Release\BMC.BusinessClasses.dll"></File>
+                <File Id="BMCUtilitiesService.BMC.Common.dll"           Name="BMC.Common.dll"	           Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\Release\BMC.Common.dll" ></File>
+
+                <ServiceInstall Id="BMCUtilitiesService" Name="BMCUtilitiesServiceInstaller"
+											  DisplayName="BMC Utility Service"
+											  Type="ownProcess"
+											  Start="auto"
+											  ErrorControl="normal"
+											  Description="Service sends email alert to the predefined subscribers">
+                </ServiceInstall>
+                <ServiceControl Id="StopBMCUtilitiesService" Name="BMCUtilitiesServiceInstaller"
+											   Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id="GuardianServiceFolder" Name="Guardian Service">
+              <Component Id="GuardianService" Guid="12345678-3213-4568-357a-bcdae7896543" Win64="yes" Permanent="no">
+                <File Id="GuardianService.BMCCommondll"						            Name="BMC.Common.dll"					        Source="$(var.SRC)\Site Controller\BMC Guardian Service\SiteStats\bin\Release\BMC.Common.dll"></File>
+                <File Id="GuardianService.BMCDataAccessDll"					          Name="BMC.DataAccess.dll"				      Source="$(var.SRC)\Site Controller\BMC Guardian Service\SiteStats\bin\Release\BMC.DataAccess.dll"></File>
+                <File Id="GuardianService.BMCEnterpriseProxyDll"			        Name="BMC.EnterpriseProxy.dll"			  Source="$(var.SRC)\Site Controller\BMC Guardian Service\SiteStats\bin\Release\BMC.EnterpriseProxy.dll"></File>
+                <File Id="GuardianService.BMC.Monitoring.dll"				          Name="BMC.Monitoring.dll"				      Source="$(var.SRC)\Site Controller\BMC Guardian Service\SiteStats\bin\Release\BMC.Monitoring.dll"></File>
+                <File Id="GuardianService.SiteStatusService.exe"			        Name="SiteStatusService.exe"			    Source="$(var.SRC)\Site Controller\BMC Guardian Service\SiteStats\bin\Release\SiteStatusService.exe" KeyPath="yes"></File>
+                <File Id="GuardianService.SiteStatusService.exe.config"		    Name="SiteStatusService.exe.config"		Source="$(var.SRC)\Site Controller\BMC Guardian Service\SiteStats\bin\Release\SiteStatusService.exe.config"></File>
+                <ServiceInstall Id="BMCGuardianService" Name="BMCGuardianService"
+											  DisplayName="BMC Guardian Service"
+											  Type="ownProcess"
+											  Start="auto"
+											  ErrorControl="normal"
+											  Description="BMC Guardian Service">
+                </ServiceInstall>
+                <ServiceControl Id="StopGuardianServicewService" Name="BMCGuardianService"
+												Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id="EnhancedEnrollmentFolder" Name="EnhancedEnrollment">
+              <Component Id="EnhancedEnrollment" Guid="80b0ee2a-4213-46ec-a456-123456789123" Win64="yes" Permanent="no">
+                <File Id="EnhancedEnrollment.EnhancedEnrollment.dll.config" Name="EnhancedEnrollment.dll.config"	Source="$(var.DEPLOY)\EnhancedEnrollment.dll.config"></File>
+                <File Id="EnhancedEnrollment.BMC.Common.dll"				        Name="BMC.Common.dll"					        Source="$(var.SRC)\Common\BMC.Common\bin\Release\BMC.Common.dll"></File>
+                <File Id="EnhancedEnrollment.EnhancedEnrollment.dll"		    Name="EnhancedEnrollment.dll"			    Source="$(var.DEPLOY)\EnhancedEnrollment.dll"></File>
+                <File Id="EnhancedEnrollment.BMC.DataAccess.Dll"			      Name="BMC.DataAccess.dll"				      Source="$(var.SRC)\Common\BMC.DataAccess\bin\Release\BMC.DataAccess.dll"></File>
+
+              </Component>
+            </Directory>
+
+            <Directory Id="NetworkServicesFolder" Name="NetworkService">
+              <Component Id="NetworkServices" Guid="80b0ee2a-4213-46ec-a456-1283adbc34ac" Win64="yes" Permanent="no">
+                <File Id="NetworkServices.BMCNetworkService.exe"				      Name="BMCNetworkService.exe"				      Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMCNetworkService.exe"  KeyPath="yes"></File>
+                <File Id="NetworkServices.BMCNetworkService.exe.config"			  Name="BMCNetworkService.exe.config"			  Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMCNetworkService.exe.config"></File>
+                <File Id="NetworkServices.BMC.Business.NetworkService.dll"		Name="BMC.Business.NetworkService.dll"		Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMC.Business.NetworkService.dll"></File>
+                <File Id="NetworkServices.BMC.DBInterface.NetworkService.dll"	Name="BMC.DBInterface.NetworkService.dll"	Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMC.DBInterface.NetworkService.dll"></File>
+                <!--<File Id="NetworkServices.BMC.EnterpriseProxy.dll"				Name="BMC.EnterpriseProxy.dll"				    Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMC.EnterpriseProxy.dll"></File>-->
+                <File Id="NetworkServices.BMC.Transport.NetworkService.dll"		Name="BMC.Transport.NetworkService.dll"		Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMC.Transport.NetworkService.dll"></File>
+                <File Id="NetworkServices.BMCCommondll"							          Name="BMC.Common.dll"						          Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMC.Common.dll"></File>
+                <File Id="NetworkServices.BMCDataAccessDll"						        Name="BMC.DataAccess.dll"					        Source="$(var.SRC)\Site Controller\BMC NetworkService\BMCNetworkService\bin\Release\BMC.DataAccess.dll"></File>
+                <File Id="NetworkServices.Interop.ComExchangeLib.dll"			    Name="Interop.ComExchangeLib.dll"			    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.ComExchangeLib.dll"></File>
+               <ServiceInstall Id="BMCNetworkService" Name="BMCNetworkService"
+												DisplayName="BMC NetworkServices"
+												Type="ownProcess"
+												Start="auto"
+												ErrorControl="normal"
+												Description="BMC NetworkServices Service"
+												Interactive="yes">
+                </ServiceInstall>
+                <ServiceControl Id="StopBMCNetworkServices" Name="BMCNetworkService"
+								 Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+            <!--Begin Windows Service Files-->
+            <Directory Id="BMCTicketingBackupServiceFolder" Name="ExchangeTicketExportService">
+              <Component Id="BMCTicketingBackupService" Guid="80b0a543-a102-46ec-46ec-bdca3834adce" Win64="yes" Permanent="no">
+                <File Id="TicketingBackupService.BMC.Common.dll"								              Name="BMC.Common.dll"								              Source="$(var.SRC)\Site Controller\BMC.ExchangeTicketExportService\BMC.ExchangeTicketExportService\bin\Release\BMC.Common.dll"></File>
+                <File Id="TicketingBackupService.BMC.DataAccess.dll"							            Name="BMC.DataAccess.dll"							            Source="$(var.SRC)\Site Controller\BMC.ExchangeTicketExportService\BMC.ExchangeTicketExportService\bin\Release\BMC.DataAccess.dll"></File>
+                <File Id="TicketingBackupService.BMC.EnterpriseProxy.dll"						          Name="BMC.EnterpriseProxy.dll"						        Source="$(var.SRC)\Site Controller\BMC.ExchangeTicketExportService\BMC.ExchangeTicketExportService\bin\Release\BMC.EnterpriseProxy.dll"></File>
+                <File Id="TicketingBackupService.BMC.ExchangeTicketExportService.exe"			    Name="BMC.ExchangeTicketExportService.exe"			  Source="$(var.SRC)\Site Controller\BMC.ExchangeTicketExportService\BMC.ExchangeTicketExportService\bin\Release\BMC.ExchangeTicketExportService.exe" KeyPath="yes"></File>
+                <File Id="TicketingBackupService.BMC.ExchangeTicketExportService.exe.config"	Name="BMC.ExchangeTicketExportService.exe.config"	Source="$(var.SRC)\Site Controller\BMC.ExchangeTicketExportService\BMC.ExchangeTicketExportService\bin\Release\BMC.ExchangeTicketExportService.exe.config"></File>
+                <ServiceInstall Id="ExchangeTicketExportService" Name="ExchangeTicketExportService"
+											  DisplayName="BMC Ticket Export"
+											  Type="ownProcess"
+											  Start="auto"
+											  ErrorControl="normal"
+											  Description="BMC Ticket Export Service">
+                </ServiceInstall>
+                <ServiceControl Id="StopExchangeTicketExportService" Name="ExchangeTicketExportService"
+												Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+            <Directory Id="ExchangeDataImportExportWindowService" Name="ExchangeDataImportExportWindowService">
+              <Component Id="WindowsService" Guid="80b0a102-a102-46ec-46ec-bdca3834adce" Win64="yes" Permanent="no">
+                <File Id="WindowServiceInterop.ComExchangeLib.dll"		            Name="Interop.ComExchangeLib.dll"		        Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.ComExchangeLib.dll"></File>
+                <File Id="WindowServiceBMCCommondll"					                    Name="BMC.Common.dll"					              Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.Common.dll"></File>
+                <File Id="WindowServiceBMCDataAccessDll"				                  Name="BMC.DataAccess.dll"				            Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.DataAccess.dll"></File>
+                <File Id="WindowServiceBMCSecurityDll"					                  Name="BMC.Security.dll"					            Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.Security.dll"></File>
+                <File Id="WindowServiceBMC.BusinessClasses.dll"			              Name="BMC.BusinessClasses.dll"			        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.BusinessClasses.dll"></File>
+                <File Id="WindowServiceBMC.DataImportExport.exe"		              Name="BMC.DataImportExport.exe"			        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.DataImportExport.exe" KeyPath="yes"></File>
+                <File Id="WindowServiceBMC.DataImportExport.exe.config"           Name="BMC.DataImportExport.exe.config"	    Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.DataImportExport.exe.config"></File>
+                <File Id="WindowServiceBMC.BMC.EnterpriseProxy.Dll"		            Name="BMC.EnterpriseProxy.dll"			        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.EnterpriseProxy.dll"></File>
+                <File Id="WindowServiceBMC.BMC.EventsTransmitter.dll"	            Name="BMC.EventsTransmitter.dll"		        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.EventsTransmitter.dll"></File>
+                <File Id="WindowServiceBMC.Audit.Business.dll"					          Name="Audit.Business.dll"						        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\Audit.Business.dll"></File>
+                <File Id="WindowServiceBMC.Audit.DBBuilder.dll"					          Name="Audit.DBBuilder.dll"						      Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\Audit.DBBuilder.dll"></File>
+                <File Id="WindowServiceBMC.Audit.Transport.dll"					          Name="Audit.Transport.dll"						      Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\Audit.Transport.dll"></File>
+                <File Id="WindowServiceBMC.BMC.Business.CashDeskOperator.dll"	    Name="BMC.Business.CashDeskOperator.dll"		Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.Business.CashDeskOperator.dll"></File>
+                <File Id="WindowServiceBMC.BMC.CashDeskOperator.dll"			        Name="BMC.CashDeskOperator.dll"					    Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.CashDeskOperator.dll"></File>
+                <File Id="WindowServiceBMC.BMC.DBInterface.CashDeskOperator.dll"  Name="BMC.DBInterface.CashDeskOperator.dll"	Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.DBInterface.CashDeskOperator.dll"></File>
+                <File Id="WindowServiceBMC.BMC.Monitoring.dll"					          Name="BMC.Monitoring.dll"						        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.Monitoring.dll"></File>
+                <File Id="WindowServiceBMC.BMC.Transport.dll"					            Name="BMC.Transport.dll"						        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.Transport.dll"></File>
+                <File Id="WindowServiceBMC.BMCIPC.dll"							              Name="BMCIPC.dll"								            Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMCIPC.dll"></File>
+                <File Id="WindowServiceBMC.ICSharpCode.SharpZipLib.dll"			      Name="ICSharpCode.SharpZipLib.dll"				  Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\ICSharpCode.SharpZipLib.dll"></File>
+                <File Id="WindowServiceBMC.Interop.Gen2PrinterLib.dll"			      Name="Interop.Gen2PrinterLib.dll"				    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.Gen2PrinterLib.dll"></File>
+                <File Id="WindowServiceBMC.Interop.PrinterCommLib.dll"			      Name="Interop.PrinterCommLib.dll"				    Source="$(var.SRC)\Site Controller\CashDeskOperator\BMC.Presentation.CashDeskOperator\BMC.Presentation.CashDeskOperator\bin\Release\Interop.PrinterCommLib.dll"></File>
+                <File Id="WindowServiceBMC.Microsoft.Office.Interop.Excel.dll"	  Name="Microsoft.Office.Interop.Excel.dll"		Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\Microsoft.Office.Interop.Excel.dll"></File>
+                <File Id="WindowServiceBMC.office.dll"							              Name="office.dll"								            Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\office.dll"></File>
+                <File Id="WindowServiceBMC.TicketingClient.dll"					          Name="TicketingClient.dll"						      Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\TicketingClient.dll"></File>
+                <File Id="WindowServiceBMC.BMC.CoreLib.dll"                       Name="BMC.CoreLib.dll"                      Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWindowService\BMC.DataImportExport\bin\Release\BMC.CoreLib.dll"></File>
+                <ServiceInstall Id="BMCExchangeImportExport" Name="BMCExchangeImportExport"
+											  DisplayName="BMC Exchange Import Export"
+											  Type="ownProcess"
+											  Start="auto"
+											  ErrorControl="normal"
+											  Description="Service takes care of Import and Export data from and to Enterprise">
+                </ServiceInstall>
+                <ServiceControl Id="StopExchangeWindowService" Name="BMCExchangeImportExport"
+												Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <!--End Windows Service Files-->
+            <Directory Id="ExchangeWebService" Name="ExchangeWebService">
+              <Directory Id="WebServiceBinFolder" Name="Bin">
+                <Component Id="WebServiceBin" Guid="80b0a102-a102-46ec-46ec-33a23eb0588e" Win64="yes" Permanent="no">
+                  <File Id="Web.BMCCommondll"						            Name="BMC.Common.dll"					        Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.Common.dll"></File>
+                  <File Id="Web.BMC.DataAccess.dll"				          Name="BMC.DataAccess.dll"				      Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.DataAccess.dll"></File>
+                  <File Id="Web.BMC.ExchangeWebService.dll"		      Name="BMC.ExchangeWebService.dll"		  Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.ExchangeWebService.dll"></File>
+                  <File Id="Web.BMC.Monitoring.dll"				          Name="BMC.Monitoring.dll"				      Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.Monitoring.dll"></File>
+                </Component>
+              </Directory>
+              <Component Id="WebService" Guid="80b0ee2a-a102-46ec-a456-33a23eb0588e" Win64="yes" Permanent="no">
+                <File Id="ExchangeWebService.asmx"        Name="ExchangeWebService.asmx"  Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\ExchangeWebService.asmx"></File>
+                <File Id="ExchangeWeb"                    Name="Web.config"               Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\Web.config"></File>
+                <File Id="ExchangeWebService.Global.asax" Name="Global.asax"              Source="$(var.SRC)\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\Global.asax"></File>
+                <iis:WebAppPool Id='BallyAppPool' Name='BallyAppPool'  ManagedRuntimeVersion="v4.0" ManagedPipelineMode="Integrated">
+                </iis:WebAppPool>
+                <iis:WebVirtualDir Id="ExchangeWebService" Alias="ExchangeWebService" Directory="ExchangeWebService" WebSite="BallyWebSite">
+                  <iis:WebApplication Id="ExchangeWebApplication" Name="ExchangeWebService" WebAppPool="BallyAppPool"/>
+                </iis:WebVirtualDir>
+
+                <iis:WebSite Id='BallyWebSite' Description='BallyWebSite' Directory='ExchangeWebService'  WebApplication='BallyWebApp' StartOnInstall='yes'>
+                  <iis:WebDirProperties Id='WebDirProp' AnonymousAccess='yes' Read='yes' Script='yes' />
+                  <iis:WebAddress Id="AllUnassigned" Port="80" />
+                </iis:WebSite>
+
+              </Component>
+            </Directory>
+
+            <Directory Id="CageWebService" Name="CageWebService">
+              <Directory Id="CageWebServiceBinFolder" Name="Bin">
+                <Component Id="CageWebServiceBin" Guid="B5578A12-125E-414d-8E61-977DC5A9AD35" Win64="yes" Permanent="no">
+                  <File Id="CageWeb.Audit.Transport.dll"					          Name="Audit.Transport.dll"						      Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Audit.Transport.dll"></File>
+                  <File Id="CageWeb.BMC.Business.CashDeskOperator.dll"	    Name="BMC.Business.CashDeskOperator.dll"		Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Business.CashDeskOperator.dll"></File>
+                  <File Id="CageWeb.BMC.CashDeskOperator.dll"				        Name="BMC.CashDeskOperator.dll"					    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.CashDeskOperator.dll"></File>
+                  <File Id="CageWeb.BMC.Common.dll"						              Name="BMC.Common.dll"							          Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Common.dll"></File>
+                  <File Id="CageWeb.BMC.DataAccess.dll"					            Name="BMC.DataAccess.dll"						        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.DataAccess.dll"></File>
+                  <File Id="CageWeb.BMC.DBInterface.CashDeskOperator.dll"   Name="BMC.DBInterface.CashDeskOperator.dll"	Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.DBInterface.CashDeskOperator.dll"></File>
+                  <File Id="CageWeb.BMC.EnterpriseProxy.Dll"				        Name="BMC.EnterpriseProxy.dll"					    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.EnterpriseProxy.dll"></File>
+                  <File Id="CageWeb.BMC.Monitoring.dll"					            Name="BMC.Monitoring.dll"						        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Monitoring.dll"></File>
+                  <File Id="CageWeb.BMC.Security.Dll"						            Name="BMC.Security.dll"							        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Security.dll"></File>
+                  <File Id="CageWeb.BMC.Transport.dll"					            Name="BMC.Transport.dll"						        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Transport.dll"></File>
+                  <File Id="CageWeb.CageBMCInterface.dll"					          Name="CageBMCInterface.dll"						      Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\CageBMCInterface.dll"></File>
+                  <File Id="CageWeb.ICSharpCode.SharpZipLib.dll"			      Name="ICSharpCode.SharpZipLib.dll"				  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\ICSharpCode.SharpZipLib.dll"></File>
+                  <!--<File Id="CageWeb.Interop.ComExchangeLib.dll" 			      Name="Interop.ComExchangeLib.dll" 				  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.ComExchangeLib.dll"></File>-->
+                  <File Id="CageWeb.Interop.Gen2PrinterLib.dll" 			      Name="Interop.Gen2PrinterLib.dll" 				  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.Gen2PrinterLib.dll"></File>
+                  <File Id="CageWeb.Interop.PrinterCommLib.dll"			        Name="Interop.PrinterCommLib.dll"				    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.PrinterCommLib.dll"></File>
+                  <File Id="CageWeb.Interop.SDGTicketGenLib.dll"				    Name="Interop.SDGTicketGenLib.dll"					Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.SDGTicketGenLib.dll"></File>
+                  <File Id="CageWeb.Microsoft.Office.Interop.Excel.dll"	    Name="Microsoft.Office.Interop.Excel.dll"		Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Microsoft.Office.Interop.Excel.dll"></File>
+                  <File Id="CageWeb.office.dll"							                Name="office.dll"								            Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\office.dll"></File>
+                  <File Id="CageWeb.WCFHelperUtils.dll"					            Name="WCFHelperUtils.dll"						        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\WCFHelperUtils.dll"></File>
+                </Component>
+              </Directory>
+              <Component Id="CageComponentWebService" Guid="933D288E-D095-4fd3-A61D-955C759CA382" Win64="yes" Permanent="no">
+                <File Id="Authentication.svc"	Name="Authentication.svc"	Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Authentication.svc"></File>
+                <File Id="Jackpot.svc"			  Name="Jackpot.svc"			  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Jackpot.svc"></File>
+                <File Id="Voucher.svc"			  Name="Voucher.svc"			  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Voucher.svc"></File>
+                <File Id="CageWeb"				    Name="Web.config"			    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Web.config"></File>
+                <File Id="Cage.Global.asax"   Name="Global.asax"        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Global.asax"></File>
+
+                <iis:WebVirtualDir Id="CageWebService" Alias="CageWebService" Directory="CageWebService" WebSite="BallyWebSite">
+                  <iis:WebApplication Id="CageWebApplication" Name="CageWebService" WebAppPool="BallyAppPool"/>
+                </iis:WebVirtualDir>
+
+              </Component>
+            </Directory>
+
+            <Directory Id="TicketWCFService" Name="TicketWCFService">
+              <Directory Id="TicketWCFServiceBinFolder" Name="Bin">
+                <Component Id="TicketWCFServiceBin" Guid="B5578A12-125E-414d-8F61-977DC5B9AD35" Win64="yes" Permanent="no">
+                  <File Id="TicketWCF.Audit.Transport.dll"				            Name="Audit.Transport.dll"						      Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\Audit.Transport.dll"></File>
+                  <File Id="TicketWCF.BMC.Business.CashDeskOperator.dll"	    Name="BMC.Business.CashDeskOperator.dll"		Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.Business.CashDeskOperator.dll"></File>
+                  <File Id="TicketWCF.BMC.CashDeskOperator.dll"			          Name="BMC.CashDeskOperator.dll"					    Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.CashDeskOperator.dll"></File>
+                  <File Id="TicketWCF.BMC.Common.dll"						              Name="BMC.Common.dll"							          Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.Common.dll"></File>
+                  <File Id="TicketWCF.BMC.DataAccess.dll"					            Name="BMC.DataAccess.dll"						        Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.DataAccess.dll"></File>
+                  <File Id="TicketWCF.BMC.EnterpriseProxy.dll"			          Name="BMC.EnterpriseProxy.dll"					    Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.EnterpriseProxy.dll"></File>
+                  <File Id="TicketWCF.BMC.Monitoring.dll"					            Name="BMC.Monitoring.dll"						        Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.Monitoring.dll"></File>
+                  <File Id="TicketWCF.BMC.Security.dll"					              Name="BMC.Security.dll"							        Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.Security.dll"></File>
+                  <File Id="TicketWCF.ICSharpCode.SharpZipLib.dll"		        Name="ICSharpCode.SharpZipLib.dll"				  Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\ICSharpCode.SharpZipLib.dll"></File>
+                  <File Id="TicketWCF.Interop.PrinterCommLib.dll"			        Name="Interop.PrinterCommLib.dll"				    Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\Interop.PrinterCommLib.dll"></File>
+                  <!--<File Id="TicketWCF.Interop.ComExchangeLib.dll"			        Name="Interop.ComExchangeLib.dll" 				  Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\Interop.ComExchangeLib.dll"></File>-->
+                  <File Id="TicketWCF.Interop.Gen2PrinterLib.dll"			        Name="Interop.Gen2PrinterLib.dll" 				  Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\Interop.Gen2PrinterLib.dll"></File>
+                  <File Id="TicketWCF.Interop.SDGTicketGenLib.dll"			      Name="Interop.SDGTicketGenLib.dll"					Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\Interop.SDGTicketGenLib.dll"></File>
+                  <File Id="TicketWCF.office.dll"							                Name="office.dll"								            Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\office.dll"></File>
+                  <File Id="TicketWCF.TicketingClient.dll"				            Name="TicketingClient.dll"						      Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\TicketingClient.dll"></File>
+                  <File Id="TicketWCF.TicketingWCFService.dll"			          Name="TicketingWCFService.dll"					    Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\TicketingWCFService.dll"></File>
+                  <File Id="TicketWCF.BMC.Transport.dll"					            Name="BMC.Transport.dll"						        Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.Transport.dll"></File>
+                  <File Id="TicketWCF.Microsoft.Office.Interop.Excel.dll"     Name="Microsoft.Office.Interop.Excel.dll"		Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\Microsoft.Office.Interop.Excel.dll"></File>
+                  <File Id="TicketWCF.BMC.DBInterface.CashDeskOperator.dll"   Name="BMC.DBInterface.CashDeskOperator.dll"	Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.DBInterface.CashDeskOperator.dll"></File>
+                  <File Id="TicketWCF.BMC.CoreLib.dll"						            Name="BMC.CoreLib.dll" 						          Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.CoreLib.dll"></File>
+                  <File Id="TicketWCF.BMC.Crypto.dll"					                Name="BMC.Crypto.dll"					              Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.Crypto.dll"></File>
+                  <File Id="TicketWCF.BMC.PlayerGateway.dll"						      Name="BMC.PlayerGateway.dll"						    Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\bin\BMC.PlayerGateway.dll"></File>
+                </Component>
+              </Directory>
+
+
+
+              <Component Id="TicketWCFComponentWebService" Guid="933D288E-D095-4dd3-A61D-955C769CA382" Win64="yes" Permanent="no">
+                <File Id="TicketingService.svc"   Name="TicketingService.svc" Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\TicketingService.svc"></File>
+                <File Id="TicketingWeb"           Name="Web.config"           Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\Web.config"></File>
+                <File Id="Ticket.Global.asax"     Name="Global.asax"          Source="$(var.SRC)\Site Controller\TicketingWebService\TicketingWCFService\Global.asax"></File>
+
+                <iis:WebVirtualDir Id="TicketingWCFService" Alias="TicketingWCFService" Directory="TicketWCFService" WebSite="BallyWebSite">
+                  <iis:WebApplication Id="TicketingWebApplication" Name="TicketingWCFService" WebAppPool="BallyAppPool"/>
+                </iis:WebVirtualDir>
+
+              </Component>
+            </Directory>
+
+            <!--new Dll's and Exe's SP9-->
+
+
+
+            <Directory Id="BMCCageInterface" Name="BMCCageInterface">
+              <Directory Id="BMCCageInterfacebin" Name="bin">
+                <Component Id="BMCCageInterfacebin" Guid="80b0c192-a292-49ec-49ec-33a29eb0588e" Win64="yes" Permanent="no">
+                  <File Id="BMCCageInterfacebin.Audit.Business.dll"					          Name="Audit.Business.dll"					          Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Audit.Business.dll"></File>
+                  <File Id="BMCCageInterfacebin.Audit.DBBuilder.dll"					        Name="Audit.DBBuilder.dll"					        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Audit.DBBuilder.dll"></File>
+                  <File Id="BMCCageInterfacebin.Audit.Transport.dll"					        Name="Audit.Transport.dll"					        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Audit.Transport.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.Business.CashDeskOperator.dll"	  Name="BMC.Business.CashDeskOperator.dll"	  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Business.CashDeskOperator.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.CashDeskOperator.dll"				      Name="BMC.CashDeskOperator.dll"				      Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.CashDeskOperator.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.Common.dll"						            Name="BMC.Common.dll"						            Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Common.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.DataAccess.dll"					          Name="BMC.DataAccess.dll"					          Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.DataAccess.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.DBInterface.CashDeskOperator.dll" Name="BMC.DBInterface.CashDeskOperator.dll" Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.DBInterface.CashDeskOperator.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.EnterpriseProxy.dll"				      Name="BMC.EnterpriseProxy.dll"				      Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.EnterpriseProxy.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.Monitoring.dll"					          Name="BMC.Monitoring.dll"					          Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Monitoring.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.Security.dll"						          Name="BMC.Security.dll"						          Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Security.dll"></File>
+                  <File Id="BMCCageInterfacebin.BMC.Transport.dll"					          Name="BMC.Transport.dll"					          Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\BMC.Transport.dll"></File>
+                  <File Id="BMCCageInterfacebin.CageBMCInterface.dll"					        Name="CageBMCInterface.dll"					        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\CageBMCInterface.dll"></File>
+                  <File Id="BMCCageInterfacebin.ICSharpCode.SharpZipLib.dll"			    Name="ICSharpCode.SharpZipLib.dll"			    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\ICSharpCode.SharpZipLib.dll"></File>
+                  <!--<File Id="BMCCageInterfacebin.Interop.ComExchangeLib.dll" 			    Name="Interop.ComExchangeLib.dll" 			    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.ComExchangeLib.dll"></File>-->
+                  <File Id="BMCCageInterfacebin.Interop.Gen2PrinterLib.dll" 			    Name="Interop.Gen2PrinterLib.dll" 			    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.Gen2PrinterLib.dll"></File>
+                  <File Id="BMCCageInterfacebin.Interop.PrinterCommLib.dll"			      Name="Interop.PrinterCommLib.dll"			      Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.PrinterCommLib.dll"></File>
+                  <File Id="BMCCageInterfacebin.Interop.SDGTicketGenLib.dll"				  Name="Interop.SDGTicketGenLib.dll"				  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.SDGTicketGenLib.dll"></File>
+                  <!--<File Id="BMCCageInterfacebin.Interop.TCKPrint.dll"					        Name="Interop.TCKPrint.dll"					    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Interop.TCKPrint.dll"></File>-->
+                  <File Id="BMCCageInterfacebin.TicketingClient.dll"					        Name="TicketingClient.dll"					        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\TicketingClient.dll"></File>
+                  <File Id="BMCCageInterfacebin.WCFHelperUtils.dll"					          Name="WCFHelperUtils.dll"					          Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\WCFHelperUtils.dll"></File>
+                  <File Id="BMCCageInterfacebin.Microsoft.Office.Interop.Excel.dll" 	Name="Microsoft.Office.Interop.Excel.dll"	  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Microsoft.Office.Interop.Excel.dll"></File>
+
+                  <File Id="BMCCageInterfacebin.Microsoft.Vbe.Interop.dll"			Name="Microsoft.Vbe.Interop.dll"			Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\Microsoft.Vbe.Interop.dll"></File>
+
+                  <File Id="BMCCageInterfacebin.office.dll"							Name="office.dll"							Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\bin\office.dll"></File>
+                </Component>
+              </Directory>
+              <Component Id ="BMCCageInterface" Guid="80b8c102-a202-86ec-84ec-33a28eb0588e">
+                <File Id="BMCCageInterface.Authentication.svc"	Name="Authentication.svc"	Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Authentication.svc"></File>
+                <File Id="BMCCageInterface.Jackpot.svc"			    Name="Jackpot.svc"			  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Jackpot.svc"></File>
+                <File Id="BMCCageInterface.Voucher.svc"			    Name="Voucher.svc"			  Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Voucher.svc"></File>
+                <File Id="BMCCageInterface.Web.config"			    Name="Web.config"			    Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Web.config"></File>
+                <File Id="BMCCageInterface.Global.asax"         Name="Global.asax"        Source="$(var.SRC)\Site Controller\CageBMCInterface\CageBMCInterface\Global.asax"></File>
+
+                <iis:WebVirtualDir Id="BMCCageInterface" Alias="BMCCageInterface" Directory="BMCCageInterface" WebSite="BallyWebSite">
+                  <iis:WebApplication Id="BCIWebApplication" Name="BMCCageInterface" WebAppPool="BallyAppPool" />
+                </iis:WebVirtualDir>
+
+              </Component>
+            </Directory>
+
+
+            <Directory Id="Database" Name="Database">
+              <Component Id="Exchange_DBScriptConfig" Guid="84375378-abcd-9234-bdc1-93fe8725817c" Win64="yes" Permanent="no">
+                <File Id="Exchange_DBScriptConfig.xml" Name="Exchange_DBScriptConfig.xml" Source="$(var.SRC)\Site Controller\BMC.Configuration\Resources\Exchange_DBScriptConfig.xml"></File>
+              </Component>
+              <Directory Id="Exchange" Name="Exchange">
+                <Component Id="Exchange" Guid="82178348-abcd-9254-bdc1-93fe8721847a" Win64="yes" Permanent="no">
+                  <File Id="Exchange.Data.enpt"				        Name="Data.enpt"				      Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\Data.enpt"></File>
+                  <File Id="Exchange.ForeignKeys.enpt"		    Name="ForeignKeys.enpt"			  Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\ForeignKeys.enpt"></File>
+                  <File Id="Exchange.Functions.enpt"			    Name="Functions.enpt"			    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\Functions.enpt"></File>
+                  <File Id="Exchange.Indexes.enpt"			      Name="Indexes.enpt"				    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\Indexes.enpt"></File>
+                  <File Id="Exchange.StoredProcedures.enpt" 	Name="StoredProcedures.enpt"	Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\StoredProcedures.enpt"></File>
+                  <File Id="Exchange.Tables.enpt"				      Name="Tables.enpt"				    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\Tables.enpt"></File>
+                  <File Id="Exchange.Triggers.enpt"			      Name="Triggers.enpt"			    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\Triggers.enpt"></File>
+                  <File Id="Exchange.Views.enpt"				      Name="Views.enpt"				      Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\Views.enpt"></File>
+                  <File Id="Exchange.Schemas.enpt"				    Name="Schemas.enpt"				    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Exchange\Schemas.enpt"></File>
+                </Component>
+              </Directory>
+              <Directory Id="Ticketing" Name="Ticketing">
+                <Component Id="Ticketing" Guid="84370348-abcd-9294-bfc1-93fe8728817c" Win64="yes" Permanent="no">
+                  <!--<File Id="Ticketing.Assembly.enpt"			Name="Assembly.enpt"			Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Assembly.enpt"></File>-->
+                  <File Id="Ticketing.Data.enpt"				      Name="Data.enpt"				      Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Data.enpt"></File>
+                  <File Id="Ticketing.Defaults.enpt"			    Name="Defaults.enpt"			    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Defaults.enpt"></File>
+                  <File Id="Ticketing.ForeignKeys.enpt"		    Name="ForeignKeys.enpt"			  Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\ForeignKeys.enpt"></File>
+                  <File Id="Ticketing.Functions.enpt"			    Name="Functions.enpt"			    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Functions.enpt"></File>
+                  <File Id="Ticketing.Indexes.enpt"			      Name="Indexes.enpt"				    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Indexes.enpt"></File>
+                  <File Id="Ticketing.Rules.enpt"				      Name="Rules.enpt"				      Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Rules.enpt"></File>
+                  <File Id="Ticketing.StoredProcedures.enpt"	Name="StoredProcedures.enpt"	Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\StoredProcedures.enpt"></File>
+                  <File Id="Ticketing.Tables.enpt"			      Name="Tables.enpt"				    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Tables.enpt"></File>
+                  <File Id="Ticketing.Triggers.enpt"			    Name="Triggers.enpt"			    Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Triggers.enpt"></File>
+                  <File Id="Ticketing.Types.enpt" 			      Name="Types.enpt"				      Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Types.enpt"></File>
+                  <File Id="Ticketing.Views.enpt" 			      Name="Views.enpt"				      Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Views.enpt"></File>
+                </Component>
+              </Directory>
+              <Directory Id="ExtSysMsg" Name="ExtSysMsg">
+                <Component Id="ExtSysMsg" Guid="84370348-abcd-9294-bfc1-93fe8728587c" Win64="yes" Permanent="no">
+                  <!--<File Id="Ticketing.Assembly.enpt"			Name="Assembly.enpt"			Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Ticketing\Assembly.enpt"></File>-->
+                  <File Id="ExtSysMsg.Data.enpt"				Name="Data.enpt"				Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\ExtSysMsg\Data.enpt"></File>
+                  <File Id="ExtSysMsg.Indexes.enpt"			Name="Indexes.enpt"				Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\ExtSysMsg\Indexes.enpt"></File>
+                  <File Id="ExtSysMsg.StoredProcedures.enpt"	Name="StoredProcedures.enpt"	Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\ExtSysMsg\StoredProcedures.enpt"></File>
+                  <File Id="ExtSysMsg.Ticketing.Tables.enpt"			Name="Tables.enpt"				Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\ExtSysMsg\Tables.enpt"></File>
+                  <File Id="ExtSysMsg.Schemas.enpt"				Name="Schemas.enpt"				Source="$(var.SRC)\Site Controller\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\ExtSysMsg\Schemas.enpt"></File>
+                </Component>
+              </Directory>
+            </Directory>
+
+            <Directory Id="TicketingCom" Name="TicketingCom">
+              <Component Id="TicketingCom" Guid="932A288E-D085-4dd3-A66D-955C669CA382" Win64="yes" Permanent="no">
+                <!-- <File Id="TicketingCom.BMC.Common.Comms.dll"			  Name="BMC.Common.Comms.dll"				Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\bin\Release\BMC.Common.Comms.dll"></File>-->
+                <File Id="TicketingCom.BMC.DataAccess.Comms.dll"		Name="BMC.DataAccess.Comms.dll"		Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\bin\Release\BMC.DataAccess.Comms.dll"></File>
+                <File Id="TicketingCom.TicketingCOM.dll"			  	  Name="TicketingCOM.dll"					  Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\bin\Release\TicketingCOM.dll"></File>
+                <File Id="TicketingCom.GACUTIL.bat"						      Name="GACUTIL.bat"						    Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\GAC.bat"></File>
+                <File Id="TicketingCom.BMC.CoreLib.dll"			        Name="BMC.CoreLib.dll"				    Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\bin\Release\BMC.CoreLib.dll"></File>
+                <File Id="TicketingCom.BMC.Crypto.dll"			        Name="BMC.Crypto.dll"				      Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\bin\Release\BMC.Crypto.dll"></File>
+                <File Id="TicketingCom.BMC.PlayerGateway.dll"			  Name="BMC.PlayerGateway.dll"			Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\bin\Release\BMC.PlayerGateway.dll"></File>
+                <File Id="TicketingCom.TicketingCOM.dll.config"			Name="TicketingCOM.dll.config"		Source="$(var.SRC)\Site Controller\Comms\TicketingCOM\TicketingCOM\bin\Release\TicketingCOM.dll.config"></File>
+              </Component>
+            </Directory>
+
+            <Directory Id="BMCWrap" Name="BMCWrap">
+              <Component Id="BMCWrap" Guid="EE022524-2926-45fc-AA13-DEF11C272E65" Win64="yes" Permanent="no">
+                <File Id="BMCWRAP.exe"				    Name="BMCWRAP.exe"				    Source="$(var.SRC)\Utilities\BMCWrap\bin\Release\BMCWRAP.exe"></File>
+                <File Id="BMCWRAP.exe.config"		  Name="BMCWRAP.exe.config"		  Source="$(var.SRC)\Utilities\BMCWrap\bin\Release\BMCWRAP.exe.config"></File>
+                <File Id="FileList.xml"				    Name="FileList.xml"				    Source="$(var.SRC)\Utilities\BMCWrap\bin\Release\FileList.xml"></File>
+                <File Id="BMCWrapJobCreation.bat"	Name="BMCWrapJobCreation.bat"	Source="$(var.SRC)\Utilities\BMCWrap\BMCWrapJobCreation.bat"></File>
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id='DesktopFolder' Name='Desktop' />
+      <!--<Directory Id='ProgramMenuDir'>
+				<Directory Id="ApplicationProgramsFolder" Name="Bally Multi Connect"/>
+			</Directory>-->
+    </Directory>
+
+
+    <CustomAction Id="LaunchRegisterInstallation"        FileKey="BMC.RegisterInstallation.exe"  ExeCommand="ExchangeServer" Return="ignore"  Execute="deferred" Impersonate="no"/>
+
+    <CustomAction Id="SetRegistryPath"				    FileKey="GetInstallationPath.bat"		ExeCommand="" Return="ignore"		Execute="deferred" Impersonate="no"></CustomAction>
+
+
+    <CustomAction Id="LaunchApp"					        FileKey="BMC.ExchangeConfig.exe"		ExeCommand="" Return="asyncNoWait"	Execute="deferred" Impersonate="no"></CustomAction>
+    <CustomAction Id="BMCWrapCustomAction"			  FileKey="BMCWrapJobCreation.bat"		ExeCommand="" Return="asyncNoWait"	Execute="deferred" Impersonate="no"></CustomAction>
+    <CustomAction Id="RegisterFontCustomAction" 	FileKey="RegFont.bat"					      ExeCommand="" Return="asyncNoWait"	Execute="deferred" Impersonate="no"></CustomAction>
+    <CustomAction Id="ExchangeDLLRegCustomAction"	FileKey="ExchangeDLLReg.bat"			  ExeCommand="" Return="asyncNoWait"	Execute="deferred" Impersonate="no"></CustomAction>
+
+    <InstallExecuteSequence>
+      <Custom Action="LaunchRegisterInstallation" After="InstallFiles"  >NOT Installed</Custom>
+      <Custom Action="SetRegistryPath"			After="LaunchRegisterInstallation">NOT Installed</Custom>
+      <Custom Action="BMCWrapCustomAction"		After="SetRegistryPath">NOT Installed</Custom>
+      <Custom Action="RegisterFontCustomAction"	After="BMCWrapCustomAction">NOT Installed</Custom>
+      <Custom Action="ExchangeDLLRegCustomAction" After="RegisterFontCustomAction">NOT Installed</Custom>
+      <ScheduleReboot After="InstallFinalize"/>
+
+      <Custom Action="LaunchApp" After="ExchangeDLLRegCustomAction">NOT Installed</Custom>
+
+
+    </InstallExecuteSequence>
+
+    <Feature Id="ProductFeature" Title="Vince Wix 3 Web Service" Level="1">
+      <ComponentRef Id="MainFolder" />
+      <ComponentRef Id="WebService" />
+      <ComponentRef Id="WindowsService" />
+      <ComponentRef Id="WebServiceBin"/>
+      <ComponentRef Id="BMCCageInterfacebin"/>
+      <ComponentRef Id="TicketWCFServiceBin"/>
+      <ComponentRef Id="TicketWCFComponentWebService"/>
+      <ComponentRef Id="BMCTicketingBackupService" />
+      <ComponentRef Id="NetworkServices" />
+      <ComponentRef Id="ExchangeHostServices" />
+     <!-- <ComponentRef Id="BMCEBSCommunication" />-->
+      <ComponentRef Id="EnhancedEnrollment" />
+      <ComponentRef Id="GuardianService"/>
+      <ComponentRef Id="Exchange"/>
+      <ComponentRef Id="Ticketing"/>
+      <ComponentRef Id="ExtSysMsg"/>
+      <ComponentRef Id="Exchange_DBScriptConfig"/>
+      <ComponentRef Id="MSMQInstall"/>
+      <ComponentRef Id="HourlyService"/>
+      <ComponentRef Id="BMCWrap"/>
+      <ComponentRef Id="PrintFunction"/>
+      <ComponentRef Id="BMC.VaultWebService"/>
+      <ComponentRef Id="TicketingCom"/>
+      <ComponentRef Id="BMCCageInterface"/>
+      <ComponentRef Id="VaultWebServicebin"/>
+      <ComponentRef Id="CageWebServiceBin"/>
+      <ComponentRef Id="CageComponentWebService"/>
+      <ComponentRef Id="BMCTISInstall"/>
+      <ComponentRef Id="PCIntegrationInstall"/>
+      <ComponentRef Id="BMCUtilitiesService"/>
+    </Feature>
+    <Property Id="WIXUI_INSTALLDIR" Value="InstallDir" ></Property>
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+    <WixVariable Id="WixUIBannerBmp" Value="ballyLogo.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Banner_Logo.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="eula.rtf" />
+  </Product>
+</Wix>

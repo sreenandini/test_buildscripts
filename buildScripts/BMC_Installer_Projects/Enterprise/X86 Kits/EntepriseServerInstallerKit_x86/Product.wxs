@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension"
+     xmlns:complus="http://schemas.microsoft.com/wix/ComPlusExtension">
+  <Product
+	  Id="d94db51c-ddcd-415b-aced-fd984eb8afee"
+	  Name="Bally BMC Enterprise Server 12.5"
+	  Language="1033"
+	  Version="12.5.0"
+	  Manufacturer="Bally BMC Enterprise Server 12.5"
+	  UpgradeCode="d520cc92-4dd1-41b1-9424-9fbe4b8daeb2">
+
+    <Package InstallerVersion="200" Compressed="no" />
+
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="no" />
+
+    <iis:WebApplication Id="BallyWebApp" Name="BallyWebApp" WebAppPool="BallyAppPool"></iis:WebApplication>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <!--for 64bit 'ProgramFiles64Folder' should be used and for 32 bit 'ProgramFilesFolder' will be used-->
+        <Directory Id="BallyTechnologies"  Name="Bally Technologies">
+          <Directory Id="INSTALLLOCATION" Name="Enterprise Server">
+            <Component Id="ProductComponent" Guid="00238417-fee7-48c3-8dd0-19a632e9f873" Win64="no"  Permanent="no" >
+              <File Id="BMC.EnterpriseClient.exe.exe"
+                    Name="BMC.EnterpriseClient.exe"
+                    Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\bin\x86\Release\BMC.EnterpriseClient.exe">
+                <Shortcut Advertise="yes"
+                          Id='desktopPOS'
+                          Directory='DesktopFolder'
+                          Name='BMC.EnterpriseClient'
+                          WorkingDirectory='INSTALLLOCATION'
+                          Show='maximized'
+                          Icon='ShortcutIcon.exe'>
+                  <Icon Id="ShortcutIcon.exe"
+											SourceFile="BallyIcon.ico" />
+                </Shortcut>
+              </File>
+
+              <!--***********************************COMMON BINARIES BEGIN*********************************-->
+              <File Id="BMCSecurityDll"										              Name="BMC.Security.dll"								            Source="$(var.SRC)\Common\BMC.Security\bin\x86\Release\BMC.Security.dll"></File>
+              <File Id="BMCCommondll"											              Name="BMC.Common.dll"								              Source="$(var.SRC)\Common\BMC.Common\bin\x86\Release\BMC.Common.dll"></File>
+              <File Id="BMC.DataAccess.dll"									            Name="BMC.DataAccess.dll"							            Source="$(var.SRC)\Common\BMC.DataAccess\bin\x86\Release\BMC.DataAccess.dll"></File>
+              <File Id="BMC.Monitoring.dll"									            Name="BMC.Monitoring.dll"							            Source="$(var.SRC)\Site Controller\BMC.Monitoring\bin\x86\Release\BMC.Monitoring.dll"></File>
+              <File Id="Audit.Business.dll"									            Name="Audit.Business.dll"							            Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\x86\Release\Audit.Business.dll"></File>
+              <File Id="Audit.Transport.dll"									          Name="Audit.Transport.dll"							          Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\x86\Release\Audit.Transport.dll"></File>
+              <File Id="Audit.DBBuilder.dll"									          Name="Audit.DBBuilder.dll"							          Source="$(var.SRC)\Site Controller\AuditViewer\AuditBusiness\bin\x86\Release\Audit.DBBuilder.dll"></File>
+              <File Id="BMC.EventsTransmitter.dll"							        Name="BMC.EventsTransmitter.dll"					        Source="$(var.SRC)\Common\BMCEventsTransmitter\bin\x86\Release\BMC.EventsTransmitter.dll"></File>
+              <File Id="BMC.CommonLiquidation.dll"							        Name="BMC.CommonLiquidation.dll"    					    Source="$(var.SRC)\Common\BMC.CommonLiquidation\bin\x86\Release\BMC.CommonLiquidation.dll"></File>
+              <!--***********************************COMMON BINARIES END***********************************-->
+
+              <!--***********************************BMC ENTERPRISE CLIENT BINARIES BEGIN******************-->
+              <File Id="BMC.EnterpriseBusiness.dll"							        Name="BMC.EnterpriseBusiness.dll"					        Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\bin\x86\Release\BMC.EnterpriseBusiness.dll"></File>
+              <File Id="BMC.EnterpriseClient.exe.config"				        Name="BMC.EnterpriseClient.exe.config"		        Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\bin\x86\Release\BMC.EnterpriseClient.exe.config"></File>
+              <File Id="BMC.EnterpriseDataAccess.dll"						        Name="BMC.EnterpriseDataAccess.dll"				        Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\bin\x86\Release\BMC.EnterpriseDataAccess.dll"></File>
+              <!--***********************************BMC ENTERPRISE CLIENT BINARIES END********************-->
+
+              <!--***********************************BMC ENTERPRISE CLIENT CONFIG START********************-->
+              <File Id="BMCEnterpriseConfig.exe.config"						      Name="BMCEnterpriseConfig.exe.config"				      Source="$(var.SRC)\Enterprise\BMCEnterpriseConfig\bin\x86\Release\BMCEnterpriseConfig.exe.config"></File>
+              <File Id="BMCEnterpriseConfig.exe"								        Name="BMCEnterpriseConfig.exe"						        Source="$(var.SRC)\Enterprise\BMCEnterpriseConfig\bin\x86\Release\BMCEnterpriseConfig.exe"></File>
+              <File Id="BMC.Business.EnterpriseConfig.dll.dll"				  Name="BMC.Business.EnterpriseConfig.dll"			    Source="$(var.SRC)\Enterprise\BMCEnterpriseConfig\bin\x86\Release\BMC.Business.EnterpriseConfig.dll"></File>
+              <File Id="BMC.DBInterface.EnterpriseConfig.dll.dll"				Name="BMC.DBInterface.EnterpriseConfig.dll" 		  Source="$(var.SRC)\Enterprise\BMCEnterpriseConfig\bin\x86\Release\BMC.DBInterface.EnterpriseConfig.dll"></File>
+              <!--***********************************BMC ENTERPRISE CLIENT CONFIG END**********************-->
+
+              <!--***********************************BMC ENTERPRISE REPORTS START**************************-->
+              <File Id="BMC.EnterpriseReports.exe"							        Name="BMC.EnterpriseReports.exe"					        Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\bin\x86\Release\BMC.EnterpriseReports.exe"></File>
+              <File Id="BMC.EnterpriseReports.exe.config"						    Name="BMC.EnterpriseReports.exe.config"				    Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\bin\x86\Release\BMC.EnterpriseReports.exe.config"></File>
+              <File Id="BMC.EnterpriseReportsBusiness.dll"					    Name="BMC.EnterpriseReportsBusiness.dll"			    Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\bin\x86\Release\BMC.EnterpriseReportsBusiness.dll"></File>
+              <File Id="BMC.EnterpriseReportsDataAccess.dll"					  Name="BMC.EnterpriseReportsDataAccess.dll"			  Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\bin\x86\Release\BMC.EnterpriseReportsDataAccess.dll"></File>
+              <File Id="BMC.EnterpriseReportsTransport.dll"					    Name="BMC.EnterpriseReportsTransport.dll"			    Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\bin\x86\Release\BMC.EnterpriseReportsTransport.dll"></File>
+              <File Id="BMC.ReportViewer.dll"                           Name="BMC.ReportViewer.dll"                       Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\bin\x86\Release\BMC.ReportViewer.dll"></File>
+              <File Id="Microsoft.ReportViewer.WinForms.dll"					  Name="Microsoft.ReportViewer.WinForms.dll"			  Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\ReportViewer_RDL\Microsoft.ReportViewer.WinForms.dll"></File>
+              <File Id="Microsoft.ReportViewer.Common.dll"					    Name="Microsoft.ReportViewer.Common.dll"			    Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\ReportViewer_RDL\Microsoft.ReportViewer.Common.dll"></File>
+              <!--***********************************BMC ENTERPRISE REPORTS END****************************-->
+
+              <!--***********************************BMC SOURCE BINARIES START*****************************-->
+              <File Id="AuditViewer.AuditViewer.exe"			              Name="AuditViewer.exe"			                      Source="$(var.SRC)\Enterprise\Audit Viewer\bin\x86\Release\AuditViewer.exe"></File>
+              <File Id="AuditViewer.AuditViewer.exe.config"	            Name="AuditViewer.exe.config"	                    Source="$(var.SRC)\Enterprise\Audit Viewer\bin\x86\Release\AuditViewer.exe.config"></File>
+              <File Id="BMC.Resources.dll"                              Name="BMC.Resources.dll"                          Source="$(var.SRC)\Enterprise\BMC.Resources\bin\x86\Release\BMC.Resources.dll"></File>
+              <File Id="BMCUserRoleAdmin.exe"									          Name="BMCUserRoleAdmin.exe"							          Source="$(var.SRC)\Enterprise\UserRoleAdmin\bin\x86\Release\BMCUserRoleAdmin.exe"></File>
+              <File Id="BMCUserRoleAdmin.exe.config"						        Name="BMCUserRoleAdmin.exe.config"			          Source="$(var.SRC)\Enterprise\UserRoleAdmin\bin\x86\Release\BMCUserRoleAdmin.exe.config"></File>
+              <File Id="BMCUserSiteAdmin.exe"                           Name="BMCUserSiteAdmin.exe"                       Source="$(var.SRC)\Enterprise\UserSiteAdmin\bin\x86\Release\BMCUserSiteAdmin.exe"></File>
+              <File Id="BMCUserSiteAdmin.exe.config"                    Name="BMCUserSiteAdmin.exe.config"                Source="$(var.SRC)\Enterprise\UserSiteAdmin\bin\x86\Release\BMCUserSiteAdmin.exe.config"></File>
+              <File Id="BMCReportAdmin.exe"									            Name="BMCReportAdmin.exe"							            Source="$(var.SRC)\Enterprise\ReportRoleAdmin\bin\x86\Release\BMCReportAdmin.exe"></File>
+              <File Id="BMCReportAdmin.exe.config"							        Name="BMCReportAdmin.exe.config"					        Source="$(var.SRC)\Enterprise\ReportRoleAdmin\bin\x86\Release\BMCReportAdmin.exe.config"></File>
+              <File Id="BMC.Profiler.exe"										            Name="BMC.Profiler.exe"								            Source="$(var.SRC)\Enterprise\ExportProfiler\BMC.Profiler\bin\x86\Release\BMC.Profiler.exe"></File>
+              <File Id="BMC.Profiler.exe.config"								        Name="BMC.Profiler.exe.config"						        Source="$(var.SRC)\Enterprise\ExportProfiler\BMC.Profiler\bin\x86\Release\BMC.Profiler.exe.config"></File>
+              <File Id="ExportProfiler.dll"									            Name="ExportProfiler.dll"							            Source="$(var.SRC)\Enterprise\ExportProfiler\BMC.Profiler\bin\x86\Release\ExportProfiler.dll"></File>
+              <File Id="ProfileDB.dll"										              Name="ProfileDB.dll"								              Source="$(var.SRC)\Enterprise\ExportProfiler\BMC.Profiler\bin\x86\Release\ProfileDB.dll"></File>
+              <File Id="Profiler.Entity.dll"									          Name="Profiler.Entity.dll"							          Source="$(var.SRC)\Enterprise\ExportProfiler\BMC.Profiler\bin\x86\Release\Profiler.Entity.dll"></File>
+              <File Id="defaultss.xslt"										              Name="defaultss.xslt"								              Source="$(var.SRC)\Enterprise\ExportProfiler\BMC.Profiler\bin\x86\Release\defaultss.xslt"></File>
+              <File Id="BMC.RegisterInstallation.exe"                   Name="BMC.RegisterInstallation.exe"               Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.RegisterInstallation\bin\x86\Release\BMC.RegisterInstallation.exe"></File>
+              <File Id="BMC.ConfigurationEditor.exe"                    Name="BMC.ConfigurationEditor.exe"                Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.ConfigurationEditor\bin\x86\Release\BMC.ConfigurationEditor.exe"></File>
+              <File Id="BMC.RegParser.exe.config"                       Name="BMC.RegParser.exe.config"                   Source="$(var.SRC)\Common\BMC.ConfigHelper\BMC.RegParser\bin\x86\Release\BMC.RegParser.exe.config"></File>
+              <File Id="BMC.ComConfigEditor.exe"                        Name="ComConfigEditor.exe"                        Source="$(var.SRC)\Site Controller\Comms\ComConfigEditor\bin\x86\Release\ComConfigEditor.exe"></File>
+              <File Id="BMC.ComConfigEditor.exe.config"                 Name="ComConfigEditor.exe.config"                 Source="$(var.SRC)\Site Controller\Comms\ComConfigEditor\bin\x86\Release\ComConfigEditor.exe.config"></File>
+              <File Id="MATool.BMC.MeterAdjustmentTool.exe"             Name="BMC.MeterAdjustmentTool.exe"                Source="$(var.SRC)\Enterprise\BMC.MeterAdjustmentTool\bin\x86\Release\BMC.MeterAdjustmentTool.exe"></File>
+              <File Id="MATool.BMC.MeterAdjustmentTool.exe.config"      Name="BMC.MeterAdjustmentTool.exe.config"         Source="$(var.SRC)\Enterprise\BMC.MeterAdjustmentTool\bin\x86\Release\BMC.MeterAdjustmentTool.exe.config"></File>
+              <File Id="BMCTicketingConfig.exe"								          Name="BMCTicketingConfig.exe"						          Source="$(var.SRC)\Enterprise\BMCTicketingConfig\BMCTicketingConfig\bin\x86\Release\BMCTicketingConfig.exe"></File>
+              <File Id="BMCTicketingConfig.exe.config"						      Name="BMCTicketingConfig.exe.config"				      Source="$(var.SRC)\Enterprise\BMCTicketingConfig\BMCTicketingConfig\bin\x86\Release\BMCTicketingConfig.exe.config"></File>
+              <File Id="BMC.BusinessClasses.dll"								        Name="BMC.BusinessClasses.dll"						        Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.BusinessClasses\bin\x86\Release\BMC.BusinessClasses.dll"></File>
+              <File Id="BMC.CoreLib.dll"										            Name="BMC.CoreLib.dll"								            Source="$(var.SRC)\Common\BMC.CoreLib\bin\x86\Release\BMC.CoreLib.dll"></File>
+              <File Id="BMC.DataSheet.exe"									            Name="BMC.DataSheet.exe"							            Source="$(var.SRC)\Enterprise\BMC.DataSheet\bin\x86\Release\BMC.DataSheet.exe"></File>
+              <File Id="BMC.DataSheet.exe.config"								        Name="BMC.DataSheet.exe.config"						        Source="$(var.SRC)\Enterprise\BMC.DataSheet\bin\x86\Release\BMC.DataSheet.exe.config"></File>
+              <File Id="BMC.Declaration.exe"								            Name="BMC.Declaration.exe"							          Source="$(var.SRC)\Enterprise\BMC Declaration\Declaration\bin\x86\Release\BMC.Declaration.exe"></File>
+              <File Id="BMC.Declaration.exe.config"							        Name="BMC.Declaration.exe.config"					        Source="$(var.SRC)\Enterprise\BMC Declaration\Declaration\bin\x86\Release\BMC.Declaration.exe.config"></File>
+              <File Id="ReportColumnList.xml"									          Name="ReportColumnList.xml"							          Source="$(var.SRC)\Enterprise\BMC.DataSheet\bin\x86\Release\ReportColumnList.xml"></File>
+              <File Id="BMC.SiteLicensing.exe"								          Name="BMC.SiteLicensing.exe"						          Source="$(var.SRC)\Enterprise\BMCSiteLicensing\BMCSiteLicensing\bin\x86\Release\BMC.SiteLicensing.exe"></File>
+              <File Id="BMC.SiteLicensing.exe.config"							      Name="BMC.SiteLicensing.exe.config"					      Source="$(var.SRC)\Enterprise\BMCSiteLicensing\BMCSiteLicensing\bin\x86\Release\BMC.SiteLicensing.exe.config"></File>
+              <File Id="BMC.RouteManager.exe"									          Name="BMC.RouteManager.exe"							          Source="$(var.SRC)\Enterprise\Route Manager\RouteManager\bin\x86\Release\BMC.RouteManager.exe"></File>
+              <File Id="BMC.RouteManager.exe.config"							      Name="BMC.RouteManager.exe.config"					      Source="$(var.SRC)\Enterprise\Route Manager\RouteManager\bin\x86\Release\BMC.RouteManager.exe.config"></File>
+              <File Id="BMC.SecurityVB.dll"	                            Name="BMC.SecurityVB.dll"	                        Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\bin\x86\Release\BMC.SecurityVB.dll"></File>
+              <File Id="proxyAssembly.dll"	                            Name="proxyAssembly.dll"	                        Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\bin\x86\Release\proxyAssembly.dll"></File>
+              <File Id="ImportAst.ExportImportAssetDetails.exe"         Name="ExportImportAssetDetails.exe"               Source="$(var.SRC)\Enterprise\ExportImportAssetDetails\ExportImportAssetDetails\bin\x86\Release\ExportImportAssetDetails.exe"></File>
+              <File Id="ImportAst.ExportImportAssetDetails.exe.config"  Name="ExportImportAssetDetails.exe.config"        Source="$(var.SRC)\Enterprise\ExportImportAssetDetails\ExportImportAssetDetails\bin\x86\Release\ExportImportAssetDetails.exe.config"></File>
+
+              <!--***********************************BMC INTEROP & COMMS BINARIES END*************************-->
+              <File Id="NoteCumTktScan.dll"									            Name="NoteCumTktScan.dll"							            Source="$(var.SRC)\Site Controller\Comms\Com Dlls\NoteCumTktScan.dll"></File>
+              <File Id="Interop.NoteCumTktScanLib.dll"					        Name="Interop.NoteCumTktScanLib.dll"			        Source="$(var.SRC)\Enterprise\BMC Declaration\Declaration\bin\x86\Release\Interop.NoteCumTktScanLib.dll"></File>
+              <File Id="BMC.PrinterConfig.config"                       Name="PrinterConfig.config"                       Source="$(var.SRC)\Site Controller\Comms\SerialCommDll\SerialCommDll\PrinterConfig.config"></File>
+              <!--***********************************BMC INTEROP BINARIES END*********************************-->
+
+              <!--***********************************BMC SUPPORTING BINARIES START****************************-->
+              <File Id="Microsoft.Office.Interop.Excel.dll"             Name="Microsoft.Office.Interop.Excel.dll"         Source="$(var.SRC)\Common\References\Microsoft.Office.Interop.Excel.dll"></File>
+              <File Id="Microsoft.Vbe.Interop.dll"                      Name="Microsoft.Vbe.Interop.dll"                  Source="$(var.SRC)\Common\References\Microsoft.Vbe.Interop.dll"></File>
+              <File Id="Office.dll"                                     Name="Office.dll"                                 Source="$(var.SRC)\Common\References\Office.dll"></File>
+              <File Id="EntityFramework.dll"                            Name="EntityFramework.dll"                        Source="$(var.SRC)\Common\References\EntityFramework.dll"></File>
+              <File Id="BMC.ExcelLibrary.dll"                           Name="BMC.ExcelLibrary.dll"                       Source="$(var.SRC)\Common\BMC.ExcelLibrary\bin\x86\Release\BMC.ExcelLibrary.dll"></File>
+              <File Id="ClosedXML.dll"                                  Name="ClosedXML.dll"                              Source="$(var.SRC)\Common\ClosedXML\bin\x86\Release\ClosedXML.dll"></File>
+              <File Id="DocumentFormat.OpenXml.dll"                     Name="DocumentFormat.OpenXml.dll"                 Source="$(var.SRC)\Common\ClosedXML\DocumentFormat.OpenXml.dll"></File>
+              <File Id='GetInstallationPath.bat'								        Name='GetInstallationPath.bat'					          Source='$(var.DEPLOY)\GetInstallationPath.bat'></File>
+              <File Id="Microsoft.SqlServer.BatchParser.dll"		        Name="Microsoft.SqlServer.BatchParser.dll"			  Source="$(var.DEPLOY)\Microsoft.SqlServer.BatchParser.dll"></File>
+              <File Id="Microsoft.SqlServer.Replication.dll"					  Name="Microsoft.SqlServer.Replication.dll"			  Source="$(var.DEPLOY)\Microsoft.SqlServer.Replication.dll"></File>
+              <File Id="ReportingServicesCompression.dll"						    Name="ReportingServicesCompression.dll"				    Source="$(var.DEPLOY)\ReportingServicesCompression.dll"></File>
+              <File Id="EnterpriseDLLReg.bat"									          Name="EnterpriseDLLReg.bat"							          Source="$(var.DEPLOY)\EnterpriseDLLReg.bat"></File>
+              <File Id="Microsoft.RV.DataVisualization.dll"	            Name="Microsoft.ReportViewer.DataVisualization.dll"			  Source="$(var.DEPLOY)\Microsoft.ReportViewer.DataVisualization.dll"></File>
+              <File Id="Microsoft.RV.ProcessingObjectModel.DLL"					Name="Microsoft.ReportViewer.ProcessingObjectModel.DLL"			    Source="$(var.DEPLOY)\Microsoft.ReportViewer.ProcessingObjectModel.DLL"></File>
+              <File Id="WinComparisonReport.xml"	                      Name="WinComparisonReport.xml"			              Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\WinComparisonReport.xml"></File>
+              <File Id="AccountingMachineWinLoss.xml"					          Name="AccountingMachineWinLoss.xml"			          Source="$(var.SRC)\Enterprise\BMC.Reports\EnterpriseReports\EnterpriseReportsUI\AccountingMachineWinLoss.xml"></File>
+              <File Id="ReportViewer.exe"										            Name="ReportViewer.exe"								            Source="$(var.DEPLOY)\ReportViewer.exe"></File>
+              <!--***********************************BMC SUPPORTING BINARIES END*******************************-->
+
+              <!--***********************************BMC SOURCE BINARIES END***********************************-->
+            </Component>
+            <Directory Id="ComDlls" Name="CommDLL">
+              <Component Id="ComDlls" Guid="{02398733-abac-4123-123D-Bbeade23123A}" Win64="no"  Permanent="no" >
+                <File Id="crviewer.dll" Name="crviewer.dll" Source="$(var.DEPLOY)\crviewer.dll"></File>
+              </Component>
+            </Directory>
+
+            <Directory Id="ExportDataService" Name="ExportDataService">
+              <Component Id="ExportDataToSiteComponent" Guid="{2927bdc9-917a-4E0C-BBAC-503294BDA123}" Win64="no"  Permanent="no">
+                <File Id="BMC.DataExportToSite.exe"						                            Name="BMC.DataExportToSite.exe"         Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.DataExportToSite.exe"></File>
+                <File Id ="ExportDataService.BMC.Common.dll"			                        Name ="BMC.Common.dll"		              	Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.Common.dll"></File>
+                <File Id="ExportDataService.BMC.DataAccess.dll"				                    Name="BMC.DataAccess.dll"	              	Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.DataAccess.dll"></File>
+                <File Id="ExportDataToSiteComponent.Audit.Business.dll"	                  Name="Audit.Business.dll"	              			Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\Audit.Business.dll"></File>
+                <File Id="ExportDataToSiteComponent.Audit.DBBuilder.dll"                  Name="Audit.DBBuilder.dll"              			Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\Audit.DBBuilder.dll"></File>
+                <File Id="ExportDataToSiteComponent.Audit.Transport.dll"                  Name="Audit.Transport.dll"              			Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\Audit.Transport.dll"></File>
+                <File Id="ExportDataToSiteComponent.BMC.Security.dll"                     Name="BMC.Security.dll"	                		Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.Security.dll"></File>
+                <File Id="ExportDataToSiteComponent.BMC.DataExportToSite.exe.config"		  Name="BMC.DataExportToSite.exe.config"  		Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.DataExportToSite.exe.config"></File>
+                <File Id="ExportDataToSiteComponent.BMC.DataExportToSite.BMC.CoreLib.dll"	Name="BMC.CoreLib.dll"                  		Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.CoreLib.dll"></File>
+                <File Id="ExportDataToSiteComponent.BMC.EnterpriseBusiness.dll"				    Name="BMC.EnterpriseBusiness.dll"       	Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.EnterpriseBusiness.dll"></File>
+                <File Id="ExportDataToSiteComponent.BMC.EnterpriseDataAccess.dll"			    Name="BMC.EnterpriseDataAccess.dll"     	Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\BMC.EnterpriseDataAccess.dll"></File>
+                <File Id="ExportDataToSiteComponent.BMC.Migration114.dll"                 Name="BMC.Migration114.dll"             Source="$(var.DEPLOY)\Migrationdll_x86\BMC.Migration114.dll"></File>
+                <File Id="ExportDataToSiteComponent.12_4_ExportList.xml"                  Name="12_4_ExportList.xml"              Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.DataExportToSite\bin\x86\Release\12_4_ExportList.xml"></File>
+
+                <ServiceInstall Id="ExportDataToSiteService" Name="BMC.ExportDataToSiteService"
+												  DisplayName="BMC Export Data To Site"
+												  Type="ownProcess"
+												  Start="auto"
+												  ErrorControl="normal"
+												  Description="Service takes care of Exporting data to SiteController">
+                </ServiceInstall>
+                <ServiceControl Id="StopExportDataToSiteService" Name="BMC.ExportDataToSiteService"
+											   Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id="BMCEBSCommunicationInstallFolder" Name="BMCEBSCommunication">
+              <Component Id="BMCEBSCommunication" Guid="983415ea-bdac-1a3c-a436-1283adbc59ac" Win64="no" Permanent="no">
+                <File Id="BMCEBS.Hosting.exe"			          Name="BMC.EBSComms.Hosting.exe"			              Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\x86\Release\BMC.EBSComms.Hosting.exe" KeyPath="yes"></File>
+                <File Id="BMCEBS.Hosting.exe.config"			  Name="BMC.EBSComms.Hosting.exe.config"			      Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\x86\Release\BMC.EBSComms.Hosting.exe.config"></File>
+                <File Id="BMCEBS.Server.dll"			          Name="BMC.EBSComms.Server.dll"			              Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSComms.Server\bin\x86\Release\BMC.EBSComms.Server.dll"></File>
+                <File Id="BMCEBS.DataLayer.Enterprise.dll"	Name="BMC.EBSComms.DataLayer.Enterprise.dll"			Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSComms.DataLayer.Enterprise\bin\x86\Release\BMC.EBSComms.DataLayer.Enterprise.dll"></File>
+                <File Id="BMCEBS.DataLayer.dll"			        Name="BMC.EBSComms.DataLayer.dll"			            Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSComms.DataLayer\bin\x86\Release\BMC.EBSComms.DataLayer.dll"></File>
+                <File Id="BMCEBS.Contracts.dll"			        Name="BMC.EBSComms.Contracts.dll"			            Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSComms.Contracts\bin\x86\Release\BMC.EBSComms.Contracts.dll"></File>
+                <File Id="BMCEBS.CoreLib.dll"			          Name="BMC.CoreLib.dll"			                      Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\x86\Release\BMC.CoreLib.dll"></File>
+                <File Id="BMCEBS.Common.dll"			          Name="BMC.Common.dll"			                        Source="$(var.SRC)\Site Controller\BMC.EBSCommunication\BMC.EBSInterface.Hosting\bin\x86\Release\BMC.Common.dll"></File>
+                <ServiceInstall Id="BMCEBSCommunicationServices" Name="BMCEBSCommunication"
+                        DisplayName="BMC  EBSCommunicationServices"
+                        Type="ownProcess"
+                        Start="auto"
+                        ErrorControl="normal"
+                        Description="BMC  EBSCommunicationServices" >
+                </ServiceInstall>
+                <ServiceControl Id="StopBMCEBSCommunicationServices" Name="BMCEBSCommunication"
+                 Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+            
+            <Directory Id="EnterpriseWebService" Name="EnterpriseWebService">
+              <Directory Id="EnterpriseWebServiceBinFolder" Name="Bin">
+                <Component Id="EnterpriseWebServiceBin" Guid="974845ad-787a-93dc-acd2-19a632e9f873" Win64="no"  Permanent="no">
+                  <File Id="EnterpriseWebServiceBinFolder.BMCCommondll"					        Name="BMC.Common.dll"					        Source="$(var.SRC)\Common\BMC.Common\bin\x86\Release\BMC.Common.dll"></File>
+                  <File Id="EnterpriseWebServiceBinFolder.BMC.DataAccess.dll"				    Name="BMC.DataAccess.dll"				      Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWebService\bin\BMC.DataAccess.dll"></File>
+                  <File Id="EnterpriseWebServiceBinFolder.BMC.EnterpriseWebService.dll"	Name="BMC.EnterpriseWebService.dll"		Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWebService\bin\BMC.EnterpriseWebService.dll"></File>
+                </Component>
+              </Directory>
+              <Component Id="EnterpriseWebService"  Guid="907346bd-aed3-826c-d231-19a632e9f873" Win64="no"  Permanent="no">
+                <File Id="EnterpriseWebService.asmx"        Name="EnterpriseWebService.asmx"  Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWebService\EnterpriseWebService.asmx"></File>
+                <File Id="EnterpriseWebService.web.config"  Name="Web.config"                 Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWebService\web.config"></File>
+                <File Id="EnterpriseWebService.Global.asax" Name="Global.asax"                Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWebService\Global.asax"></File>
+
+                <iis:WebAppPool Id='BallyAppPool' Name='BallyAppPool'  ManagedRuntimeVersion="v4.0" ManagedPipelineMode="Integrated">
+                </iis:WebAppPool>
+                <iis:WebVirtualDir Id="EnterpriseWebService" Alias="EnterpriseWebService" Directory="EnterpriseWebService" WebSite="BallyWebSite">
+                  <iis:WebApplication Id="EnterpriseWebApplication" Name="EnterpriseWebService" WebAppPool="BallyAppPool"/>
+                </iis:WebVirtualDir>
+
+                <iis:WebSite Id='BallyWebSite' Description='BallyWebSite' Directory='EnterpriseWebService' WebApplication='BallyWebApp' StartOnInstall='yes'>
+                  <iis:WebDirProperties Id='WebDirProp' AnonymousAccess='yes' Read='yes' Script='yes' />
+                  <iis:WebAddress Id="AllUnassigned" Port="81" />
+                </iis:WebSite>
+
+              </Component>
+            </Directory>
+
+            <Directory Id="EnterpriseGuardian" Name="GuardianWebSite">
+              <Component Id="EnterpriseGuardianMain" Guid="9385ade1-be34-9Ab1-a124-bedaddae394a" Win64="no"  Permanent="no">
+                <File Id="EnterpriseGuardian.DetailControl.ascx"	          Name="DetailControl.ascx"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\DetailControl.ascx"></File>
+                <File Id="EnterpriseGuardian.ErrorPage.aspx"		            Name="ErrorPage.aspx"			    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\ErrorPage.aspx"></File>
+                <File Id="EnterpriseGuardian.Login.aspx"			              Name="Login.aspx"				      Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Login.aspx" KeyPath="yes"></File>
+                <File Id="EnterpriseGuardian.MainPage.aspx"			            Name="MainPage.aspx"			    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\MainPage.aspx"></File>
+                <File Id="EnterpriseGuardian.StatusHistory.aspx"	          Name="StatusHistory.aspx"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\StatusHistory.aspx"></File>
+                <File Id ="EnterpriseGuardian.SiteStatus.aspx"              Name="SiteStatus.aspx"        Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\SiteStatus.aspx"></File>
+                <File Id="EnterpriseGuardian.web.config"			              Name="web.config"				      Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\web.config"></File>
+                <File Id="EnterpriseGuardian.GuardianUIDataSet.xsd"         Name="GuardianUIDataSet.xsd"	Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Old_App_Code\GuardianUIDataSet.xsd"></File>
+                <File Id="EnterpriseGuardian.GuardianUIDataSet.xss"         Name="GuardianUIDataSet.xss"	Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Old_App_Code\GuardianUIDataSet.xss"></File>
+                <File Id="EnterpriseGuardian.Global.asax"                   Name="Global.asax"            Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Global.asax"></File>
+
+                <iis:WebVirtualDir Id="EnterpriseGuardianWebSite" Alias="BMCGuardian" Directory="EnterpriseGuardian" WebSite="BallyWebSite">
+                  <iis:WebApplication Id="EnterpriseWebApplicationGuardian" Name="EnterpriseGuardianWebSite" WebAppPool="BallyAppPool"/>
+                </iis:WebVirtualDir>
+
+              </Component>
+              <Directory Id="EnterpriseGuardianBin" Name="Bin">
+                <Component Id="EnterpriseGuardianBin" Guid="9385ade1-be34-9BBa-ab21-b03037ab156a" Win64="no"  Permanent="no">
+                  <File Id="EnterpriseGuardianBin.Audit.Business.dll"                 Name="Audit.Business.dll"                  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\Audit.Business.dll"></File>
+                  <File Id="EnterpriseGuardianBin.Audit.DBBuilder.dll"                Name="Audit.DBBuilder.dll"                 Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\Audit.DBBuilder.dll"></File>
+                  <File Id="EnterpriseGuardianBin.Audit.Transport.dll"                Name="Audit.Transport.dll"                 Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\Audit.Transport.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.Common.dll"					            Name="BMC.Common.dll"				               Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.Common.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.DataAccess.dll"				          Name="BMC.DataAccess.dll"			             Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.DataAccess.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.Guardian.Business.dll"					Name="BMC.Guardian.Business.dll"	         Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.Guardian.Business.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.Guardian.DBHelper.dll"		      Name="BMC.Guardian.DBHelper.dll"	         Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.Guardian.DBHelper.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.Guardian.Transport.dll"		      Name="BMC.Guardian.Transport.dll"	         Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.Guardian.Transport.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.GuardianWebApp.dll"			        Name="BMC.GuardianWebApp.dll"			         Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.GuardianWebApp.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.Security.dll"				            Name="BMC.Security.dll"				             Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.Security.dll"></File>
+                  <File Id="EnterpriseGuardianBin.BMC.CoreLib.dll"					          Name="BMC.CoreLib.dll"					           Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\bin\BMC.CoreLib.dll" ></File>
+                </Component>
+              </Directory>
+              <Directory Id="EnterpriseGuardianImages" Name="Images">
+                <Component Id="EnterpriseGuardianImage" Guid="893764ad-bda4-93dc-acd2-1bda489adecb" Win64="no"  Permanent="no">
+                  <File Id="Alert.gif"		      Name="Alert.gif"		    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Alert.gif"></File>
+                  <File Id="BackButton.png"   	Name="BackButton.png"	  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\BackButton.png"></File>
+                  <File Id="bar.png"			      Name="bar.png"			    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\bar.png"></File>
+                  <File Id="bodybg.jpg"		      Name="bodybg.jpg"		    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\bodybg.jpg"></File>
+                  <File Id="boxslice.png"		    Name="boxslice.png"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\boxslice.png"></File>
+                  <File Id="btn_bg.gif"		      Name="btn_bg.gif"		    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\btn_bg.gif"></File>
+                  <File Id="error1.gif"		      Name="error1.gif"		    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\error1.gif"></File>
+                  <File Id="error.gif"		      Name="error.gif"		    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\error.gif"></File>
+                  <File Id="Failure.gif"		    Name="Failure.gif"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Failure.gif"></File>
+                  <File Id="header_bg.png"	    Name="header_bg.png"	  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\header_bg.png"></File>
+                  <File Id="Help.gif"			      Name="Help.gif"			    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Help.gif"></File>
+                  <File Id="login_btn.jpg"	    Name="login_btn.jpg"	  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\login_btn.jpg"></File>
+                  <File Id="loginbg.jpg"		    Name="loginbg.jpg"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\loginbg.jpg"></File>
+                  <File Id="logo.png"			      Name="logo.png"			    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\logo.png"></File>
+                  <File Id="mainbar_bg.png"	    Name="mainbar_bg.png"	  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\mainbar_bg.png"></File>
+                  <File Id="proleft.png"		    Name="proleft.png"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\proleft.png"></File>
+                  <File Id="promiddle.png"	    Name="promiddle.png"	  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\promiddle.png"></File>
+                  <File Id="proright.png"		    Name="proright.png"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\proright.png"></File>
+                  <File Id="Redo.png"			      Name="Redo.png"			    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Redo.png"></File>
+                  <File Id="refresh.gif"		    Name="refresh.gif"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\refresh.gif"></File>
+                  <File Id="Running1.gif"		    Name="Running1.gif"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Running1.gif"></File>
+                  <File Id="Running.gif"		    Name="Running.gif"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Running.gif"></File>
+                  <File Id="Select.gif"		      Name="Select.gif"		    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Select.gif"></File>
+                  <File Id="spacer.gif"		      Name="spacer.gif"		    Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\spacer.gif"></File>
+                  <File Id="status_btn.png"	    Name="status_btn.png"	  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\status_btn.png"></File>
+                  <File Id="Stopped.gif"		    Name="Stopped.gif"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Stopped.gif"></File>
+                  <File Id="Success.gif"		    Name="Success.gif"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Success.gif"></File>
+                  <File Id="title_bg.png"		    Name="title_bg.png"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\title_bg.png"></File>
+                  <File Id="warning.gif"		    Name="warning.gif"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\warning.gif"></File>
+                  <File Id="warning.png"		    Name="warning.png"		  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\warning.png"></File>
+                  <File Id="Terminated.gif"	    Name="Terminated.gif"	  Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Images\Terminated.gif"></File>
+                </Component>
+              </Directory>
+              <Directory Id="EnterpriseGuardianCss" Name="Css">
+                <Component Id="EnterpriseGuardiancsComponent" Guid="8802330a-63cd-926c-46d2-19344804aada" Win64="no"  Permanent="no">
+                  <File Id="layout.css"         Name="layout.css"       Source="$(var.SRC)\Enterprise\BMC Guardian\BMC.GuardianWebApp\Css\layout.css"></File>
+                </Component>
+              </Directory>
+            </Directory>
+
+            <Directory Id="BMCDEPLOYREPORTS" Name="BMC DEPLOY REPORTS">
+              <Component Id="EnterpriseGuardianImageComponent" Guid="3A66C07B-2AA9-4783-BD3E-A80E2641A2EA" Win64="no"  Permanent="no">
+                <File Id="DeployReportsBMCCommondll"	    Name="BMC.Common.dll"			      Source="$(var.SRC)\Common\BMC.Common\bin\x86\Release\BMC.Common.dll"></File>
+                <File Id="DeployReport.exe"				        Name="DeployReport.exe"			    Source="$(var.SRC)\Enterprise\BMC.Reports\DeployReport\bin\x86\Release\DeployReport.exe"></File>
+                <File Id="RunDeployReport.bat"			      Name="RunDeployReport.bat"		  Source="$(var.DEPLOY)\RunDeployReport.bat"></File>
+                <File Id="DeployReport.exe.config"		    Name="DeployReport.exe.config"	Source="$(var.SRC)\Enterprise\BMC.Reports\DeployReport\bin\x86\Release\DeployReport.exe.config"></File>
+              </Component>
+
+              <Directory Id="Reports" Name="Reports">
+                <Component Id="ReportsComponent" Guid="79312AC7-165E-4023-B987-C4C3DDB82DA3" Win64="no"  Permanent="no">
+                  <File Id="Reports.AccountingDetail.rdl"		                  Name="AccountingDetail.rdl"		                            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\AccountingDetail.rdl"></File>
+                  <File Id="Reports.AccountingSummary.rdl"		                Name="AccountingSummary.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\AccountingSummary.rdl"></File>
+                  <File Id="Reports.AccountingWinLoss.rdl"		                Name="AccountingWinLoss.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\AccountingWinLoss.rdl"></File>
+                  <File Id="Reports.AssetDetails.rdl"		                      Name="AssetDetails.rdl"		                                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\AssetDetails.rdl"></File>
+                  <File Id="Reports.AV_EnterpriseAuditReport.rdl"		          Name="AV_EnterpriseAuditReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\AV_EnterpriseAuditReport.rdl"></File>
+                  <File Id="Reports.AV_SiteAFTAuditReport.rdl"		            Name="AV_SiteAFTAuditReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\AV_SiteAFTAuditReport.rdl"></File>
+                  <File Id="Reports.AV_SiteAuditReport.rdl"		                Name="AV_SiteAuditReport.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\AV_SiteAuditReport.rdl"></File>
+                  <File Id="Reports.CappedGameListReport.rdl"		              Name="CappedGameListReport.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CappedGameListReport.rdl"></File>
+                  <File Id="Reports.CappedGameSummaryReport.rdl"		          Name="CappedGameSummaryReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CappedGameSummaryReport.rdl"></File>
+                  <File Id="Reports.CashDispenserAccounting.rdl"		          Name="CashDispenserAccounting.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserAccounting.rdl"></File>
+                  <File Id="Reports.CDCassetteAccountingDetail.rdl"		        Name="CashDispenserCassetteAccountingDetail.rdl"		      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserCassetteAccountingDetail.rdl"></File>
+                  <File Id="Reports.CDCassettesInventoryStatus.rdl"		        Name="CashDispenserCassettesInventoryStatus.rdl"		      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserCassettesInventoryStatus.rdl"></File>
+                  <File Id="Reports.CDConfigurationDetailsReport.rdl"     	  Name="CashDispenserConfigurationDetailsReport.rdl"	      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserConfigurationDetailsReport.rdl"></File>
+                  <File Id="Reports.CDDropReport.rdl"		                      Name="CashDispenserDropReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserDropReport.rdl"></File>
+                  <File Id="Reports.CDInventoryStatusReport.rdl"           	  Name="CashDispenserInventoryStatusReport.rdl"		          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserInventoryStatusReport.rdl"></File>
+                  <File Id="Reports.CDLevelDetails.rdl"                       Name="CashDispenserLevelDetails.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserLevelDetails.rdl"></File>
+                  <File Id="Reports.CDTransactionDetails.rdl"		              Name="CashDispenserTransactionDetails.rdl"		            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserTransactionDetails.rdl"></File>
+                  <File Id="Reports.DVarianceReport.rdl"		                  Name="CashDispenserVarianceReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CashDispenserVarianceReport.rdl"></File>
+                  <File Id="Reports.CoinInByPayTableReport.rdl"		            Name="CoinInByPayTableReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CoinInByPayTableReport.rdl"></File>
+                  <File Id="Reports.ConsolidatedVariance.rdl"		              Name="ConsolidatedVariance.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ConsolidatedVariance.rdl"></File>
+                  <File Id="Reports.CPLiabilityTransferDetailsReport.rdl"		  Name="CrossPropertyLiabilityTransferDetailsReport.rdl"		Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CrossPropertyLiabilityTransferDetailsReport.rdl"></File>
+                  <File Id="Reports.CPLiabilityTransferSummaryReport.rdl"		  Name="CrossPropertyLiabilityTransferSummaryReport.rdl"		Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CrossPropertyLiabilityTransferSummaryReport.rdl"></File>
+                  <File Id="Reports.CPyTicketAnalysisReport.rdl"		          Name="CrossPropertyTicketAnalysisReport.rdl"		          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\CrossPropertyTicketAnalysisReport.rdl"></File>
+                  <File Id="Reports.DailyAccountingDetail.rdl"		            Name="DailyAccountingDetail.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DailyAccountingDetail.rdl"></File>
+                  <File Id="Reports.DailyAccountingPerInstallation.rdl"		    Name="DailyAccountingPerInstallation.rdl"		              Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DailyAccountingPerInstallation.rdl"></File>
+                  <File Id="Reports.DailyAccountingSummary.rdl"		            Name="DailyAccountingSummary.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DailyAccountingSummary.rdl"></File>
+                  <File Id="Reports.DailyElectronicFundRevenue.rdl"		        Name="DailyElectronicFundRevenue.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DailyElectronicFundRevenue.rdl"></File>
+                  <File Id="Reports.DEC_DeclarationPrint.rdl"		              Name="DEC_DeclarationPrint.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DEC_DeclarationPrint.rdl"></File>
+                  <File Id="Reports.DepreciationReport.rdl"		                Name="DepreciationReport.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DepreciationReport.rdl"></File>
+                  <File Id="Reports.DropScheduleDetails.rdl"		              Name="DropScheduleDetails.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DropScheduleDetails.rdl"></File>
+                  <File Id="Reports.EFTQuestionableTransactionsReport.rdl"		Name="EFTQuestionableTransactionsReport.rdl"		          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\EFTQuestionableTransactionsReport.rdl"></File>
+                  <File Id="Reports.EFTSlotActivityCumulativeReport.rdl"		  Name="EFTSlotActivityCumulativeReport.rdl"		            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\EFTSlotActivityCumulativeReport.rdl"></File>
+                  <File Id="Reports.EFTSlotActivityReport.rdl"		            Name="EFTSlotActivityReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\EFTSlotActivityReport.rdl"></File>
+                  <File Id="Reports.ElecTransferVsRevenueCompReport.rdl"		  Name="ElecTransferVsRevenueComparisonReport.rdl"		      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ElecTransferVsRevenueComparisonReport.rdl"></File>
+                  <File Id="Reports.EmployeeCardListReport.rdl"		            Name="EmployeeCardListReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\EmployeeCardListReport.rdl"></File>
+                  <File Id="Reports.EmployeeCardSessionsReport.rdl"		        Name="EmployeeCardSessionsReport.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\EmployeeCardSessionsReport.rdl"></File>
+                  <File Id="Reports.ENT_AssetDetailedReport.rdl"		          Name="ENT_AssetDetailedReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_AssetDetailedReport.rdl"></File>
+                  <File Id="Reports.ENT_AssetReport.rdl"		                  Name="ENT_AssetReport.rdl"		                            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_AssetReport.rdl"></File>
+                  <File Id="Reports.ENT_BatchDropExceptionReport.rdl"		      Name="ENT_BatchDropExceptionReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_BatchDropExceptionReport.rdl"></File>
+                  <File Id="Reports.ENT_BatchWinLossReport.rdl"		            Name="ENT_BatchWinLossReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_BatchWinLossReport.rdl"></File>
+                  <File Id="Reports.ENT_CashDeskMovement.rdl"		              Name="ENT_CashDeskMovement.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_CashDeskMovement.rdl"></File>
+                  <File Id="Reports.ENT_CashDeskMovementUSReport.rdl"		      Name="ENT_CashDeskMovementUSReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_CashDeskMovementUSReport.rdl"></File>
+                  <File Id="Reports.ENT_CashDeskReconicilationReport.rdl"		  Name="ENT_CashDeskReconicilationReport.rdl"		            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_CashDeskReconicilationReport.rdl"></File>
+                  <File Id="Reports.ENT_CDMDetailedView.rdl"		              Name="ENT_CDMDetailedView.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_CDMDetailedView.rdl"></File>
+                  <File Id="Reports.ENT_DeclaredVaultDropHistory.rdl"		      Name="ENT_DeclaredVaultDropHistory.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_DeclaredVaultDropHistory.rdl"></File>
+                  <File Id="Reports.ENT_DecVaultDropsCassetteDetails.rdl"		  Name="ENT_DeclaredVaultDropsCassetteDetails.rdl"		      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_DeclaredVaultDropsCassetteDetails.rdl"></File>
+                  <File Id="Reports.ENT_Liquidation_Summary_PS_Sub.rdl"		    Name="ENT_Liquidation_Summary_PS_Sub.rdl"		              Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_Liquidation_Summary_PS_Sub.rdl"></File>
+                  <File Id="Reports.ENT_LiquidationSummary_PS.rdl"		        Name="ENT_LiquidationSummary_PS.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_LiquidationSummary_PS.rdl"></File>
+                  <File Id="Reports.ENT_SystemBalancing.rdl"		              Name="ENT_SystemBalancing.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_SystemBalancing.rdl"></File>
+                  <File Id="Reports.ENT_UndeclaredVaultCassettes.rdl"		      Name="ENT_UndeclaredVaultCassettes.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_UndeclaredVaultCassettes.rdl"></File>
+                  <File Id="Reports.ENT_UndeclaredVaultDrops.rdl"		          Name="ENT_UndeclaredVaultDrops.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_UndeclaredVaultDrops.rdl"></File>
+                  <File Id="Reports.ENT_VSAssetGameReport.rdl"		            Name="ENT_VSAssetGameReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_VSAssetGameReport.rdl"></File>
+                  <File Id="Reports.ENT_VSWeeklyDropExceptionReport.rdl"		  Name="ENT_VSWeeklyDropExceptionReport.rdl"		            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_VSWeeklyDropExceptionReport.rdl"></File>
+                  <File Id="Reports.ExceptionDetails.rdl"		                  Name="ExceptionDetails.rdl"		                            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ExceptionDetails.rdl"></File>
+                  <File Id="Reports.ExpenseDetailsReport.rdl"		              Name="ExpenseDetailsReport.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ExpenseDetailsReport.rdl"></File>
+                  <File Id="Reports.ExpiredCalendars.rdl"		                  Name="ExpiredCalendars.rdl"		                            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ExpiredCalendars.rdl"></File>
+                  <File Id="Reports.ExpiredVoucherCouponReport.rdl"		        Name="ExpiredVoucherCouponReport.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ExpiredVoucherCouponReport.rdl"></File>
+                  <File Id="Reports.GamePerformanceReport.rdl"		            Name="GamePerformanceReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\GamePerformanceReport.rdl"></File>
+                  <File Id="Reports.GameReport.rdl"		                        Name="GameReport.rdl"		                                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\GameReport.rdl"></File>
+                  <File Id="Reports.InstallationWinLoss.rdl"		              Name="InstallationWinLoss.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\InstallationWinLoss.rdl"></File>
+                  <File Id="Reports.JackpotSlipSummaryReport.rdl"		          Name="JackpotSlipSummaryReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\JackpotSlipSummaryReport.rdl"></File>
+                  <File Id="Reports.LicenseExpiryReport.rdl"		              Name="LicenseExpiryReport.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\LicenseExpiryReport.rdl"></File>
+                  <File Id="Reports.LicenseHistoryReport.rdl"		              Name="LicenseHistoryReport.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\LicenseHistoryReport.rdl"></File>
+                  <File Id="Reports.Liquidation.rdl"		                      Name="Liquidation.rdl"		                                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\Liquidation.rdl"></File>
+                  <File Id="Reports.Liquidation_Web.rdl"		                  Name="Liquidation_Web.rdl"		                            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\Liquidation_Web.rdl"></File>
+                  <File Id="Reports.LiquidationExpenseReport.rdl"		          Name="LiquidationExpenseReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\LiquidationExpenseReport.rdl"></File>
+                  <File Id="Reports.LiquidationSummary.rdl"                   Name="LiquidationSummary.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\LiquidationSummary.rdl"></File>
+                  <File Id="Reports.LiquidationSummary_Web.rdl"		            Name="LiquidationSummary_Web.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\LiquidationSummary_Web.rdl"></File>
+                  <File Id="Reports.LotteryRevenue_US.rdl"		                Name="LotteryRevenue_US.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\LotteryRevenue_US.rdl"></File>
+                  <File Id="Reports.MajorPrizesReport.rdl"		                Name="MajorPrizesReport.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MajorPrizesReport.rdl"></File>
+                  <File Id="Reports.ManufacturerPerformanceReport.rdl"		    Name="ManufacturerPerformanceReport.rdl"		              Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ManufacturerPerformanceReport.rdl"></File>
+                  <File Id="Reports.MAT_AuditReport.rdl"		                  Name="MAT_AuditReport.rdl"		                            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MAT_AuditReport.rdl"></File>
+                  <File Id="Reports.MeterComparisonReport.rdl"		            Name="MeterComparisonReport.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MeterComparisonReport.rdl"></File>
+                  <File Id="Reports.MeterDetail.rdl"		                      Name="MeterDetail.rdl"		                                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MeterDetail.rdl"></File>
+                  <File Id="Reports.MeterPeriodComparison.rdl"		            Name="MeterPeriodComparison.rdl"		                      Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MeterPeriodComparison.rdl"></File>
+                  <File Id="Reports.MeterSummary.rdl"		                      Name="MeterSummary.rdl"		                                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MeterSummary.rdl"></File>
+                  <File Id="Reports.MGMDByGamingDeviceCabinetReport.rdl"		  Name="MGMDByGamingDeviceCabinetReport.rdl"		            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MGMDByGamingDeviceCabinetReport.rdl"></File>
+                  <File Id="Reports.MGMDDenomPerformance.rdl"		              Name="MGMDDenomPerformance.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MGMDDenomPerformance.rdl"></File>
+                  <File Id="Reports.MGMDSummaryAnalysis.rdl"		              Name="MGMDSummaryAnalysis.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MGMDSummaryAnalysis.rdl"></File>
+                  <File Id="Reports.MultiDenomSlotDetailReport.rdl"		        Name="MultiDenomSlotDetailReport.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MultiDenomSlotDetailReport.rdl"></File>
+                  <File Id="Reports.MultiGameSlotDetailReport.rdl"		        Name="MultiGameSlotDetailReport.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MultiGameSlotDetailReport.rdl"></File>
+                  <File Id="Reports.NonSGVI_Liquidation.rdl"		              Name="NonSGVI_Liquidation.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\NonSGVI_Liquidation.rdl"></File>
+                  <File Id="Reports.NonSGVI_Liquidation_Web.rdl"		          Name="NonSGVI_Liquidation_Web.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\NonSGVI_Liquidation_Web.rdl"></File>
+                  <File Id="Reports.NonSGVI_LiquidationSummary.rdl"		        Name="NonSGVI_LiquidationSummary.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\NonSGVI_LiquidationSummary.rdl"></File>
+                  <File Id="Reports.NonSGVI_LiquidationSummary_Web.rdl"		    Name="NonSGVI_LiquidationSummary_Web.rdl"		              Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\NonSGVI_LiquidationSummary_Web.rdl"></File>
+                  <File Id="Reports.NonSGVI_MajorPrizesReport.rdl"		        Name="NonSGVI_MajorPrizesReport.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\NonSGVI_MajorPrizesReport.rdl"></File>
+                  <File Id="Reports.NonSGVI_WRL.rdl"		                      Name="NonSGVI_WRL.rdl"		                                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\NonSGVI_WRL.rdl"></File>
+                  <File Id="Reports.PeriodEndLiquidationRevenueReport.rdl"		Name="PeriodEndLiquidationRevenueReport.rdl"	            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\PeriodEndLiquidationRevenueReport.rdl"></File>
+                  <File Id="Reports.ProgressiveWinDetailedReport.rdl"		      Name="ProgressiveWinDetailedReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ProgressiveWinDetailedReport.rdl"></File>
+                  <File Id="Reports.ProgressiveWinSummaryReport.rdl"		      Name="ProgressiveWinSummaryReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ProgressiveWinSummaryReport.rdl"></File>
+                  <File Id="Reports.PromotionalSummaryReport.rdl"		          Name="PromotionalSummaryReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\PromotionalSummaryReport.rdl"></File>
+                  <File Id="Reports.PromotionalVoucherListingReport.rdl"		  Name="PromotionalVoucherListingReport.rdl"		            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\PromotionalVoucherListingReport.rdl"></File>
+                  <File Id="Reports.RedeemedTicketByDeviceReport.rdl"		      Name="RedeemedTicketByDeviceReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\RedeemedTicketByDeviceReport.rdl"></File>
+                  <File Id="Reports.ServiceFaultGroup.rdl"		                Name="ServiceFaultGroup.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ServiceFaultGroup.rdl"></File>
+                  <File Id="Reports.ServiceRemedyCodes.rdl"		                Name="ServiceRemedyCodes.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ServiceRemedyCodes.rdl"></File>
+                  <File Id="Reports.ServiceSLATerms.rdl"		                  Name="ServiceSLATerms.rdl"		                            Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ServiceSLATerms.rdl"></File>
+                  <File Id="Reports.SiteAddressReport.rdl"		                Name="SiteAddressReport.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\SiteAddressReport.rdl"></File>
+                  <File Id="Reports.SlotEnrollmentReport.rdl"		              Name="SlotEnrollmentReport.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\SlotEnrollmentReport.rdl"></File>
+                  <File Id="Reports.SlotMachinePerformanceReport.rdl"		      Name="SlotMachinePerformanceReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\SlotMachinePerformanceReport.rdl"></File>
+                  <File Id="Reports.SoftCountComparisonReport.rdl"		        Name="SoftCountComparisonReport.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\SoftCountComparisonReport.rdl"></File>
+                  <File Id="Reports.StackerLevelDetailsReport.rdl"		        Name="StackerLevelDetailsReport.rdl"		                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\StackerLevelDetailsReport.rdl"></File>
+                  <File Id="Reports.StaffList.rdl"		                        Name="StaffList.rdl"		                                  Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\StaffList.rdl"></File>
+                  <File Id="Reports.StaffListDetailed.rdl"		                Name="StaffListDetailed.rdl"		                          Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\StaffListDetailed.rdl"></File>
+                  <File Id="Reports.TotalFundsIn.rdl"		                      Name="TotalFundsIn.rdl"		                                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\TotalFundsIn.rdl"></File>
+                  <File Id="Reports.TotalFundsInDetails.rdl"	  	            Name="TotalFundsInDetails.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\TotalFundsInDetails.rdl"></File>
+                  <File Id="Reports.TotalVaultBalanceReport.rdl"		          Name="TotalVaultBalanceReport.rdl"		                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\TotalVaultBalanceReport.rdl"></File>
+                  <File Id="Reports.VoucherCouponLiabilityReport.rdl"		      Name="VoucherCouponLiabilityReport.rdl"		                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\VoucherCouponLiabilityReport.rdl"></File>
+                  <File Id="Reports.VoucherListingReport.rdl"		              Name="VoucherListingReport.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\VoucherListingReport.rdl"></File>
+                  <File Id="Reports.WinComparisonReport.rdl"		              Name="WinComparisonReport.rdl"		                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\WinComparisonReport.rdl"></File>
+                  <File Id="Reports.WRL.rdl"		                              Name="WRL.rdl"		                                        Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\WRL.rdl"></File>
+                </Component>
+              </Directory>
+
+            </Directory>
+            <Directory Id="EnterpriseWindowsService" Name="EnterpriseWindowsService">
+              <Component Id="EnterpriseWindowsService"  Guid="823764ad-bda4-93dc-acd2-19a632e9f873" Win64="no"  Permanent="no">
+
+                <File Id="EnterpriseWindowsService.BMC.DataImportExport.exe"		    Name="BMC.DataImportExport.exe"			    Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.DataImportExport\bin\x86\Release\BMC.DataImportExport.exe" KeyPath="yes"></File>
+                <File Id="EnterpriseWindowsService.BMCCommondll"					          Name="BMC.Common.dll"					          Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.DataImportExport\bin\x86\Release\BMC.Common.dll"></File>
+                <File Id="EnterpriseWindowsService.BMCDataAccessDll"				        Name="BMC.DataAccess.dll"				        Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.DataImportExport\bin\x86\Release\BMC.DataAccess.dll"></File>
+                <File Id="EnterpriseWindowsService.BMC.BusinessClasses.dll"			    Name="BMC.BusinessClasses.dll"			    Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.DataImportExport\bin\x86\Release\BMC.BusinessClasses.dll"></File>
+                <File Id="EnterpriseWindowsService.BMC.DataImportExport.exe.Config" Name="BMC.DataImportExport.exe.config"	Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.DataImportExport\bin\x86\Release\BMC.DataImportExport.exe.config" ></File>
+                <File Id="EnterpriseWindowsService.BMC.CoreLib.dll"					        Name="BMC.CoreLib.dll"					        Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.DataImportExport\bin\x86\Release\BMC.CoreLib.dll" ></File>
+                <File Id="EnterpriseWindowsService.BMC.EventsTransmitter.dll"		    Name="BMC.EventsTransmitter.dll"		    Source="$(var.SRC)\Enterprise\BMC.EnterpriseImportExportService\BMC.EnterpriseWindowService\BMC.DataImportExport\bin\x86\Release\BMC.EventsTransmitter.dll" ></File>
+                <File Id="EnterpriseWindowsService.BMC.Migration114.dll"            Name="BMC.Migration114.dll"             Source="$(var.DEPLOY)\Migrationdll_x86\BMC.Migration114.dll"></File>
+
+                <ServiceInstall Id="EnterpriseWindowsService" Name="BMCEnterpriseWindowsServiceInstaller"
+											  DisplayName="BMC Enterprise Import Export"
+											  Type="ownProcess"
+											  Start="auto"
+											  ErrorControl="normal"
+											  Description="Service takes care of Import and Export data from and to Exchanges">
+                </ServiceInstall>
+                <ServiceControl Id="StopEnterpriseWindowsService" Name="BMCEnterpriseWindowsServiceInstaller"
+											   Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id="BMCUtilitiesService" Name="BMCUtilitiesService">
+              <Component Id="BMCUtilitiesService"  Guid="823564ad-bda4-95dc-acc2-19a633e9f873" Win64="yes" Permanent="no">
+
+                <File Id="BMCUtilitiesService.BMC.Utilities.exe"		    Name="BMC.Utilities.exe"			   Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\x86\Release\BMC.Utilities.exe"></File>
+                <File Id="BMCUtilitiesService.BMC.Utilities.exe.config"	Name="BMC.Utilities.exe.config"	 Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\x86\Release\BMC.Utilities.exe.config"></File>
+                <File Id="BMCUtilitiesService.BMCDataAccessDll"				  Name="BMC.DataAccess.dll"				 Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\x86\Release\BMC.DataAccess.dll"></File>
+                <File Id="BMCUtilitiesService.BMC.BusinessClasses.dll"	Name="BMC.BusinessClasses.dll"	 Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\x86\Release\BMC.BusinessClasses.dll"></File>
+                <File Id="BMCUtilitiesService.BMC.Common.dll"           Name="BMC.Common.dll"	           Source="$(var.SRC)\Common\BMC.Utilities\BMC.Utilities\BMC.Utilities\bin\x86\Release\BMC.Common.dll" ></File>
+
+                <ServiceInstall Id="BMCUtilitiesService" Name="BMCUtilitiesServiceInstaller"
+											  DisplayName="BMC Utility Service"
+											  Type="ownProcess"
+											  Start="auto"
+											  ErrorControl="normal"
+											  Description="Service sends email alert to the predefined subscribers">
+                </ServiceInstall>
+                <ServiceControl Id="StopBMCUtilitiesService" Name="BMCUtilitiesServiceInstaller"
+											   Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+            
+            <Directory Id="Database" Name="Database">
+              <Component Id="Enterprise_DBScriptConfig" Guid="84375348-abcd-9234-bdc1-93fe8721817c" Win64="no"  Permanent="no">
+                <File Id="Enterprise_DBScriptConfig.xml"            Name="Enterprise_DBScriptConfig.xml" Source="$(var.SRC)\Enterprise\BMCEnterpriseConfig\Enterprise_DBScriptConfig.xml"></File>
+              </Component>
+              <Directory Id="Audit" Name="Audit">
+                <Component Id="Audit" Guid="82172348-abcd-9234-bdc1-93fe8721817a" Win64="no"  Permanent="no">
+                  <File Id="Audit.Functions.enpt"			              Name="Functions.enpt"			    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Audit\Functions.enpt"></File>
+                  <File Id="Audit.StoredProcedures.enpt"	          Name="StoredProcedures.enpt"	Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Audit\StoredProcedures.enpt"></File>
+                  <File Id="Audit.Tables.enpt"			                Name="Tables.enpt"				    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Audit\Tables.enpt"></File>
+                </Component>
+              </Directory>
+              <Directory Id="Enterprise" Name="Enterprise">
+                <Component Id="Enterprise" Guid="82322348-abcd-9234-bdc1-93fe8721817b" Win64="no"  Permanent="no">
+                  <File Id="Enterprise.Data.enpt"				            Name="Data.enpt"				      Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\Data.enpt"></File>
+                  <File Id="Enterprise.ForeignKeys.enpt"		        Name="ForeignKeys.enpt"			  Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\ForeignKeys.enpt"></File>
+                  <File Id="Enterprise.Functions.enpt"		          Name="Functions.enpt"			    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\Functions.enpt"></File>
+                  <File Id="Enterprise.Indexes.enpt"			          Name="Indexes.enpt"				    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\Indexes.enpt"></File>
+                  <File Id="Enterprise.StoredProcedures.enpt"       Name="StoredProcedures.enpt"	Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\StoredProcedures.enpt"></File>
+                  <File Id="Enterprise.Tables.enpt"			            Name="Tables.enpt"				    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\Tables.enpt"></File>
+                  <File Id="Enterprise.Triggers.enpt"			          Name="Triggers.enpt"			    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\Triggers.enpt"></File>
+                  <File Id="Enterprise.Views.enpt"			            Name="Views.enpt"				      Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\Enterprise\Views.enpt"></File>
+                </Component>
+              </Directory>
+              <Directory Id="MeterAnalysisDB" Name="MeterAnalysis">
+                <Component Id="MeterAnalysisdb" Guid="84373348-abcd-9234-bac1-93fe8721817c" Win64="no"  Permanent="no">
+                  <File Id="MeterAnalysis.Data.enpt"				        Name="Data.enpt"				      Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\MeterAnalysis\Data.enpt"></File>
+                  <File Id="MeterAnalysis.Indexes.enpt"			        Name="Indexes.enpt"				    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\MeterAnalysis\Indexes.enpt"></File>
+                  <File Id="MeterAnalysis.Job.enpt"				          Name="Job.enpt"					      Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\MeterAnalysis\Job.enpt"></File>
+                  <File Id="MeterAnalysis.StoredProcedures.enpt"	  Name="StoredProcedures.enpt"	Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\MeterAnalysis\StoredProcedures.enpt"></File>
+                  <File Id="MeterAnalysis.Functions.enpt"		          Name="Functions.enpt"			  Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\MeterAnalysis\Functions.enpt"></File>
+                  <File Id="MeterAnalysis.Tables.enpt"			        Name="Tables.enpt"				    Source="$(var.SRC)\Enterprise\Database Scripts\ConsolidatedSqlScripts\EncryptedSqlScripts\MeterAnalysis\Tables.enpt"></File>
+                </Component>
+              </Directory>
+            </Directory>
+
+            <Directory Id ="SlotImages" Name="SlotImages">
+              <Component Id ="SlotImages" Guid="2927ddc9-917a-4E0D-BBAC-533294BDA739" Win64="no"  Permanent="no">
+                <File Id ="SlotImages.ER.PNG"   Name="ER.PNG"   Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\Resources\ER.PNG"></File>
+                <File Id ="SlotImages.SLOT.PNG" Name="SLOT.PNG" Source="$(var.SRC)\Enterprise\BMC.EnterpriseClient\BMC.EnterpriseClient\Resources\SLOT.PNG"></File>
+              </Component>
+            </Directory>
+
+            <Directory Id="BMC.MonitoringService" Name="BMC.MonitoringService">
+              <Component Id="BMC.MonitoringService" Guid="{2927bdc9-917a-4E0C-BBAC-503294BDA789}" Win64="no"  Permanent="no">
+                <File Id="BMC.MonitoringService.exe"			            Name="BMC.MonitoringService.exe"		    Source="$(var.SRC)\Enterprise\BMC.MonitoringService\bin\x86\Release\BMC.MonitoringService.exe"></File>
+                <File Id="MonitoringService.BMC.Common.dll"	          Name="BMC.Common.dll"					          Source="$(var.SRC)\Enterprise\BMC.MonitoringService\bin\x86\Release\BMC.Common.dll"></File>
+                <File Id="MonitoringService.BMC.DataAccess.dll"	      Name="BMC.DataAccess.dll"				        Source="$(var.SRC)\Enterprise\BMC.MonitoringService\bin\x86\Release\BMC.DataAccess.dll"></File>
+                <File Id="BMC.MonitoringService.exe.config"		        Name="BMC.MonitoringService.exe.config" Source="$(var.SRC)\Enterprise\BMC.MonitoringService\bin\x86\Release\BMC.MonitoringService.exe.config"></File>
+                <File Id="BMC.MonitoringService.BMC.CoreLib.dll"		  Name="BMC.CoreLib.dll"                  Source="$(var.SRC)\Enterprise\BMC.MonitoringService\bin\x86\Release\BMC.CoreLib.dll"></File>
+                <ServiceInstall Id="BMCMonitoringService"		          Name="BMC.MonitoringService"
+												  DisplayName="BMC Monitoring Service"
+												  Type="ownProcess"
+												  Start="auto"
+												  ErrorControl="normal"
+												  Description="Service sends Heart Beat data to Exchange and restarts any stopped Enterprise windows services.">
+                </ServiceInstall>
+                <ServiceControl Id="StopBMCMonitoringService" Name="BMC.MonitoringService"
+											   Stop="uninstall" Wait="no" Remove="uninstall" />
+              </Component>
+            </Directory>
+
+            <Directory Id ="BMC.ClientReports" Name="BMC.ClientReports">
+              <Component Id ="BMC.ClientReports" Guid="2947ddd9-915a-4E0F-BDAC-523284BDA538" Win64="no" Permanent="no">
+                <File Id="DEC_DeclarationPrint.rdl"               Name="DEC_DeclarationPrint.rdl"               Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\DEC_DeclarationPrint.rdl"></File>
+                <File Id="ENT_CashDeskReconicilationReport.rdl"   Name="ENT_CashDeskReconicilationReport.rdl"   Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_CashDeskReconicilationReport.rdl"></File>
+                <File Id="ENT_CDMDetailedView.rdl"                Name="ENT_CDMDetailedView.rdl"                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_CDMDetailedView.rdl"></File>
+                <File Id="MAT_AuditReport.rdl"                    Name="MAT_AuditReport.rdl"                    Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\MAT_AuditReport.rdl"></File>
+                <File Id="ENT_SystemBalancing.rdl"                Name="ENT_SystemBalancing.rdl"                Source="$(var.SRC)\Enterprise\BMC.Reports\RDLReports\ENT_SystemBalancing.rdl"></File>
+              </Component>
+            </Directory>
+
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id='DesktopFolder' Name='Desktop' />
+    </Directory>
+
+    <CustomAction Id="LaunchRegisterInstallation" FileKey="BMC.RegisterInstallation.exe"  ExeCommand="EnterpriseServer" Return="ignore"       Execute="deferred" Impersonate="no"/>
+    <CustomAction Id="SetRegistryPath"            FileKey="GetInstallationPath.bat"       ExeCommand=""                 Return="ignore"       Execute="deferred" Impersonate="no"></CustomAction>
+    <CustomAction Id="CommDllsCA"                 FileKey="EnterpriseDLLReg.bat"          ExeCommand=""                 Return="asyncNoWait"  Execute="deferred" Impersonate="no"/>
+    <CustomAction Id="LaunchApp"                  FileKey="BMCEnterpriseConfig.exe"       ExeCommand=""                 Return="asyncNoWait"  Execute="deferred" Impersonate="no"/>
+
+    <InstallExecuteSequence>
+      <Custom Action="LaunchRegisterInstallation" After="InstallFiles"  ></Custom>
+      <Custom Action="SetRegistryPath"			      After="LaunchRegisterInstallation">NOT Installed</Custom>
+      <Custom Action="CommDllsCA"					        After="SetRegistryPath">NOT Installed</Custom>
+      <Custom Action="LaunchApp"					        After="CommDllsCA">NOT Installed</Custom>
+    </InstallExecuteSequence>
+
+    <Feature Id="ProductFeature" Title="EntepriseServerInstallerKit" Level="1">
+      <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="EnterpriseWebService" />
+      <ComponentRef Id="EnterpriseWebServiceBin" />
+      <ComponentRef Id="EnterpriseWindowsService" />
+      <ComponentRef Id="Audit"/>
+      <ComponentRef Id="Enterprise"/>
+      <ComponentRef Id="MeterAnalysisdb"/>
+      <ComponentRef Id="EnterpriseGuardianMain"/>
+      <ComponentRef Id="BMCEBSCommunication"/>
+      <ComponentRef Id="EnterpriseGuardianImage"/>
+      <ComponentRef Id="EnterpriseGuardianBin"/>
+      <ComponentRef Id="ReportsComponent"/>
+      <ComponentRef Id="EnterpriseGuardiancsComponent"/>
+      <ComponentRef Id="EnterpriseGuardianImageComponent"/>
+      <ComponentRef Id="Enterprise_DBScriptConfig"/>
+      <ComponentRef Id="ExportDataToSiteComponent"/>
+      <ComponentRef Id="ComDlls"/>
+      <ComponentRef Id="BMC.MonitoringService"/>
+      <ComponentRef Id="SlotImages"/>
+      <ComponentRef Id="BMC.ClientReports"/>
+      <ComponentRef Id="BMCUtilitiesService"/>
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"></Property>
+    <UIRef Id="WixUI_InstallDir" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="ballyLogo.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Banner_Logo.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="eula.rtf" />
+  </Product>
+
+</Wix>

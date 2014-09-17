@@ -1,0 +1,874 @@
+<!--<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	
+	<Fragment>
+		<DirectoryRef Id="InstallDir">
+
+      <Component Id="cmpD9D870B88CE1BF4FDAA98A285691C5D3" Guid="{025717E4-EF8F-4D38-B5FE-BEFAB464F91B}">
+        <Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+        <File Id="filA51ED9A88F187227F3D6D9CCB7411521" KeyPath="yes" Source="C:\Deploy\CommDlls\BGSDBConnect.dll">
+          <TypeLib Id="{71E56B77-AB60-4A6C-82E5-F5FD5AA156B1}" Description="BGSDBConnect" HelpDirectory="InstallDir" Language="0" MajorVersion="14" MinorVersion="8">
+            <Class Id="{8967F73B-708E-46F5-A8C3-ECC1D4504E6D}" Context="InprocServer32" Description="BGSDBConnect.cDBConnect" ThreadingModel="apartment" Version="14.8" Programmable="yes">
+              <ProgId Id="BGSDBConnect.cDBConnect" Description="BGSDBConnect.cDBConnect" />
+            </Class>
+            <Class Id="{DBDEEB6D-49A5-4B99-8CC0-21B72625AA24}" Context="InprocServer32" Description="BGSDBConnect.cMeterInfo" ThreadingModel="apartment" Version="14.8" Programmable="yes">
+              <ProgId Id="BGSDBConnect.cMeterInfo" Description="BGSDBConnect.cMeterInfo" />
+            </Class>
+            <Interface Id="{76922914-1161-4F4D-A3A9-33E45E78FA43}" Name="cMeterInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <Interface Id="{29B2A2BC-EA5C-40B2-8B64-9428731CEDE4}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <Interface Id="{44D530A9-8943-4C63-B16F-504C0901086D}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <Interface Id="{471C3C99-8F65-4FD9-B394-38AC245CC81A}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <Interface Id="{59EDEF29-0089-46CE-95B2-2ECA4060CF4D}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <Interface Id="{A9A03DE6-38B1-4F8A-A8ED-30F88FA2FA64}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <Interface Id="{C07D3850-E8F4-48BD-9C18-EC35B8EF7AB8}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <Interface Id="{D6868EEB-D663-4193-B624-F56FA9620E12}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <Interface Id="{DF372B5F-414A-4DBE-8F2F-C303075F4CCA}" Name="cDBConnect" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <RegistryValue Root="HKCR" Key="CLSID\{8967F73B-708E-46F5-A8C3-ECC1D4504E6D}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{DBDEEB6D-49A5-4B99-8CC0-21B72625AA24}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{29B2A2BC-EA5C-40B2-8B64-9428731CEDE4}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{44D530A9-8943-4C63-B16F-504C0901086D}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{471C3C99-8F65-4FD9-B394-38AC245CC81A}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{59EDEF29-0089-46CE-95B2-2ECA4060CF4D}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{A9A03DE6-38B1-4F8A-A8ED-30F88FA2FA64}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{C07D3850-E8F4-48BD-9C18-EC35B8EF7AB8}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{D6868EEB-D663-4193-B624-F56FA9620E12}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{DF372B5F-414A-4DBE-8F2F-C303075F4CCA}\Forward" Value="{874CC7A9-D46E-4CCD-8D70-D4C035F2E66E}" Type="string" Action="write" />
+
+      </Component>
+      <Component Id="cmp25CEF023F08D3A8DA398042ADDECDB98" Guid="{B039733C-371D-498E-81C7-20C426EE2D7B}">
+        <Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+        <File Id="fil50C732C6515E331DC8ABA19A0E57293F" KeyPath="yes" Source="C:\Deploy\CommDlls\BGSGeneral.dll">
+          <TypeLib Id="{03B7FAC1-1498-4E1E-90C4-3AEDAEA7E820}" Description="BGS - Collection of General Routines" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="2">
+            <Class Id="{1CE4D89C-2397-4C8B-9B77-423087F0E7AA}" Context="InprocServer32" Description="BGSGeneral.cGeneral" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+              <ProgId Id="BGSGeneral.cGeneral" Description="BGSGeneral.cGeneral" />
+            </Class>
+            <Class Id="{472B7427-33B6-44A7-A35F-C09BDD5669BB}" Context="InprocServer32" Description="BGSGeneral.cTypeDefs" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+              <ProgId Id="BGSGeneral.cTypeDefs" Description="BGSGeneral.cTypeDefs" />
+            </Class>
+            <Class Id="{8B97D059-87A6-425D-81FD-9A45573CCFD4}" Context="InprocServer32" Description="BGSGeneral.cDBAccess" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+              <ProgId Id="BGSGeneral.cDBAccess" Description="BGSGeneral.cDBAccess" />
+            </Class>
+            <Class Id="{8D1A77DC-18E4-453C-96C2-E0D86920A478}" Context="InprocServer32" Description="BGSGeneral.cConstants" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+              <ProgId Id="BGSGeneral.cConstants" Description="BGSGeneral.cConstants" />
+            </Class>
+            <Class Id="{9AB48664-A499-404B-AB0C-140E117C47C8}" Context="InprocServer32" Description="BGSGeneral.cConstantsDatapak" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+              <ProgId Id="BGSGeneral.cConstantsDatapak" Description="BGSGeneral.cConstantsDatapak" />
+            </Class>
+            <Interface Id="{4C801179-AEF6-481F-94F1-2578D15C2FF6}" Name="cGeneral" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{7CBEF3B8-4B48-4655-8DBC-CEDB31DB38D4}" Name="cConstantsDatapak" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{943A1C88-3D53-4FFC-86F8-64A5109A2627}" Name="cTypeDefs" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A0B3FFFF-3972-460F-90D3-DAF53D701040}" Name="cDBAccess" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{DE5CAABF-F9BE-4D52-9E6F-CCE53A85E35C}" Name="cConstants" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <Interface Id="{F741B08A-EB81-4F9E-8595-D86E2725AD93}" Name="cConstants" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <RegistryValue Root="HKCR" Key="CLSID\{1CE4D89C-2397-4C8B-9B77-423087F0E7AA}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{472B7427-33B6-44A7-A35F-C09BDD5669BB}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{8B97D059-87A6-425D-81FD-9A45573CCFD4}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{8D1A77DC-18E4-453C-96C2-E0D86920A478}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{9AB48664-A499-404B-AB0C-140E117C47C8}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{F741B08A-EB81-4F9E-8595-D86E2725AD93}\Forward" Value="{DE5CAABF-F9BE-4D52-9E6F-CCE53A85E35C}" Type="string" Action="write" />
+
+      </Component>
+      <Component Id="cmpC534C8A4032322262C8E2891E56D36C7" Guid="{17470F4F-49EF-482C-B17A-E9BE1C61FE42}">
+        <Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+        <File Id="fil138C2A0CFCB11A8E9B30C86C6DCA1E16" KeyPath="yes" Source="C:\Deploy\CommDlls\BGSRegUtil.dll">
+          <TypeLib Id="{C91C7600-A4C8-47F8-A5BF-465DC7CC2285}" Description="BGSRegUtil" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{84A1B487-2514-4F6D-9E36-DFF32BD0B16F}" Context="InprocServer32" Description="BGSRegUtil.RegUtil_CashMaster" ThreadingModel="apartment" Version="1.0" Programmable="yes">
+              <ProgId Id="BGSRegUtil.RegUtil_CashMaster" Description="BGSRegUtil.RegUtil_CashMaster" />
+            </Class>
+            <Class Id="{AD0D2081-0FB1-4590-A671-56346A5A5613}" Context="InprocServer32" Description="BGSRegUtil.RegUtil_HQ" ThreadingModel="apartment" Version="1.0" Programmable="yes">
+              <ProgId Id="BGSRegUtil.RegUtil_HQ" Description="BGSRegUtil.RegUtil_HQ" />
+            </Class>
+            <Interface Id="{66F79017-A6D7-4024-9B72-964B40D13E7F}" Name="RegUtil_CashMaster" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{91721B4E-8D0A-4B3F-A399-91CE6D153166}" Name="RegUtil_HQ" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <RegistryValue Root="HKCR" Key="CLSID\{84A1B487-2514-4F6D-9E36-DFF32BD0B16F}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{AD0D2081-0FB1-4590-A671-56346A5A5613}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+
+      </Component>      
+      <Component Id="cmp7F47849601D6DC9080C7D8CC00522DD8" Guid="{B06575D1-FA04-4CED-A495-86E456419227}">
+        <Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+        <File Id="filB4E59E24DAAC035DAC1C9A1622490C69" KeyPath="yes" Source="C:\Deploy\CommDlls\prjLogger.dll">
+          <TypeLib Id="{7B17A9EF-F4C9-4DAF-93C9-630C2E83FCB6}" Description="BGS DB Logging System" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="1">
+            <Class Id="{54D39280-7497-43EC-A57F-4E5560010857}" Context="InprocServer32" Description="prjLogger.cLogger" ThreadingModel="apartment" Version="1.1" Programmable="yes">
+              <ProgId Id="prjLogger.cLogger" Description="prjLogger.cLogger" />
+            </Class>
+            <Interface Id="{274D27E1-9542-441E-9420-089D0C931974}" Name="cLogger" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <Interface Id="{623A68A8-2989-4405-A896-FE3D91F5979C}" Name="cLogger" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+        <RegistryValue Root="HKCR" Key="CLSID\{54D39280-7497-43EC-A57F-4E5560010857}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="Interface\{623A68A8-2989-4405-A896-FE3D91F5979C}\Forward" Value="{274D27E1-9542-441E-9420-089D0C931974}" Type="string" Action="write" />
+
+      </Component>
+      <Component Id="cmp825B8A0B1F3CB92E7789090E1AADC946" Guid="{B178C161-27C8-4905-B69D-79280FD9F155}">
+        <File Id="fil26E806E48A8A51A145218B76033D19FA" KeyPath="yes" Source="C:\Deploy\CommDlls\NetLogger.dll">
+          <TypeLib Id="{9D8482A9-D2FE-4D47-A7A9-213BA0B1C4B6}" Description="NetLogger 1.0 Type Library" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{30CDEE7D-CA45-4E99-B986-B33C5D37D0D3}" Context="InprocServer32" Description="CNetLoggerServer Object" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="NetLogger.NetLoggerServer.1" Description="CNetLoggerServer Object">
+                <ProgId Id="NetLogger.NetLoggerServer" Description="CNetLoggerServer Object" />
+              </ProgId>
+            </Class>
+            <Class Id="{C48124EB-6244-4B96-97AE-C1DF7CB6D5AF}" Context="InprocServer32" Description="CNetLoggerClient Object" ThreadingModel="apartment" Programmable="yes">
+              <ProgId Id="NetLogger.NetLoggerClient.1" Description="CNetLoggerClient Object">
+                <ProgId Id="NetLogger.NetLoggerClient" Description="CNetLoggerClient Object" />
+              </ProgId>
+            </Class>
+            <Interface Id="{3456CB20-E50D-4B87-94E6-2084D827DC4E}" Name="_INetLoggerServerEvents" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{3912FFD9-39E1-45BE-8F0A-A44BA3D8CF15}" Name="INetLoggerClient" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{9B47408F-4A01-4BD1-BF41-4DD9812ABF31}" Name="INetLoggerServer" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+      </Component>
+      <Component Id="cmpC82C71C682FEFC8B7488D4526833FF78" Guid="{3AD48792-BC7C-47ED-9F0C-45D7CCC3E649}">
+        <File Id="filAB9F5AEFF87A1166A69B0F251C06EEBC" KeyPath="yes" Source="C:\Deploy\CommDlls\RICHTX32.OCX">
+          <Class Id="{78E5A540-1850-11CF-9D53-00AA003C9CB6}" Context="InprocServer32" Description="RichText General Property Page Object" />
+          <Class Id="{AFC634B0-4B8B-11CF-8989-00AA00688B10}" Context="InprocServer32" Description="RichText Apppearance Property Page Object" />
+          <Class Id="{B617B991-A767-4F05-99BA-AC6FCABB102E}" Context="InprocServer32" Description="Microsoft Rich Textbox Control 6.0 (SP4)" ThreadingModel="apartment" />
+          <TypeLib Id="{3B7C8863-D78F-101B-B9B5-04021C009402}" Control="yes" Description="Microsoft Rich Textbox Control 6.0 (SP4)" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="2">
+            <Class Id="{3B7C8860-D78F-101B-B9B5-04021C009402}" Context="InprocServer32" Description="Microsoft Rich Textbox Control 6.0 (SP4)" ThreadingModel="apartment" Version="1.2" Programmable="yes" SafeForInitializing="yes" Control="yes">
+              <ProgId Id="RICHTEXT.RichtextCtrl.1" Description="Microsoft Rich Textbox Control 6.0 (SP4)">
+                <ProgId Id="RICHTEXT.RichtextCtrl" Description="Microsoft Rich Textbox Control 6.0 (SP4)" />
+              </ProgId>
+            </Class>
+            <Interface Id="{2334D2B1-713E-11CF-8AE5-00AA00C00905}" Name="IVBDataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2334D2B3-713E-11CF-8AE5-00AA00C00905}" Name="IVBDataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{3B7C8862-D78F-101B-B9B5-04021C009402}" Name="DRichTextEvents" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{859321D0-3FD1-11CF-8981-00AA00688B10}" Name="IOLEObjects" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E9A5593C-CAB0-11D1-8C0B-0000F8754DA1}" Name="IRichText" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{ED117630-4090-11CF-8981-00AA00688B10}" Name="IOLEObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\Implemented Categories\{0DE86A52-2BAA-11CF-A229-00AA003D7352}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\Implemented Categories\{0DE86A53-2BAA-11CF-A229-00AA003D7352}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\Implemented Categories\{0DE86A57-2BAA-11CF-A229-00AA003D7352}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\Implemented Categories\{40FC6ED4-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\MiscStatus\1" Value="131473" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\MiscStatus" Value="0" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3B7C8860-D78F-101B-B9B5-04021C009402}\ToolboxBitmap32" Value="[!filAB9F5AEFF87A1166A69B0F251C06EEBC], 1" Type="string" Action="write" />
+      </Component>
+      <Component Id="cmp007C93449ABC940D66B30FA5E6D8D8C4" Guid="{B2FD6E33-70D3-4DED-BF40-322A3BA5C270}">
+        <File Id="fil753226FA62917F860B46BE88BE0D1663" KeyPath="yes" Source="C:\Deploy\CommDlls\msvcp71.dll" />
+      </Component>
+      <Component Id="cmp91A47537C472035606F4E9FF7E67B4BA" Guid="{3D181927-ACEB-4513-A506-614ADDCBFD72}">
+        <File Id="filDFA3C1F222D3B10FB9B5ABD1DC167F23" KeyPath="yes" Source="C:\Deploy\CommDlls\msvcr71.dll" />
+      </Component>
+      <Component Id="cmpF41E37FE91B0025F8AB7E511FD329FCC" Guid="{BF1D04AE-BB43-4BD0-A494-1FE22F55A430}">
+        <Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+        <File Id="fil0ACD7BD72140501FEA40534699F38A7F" KeyPath="yes" Source="C:\Deploy\CommDlls\BGSEncryptDecrypt.dll">
+          <TypeLib Id="{05DEF39F-0382-4BB1-89C9-BD29593E377A}" Description="BGSEncryptDecrypt" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{6670449A-F48D-48C3-A463-DD035C0FCC38}" Context="InprocServer32" Description="BGSEncryptDecrypt.clsBlowFish" ThreadingModel="apartment" Version="1.0" Programmable="yes">
+              <ProgId Id="BGSEncryptDecrypt.clsBlowFish" Description="BGSEncryptDecrypt.clsBlowFish" />
+            </Class>
+            <Interface Id="{1D2573FC-8D16-42E7-BEEB-FC3769057C77}" Name="clsBlowFish" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{ADF87817-90DB-4007-BBD0-DBFD0947A916}" Name="clsBlowFish" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <RegistryValue Root="HKCR" Key="CLSID\{6670449A-F48D-48C3-A463-DD035C0FCC38}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+
+      </Component>
+      
+      
+				<Component Id="cmp6C54E1F02B297BDD56492A0545A83660" Guid="{28B8035B-F82D-4B94-994B-7740B3F86473}">
+					<Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+					<File Id="fil8935358A298991FB6775C249C2101DAF" KeyPath="yes" Source="C:\Deploy\CommDlls\BGSComExchange.dll">
+						<TypeLib Id="{7FE1AE08-E14E-451D-956B-6A5761569952}" Description="BGS Com Exchange Interface 1.0" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="6">
+							<Class Id="{0422DD7D-A8F3-41C9-B910-E6311B39BAAE}" Context="InprocServer32" Description="BGSComExchange.ClsExchangeComm" ThreadingModel="apartment" Version="1.6" Programmable="yes">
+								<ProgId Id="BGSComExchange.ClsExchangeComm" Description="BGSComExchange.ClsExchangeComm" />
+							</Class>
+							<Class Id="{0720B456-2035-474F-8AA4-C3B7670D87BA}" Context="InprocServer32" Description="BGSComExchange.clsAsyncComExchange" ThreadingModel="apartment" Version="1.6" Programmable="yes">
+								<ProgId Id="BGSComExchange.clsAsyncComExchange" Description="BGSComExchange.clsAsyncComExchange" />
+							</Class>
+							<Class Id="{0D5FD94F-73ED-411A-872A-B7CCE1DAEB1B}" Description="BGSComExchange.ClsDatapak" Version="1.6" Programmable="yes">
+								<ProgId Id="BGSComExchange.ClsDatapak" Description="BGSComExchange.ClsDatapak" />
+							</Class>
+							<Class Id="{A012B0DE-FFDE-47CF-91D8-7AE00EDB332F}" Context="InprocServer32" Description="BGSComExchange.ClsResult" ThreadingModel="apartment" Version="1.6" Programmable="yes">
+								<ProgId Id="BGSComExchange.ClsResult" Description="BGSComExchange.ClsResult" />
+							</Class>
+							<Class Id="{A0B0CC45-4A0F-417B-ADAE-163DB1FCDD97}" Context="InprocServer32" Description="BGSComExchange.ClsResults" ThreadingModel="apartment" Version="1.6" Programmable="yes">
+								<ProgId Id="BGSComExchange.ClsResults" Description="BGSComExchange.ClsResults" />
+							</Class>
+							<Class Id="{DB2B0FA7-A76C-424C-AED2-B8B62929572B}" Context="InprocServer32" Description="BGSComExchange.cMultiExchangeComm" ThreadingModel="apartment" Version="1.6" Programmable="yes">
+								<ProgId Id="BGSComExchange.cMultiExchangeComm" Description="BGSComExchange.cMultiExchangeComm" />
+							</Class>
+							<Class Id="{DF508612-AA72-4188-95E8-3D45B1ED797A}" Description="BGSComExchange.ClsServer" Version="1.6" Programmable="yes">
+								<ProgId Id="BGSComExchange.ClsServer" Description="BGSComExchange.ClsServer" />
+							</Class>
+							<Interface Id="{24FE9A35-FDDE-446F-8B42-3F131A59EA58}" Name="clsAsyncComExchange" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{42E98AFB-F6B4-4FCB-8CA1-C6AABC15F72C}" Name="cMultiExchangeComm" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{691A9DE5-2812-4D5F-B943-FC32D602362C}" Name="ClsExchangeComm" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{91BFD562-2D05-46A5-8D05-7414B43FC996}" Name="ClsExchangeComm" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{9A7AD7A6-5A64-4C0A-A88C-1B51D74C72DC}" Name="ClsResult" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{9B1ADBEC-3C82-4420-92FD-B068FE4C2CB5}" Name="ClsDatapak" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{B90AD273-C492-4F7E-B2CB-3C9ABB359925}" Name="ClsServer" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{B92BED01-F246-4AB5-A2E5-EABCFE225D1B}" Name="cMultiExchangeComm" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{F1117CAD-6D9F-4743-A65C-60BD86AE55F0}" Name="ClsResults" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+						</TypeLib>
+					</File>
+					<Interface Id="{09A3C9C1-D6AA-49CA-B583-B835001F1E0D}" Name="cMultiExchangeComm" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+					<Interface Id="{0C3C02EB-4E71-4DC1-AAFD-3A5696105E1F}" Name="ClsExchangeComm" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+					<Interface Id="{0D8A0C60-D654-454D-8111-0A5CB4EE9B11}" Name="ClsResult" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{336D1405-C6EF-425C-9215-7B234FE33CC0}" Name="cMultiExchangeComm" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+					<Interface Id="{54ED165A-2161-4D0A-A408-2E37B7663BC9}" Name="ClsExchangeComm" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{56FBE980-A98B-4B73-A5BC-022D2BAF7850}" Name="cMultiExchangeComm" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{5B8018E1-9AD8-46C7-A174-D53F689421AE}" Name="clsAsyncComExchange" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{669DDFD8-344D-445C-BEBD-4B0988F4CCEB}" Name="cMultiExchangeComm" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{6A7434A8-3B65-4C82-869B-D0C8A5F52A5C}" Name="ClsExchangeComm" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+					<Interface Id="{912FB1B3-A7B8-4BA4-8E5E-B511F68995C1}" Name="clsAsyncComExchange" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{9E670CC0-357E-41F3-9A2A-2191B55132E7}" Name="ClsExchangeComm" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{D7648779-E873-4A99-934B-0746C05851A0}" Name="clsAsyncComExchange" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<RegistryValue Root="HKCR" Key="CLSID\{0422DD7D-A8F3-41C9-B910-E6311B39BAAE}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{0720B456-2035-474F-8AA4-C3B7670D87BA}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{0D5FD94F-73ED-411A-872A-B7CCE1DAEB1B}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{A012B0DE-FFDE-47CF-91D8-7AE00EDB332F}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{A0B0CC45-4A0F-417B-ADAE-163DB1FCDD97}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{DB2B0FA7-A76C-424C-AED2-B8B62929572B}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{DF508612-AA72-4188-95E8-3D45B1ED797A}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{09A3C9C1-D6AA-49CA-B583-B835001F1E0D}\Forward" Value="{42E98AFB-F6B4-4FCB-8CA1-C6AABC15F72C}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{0C3C02EB-4E71-4DC1-AAFD-3A5696105E1F}\Forward" Value="{691A9DE5-2812-4D5F-B943-FC32D602362C}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{0D8A0C60-D654-454D-8111-0A5CB4EE9B11}\Forward" Value="{9A7AD7A6-5A64-4C0A-A88C-1B51D74C72DC}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{336D1405-C6EF-425C-9215-7B234FE33CC0}\Forward" Value="{42E98AFB-F6B4-4FCB-8CA1-C6AABC15F72C}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{54ED165A-2161-4D0A-A408-2E37B7663BC9}\Forward" Value="{91BFD562-2D05-46A5-8D05-7414B43FC996}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{56FBE980-A98B-4B73-A5BC-022D2BAF7850}\Forward" Value="{B92BED01-F246-4AB5-A2E5-EABCFE225D1B}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{5B8018E1-9AD8-46C7-A174-D53F689421AE}\Forward" Value="{24FE9A35-FDDE-446F-8B42-3F131A59EA58}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{669DDFD8-344D-445C-BEBD-4B0988F4CCEB}\Forward" Value="{B92BED01-F246-4AB5-A2E5-EABCFE225D1B}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{6A7434A8-3B65-4C82-869B-D0C8A5F52A5C}\Forward" Value="{691A9DE5-2812-4D5F-B943-FC32D602362C}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{912FB1B3-A7B8-4BA4-8E5E-B511F68995C1}\Forward" Value="{24FE9A35-FDDE-446F-8B42-3F131A59EA58}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{9E670CC0-357E-41F3-9A2A-2191B55132E7}\Forward" Value="{91BFD562-2D05-46A5-8D05-7414B43FC996}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{D7648779-E873-4A99-934B-0746C05851A0}\Forward" Value="{24FE9A35-FDDE-446F-8B42-3F131A59EA58}" Type="string" Action="write" />
+
+				</Component>				
+				<Component Id="cmpA748AA2AC0D93ECDF009B054ED417C17" Guid="{80EA4C72-ED94-46C0-81CD-CDF32FFF04D2}">
+					<File Id="filD0BB152A60F7DA2EC767AF21482B6803" KeyPath="yes" Source="C:\Deploy\CommDlls\BGSExComms.dll">
+						<TypeLib Id="{43169BA3-2A84-49CB-9730-5C36D9899161}" Description="BGSExComms 1.0 Type Library" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="0">
+							<AppId Description="BGSExComms" Id="{3709700B-0FA0-4060-A241-3BA4C788AE15}">
+								<Class Id="{DF838E50-B9B6-40FE-94BE-6E0C62C09DFD}" Context="InprocServer32" Description="BGSExchangeComms Class" ThreadingModel="apartment">
+									<ProgId Id="BGSExComms.BGSExchangeComms.1" Description="BGSExchangeComms Class">
+										<ProgId Id="BGSExComms.BGSExchangeComms" Description="BGSExchangeComms Class" />
+									</ProgId>
+								</Class>
+							</AppId>
+							<Interface Id="{D3DE40EF-FDF5-402C-90A9-9F1CDC6544D3}" Name="_IBGSExchangeCommsEvents" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+						</TypeLib>
+					</File>
+					<RegistryValue Root="HKCR" Key="AppID\BGSExComms.DLL" Name="AppID" Value="{3709700B-0FA0-4060-A241-3BA4C788AE15}" Type="string" Action="write" />
+				</Component>
+				<Component Id="cmpE47BFF524F19A5FA6A165C6789A7D379" Guid="{929A9806-33F6-4BE5-92B3-F78B710E745D}">
+					<File Id="fil5A270CD023C63CDAF4C32D5D5B7CE058" KeyPath="yes" Source="C:\Deploy\CommDlls\ComExchange.dll">
+						<TypeLib Id="{FCE006FD-724A-43C7-B051-BF34E4C48F5E}" Description="ComExchange 1.0 Type Library" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="0">
+							<AppId Description="ComExchange" Id="{540BC390-91E6-4D15-97C3-8B3FE8D72411}">
+								<Class Id="{03A42F01-935A-426C-9449-B60FA7B07C65}" Context="InprocServer32" Description="ExchangeServer Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.ExchangeServer.1" Description="ExchangeServer Class">
+										<ProgId Id="ComExchange.ExchangeServer" Description="ExchangeServer Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{0F619FE1-149C-494A-B531-7B0238EC5C24}" Context="InprocServer32" Description="ExchangeClient Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.ExchangeClient.1" Description="ExchangeClient Class">
+										<ProgId Id="ComExchange.ExchangeClient" Description="ExchangeClient Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{11084541-3CF6-4972-8D8F-F282DB814C5A}" Context="InprocServer32" Description="Sector2Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector2Data.1" Description="Sector2Data Class">
+										<ProgId Id="ComExchange.Sector2Data" Description="Sector2Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{1BAC6EF3-281D-4B76-840C-890AF8D03BC8}" Context="InprocServer32" Description="PolledEvent Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.PolledEvent.1" Description="PolledEvent Class">
+										<ProgId Id="ComExchange.PolledEvent" Description="PolledEvent Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{1FC7203B-6E3F-463A-B85B-39C743E07B0C}" Context="InprocServer32" Description="MessageAck Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.MessageAck.1" Description="MessageAck Class">
+										<ProgId Id="ComExchange.MessageAck" Description="MessageAck Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{2BD6D5D7-EB8D-4FFF-9253-50B928462418}" Context="InprocServer32" Description="UDPMeterConfiguration Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.UDPMeterConfiguration.1" Description="UDPMeterConfiguration Class">
+										<ProgId Id="ComExchange.UDPMeterConfiguration" Description="UDPMeterConfiguration Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{43155BA7-3D60-49BB-8300-F6CF1CAE5AD4}" Context="InprocServer32" Description="Sector23Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector23Data.1" Description="Sector23Data Class">
+										<ProgId Id="ComExchange.Sector23Data" Description="Sector23Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{60983CBD-C2B7-45D5-BDFD-189F2C68DF21}" Context="InprocServer32" Description="Sector50Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector50Data.1" Description="Sector50Data Class">
+										<ProgId Id="ComExchange.Sector50Data" Description="Sector50Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{74248C65-D619-4903-AC8C-DE5CB74218B0}" Context="InprocServer32" Description="Sector30Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector30Data.1" Description="Sector30Data Class">
+										<ProgId Id="ComExchange.Sector30Data" Description="Sector30Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{7884BC66-AD7B-44D8-818B-854C2283AC6D}" Context="InprocServer32" Description="UDPCounter Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.UDPCounter.1" Description="UDPCounter Class">
+										<ProgId Id="ComExchange.UDPCounter" Description="UDPCounter Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{8510AC53-C68A-42CF-B971-68AD8E33B85A}" Context="InprocServer32" Description="UDPLongCounter Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.UDPLongCounter.1" Description="UDPLongCounter Class">
+										<ProgId Id="ComExchange.UDPLongCounter" Description="UDPLongCounter Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{8883EF91-0AC4-44B0-B0F3-CFB7823ABEA4}" Context="InprocServer32" Description="Sector202Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector202Data.1" Description="Sector202Data Class">
+										<ProgId Id="ComExchange.Sector202Data" Description="Sector202Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{9868CF09-8E6E-488F-97F9-0ABE97E87103}" Context="InprocServer32" Description="Sector20Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector20Data.1" Description="Sector20Data Class">
+										<ProgId Id="ComExchange.Sector20Data" Description="Sector20Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{A1C68621-B5CB-42E8-B427-EA08117F7A2B}" Context="InprocServer32" Description="Sector201Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector201Data.1" Description="Sector201Data Class">
+										<ProgId Id="ComExchange.Sector201Data" Description="Sector201Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{ABC07688-86A7-4D5A-BEBA-949D8D870A92}" Context="InprocServer32" Description="Sector30Event Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector30Event.1" Description="Sector30Event Class">
+										<ProgId Id="ComExchange.Sector30Event" Description="Sector30Event Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{B5F7BFE8-7303-41B0-8A18-169177947566}" Context="InprocServer32" Description="Sector203Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector203Data.1" Description="Sector203Data Class">
+										<ProgId Id="ComExchange.Sector203Data" Description="Sector203Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{BBBDCF64-6F30-4FC2-BD3E-4854C0E5E236}" Context="InprocServer32" Description="Sector24Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector24Data.1" Description="Sector24Data Class">
+										<ProgId Id="ComExchange.Sector24Data" Description="Sector24Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{C9A73741-9CD5-4F7A-954F-3A17828067BE}" Context="InprocServer32" Description="FloatLevel Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.FloatLevel.1" Description="FloatLevel Class">
+										<ProgId Id="ComExchange.FloatLevel" Description="FloatLevel Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{CFA7379F-57BA-417D-AC38-036CEA6EB175}" Context="InprocServer32" Description="Sector200Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector200Data.1" Description="Sector200Data Class">
+										<ProgId Id="ComExchange.Sector200Data" Description="Sector200Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{D952F133-BBD1-4A8C-9FA1-7B922101A21B}" Context="InprocServer32" Description="Sector1Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector1Data.1" Description="Sector1Data Class">
+										<ProgId Id="ComExchange.Sector1Data" Description="Sector1Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{E6A7A8CD-935B-4D0B-8AD2-69BD98769E1E}" Context="InprocServer32" Description="Sector4Data Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.Sector4Data.1" Description="Sector4Data Class">
+										<ProgId Id="ComExchange.Sector4Data" Description="Sector4Data Class" />
+									</ProgId>
+								</Class>
+								<Class Id="{FD7382F2-BE53-4EC1-ABF6-E094E95D4AA1}" Context="InprocServer32" Description="UDPMeters Class" ThreadingModel="apartment" Programmable="yes">
+									<ProgId Id="ComExchange.UDPMeters.1" Description="UDPMeters Class">
+										<ProgId Id="ComExchange.UDPMeters" Description="UDPMeters Class" />
+									</ProgId>
+								</Class>
+							</AppId>
+							<Interface Id="{09BEA846-4DB4-4E10-B9DF-1353C94D6140}" Name="ISector4Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{19A46807-0CFB-464A-A310-F515A2F0FA85}" Name="IExchangeClient" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{2038A4E4-F097-4B98-B51F-CAE8174F03FF}" Name="_IExchangeClientEvents" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{2141F5D1-8352-4AF2-9C5B-0DFB21058EC4}" Name="IUDPLongCounter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{29EE4226-027C-4DFC-9272-0B679647BF6F}" Name="IExchangeServer" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{2DCE213C-0049-471B-A20E-078CD8394A2D}" Name="IMessageAck" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{308B85AC-0AB7-4FEF-A949-2D11425CCE32}" Name="ISector1Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{33796902-1564-4F13-AD90-A0658A4F86CA}" Name="ISector30Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{3D61EC7C-2444-499A-93B5-F5DF1AEA7BEC}" Name="ISector30Event" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{48FB108D-5B12-4443-8B8D-7649A8EB30A6}" Name="ISector24Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{4CA28E51-3305-4282-AA34-B39B56178C94}" Name="ISector201Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{5472574D-899A-4E30-95BE-02238EAA2E02}" Name="IUDPCounter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{5CFD22EA-DEDF-44E3-9966-B210CDDD8696}" Name="ISector202Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{60B6C900-351A-434C-9E28-F451ED97FBAB}" Name="ISector50Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{682024DF-F8E8-4EFB-94B4-2136B39FE7B7}" Name="_IExchangeServerEvents" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{6F1E740C-5082-4AB1-8202-D3FB9CBE9AD5}" Name="ISector2Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{7EEA966F-D929-4B1D-B88F-837F0B0AC2DB}" Name="ISector203Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{8ED539FF-7192-424C-864B-5A7C0D04FE64}" Name="ISector200Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{9A699027-1267-4239-970A-B8D579BFAAA2}" Name="ISector20Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{9F1FA3D7-795D-43B5-B3B8-D2C096C94246}" Name="IExchangeAdmin" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{A0B89172-B983-4C8F-AA2C-CEFF72841297}" Name="IUDPMeters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{BAA75E6F-0E20-41F3-BD4C-AF8287606EEC}" Name="ISector23Data" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{BCB3D835-D0D7-40B1-BECC-9048BF882BA5}" Name="IUDPMeterConfiguration" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{CC11615C-B908-4118-982A-0CE1F5C0EF30}" Name="IPolledEvent" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{DA424F20-BFE9-4C18-8EC2-BBF0F6144654}" Name="IUDPinfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB4213C1-F2C3-4022-AC82-9C53C85D58EA}" Name="IFloatLevel" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+					</File>
+					<RegistryValue Root="HKCR" Key="AppID\ComExchange.DLL" Name="AppID" Value="{540BC390-91E6-4D15-97C3-8B3FE8D72411}" Type="string" Action="write" />
+					<RegistryValue Root="HKLM" Key="SOFTWARE\Honeyframe\Cashmaster\Exchange" Name="ServerIPPort" Value="6810" Type="integer" Action="write" />
+					<RegistryValue Root="HKLM" Key="SOFTWARE\Honeyframe\Cashmaster\Exchange" Name="BindIPAddress" Value="10.2.100.22" Type="string" Action="write" />
+					<RegistryValue Root="HKLM" Key="SOFTWARE\Honeyframe\Cashmaster\Exchange" Name="ExchangeDir" Value="C:\CashmasterExchange" Type="string" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters\NameSpace_Catalog5\Catalog_Entries" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters\NameSpace_Catalog5" Name="Num_Catalog_Entries" Value="0" Type="integer" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters\NameSpace_Catalog5" Name="Serial_Access_Num" Value="1" Type="integer" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9\Catalog_Entries" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9" Name="Num_Catalog_Entries" Value="0" Type="integer" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9" Name="Next_Catalog_Entry_ID" Value="1001" Type="integer" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9" Name="Serial_Access_Num" Value="1" Type="integer" Action="write" />
+					<RegistryValue Root="HKLM" Key="System\CurrentControlSet\Services\WinSock2\Parameters" Name="WinSock_Registry_Version" Value="2.0" Type="string" Action="write" />
+				</Component>
+      
+				<Component Id="cmp57A2156EF29AB11C71B4F0583D7AD28B" Guid="{87C70E56-D92E-46DF-940F-9C7CDF914A51}">
+					<Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+					<File Id="fil5F030376B723E21AA9FBA3F0316D95F1" KeyPath="yes" Source="C:\Deploy\CommDlls\HFXVH.dll">
+						<TypeLib Id="{03930858-8A3B-4CDC-8213-5E743FDE2E14}" Description="Bally Gaming+Systems Verification Hub Scanning Module" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="6">
+							<Class Id="{0712CA50-AC21-42D1-B72E-5136EA8DB006}" Context="InprocServer32" Description="HFXVH.Ticket" ThreadingModel="apartment" Version="1.6" Programmable="yes">
+								<ProgId Id="HFXVH.Ticket" Description="HFXVH.Ticket" />
+							</Class>
+							<Interface Id="{5C5CA0A5-0BC7-4D70-9E1E-152AC9F01FA3}" Name="Ticket" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+						</TypeLib>
+					</File>
+					<Interface Id="{080041F9-159C-49D2-A574-4436E75D9AA8}" Name="Ticket" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{092D496B-6942-4A25-AAFB-829972CC59F5}" Name="Ticket" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{722C4FF9-2EFF-45E9-AC75-8DD33516122E}" Name="Ticket" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{91D18231-D6A7-48A5-A924-E13C1D01BF30}" Name="Ticket" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{B523FDC0-5F4F-47AF-908E-1F8B398C8A14}" Name="Ticket" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{E1FDC520-6E39-482E-8E24-EEF5E27EE2DA}" Name="Ticket" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<RegistryValue Root="HKCR" Key="CLSID\{0712CA50-AC21-42D1-B72E-5136EA8DB006}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{080041F9-159C-49D2-A574-4436E75D9AA8}\Forward" Value="{5C5CA0A5-0BC7-4D70-9E1E-152AC9F01FA3}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{092D496B-6942-4A25-AAFB-829972CC59F5}\Forward" Value="{5C5CA0A5-0BC7-4D70-9E1E-152AC9F01FA3}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{722C4FF9-2EFF-45E9-AC75-8DD33516122E}\Forward" Value="{5C5CA0A5-0BC7-4D70-9E1E-152AC9F01FA3}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{91D18231-D6A7-48A5-A924-E13C1D01BF30}\Forward" Value="{5C5CA0A5-0BC7-4D70-9E1E-152AC9F01FA3}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{B523FDC0-5F4F-47AF-908E-1F8B398C8A14}\Forward" Value="{5C5CA0A5-0BC7-4D70-9E1E-152AC9F01FA3}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{E1FDC520-6E39-482E-8E24-EEF5E27EE2DA}\Forward" Value="{5C5CA0A5-0BC7-4D70-9E1E-152AC9F01FA3}" Type="string" Action="write" />
+					
+				</Component>
+        <Component Id="cmpB57E28CC993EB0C4DB11591D6BBB8298" Guid="{3EBCCE87-788D-46B5-9EE8-3059698B13F0}">
+        <Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+        <File Id="fil4850008E67B56C800D7DED0B3007A6D9" KeyPath="yes" Source="C:\Deploy\CommDlls\TCKPrint.dll">
+          <TypeLib Id="{D40CAE29-C1E3-4225-A9B5-A74F7A7FD7DC}" Description="TCKPrint" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="0">
+            <Class Id="{07AD3659-3518-46D4-93EC-F4BE29F51F73}" Description="TCKPrint.ITCKPrint" Version="1.0" Programmable="yes">
+              <ProgId Id="TCKPrint.ITCKPrint" Description="TCKPrint.ITCKPrint" />
+            </Class>
+            <Class Id="{3361C0C7-7CCE-41E1-9C03-A57953F73CD7}" Context="InprocServer32" Description="TCKPrint.CIth850" ThreadingModel="apartment" Version="1.0" Programmable="yes">
+              <ProgId Id="TCKPrint.CIth850" Description="TCKPrint.CIth850" />
+            </Class>
+            <Class Id="{8B616BC8-D67D-4E2D-993C-307432D315E4}" Context="InprocServer32" Description="TCKPrint.CXMLParse" ThreadingModel="apartment" Version="1.0" Programmable="yes">
+              <ProgId Id="TCKPrint.CXMLParse" Description="TCKPrint.CXMLParse" />
+            </Class>
+            <Interface Id="{00965532-585D-4577-A65F-65BF512C8466}" Name="CIth850" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{24E3D821-7CC3-4A59-AE89-EAD8ADCB7595}" Name="CXMLParse" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A5E6461F-AE8A-4997-96F1-94B58E656AFA}" Name="ITCKPrint" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C82E9213-D59D-4CB7-87FA-62194EFD78F3}" Name="CIth850" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+          </TypeLib>
+          <TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+            <Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+            <Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+          </TypeLib>
+        </File>
+        <RegistryValue Root="HKCR" Key="CLSID\{07AD3659-3518-46D4-93EC-F4BE29F51F73}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{3361C0C7-7CCE-41E1-9C03-A57953F73CD7}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{8B616BC8-D67D-4E2D-993C-307432D315E4}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+
+      </Component>
+      
+				<Component Id="cmp3D9E2C5F35F676A7651C565EDC29776A" Guid="{42DD0311-2890-4D35-9AD8-22D7F1A4EBE6}">
+					<File Id="filF44B590ACA20F04D12CE1C9DFF6B59CF" KeyPath="yes" Source="C:\Deploy\CommDlls\JetScan.dll">
+						<Class Id="{21E09F09-06AA-4B88-AEC3-E6E1351568A2}" Context="InprocServer32" Description="PSFactoryBuffer" ThreadingModel="both" />
+						<TypeLib Id="{3894BE47-B8AB-47AC-B688-445D7D8EDEBD}" Description="SerialComm 1.0 Type Library" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="0">
+							<AppId Description="SerialComm" Id="{A0DC2932-BD17-4B1F-9BE2-FE0834B46FFB}">
+								<Class Id="{4E88DC17-4818-4E05-B4DE-C544DFD9FCFC}" Context="InprocServer32" Description="SerialCommInt Class" ThreadingModel="both" Programmable="yes">
+									<ProgId Id="SerialComm.SerialCommInt.1" Description="SerialCommInt Class">
+										<ProgId Id="SerialComm.SerialCommInt" Description="SerialCommInt Class" />
+									</ProgId>
+								</Class>
+							</AppId>
+							<Class Id="{79A9D1AA-F1B9-4192-8AEA-DB16B0489BD1}" Context="InprocServer32" Description="CompReg Class" ThreadingModel="apartment" />
+							<Interface Id="{21E09F09-06AA-4B88-AEC3-E6E1351568A2}" Name="ISerialCommInt" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{21E09F09-06AA-4B88-AEC3-E6E1351568A2}" NumMethods="11" />
+							<Interface Id="{A817E7A2-43FA-11D0-9E44-00AA00B6770A}" Name="IComponentRegistrar" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{21E09F09-06AA-4B88-AEC3-E6E1351568A2}" NumMethods="13" />
+						</TypeLib>
+					</File>
+					<RegistryValue Root="HKCR" Key="AppID\SerialComm.DLL" Name="AppID" Value="{A0DC2932-BD17-4B1F-9BE2-FE0834B46FFB}" Type="string" Action="write" />
+				</Component>
+				<Component Id="cmp7B20E7E35430A7BC488D4F40E93AC643" Guid="{84566349-7A46-44C1-89DB-AAF9A2F31295}">
+					<File Id="fil6B0B382BA90F72B13B049E9280371E0F" KeyPath="yes" Source="C:\Deploy\CommDlls\Jetsort.dll" />
+				</Component>
+				
+				<Component Id="cmp1108881085762CB8755CC811F00D21A8" Guid="{252C8E94-EB5C-4CCB-9AAD-C1F1D3560C32}">
+					<Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+					<File Id="fil2199569B40B24E42CB45F09BF0300643" KeyPath="yes" Source="C:\Deploy\CommDlls\SDGConnect.dll">
+						<TypeLib Id="{8240E49D-5583-4B69-B2EE-F320ABB44A01}" Description="BGS - Sierra Design Group Ticketting Connection" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="2">
+							<Class Id="{0CCA1FB4-EE5D-41C1-9B66-6FEDA51679A4}" Context="InprocServer32" Description="SDGConnect.cSDGTicketVerification" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+								<ProgId Id="SDGConnect.cSDGTicketVerification" Description="SDGConnect.cSDGTicketVerification" />
+							</Class>
+							<Class Id="{23E7F39B-5440-49CB-9963-DE1C172B74A1}" Context="InprocServer32" Description="SDGConnect.cMeter" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+								<ProgId Id="SDGConnect.cMeter" Description="SDGConnect.cMeter" />
+							</Class>
+							<Class Id="{46CFC3FA-306D-4FBE-BF92-411218570A18}" Context="InprocServer32" Description="SDGConnect.cSynchSDGServer" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+								<ProgId Id="SDGConnect.cSynchSDGServer" Description="SDGConnect.cSynchSDGServer" />
+							</Class>
+							<Class Id="{845CE675-F9B2-4A8B-B31B-FDE39ED9A9FA}" Context="InprocServer32" Description="SDGConnect.cSDGCollection" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+								<ProgId Id="SDGConnect.cSDGCollection" Description="SDGConnect.cSDGCollection" />
+							</Class>
+							<Class Id="{A430DB25-CBE3-4057-A76A-3C6EF661A28E}" Context="InprocServer32" Description="SDGConnect.cSDGTicketting" ThreadingModel="apartment" Version="1.2" Programmable="yes">
+								<ProgId Id="SDGConnect.cSDGTicketting" Description="SDGConnect.cSDGTicketting" />
+							</Class>
+							<Interface Id="{0E0E9967-7B98-4B36-AFDA-A01CF16BFC64}" Name="cSDGTicketVerification" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{4B7A183C-B61E-4FB0-8BB2-03F6110B06BD}" Name="cSynchSDGServer" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{4D698C23-C33A-4AFD-8711-541EC6B2F534}" Name="cMeter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{801D8C70-E8BD-4FCF-90C1-9B387CF45FB5}" Name="cSDGTicketVerification" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{A5E9F2A9-29FD-42E7-9145-E6C432C38E98}" Name="cSDGCollection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{AD039772-73DE-4DB9-9A88-40DA24F300D8}" Name="cSDGTicketting" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+						</TypeLib>
+					</File>
+					<Interface Id="{6DD0B944-ADE6-4E9D-A2D6-C0C4E8BB9EDB}" Name="cSDGCollection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<Interface Id="{C704C560-940D-45C0-8D2B-9CCC6B87D855}" Name="cSynchSDGServer" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<RegistryValue Root="HKCR" Key="CLSID\{0CCA1FB4-EE5D-41C1-9B66-6FEDA51679A4}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{23E7F39B-5440-49CB-9963-DE1C172B74A1}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{46CFC3FA-306D-4FBE-BF92-411218570A18}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{845CE675-F9B2-4A8B-B31B-FDE39ED9A9FA}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="CLSID\{A430DB25-CBE3-4057-A76A-3C6EF661A28E}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{6DD0B944-ADE6-4E9D-A2D6-C0C4E8BB9EDB}\Forward" Value="{A5E9F2A9-29FD-42E7-9145-E6C432C38E98}" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{C704C560-940D-45C0-8D2B-9CCC6B87D855}\Forward" Value="{4B7A183C-B61E-4FB0-8BB2-03F6110B06BD}" Type="string" Action="write" />
+					
+				</Component>
+				<Component Id="cmp674BB55DD3D264576E80C8C813F8FE79" Guid="{E54A0FB2-6F4F-483F-AC04-DAED35B7CC4D}">
+					<File Id="fil3868071BF4037756E94C333C51D7177D" KeyPath="yes" Source="C:\Deploy\CommDlls\sdgcrc.dll" />
+				</Component>
+				<Component Id="cmp7E276ED4A2A9FAF544EDE35BB11040A1" Guid="{8D82AC5B-50BB-461B-8AA3-C2C0B96CB337}">
+					<Class Id="{D5DE8D20-5BB8-11D1-A1E3-00A0C90F2731}" Context="InprocServer32" Description="VBPropertyBag" ThreadingModel="apartment" ForeignServer="msvbvm60.dll" />
+					<File Id="fil778475F307B9D6D5D80589F2CC7C02B2" KeyPath="yes" Source="C:\Deploy\CommDlls\SDGTicketGen.dll">
+						<TypeLib Id="{7948F5F3-D14A-4EC3-B312-59F95E60E7FB}" Description="SDGTicketGen" HelpDirectory="InstallDir" Language="0" MajorVersion="1" MinorVersion="1">
+							<Class Id="{6F7A32BE-36B3-484B-8AD1-4C4BB37FBE69}" Context="InprocServer32" Description="SDGTicketGen.cSDGTicketGen" ThreadingModel="apartment" Version="1.1" Programmable="yes">
+								<ProgId Id="SDGTicketGen.cSDGTicketGen" Description="SDGTicketGen.cSDGTicketGen" />
+							</Class>
+							<Interface Id="{4A6B5060-607E-43D5-B01C-46C77DEE76BE}" Name="cSDGTicketGen" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{000204EF-0000-0000-C000-000000000046}" Description="Visual Basic For Applications" HelpDirectory="InstallDir" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{A4C466B8-499F-101B-BB78-00AA00383CBB}" Name="_ErrObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{A4C46780-499F-101B-BB78-00AA00383CBB}" Name="_Collection" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+						</TypeLib>
+						<TypeLib Id="{EA544A21-C82D-11D1-A3E4-00A0C90AEA82}" Description="Visual Basic runtime objects and procedures" HelpDirectory="InstallDir" Hidden="yes" Language="9" MajorVersion="6" MinorVersion="0">
+							<Interface Id="{14E469E0-BF61-11CF-8385-8F69D8F1350B}" Name="AsyncProperty_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{2CE46480-1A08-11CF-AD63-00AA00614F3E}" Name="SelectedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D760-6018-11CF-9016-00AA0068841E}" Name="DataObject" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{41A7D761-6018-11CF-9016-00AA0068841E}" Name="DataObjectFiles" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{4495AD01-C993-11D1-A3E4-00A0C90AEA82}" Name="_PropertyBag" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{45046D60-08CA-11CF-A90F-00AA0062BB4C}" Name="PropertyBag_VB5" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{737361EC-467F-11D1-810F-0000F87557AA}" Name="Licenses" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{7500A6BA-EB65-11D1-938D-0000F87557C9}" Name="DataBinding" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{8284B8A2-A8A8-11D1-A3D2-00A0C90AEA82}" Name="LicenseInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{83C49FF0-B294-11D0-9488-00A0C91110ED}" Name="DataMembers" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{888A5A60-B283-11CF-8AD5-00A0C90AEA82}" Name="Hyperlink" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{B28FA150-0FF0-11CF-A911-00AA0062BB4C}" Name="AmbientProperties" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{BE8F9800-2AAA-11CF-AD67-00AA00614F3E}" Name="ParentControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C0324960-2AAA-11CF-AD67-00AA00614F3E}" Name="ContainedControls" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F0-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameter" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F1-7697-11D1-A1E9-00A0C90F2731}" Name="EventParameters" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{C4D651F2-7697-11D1-A1E9-00A0C90F2731}" Name="EventInfo" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{CBB76011-C508-11D1-A3E3-00A0C90AEA82}" Name="AsyncProperty" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{D4E0F020-720A-11CF-8136-00AA00C14959}" Name="DataBindings" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{E43FD401-8715-11D1-98E7-00A0C9702442}" Name="IVbeRuntimeHost" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C1-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C2-4442-11D1-8906-00A0C9110049}" Name="_DDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C3-4442-11D1-8906-00A0C9110049}" Name="_DDataBoundAndDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C4-4442-11D1-8906-00A0C9110049}" Name="_DPersistableClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{EB41E8C5-4442-11D1-8906-00A0C9110049}" Name="_DPersistableDataSourceClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+							<Interface Id="{FCFB3D2B-A0FA-1068-A738-08002B3371B5}" Name="_DClass" ProxyStubClassId="{00020420-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020420-0000-0000-C000-000000000046}" />
+						</TypeLib>
+					</File>
+					<Interface Id="{E7F435D4-EC61-41AD-8E35-1556713DDB65}" Name="cSDGTicketGen" ProxyStubClassId="{00020424-0000-0000-C000-000000000046}" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+					<RegistryValue Root="HKCR" Key="CLSID\{6F7A32BE-36B3-484B-8AD1-4C4BB37FBE69}\Implemented Categories\{40FC6ED5-2438-11CF-A3DB-080036F12502}" Value="" Type="string" Action="write" />
+					<RegistryValue Root="HKCR" Key="Interface\{E7F435D4-EC61-41AD-8E35-1556713DDB65}\Forward" Value="{4A6B5060-607E-43D5-B01C-46C77DEE76BE}" Type="string" Action="write" />
+					
+				</Component>
+				<Component Id="cmpF538CA1389F55C45AAC85A7711D0BAF9" Guid="{2E911FA5-4D3C-499E-B1F3-0A27A7470DC6}">
+					<File Id="filE3B9C04814DFB1552638B54C8AF5DC3A" KeyPath="yes" Source="C:\Deploy\CommDlls\sdgTools.dll" />
+				</Component>
+				
+			
+		</DirectoryRef>
+	</Fragment>
+</Wix>-->
