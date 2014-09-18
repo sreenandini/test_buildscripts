@@ -1,0 +1,102 @@
+﻿<UserControl x:Uid="UserControl" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+             xmlns:src="clr-namespace:BMC.Presentation.POS" 
+             xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+             x:Class="BMC.Presentation.POS.Views.InstallationDetails" 
+             x:Name="UserControl" d:DesignWidth="638" d:DesignHeight="480" Width="878" Height="955" RenderTransformOrigin="0.5,0.5" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <Helper_classes:DateTimeConverter x:Uid="src:DateConverter_1" x:Key="DateConverter" />
+        <Helper_classes:DecimalValueConverter x:Uid="src:DecimalValueConverter" x:Key="DecimalValueConverter" />
+        <Helper_classes:PriceConverter x:Uid="src:PriceConverter_2" x:Key="PriceConverterWithoutSymbol"/>
+        <Helper_classes:PriceConverter x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+        <Helper_classes:CurrencyConverter x:Key="CurrencyConverter" />
+        <Helper_classes:PriceConverterWithSymbol x:Key="PriceConverterWithSymbol" />
+        <Helper_classes:DateTimeConverter x:Key="DateTimeConverter"/>
+        <Style x:Key="rightAlignedColumn" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+        <Style x:Key="CenterAlignedColumn" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="LeftAlignedColumn" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Left" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Height="959" Width="876">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230*" />
+            <ColumnDefinition Width="646*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="13,14,154,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource Installation_Details_Header_Text}" Foreground="#FFFFFFFF" Height="29" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " VerticalAlignment="Top" Height="1.998" Margin="10,40,10.025,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Custom:DataGrid x:Uid="lstInstallationDetails" SelectionUnit="FullRow"   IsReadOnly="True" FontSize="13" FontFamily="Segoe UI" x:Name="lstInstallationDetails"  Margin="6,48,10,0" Height="275" VerticalAlignment="Top" ItemsSource="{Binding}" AutoGenerateColumns="False" 
+                                 Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionChanged="lstInstallationDetails_SelectionChanged" ClipboardCopyMode="IncludeHeader">
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn Width="60"   ElementStyle="{StaticResource LeftAlignedColumn}"    Header="Pos"                                                               Binding="{Binding Bar_Pos_Name}"/>
+                <Custom:DataGridTextColumn Width="160"  ElementStyle="{StaticResource LeftAlignedColumn}"    Header="{DynamicResource InstallationDetails_AssetNo}"                     Binding="{Binding Stock_No}"/>
+                <Custom:DataGridTextColumn Width="160"  ElementStyle="{StaticResource LeftAlignedColumn}"    Header="{DynamicResource InstallationDetails_SerialNo}"                    Binding="{Binding Machine_Manufacturers_Serial_No}"/>
+                <Custom:DataGridTextColumn Width="160"  ElementStyle="{StaticResource LeftAlignedColumn}"    Header="{DynamicResource InstallationDetails_GMUNo}"                       Binding="{Binding GMU_No}"/>
+                <Custom:DataGridTextColumn Width="215"  ElementStyle="{StaticResource LeftAlignedColumn}"    Header="{DynamicResource InstallationDetails_AAMSCode}"                    Binding="{Binding BAD_AAMS_Code}"/>
+                <Custom:DataGridTextColumn Width="280"  ElementStyle="{StaticResource CenterAlignedColumn}"  Header="{DynamicResource InstallationDetails_xaml_LastReadMeterFromGMU}"   Binding="{Binding LastReadMeterFromGMUString}"/>
+                <Custom:DataGridTextColumn Width="215"  ElementStyle="{StaticResource LeftAlignedColumn}"    Header="{DynamicResource InstallationDetails_Manufacturer}"                Binding="{Binding Manufacturer_Name}"/>
+                <Custom:DataGridTextColumn Width="215"  ElementStyle="{StaticResource LeftAlignedColumn}"    Header="{DynamicResource InstallationDetails_ZoneName}"                    Binding="{Binding Zone_Name}"/>
+                <Custom:DataGridTextColumn Width="190"  ElementStyle="{StaticResource CenterAlignedColumn}"  Header="{DynamicResource InstallationDetails_InstallDate}"                 Binding="{Binding Start_Date,Converter={StaticResource DateTimeConverter}}"/>
+                <Custom:DataGridTextColumn Width="100"  ElementStyle="{StaticResource rightAlignedColumn}"   Header="{DynamicResource InstallationDetails_Hold}"                        Binding="{Binding HoldPercentage}"/>
+                <Custom:DataGridTextColumn Width="100"  ElementStyle="{StaticResource rightAlignedColumn}"   Header="{DynamicResource InstallationDetails_Payout}"                      Binding="{Binding PercentagePayout}"/>
+                <Custom:DataGridTextColumn Width="100"  ElementStyle="{StaticResource rightAlignedColumn}"   Header="{DynamicResource InstallationDetails_xaml_BaseDenom}"              Binding="{Binding BaseDenom,Converter={StaticResource PriceConverterWithSymbol}}"/>
+                <Custom:DataGridTextColumn Width="100"  ElementStyle="{StaticResource rightAlignedColumn}"   Header="{DynamicResource InstallationDetails_xaml_CreditValue}"            Binding="{Binding CoinValue,Converter={StaticResource PriceConverterWithSymbol}}"/>
+                <Custom:DataGridTextColumn Width="180"  ElementStyle="{StaticResource CenterAlignedColumn}"  Header="{DynamicResource InstallationDetails_GMU}"                                                               Binding="{Binding GMU}"/>
+                <Custom:DataGridTextColumn Width="180"  ElementStyle="{StaticResource CenterAlignedColumn}"  Header="{DynamicResource InstallationDetails_GMUVersion}"                                                       Binding="{Binding GMU_Version}"/>
+                <Custom:DataGridTextColumn Width="215"  ElementStyle="{StaticResource rightAlignedColumn}"   Header="{DynamicResource InstallationDetails_StackerName}"                                                       Binding="{Binding StackerName}"/>
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+
+        <Custom:DataGrid x:Uid="lstInstallationGames" SelectionUnit="FullRow"   IsReadOnly="True" FontSize="13" FontFamily="Segoe UI" x:Name="lstInstallationGames"  Margin="10,330,10,0" Height="185" VerticalAlignment="Top" ItemsSource="{Binding}" AutoGenerateColumns="False" 
+                                 Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionChanged="lstInstallationGames_SelectionChanged" ClipboardCopyMode="IncludeHeader" >
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn Width="325"  ElementStyle="{StaticResource LeftAlignedColumn}"   Header="{DynamicResource InstallationDetails_GameTitle}"     Binding="{Binding Game_Title}"/>
+                <Custom:DataGridTextColumn Width="265"  ElementStyle="{StaticResource LeftAlignedColumn}"   Header="{DynamicResource InstallationDetails_GameCategory}"  Binding="{Binding Game_Category_Name}"/>
+                <Custom:DataGridTextColumn Width="*"    ElementStyle="{StaticResource LeftAlignedColumn}"   Header="{DynamicResource InstallationDetails_Manufacturer}"  Binding="{Binding Manufacturer_Name}" />
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+
+        <Custom:DataGrid x:Uid="lstPaytable" SelectionUnit="FullRow"   IsReadOnly="True" FontSize="13" FontFamily="Segoe UI" x:Name="lstPaytable"  Margin="10,525,10,312" Height="119" VerticalAlignment="Top" ItemsSource="{Binding}" AutoGenerateColumns="False" 
+                                 Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader">
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn Width="350"  Binding="{Binding PaytableDescription}"  ElementStyle="{StaticResource LeftAlignedColumn}"  Header="{DynamicResource InstallationDetails_PayTableDescription}"/>
+                <Custom:DataGridTextColumn Width="200"  Binding="{Binding PayoutPercent}"        ElementStyle="{StaticResource rightAlignedColumn}" Header="{DynamicResource InstallationDetails_PayTablePayout}"/>
+                <Custom:DataGridTextColumn Width="*"    Binding="{Binding MaxBet}"               ElementStyle="{StaticResource rightAlignedColumn}" Header="{DynamicResource InstallationDetails_PayTableBet}"/>
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+
+        <TextBlock TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="11,0,10,205" RenderTransformOrigin="0.5,0.5" Text="Installed Games" Foreground="#FFFFFFFF" Height="29" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+    </Grid>
+</UserControl>

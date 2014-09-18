@@ -1,0 +1,272 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.VoucherDetails"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         
+      x:Name="Window"
+      xmlns:CustomControl="clr-namespace:BMC.Presentation.POS.Helper_classes"
+xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+      Width="1000" Height="630" AllowsTransparency="True" WindowStyle="None" Background="{DynamicResource MainScreenBG}"
+Title="VoucherDetails" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" HorizontalAlignment="Center" ShowInTaskbar="False" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
+  <Window.Resources>
+    <Helper_classes:PriceConverterWithSymbol x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+    <CustomControl:DateTimeConverter x:Uid="src:DateConverter_1" x:Key="DateConverter" />
+  </Window.Resources>
+    <Grid Margin="0,0,0,0">
+      <Grid.RowDefinitions>
+
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="500" />
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="0" />
+      </Grid.RowDefinitions>
+        <TextBlock x:Uid="txtHeader" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" 
+                   Margin="10,0,0,0" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="0" RenderTransformOrigin="0.5,0.5" 
+                   Text="{DynamicResource VoucherDetails_xaml_lblHeader}" Foreground="#FFFFFFFF" Height="26">
+            <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_3">
+                    <ScaleTransform x:Uid="ScaleTransform_3" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_3" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_3" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_3" X="0" Y="0" />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <Path x:Uid="Path_2" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        
+        <!--<Label x:Uid="lblHeader" Content="{DynamicResource VoucherDetails_xaml_lblHeader}" Visibility="Visible" Height="42" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="0" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+          FontSize="16" Background="#00000000"/>-->
+        <Button x:Uid="BtnClose"  Style="{DynamicResource BMC_App_Exit}" Content="{DynamicResource VoucherDetails_xaml_btnClose}" Visibility="Visible" Height="42" VerticalAlignment="Top" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Right" Width="53" Margin="2,6,4,-7" Grid.Row="0" />
+        
+      <Grid Name ="MasterGrid" ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="1" Margin="0,0,1,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="488"></ColumnDefinition>
+          <!--<ColumnDefinition Width="490*" Grid.RowSpan="2" >-->
+                <ColumnDefinition Width="490*">
+
+                </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="525*" />
+        </Grid.RowDefinitions>
+
+        <GroupBox Name="gbBasicInfo" Margin="10,0,490,0"  Header="{DynamicResource VoucherDetails_xaml_Header}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.ColumnSpan="2">
+          <Grid Height="470" Width="470" Margin="8,0,10,0">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="235"></ColumnDefinition>
+              <ColumnDefinition Width="235"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+              <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label x:Uid="lblSiteCode" Name="lblSiteCode" Content="{DynamicResource VoucherDetails_xaml_lblSiteCode}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+          FontSize="12" Background="#00000000" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" />
+
+
+            <TextBox x:Uid="txtSiteCode" Name="txtSiteCode" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,6,19,9" />
+
+            <Label x:Uid="lblBarCode" Name="lblBarCode" Content="{DynamicResource VoucherDetails_xaml_lblBarCode}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+         FontSize="12" Background="#00000000"   Grid.Row="1"  VerticalAlignment="Center"/>
+
+
+
+            <TextBox x:Uid="txtBarCode" Name="txtBarCode" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                 Height="Auto"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,8,19,7" Grid.Row="1" />
+
+
+            <Label x:Uid="lblVoucherType" Name="lblVoucherType" Content="{DynamicResource VoucherDetails_xaml_lblVoucherType}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+          FontSize="12" Background="#00000000"   Margin="0,0,130,0" Grid.Row="2" VerticalAlignment="Center"/>
+
+            <TextBox x:Uid="txtVoucherType" Name="txtVoucherType" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                 Height="Auto"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,6,19,9" Grid.Row="2" />
+
+
+            <Label x:Uid="lblPrintedDevice" Name="lblPrintedDevice" Content="{DynamicResource VoucherDetails_xaml_lblPrintedDevice}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+                    FontSize="12" Background="#00000000"   Margin="1,7,50,2" Grid.Row="3" />
+
+            <TextBox x:Uid="txtPrintedDevice" Name="txtPrintedDevice" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                 Height="Auto"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,7,19,8" Grid.Row="3" />
+
+
+
+            <Label x:Uid="lblPrintedDate" Name="lblPrintedDate" Content="{DynamicResource VoucherDetails_xaml_lblPrintedDate}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+          FontSize="12" Background="#00000000"   Margin="0,2,130,38" Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Center" />
+
+            <TextBox x:Uid="txtPrintedDate" Name="txtPrintedDate" VerticalContentAlignment="Center" TextWrapping="Wrap" FontSize="12"
+                                Height="Auto"   Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,8,19,7" Grid.Row="4" />
+
+
+            <Label x:Uid="lblExpiryDate" Name="lblExpiryDate" Content="{DynamicResource VoucherDetails_xaml_lblExpiryDate}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+         FontSize="12" Background="#00000000"   Margin="0,2,130,38" Grid.Row="5" Grid.RowSpan="2" VerticalAlignment="Center" />
+
+            <TextBox x:Uid="txtExpiryDate" Name="txtExpiryDate" VerticalContentAlignment="Center" TextWrapping="Wrap" FontSize="12"
+                                Height="Auto"   Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,8,19,7" Grid.Row="5" />
+
+
+            <Label x:Uid="lblEffectiveDate" Name="lblEffectiveDate" Content="{DynamicResource VoucherDetails_xaml_lblEffectiveDate}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+        FontSize="12" Background="#00000000"   Margin="0,10,10,5" Grid.Row="6" VerticalAlignment="Center" />
+
+            <TextBox x:Uid="txtEffectiveDate" Name="txtEffectiveDate" VerticalContentAlignment="Center" TextWrapping="Wrap" FontSize="12"
+                                Height="Auto"   Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,8,19,7" Grid.Row="6" />
+
+
+            <Label x:Uid="lblAmount" Name="lblAmount" Content="{DynamicResource VoucherDetails_xaml_lblAmount}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+          FontSize="12" Background="#00000000"   Margin="-1,1,131,39" Grid.Row="7" Grid.RowSpan="2" VerticalAlignment="Center"/>
+
+            <TextBox x:Uid="txtAmount" Name="txtAmount" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                Height="Auto"   Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,9,19,6" Grid.Row="7" />
+
+
+            <Label x:Uid="lblStatus" Name="lblStatus" Content="{DynamicResource VoucherDetails_xaml_lblStatus}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+          FontSize="12" Background="#00000000"   Margin="0,0,130,0" Grid.Row="8" VerticalAlignment="Center"/>
+
+            <TextBox x:Uid="txtStatus" Name="txtStatus" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                Height="Auto"   Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,6,19,8.687" Grid.Row="8" />
+
+
+
+            <Label x:Uid="lblIssuedUser" Name="lblIssuedUser" Content="{DynamicResource VoucherDetails_xaml_lblIssuedUser}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+          FontSize="12" Background="#00000000"   Margin="0,0,130,0" Grid.Row="9" VerticalAlignment="Center"/>
+
+            <TextBox x:Uid="txtIssuedUserName" Name="txtIssuedUserName" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                Height="Auto"   Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,6,19,8.687" Grid.Row="9" />
+
+            <!--<Label x:Uid="lblErrorDescription" Name="lblErrorDescription" Content="{DynamicResource VoucherDetails_xaml_lblErrorDescription}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+        FontSize="12" Background="#00000000"   Margin="-1,0,131,0" Grid.Row="8" />
+
+          <TextBox x:Uid="txtErrorDescription" Name="txtErrorDescription" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                               Height="Auto"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Margin="379,6,20,8.687" Grid.ColumnSpan="2" Grid.Row="8" />
+
+
+
+          <Label x:Uid="lblErrorDevice" Name="lblErrorDevice" Content="{DynamicResource VoucherDetails_xaml_lblErrorDevice}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+        FontSize="12" Background="#00000000"   Margin="-1,0,131,1" Grid.Row="9" />
+
+          <TextBox x:Uid="txtErrorDevice" Name="txtErrorDevice" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Margin="0,28,0,1" Grid.Row="8" Grid.Column="1" Grid.RowSpan="2" />-->
+
+
+
+          </Grid>
+
+        </GroupBox>
+
+            <Grid Name ="right" ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Column="1" Margin="26,19,1,-3" >
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="146.69" ></ColumnDefinition>
+                    <ColumnDefinition Width="256.621"/>
+                    <ColumnDefinition Width="79.379"/>
+                </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="160" />
+            <RowDefinition Height="170" />
+            <RowDefinition Height="150" />
+
+          </Grid.RowDefinitions>
+
+          <GroupBox Margin="6,-19,8,0" Grid.Column="0" Grid.Row ="0" VerticalAlignment="Top" Name="gbRedeemInfo" Header="{DynamicResource VoucherDetails_xaml_RedeemHeader}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Height="208" Grid.RowSpan="2" Grid.ColumnSpan="3">
+            <Grid Height="240" Width="460" Margin="0,0,0,0">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                         
+                        </Grid.RowDefinitions>
+
+              <Label x:Uid="lblRedeemDate" Name="lblRedeemDate" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_lblRedeemDate}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+         FontSize="12" Background="#00000000"   Margin="0,0,130,0" />
+
+              <TextBox x:Uid="txtRedeemDate" Name="txtRedeemDate" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                   Height="Auto"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,6,19,9" />
+
+              <Label x:Uid="lblRedeemDevice" Name="lblRedeemDevice" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_lblRedeemDevice}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+        FontSize="12" Background="#00000000"   Margin="0,1,130,39" Grid.Row="1" Grid.RowSpan="2" />
+
+              <TextBox x:Uid="txtRedeemDevice" Name="txtRedeemDevice" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                   Height="Auto"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,7,19,8" Grid.Row="1" />
+
+              <Label x:Uid="lblRedeemUser" Name="lblRedeemUser" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_lblRedeemUser}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+         FontSize="12" Background="#00000000"   Margin="0,1,130,-1" Grid.Row="2" />
+
+              <TextBox x:Uid="txtRedeemUser" Name="txtRedeemUser" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                   Height="Auto"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,7,19,8" Grid.Row="2" />
+
+                        <Label x:Uid="lblRedeemSiteCode" Name="lblRedeemSiteCode" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_lblRedeemSiteCode}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+         FontSize="12" Background="#00000000"   Margin="0,10,0,-9" Grid.Row="3" />
+
+                        <TextBox Height="Auto" x:Uid="txtRedeemSiteCode" Name="txtRedeemSiteCode" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12"
+                                   Margin="0,10,19,-10"  Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Grid.Row="3" />
+
+
+                    </Grid>
+          </GroupBox>
+          <GroupBox Margin="6,28,8,121"  Grid.Column="0" Grid.Row ="1" Width="470" Name="gbVoidInfo" Header="{DynamicResource VoucherDetails_xaml_VoidHeader}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.RowSpan="2" Grid.ColumnSpan="3" >
+            <Grid Height="120" Width="460" Margin="0,0,0,0">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Label x:Uid="lblVoidDate" Name="lblVoidDate" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_Header_lblVoidDate}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Background="#00000000" Margin="0,0,130,0" />
+              <TextBox x:Uid="txtVoidDate" Name="txtVoidDate"  VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12" Height="Auto" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,6,19,9" />
+              <Label x:Uid="lblVoidDevice" Name="lblVoidDevice" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_Header_lblVoidDevice}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Background="#00000000" Margin="0,1,130,39" Grid.Row="1" Grid.RowSpan="2" />
+              <TextBox x:Uid="txtVoidDevice" Name="txtVoidDevice" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12" Height="Auto" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,7,19,8" Grid.Row="1" />
+              <Label x:Uid="lblVoidUser" Name="lblVoidUser" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_Header_lblVoidUser}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Background="#00000000" Margin="0,1,130,-1" Grid.Row="2" />
+              <TextBox x:Uid="txtVoidUser" Name="txtVoidUser" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12" Height="Auto" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="1" Margin="0,7,19,8" Grid.Row="2" />
+            </Grid>
+          </GroupBox>
+          <GroupBox Margin="6,0,8,0"  Name="gbErrorInfo" Grid.Column="0" Width="470" Grid.Row ="2" Header="{DynamicResource VoucherDetails_xaml_ErrorHeader}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" VerticalAlignment="Bottom" Grid.ColumnSpan="3">
+            <Grid Height="80" Width="460" Margin="0,0,0,0" >
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"></ColumnDefinition>
+                <ColumnDefinition Width="249*" />
+                <ColumnDefinition Width="212*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+
+              </Grid.RowDefinitions>
+              <Label x:Uid="lblErrorDescription" Name="lblErrorDescription" VerticalAlignment="Center" Content="{DynamicResource VoucherDetails_xaml_lblErrorDescription}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Background="#00000000" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="120" />
+              <TextBox x:Uid="txtErrorDescription" Name="txtErrorDescription" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12" Height="Auto" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="2" Margin="0,6,19,9" />
+              <Label x:Uid="lblErrorDevice" Name="lblErrorDevice" Content="{DynamicResource VoucherDetails_xaml_lblErrorDevice}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Background="#00000000" HorizontalAlignment="Left" Width="120" Grid.Column="1" Grid.Row="1" Margin="0,1,0,9" />
+              <TextBox x:Uid="txtErrorDevice" Name="txtErrorDevice" VerticalContentAlignment="Center" Text="" TextWrapping="Wrap" FontSize="12" Height="Auto" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtSiteCode_TextChanged" Grid.Column="2" Margin="0,2,19,13" Grid.Row="1" />
+            </Grid>
+          </GroupBox>
+        </Grid>
+
+      </Grid>
+        <Button x:Uid="btnCloseBottom"  Content="{DynamicResource VoucherDetails_xaml_btnClose}" Margin="450,8,450,-1" Visibility="Visible" Height="55" VerticalAlignment="Center" Click="Button_Click" Style="{DynamicResource BMC_Button}" HorizontalAlignment="Center" Width="100" Grid.Row="2" Grid.RowSpan="2" />
+     
+    </Grid>
+ 
+  
+</Window>

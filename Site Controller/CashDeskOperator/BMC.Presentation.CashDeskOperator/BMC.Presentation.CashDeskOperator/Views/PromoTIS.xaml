@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.Views.PromoTIS"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    x:Name="UserControl" d:DesignWidth="640" d:DesignHeight="480" Width="863" Height="553"
+    xmlns:BMC_Presentation="clr-namespace:BMC.Presentation" Visibility="Visible" RenderTransformOrigin="0.5,0.5"
+    xmlns:uc="clr-namespace:BMC.Presentation.POS.UserControls"  xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" xmlns:Custom1="http://schemas.AvalonControls/AvalonControlsLibrary/Controls" >
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40" />
+      <RowDefinition Height="40" />
+
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="50" />
+      <ColumnDefinition Width="2.5*" />
+
+    </Grid.ColumnDefinitions>
+    <Label Grid.Row="1" Grid.Column="1" x:Uid="lblStartDate" Name="lblStartDate" Height="31" VerticalAlignment="Top"
+        Content="{DynamicResource PromoTIS_xaml_lblStartDate}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+        FontSize="16" Background="#00000000" HorizontalAlignment="Right" Foreground="{DynamicResource FormLabelForegroundColour}" Width="173" Margin="0,10,608,0"/>
+
+    <Viewbox x:Uid="VbPromoStartDate" x:Name="VbPromoStartDate" Grid.Row="1" Grid.Column="1" Height="35" Width="135" VerticalAlignment="Top" Stretch="Fill" HorizontalAlignment="Left" Margin="296,13,0,-7">
+      <Custom:DatePicker x:Uid="dtpPromoStartDate" x:Name="dtpPromoStartDate" Width="115" Height="25" CalendarStyle="{DynamicResource CalendarStyle}" FontFamily="Segoe UI" VerticalContentAlignment="Center" FontSize="14"   IsTodayHighlighted="False" Background="Transparent" VerticalAlignment="Top"  Grid.Row="6" Grid.Column="3" IsEnabled="True" SelectedDateChanged="dtpPromoStartDate_SelectedDateChanged" />
+    </Viewbox>
+        <TextBox  TextAlignment="Left" FontSize="16"  FontFamily="Segoe UI"  x:Uid="txtTISStartDate" Width="102" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtTISStartDate"  IsEnabled="True" IsReadOnly="True" Margin="296,15,0,-7" Grid.Column="1" Grid.Row="1" TextChanged="txtTISStartDate_TextChanged"  />
+        <Custom1:TimePicker x:Uid="tmpPromoStartTime" x:Name="tmpPromoStartTime" FontSize="16" FontFamily="Segoe UI" Style="{DynamicResource TimePickerStyle}" VerticalAlignment="Top" Width="175" Height="35" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="1,1,1,1" Grid.Row="1" Grid.Column="1" Margin="450,13,188,-7"/>
+
+    <Label Grid.Row="1" Grid.Column="1" x:Uid="lblEndDate" Name="lblEndDate" Height="35" VerticalAlignment="Top"
+        Content="{DynamicResource PromoTIS_xaml_lblEndDate}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}"
+        FontSize="16" Background="#00000000" HorizontalAlignment="Left" Foreground="{DynamicResource FormLabelForegroundColour}" Width="173" Margin="32,90,0,-84"/>
+    <Viewbox x:Uid="VbPromoEndDate" x:Name="VbPromoEndDate" Grid.Row="1" Grid.Column="1" Width="135" Stretch="Fill" HorizontalAlignment="Left" Margin="296,90,0,-84" Height="35" VerticalAlignment="Top">
+      <Custom:DatePicker x:Uid="dtpPromoEndDate" x:Name="dtpPromoEndDate" Width="112" Height="24" CalendarStyle="{DynamicResource CalendarStyle}" FontFamily="Segoe UI" VerticalContentAlignment="Center" FontSize="14"   IsTodayHighlighted="False" Background="Transparent" VerticalAlignment="Top" IsEnabled="True" Grid.Column="3"  Grid.Row="7" RenderTransformOrigin="0.507,1.742" SelectedDateChanged="dtpPromoEndDate_SelectedDateChanged" />
+
+    </Viewbox>
+        <TextBox  TextAlignment="Left" FontSize="16"  FontFamily="Segoe UI"  x:Uid="txtTISEndDate" Width="102" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtTISEndDate"  IsEnabled="True" IsReadOnly="True" Margin="296,90,0,-83" Grid.Column="1" Grid.Row="1"  />
+        <Custom1:TimePicker x:Uid="tmpPromoEndTime" x:Name="tmpPromoEndTime" FontSize="16" FontFamily="Segoe UI" Style="{DynamicResource TimePickerStyle}" Width="175" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="1,1,1,1" Grid.Row="1" Grid.Column="1" Margin="450,90,188,-84"/>
+
+    <Button Grid.Row="1" Grid.Column="1" x:Uid="btnTISSearchOK" Click="btnTISSearchOK_Click"  Style="{DynamicResource BMC_Button}" VerticalAlignment="Top" Height="55" Content="{DynamicResource PromoTIS_xaml_BtnOK}" HorizontalAlignment="Left" Width="112" Visibility="Visible" Margin="234,282,0,-296" />
+    <Button Grid.Row="1" Grid.Column="1" x:Uid="btnTISSearchCancel" Click="btnTISSearchCancel_Click"  Style="{DynamicResource BMC_Button}" VerticalAlignment="Top" Height="55" Content="{DynamicResource PromoTIS_xaml_BtnCancel}" HorizontalAlignment="Left" Width="112" Visibility="Visible" Margin="382,282,0,-296" />
+
+
+
+
+
+
+  </Grid>
+</UserControl>

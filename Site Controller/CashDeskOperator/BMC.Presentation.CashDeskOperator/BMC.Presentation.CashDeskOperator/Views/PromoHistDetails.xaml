@@ -1,0 +1,80 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.PromoHistDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:PromotionStatusConverter="clr-namespace:BMC.Presentation.POS.Helper_classes"    
+        x:Name="Window"
+        xmlns:CustomControl="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+        xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+        xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+        Width="930" Height="698" AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="{DynamicResource MainScreenBG}" 
+Title="PromoHistDetails" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" HorizontalAlignment="Center" ShowInTaskbar="False" Loaded="Window_Loaded">
+
+
+    <Window.Resources>
+
+      <Helper_classes:PriceConverterWithSymbol x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+      <CustomControl:DateTimeConverter x:Uid="src:DateConverter_1" x:Key="DateConverter" />
+
+      <PromotionStatusConverter:PromotionStatusColor x:Key="PromotionStatusColor"/>
+
+        <Style x:Key="StatusToForegroundCurrencyStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+            <Setter Property="Foreground" >
+                <Setter.Value>
+                    <Binding Path="VoucherStatus" Converter="{StaticResource PromotionStatusColor}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StatusToForegroundStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" >
+                <Setter.Value>
+                    <Binding Path="VoucherStatus" Converter="{StaticResource PromotionStatusColor}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+
+
+    <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Height="632" Width="891" Margin="2,2,2,2">
+        <!--  <TextBlock x:Uid="TextBlock_1" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25,10,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource PromoHistDetails_xaml_GVColumn_PageTitle}" Foreground="#FFFFFFFF">
+        <TextBlock.RenderTransform>
+          <TransformGroup x:Uid="TransformGroup_1">
+          <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+          <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+          <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+          <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+        </TransformGroup>
+          </TextBlock.RenderTransform>
+        </TextBlock>
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="25,34,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path> -->
+        <TextBlock x:Uid="txtHeader" x:Name="txtHeader" TextAlignment="Center" Height="73" Text="{DynamicResource PromoHistDetails_xaml_GVColumn_PageTitle}"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="112,2,123,0" Foreground="white" VerticalAlignment="Top"/>
+
+        <Custom:DataGrid x:Uid="dgPromoHistDetGridView" x:Name="dgPromoHistDetGridView"  SelectionUnit="FullRow"  Margin="2,75,2,34"  IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding Mode=Default}"      AutoGenerateColumns="False" 
+							 Height="540" 
+                             Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader">
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_BarCode"     Header="{DynamicResource PromoHistDetails_xaml_GVColumn_BarCode}" 		    Width="200" 		Binding="{Binding Path=strBarCode}"                                             ElementStyle="{StaticResource StatusToForegroundStyle}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_Type" 	    Header="{DynamicResource PromoHistDetails_xaml_GVColumn_Type}" 			    Width="124"  		Binding="{Binding Path=TicketType}"                                             ElementStyle="{StaticResource StatusToForegroundStyle}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_Amount" 		Header="{DynamicResource PromoHistDetails_xaml_GVColumn_Amount}" 		    Width="170"		    Binding="{Binding Path=iAmount, Converter={StaticResource PriceConverter}}"     ElementStyle="{StaticResource StatusToForegroundCurrencyStyle}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_ExpiryDate" 	Header="{DynamicResource PromoHistDetails_xaml_GVColumn_ExpiryDate}" 	    Width="229" 		Binding="{Binding Path=dtExpire,Converter={StaticResource DateConverter}}"      ElementStyle="{StaticResource StatusToForegroundStyle}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_VoucherStatus" 	Header="{DynamicResource PromoHistDetails_xaml_GVColumn_VoucherStatus}" Width="153.5" 	    Binding="{Binding Path=VoucherStatus}"                                          ElementStyle="{StaticResource StatusToForegroundStyle}"/>
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+        <Button Name="btnExit" Width="58" Height="65"  HorizontalAlignment="Right" VerticalAlignment="Top" Content="{DynamicResource promhistdetails_btnexit}" Style="{DynamicResource BMC_App_Exit}" Grid.Column="1" Margin="0,0,12,0" Click="btnExit_click"></Button>
+
+        
+    </Grid>
+</Window>

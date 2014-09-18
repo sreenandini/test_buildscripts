@@ -1,0 +1,40 @@
+﻿<Window x:Class="BMC.Presentation.CConfiguration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Title="CConfiguration" Width="600" Height="600" Background="{x:Null}">
+    <Grid>
+        <TextBlock Foreground="{DynamicResource TextGradient}" Height="27" FontFamily="./Fonts\#Eras ITC" FontSize="24" FontWeight="Bold" TextWrapping="Wrap" Canvas.Left="350.5" Canvas.Top="273.5" Background="{x:Null}" x:Name="tbProductName" Margin="20,8,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="423.25"><Run FontFamily="./Fonts\#Eras ITC" Text="Sql "/><Run Text="Connection Setup Configuration"/></TextBlock>
+        <Grid Canvas.Left="0" Canvas.Top="0" Background="{DynamicResource LoginInputBG}" x:Name="grdconfig" Margin="0,35.669,101.62,137">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="39.331"/>
+                <RowDefinition Height="47"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="34"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="234*"/>
+                <ColumnDefinition Width="242.38"/>
+                
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Row="2" Margin="20,10,31,0" Name="txtServer" Height="23.542" VerticalAlignment="Top" TabIndex="1" />
+            <Label Grid.Row="1" Margin="20,0,30,10.542" Name="lblServer">Server</Label>
+            <Label Margin="15,0,18,11" Name="lblInstance" Grid.Column="1" Height="28.789" Grid.RowSpan="2" VerticalAlignment="Bottom">Instance</Label>
+            <TextBox Margin="15,10,19.76,0" Name="txtInstance" Grid.Column="1" Height="23.542" Grid.Row="2" VerticalAlignment="Top" TabIndex="2" />
+            <Label Grid.Row="3" Height="25" Margin="20,10,0,0" Name="lblUserName" VerticalAlignment="Top" HorizontalAlignment="Left" Width="64">User Name</Label>
+            <TextBox Margin="21,11,30,10" Name="txtUserName" Grid.Row="4" TabIndex="3" />
+            <Label Grid.Column="1" Grid.Row="3" Margin="16,10,61,0" Name="lblPassword">Password</Label>
+            <Label HorizontalAlignment="Left" Margin="20,9,0,0" Name="lblDBName" Width="64" Height="25" Grid.Row="5" VerticalAlignment="Top">DB Name</Label>
+            <Label Margin="15,9,31,0" Name="lblTimeOut" Grid.Column="1" Grid.Row="5">Connection Timeout</Label>
+            <TextBox Margin="20,9,31,12" Name="txtDBName" Grid.Row="6" IsEnabled="False">Exchange</TextBox>
+            <TextBox Margin="15,9,19.76,12" Name="txtConnectionTimeout" Grid.Column="1" Grid.Row="6" TabIndex="5">15</TextBox>
+            <Button Grid.Row="7" Margin="52,29,42,41" Name="btnTest" Click="btnTest_Click" TabIndex="6">Test</Button>
+            <Button Margin="15,29,62.76,41" Name="cmdSave" Grid.Column="1" Grid.Row="7" Click="cmdSave_Click" TabIndex="7">Save Settings</Button>
+            <PasswordBox Grid.Column="1" Grid.Row="4" Margin="16,11,19.76,11" Name="txtPassword" TabIndex="4" />
+        </Grid>
+    </Grid>
+</Window>

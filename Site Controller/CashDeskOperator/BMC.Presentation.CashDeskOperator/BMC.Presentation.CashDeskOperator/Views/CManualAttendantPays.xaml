@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="ManualAttendantPay" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+             xmlns:src="clr-namespace:BMC.Presentation.POS" 
+             x:Class="BMC.Presentation.CManualAttendantPays" x:Name="ManualAttendantPay" 
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+             xmlns:BMC_Presentation="clr-namespace:BMC.Presentation" 
+             xmlns:ComponentModel="clr-namespace:BMC.Presentation.POS.Helper_classes"
+             d:DesignWidth="640" d:DesignHeight="480" Width="863" Height="553"
+             RenderTransformOrigin="0.5,0.5" Loaded="ManualAttendantPay_Loaded">
+    <Grid x:Uid="MainGrid" x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="168*" />
+            <RowDefinition Height="150*" />
+            <RowDefinition Height="100*" />
+        </Grid.RowDefinitions>
+        <!--<Border x:Uid="Border_10" CornerRadius="5,5,5,5" Background="#19CDDD98" Margin="0,-24,12,36" Grid.RowSpan="3" />-->
+
+        <Grid x:Uid="GridManualHandpay" Name="GridManualHandpay" RenderTransformOrigin="0.5,0.5" Visibility="Visible"  Margin="10,17,10,10" 
+              Grid.RowSpan="3">
+            <Grid.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_2">
+                    <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <TextBlock x:Uid="lblcashdeskheader" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" 
+                           VerticalAlignment="Top" Margin="0,107,176,0" RenderTransformOrigin="0.5,0.5" 
+                           x:Name="lblcashdeskheader" Text="{DynamicResource CAttendantPay_xaml_lblManualHeaderbarpos}" 
+                       Foreground="#FFFFFFFF" Height="23.94" HorizontalAlignment="Right" Width="151"/>
+
+            <BMC_Presentation:ValueCalcComp x:Uid="ucValueCalcComp" Margin="60,80,0,57" x:Name="ucValueCalcComp" d:LayoutOverrides="Width"
+                                            ValueChanged="ValueCalcComp_ValueChanged" HorizontalAlignment="Left"  />
+            <!--<BMC_Presentation:CTicketEntry x:Uid="ucValueCalcComp" HorizontalAlignment="Left" Margin="43,80,0,57" x:Name="ucValueCalcComp" Width="335"/>-->
+            <ComboBox x:Uid="cmbBarPositions"  x:Name="cmbBarPositions" DisplayMemberPath="Bar_Pos_Name"
+                      Margin="0,104,3,0"  Width="181" Height="30" HorizontalAlignment="Right"
+                      VerticalAlignment="Top" SelectionChanged="cmbBarPositions_SelectionChanged" Style="{DynamicResource BMC_ComboBoxStyle}" 
+                       SelectedValue="Bar_Pos_Name" IsSynchronizedWithCurrentItem="False" GotFocus="cmbBarPositions_GotFocus" KeyboardNavigation.TabIndex="1" KeyDown="cmbBarPositions_KeyDown">
+            </ComboBox>
+
+            <StackPanel x:Uid="pnlButtons" Margin="-10,17,234,0" x:Name="pnlButtons" d:LayoutOverrides="Height" Orientation="Horizontal" Height="100" VerticalAlignment="Top" >
+                <RadioButton x:Uid="optHandpay" Height="57" Style="{DynamicResource bmc_General_RADIO_Style_Button}" HorizontalAlignment="Left" Margin="19,0,0,0" Name="optHandpay" VerticalAlignment="Top" FontFamily="verdana" FontSize="15" Padding="0" Checked="chkChecked_Checked" Content="{DynamicResource CViewHandpay_xaml_lblHandpay}" ></RadioButton>
+                <RadioButton x:Uid="optJackpot" Height="57" Style="{DynamicResource bmc_General_RADIO_Style_Button}" Margin="19,0,0,0" Name="optJackpot" VerticalAlignment="Top" FontFamily="verdana" FontSize="15" HorizontalAlignment="Left" Padding="0" Checked="chkChecked_Checked" Content="{DynamicResource CViewHandpay_xaml_lblJackpot}" ></RadioButton>
+                <RadioButton x:Uid="optProgressive" Height="57" Style="{DynamicResource bmc_General_RADIO_Style_Button}" Margin="19,0,0,0" Name="optProgressive" VerticalAlignment="Top" FontFamily="verdana" FontSize="15" HorizontalAlignment="Left" Width="Auto" Padding="0" Checked="chkChecked_Checked" Content="{DynamicResource CViewHandpay_xaml_lblProgressive}" ></RadioButton>
+            </StackPanel>
+            <Grid x:Uid="gridCashDispenser" Width="298" HorizontalAlignment="Right" Margin="0,140,15,0" x:Name="gridCashDispenser" Visibility="Visible" Height="222" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="274*"/>
+                </Grid.ColumnDefinitions>
+                <!--<uc:CashDispenserStatus x:Uid="dispenserStatus" x:Name="dispenserStatus" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="280" />-->
+            </Grid>
+            <TextBlock x:Uid="TextBlock_11" Name="TextBlock_11" TextAlignment="Right" Width="AUTO" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,176,30" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource CViewHandpay_xaml_TextBlock_11}" Foreground="#FFFFFFFF" >
+
+                <TextBlock.RenderTransform>
+                    <TransformGroup x:Uid="TransformGroup_2">
+                        <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                        <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                        <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                        <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBox x:Uid="txtAmount" x:Name="txtAmount" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Canvas.Left="468.002" Canvas.Top="392.167" FontSize="16" TextAlignment="Right" FontFamily="Segoe UI" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,13,25.78" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource TextBoxStyle1}" Width="150" Height="33" IsReadOnly="True" />
+            <Button x:Uid="btnSave" Style="{DynamicResource BMC_Button}" Height="57" Content="{DynamicResource CViewHandpay_xaml_btnSave}" Name="btnSave" HorizontalAlignment="Right" FontFamily="Segoe UI" VerticalAlignment="Bottom" Width="115" Margin="0,0,157,70" Click="btnSave_Click"  KeyboardNavigation.TabIndex="2"/>
+            <Button x:Uid="btnCancel" Style="{DynamicResource BMC_Button}" Height="57" Content="{DynamicResource CViewHandpay_xaml_btnCancel}" Name="btnCancel" FontFamily="Segoe UI" VerticalAlignment="Bottom" Margin="0,0,40,70" Click="btnCancel_Click" HorizontalAlignment="Right" Width="115"  KeyboardNavigation.TabIndex="3"/>
+        </Grid>
+    </Grid>
+</UserControl>

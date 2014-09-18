@@ -1,0 +1,68 @@
+﻿<Window x:Class="BMC.Presentation.ServiceStatus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ServiceStatus" WindowStyle="None" AllowsTransparency="True" 
+           xmlns:corlib="clr-namespace:BMC.CoreLib.WPF.Controls;assembly=BMC.CoreLib"
+        SizeToContent="WidthAndHeight"  Background="{DynamicResource MainScreenBG}"  WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <GroupBox  Grid.Row="1" FontFamily="Segoe UI" >
+            <GroupBox.Header>
+                <Label Content="{DynamicResource ServiceStatus_xaml_lblStatus}" FontWeight="Bold" FontSize="15"/>
+            </GroupBox.Header>            
+        <Grid Name="gn_status" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition>                       
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                    <RowDefinition>
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+                    
+                <ListView x:Uid="lst_ServiceStatus"  Grid.Row="0"  ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="lst_ServiceStatus" Margin="2,2,2,5" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" SelectionMode="Single" 
+                          ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" 
+                          corlib:WpfListViewSort.Sort="True" corlib:WpfListViewSort.DefaultColumnIndex="0">
+                <ListView.View>
+                    <GridView x:Uid="g_ServiceStatus" x:Name="g_ServiceStatus">
+                            <GridViewColumn  Header="{DynamicResource ServiceStatus_xaml_Sno}" Width="Auto" corlib:WpfListViewSort.PropertyName="SNo">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                            <TextBlock x:Uid="TextBlock_2" Text="{Binding SNo}"  TextAlignment="Left" Margin="0,0,0,0"   />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn  Header="{DynamicResource ServiceStatus_xaml_Name}" Width="Auto" corlib:WpfListViewSort.PropertyName="ServiceName">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                            <TextBlock x:Uid="TextBlock_2" Text="{Binding ServiceName}"  TextAlignment="Left" Margin="0,0,0,0"  />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                            <GridViewColumn  Header="{DynamicResource ServiceStatus_xaml_Status}" Width="100" corlib:WpfListViewSort.PropertyName="ServiceStatus">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                            <TextBlock x:Uid="TextBlock_2" Text="{Binding ServiceStatus}" Foreground="{Binding ForeColor}" TextAlignment="Center" Margin="0,0,0,0"   />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+                <TextBlock  Grid.Row="1" x:Name="txt_lastupdated" Grid.Column="0" Margin="5,10,0,5" FontFamily="Segoe UI" FontSize="14" FontStyle="Italic" TextWrapping="Wrap"  VerticalAlignment="Center"></TextBlock>
+                <Button Name="btnExit"  Grid.Row="2"  Width ="100" Style="{DynamicResource BMC_Button}" HorizontalAlignment="Center" Margin="116,0,107,3" VerticalAlignment="Bottom" FontFamily="Segoe UI" FontSize="12" Content="{DynamicResource ServiceStatus_xaml_btnClose}"  Click="btnExit_Click" />
+        </Grid>
+           </GroupBox>
+    </Grid>
+</Window>

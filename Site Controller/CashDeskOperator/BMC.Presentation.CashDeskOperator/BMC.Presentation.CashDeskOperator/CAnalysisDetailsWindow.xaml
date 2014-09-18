@@ -1,0 +1,18 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.CAnalysisDetailsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="CAnalysisDetailsWindow" xmlns:local="clr-namespace:BMC.Presentation.POS.Views" Loaded="Window_Loaded"
+    Height="685" Width="900" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+    WindowStyle="None" Background="{DynamicResource MainScreenBG}" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:ComponentModel="clr-namespace:BMC.Presentation.POS.Helper_classes" mc:Ignorable="d" ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Uid="txtHeader" x:Name="txtHeader" TextAlignment="Center" Text="{DynamicResource CAanalysisDetails_xaml_txtHeader}"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Foreground="white" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Button x:Uid="btnExit" Grid.Row="0" HorizontalAlignment="Right" Width="58" Content="{DynamicResource CAanalysisDetails_xaml_btnExit}" Style="{DynamicResource BMC_App_Exit}" RenderTransformOrigin="0.455,0.272" x:Name="btnExit" Click="btn_Exit" Height="65" VerticalAlignment="Top" Margin="0,0,2,0"></Button>
+        <local:UCAnalysisDetails Margin="5" x:Name="ucDetails" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+    </Grid>
+</Window>

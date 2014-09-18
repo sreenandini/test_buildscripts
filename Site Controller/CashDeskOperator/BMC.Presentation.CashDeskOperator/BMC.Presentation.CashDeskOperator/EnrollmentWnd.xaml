@@ -1,0 +1,123 @@
+﻿<!--<Window x:Class="BMC.Presentation.POS.EnrollmentWnd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="EnrollmentWnd" Height="699" Width="1004"
+    
+        HorizontalAlignment="Left" VerticalAlignment="Top" AllowsTransparency="True"
+    WindowStyle="None" Background="{DynamicResource MainScreenBG}" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">-->
+<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Class="BMC.Presentation.POS.EnrollmentWnd" 
+             xmlns:BMC.Presentation="clr-namespace:BMC.Presentation.POS"
+             x:Name="ucEnrollmentWnd" Width="850" Height="659" Background="{DynamicResource MainScreenBG}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Loaded="ucEnrollmentWnd_Loaded" >
+    <UserControl.Resources>
+        <Style x:Key="GroupBoxHeaderAdjustmentFromMargin" x:Uid="Style_68" TargetType="{x:Type GroupBox}">
+            <Setter x:Uid="Setter_568" Property="BorderThickness" Value="1" />
+            <Setter x:Uid="Setter_569" Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Uid="ControlTemplate_75" TargetType="{x:Type GroupBox}">
+                        <Grid x:Uid="Grid_82" SnapsToDevicePixels="true">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Uid="ColumnDefinition_40" Width="6" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_41" Width="Auto" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_42" Width="*" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_43" Width="6" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Uid="RowDefinition_43" Height="Auto" />
+                                <RowDefinition x:Uid="RowDefinition_44" Height="Auto" />
+                                <RowDefinition x:Uid="RowDefinition_45" Height="*" />
+                                <RowDefinition x:Uid="RowDefinition_46" Height="6" />
+                            </Grid.RowDefinitions>
+                            <Border x:Uid="Border_31" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="4" BorderBrush="#FF161826" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4" Background="{DynamicResource PositionDetailsGroupBoxStyle}" />
+                            <Border x:Uid="Border_32" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="3" Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4" />
+                            <Border x:Uid="Header" HorizontalAlignment="Stretch" Margin="0,5,0,0" x:Name="Header" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" BorderBrush="#FF161826" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2" Padding="0,0,0,0" Background="{DynamicResource PositionDetailsGroupBoxStyle}" Height="30">
+                                <ContentPresenter x:Uid="ContentPresenter_5" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" ContentSource="Header" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="9,0,0,0" />
+                            </Border>
+                            <ContentPresenter x:Uid="ContentPresenter_6" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+    <Grid Height="520" Width="842">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17482*" />
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="400*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock  TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="337,-47,255,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource EnrollmentWnd_xaml_MachineEnrollment}" Foreground="#FFFFFFFF" Height="35" VerticalAlignment="Top"><TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform></TextBlock>
+        <Button HorizontalAlignment="Right" Width="58" Content="{DynamicResource EnrollmentWnd_xaml_btnExit}" Style="{DynamicResource BMC_App_Exit}" RenderTransformOrigin="0.455,0.272" x:Name="btnExit" Click="btnExit_Click_1" Height="55" VerticalAlignment="Top" Margin="0,-67,0,0"></Button>
+        <GroupBox Canvas.Left="10" Canvas.Top="10" Header="{DynamicResource EnrollmentWnd_xaml_EnrollMachine}" FontSize="16" Grid.ColumnSpan="3" Margin="100,0,100,0" FontWeight="bold" Style="{DynamicResource GroupBoxHeaderAdjustmentFromMargin}"></GroupBox>
+        <Label Content="Please wait... " Foreground="White" Name="lblStatus" Height="32" VerticalAlignment="Bottom" Margin="383.268,0,330,-45" FontFamily="Segoe UI" FontSize="16" Grid.ColumnSpan="3" />
+        <ProgressBar Height="16" Name="progressBar1" Value="100" IsIndeterminate="True" Margin="6,0,14,-59" VerticalAlignment="Bottom" Orientation="Horizontal" OpacityMask="SkyBlue" Foreground="Lime" Background="Transparent" BorderBrush="Transparent" LargeChange="1" SmallChange="0.1" ClipToBounds="False" SnapsToDevicePixels="False" Opacity="1" BorderThickness="1" FlowDirection="LeftToRight" AllowDrop="False" Grid.ColumnSpan="3">
+            <ProgressBar.Triggers>
+                <EventTrigger RoutedEvent="ProgressBar.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="progressBar1" Storyboard.TargetProperty="Value" From="0" To="100" Duration="0:0:5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ProgressBar.Triggers>
+        </ProgressBar>
+        <GroupBox Header="{DynamicResource EnrollmentWnd_xaml_EnrollMachine}" Grid.Column="2" Margin="9,0.305,9,0" FontSize="16" FontWeight="bold" Height="206" VerticalAlignment="Top">
+            <Canvas Width="343" Height="186">
+                <TextBlock Width="88" Height="20.268" FontSize="14" Text="{DynamicResource MachineEnrolment_xaml_TextBlock_3}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="15" Canvas.Top="22.427" />
+                <TextBlock Width="62" Height="16" FontSize="14" Text="{DynamicResource MachineEnrolment_xaml_TextBlock_4}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="15" Canvas.Top="63.943" />
+                <TextBox  Text="{DynamicResource EnrollmentWnd_xaml_GMUNo}" Foreground="{DynamicResource TextBoxForeground}" FontFamily="Segoe UI" FontSize="14" HorizontalAlignment="Left" Margin="145,75.248,0,0" VerticalAlignment="Top" Width="204" Height="32" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtGMUNo"   Canvas.Left="-29" Canvas.Top="-14.305" IsReadOnly="True" />
+                
+                <TextBox Background="{DynamicResource TextBoxGradient}" FontFamily="Segoe UI" FontSize="14" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Canvas.Left="116" Canvas.Top="10.695" Height="32" Name="textBox1" Style="{DynamicResource TextBoxStyle1}" Text="{DynamicResource EnrollmentWnd_xaml_MC300}" TextWrapping="Wrap" Width="204" IsReadOnly="True" />
+
+            </Canvas>
+        </GroupBox>
+        <Canvas Margin="101,40.248,5,10">
+            <TextBlock Width="167" Height="26" FontSize="14" Text="{DynamicResource CAccountingMeters_xaml_Label_5}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="16" Canvas.Top="35" />
+            <TextBox HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="14" Margin="115,40.248,0,0" VerticalAlignment="Top" Width="261" Height="32" Text="" TextWrapping="Wrap" Foreground="{DynamicResource TextBoxForeground}" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtAsset" Canvas.Left="44" Canvas.Top="-9" PreviewMouseUp="txtAsset_PreviewMouseUp" FontWeight="Bold" TabIndex="0" />
+            <CheckBox Name="chkInTransitAsset" VerticalContentAlignment="Center" Content="{DynamicResource EnrollmentWnd_xaml_chkInTransitAsset}" Width="auto" Margin="495,10,0,15" VerticalAlignment="Center" Foreground="{DynamicResource TextBoxForeground}" FontFamily="Segoe UI" FontSize="14" Visibility="Hidden" Checked="chkInTransitAsset_Checked"></CheckBox>            
+            <Button Name="GetAccDetails" Margin="350,30,0,15" Style="{DynamicResource BMC_Button}" VerticalAlignment="Top" Height="55" Content="{DynamicResource EnrollmentWnd_xaml_GetDetails}" HorizontalAlignment="Left" Canvas.Left="146" Canvas.Top="-9.755" Width="100" Foreground="#FFFFFF" Click="GetAccDetails_Click" TabIndex="2" />
+            <TextBlock Width="114" Height="28" FontSize="14" Text="{DynamicResource EnrollmentWnd_xaml_GameType}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="16" Canvas.Top="185" />
+            <TextBlock Width="122" Height="25" FontSize="14" Text="{DynamicResource CAccountingMeters_xaml_Label_4}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="16" Canvas.Top="219" />
+            <TextBlock Name="tb_AssetNo"  Width="122" Height="28" FontSize="14" Text="{DynamicResource MachineEnrolment_xaml_TextBlock_5}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="16" Canvas.Top="78" />
+            <TextBlock Width="142" Height="28" FontSize="14" Text="{DynamicResource MachineEnrolment_xaml_TextBlock_6}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="16" Canvas.Top="113" />
+            <TextBlock Width="142" Height="28" FontSize="14" Text="{DynamicResource MachineEnrolment_xaml_TextBlock_4}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Normal" Canvas.Left="16" Canvas.Top="150" />
+            
+            <Label Content="" FontFamily="Segoe UI" FontSize="13"  FontWeight="Bold" x:Name="lblSerialNo" d:LayoutOverrides="Height" Width="280" Canvas.Left="156" Canvas.Top="74" Height="30" />
+            <Label Content="" FontFamily="Segoe UI" FontSize="13" FontWeight="Bold" x:Name="lblAltSrialNo" d:LayoutOverrides="Height" Width="282" Canvas.Left="156" Canvas.Top="110" Height="30" />
+            <Label Content="" FontFamily="Segoe UI" FontSize="13" FontWeight="Bold" x:Name="lblGMUNo" d:LayoutOverrides="Height" Width="282" Canvas.Left="156" Canvas.Top="148" Height="30" />
+            <TextBlock FontFamily="Segoe UI" FontSize="13" FontWeight="Bold" x:Name="tbMachineType" d:LayoutOverrides="Height" Width="282" Canvas.Left="155" Canvas.Top="183" Height="30" />
+            <Label Content="" FontFamily="Segoe UI" FontSize="13" FontWeight="Bold" x:Name="lblGameTitle" d:LayoutOverrides="Height" Width="280" Canvas.Left="155" Canvas.Top="219" Height="30" />
+            
+            <TextBlock Canvas.Left="16" Canvas.Top="0" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" FontWeight="Normal" Height="28" Text="{DynamicResource PositionDetailsComp_xaml_TextBlock_1}" TextWrapping="Wrap" Width="113" />
+            <Label Content="" x:Name="lblPosition" Canvas.Left="156" Canvas.Top="-5" FontFamily="Segoe UI" FontSize="16" Height="33" Width="183" FontWeight="Bold" />
+            <Rectangle Canvas.Left="10" Canvas.Top="264" Height="197" Name="rectangle1" Stroke="Black" Width="451" />
+            <TextBlock Canvas.Left="16" Canvas.Top="275" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" FontWeight="Normal" Height="32" Text="{DynamicResource EnrollmentWnd_xaml_BaseDenom}" TextWrapping="Wrap" Width="113" />
+            <TextBox IsReadOnly ="True" Text="{DynamicResource EnrollmentWnd_xaml_GMUNo}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Canvas.Left="188" Canvas.Top="274" FontFamily="Segoe UI" FontSize="14"  FontWeight="Bold" Foreground="{DynamicResource TextBoxForeground}" Height="32" Name="txtBaseDenom" Style="{DynamicResource TextBoxStyle1}" TextWrapping="Wrap" Width="261" PreviewMouseUp="txtBaseDenom_PreviewMouseUp" />
+            <TextBlock Name="lblCoinType" Canvas.Left="16" Canvas.Top="416" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" FontWeight="Normal" Height="37.934" Text="{DynamicResource EnrollmentWnd_xaml_CreditValue}" TextWrapping="Wrap" Width="164" />
+            <TextBox Text="0" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Canvas.Left="193" Canvas.Top="413" FontFamily="Segoe UI" FontSize="14"  FontWeight="Bold" Foreground="{DynamicResource TextBoxForeground}" Height="33" Name="txtCreditValue" Style="{DynamicResource TextBoxStyle1}" TextWrapping="Wrap" Width="234" PreviewMouseUp="txtCreditValue_PreviewMouseUp" TabIndex="3" TextAlignment="Right"/>
+            <ComboBox x:Uid="cmbCoinType" Height="33" Canvas.Left="189" Canvas.Top="413"   Name="cmbCoinType" FontSize="16"  Width="261" Style="{DynamicResource BMC_ComboBoxStyle}" VerticalAlignment="Top" />                          
+            <TextBlock Canvas.Left="16" Canvas.Top="323" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" FontWeight="Normal" Height="32" Text="{DynamicResource EnrollmentWnd_xaml_PercentagePayOut}" TextWrapping="Wrap" Width="114" />
+            <TextBox IsReadOnly ="True" Text="{DynamicResource EnrollmentWnd_xaml_GMUNo}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Canvas.Left="189" Canvas.Top="321" FontFamily="Segoe UI" FontSize="14"  FontWeight="Bold" Foreground="{DynamicResource TextBoxForeground}" Height="32" Name="txtPercentagePayout" Style="{DynamicResource TextBoxStyle1}" TextWrapping="Wrap" Width="260" />
+            <TextBlock Canvas.Left="467" Canvas.Top="430" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" FontWeight="Normal" Height="19" Text="{DynamicResource EnrollmentWnd_xaml_Jackpot}" TextWrapping="Wrap" Width="109" Visibility="Hidden" />
+            <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Canvas.Left="543" Canvas.Top="425" FontFamily="Segoe UI" FontSize="14"  FontWeight="Bold" Foreground="{DynamicResource TextBoxForeground}" Height="32" Name="txtJackpot" Style="{DynamicResource TextBoxStyle1}" TextWrapping="Wrap" Width="260" PreviewMouseUp="txtJackpot_PreviewMouseUp" TabIndex="4" Visibility="Hidden" />
+            <TextBlock Canvas.Left="16" Canvas.Top="370" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" FontWeight="Normal" Height="40" Text="{DynamicResource EnrollmentWnd_xaml_MaxBet}" TextWrapping="Wrap" Width="164" /><TextBox IsReadOnly="True" Text="{DynamicResource EnrollmentWnd_xaml_GMUNo}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Canvas.Left="188" Canvas.Top="367" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" Foreground="{DynamicResource TextBoxForeground}" Height="32" Name="txtMaxBet" Style="{DynamicResource TextBoxStyle1}" TextWrapping="Wrap" Width="261" />
+            <Button Name="Enroll" Margin="550,400,0,0" Style="{DynamicResource BMC_Button}" VerticalAlignment="Top" Height="55" Content="{DynamicResource EnrollmentWnd_xaml_EnrollMachine}" HorizontalAlignment="Left" Width="100" Foreground="#FFFFFF" Click="Enroll_Click" Canvas.Left="-54" Canvas.Top="-1.066" FlowDirection="LeftToRight" />
+        </Canvas>
+    </Grid>
+</UserControl>
+   

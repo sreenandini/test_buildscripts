@@ -1,0 +1,203 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.BillsTicketCounter"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="BillsTicketCounter" Height="768" Width="1024"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:CashDeskOperator="clr-namespace:BMC.CashDeskOperator;assembly=BMC.CashDeskOperator"
+    xmlns:BallyMultiConnect="clr-namespace:BMC.Presentation"     
+        xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False" 
+         AllowsTransparency="True" WindowStyle="None" Background="{DynamicResource MainScreenBG}" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Helper_classes:DecimalValueConverter x:Uid="source:DecimalValueConverter" x:Key="DecimalValueConverter" />
+        <Helper_classes:ReasonConverter x:Uid="source:ReasonConverter" x:Key="ReasonConverter" />
+        <DataTemplate x:Key="DTBill">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2"  BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding Bill}" HorizontalAlignment="Right" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTCount">
+            <Grid MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding Count}" HorizontalAlignment="Right" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTValue">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" Text="{Binding Value}" HorizontalAlignment="Right" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DTVoucher">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding strBarcode}" Margin="0,0,0,0"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTStatus">
+            <Grid MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding Status}"  Margin="0,0,0,0"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTAmount">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" TextAlignment="Right" Text="{Binding iAmount,Converter={StaticResource DecimalValueConverter}}" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTReason">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" Text="{Binding Reasonid,Converter={StaticResource ReasonConverter}}" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Grid>
+        <TextBlock x:Uid="txtHeader" x:Name="txtHeader" Margin="18,14,350,0" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" 
+                   Text="{DynamicResource BillsTicketCounter_xaml_txtHeader}" Foreground="#FFFFFFFF" />
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Border x:Uid="Border_3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="5,5,5,5" Background="#19CDDD98">
+        </Border>
+        
+        
+        <StackPanel Orientation="Horizontal">        
+        <GroupBox x:Uid="GroupBox_1" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="494" Width="240" Margin="20,150,0,0" VerticalAlignment="Top" HorizontalAlignment="left" >
+            <GroupBox.Header x:Uid="GroupBox_1_Header" >
+                <GroupItem FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="38.867" Width="Auto">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Margin="5,-3,0,0"  Content="{DynamicResource BillsTicketCounter_xaml_Bills_Counted}" Width="180"></Label>
+                    <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="30"  Name="btnClearBills"   Margin="10,-5,0,0" Click="btnClearBills_Click">
+                         <Button.Background>
+                             <ImageBrush ImageSource="/Images/edit-clear-md.png"></ImageBrush>
+                         </Button.Background> 
+                     </Button> 
+                        </StackPanel>
+                </GroupItem>
+            </GroupBox.Header>
+                <Grid>
+                    <ListView x:Uid="lvBills" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" 
+                  x:Name="lvBills" Style="{DynamicResource Bmc_ListViewStyleFixedLock}"
+                  ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}"   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" Height="340" Width="215" SelectionMode="Single" 
+                  BorderBrush="Black"  Margin="0,10,0,10" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <ListView.View>
+                            <GridView x:Uid="GridView_Bills" >
+                                <GridViewColumn x:Uid="GVC_Bill" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Bill}" Width="100" CellTemplate="{StaticResource DTBill}"/>
+                                <!--<GridViewColumn x:Uid="GVC_Count" Header="Count" Width="0" CellTemplate="{StaticResource DTCount}"/>-->
+                                <GridViewColumn x:Uid="GVC_Value" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Value}" Width="100" CellTemplate="{StaticResource DTValue}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBlock x:Name="lblTotalBills" Text="{DynamicResource BillsTicketCounter_xaml_lblTotal}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Bottom"  HorizontalAlignment="Left" Margin="10,0,0,60"></TextBlock>
+                    <TextBox x:Uid="txtTotalBills" IsEnabled="False" TextAlignment="Right" VerticalContentAlignment="Center" Height="33" Width="140" Margin="0,0,10,55" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txtTotalBills" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" />
+                </Grid>
+            </GroupBox>
+
+        <GroupBox x:Uid="GroupBox_2" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="494" Width="270" Margin="30,150,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <GroupBox.Header x:Uid="GroupBox_2_Header" >
+                <GroupItem  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="38.867" Width="Auto">
+                   <StackPanel Orientation="Horizontal">
+                       <Label Margin="5,0,0,0"  Content="{DynamicResource BillsTicketCounter_xaml_Valid_Vouchers_Counted}" Width="210"></Label>
+                     <Button  Height="30" Width="30" Name="btnClearVouchers"  Margin="10,-3,0,0" Click="btnClearVouchers_Click">
+                        <Button.Background>
+                             <ImageBrush ImageSource="/Images/edit-clear-md.png"></ImageBrush>
+                         </Button.Background> 
+                    </Button>
+                   </StackPanel>
+                </GroupItem>
+            </GroupBox.Header>
+                <Grid>
+                    <ListView x:Uid="lvTickets" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" 
+                   x:Name="lvTickets" Style="{DynamicResource Bmc_ListViewStyleFixedLock}"
+                  ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}"   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" Height="340" Width="245" SelectionMode="Single"
+                  BorderBrush="Black" VirtualizingStackPanel.IsVirtualizing="True" Margin="0,10,0,10" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <ListView.View>
+                            <GridView x:Uid="GridView_Tickets" x:Name="GridView_Tickets" >
+                                <GridViewColumn x:Uid="GVC_Voucher" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Voucher}" Width="150" CellTemplate="{StaticResource DTVoucher}"/>
+                                <!--<GridViewColumn x:Uid="GVC_Status" Header="Status" Width="0" CellTemplate="{StaticResource DTStatus}"/>-->
+                                <GridViewColumn x:Uid="GVC_Amount" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Amount}" Width="80" CellTemplate="{StaticResource DTAmount}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBlock x:Name="lblQuantity" Text="{DynamicResource BillsTicketCounter_xaml_lblQuantity}"   FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Bottom"  HorizontalAlignment="Left" Margin="10,0,0,60"></TextBlock>
+                    <TextBox x:Uid="txtQuantity" IsEnabled="False" TextAlignment="Right" VerticalContentAlignment="Center" Height="33" Width="90" Margin="0,0,10,55" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txtQuantity" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" />
+                    <TextBlock x:Name="lblTotal" Text="{DynamicResource BillsTicketCounter_xaml_lblTotal}"  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Bottom"  HorizontalAlignment="Left" Margin="10,0,0,20"></TextBlock>
+                    <TextBox x:Uid="txtTotal" IsEnabled="False" TextAlignment="Right" VerticalContentAlignment="Center" Height="33" Width="140" Margin="0,0,10,15" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txtTotal" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" />
+                </Grid>                
+
+            </GroupBox>
+
+        <GroupBox x:Uid="GroupBox_3" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="494" Width="410" Margin="30,150,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" >
+            <GroupBox.Header x:Uid="GroupBox_3_Header" >
+                <GroupItem  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="32.867" Width="Auto">
+                    <TextBlock Text="{DynamicResource BillsTicketCounter_xaml_InValid_Vouchers_Counted}" Margin="5,3,0,0" ></TextBlock>
+                </GroupItem>
+            </GroupBox.Header>
+                <Grid>
+                    <ListView x:Uid="lvInValidTickets" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" 
+                   x:Name="lvInValidTickets" Style="{DynamicResource Bmc_ListViewStyleFixedLock}"
+                  ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}"   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" Height="340" Width="385" SelectionMode="Single"
+                  BorderBrush="Black" VirtualizingStackPanel.IsVirtualizing="True"  Margin="0,10,0,10" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <ListView.View>
+                            <GridView x:Uid="GVInValidTickets" x:Name="GVInValidTickets" >
+                                <GridViewColumn x:Uid="GVC_Voucher" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Voucher}" Width="150" CellTemplate="{StaticResource DTVoucher}"/>
+                                <!--<GridViewColumn x:Uid="GVC_Status" Header="Status" Width="0" CellTemplate="{StaticResource DTStatus}"/>-->
+                                <GridViewColumn x:Uid="GVC_Reject" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Reject}" Width="220" CellTemplate="{StaticResource DTReason}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBlock x:Name="lblQuantityIn" Text="{DynamicResource BillsTicketCounter_xaml_lblQuantity}"  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Bottom"  HorizontalAlignment="Left" Margin="10,0,0,60"></TextBlock>
+                    <TextBox x:Uid="txtQuantityIn" x:Name="txtQuantityIn" IsEnabled="False" TextAlignment="Right" VerticalContentAlignment="Center" Height="33" Width="90" Margin="0,0,10,55" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16"  Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" />
+                    <Button  x:Uid="btnCashEntry"  HorizontalAlignment="Left" Content="{DynamicResource CDeclaration_xaml_btnCashEntry}"  Margin="165,0,0,-3" Style="{DynamicResource BMC_Button}" Name="btnCashEntry" Height="55" VerticalAlignment="Bottom" Width="100" Click="btnCashEntry_Click" />
+                    <Button Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" Height="55" Width="100" Content="{DynamicResource BillsTicketCounter_xaml_btnExceptionTickets}" Name="btnExceptionTickets" Click="btnExceptionTickets_Click" Margin="0,0,8,-3" HorizontalAlignment="Right"></Button> 
+                </Grid>
+            </GroupBox>
+            
+        </StackPanel>
+
+
+        <StackPanel Background="{DynamicResource LoginInputBG}" Orientation="Horizontal" VerticalAlignment="Top" Width="Auto" Height="60" Margin="20,70,20,0">
+            <TextBlock x:Name="lblPosition" Text="{DynamicResource BillsTicketCounter_xaml_lblPosition}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="20,0,0,0"></TextBlock>
+            <TextBox x:Uid="txtPosition" Height="33" Width="90" HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="20,0,0,0" TextWrapping="NoWrap" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txtPosition" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True" VerticalAlignment="Center"/>
+            <TextBlock x:Name="lblAsset" Text="{DynamicResource BillsTicketCounter_xaml_lblAsset}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="160,0,0,0"></TextBlock>
+            <TextBox x:Uid="txtAsset" Height="33" Width="90" VerticalContentAlignment="Center" Margin="20,0,0,0" TextWrapping="NoWrap"  HorizontalAlignment="Center" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txtAsset" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True"/>
+            <TextBlock x:Name="lblGame" Text="{DynamicResource BillsTicketCounter_xaml_lblGame}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="130,0,0,0"></TextBlock>
+            <TextBox x:Uid="txtGame" Height="33" Width="200" Margin="20,0,0,0" TextWrapping="NoWrap" Background="{DynamicResource TextBoxGradient}" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txtGame" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True"/>
+
+        </StackPanel>
+       
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="20,0,0,10">
+            <Button Style="{DynamicResource BMC_Button}" VerticalAlignment="Center" Height="55" Content="{DynamicResource BillsTicketCounter_xaml_btnStart}" Name="btnStart" Margin="0,0,0,0" Click="btnStart_Click"></Button>                        
+            <Button Style="{DynamicResource BMC_Button}" VerticalAlignment="Center" Height="55" Content="{DynamicResource BillsTicketCounter_xaml_btnClearAll}" Name="btnClearAll" Click="btnClearAll_Click" Margin="20,0,0,0"></Button>                        
+            <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" VerticalAlignment="Center" Height="30" Width="55" Content="&lt;&lt;" Name="btnFirst" Margin="60,0,0,0" Click="btnFirst_Click" ></Button>            
+            <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" VerticalAlignment="Center" Height="30" Width="55" Content="&lt;" Name="btnPrevious" Margin="20,0,0,0" Click="btnPrevious_Click" ></Button>            
+            <TextBox x:Uid="txt_CurrentCollection" IsEnabled="False" TextAlignment="Center"  VerticalContentAlignment="Center" Height="30" Width="94" Margin="20,0,0,10" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txt_CurrentCollection" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" />
+            
+            <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" VerticalAlignment="Center" Height="30" Width="55" Content="&gt;" Name="btnMoveNext" Margin="20,0,0,0" Click="btnMoveNext_Click"></Button>            
+            <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black"  VerticalAlignment="Center" Height="30" Width="55" Content="&gt;&gt;" Name="btnLast" Margin="20,0,0,0" Click="btnLast_Click"></Button>            
+            <Button Style="{DynamicResource BMC_Button}" VerticalAlignment="Center" Height="55" Content="{DynamicResource BillsTicketCounter_xaml_btnApply}" Name="btnApply" Margin="60,0,0,0" Click="btnApply_Click"></Button>            
+            <Button Style="{DynamicResource BMC_Button}" VerticalAlignment="Center" Height="55" Content="{DynamicResource BillsTicketCounter_xaml_btnCancel}" Name="btnCancel"  Margin="20,0,0,0" Click="btnCancel_Click"></Button>
+        </StackPanel>
+
+        
+        <StackPanel Background="{DynamicResource LoginInputBG}"  Orientation="Horizontal" VerticalAlignment="Top" Height="24" Margin="20,645,20,0">
+             <TextBlock x:Name="lblcounterWarning" Foreground="Red"  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="20,0,0,0"></TextBlock>
+        </StackPanel>
+
+        <Button x:Uid="btnExit" Width="54.728" Height="58.725" Content="{DynamicResource Login_xaml_btnExit}" Style="{DynamicResource BMC_App_Exit}" x:Name="btnExit" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,5,0" Click="btnExit_Click" />
+    </Grid>
+</Window>

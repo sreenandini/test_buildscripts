@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Uid="Window" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+x:Class="BMC.Presentation.ClientMessage" 
+x:Name="Window" Title="MultiConnect" 
+Height="400" Width="500" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" 
+WindowStartupLocation="CenterScreen" Icon="BMC_Icon_16x16.png">
+    <Canvas x:Uid="Root" x:Name="Root" Background="{DynamicResource LoginBGBrush}">
+        <Canvas.RenderTransform>
+            <TransformGroup x:Uid="TransformGroup_1">
+                <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+                <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+                <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+                <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+            </TransformGroup>
+        </Canvas.RenderTransform>       
+        <!--Buttons panel-->
+        <Button x:Uid="btnOK" x:Name="btnOK" Height="40" Width="110" Content="{DynamicResource SiteSetup_xaml_btnOK}" Style="{DynamicResource ButtonStyle1}" FontSize="14" FontFamily="Segoe UI" FontWeight="Bold" Cursor="Hand" Background="{DynamicResource ListBorder}" Click="btnOK_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Left="171" Canvas.Top="249" />
+        <!--text contents-->
+        <TextBlock x:Uid="TextBlock" TextAlignment="Left" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,15,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource SiteSetup_xaml_textBlockdisplay}" Foreground="#FFFFFFFF" Height="65" Canvas.Left="53" Canvas.Top="79" Width="362">
+      <TextBlock.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_2">
+          <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+          <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+          <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+          <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+        </TransformGroup>
+      </TextBlock.RenderTransform>
+        </TextBlock>
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " Width="345" Height="7" Canvas.Left="67" Canvas.Top="181">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+    </Canvas>
+</Window>

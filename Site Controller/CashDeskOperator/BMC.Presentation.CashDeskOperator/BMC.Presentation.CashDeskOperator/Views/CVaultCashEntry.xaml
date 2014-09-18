@@ -1,0 +1,397 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   
+    xmlns:CashDeskOperator="clr-namespace:BMC.CashDeskOperator;assembly=BMC.CashDeskOperator" 
+    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" x:Class="BMC.Presentation.POS.Views.CVaultCashEntry"
+    xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+    Title="CVaultCashEntry"
+    WindowStartupLocation="CenterScreen" ShowInTaskbar="False" 
+    Height="768" Width="1024"  
+    AllowsTransparency="True" 
+    WindowStyle="None" Background="{DynamicResource MainScreenBG}" 
+   
+    Loaded="Window_Loaded">
+    <Window.Resources>
+        <!--<Helper_classes:DecimalValueConverter x:Uid="source:DecimalValueConverter" x:Key="DecimalValueConverter" />
+        <Helper_classes:ReasonConverter x:Uid="source:ReasonConverter" x:Key="ReasonConverter" /> -->
+
+        <BooleanToVisibilityConverter x:Key="b2v" />
+        <DataTemplate x:Key="DTDropID">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2"  BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding Drop_ID}" HorizontalAlignment="Right" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTCreatedDate">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border  BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock Text="{Binding CreatedDate}" HorizontalAlignment="Center"  Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="GlassButton" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="ButtonBorder" 
+                  CornerRadius="5,5,5,5" 
+                  BorderThickness="2,2,2,2" 
+                  Background="#AA000000"  
+                  BorderBrush="#99FFFFFF"
+                  RenderTransformOrigin="0.5,0.5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="1.7*"/>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" CornerRadius="6,6,0,0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <GradientStop Color="#08FFFFFF" Offset="0"/>
+                                            <GradientStop Color="#88FFFFFF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <ContentPresenter x:Name="ButtonContentPresenter"
+                                VerticalAlignment="Center"  
+                                Grid.RowSpan="2" 
+                                HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform" TargetName="ButtonBorder">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Black" TargetName="ButtonBorder">
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#999999" TargetName="ButtonBorder">
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="myTextBlock">
+            <Setter Property="Margin" Value="5,0,0,0" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground"  Value="Red" />
+        </Style>
+
+        <!--<Helper_classes:GridCellBackgroundColor x:Uid="Helper_classes:GridCellBackgroundColor" x:Key="GridCellBackgroundColor" />-->
+    </Window.Resources>
+
+    <Grid VerticalAlignment="Top"  x:Name="grdMain" Height="760" Width="1001">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="20"/>
+            <RowDefinition Height="71" MinHeight="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- HEADER-->
+        <Grid  Grid.Row="0" Margin="0,0,0,0" x:Name="grdHeader">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Uid="txtHeader" x:Name="txtHeader" Margin="9,5,11,16.727" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource CVaultCashEntry_xaml_txtHeader}" Foreground="#FFFFFFFF" />
+            <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+                <Path.Fill>
+                    <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                        <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                        <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+
+            <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" x:Uid="btnExit" Width="54.728" Height="58.725" Content="{DynamicResource Login_xaml_btnExit}" Style="{DynamicResource BMC_App_Exit}" x:Name="btnExit" VerticalAlignment="Top"  Margin="0,5,5,0" Click="btnExit_Click"  />
+        </Grid>
+        <!--Asset Details-->
+        <Grid Grid.Row="1"  Background="{DynamicResource LoginInputBG}"  Margin="0,0,0,0" x:Name="grdAssetDetails" Height="65" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".75*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width="*"/>
+              
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="lblVault"  Grid.Column="0"  Text="{DynamicResource CVaultCashEntry_xaml_lbl_VaultName}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Stretch"  ClipToBounds="False" TextAlignment="Center" MinWidth="50" MaxHeight="50" VerticalAlignment="Center"/>
+            <TextBlock x:Name="lblManf"  Grid.Column="2" Text="{DynamicResource CVaultCashEntry_xaml_lbl_Manufacturer}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Stretch" ClipToBounds="False" TextAlignment="Center" MinWidth="50" MaxHeight="50" VerticalAlignment="Center"/>
+            <TextBlock x:Name="lblTypePrefix"  Grid.Column="4"  Text="{DynamicResource CVaultCashEntry_xaml_lbl_TypePrefix}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Stretch"  ClipToBounds="False" TextAlignment="Center" MinWidth="50" MaxHeight="50" VerticalAlignment="Center"/>
+
+            <TextBox FontSize="18"  x:Name="txtVault"  Text="{Binding VaultName}"  Grid.Column="1" x:Uid="txtVault" VerticalContentAlignment="Center"  TextWrapping="NoWrap" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True"  ClipToBounds="False"  VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Left" />
+            <TextBox FontSize="18"  x:Name="txtManufacturer"  Text="{Binding Manufacturer}"  Grid.Column="3" x:Uid="txtManufacturer" VerticalContentAlignment="Center"  TextWrapping="NoWrap" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True"  ClipToBounds="False"  VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Left" />
+            <TextBox FontSize="18"  x:Name="txtTypePrefix"  Text="{Binding TypePrefix}"  Width="126" Grid.Column="5" x:Uid="txtTypePrefix" VerticalContentAlignment="Center"  TextWrapping="NoWrap" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True"  ClipToBounds="False"  VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Margin="0,18,0,17" />
+
+        </Grid>
+        <Grid Grid.Row="2" x:Name="grdCashEntry" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350*"/>
+
+                <ColumnDefinition Width="698*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="Auto" MinHeight="590"/>
+
+            </Grid.RowDefinitions>
+            <!--DATA LISTS-->
+            <StackPanel Grid.Row="0" Height="590">
+                <GroupBox x:Uid="GroupBox_1" x:Name="gp_dropdetails" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="325" VerticalAlignment="Top" Margin="0,0,5,0">
+                    <GroupBox.Header >
+                        <GroupItem FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="38.867" Width="Auto">
+                            <Grid>
+                                <Label Margin="5,-3,0,0"  Content="{DynamicResource CVaultCashEntry_xaml_gp_dropdetails}" Width="Auto" />
+                                <Button Height="28" x:Name="btn_refresh" Style="{StaticResource GlassButton}" Content="Refresh"  HorizontalAlignment="Right" Width="98" Click="btn_refresh_Click" />
+                            </Grid>
+                        </GroupItem>
+                    </GroupBox.Header>
+                    <Grid>
+                        <ListView x:Uid="lv_dropdetails" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" 
+    					x:Name="lv_dropdetails" Style="{DynamicResource Bmc_ListViewStyleFixedLock}"
+    					ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}"   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+    					ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+    					BorderBrush="Black" VirtualizingStackPanel.IsVirtualizing="True"  Margin="0,10,0,1" SelectionChanged="lv_dropdetails_SelectionChanged">
+                            <ListView.View>
+                                <GridView x:Uid="gview_dropdetails" x:Name="gview_dropdetails" >
+
+                                    <GridViewColumn x:Uid="gvc_DropID" Header="{DynamicResource CVaultCashEntry_xaml_gvc_DropID}" Width="125" CellTemplate="{StaticResource DTDropID}"/>
+                                    <!--<GridViewColumn x:Uid="GVC_Status" Header="Status" Width="0" CellTemplate="{StaticResource DTStatus}"/>-->
+                                    <GridViewColumn x:Uid="gvc_CreatedDate" Header="{DynamicResource CVaultCashEntry_xaml_gvc_CreatedDate}" Width="180" CellTemplate="{StaticResource DTCreatedDate}"/>
+                                    <!--CanUpdate-->
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+
+                </GroupBox>
+
+                <GroupBox Grid.Column="0" x:Name="gp_vaultdetails" Margin="0,3,5,5" Grid.Row="1" Grid.RowSpan="2" x:Uid="GroupBox_2" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="255" VerticalAlignment="Top" >
+                    <GroupBox.Header >
+                        <GroupItem  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="38.867" Width="Auto">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Margin="5,0,0,0"  Content="{DynamicResource CVaultCashEntry_xaml_gp_vaultdetails}" Width="210"/>
+
+                            </StackPanel>
+                        </GroupItem>
+                    </GroupBox.Header>
+                    <Grid VerticalAlignment="Top" ShowGridLines="False" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="60*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock  Grid.Row="0" x:Name="lbl_FillAmount" Grid.Column="0" Margin="5,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Center">
+                        <Run Text="{DynamicResource CVaultCashEntry_xaml_lbl_FillAmount}"></Run>
+                        <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                        </TextBlock>
+                        <TextBlock  Grid.Row="1"  x:Name="lbl_BleedAmount" Grid.Column="0"  Margin="5,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Center">
+                        <Run Text="{DynamicResource CVaultCashEntry_xaml_lbl_BleedAmount}"></Run>
+                        <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                        </TextBlock>
+                        <TextBlock  Grid.Row="2" x:Name="lbl_AdjustAmount"  Grid.Column="0" Margin="5,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Center">
+                             <Run Text="{DynamicResource CVaultCashEntry_xaml_lbl_AdjustAmount}"></Run>
+                        <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                        </TextBlock>
+                        <TextBlock  Grid.Row="3"  x:Name="lbl_MeterBal" Grid.Column="0"     Margin="5,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Center">
+                            <Run Text="{DynamicResource CVaultDeclaration_xaml_BMCTotal}"></Run>
+                        <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                        </TextBlock>
+                        <TextBlock  Grid.Row="4"  x:Name="lbl_VaultBal" Grid.Column="0"     Margin="5,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Center">
+                        <Run Text="{DynamicResource CVaultDeclaration_xaml_VaultTotal}"></Run>
+                        <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                        </TextBlock>
+                        <TextBlock  Grid.Row="5"  x:Name="lbl_DecBal"   Grid.Column="0"     Margin="5,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Center">
+                            <Run Text="{DynamicResource CVaultCashEntry_xaml_lbl_DecBal}"></Run>
+                        <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                        </TextBlock>
+                        <TextBox Grid.Row="0"  Grid.Column="1" x:Name="txt_FillAmount"  Text="{Binding FillAmount}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="5,10,0,0" Style="{DynamicResource TextBoxStyle1}" 
+                             TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Center"  />
+                        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txt_BleedAmount" Text="{Binding BleedAmount}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="5,10,0,0" Style="{DynamicResource TextBoxStyle1}" 
+                             TextAlignment="Right" TextWrapping="NoWrap" Height="25"  VerticalAlignment="Center"  />
+                        <TextBox Grid.Row="2" Grid.Column="1" x:Name="txt_AdjustAmount" Text="{Binding AdjustmentAmount}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="5,10,0,0" Style="{DynamicResource TextBoxStyle1}" 
+                             TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Center"  />
+                        <TextBox Grid.Row="3" Grid.Column="1" x:Name="txt_MeterBal" Text="{Binding Meter_Balance}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="5,10,0,0" Style="{DynamicResource TextBoxStyle1}" 
+                             TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Center"  />
+                        <TextBox Grid.Row="4" Grid.Column="1" x:Name="txt_VaultBal"  Text="{Binding Vault_Balance}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="5,10,0,0" Style="{DynamicResource TextBoxStyle1}" 
+                             TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Center"  />
+                        <TextBox Grid.Row="5" Grid.Column="1"  x:Name="txt_DecBal"  Text="{Binding Declared_Balance,StringFormat=G29}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="5,10,0,0" Style="{DynamicResource TextBoxStyle1}" 
+                             TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Center"   />
+
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+            <GroupBox Grid.Column="1" x:Name="gp_declaration" Grid.Row="0" x:Uid="GroupBox_3" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="512" VerticalAlignment="Top" HorizontalAlignment="Right" Width="667" >
+                <GroupBox.Header >
+                    <GroupItem  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="32.867" Width="Auto">
+                        <Grid>                       
+                            <TextBlock  HorizontalAlignment="Left" Text="{DynamicResource CVaultCashEntry_xaml_gp_declaration}" Margin="5,1,0,0" />
+                            <Button Height="28" x:Name="btn_ClearBils" Style="{StaticResource GlassButton}"   HorizontalAlignment="Right" Click="btn_ClearBils_Click" Content="{DynamicResource CashEntry_xaml_btnClear}" Width="61" RenderTransformOrigin="0.533,0.5"/>
+                        </Grid>
+                    </GroupItem>
+                </GroupBox.Header>
+                <Grid>
+                    <ListView x:Uid="lv_CassetteDetails" ScrollViewer.HorizontalScrollBarVisibility="Visible" x:Name="lv_CassetteDetails"  Margin="2" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" SelectionMode="Single" 
+                          Style="{DynamicResource Bmc_ListViewStyleFixedLock}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" >
+                        <ListView.View>
+                            <GridView x:Uid="g_cassettedetails" x:Name="g_cassettedetails">
+                                <GridViewColumn x:Name="ChkBox" x:Uid="ChkBox" Header="" Width="50" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate x:Uid="checkBoxTemplate">
+                                            <Grid x:Uid="Grid_1" >
+                                                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <CheckBox Name="chkCassette" IsChecked="{Binding Path=IsChecked}" VerticalAlignment="Stretch"  Visibility ="{Binding EnableControls,Converter={StaticResource b2v}}" HorizontalAlignment="Stretch"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn  Header="{DynamicResource CEnrollmentVault_xaml_CassetteName}" Width="Auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <TextBlock x:Uid="TextBlock_2" Text="{Binding Cassette_Name}" Foreground="{Binding FontColor}" FontWeight="{Binding CustomFontWeight}" TextAlignment="Center" Margin="0,0,0,0"   />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="79">
+                                    <GridViewColumn.Header>
+                                        <TextBlock>
+                                         <Run Text="{DynamicResource CEnrollmentVault_xaml_CassetteDenom}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                        </TextBlock>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <TextBlock x:Uid="txt_Denom"  x:Name="txt_Denom" Text="{Binding Denom}" Visibility ="{Binding EnableControls,Converter={StaticResource b2v}}" TextAlignment="Center" Margin="0,0,0,0" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn  Header="{DynamicResource CCVaultFillCassette_xaml_Quantity}" Width="115">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Border x:Uid="Border_2"   BorderBrush="Black"  Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <TextBox x:Uid="TextBlock_2"  Text="{Binding Quantity}" MaxLength="8"  PreviewMouseUp="txt_PreviewMouseUp"  IsEnabled="{Binding  IsBillCounterQuantityEditable}" TextChanged="TextBox_TextChanged" PreviewKeyDown="TextBox_PreviewKeyDown"  Tag="{Binding Cassette_ID}" Visibility="{Binding EnableControls,Converter={StaticResource b2v}}" TextAlignment="Right" Margin="0,0,0,0"   />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn   Width="150">
+                                    <GridViewColumn.Header>
+                                        <TextBlock>
+                                         <Run Text="{DynamicResource CCVaultFillCassette_xaml_Amount}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                        </TextBlock>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Border x:Uid="Border_2" BorderBrush="Black"  Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <TextBox x:Uid="txtAmount" Name="txtAmount" Text="{Binding DeclaredBalance, StringFormat=G29}" Foreground="{Binding FontColor}" FontWeight="{Binding CustomFontWeight}" KeyDown="txtAmount_KeyDown" PreviewMouseUp="txtAmount_PreviewMouseUp" TextChanged="txtAmount_TextChanged" IsEnabled="{Binding IsBillCounterAmountEditable}"  Tag="{Binding Cassette_ID}" TextAlignment="Right" Margin="0,0,0,0" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn  Width="Auto">
+                                    <GridViewColumn.Header>
+                                        <TextBlock>
+                                         <Run Text="{DynamicResource CVaultCashEntry_xaml_lbl_Drop}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                        </TextBlock>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <TextBlock x:Uid="TextBlock_2" Text="{Binding VaultBalance}" Foreground="{Binding FontColor}" FontWeight="{Binding CustomFontWeight}" TextAlignment="Right" Margin="0,0,0,0"   />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn  Width="50">                                    
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>                                                
+                                                <TextBlock x:Uid="TextBlock_2" Text="   " />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </GroupBox>
+            <!--Total Values -->
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom"   Background="{DynamicResource LoginInputBG}"  Grid.Row="0" Grid.Column="1"  Height="70"  Margin="0,0,0,3" Width="667" >
+
+                <Button  Style="{DynamicResource BMC_Button}" Content="{DynamicResource BillsTicketCounter_xaml_btnStart}" x:Name="btnStart" Click="btnStart_Click" Tag="{Binding Drop_ID}" HorizontalAlignment="Left" Margin="10,8,0,0" Width="109" Grid.ColumnSpan="2" />
+
+                <Button Style="{DynamicResource BMC_Button}" Content="{DynamicResource BillsTicketCounter_xaml_btnApply}" x:Name="btnApply" Click="btnApply_Click" Margin="0,10,126,-2" HorizontalAlignment="Right" Visibility ="{Binding ToDeclared,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource b2v}}"/>
+                <Button Style="{DynamicResource BMC_Button}" Content="{DynamicResource BillsTicketCounter_xaml_btnCancel}" x:Name="btn_Close"  Margin="0,10,0,6" Click="btn_Close_Click" HorizontalAlignment="Right" Width="109"  Height="54"/>
+            </Grid>
+        </Grid>
+        <!--Counter Controls-->
+        <Grid Grid.Column="0" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="169" />
+                <ColumnDefinition Width="81*" />
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="351*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.ColumnSpan="4" Background="{DynamicResource LoginInputBG}"  Orientation="Horizontal" VerticalAlignment="Top" Height="24" >
+                <TextBlock x:Name="lblcounterWarning" Foreground="Red"  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="20,0,0,0"/>
+            </StackPanel>
+
+
+
+
+        </Grid>
+    </Grid>
+</Window>

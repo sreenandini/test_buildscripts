@@ -1,0 +1,27 @@
+﻿<Window x:Class="BMC.Presentation.ScrollableMessageBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ScrollableMessageBox"  Background="{x:Null}" AllowsTransparency="True" 
+        WindowStyle="None" SizeToContent="WidthAndHeight"  
+        WindowStartupLocation="CenterScreen"
+        Height="388" Width="497" ShowInTaskbar="False">
+    <Grid x:Uid="bg" Margin="0,0,0,0" x:Name="bg"  Height="388" Width="497">
+        <Viewbox x:Uid="Viewbox_1"   Height="388" Width="497">
+            <Canvas x:Uid="Canvas_1" Width="400" Height="278.816">
+                <Path x:Uid="Stroke" Width="400" Height="278.877" Canvas.Left="0"  Canvas.Top="-12.969" Stretch="Fill" Fill="#FF162617" Data="F1 M 6.99902,0L 393.001,0C 396.867,0 400,3.13379 400,6.99902L 400,217.817C 400,221.683 396.867,224.816 393.001,224.816L 6.99902,224.816C 3.13354,224.816 0,221.683 0,217.817L 0,6.99902C 0,3.13379 3.13354,0 6.99902,0 Z " x:Name="Stroke" />
+                <Path x:Uid="RoundedEdges" Width="395.048" Height="260.034" Canvas.Left="2.47549" Canvas.Right="2" Canvas.Top="1.39063" Stretch="Fill" Fill="#FFDDDDDD" Data="F1 M 8.47549,1.39063L 391.524,1.39063C 394.837,1.39063 397.524,4.07715 397.524,7.39063L 397.524,217.425C 397.524,220.738 394.837,223.425 391.524,223.425L 8.47549,223.425C 5.16177,223.425 2.47549,220.738 2.47549,217.425L 2.47549,7.39063C 2.47549,4.07715 5.16177,1.39063 8.47549,1.39063 Z " x:Name="RoundedEdges" />
+                <Path x:Uid="BG" Width="392.626" Height="259.548" Canvas.Left="2.68655" Canvas.Top="2.6333" Stretch="Fill" Data="F1 M 9.68652,2.6333L 390.313,2.6333C 393.074,2.6333 395.313,4.87109 395.313,7.63281L 395.313,217.182C 395.313,219.943 393.074,222.181 390.313,222.181L 9.68652,222.181C 6.92514,222.181 4.68655,219.943 4.68655,217.182L 4.68655,7.63281C 4.68655,4.87109 6.92514,2.6333 9.68652,2.6333 Z " x:Name="BG" Fill="{DynamicResource MsgBoxBG_color}" />
+            </Canvas>
+        </Viewbox>
+        <Grid x:Uid="pnlHeader" Margin="2.128,14,1.537,0" VerticalAlignment="Top" Height="38.622" x:Name="pnlHeader">
+            <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M373.472,5122.66 L756.52,5122.66 C759.834,5122.66 762.52,5125.35 762.52,5128.66 L762.52,5155.28 C762.52,5158.6 763.847,5157.8247 763.30535,5161.28 L367.19063,5161.28 C367.03487,5158.7204 367.12818,5160.8766 367.12823,5155.2832 L367.472,5128.66 C367.472,5125.35 370.158,5122.66 373.472,5122.66 z" Fill="{DynamicResource MsgBoxTitleColor}" Margin="0.502,-5.378,0.167,4.622" />
+            <TextBlock x:Uid="tbHeader" Margin="10,10,20,5" TextWrapping="NoWrap" Foreground="#FFFFFFFF" FontFamily="Segoe UI" FontSize="16" x:Name="tbHeader" Text="{DynamicResource MsgBox_xaml_tbHeader}" Visibility="Visible"  />
+        </Grid>
+        <TextBlock Name="txt_MsgHeader" HorizontalAlignment="left" Margin="6,0,0,276"   VerticalAlignment="Bottom" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Text="Test1" TextWrapping="Wrap" Foreground="#FF59616B" RenderTransformOrigin="0.568,-7.271" Width="480" Height="57"/>
+        <TextBox  Name="txt_MsgBody" HorizontalAlignment="left" IsReadOnly="True" Margin="10,0,0,117"  VerticalAlignment="Bottom" FontFamily="Segoe UI" FontSize="14"  Text="Test1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"   Foreground="#FF59616B" RenderTransformOrigin="0.568,-7.271" Width="470" Height="151"/>
+        <StackPanel  Margin="0,287,20,40" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Style="{DynamicResource BMC_Button}" x:Name="btnOk" Content="Yes" Click="btnOk_Click" Width="100" />
+            <Button Style="{DynamicResource BMC_Button}" x:Name="btnCancel" Content="No" Width="100" Click="btnCancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

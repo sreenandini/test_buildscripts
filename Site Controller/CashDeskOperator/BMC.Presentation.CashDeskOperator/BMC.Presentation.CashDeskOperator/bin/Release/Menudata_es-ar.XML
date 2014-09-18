@@ -1,0 +1,40 @@
+﻿<Root>
+  <ImageList>
+    <Image File="../Images/Floor-View.png" Caption="Vista de piso" ValueName="Floor View" Visible ="Y"/>
+    <Image File="../Images/Tickets.png" Caption=" Las transaccio-&#xD; nes s de cajero" ValueName="Tickets" Visible ="Y"/>
+	  <Image File="../Images/Promotions.png" Caption="Promoción" ValueName="PromotionalTickets"  Visible ="N" />
+    <Image File="../Images/Shortpay.png" Caption="Shortpay" ValueName="ShortPay" Visible ="Y"/>
+    <Image File="../Images/Analysis.png" Caption="Informes" ValueName="Reports" Visible ="Y"/>
+    <Image File="../Images/CDM.png" Caption="Cajero&#xD;historia" ValueName="Cashier&#xD;Transactions" Visible ="Y"/>
+    <Image File="../Images/Hourly.png" Caption="Cada hora" ValueName="Hourly" Visible ="Y"/>
+    <Image File="../Images/MachineDropScreen.png" Caption="Máquina de&#xD;   la gota" ValueName="Machine Drop" Visible ="Y"/>
+    <Image File="../Images/Details.png" Caption="Detalles" ValueName="Details" Visible ="Y"/>
+    <Image File="../Images/VLT Status.png" Caption="Estado actual" ValueName="CurrentStatus" Visible ="Y"/>
+    <Image File="../Images/Void.png" Caption="Vacío" ValueName="Void" Visible ="N"/>
+    <Image File="../Images/PlayerClub.png" Caption="jugador del &#xD;      Club  " ValueName="Player Club" Visible ="Y"/>
+    <Image File="../Images/Current Calls.png" Caption="Actuales&#xD;llamadas" ValueName="Current Calls" Visible ="Y"/>
+    <Image File="../Images/Audit.png" Caption="Auditoría" ValueName="Audit" Visible ="Y"/>
+    <Image File="../Images/Custom Report.png" Caption="     Informes&#xD;personalizados" ValueName="CustomReports" Visible ="Y"/>
+    <Image File="../Images/Settings.png" Caption="Configuración" ValueName="Settings" Visible ="Y"/>
+    <Image File="../Images/AFT settings.png" Caption="       AFT&#xD;Configuración" ValueName= "AFTSettings" Visible ="N"/>
+    <Image File="../Images/Tickets.png" Caption="    bono de&#xD;configuración" ValueName="SyncTicket" Visible ="Y"/>
+    <Image File="../Images/AftTransaction.png" Caption="      Popa &#xD;Configuración" ValueName="SyncAft" Visible ="N"/>
+    <Image File="../Images/Money-Bag-256x256.png" Caption="dispensador &#xD; de monedas" ValueName="CoinDispenser" Visible ="Y"/>
+    <Image File="../Images/PlayerClub.png" Caption=" PT Mensaje &#xD;   Resender" ValueName="PlayerInformation" Visible ="N"/>
+    <Image File="../Images/card.png" Caption=" Employee card &#xD;   Configuration" ValueName="SyncEmpCard" Visible ="N"/>
+    <!--Modified for center alignment-->
+    <Image File="../Images/VaultTransaction.png" Caption="Bóveda" ValueName="FillVault" Visible ="Y"/>
+    <Image File="../Images/NGAEnrolment.png" Caption="NGA Enrol" ValueName="NGAEnrol" Visible ="Y"/>
+    <Image File="../Images/Tickets.png" Caption="Excepción &#xD;    Vales" ValueName="ExceptionVouchers" Visible ="Y"/>
+    <Image File="../Images/Tickets.png" Caption="Cruzar Ticketing &#xD;      Settings" ValueName="CrossTicketingSettings" Visible ="N"/>
+    <Image File="../Images/Updategmipin.png" Caption="Update GMU &#xD;        Bin" ValueName="Updategmupin" Visible ="N"/>
+    <Image File="../Images/siteinteg.png" Caption="Interrogatorio &#xD;    del sitio" ValueName="SiteInterrogation" Visible ="Y"/>
+    <Image File="../Images/Money-Bag-256x256.png" Caption="Leídos Basada &#xD;liquidación" ValueName="ReadBasedLiquidation" Visible ="N"/>
+	  <Image File="../Images/unlock.png" Caption="Descubrir" ValueName="Unlock" Visible ="Y"/>
+    <Image File="../Images/ExportDetail.png" Caption="   Detalles&#xD;Exportación" ValueName="ExportDetails" Visible ="Y"/>
+    <Image File="../Images/GMUUpdateforAsset.png" Caption="  Actualización de &#xD; GMU No Para &#xD; de Activos" ValueName="UpdateGMUNo" Visible ="Y"/>
+    <Image File="../Images/GameCapping.png" Caption="Game que capsula" ValueName="GameCapping" Visible ="N"/>
+    <!--<Image File="../Images/vault-icon.png" Caption="Fill Vault" ValueName="FillVault" Visible ="Y"/>-->
+    <Image File="../Images/AFT settings.png" Caption="Ping GMU" ValueName="GMUPing" Visible ="Y"/>
+  </ImageList>
+</Root>

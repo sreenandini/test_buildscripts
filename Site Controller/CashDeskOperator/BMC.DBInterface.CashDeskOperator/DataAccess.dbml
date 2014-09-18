@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Exchange" Class="DataAccessDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.2.100.11;Initial Catalog=Exchange;User ID=sa" SettingsObjectName="BMC.DBInterface.CashDeskOperator.Properties.Settings" SettingsPropertyName="ExchangeConnectionString4" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="ADDRESS1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PinCode" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="BankAccNo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.usp_InsertCustomerDetails" Method="usp_InsertCustomerDetails">
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="MiddleName" Parameter="middleName" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="ADDRESS1" Parameter="aDDRESS1" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ADDRESS2" Parameter="aDDRESS2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ADDRESS3" Parameter="aDDRESS3" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PinCode" Parameter="pinCode" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="BankAccNo" Parameter="bankAccNo" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.rsp_SearchCustomerDetails" Method="rsp_SearchCustomerDetails">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="PinCode" Parameter="pinCode" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="BankAccNo" Parameter="bankAccNo" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="rsp_SearchCustomerDetailsResult">
+      <Column Name="CustomerID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="ADDRESS1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PinCode" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="BankAccNo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

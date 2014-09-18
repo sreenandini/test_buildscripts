@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary x:Uid="ResourceDictionary_1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Royale" xmlns:Microsoft_Windows_Themes1="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:Custom1="http://schemas.AvalonControls/AvalonControlsLibrary/Controls"  xmlns:toolkitPrimitives="clr-namespace:Microsoft.Windows.Controls.Primitives;assembly=WPFToolkit" xmlns:local="clr-namespace:BMC.Presentation.POS.Helper_classes">
+  <local:TimeFormat x:Key="TimeFormatConverter" />
+  <Style x:Uid="Style_1" x:Key="BalloonStyle" TargetType="{x:Type Label}">
+    <Setter x:Uid="Setter_1" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_2" Property="Background" Value="Transparent" />
+    <Setter x:Uid="Setter_3" Property="Padding" Value="5" />
+    <Setter x:Uid="Setter_4" Property="HorizontalContentAlignment" Value="Left" />
+    <Setter x:Uid="Setter_5" Property="VerticalContentAlignment" Value="Top" />
+    <Setter x:Uid="Setter_6" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_1" TargetType="{x:Type Label}">
+          <Grid x:Uid="Grid_1">
+            <Path x:Uid="Path_112" x:Name="Path_112" Stretch="Fill" StrokeThickness="0.999875" StrokeLineJoin="Round" Stroke="#FF2E2E2E" Data="F1 M 629.833,344.041L 780.517,344.042C 782.726,344.042 784.516,345.833 784.516,348.042L 784.517,377.433C 784.517,379.641 782.727,381.432 780.518,381.432L 629.833,381.431C 627.624,381.431 625.834,379.64 625.834,377.431L 625.832,367.152L 611.62,352.939L 625.832,352.939L 625.833,348.041C 625.833,345.832 627.624,344.041 629.833,344.041 Z " Visibility="Visible" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+              <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="0.105527,0.99892" EndPoint="0.105527,0.000466034">
+                  <GradientStop x:Uid="GradientStop_1" Color="#FFC0CEB8" Offset="0" />
+                  <GradientStop x:Uid="GradientStop_2" Color="#FFDFE6DB" Offset="0.314255" />
+                  <GradientStop x:Uid="GradientStop_3" Color="#FFFFFFFF" Offset="0.538136" />
+                </LinearGradientBrush>
+              </Path.Fill>
+            </Path>
+            <TextBlock x:Uid="TextBlock_1" Margin="20,7,7,7" Text="{TemplateBinding Content}" TextWrapping="Wrap" />
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger x:Uid="Trigger_1" Property="IsEnabled" Value="false">
+              <Setter x:Uid="Setter_7" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+    <DataTemplate x:Uid="DataTemplate_51" x:Key="HeaderArrowUp">
+        <DockPanel x:Uid="DockPanel_1">
+            <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Center" Text="{Binding}" />
+            <Path x:Uid="arrow" x:Name="arrow" StrokeThickness="1" Fill="gray" Data="M 5,10 L 15,10 L 10,5 L 5,10" />
+        </DockPanel>
+    </DataTemplate>
+    <DataTemplate x:Uid="DataTemplate_52" x:Key="HeaderArrowDown">
+        <DockPanel x:Uid="DockPanel_2">
+            <TextBlock x:Uid="TextBlock_2" HorizontalAlignment="Center" Text="{Binding }" />
+            <Path x:Uid="Path_1" x:Name="arrow" StrokeThickness="1" Fill="gray" Data="M 5,5 L 10,10 L 15,5 L 5,5" />
+        </DockPanel>
+    </DataTemplate>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_2" x:Key="SplButtonBG" StartPoint="0.537473,1.00143" EndPoint="0.537473,0.00143637">
+    <GradientStop x:Uid="GradientStop_4" Color="#FF99C56B" Offset="0" />
+    <GradientStop x:Uid="GradientStop_5" Color="#FF2C4400" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_3" x:Key="SplButtonInnerBG" StartPoint="0.00773445,1.00143" EndPoint="0.00773445,0.0014405">
+    <GradientStop x:Uid="GradientStop_6" Color="#FF245400" Offset="0" />
+    <GradientStop x:Uid="GradientStop_7" Color="#FF9CBA0F" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_4" x:Key="SplButtonGlossBG" StartPoint="0.999984,0.0605327" EndPoint="-0.00121131,0.0605327">
+    <GradientStop x:Uid="GradientStop_8" Color="#34CCF3FF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_9" Color="#00CCF3FF" Offset="1" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Uid="SolidColorBrush_1" x:Key="SplButtonForegroundTextColor" Color="#FFFFFFFF" />
+  <LinearGradientBrush x:Uid="LinearGradientBrush_5" x:Key="SplButtonSelectionBG" StartPoint="0.537473,1.00143" EndPoint="0.537473,0.00143637">
+    <GradientStop x:Uid="GradientStop_10" Color="#FF9FB275" Offset="0" />
+    <GradientStop x:Uid="GradientStop_11" Color="#FFD3E3C6" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_6" x:Key="SplButtonSelectionInnerBG" StartPoint="0.00773445,1.00143" EndPoint="0.00773445,0.0014405">
+    <GradientStop x:Uid="GradientStop_12" Color="#FFE9FF80" Offset="0" />
+    <GradientStop x:Uid="GradientStop_13" Color="#FFCDDD98" Offset="0.211864" />
+    <GradientStop x:Uid="GradientStop_14" Color="#FF4E7531" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_7" x:Key="SplButtonSelectionGlossBG" StartPoint="0.999984,0.0605327" EndPoint="-0.00121131,0.0605327">
+    <GradientStop x:Uid="GradientStop_15" Color="#34CCF3FF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_16" Color="#00CCF3FF" Offset="1" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Uid="SolidColorBrush_2" x:Key="SplButtonSelectionForegroundTextColor" Color="#FF000000" />
+  <Storyboard x:Uid="Storyboard_1" x:Key="MouseOver">
+    <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_1" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+      <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_1" KeyTime="00:00:00.1000000" Value="1" />
+    </DoubleAnimationUsingKeyFrames>
+    <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_2" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+      <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_2" KeyTime="00:00:00.1000000" Value="0" />
+    </DoubleAnimationUsingKeyFrames>
+  </Storyboard>
+  <Storyboard x:Uid="Storyboard_2" x:Key="Normal">
+    <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_3" BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+      <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_3" KeyTime="00:00:00" Value="0" />
+    </DoubleAnimationUsingKeyFrames>
+    <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_4" BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+      <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_4" KeyTime="00:00:00" Value="1" />
+    </DoubleAnimationUsingKeyFrames>
+  </Storyboard>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_8" x:Key="TextGradient" StartPoint="-2.23964,0.413258" EndPoint="-2.23964,0.955932">
+    <GradientStop x:Uid="GradientStop_17" Color="#FFFFFFFF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_18" Color="#FFDFE7EF" Offset="0.463977" />
+    <GradientStop x:Uid="GradientStop_19" Color="#FFD0DFC0" Offset="0.794521" />
+    <GradientStop x:Uid="GradientStop_20" Color="#FFF9FFFC" Offset="0.995434" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Uid="SolidColorBrush_3" x:Key="ListBorder" Color="#FFA7A6AA" />
+  <Style x:Uid="Style_2" x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+    <Setter x:Uid="Setter_8" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+    <Setter x:Uid="Setter_9" Property="BorderBrush" Value="{StaticResource ListBorder}" />
+    <Setter x:Uid="Setter_10" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_11" Property="KeyboardNavigation.TabNavigation" Value="None" />
+    <Setter x:Uid="Setter_12" Property="BorderThickness" Value="1" />
+    <Setter x:Uid="Setter_13" Property="HorizontalContentAlignment" Value="Left" />
+    <Setter x:Uid="Setter_14" Property="Padding" Value="2" />
+    <Setter x:Uid="Setter_15" Property="FocusVisualStyle" Value="{x:Null}" />
+    <Setter x:Uid="Setter_16" Property="AllowDrop" Value="true" />
+    <Setter x:Uid="Setter_17" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_2" TargetType="{x:Type TextBox}">
+          <ControlTemplate.Resources>
+            <Storyboard x:Uid="Storyboard_3" x:Key="GotFocus" />
+          </ControlTemplate.Resources>
+          <Border x:Uid="Bd" x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5,5,5,5">
+            <ScrollViewer x:Uid="PART_ContentHost" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="1,2,2,2" Template="{DynamicResource TextScrollViewerControlTemplate1}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger x:Uid="Trigger_2" Property="IsFocused" Value="True">
+              <Trigger.EnterActions>
+                <BeginStoryboard x:Uid="GotFocus_BeginStoryboard" x:Name="GotFocus_BeginStoryboard" Storyboard="{StaticResource GotFocus}" />
+              </Trigger.EnterActions>
+            </Trigger>
+            <Trigger x:Uid="Trigger_3" Property="IsEnabled" Value="false">
+              <Setter x:Uid="Setter_18" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <!-- Resource dictionary entries should be defined here. -->
+  <LinearGradientBrush x:Uid="LinearGradientBrush_9" x:Key="TextBoxGradient" StartPoint="0.499137,-0.151034" EndPoint="0.499137,1.43432">
+    <GradientStop x:Uid="GradientStop_21" Color="#FFFFFFFF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_22" Color="#FFFFFFFF" Offset="0.3" />
+    <GradientStop x:Uid="GradientStop_23" Color="#FFC6D8E3" Offset="0.794521" />
+    <GradientStop x:Uid="GradientStop_24" Color="#FFFCFFF9" Offset="1" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Uid="SolidColorBrush_4" x:Key="TextBoxOutline" Color="#FF162617" />
+  <SolidColorBrush x:Uid="SolidColorBrush_5" x:Key="TextBoxForeground" Color="#FF000000" />
+  <ControlTemplate x:Uid="ControlTemplate_3" x:Key="TextScrollViewerControlTemplate1" TargetType="{x:Type ScrollViewer}">
+    <Grid x:Uid="Grid" x:Name="Grid" Background="{TemplateBinding Background}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition x:Uid="ColumnDefinition_1" Width="*" />
+        <ColumnDefinition x:Uid="ColumnDefinition_2" Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition x:Uid="RowDefinition_1" Height="*" />
+        <RowDefinition x:Uid="RowDefinition_2" Height="Auto" />
+      </Grid.RowDefinitions>
+      <Rectangle x:Uid="Corner" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" x:Name="Corner" Grid.Column="1" Grid.Row="1" />
+      <ScrollContentPresenter x:Uid="PART_ScrollContentPresenter" Margin="{TemplateBinding Padding}" x:Name="PART_ScrollContentPresenter" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" />
+    </Grid>
+  </ControlTemplate>
+  <Style x:Uid="Style_3" x:Key="ButtonFocusVisual">
+    <Setter x:Uid="Setter_19" Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_4">
+          <Rectangle x:Uid="Rectangle_1" Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="3" SnapsToDevicePixels="true" />
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_10" x:Key="ButtonNormalBackgroundFill" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop x:Uid="GradientStop_25" Color="#FFFFFFFF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_26" Color="#FFE3EBF3" Offset="0.5" />
+    <GradientStop x:Uid="GradientStop_27" Color="#FFD0DCEB" Offset="0.5" />
+    <GradientStop x:Uid="GradientStop_28" Color="#FFA6B8CF" Offset="1" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Uid="SolidColorBrush_6" x:Key="ButtonBorder" Color="#FF2B4F82" />
+  <LinearGradientBrush x:Uid="LinearGradientBrush_11" x:Key="LoginButtonMouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop x:Uid="GradientStop_29" Color="#FFFFFFFF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_30" Color="#FFE3EBF3" Offset="0.5" />
+    <GradientStop x:Uid="GradientStop_31" Color="#FFD0DCEB" Offset="0.5" />
+    <GradientStop x:Uid="GradientStop_32" Color="#FFA6B8CF" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_12" x:Key="Login_go_BG" EndPoint="0.181714,0.999787" StartPoint="0.181714,-0.00033629">
+    <GradientStop x:Uid="GradientStop_33" Color="#FF0C1F2A" Offset="0" />
+    <GradientStop x:Uid="GradientStop_34" Color="#FF2B455A" Offset="1" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Uid="SolidColorBrush_7" x:Key="Login_go_inner_bg_stroke" Color="#FFFFFFFF" />
+  <LinearGradientBrush x:Uid="LinearGradientBrush_13" x:Key="Login_go_selection_BG" EndPoint="0.181714,0.999787" StartPoint="0.181714,-0.00033629">
+    <GradientStop x:Uid="GradientStop_35" Color="#FFFFFFFF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_36" Color="#FFFFFFFF" Offset="0.45" />
+    <GradientStop x:Uid="GradientStop_37" Color="#FFC0CFDF" Offset="0.794521" />
+    <GradientStop x:Uid="GradientStop_38" Color="#FFFCFFF9" Offset="0.995434" />
+  </LinearGradientBrush>
+  <Style x:Uid="Style_4" x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+    <Setter x:Uid="Setter_20" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+    <Setter x:Uid="Setter_21" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+    <Setter x:Uid="Setter_22" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+    <Setter x:Uid="Setter_23" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_24" Property="HorizontalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_25" Property="VerticalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_26" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_5" TargetType="{x:Type Button}">
+          <ControlTemplate.Resources>
+            <Storyboard x:Uid="Storyboard_4" x:Key="MouseOver">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_5" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_5" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_6" BeginTime="00:00:00" Storyboard.TargetName="textBlock_Copy" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_6" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_7" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_7" KeyTime="00:00:00.1000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Uid="Storyboard_5" x:Key="Normal">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_8" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_8" KeyTime="00:00:00.1000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_9" BeginTime="00:00:00" Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_9" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_10" BeginTime="00:00:00" Storyboard.TargetName="textBlock_Copy" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_10" KeyTime="00:00:00.1000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_11" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_11" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </ControlTemplate.Resources>
+          <Grid x:Uid="Grid_2" Width="Auto" Height="Auto">
+            <Grid x:Uid="MouseOver" Margin="0,0,0,0" x:Name="MouseOver" Opacity="0">
+              <Rectangle x:Uid="BG_Copy" Stroke="#FF162617" StrokeLineJoin="Round" StrokeThickness="0.999875" RadiusX="10" RadiusY="10" Margin="0,0,0,0" x:Name="BG_Copy" VerticalAlignment="Stretch" TextBlock.FontFamily="Segoe UI" TextBlock.TextAlignment="Center" Block.TextAlignment="Left" Fill="{DynamicResource Login_go_selection_BG}" />
+              <TextBlock x:Uid="textBlock_Copy" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" x:Name="textBlock_Copy" FontSize="{TemplateBinding FontSize}" FontFamily="{DynamicResource SegoeUI20}" Opacity="1" Foreground="{DynamicResource ButtonTextForegroundMouseOverColor}" d:LayoutOverrides="Width, Height" />
+            </Grid>
+            <Grid x:Uid="Normal" x:Name="Normal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+              <Rectangle x:Uid="BG" Stroke="#FF162617" StrokeLineJoin="Round" StrokeThickness="1" RadiusX="10" RadiusY="10" Margin="0,0,0,0" VerticalAlignment="Stretch" TextBlock.FontFamily="Segoe UI" TextBlock.TextAlignment="Center" Block.TextAlignment="Left" x:Name="BG" Fill="{DynamicResource Login_go_BG}" />
+              <Rectangle x:Uid="Inner_BG" Stroke="{DynamicResource Login_go_inner_bg_stroke}" StrokeLineJoin="Round" StrokeThickness="1" RadiusX="10" RadiusY="10" Margin="1,1,1,1" VerticalAlignment="Stretch" TextBlock.FontFamily="Segoe UI" TextBlock.TextAlignment="Center" Block.TextAlignment="Left" Fill="{x:Null}" x:Name="Inner_BG" />
+              <TextBlock x:Uid="textBlock" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="Auto" Height="Auto" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" x:Name="textBlock" FontSize="{TemplateBinding FontSize}" FontFamily="{DynamicResource SegoeUI20}" Foreground="{DynamicResource ButtonTextForegroundColor}" d:IsStaticText="True" />
+            </Grid>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger x:Uid="Trigger_4" Property="IsKeyboardFocused" Value="true" />
+            <Trigger x:Uid="Trigger_5" Property="ToggleButton.IsChecked" Value="true" />
+            <Trigger x:Uid="Trigger_6" Property="IsEnabled" Value="false">
+              <Setter x:Uid="Setter_27" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+            <Trigger x:Uid="Trigger_7" Property="IsPressed" Value="True">
+              <Trigger.ExitActions>
+                <BeginStoryboard x:Uid="Normal_BeginStoryboard" Storyboard="{StaticResource Normal}" x:Name="Normal_BeginStoryboard" />
+              </Trigger.ExitActions>
+              <Trigger.EnterActions>
+                <BeginStoryboard x:Uid="MouseOver_BeginStoryboard" Storyboard="{StaticResource MouseOver}" x:Name="MouseOver_BeginStoryboard" />
+              </Trigger.EnterActions>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_14" x:Key="LoginButtonGradientBody" StartPoint="0.481354,0.00140176" EndPoint="0.481354,0.983853">
+    <GradientStop x:Uid="GradientStop_39" Color="#FFFFFFFF" Offset="0" />
+    <GradientStop x:Uid="GradientStop_40" Color="#FFDFE7EF" Offset="0.463977" />
+    <GradientStop x:Uid="GradientStop_41" Color="#FFC0CFDF" Offset="0.794521" />
+    <GradientStop x:Uid="GradientStop_42" Color="#FFF9FFFC" Offset="0.995434" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Uid="SolidColorBrush_8" x:Key="LoginButtonGradientStroke" Color="#FF48749A" />
+  <Style x:Uid="Style_5" x:Key="KeyboardNumberPadNormal" TargetType="{x:Type Button}">
+    <Setter x:Uid="Setter_28" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+    <Setter x:Uid="Setter_29" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+    <Setter x:Uid="Setter_30" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+    <Setter x:Uid="Setter_31" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_32" Property="HorizontalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_33" Property="VerticalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_34" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_6" TargetType="{x:Type Button}">
+          <Canvas x:Uid="Canvas_1" Width="53.667" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Path x:Uid="Path_248" x:Name="Path_248" Width="53.9927" Height="53.9934" Canvas.Left="0.000244141" Canvas.Top="0" Stretch="Fill" Data="F1 M 3.00024,0L 50.9929,0C 52.6499,0 53.9929,1.34314 53.9929,3L 53.9929,50.9935C 53.9929,52.6504 52.6499,53.9934 50.9929,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9935L 0.000244141,3C 0.000244141,1.34314 1.34326,0 3.00024,0 Z ">
+              <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_15" StartPoint="0.0283015,0.961025" EndPoint="0.960602,0.0287375">
+                  <GradientStop x:Uid="GradientStop_43" Color="#FF465D71" Offset="0" />
+                  <GradientStop x:Uid="GradientStop_44" Color="#FF71899D" Offset="0.533898" />
+                  <GradientStop x:Uid="GradientStop_45" Color="#FF9DB5C9" Offset="1" />
+                </LinearGradientBrush>
+              </Path.Fill>
+            </Path>
+            <Path x:Uid="Path_249" x:Name="Path_249" Width="49.9736" Height="49.9722" Canvas.Left="1.95825" Canvas.Top="2.02222" Stretch="Fill" Data="F1 M 48.9319,51.9944L 4.95874,51.9944C 3.30176,51.9944 1.95825,50.6511 1.95825,48.9944L 1.95825,5.02222C 1.95825,3.36536 3.30176,2.02222 4.95874,2.02222L 48.9319,2.02222C 50.5889,2.02222 51.9319,3.36536 51.9319,5.02222L 51.9319,48.9944C 51.9319,50.6511 50.5889,51.9944 48.9319,51.9944 Z ">
+              <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_16" StartPoint="0.972104,0.0388766" EndPoint="0.0397964,0.97121">
+                  <GradientStop x:Uid="GradientStop_46" Color="#FF465D71" Offset="0" />
+                  <GradientStop x:Uid="GradientStop_47" Color="#FF71899D" Offset="0.533898" />
+                  <GradientStop x:Uid="GradientStop_48" Color="#FF9DB5C9" Offset="1" />
+                </LinearGradientBrush>
+              </Path.Fill>
+            </Path>
+            <Path x:Uid="Path_250" x:Name="Path_250" Width="50.0034" Height="49.9938" Canvas.Left="1.93457" Canvas.Top="2.0127" Stretch="Fill" Data="F1 M 48.938,52.0065L 4.93457,52.0065C 3.27759,52.0065 1.93457,50.6633 1.93457,49.0065L 1.93457,5.0127C 1.93457,3.35596 3.27759,2.0127 4.93457,2.0127L 48.938,2.0127C 50.595,2.0127 51.938,3.35596 51.938,5.0127L 51.938,49.0065C 51.938,50.6633 50.595,52.0065 48.938,52.0065 Z ">
+              <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_17" StartPoint="0.498003,0.00539862" EndPoint="0.498003,0.327492">
+                  <GradientStop x:Uid="GradientStop_49" Color="#8022384C" Offset="0" />
+                  <GradientStop x:Uid="GradientStop_50" Color="#41304456" Offset="0.533898" />
+                  <GradientStop x:Uid="GradientStop_51" Color="#003F5161" Offset="1" />
+                </LinearGradientBrush>
+              </Path.Fill>
+            </Path>
+            <TextBlock x:Uid="TextBlock_2" HorizontalAlignment="Center" Margin="0,-4,0,0" VerticalAlignment="Center" Width="37.667" Height="37.5" Padding="0,0,0,0" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" Canvas.Left="8" Canvas.Top="8" d:IsStaticText="False" />
+          </Canvas>
+          <ControlTemplate.Triggers>
+            <Trigger x:Uid="Trigger_8" Property="IsKeyboardFocused" Value="true" />
+            <Trigger x:Uid="Trigger_9" Property="ToggleButton.IsChecked" Value="true" />
+            <Trigger x:Uid="Trigger_10" Property="IsEnabled" Value="false">
+              <Setter x:Uid="Setter_35" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Uid="Style_6" x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+    <Setter x:Uid="Setter_36" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+    <Setter x:Uid="Setter_37" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+    <Setter x:Uid="Setter_38" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+    <Setter x:Uid="Setter_39" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_40" Property="HorizontalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_41" Property="VerticalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_42" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_7" TargetType="{x:Type Button}">
+          <ControlTemplate.Resources>
+            <Storyboard x:Uid="Storyboard_6" x:Key="MouseOver">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_12" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_12" KeyTime="00:00:00.1000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_13" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_13" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Uid="Storyboard_7" x:Key="Normal">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_14" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_14" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_15" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_15" KeyTime="00:00:00.1000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </ControlTemplate.Resources>
+          <Grid x:Uid="Grid_3" Width="53.667" Height="53.5">
+            <Grid x:Uid="Grid_4" x:Name="Normal">
+              <Path x:Uid="Stroke" x:Name="Stroke" Stretch="Fill" Data="F1 M 3.00024,0L 50.9929,0C 52.6499,0 53.9929,1.34314 53.9929,3L 53.9929,50.9935C 53.9929,52.6504 52.6499,53.9934 50.9929,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9935L 0.000244141,3C 0.000244141,1.34314 1.34326,0 3.00024,0 Z " Margin="0,0,-0.326,-0.493" Fill="{DynamicResource KeyboardKeyBG}" />
+              <Path x:Uid="Path_251" x:Name="BG" Stretch="Fill" Data="F1 M 48.9319,51.9944L 4.95874,51.9944C 3.30176,51.9944 1.95825,50.6511 1.95825,48.9944L 1.95825,5.02222C 1.95825,3.36536 3.30176,2.02222 4.95874,2.02222L 48.9319,2.02222C 50.5889,2.02222 51.9319,3.36536 51.9319,5.02222L 51.9319,48.9944C 51.9319,50.6511 50.5889,51.9944 48.9319,51.9944 Z " Margin="1.958,2.022,1.735,1.506" Fill="{DynamicResource KeyboardKeyInnerBG}" />
+              <Path x:Uid="Gloss" x:Name="Gloss" Stretch="Fill" Data="F1 M 48.938,52.0065L 4.93457,52.0065C 3.27759,52.0065 1.93457,50.6633 1.93457,49.0065L 1.93457,5.0127C 1.93457,3.35596 3.27759,2.0127 4.93457,2.0127L 48.938,2.0127C 50.595,2.0127 51.938,3.35596 51.938,5.0127L 51.938,49.0065C 51.938,50.6633 50.595,52.0065 48.938,52.0065 Z " Margin="1.935,2.013,1.729,1.494" Fill="{DynamicResource KeyboardKeyBGGloss}" />
+              <TextBlock x:Uid="NormalButton" FontFamily="Segoe UI" FontSize="32" Foreground="#FFFFFFFF" Padding="0,0,0,0" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" d:IsStaticText="False" x:Name="NormalButton" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+            <Grid x:Uid="Grid_5" Margin="0,0,-0.326,-0.494" x:Name="MouseOver" Opacity="0" Visibility="Visible">
+              <Path x:Uid="Path_84" x:Name="Path_84" Stretch="Fill" Fill="{DynamicResource KeybooardKeySelectionBG}" Data="F1 M 3.00024,0L 50.9929,0C 52.6499,0 53.9929,1.34314 53.9929,3L 53.9929,50.9935C 53.9929,52.6504 52.6499,53.9934 50.9929,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9935L 0.000244141,3C 0.000244141,1.34314 1.34326,0 3.00024,0 Z " Margin="0,0,0,0.001" />
+              <Path x:Uid="Path_85" x:Name="Path_85" Stretch="Fill" Data="F1 M 48.9058,51.9983L 4.92383,51.9983C 3.26709,51.9983 1.92383,50.6553 1.92383,48.9984L 1.92383,5.02625C 1.92383,3.36938 3.26709,2.02625 4.92383,2.02625L 48.9058,2.02625C 50.563,2.02625 51.906,3.36938 51.906,5.02625L 51.906,48.9984C 51.906,50.6553 50.563,51.9983 48.9058,51.9983 Z " Margin="1.924,2.026,2.087,1.996" Fill="{DynamicResource KeybooardKeyInnerSelectionBG}" />
+              <Path x:Uid="Path_86" x:Name="Path_86" Stretch="Fill" Data="F1 M 48.9387,52.0037L 4.93091,52.0037C 3.27393,52.0037 1.93091,50.6606 1.93091,49.0037L 1.93091,5.01001C 1.93091,3.35315 3.27393,2.00989 4.93091,2.00989L 48.9387,2.00989C 50.5957,2.00989 51.939,3.35315 51.939,5.01001L 51.939,49.0037C 51.939,50.6606 50.5957,52.0037 48.9387,52.0037 Z " Margin="1.931,2.01,2.054,1.99" Fill="{DynamicResource KeybooardKeyGlossSelectionBG}" />
+              <TextBlock x:Uid="NormalButton_Copy" FontFamily="Segoe UI" FontSize="32" Foreground="#FF000000" Padding="0,0,0,0" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" d:IsStaticText="False" x:Name="NormalButton_Copy" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" d:LayoutOverrides="Width, Height" />
+            </Grid>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger x:Uid="Trigger_11" Property="IsPressed" Value="True">
+              <Trigger.EnterActions>
+                <BeginStoryboard x:Uid="BeginStoryboard_1" Storyboard="{StaticResource MouseOver}" />
+              </Trigger.EnterActions>
+              <Trigger.ExitActions>
+                <BeginStoryboard x:Uid="Normal_BeginStoryboard1" x:Name="Normal_BeginStoryboard1" Storyboard="{StaticResource Normal}" />
+              </Trigger.ExitActions>
+            </Trigger>
+            <Trigger x:Uid="Trigger_12" Property="IsKeyboardFocused" Value="true" />
+            <Trigger x:Uid="Trigger_13" Property="ToggleButton.IsChecked" Value="true" />
+            <Trigger x:Uid="Trigger_14" Property="IsEnabled" Value="false">
+              <Setter x:Uid="Setter_43" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+    <Style x:Uid="Style_6" x:Key="ButtonSymbol" TargetType="{x:Type Button}">
+        <Setter x:Uid="Setter_36" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+        <Setter x:Uid="Setter_37" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+        <Setter x:Uid="Setter_38" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+        <Setter x:Uid="Setter_39" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter x:Uid="Setter_40" Property="HorizontalContentAlignment" Value="Center" />
+        <Setter x:Uid="Setter_41" Property="VerticalContentAlignment" Value="Center" />
+        <Setter x:Uid="Setter_42" Property="Template">
+            <Setter.Value>
+                <ControlTemplate x:Uid="ControlTemplate_7" TargetType="{x:Type Button}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Uid="Storyboard_6" x:Key="MouseOver">
+                            <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_12" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_12" KeyTime="00:00:00.1000000" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_13" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_13" KeyTime="00:00:00.1000000" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Uid="Storyboard_7" x:Key="Normal">
+                            <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_14" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_14" KeyTime="00:00:00.1000000" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_15" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_15" KeyTime="00:00:00.1000000" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid x:Uid="Grid_3" Width="53.667" Height="53.5">
+                        <Grid x:Uid="Grid_4" x:Name="Normal">
+                            <Path x:Uid="Stroke" x:Name="Stroke" Stretch="Fill" Data="F1 M 3.00024,0L 50.9929,0C 52.6499,0 53.9929,1.34314 53.9929,3L 53.9929,50.9935C 53.9929,52.6504 52.6499,53.9934 50.9929,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9935L 0.000244141,3C 0.000244141,1.34314 1.34326,0 3.00024,0 Z " Margin="0,0,-0.326,-0.493" Fill="{DynamicResource KeyboardKeyBG}" />
+                            <Path x:Uid="Path_251" x:Name="BG" Stretch="Fill" Data="F1 M 48.9319,51.9944L 4.95874,51.9944C 3.30176,51.9944 1.95825,50.6511 1.95825,48.9944L 1.95825,5.02222C 1.95825,3.36536 3.30176,2.02222 4.95874,2.02222L 48.9319,2.02222C 50.5889,2.02222 51.9319,3.36536 51.9319,5.02222L 51.9319,48.9944C 51.9319,50.6511 50.5889,51.9944 48.9319,51.9944 Z " Margin="1.958,2.022,1.735,1.506" Fill="{DynamicResource KeyboardKeyInnerBG}" />
+                            <Path x:Uid="Gloss" x:Name="Gloss" Stretch="Fill" Data="F1 M 48.938,52.0065L 4.93457,52.0065C 3.27759,52.0065 1.93457,50.6633 1.93457,49.0065L 1.93457,5.0127C 1.93457,3.35596 3.27759,2.0127 4.93457,2.0127L 48.938,2.0127C 50.595,2.0127 51.938,3.35596 51.938,5.0127L 51.938,49.0065C 51.938,50.6633 50.595,52.0065 48.938,52.0065 Z " Margin="1.935,2.013,1.729,1.494" Fill="{DynamicResource KeyboardKeyBGGloss}" />
+                            <TextBlock x:Uid="NormalButton" FontFamily="Segoe UI" FontSize="32" Foreground="#FFFFFFFF" Padding="0,0,0,0" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" d:IsStaticText="False" x:Name="NormalButton" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid x:Uid="Grid_5" Margin="0,0,-0.326,-0.494" x:Name="MouseOver" Opacity="0" Visibility="Visible">
+                            <Path x:Uid="Path_84" x:Name="Path_84" Stretch="Fill" Fill="{DynamicResource KeybooardKeySelectionBG}" Data="F1 M 3.00024,0L 50.9929,0C 52.6499,0 53.9929,1.34314 53.9929,3L 53.9929,50.9935C 53.9929,52.6504 52.6499,53.9934 50.9929,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9935L 0.000244141,3C 0.000244141,1.34314 1.34326,0 3.00024,0 Z " Margin="0,0,0,0.001" />
+                            <Path x:Uid="Path_85" x:Name="Path_85" Stretch="Fill" Data="F1 M 48.9058,51.9983L 4.92383,51.9983C 3.26709,51.9983 1.92383,50.6553 1.92383,48.9984L 1.92383,5.02625C 1.92383,3.36938 3.26709,2.02625 4.92383,2.02625L 48.9058,2.02625C 50.563,2.02625 51.906,3.36938 51.906,5.02625L 51.906,48.9984C 51.906,50.6553 50.563,51.9983 48.9058,51.9983 Z " Margin="1.924,2.026,2.087,1.996" Fill="{DynamicResource KeybooardKeyInnerSelectionBG}" />
+                            <Path x:Uid="Path_86" x:Name="Path_86" Stretch="Fill" Data="F1 M 48.9387,52.0037L 4.93091,52.0037C 3.27393,52.0037 1.93091,50.6606 1.93091,49.0037L 1.93091,5.01001C 1.93091,3.35315 3.27393,2.00989 4.93091,2.00989L 48.9387,2.00989C 50.5957,2.00989 51.939,3.35315 51.939,5.01001L 51.939,49.0037C 51.939,50.6606 50.5957,52.0037 48.9387,52.0037 Z " Margin="1.931,2.01,2.054,1.99" Fill="{DynamicResource KeybooardKeyGlossSelectionBG}" />
+                            <TextBlock x:Uid="NormalButton_Copy" FontFamily="Segoe UI" FontSize="32" Foreground="#FF000000" Padding="0,0,0,0" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" d:IsStaticText="False" x:Name="NormalButton_Copy" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" d:LayoutOverrides="Width, Height" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger x:Uid="Trigger_11" Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Uid="BeginStoryboard_1" Storyboard="{StaticResource MouseOver}" />
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard x:Uid="Normal_BeginStoryboard1" x:Name="Normal_BeginStoryboard1" Storyboard="{StaticResource Normal}" />
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger x:Uid="Trigger_12" Property="IsKeyboardFocused" Value="true" />
+                        <Trigger x:Uid="Trigger_13" Property="ToggleButton.IsChecked" Value="true" />
+                        <Trigger x:Uid="Trigger_14" Property="IsEnabled" Value="false">
+                            <Setter x:Uid="Setter_43" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <LinearGradientBrush x:Uid="LinearGradientBrush_18" x:Key="KeyboardEnterKeySelectionBG" StartPoint="0.0287339,1.00053" EndPoint="1.20015,1.00053">
+    <LinearGradientBrush.RelativeTransform>
+      <TransformGroup x:Uid="TransformGroup_1">
+        <SkewTransform x:Uid="SkewTransform_1" CenterX="0.0287339" CenterY="1.00053" AngleX="2.10255" AngleY="0" />
+        <RotateTransform x:Uid="RotateTransform_1" CenterX="0.0287339" CenterY="1.00053" Angle="-44.0016" />
+      </TransformGroup>
+    </LinearGradientBrush.RelativeTransform>
+    <GradientStop x:Uid="GradientStop_52" Color="#FF5B774A" Offset="0" />
+    <GradientStop x:Uid="GradientStop_53" Color="#FF425E3B" Offset="0.533898" />
+    <GradientStop x:Uid="GradientStop_54" Color="#FF2A462D" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_19" x:Key="KeyboardEnterKeyInnerSelectionBG" StartPoint="0.970949,-0.00121532" EndPoint="2.29615,-0.00121532">
+    <LinearGradientBrush.RelativeTransform>
+      <TransformGroup x:Uid="TransformGroup_2">
+        <SkewTransform x:Uid="SkewTransform_2" CenterX="0.970949" CenterY="-0.00121532" AngleX="2.17142" AngleY="0" />
+        <RotateTransform x:Uid="RotateTransform_2" CenterX="0.970949" CenterY="-0.00121532" Angle="136.086" />
+      </TransformGroup>
+    </LinearGradientBrush.RelativeTransform>
+    <GradientStop x:Uid="GradientStop_55" Color="#FF5B9837" Offset="0" />
+    <GradientStop x:Uid="GradientStop_56" Color="#FF426F32" Offset="0.533898" />
+    <GradientStop x:Uid="GradientStop_57" Color="#FF2A462D" Offset="1" />
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Uid="LinearGradientBrush_20" x:Key="KeyboardEnterKeyGlossSelectionBG" StartPoint="0.348629,0.00750601" EndPoint="0.348629,0.22478">
+    <GradientStop x:Uid="GradientStop_58" Color="#80244C22" Offset="0" />
+    <GradientStop x:Uid="GradientStop_59" Color="#41335630" Offset="0.533898" />
+    <GradientStop x:Uid="GradientStop_60" Color="#0042613F" Offset="1" />
+  </LinearGradientBrush>
+  <Style x:Uid="Style_7" x:Key="KeyboardPadEnter" TargetType="{x:Type Button}">
+    <Setter x:Uid="Setter_44" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+    <Setter x:Uid="Setter_45" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+    <Setter x:Uid="Setter_46" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+    <Setter x:Uid="Setter_47" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_48" Property="HorizontalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_49" Property="VerticalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_50" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_8" TargetType="{x:Type Button}">
+          <ControlTemplate.Resources>
+            <Storyboard x:Uid="Storyboard_8" x:Key="MouseOver">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_16" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_16" KeyTime="00:00:00.2000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_17" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_17" KeyTime="00:00:00.5000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Uid="Storyboard_9" x:Key="Normal">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_18" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_18" KeyTime="00:00:00.2000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_19" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)" Duration="00:00:00.0010000">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_19" KeyTime="00:00:00" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </ControlTemplate.Resources>
+          <Grid x:Uid="Grid_6" Width="106.993" Height="110.994">
+            <Canvas x:Uid="Canvas_2" Width="106.993" Height="110.994" x:Name="Normal">
+              <Path x:Uid="Path_234" x:Name="Path_234" Width="106.993" Height="110.994" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" Data="F1 M 36,0L 103.993,0C 105.65,0 106.993,1.34314 106.993,3L 106.993,60L 106.993,70.9937L 106.993,107.994C 106.993,109.65 105.65,110.994 103.993,110.994L 3,110.994C 1.34302,110.994 0,109.65 0,107.994L 0,60C 0,58.3431 1.34302,57 3,57L 33,57L 33,3C 33,1.34314 34.343,0 36,0 Z " Fill="{DynamicResource KeybooardSplKeyBG}" />
+              <Path x:Uid="Path_235" x:Name="Path_235" Width="102.992" Height="106.971" Canvas.Left="1.89514" Canvas.Top="2.02917" Stretch="Fill" Data="F1 M 34.902,5.02917C 34.902,3.37244 36.2451,2.02917 37.902,2.02917L 101.887,2.02917C 103.544,2.02917 104.887,3.37244 104.887,5.02917L 104.887,68.9995C 104.887,69.0774 104.884,69.1545 104.879,69.2308L 104.879,106C 104.879,107.657 103.536,109 101.879,109L 4.89514,109C 3.23853,109 1.89514,107.657 1.89514,106L 1.89514,62.0303C 1.89514,60.3734 3.23853,59.0303 4.89514,59.0303L 34.902,59.0303L 34.902,5.02917 Z " Fill="{DynamicResource KeybooardSplKeyInnerBG}" />
+              <Path x:Uid="Path_236" x:Name="Path_236" Width="103.02" Height="106.994" Canvas.Left="1.9043" Canvas.Top="2.01245" Stretch="Fill" Data="F1 M 34.9108,5.01257C 34.9108,3.35571 36.2539,2.01245 37.9104,2.01245L 101.923,2.01245C 103.58,2.01245 104.923,3.35583 104.923,5.01257L 104.924,69.0067C 104.924,69.072 104.922,69.1367 104.918,69.2009L 104.918,106.007C 104.918,107.664 103.575,109.007 101.918,109.007L 4.9043,109.007C 3.24731,109.007 1.9043,107.664 1.9043,106.007L 1.9043,62.0131C 1.9043,60.3561 3.24731,59.0131 4.9043,59.0131L 34.9114,59.0131L 34.9108,5.01257 Z " Fill="{DynamicResource KeybooardSplKeyGlossBG}" />
+            </Canvas>
+            <Canvas x:Uid="Canvas_3" Width="106.993" Height="110.994" d:LayoutOverrides="Width, Height" HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="MouseOver" Opacity="0">
+              <Path x:Uid="Path_241" x:Name="Path_241" Width="106.993" Height="110.994" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" Data="F1 M 36,0L 103.993,0C 105.65,0 106.993,1.34314 106.993,3L 106.993,60L 106.993,70.9937L 106.993,107.994C 106.993,109.65 105.65,110.994 103.993,110.994L 3,110.994C 1.34302,110.994 0,109.65 0,107.994L 0,60C 0,58.3431 1.34302,57 3,57L 33,57L 33,3C 33,1.34314 34.343,0 36,0 Z " Fill="{DynamicResource KeyboardEnterKeySelectionBG}" />
+              <Path x:Uid="Path_242" x:Name="Path_242" Width="102.992" Height="106.971" Canvas.Left="1.89514" Canvas.Top="2.02917" Stretch="Fill" Data="F1 M 34.902,5.02917C 34.902,3.37244 36.2451,2.02917 37.902,2.02917L 101.887,2.02917C 103.544,2.02917 104.887,3.37244 104.887,5.02917L 104.887,68.9995C 104.887,69.0774 104.884,69.1545 104.879,69.2308L 104.879,106C 104.879,107.657 103.536,109 101.879,109L 4.89514,109C 3.23853,109 1.89514,107.657 1.89514,106L 1.89514,62.0303C 1.89514,60.3734 3.23853,59.0303 4.89514,59.0303L 34.902,59.0303L 34.902,5.02917 Z " Fill="{DynamicResource KeyboardEnterKeyInnerSelectionBG}" />
+              <Path x:Uid="Path_243" x:Name="Path_243" Width="103.02" Height="106.994" Canvas.Left="1.9043" Canvas.Top="2.01245" Stretch="Fill" Data="F1 M 34.9108,5.01257C 34.9108,3.35571 36.2539,2.01245 37.9104,2.01245L 101.923,2.01245C 103.58,2.01245 104.923,3.35583 104.923,5.01257L 104.924,69.0067C 104.924,69.072 104.922,69.1367 104.918,69.2009L 104.918,106.007C 104.918,107.664 103.575,109.007 101.918,109.007L 4.9043,109.007C 3.24731,109.007 1.9043,107.664 1.9043,106.007L 1.9043,62.0131C 1.9043,60.3561 3.24731,59.0131 4.9043,59.0131L 34.9114,59.0131L 34.9108,5.01257 Z " Fill="{DynamicResource KeyboardEnterKeyGlossSelectionBG}" />
+            </Canvas>
+            <TextBlock x:Uid="TextBlock_244" x:Name="TextBlock_244" TextAlignment="Left" FontFamily="Segoe UI" FontSize="15" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="1.333,2,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width">
+              <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_3">
+                  <MatrixTransform x:Uid="MatrixTransform_1" Matrix="1.33333,0,0,1.33333,23.3968,67.1968" />
+                </TransformGroup>
+              </TextBlock.RenderTransform>
+              <Run x:Uid="Run_1" Text="Accept" Foreground="#FFFFFFFF" />
+            </TextBlock>
+            <Path x:Uid="Path_245" x:Name="Path_245" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 61.7765,56.8627L 50.4436,45.9784L 61.7765,34.5719L 61.776,44.2181L 87.8235,44.2137L 87.8198,33.5322C 87.8198,32.7041 88.491,32.0326 89.3198,32.0326C 90.1479,32.0326 90.8191,32.7041 90.8191,33.5322L 90.8234,45.8146L 90.819,45.8146C 90.7671,46.5956 90.1168,47.2128 89.3228,47.2128L 61.776,47.2177L 61.7765,56.8627 Z " HorizontalAlignment="Stretch" Margin="50.333,31.996,16.28,54.168" VerticalAlignment="Stretch" />
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger x:Uid="Trigger_15" Property="IsKeyboardFocused" Value="true" />
+            <Trigger x:Uid="Trigger_16" Property="ToggleButton.IsChecked" Value="true" />
+            <Trigger x:Uid="Trigger_17" Property="IsEnabled" Value="false">
+              <Setter x:Uid="Setter_51" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+            <Trigger x:Uid="Trigger_18" Property="IsPressed" Value="True">
+              <Trigger.EnterActions>
+                <BeginStoryboard x:Uid="BeginStoryboard_2" Storyboard="{StaticResource MouseOver}" />
+              </Trigger.EnterActions>
+              <Trigger.ExitActions>
+                <BeginStoryboard x:Uid="BeginStoryboard_3" x:Name="Normal_BeginStoryboard" Storyboard="{StaticResource Normal}" />
+              </Trigger.ExitActions>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Uid="Style_8" x:Key="KeyboardPadLochShiftKeyButton" TargetType="{x:Type Button}">
+    <Setter x:Uid="Setter_52" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+    <Setter x:Uid="Setter_53" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+    <Setter x:Uid="Setter_54" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+    <Setter x:Uid="Setter_55" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_56" Property="HorizontalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_57" Property="VerticalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_58" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_9" TargetType="{x:Type Button}">
+          <ControlTemplate.Resources>
+            <Storyboard x:Uid="Storyboard_10" x:Key="MouseOver">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_20" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_20" KeyTime="00:00:00.1000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_21" BeginTime="00:00:00" Storyboard.TargetName="canvas" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_21" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Uid="Storyboard_11" x:Key="Normal">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_22" BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="canvas" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_22" KeyTime="00:00:00" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_23" BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_23" KeyTime="00:00:00" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </ControlTemplate.Resources>
+          <Grid x:Uid="Grid_7" Width="93.995" Height="53.994">
+            <Canvas x:Uid="Canvas_4" x:Name="Normal">
+              <Path x:Uid="Path_126" x:Name="Path_126" Width="93.9946" Height="53.9934" Canvas.Left="0.000244141" Canvas.Top="0" Stretch="Fill" Data="F1 M 3.00024,0L 90.9949,0C 92.6519,0 93.9949,1.34302 93.9949,3L 93.9949,50.9935C 93.9949,52.6504 92.6519,53.9934 90.9949,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9935L 0.000244141,3C 0.000244141,1.34302 1.34326,0 3.00024,0 Z " Fill="{DynamicResource KeybooardSplKeyBG}" />
+              <Path x:Uid="Path_127" x:Name="Path_127" Width="89.2056" Height="49.9712" Canvas.Left="2.31348" Canvas.Top="2.02686" Stretch="Fill" Data="F1 M 88.5771,51.9973L 5.25513,51.998C 3.63037,51.998 2.31348,50.6812 2.31348,49.0562L 2.31348,4.96948C 2.31348,3.34473 3.63037,2.02759 5.25513,2.02759L 88.5771,2.02686C 90.2017,2.02686 91.519,3.34399 91.519,4.96863L 91.519,49.0557C 91.519,50.6804 90.2017,51.9973 88.5771,51.9973 Z " Fill="{DynamicResource KeybooardSplKeyInnerBG}" />
+              <Path x:Uid="Path_128" x:Name="Path_128" Width="89.2354" Height="49.9939" Canvas.Left="2.31689" Canvas.Top="2.0105" Stretch="Fill" Data="F1 M 88.6101,52.0037L 5.2583,52.0044C 3.63379,52.0044 2.31689,50.6874 2.31689,49.0626L 2.31689,4.95313C 2.31689,3.32861 3.63379,2.01147 5.2583,2.01147L 88.6101,2.0105C 90.2349,2.0105 91.5522,3.32776 91.5522,4.95239L 91.5522,49.0618C 91.5522,50.6866 90.2349,52.0037 88.6101,52.0037 Z " Fill="{DynamicResource KeybooardSplKeyGlossBG}" />
+              <TextBlock x:Uid="TextBlock_245" Width="59.667" Height="25.667" FontFamily="Segoe UI" FontSize="20" Foreground="#FFFFFFFF" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" Canvas.Left="17.498" Canvas.Top="12.666" />
+            </Canvas>
+            <Canvas x:Uid="canvas" x:Name="canvas" Opacity="0">
+              <Path x:Uid="Path_5" x:Name="Path_5" Width="93.9946" Height="53.9935" Canvas.Left="0.000244141" Canvas.Top="-0.00012207" Stretch="Fill" Fill="{DynamicResource KeybooardSplKeySelectionBG}" Data="F1 M 3.00024,-0.00012207L 90.9949,-0.00012207C 92.6519,-0.00012207 93.9949,1.34302 93.9949,2.99988L 93.9949,50.9935C 93.9949,52.6504 92.6519,53.9934 90.9949,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9935L 0.000244141,2.99988C 0.000244141,1.34302 1.34326,-0.00012207 3.00024,-0.00012207 Z " />
+              <Path x:Uid="Path_6" x:Name="Path_6" Width="89.2056" Height="49.9712" Canvas.Left="2.31348" Canvas.Top="2.02673" Stretch="Fill" Data="F1 M 88.5771,51.9973L 5.25513,51.9979C 3.63037,51.9979 2.31348,50.681 2.31348,49.0562L 2.31348,4.96936C 2.31348,3.3446 3.63037,2.02747 5.25513,2.02747L 88.5771,2.02673C 90.2017,2.02673 91.519,3.34399 91.519,4.96863L 91.519,49.0555C 91.519,50.6803 90.2017,51.9973 88.5771,51.9973 Z " Fill="{DynamicResource KeybooardSplKeySelectionInnerBG}" />
+              <Path x:Uid="Path_7" x:Name="Path_7" Width="89.2354" Height="49.9938" Canvas.Left="2.31689" Canvas.Top="2.0105" Stretch="Fill" Data="F1 M 88.6101,52.0035L 5.2583,52.0043C 3.63379,52.0043 2.31689,50.6874 2.31689,49.0626L 2.31689,4.95313C 2.31689,3.32849 3.63379,2.01135 5.2583,2.01135L 88.6101,2.0105C 90.2349,2.0105 91.5522,3.32776 91.5522,4.95239L 91.5522,49.0618C 91.5522,50.6866 90.2349,52.0035 88.6101,52.0035 Z " Fill="{DynamicResource KeybooardSplKeySelectionGlossBG}" />
+              <TextBlock x:Uid="TextBlock_246" Width="59.667" Height="25.667" FontFamily="Segoe UI" FontSize="20" Foreground="#FF000000" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" Canvas.Left="17.498" Canvas.Top="12.666" />
+            </Canvas>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger x:Uid="Trigger_19" Property="IsPressed" Value="True">
+              <Trigger.EnterActions>
+                <BeginStoryboard x:Uid="BeginStoryboard_4" Storyboard="{StaticResource MouseOver}" />
+              </Trigger.EnterActions>
+              <Trigger.ExitActions>
+                <BeginStoryboard x:Uid="BeginStoryboard_5" x:Name="Normal_BeginStoryboard" Storyboard="{StaticResource Normal}" />
+              </Trigger.ExitActions>
+            </Trigger>
+            <EventTrigger x:Uid="EventTrigger_1" RoutedEvent="Mouse.MouseDown">
+              <BeginStoryboard x:Uid="BeginStoryboard_6" Storyboard="{StaticResource MouseOver}" />
+            </EventTrigger>
+            <Trigger x:Uid="Trigger_20" Property="IsKeyboardFocused" Value="true" />
+            <Trigger x:Uid="Trigger_21" Property="ToggleButton.IsChecked" Value="true" />
+            <Trigger x:Uid="Trigger_22" Property="IsEnabled" Value="false">
+              <Setter x:Uid="Setter_59" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Uid="Style_9" x:Key="KeyboardPadBackspaceButton" TargetType="{x:Type Button}">
+    <Setter x:Uid="Setter_60" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+    <Setter x:Uid="Setter_61" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+    <Setter x:Uid="Setter_62" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />
+    <Setter x:Uid="Setter_63" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+    <Setter x:Uid="Setter_64" Property="HorizontalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_65" Property="VerticalContentAlignment" Value="Center" />
+    <Setter x:Uid="Setter_66" Property="Template">
+      <Setter.Value>
+        <ControlTemplate x:Uid="ControlTemplate_10" TargetType="{x:Type Button}">
+          <ControlTemplate.Resources>
+            <Storyboard x:Uid="Storyboard_12" x:Key="MouseOver">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_24" BeginTime="00:00:00" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_24" KeyTime="00:00:00.1000000" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_25" BeginTime="00:00:00" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_25" KeyTime="00:00:00.1000000" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Uid="Storyboard_13" x:Key="Normal">
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_26" BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="MouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_26" KeyTime="00:00:00" Value="0" />
+              </DoubleAnimationUsingKeyFrames>
+              <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_27" BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Normal" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_27" KeyTime="00:00:00" Value="1" />
+              </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+          </ControlTemplate.Resources>
+          <Grid x:Uid="Grid_8" Width="113.994" Height="53.994">
+            <Canvas x:Uid="Canvas_5" x:Name="Normal">
+              <Path x:Uid="Path_226" x:Name="Path_226" Width="113.993" Height="53.9934" Canvas.Left="0.000366211" Canvas.Top="0" Stretch="Fill" Data="F1 M 3.00037,0L 110.994,0C 112.651,0 113.994,1.34302 113.994,3L 113.993,50.9935C 113.993,52.6504 112.65,53.9934 110.993,53.9934L 3.00037,53.9934C 1.34326,53.9934 0.000366211,52.6504 0.000366211,50.9935L 0.000366211,3C 0.000366211,1.34302 1.34326,0 3.00037,0 Z " Fill="{DynamicResource KeybooardSplKeyBG}" />
+              <Path x:Uid="Path_227" x:Name="Path_227" Width="108.815" Height="49.9714" Canvas.Left="2.50635" Canvas.Top="2.0271" Stretch="Fill" Data="F1 M 108.379,51.9985L 5.448,51.9983C 3.82324,51.9983 2.50635,50.6814 2.50635,49.0564L 2.50635,4.96899C 2.50635,3.34424 3.82324,2.0271 5.448,2.0271L 108.38,2.0271C 110.004,2.0271 111.322,3.34424 111.322,4.96899L 111.321,49.0566C 111.321,50.6816 110.004,51.9985 108.379,51.9985 Z " Fill="{DynamicResource KeybooardSplKeyInnerBG}" />
+              <Path x:Uid="Path_228" x:Name="Path_228" Width="108.845" Height="49.9938" Canvas.Left="2.51074" Canvas.Top="2.01111" Stretch="Fill" Data="F1 M 108.413,52.0049L 5.45239,52.0046C 3.82764,52.0046 2.51074,50.6877 2.51074,49.063L 2.51074,4.95288C 2.51074,3.32837 3.82764,2.01111 5.45239,2.01111L 108.414,2.01111C 110.038,2.01111 111.356,3.32837 111.356,4.95288L 111.355,49.063C 111.355,50.6879 110.038,52.0049 108.413,52.0049 Z " Fill="{DynamicResource KeybooardSplKeyGlossBG}" />
+              <Path x:Uid="Path_231" x:Name="Path_231" Width="64.9828" Height="11.416" Canvas.Left="14.333" Canvas.Top="32.371" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 5.83936,29.1201L 0,23.5951L 5.83936,17.7041L 5.83899,22.3616L 63.9318,22.3589C 64.5122,22.3589 64.9828,22.8292 64.9828,23.4099C 64.9828,23.9902 64.5122,24.4607 63.9318,24.4607L 5.83899,24.4634L 5.83936,29.1201 Z " />
+              <TextBlock x:Uid="TextBlock_247" Width="97.662" Height="28.543" FontFamily="Segoe UI" FontSize="20" FontWeight="Normal" Text="{DynamicResource BMCBlueTheme_xaml_TextBlock_247}" TextAlignment="Center" TextWrapping="Wrap" Foreground="#FFFFFFFF" Canvas.Left="8.333" Canvas.Top="5.669" />
+            </Canvas>
+            <Canvas x:Uid="Canvas_6" Margin="0,0,-0.001,0.001" x:Name="MouseOver" Opacity="0">
+              <Path x:Uid="Path" x:Name="Path" Width="113.995" Height="53.9935" Canvas.Left="0.000244141" Canvas.Top="-0.00012207" Stretch="Fill" Fill="{DynamicResource KeybooardSplKeySelectionBG}" Data="F1 M 3.00024,-0.00012207L 110.995,0.000488281C 112.652,0.000488281 113.995,1.34363 113.995,3.00049L 113.995,50.994C 113.995,52.6509 112.652,53.9934 110.995,53.9934L 3.00024,53.9934C 1.34326,53.9934 0.000244141,52.6504 0.000244141,50.9934L 0.000244141,2.99988C 0.000244141,1.34302 1.34326,-0.000

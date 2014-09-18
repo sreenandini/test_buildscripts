@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.Views.UpdateGMIpin"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ugpin="clr-namespace:BMC.CashDeskOperator;assembly=BMC.CashDeskOperator"
+    xmlns:ugpinconverter="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+             Loaded="UserControl_Loaded"
+    Width="800" Height="760" RenderTransformOrigin="0.5,0.5" >
+    <UserControl.Resources>
+        <ObjectDataProvider  x:Key="Updategmulist" ObjectType="{x:Type ugpin:AftAssetDetails}" 
+
+MethodName="GMUpinupdateDetails"/>
+        <ugpinconverter:AftStatus x:Key="AftStatus"/>
+        <ugpinconverter:AftStatusColor x:Key="AftStatusColor"/>
+    </UserControl.Resources>
+    
+    <Grid Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Height="760" Width="800">
+        <TextBlock x:Uid="txtHeader" x:Name="txtHeader" Margin="18,7,0,0" Height="30" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource Gmuupdate_xaml_txtHeader}" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Width="133" />
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+
+        <Border x:Uid="Border_3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="5,5,5,5" Background="#19CDDD98">
+            
+        </Border>
+
+        <TextBlock x:Uid="tbStartIP" Margin="51,54,0,0" Text="{DynamicResource GMI_xaml_lblstartip }"  FontWeight="Bold"  Foreground="{DynamicResource TextGradient}" Width="150" FontFamily="Segoe UI" FontSize="16"  TextWrapping="Wrap" Canvas.Left="350.5" Canvas.Top="273.5" Background="{x:Null}" x:Name="tbStartIP" HorizontalAlignment="Left"  Height="32" VerticalAlignment="Top">
+        </TextBlock>
+        <TextBox x:Name="txtStartIP" Margin="125,54,0,0"  TextWrapping="NoWrap" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Canvas.Left="350.5" Canvas.Top="273.5" FontSize="16" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" PreviewMouseUp="txtStartIP_PreviewMouseUp" VerticalAlignment="Top" HorizontalAlignment="Left" TabIndex="0" Height="32" Width="194" />
+        <TextBlock x:Uid="tbEndIP"  Margin="0,54,241,0" Text="{DynamicResource GMI_xaml_lblendip}" FontWeight="Bold" Foreground="{DynamicResource TextGradient}" FontFamily="Segoe UI" FontSize="16"  TextWrapping="Wrap" Canvas.Left="350.5" Canvas.Top="273.5" Background="{x:Null}" x:Name="tbEndIP" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150">
+        </TextBlock>
+        <TextBox x:Name="txtEndIP" Margin="0,54,135,0" TextWrapping="NoWrap" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Canvas.Left="468.002" Canvas.Top="392.167" FontSize="16" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI"  PreviewMouseUp="txtEndIP_PreviewMouseUp" TabIndex="0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="194"/>
+       
+        <ListView x:Uid="lvGmiupdate" x:Name="Gmiupdatebin" ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="13,108,38,212" 
+                  IsSynchronizedWithCurrentItem="True" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontSize="16" FontFamily="Segoe UI" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="ChkBox" x:Uid="ChkBox" ><!--Header= "{DynamicResource GmuSelect_xaml_gmu}"  Checked="chkHeader_Checked"  >-->
+                        <GridViewColumnHeader>
+                            <CheckBox Name="chkHeader" Click="chkHeader_Click" IsChecked="False" ></CheckBox>
+                        </GridViewColumnHeader>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="checkBoxTemplate">
+                                <Grid x:Uid="Grid_1" MinWidth="100">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <CheckBox Name="chkMachine" IsChecked="{Binding Path=IsChecked, Mode=TwoWay}" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="value" Header= "{DynamicResource GmuPossition No_xaml_gmu}"  >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="Value">
+                                <Grid x:Uid="Value" MinWidth="160">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   />
+                                    <TextBlock x:Uid="Value" FontSize="16" Text="{Binding BarPostion}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="GC_IP" x:Uid="IP" Header="{DynamicResource GmuIpaddress_xaml_gmu}"  >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="Name">
+                                <Grid x:Uid="Grid_3" MinWidth="160">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="Name" FontSize="16" Text="{Binding IP}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="Message" x:Uid="Message" Header="{DynamicResource GmuStatus_xaml_gmu}"  >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="Message">
+                                <Grid x:Uid="Grid_3" MinWidth="260">
+                                 <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                 <TextBlock x:Uid="status"  FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Status}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="051,0,051,178" Name="lblStatus" Height="25"
+                   Text="Loading..." Foreground="{DynamicResource TextGradient}" FontFamily="Segoe UI" FontSize="16"
+                   TextAlignment="Center" FontWeight="Bold" Visibility="Hidden" />
+        <Button x:Uid="btnfindgmu" Name="btnfindgmu" Command="{Binding findgmu}" CommandParameter="{Binding ElementName=_gmubinupdate}" Margin="051,0,0,118" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom"
+                Height="53" Content="{DynamicResource GMUupdatebin_xaml_Button1}"  HorizontalAlignment="Left" Width="100" Click="btnfindgmu_Click" />
+        <Button x:Uid="btnburnbin" Name="btnburnbin" Command="{Binding burnbin}" CommandParameter="{Binding ElementName=_gmubinupdate}" Margin="251,0,0,118" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" 
+                Height="53" Content="{DynamicResource GMUupdatebin_xaml_Button2}"  HorizontalAlignment="Left" Width="100" Click="btnburnbin_Click" />
+        <Button x:Uid="btnburnoption" Name="btnburnoption" Command="{Binding burnoption}"  CommandParameter="{Binding ElementName=_gmubinupdate}" Margin="451,0,0,118" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" 
+                Height="53" Content="{DynamicResource GMUupdatebin_xaml_Button3}"  HorizontalAlignment="Left" Width="100" Click="btnburnoption_Click" />
+        <Button x:Uid="btnRestart" Name="btnRestart" Command="{Binding Restart}"  CommandParameter="{Binding ElementName=_gmubinupdate}" Margin="651,0,0,118" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" 
+                Height="53" Content="{DynamicResource GMUupdatebin_xaml_Button4}"  HorizontalAlignment="Left" Width="100" Click="btnRestart_Click" />
+    </Grid>
+
+</UserControl>

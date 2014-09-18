@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<UserControl x:Uid="UserControl_1" 
+             x:Class="BMC.Presentation.POS.Views.cHourly" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:src="clr-namespace:BMC.Presentation.POS" 
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" Width="800" Height="640" Loaded="UserControl_Loaded"
+             xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+               xmlns:ComponentModel="clr-namespace:BMC.Presentation.POS.Helper_classes">
+    <UserControl.Resources>
+        <Helper_classes:HourlyCurrencyPriceConverter x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+        <Helper_classes:DateConverter x:Uid="src:DateConverter_1" x:Key="DateConverter" />
+        <Helper_classes:CurrencyConverter x:Uid="src:CurrencyConverter_1" x:Key="CurrencyConverter" />
+        <Style x:Key="rightAlignedCurrencyStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+        <DataTemplate x:Uid="DataTemplate_1" x:Key="PositionTemplate">
+            <Grid x:Uid="Grid_1" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" FontSize="15" Text="{Binding Path=Bar_Position_Name}" HorizontalAlignment="Right" Margin="0,2,0,2" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_2" x:Key="DateTemp">
+            <Grid x:Uid="Grid_2" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_2"  FontSize="15" Text="{Binding Path=Date,Converter={StaticResource DateConverter}}" ToolTip="{Binding Path=Date}" HorizontalAlignment="Left" Margin="0,2,0,2" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_3" x:Key="Day">
+            <Grid x:Uid="Grid_3" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_3" FontSize="15" Text="{Binding Path=Day}" ToolTip="{Binding Path=Day}" HorizontalAlignment="Left" Margin="0,2,0,2" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_4" x:Key="Machine">
+            <Grid x:Uid="Grid_4" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_4" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_4" FontSize="15" Text="{Binding Path=Machine_Name}" ToolTip="{Binding Path=Machine_Name}" HorizontalAlignment="Left" Margin="0,2,0,2" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_5" x:Key="Asset">
+            <Grid x:Uid="Grid_5" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_5" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_5" FontSize="15" Text="{Binding Path=Stock_No}" ToolTip="{Binding Path=Stock_No}" HorizontalAlignment="Left" Margin="0,2,0,2" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_6" x:Key="Total">
+            <Grid x:Uid="Grid_6" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto" >
+                <Border x:Uid="Border_6" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  />
+                <TextBlock x:Uid="TextBlock_6" TextAlignment="Right" FontSize="15" Width="100" ToolTip="{Binding Path=Total,Converter={StaticResource PriceConverter}}" Text="{Binding Path=Total,Converter={StaticResource PriceConverter}}"  HorizontalAlignment="Right" Margin="0,2,0,2"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_7" x:Key="Hour1">
+            <Grid x:Uid="Grid_7" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_7" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_7" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour1_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour1_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_8" x:Key="Hour2">
+            <Grid x:Uid="Grid_8" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_8" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_8" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour2_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour2_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_9" x:Key="Hour3">
+            <Grid x:Uid="Grid_9" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_9" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_9" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour3_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour3_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_10" x:Key="Hour4">
+            <Grid x:Uid="Grid_10" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_10" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_10" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour4_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour4_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_11" x:Key="Hour5">
+            <Grid x:Uid="Grid_11" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_11" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_11" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour5_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour5_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_12" x:Key="Hour6">
+            <Grid x:Uid="Grid_12" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_12" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_12" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour6_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour6_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_13" x:Key="Hour7">
+            <Grid x:Uid="Grid_13" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_13" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_13" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour7_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour7_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_14" x:Key="Hour8">
+            <Grid x:Uid="Grid_14" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_14" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_14" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour8_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour8_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_15" x:Key="Hour9">
+            <Grid x:Uid="Grid_15" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_15" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_15" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour9_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour9_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_16" x:Key="Hour10">
+            <Grid x:Uid="Grid_16" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_16" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_16" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour10_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour10_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_17" x:Key="Hour11">
+            <Grid x:Uid="Grid_17" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_17" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_17" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour11_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour11_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_18" x:Key="Hour12">
+            <Grid x:Uid="Grid_18" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_18" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  />
+                <TextBlock x:Uid="TextBlock_18" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour12_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour12_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0"  Width="100" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_19" x:Key="Hour13">
+            <Grid x:Uid="Grid_19" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_19" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_19" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour13_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour13_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_20" x:Key="Hour14">
+            <Grid x:Uid="Grid_20" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_20" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_20" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour14_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour14_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_21" x:Key="Hour15">
+            <Grid x:Uid="Grid_21" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_21" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_21" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour15_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour15_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_22" x:Key="Hour16">
+            <Grid x:Uid="Grid_22" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_22" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_22" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour16_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour16_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_23" x:Key="Hour17">
+            <Grid x:Uid="Grid_23" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_23" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_23"  TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour17_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour17_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_24" x:Key="Hour18">
+            <Grid x:Uid="Grid_24" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_24" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_24" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour18_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour18_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_25" x:Key="Hour19">
+            <Grid x:Uid="Grid_25" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_25" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_25" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour19_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour19_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_26" x:Key="Hour20">
+            <Grid x:Uid="Grid_26" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_26" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_26" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour20_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour20_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_27" x:Key="Hour21">
+            <Grid x:Uid="Grid_27" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_27" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_27" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour21_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour21_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_28" x:Key="Hour22">
+            <Grid x:Uid="Grid_28" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_28" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_28" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour22_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour22_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_29" x:Key="Hour23">
+            <Grid x:Uid="Grid_29" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_29" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_29" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour23_Value,Converter={StaticResource PriceConverter}}"  ToolTip="{Binding Path=HS_Hour23_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_30" x:Key="Hour24">
+            <Grid x:Uid="Grid_30" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_30" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_30" TextAlignment="Right" FontSize="15" Text="{Binding Path=HS_Hour24_Value,Converter={StaticResource PriceConverter}}" ToolTip="{Binding Path=HS_Hour24_Value,Converter={StaticResource PriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_31" x:Key="Hour25">
+            <Grid x:Uid="Grid_31" MinWidth="10" HorizontalAlignment="Stretch" Width="Auto">
+                <Border x:Uid="Border_31" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_31" TextAlignment="Right" FontSize="15" Text="" HorizontalAlignment="Right" Margin="0,0,0,0" Width="100"/>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Uid="Grid_31">
+        <TextBlock x:Uid="TextBlock_31" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,6,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource cHourly_xaml_TextBlock_31}" Foreground="#FFFFFFFF" Height="23.94" Width="294">
+            <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_1">
+                    <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="4,36,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <ComboBox x:Uid="cmbGroupBy" Height="30" Margin="2,43,0,0" Name="cmbGroupBy" FontSize="18" SelectionChanged="cmbCombos_SelectionChanged" DisplayMemberPath="HS_Type" ItemsSource="{DynamicResource Table}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="279" Padding="2,0,0,0" Style="{DynamicResource BMC_ComboBoxStyle}"></ComboBox>
+        <ComboBox x:Uid="cmbLast" Height="30" Margin="286,43,0,0" Name="cmbLast" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" SelectionChanged="cmbCombos_SelectionChanged" Style="{DynamicResource BMC_ComboBoxStyle}" Padding="2,0,0,0" RenderTransformOrigin="-0.242,0.557">
+            <ComboBoxItem x:Uid="ComboBoxItem_1" Tag="0" Content="{DynamicResource CHourly_xaml_ComboBoxItem_1}"></ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_2" Tag="1">1</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_3" Tag="2">2</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_4" Tag="3">3</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_5" Tag="4">4</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_6" Tag="5">5</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_7" Tag="6" IsSelected="True">6</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_8" Tag="12">12</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_9" Tag="24">24</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_10" Tag="48">48</ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_11" Tag="60">60</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Uid="cmbOptions" Height="30" Margin="354,43,0,0" Name="cmbOptions" FontSize="18" VerticalAlignment="Top" SelectionChanged="cmbOptions_SelectionChanged" Padding="2,0,0,0"  HorizontalAlignment="Left" Width="108" Style="{DynamicResource BMC_ComboBoxStyle}">
+            <ComboBoxItem x:Uid="ComboBoxItem_15" Content="{DynamicResource CHourly_xaml_ComboBoxItem_15}" Tag="Category"></ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_13" Content="{DynamicResource CHourly_xaml_ComboBoxItem_13}" Tag="Position"></ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_12" Content="{DynamicResource CHourly_xaml_ComboBoxItem_12}" Tag="Site"></ComboBoxItem>
+            <ComboBoxItem x:Uid="ComboBoxItem_14" Content="{DynamicResource CHourly_xaml_ComboBoxItem_14}" Tag="Zone"></ComboBoxItem>
+
+        </ComboBox>
+        <ComboBox x:Uid="cmbOptions2" Height="30" Margin="0,43,207,0" Name="cmbOptions2" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="2,0,0,0" Width="114" SelectionChanged="cmbCombos_SelectionChanged" Style="{DynamicResource BMC_ComboBoxStyle}" SelectedValuePath="ID" DisplayMemberPath="Name" HorizontalContentAlignment="Stretch">
+
+        </ComboBox>
+        
+        <!--<ListView x:Uid="lstHourly" Name="lstHourly" Margin="2,90,2,2"  MouseDoubleClick="lstHourly_MouseDoubleClick" Padding="0,0,0,0" ItemsSource="{Binding}" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" Canvas.Top="69" SelectionMode="Single" IsTextSearchEnabled="False" TabIndex="1" FontSize="15" Width="auto">-->
+        <Custom:DataGrid   x:Uid="lstHourly" 
+                           Name="lstHourly" 
+                           Sorting="lstHourly_Sorting" 
+                           HorizontalAlignment="Stretch" 
+                           VerticalAlignment="Stretch" 
+                           
+                           ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                           ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                           ScrollViewer.CanContentScroll="True"  
+                           ItemsSource="{Binding Path=Table}" 
+                           FontSize="14"  
+                           IsReadOnly="True" 
+                           IsTextSearchEnabled="False" 
+                           TabIndex="1" 
+                           AutoGenerateColumns="False" 
+                           Style="{DynamicResource dgstyle}"  
+                           Margin="2,90,2,2" 
+                           MouseDoubleClick="lstHourly_MouseDoubleClick"  
+                           RowBackground="{DynamicResource RowBG}"   
+                           HorizontalGridLinesBrush="#FF6B747A" 
+                           VerticalGridLinesBrush="#FF6B747A" 
+                           SelectionUnit="FullRow"  >
+            <Custom:DataGrid.RowStyle>
+                <Style TargetType="Custom:DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding isTotalRow}" Value="True">
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Custom:DataGrid.RowStyle>
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_1"   Header="{DynamicResource cHourly_xaml_GridViewColumn_1}" Binding="{Binding Path=Date,Converter={StaticResource DateConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_2" Header="{DynamicResource cHourly_xaml_GridViewColumn_2}" Binding="{Binding Path=Bar_Position_Name}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_3" Header="{DynamicResource cHourly_xaml_GridViewColumn_3}" Binding="{Binding Path=Day}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_4" Header="{DynamicResource cHourly_xaml_GridViewColumn_4}" Binding="{Binding Path=Machine_Name}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_5" Header="{DynamicResource cHourly_xaml_GridViewColumn_5}" Binding="{Binding Path=Stock_No}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_6" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_6}" Binding="{Binding Path=Total,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_7" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_7}"  Binding="{Binding Path=HS_Hour1_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_8" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_8}" Binding="{Binding Path=HS_Hour2_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_9" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_9}" Binding="{Binding Path=HS_Hour3_Value,Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_10" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_10}" Binding="{Binding Path=HS_Hour4_Value,Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_11" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_11}" Binding="{Binding Path=HS_Hour5_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_12" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_12}" Binding="{Binding Path=HS_Hour6_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_13" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_13}" Binding="{Binding Path=HS_Hour7_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_14" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_14}" Binding="{Binding Path=HS_Hour8_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_15" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_15}" Binding="{Binding Path=HS_Hour9_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_16" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_16}" Binding="{Binding Path=HS_Hour10_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_17" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_17}" Binding="{Binding Path=HS_Hour11_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_18" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_18}" Binding="{Binding Path=HS_Hour12_Value,Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_19" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_19}" Binding="{Binding Path=HS_Hour13_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_20" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_20}" Binding="{Binding Path=HS_Hour14_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_21" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_21}" Binding="{Binding Path=HS_Hour15_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_22" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_22}" Binding="{Binding Path=HS_Hour16_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_23" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_23}" Binding="{Binding Path=HS_Hour17_Value,Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_24" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_24}" Binding="{Binding Path=HS_Hour18_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_25" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_25}" Binding="{Binding Path=HS_Hour19_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_26" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_26}" Binding="{Binding Path=HS_Hour20_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_27" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_27}" Binding="{Binding Path=HS_Hour21_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_28" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_28}" Binding="{Binding Path=HS_Hour22_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_29" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_29}" Binding="{Binding Path=HS_Hour23_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_30" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" Header="{DynamicResource cHourly_xaml_GridViewColumn_30}" Binding="{Binding Path=HS_Hour24_Value,Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="Custom:DataGridTextColumn_31" Header="" Width="10"  />
+            </Custom:DataGrid.Columns>
+
+        </Custom:DataGrid>
+
+        <Button x:Uid="btnDeails" Content="{DynamicResource cHourly_xaml_btnDeails}" Style="{DynamicResource BMC_Button}" x:Name="btnDeails" Click="btnDeails_Click" Margin="0,30,1,0" VerticalAlignment="Top" Height="54" HorizontalAlignment="Right" Width="100" />
+        <Button x:Uid="btnSummary" Content="{DynamicResource cHourly_xaml_btnSummary}" Style="{DynamicResource BMC_Button}" x:Name="btnSummary" Click="btnSummary_Click" Margin="0,30,1,0" VerticalAlignment="Top" Height="54" HorizontalAlignment="Right" Width="100" />
+        <Button x:Uid="btnExport" Content="{DynamicResource cHourly_xaml_btnExport}" Style="{DynamicResource BMC_Button}" x:Name="btnExport"   VerticalAlignment="Top" Height="63" HorizontalAlignment="Right" Width="102" Margin="0,30,100,0" Click="btnExport_Click"  />
+    </Grid>
+</UserControl>

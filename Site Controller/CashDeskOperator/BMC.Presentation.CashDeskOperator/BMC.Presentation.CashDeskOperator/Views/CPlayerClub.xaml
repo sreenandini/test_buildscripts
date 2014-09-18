@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="UserControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="BMC.Presentation.CPlayerClub" x:Name="UserControl" d:DesignWidth="640" d:DesignHeight="480" Width="870" Height="660" RenderTransformOrigin="0.5,0.5" Loaded="UserControl_Loaded">
+  <UserControl.Resources>
+    <DataTemplate x:Uid="DataTemplate_1" x:Key="Prize">
+      <Grid x:Uid="Grid_1" MinWidth="10">
+        <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <TextBlock x:Uid="TextBlock_1" Text="{Binding PrizeName}" TextAlignment="Left" />
+      </Grid>
+    </DataTemplate>
+    <DataTemplate x:Uid="DataTemplate_2" x:Key="UnitPointValue">
+      <Grid x:Uid="Grid_2" MinWidth="10">
+        <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <TextBlock x:Uid="TextBlock_2" Text="{Binding RedeemPoints}" Margin="0,0,3,0" TextAlignment="Right" />
+      </Grid>
+    </DataTemplate>
+    <DataTemplate x:Uid="DataTemplate_3" x:Key="UnitCashValue">
+      <Grid x:Uid="Grid_3" MinWidth="10">
+        <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <TextBlock x:Uid="TextBlock_3" Text="{Binding AuthAward}" TextAlignment="Right" />
+      </Grid>
+    </DataTemplate>
+  </UserControl.Resources>
+  <UserControl.RenderTransform>
+    <TransformGroup x:Uid="TransformGroup_1">
+      <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+      <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+      <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+      <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+    </TransformGroup>
+  </UserControl.RenderTransform>
+  <UserControl.Triggers></UserControl.Triggers>
+  <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Background="{x:Null}" RenderTransformOrigin="0.5,0.5">
+    <Grid.RenderTransform>
+      <TransformGroup x:Uid="TransformGroup_2">
+        <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+        <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+        <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+        <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+      </TransformGroup>
+    </Grid.RenderTransform>
+    <Border x:Uid="Border_4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" CornerRadius="5,5,5,5" Background="#19FFFFFF" Margin="-1.335,0,1.335,0" />
+    <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+      <Path.Fill>
+        <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+          <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+          <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+        </LinearGradientBrush>
+      </Path.Fill>
+    </Path>
+    <TextBlock x:Uid="TextBlock_4" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" Margin="20,15,433,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource CPlayerClub_xaml_TextBlock_4}" Foreground="#FFFFFFFF" Height="23.94">
+      <TextBlock.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_3">
+          <ScaleTransform x:Uid="ScaleTransform_3" ScaleX="1" ScaleY="1" />
+          <SkewTransform x:Uid="SkewTransform_3" AngleX="0" AngleY="0" />
+          <RotateTransform x:Uid="RotateTransform_3" Angle="0" />
+          <TranslateTransform x:Uid="TranslateTransform_3" X="0" Y="0" />
+        </TransformGroup>
+      </TextBlock.RenderTransform>
+    </TextBlock>
+    <Label x:Uid="Label_1" HorizontalAlignment="Left" Margin="20,72.59,0,0" VerticalAlignment="Top" Width="160" Height="Auto" Content="{DynamicResource CPlayerClub_xaml_Label_1}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" />
+    <Label x:Uid="Label_2" HorizontalAlignment="Left" Margin="20,116.71,0,0" Width="181" Content="{DynamicResource CPlayerClub_xaml_Label_2}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Top" Height="31.28" FontWeight="Bold" />
+    <Label x:Uid="Label_3" HorizontalAlignment="Right" Margin="0,116.71,190,0" VerticalAlignment="Top" Width="160" Height="Auto" Content="{DynamicResource CPlayerClub_xaml_Label_3}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" />
+    <TextBox x:Uid="txtAcctNo" HorizontalAlignment="Left" Margin="190,75.248,0,0" VerticalAlignment="Top" Width="200" Height="24" Text="" TextWrapping="Wrap" FontSize="16" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtAcctNo" PreviewMouseUp="txtAcctNo_PreviewMouseUp" KeyDown="txtPrizeQty_KeyDown" />
+    <Label x:Uid="Label_4" Margin="0,75.248,150,0" VerticalAlignment="Top" Height="Auto" Content="{DynamicResource CPlayerClub_xaml_Label_4}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" HorizontalAlignment="Right" Width="200" FontWeight="Bold" />
+    <ListView x:Uid="lvRedeemPrizeList" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontSize="16" FontFamily="Segoe UI" x:Name="lvRedeemPrizeList" SelectionChanged="lvRedeemPrizeList_SelectionChanged" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" Margin="20,160,20,180" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+      <ListView.View>
+        <GridView x:Uid="GridView_1">
+          <GridViewColumn x:Uid="GridViewColumn_1" Header="{DynamicResource CPlayerClub_xaml_GridViewColumn_1}" Width="500" CellTemplate="{StaticResource Prize}" />
+          <GridViewColumn x:Uid="GridViewColumn_2" Header="{DynamicResource CPlayerClub_xaml_GridViewColumn_2}" Width="250" CellTemplate="{StaticResource UnitPointValue}" />
+          <GridViewColumn x:Uid="GridViewColumn_3" Header="{DynamicResource CPlayerClub_xaml_GridViewColumn_3}" Width="250" CellTemplate="{StaticResource UnitCashValue}" />
+        </GridView>
+      </ListView.View>
+    </ListView>
+    <Label x:Uid="Label_5" HorizontalAlignment="Left" Margin="20,0,0,144.128" Width="Auto" Content="{DynamicResource CPlayerClub_xaml_Label_5}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Bottom" Height="Auto" FontWeight="Bold" />
+    <Label x:Uid="Label_6" HorizontalAlignment="Left" Margin="20,0,0,99" Width="Auto" Content="{DynamicResource CPlayerClub_xaml_Label_6}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Bottom" Height="Auto" FontWeight="Bold" />
+    <Label x:Uid="lblPrizeDescription" HorizontalAlignment="Left" Margin="185,0,0,144.128" Width="88" x:Name="lblPrizeDescription" Content="" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Bottom" Height="Auto" />
+    <Label x:Uid="lblUnitPointValue" HorizontalAlignment="Left" Margin="185,0,0,99" Width="88" Content="{DynamicResource CPlayerClub_xaml_lblUnitPointValue}" x:Name="lblUnitPointValue" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Bottom" Height="Auto" />
+    <Label x:Uid="Label_7" Margin="425,0,270,133" Content="{DynamicResource CPlayerClub_xaml_Label_7}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Bottom" Height="37" FontWeight="Bold" />
+    <Label x:Uid="Label_8" Margin="0,0,245,99" Content="{DynamicResource CPlayerClub_xaml_Label_8}" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Bottom" Height="31.28" HorizontalAlignment="Right" Width="199" FontWeight="Bold" />
+    <Label x:Uid="lblCashValue" Margin="0,0,140,99" x:Name="lblCashValue" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Bottom" Height="Auto" HorizontalAlignment="Right" Width="100" />
+    <TextBox x:Uid="txtPrizeQty" Margin="0,0,130,144.128" Text="{DynamicResource CPlayerClub_xaml_txtPrizeQty}" TextWrapping="Wrap" HorizontalAlignment="Right" Width="120" VerticalAlignment="Bottom" Height="24" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" TextAlignment="Left" x:Name="txtPrizeQty" PreviewMouseUp="txtPrizeQty_PreviewMouseUp" KeyDown="txtPrizeQty_KeyDown" LostFocus="txtPrizeQty_LostFocus" FontSize="16" />
+    <Button x:Uid="Button_1" Margin="0,0,0,15" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" Height="Auto" Content="{DynamicResource CPlayerClub_xaml_Button_1}" HorizontalAlignment="Center" Click="btnRedeem_Click" />
+    <Button x:Uid="GetAccDetails" Name="GetAccDetails" Margin="400,60,0,15" Style="{DynamicResource BMC_Button}" VerticalAlignment="Top" Height="Auto" Content="{DynamicResource CPlayerClub_xaml_GetAccDetails}" HorizontalAlignment="Left" Click="GetAccDetails_Click" />
+    <Label x:Uid="lblPlayerName" HorizontalAlignment="Left" Margin="145,116.71,0,0" Width="160" x:Name="lblPlayerName" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" VerticalAlignment="Top" Height="Auto" />
+    <Label x:Uid="lblClubState" Margin="0,116.71,95,0" VerticalAlignment="Top" Height="Auto" x:Name="lblClubState" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" HorizontalAlignment="Right" Width="160" />
+    <Label x:Uid="lblPointsBal" Margin="0,75.248,5,0" VerticalAlignment="Top" Height="Auto" x:Name="lblPointsBal" FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Foreground="{DynamicResource FormLabelForegroundColour}" HorizontalAlignment="Right" Width="160" />
+    <Button x:Uid="btn_Up" HorizontalAlignment="Right" Margin="0,0,89.75,140" VerticalAlignment="Bottom" Width="30" Height="30" Content="{DynamicResource CPlayerClub_xaml_btn_Up}" Style="{DynamicResource SpinButton}" x:Name="btn_Up" Click="btn_Up_Click" />
+    <Button x:Uid="btn_Down" HorizontalAlignment="Right" Margin="0,0,43.75,140" Style="{DynamicResource SpinButton}" VerticalAlignment="Bottom" Width="30" Height="30" Content="{DynamicResource CPlayerClub_xaml_btn_Down}" RenderTransformOrigin="0.5,0.5" x:Name="btn_Down" Click="btn_Down_Click">
+      <Button.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_4">
+          <ScaleTransform x:Uid="ScaleTransform_4" ScaleX="1" ScaleY="1" />
+          <SkewTransform x:Uid="SkewTransform_4" AngleX="0" AngleY="0" />
+          <RotateTransform x:Uid="RotateTransform_4" Angle="180" />
+          <TranslateTransform x:Uid="TranslateTransform_4" X="0" Y="0" />
+        </TransformGroup>
+      </Button.RenderTransform>
+    </Button>
+  </Grid>
+</UserControl>

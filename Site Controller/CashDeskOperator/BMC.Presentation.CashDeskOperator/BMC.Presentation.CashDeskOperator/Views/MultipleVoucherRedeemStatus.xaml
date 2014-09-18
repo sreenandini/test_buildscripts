@@ -1,0 +1,19 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.MultipleVoucherRedeemStatus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource MultipleTicketRedeem}" Height="175" Width="370" 
+        BorderThickness="1.5"  AllowsTransparency="True"         
+        Background="{DynamicResource SubFormBG}" Loaded="Window_Loaded"  KeyDown="Window_KeyDown" MouseDown="Window_MouseDown" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Normal">
+    <Grid Background="{DynamicResource SubFormBG}"  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="txtProcessingtext" Uid="txtProcessingtext" Grid.Row="0" Grid.Column="0" Text="{DynamicResource CRedeemMultipleVoucherProcessingState}" Width="365" Height="30"  TextAlignment="Center" FontFamily="Segoe UI" FontSize="14" FontWeight="ExtraBold"></TextBlock>
+        <Button x:Name="btnCancel" Uid="btnCancel" Content="{DynamicResource CRedeemMultipleVoucherCancelredeem }" Grid.Column="0" Style="{DynamicResource BMC_Button}" HorizontalAlignment="Center" Height="60" Width="100" Click="btnCancel_Click" Grid.Row="1"/>
+    </Grid>
+</Window>

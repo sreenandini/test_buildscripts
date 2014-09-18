@@ -1,0 +1,41 @@
+<Root>
+  <ImageList>
+    <Image File="../Images/Floor-View.png"        Caption="Floor View"                            ValueName="Floor View"                Visible ="Y"/>
+    <Image File="../Images/GridView.png"          Caption="Grid View"                             ValueName="Grid View"                 Visible ="Y"/>
+    <Image File="../Images/Tickets.png"           Caption="    Cashier&#xD;Transactions"          ValueName="Tickets"                   Visible ="Y"/>
+    <Image File="../Images/Promotions.png"        Caption="Promotions"                            ValueName="PromotionalTickets"        Visible ="Y"/>
+    <Image File="../Images/Shortpay.png"          Caption="Shortpay"                              ValueName="ShortPay"                  Visible ="Y"/>
+    <Image File="../Images/Analysis.png"          Caption="Reports"                               ValueName="Reports"                   Visible ="Y"/>
+    <Image File="../Images/CDM.png"               Caption="Cashier&#xD;History"                   ValueName="Cashier&#xD;Transactions"  Visible ="Y"/>
+    <Image File="../Images/Hourly.png"            Caption="Hourly"                                ValueName="Hourly"                    Visible ="Y"/>
+    <Image File="../Images/MachineDropScreen.png" Caption="Machine Drop"                          ValueName="Machine Drop"              Visible ="Y"/>
+    <Image File="../Images/Details.png"           Caption="Details"                               ValueName="Details"                   Visible ="Y"/>
+    <Image File="../Images/VLT Status.png"        Caption="VLT Status"                            ValueName="CurrentStatus"             Visible ="Y"/>
+    <Image File="../Images/Void.png"              Caption="Void"                                  ValueName="Void"                      Visible ="N"/>
+    <Image File="../Images/PlayerClub.png"        Caption="Player Club"                           ValueName="Player Club"               Visible ="N"/>
+    <Image File="../Images/Current Calls.png"     Caption="Current Calls"                         ValueName="Current Calls"             Visible ="N"/>
+    <Image File="../Images/Audit.png"             Caption="Audit"                                 ValueName="Audit"                     Visible ="Y"/>
+    <Image File="../Images/Custom Report.png"     Caption="Custom&#xD;Reports"                    ValueName="CustomReports"             Visible ="Y"/>
+    <Image File="../Images/Settings.png"          Caption="Settings"                              ValueName="Settings"                  Visible ="Y"/>
+    <Image File="../Images/AFT settings.png"      Caption="AFT Settings"                          ValueName= "AFTSettings"              Visible ="Y"/>
+    <Image File="../Images/Tickets.png"           Caption="Voucher Config"                        ValueName="SyncTicket"                Visible ="Y"/>
+    <Image File="../Images/AftTransaction.png"    Caption="       AFT &#xD;Configuration"         ValueName="SyncAft"                   Visible ="N"/>
+    <Image File="../Images/Money-Bag-256x256.png" Caption="Coin &#xD;Dispenser"                   ValueName="CoinDispenser"             Visible ="Y"/>
+    <Image File="../Images/PlayerClub.png"        Caption=" PT Message &#xD;   Resender"          ValueName="PlayerInformation"         Visible ="Y"/>
+    <Image File="../Images/Card.png"              Caption=" Employee card &#xD;   Configuration"  ValueName="SyncEmpCard"               Visible ="N"/>
+    <Image File="../Images/VaultTransaction.png"  Caption="Vault"                                 ValueName="FillVault"                 Visible ="Y"/>
+    <Image File="../Images/NGAEnrolment.png"      Caption="NGA Enrol"                             ValueName="NGAEnrol"                  Visible ="Y"/>
+    <Image File="../Images/Tickets.png"           Caption="Exception &#xD;Vouchers"               ValueName="ExceptionVouchers"         Visible ="Y"/>
+    <Image File="../Images/Tickets.png"           Caption="Cross Ticketing &#xD;      Settings"   ValueName="CrossTicketingSettings"    Visible ="N"/>
+    <Image File="../Images/Updategmipin.png"      Caption="Update GMU &#xD;        Bin"           ValueName="Updategmupin"              Visible ="N"/>
+    <Image File="../Images/siteinteg.png"         Caption="       Site&#xD;Interrogation"         ValueName="SiteInterrogation"         Visible ="Y"/>
+    <Image File="../Images/Money-Bag-256x256.png" Caption="Read Based &#xD;Liquidation"           ValueName="ReadBasedLiquidation"      Visible ="Y"/>
+    <Image File="../Images/unlock.png"            Caption="Unlock"                                ValueName="Unlock"                    Visible ="Y"/>
+    <Image File="../Images/ExportDetail.png"      Caption="Export Details"                        ValueName="ExportDetails"             Visible ="Y"/>
+    <Image File="../Images/SpotCheck.png"         Caption="Spot Check"                            ValueName="SpotCheck"                 Visible ="Y"/>
+    <Image File="../Images/GMUUpdateforAsset.png" Caption="GMU No&#xD;Update"                     ValueName="UpdateGMUNo"               Visible ="Y"/>
+    <Image File="../Images/GameCapping.png"       Caption="Game Capping"                          ValueName="GameCapping"               Visible ="Y"/>
+    <Image File="../Images/Tickets.png"           Caption=" Machine &#xD;Enable/Disable"          ValueName="MachineEnableDisable"      Visible ="N"/>
+    <Image File="../Images/AFT settings.png"      Caption="Ping GMU"                              ValueName="GMUPing"                   Visible ="Y"/>
+  </ImageList>
+</Root>

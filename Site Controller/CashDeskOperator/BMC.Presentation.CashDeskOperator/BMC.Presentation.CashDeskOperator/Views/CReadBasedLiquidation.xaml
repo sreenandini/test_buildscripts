@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Class="BMC.Presentation.CReadBasedLiquidation"
+             x:Uid="UserControl" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" xmlns:src="clr-namespace:BMC.Presentation.POS" 
+             xmlns:CustomControl="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+             x:Name="UserControl" d:DesignWidth="638" 
+             d:DesignHeight="480" Width="870" Height="545" RenderTransformOrigin="0.5,0.5"
+             Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CustomControl:CurrencyPriceConverter x:Uid="CustomControl:CurrencyPriceConverter" x:Key="CurrencyPriceConverter"></CustomControl:CurrencyPriceConverter>
+        <Helper_classes:DateConverter x:Key="DateConverter"/>
+        
+        <DataTemplate x:Uid="DataTemplate_3" x:Key="FormattedDateTemplate">
+            <Grid x:Uid="Grid_3" MinWidth="10">
+                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_5" Text="{Binding Read_Date, Converter={StaticResource DateConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_4" x:Key="CashInTemplate">
+            <Grid x:Uid="Grid_4" MinWidth="10">
+                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_6" Text="{Binding CashIn, Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_5" x:Key="CashOutTemplate">
+            <Grid x:Uid="Grid_5" MinWidth="10">
+                <Border x:Uid="Border_4" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_7" Text="{Binding CashOut, Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" Width="Auto">
+                </TextBlock>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_6" x:Key="CashTakeTemplate">
+            <Grid x:Uid="Grid_6" MinWidth="10">
+                <Border x:Uid="Border_5" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_8" Text="{Binding CashTake, Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_7" x:Key="TotalCoinInTemplate">
+            <Grid x:Uid="Grid_7" MinWidth="10">
+                <Border x:Uid="Border_6" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_9" Text="{Binding Total_Coins_In, Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_8" x:Key="HandpayTemplate">
+            <Grid x:Uid="Grid_8" MinWidth="10">
+                <Border x:Uid="Border_7" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_10" Text="{Binding Handpay, Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_9" x:Key="Tickets_InTemplate">
+            <Grid x:Uid="Grid_9" MinWidth="10">
+                <Border x:Uid="Border_8" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_11" Text="{Binding Tickets_In, Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_10" x:Key="Tickets_OutTemplate">
+            <Grid x:Uid="Grid_10" MinWidth="10">
+                <Border x:Uid="Border_9" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_11" Text="{Binding Tickets_Out, Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,3,0" />
+            </Grid>
+        </DataTemplate>
+        
+    </UserControl.Resources>
+    <UserControl.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_1">
+            <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+            <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+            <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+            <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <UserControl.Triggers></UserControl.Triggers>
+    <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Background="{x:Null}" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup x:Uid="TransformGroup_2">
+                <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Border x:Uid="Border_10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" CornerRadius="5,5,5,5" Background="#19CDDD98" />
+        <ListView x:Uid="lstRead" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" x:Name="lstRead" Margin="13,39,15,75" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontSize="13" FontFamily="Segoe UI" ItemsSource="{Binding Mode=Default}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" SelectionMode="Multiple">
+            <ListView.View>
+                <GridView x:Uid="GridView_1">
+                    <GridViewColumn x:Uid="GridViewColumn_1" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_1}" Width="150" CellTemplate="{StaticResource FormattedDateTemplate}"/>
+                    <GridViewColumn x:Uid="GridViewColumn_2" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_2}" Width="150" CellTemplate="{StaticResource CashInTemplate}" />
+                    <GridViewColumn x:Uid="GridViewColumn_3" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_3}" Width="150" CellTemplate="{StaticResource CashOutTemplate}" />
+                    <GridViewColumn x:Uid="GridViewColumn_4" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_4}" Width="160" CellTemplate="{StaticResource CashTakeTemplate}" />
+                    <GridViewColumn x:Uid="GridViewColumn_5" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_5}" Width="150" CellTemplate="{StaticResource TotalCoinInTemplate}" />
+                    <GridViewColumn x:Uid="GridViewColumn_6" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_6}" Width="150" CellTemplate="{StaticResource HandpayTemplate}" />
+                    <GridViewColumn x:Uid="GridViewColumn_7" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_7}" Width="160" CellTemplate="{StaticResource Tickets_InTemplate}" />
+                    <GridViewColumn x:Uid="GridViewColumn_8" Header="{DynamicResource CReadBasedLiquidation_xaml_GridViewColumn_8}" Width="160" CellTemplate="{StaticResource Tickets_OutTemplate}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <Button x:Uid="btnRefresh" Name="btnRefresh" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="{DynamicResource CReadBasedLiquidation_xaml_btnRefresh}" d:LayoutOverrides="Height" Margin="-250,0,0,8" Style="{DynamicResource BMC_Button}" Click="btnRefresh_Click" />
+        <Button x:Uid="btnDetails" Name="btnDetails" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="{DynamicResource CReadBasedLiquidation_xaml_btnDetails}" d:LayoutOverrides="Height" Margin="0,0,0,8" Style="{DynamicResource BMC_Button}" Click="btnDetails_Click" />
+        <Button x:Uid="btnPerform" Name="btnPerform" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="{DynamicResource CReadBasedLiquidation_xaml_btnPerform}" d:LayoutOverrides="Height" Margin="250,0,0,8" Style="{DynamicResource BMC_Button}" Click="btnPerform_Click" />
+        <Button x:Uid="btnPrev" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="&lt;&lt;" d:LayoutOverrides="Height" Margin="135,0,0,8" Style="{DynamicResource BMC_Button}" Name="btnPrev" Click="btnPrev_Click" />
+        <Button x:Uid="btnFirst" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="{DynamicResource CReadBasedLIquidation_xaml_btnFirst}" d:LayoutOverrides="Height" Margin="30,0,0,8" Style="{DynamicResource BMC_Button}" Name="btnFirst" Click="btnFirst_Click" />
+        <Button x:Uid="btnNext" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="&gt;&gt;" d:LayoutOverrides="Height" Margin="0,0,135,8" Style="{DynamicResource BMC_Button}" Name="btnNext" Click="btnNext_Click" />
+        <Button x:Uid="btnLast" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="{DynamicResource CReadBasedLIquidation_xaml_btnLast}" d:LayoutOverrides="Height" Margin="0,0,30,8" Style="{DynamicResource BMC_Button}" Name="btnLast" Click="btnLast_Click" />
+        <TextBlock x:Uid="txtPage" Name="txtPage" TextAlignment="Right" FontFamily="Segoe UI" FontWeight="Normal" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,11,90,0" RenderTransformOrigin="0.5,0.5" Foreground="#FFFFFFFF" Height="15.96" Width="0">
+            <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_4">
+                    <ScaleTransform x:Uid="ScaleTransform_4" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_4" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_4" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_4" X="0" Y="0" />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+    </Grid>
+</UserControl>

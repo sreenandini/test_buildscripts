@@ -1,0 +1,257 @@
+﻿<UserControl x:Class="BMC.Presentation.CVaultFillHistory"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:BMC_Presentation="clr-namespace:BMC.Presentation" 
+     Width="863" Height="553" Loaded="UserControl_Loaded" >
+    <UserControl.Resources>
+        <DataTemplate x:Uid="clm_Fill_ID" x:Key="clm_Fill_ID">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Left" Content="{Binding Fill_ID}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_Name" x:Key="clm_Name"  >
+            <Grid x:Uid="Grid_1" MinWidth="15" Width="Auto" >
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left"  Text="{Binding Name}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_Type" x:Key="clm_Type"  >
+            <Grid x:Uid="Grid_1" MinWidth="15" Width="Auto" >
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Left"  Content="{Binding Type}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_Source" x:Key="clm_Source">
+            <Grid x:Uid="Grid_1" MinWidth="15" Width="Auto" >
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Left"  Content="{Binding Event_Source}" />
+            </Grid>
+        </DataTemplate>
+        
+        <DataTemplate x:Uid="clm_FillAmount" x:Key="clm_FillAmount"  >
+            <Grid x:Uid="Grid_1" MinWidth="15" Width="Auto" HorizontalAlignment="Right" >
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+                <Label x:Uid="TextBlock_1"  HorizontalAlignment="Right"  Content="{Binding FillAmount}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_FillDate" x:Key="clm_FillDate">
+            <Grid x:Uid="Grid_1" MinWidth="15" Width="Auto">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Left"  Content="{Binding CreatedDate}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_FillUser" x:Key="clm_FillUser">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Left"  Content="{Binding CreateUser}" />
+            </Grid>
+        </DataTemplate>
+        <!--<>-->
+        <DataTemplate x:Uid="clm_Ticket" x:Key="clm_Ticket">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Right"  Content="{Binding COLLECTION_RDC_TICKETS_PRINTED_VALUE}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_HandPay" x:Key="clm_HandPay">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Right"  Content="{Binding COLLECTION_RDC_HANDPAY}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_Jackpot" x:Key="clm_Jackpot">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Right"  Content="{Binding COLLECTION_RDC_JACKPOT}" />
+            </Grid>
+        </DataTemplate>
+        <!--<>-->
+        <DataTemplate x:Uid="clm_CurrentBalance" x:Key="clm_CurrentBalance">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+                <Label x:Uid="TextBlock_1"  HorizontalAlignment="Right"  Content="{Binding CurrentBalance}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_vault_Balance" x:Key="clm_vault_Balance">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                <Label x:Uid="TextBlock_1"  HorizontalAlignment="Right"  Content="{Binding vault_Balance}" />
+            </Grid>
+        </DataTemplate>
+
+        
+        
+        <DataTemplate x:Uid="clm_FillUser" x:Key="clm_TotalAmountOnFill">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                
+                <Label x:Uid="TextBlock_1" HorizontalAlignment="Right"  Content="{Binding TotalAmountOnFill}" />
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <GroupBox x:Uid="grpVaultEvents"  Margin="8,8,8,15" Name="grpVaultEvents"  FontFamily="Segoe UI" FontSize="14">
+			<GroupBox.Header >
+                <GroupItem FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Width="Auto">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <Label Margin="5,-3,0,0"  Content="{DynamicResource CVault_grp_VaultHistory}" Width="Auto"></Label>
+                    </StackPanel>
+                </GroupItem>
+            </GroupBox.Header>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="160"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.ColumnSpan="7" Opacity="100"  Grid.RowSpan="1"  Stroke="#21394B" StrokeThickness="1" RadiusX="5" RadiusY="5" Fill="WhiteSmoke"  Margin="9,8,6,1">
+                </Rectangle>
+                <Label Name="lbl_Type" HorizontalAlignment="Right"   Grid.Column="0" VerticalAlignment="Center" Height="43" Content="Type" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" Background="#00000000" Margin="0,27,0,10" />
+                <ComboBox x:Uid="cmbTransType" Margin="5" HorizontalAlignment="Left" Grid.Column="1"  VerticalAlignment="Center" Width="145" Height="28" Name="cmbTransType" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" ClipToBounds="False"  SelectionChanged="cmbTransType_SelectionChanged" />
+                <Label Name="lbl_SelectTop" HorizontalAlignment="Right"   Grid.Column="2" VerticalAlignment="Center" Height="26" Content="{DynamicResource CVaultFillHistory_lbl_SelectTop}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" Background="#00000000" />
+                <ComboBox x:Uid="cmb_SelectTop" Margin="15" HorizontalAlignment="Left" Grid.Column="3"  VerticalAlignment="Center" Width="100" Height="28" Name="cmb_SelectTop" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" ClipToBounds="False"  SelectionChanged="cmb_SelectTop_SelectionChanged" />
+                <Button  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" Margin="0,5,0,0"  Style="{DynamicResource BMC_Button}"  VerticalAlignment="Center" Content="{DynamicResource CVaultFillHistory_btn_ResetVault}" Name="btn_ResetVault"  Click="btn_ResetVault_Click" Visibility="Collapsed"></Button>
+                <Button   Grid.Column="5"  Name="btnPrint" HorizontalAlignment="Left" Margin="0,5,0,0"  Style="{DynamicResource BMC_Button}"  VerticalAlignment="Center" Content="{DynamicResource CVaultFillHistory_btnPrint}"  Click="btnPrint_Click"></Button>
+                <Button   Grid.Column="6"  Name="btnDetails" HorizontalAlignment="Right" Margin="0,5,20,0"  Style="{DynamicResource BMC_Button}"  VerticalAlignment="Center" Content="{DynamicResource CVaultFillHistory_btn_Details}" Click="btnDetails_Click"></Button>
+            </Grid>
+            <ListView  Grid.Row="1" x:Uid="lst_FillHistory" Name="lst_FillHistory" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontFamily="Segoe UI" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"  Margin="8" SelectionChanged="lst_FillHistory_SelectionChanged">
+                <ListView.View>
+                    <GridView x:Uid="GridView_1" >
+                        <GridViewColumn x:Uid="ColNumber" Width="100" CellTemplate="{StaticResource clm_Fill_ID}" x:Name="clm_FillID">
+                            <GridViewColumnHeader Tag="Number" Content="{DynamicResource CVaultFillHistory_clm_FillID}"/>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColNumber" Width="200" CellTemplate="{StaticResource clm_Name}" x:Name="clm_Name">
+                            <GridViewColumnHeader Tag="Device" Content="{DynamicResource CVaultFillHistory_clm_Name}"/>
+                        </GridViewColumn>
+                        <GridViewColumn x:Uid="ColType" Width="200" CellTemplate="{StaticResource clm_Type}" x:Name="clm_Type">
+                            <GridViewColumnHeader Tag="Type" Content="{DynamicResource CVaultFillHistory_clm_Type}"/>
+                        </GridViewColumn>
+                       
+                        <GridViewColumn x:Uid="ColNumber" Width="150" CellTemplate="{StaticResource clm_FillAmount}" x:Name="clm_FillAmount">
+                           
+                            <GridViewColumn.Header >
+                                <TextBlock>
+                                         <Run Text="{DynamicResource CVaultFillHistory_clm_FillAmount}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColNumber" Width="150" CellTemplate="{StaticResource clm_TotalAmountOnFill}" x:Name="clm_TotalAmountOnFill">                           
+                            <GridViewColumn.Header >
+                                <TextBlock>
+                                         <Run Text="{DynamicResource CVaultFillHistory_clm_TotalAmountOnFill}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColTicket" Width="150" CellTemplate="{StaticResource clm_Ticket}" x:Name="clm_Ticket">
+                      
+                            <GridViewColumn.Header >
+                                <TextBlock>
+                                         <Run Text="{DynamicResource CVaultFillHistory_clm_Ticket}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColHandPay" Width="150" CellTemplate="{StaticResource clm_HandPay}" x:Name="clm_HandPay">
+                           
+
+                            <GridViewColumn.Header >
+                                <TextBlock>
+                                         <Run Text="{DynamicResource CVaultFillHistory_clm_HandPay}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColJackpot" Width="150" CellTemplate="{StaticResource clm_Jackpot}" x:Name="clm_Jackpot">
+                            
+                            <GridViewColumn.Header >
+                                <TextBlock>
+                                         <Run Text="{DynamicResource CVaultFillHistory_clm_Jackpot}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn x:Uid="ColNumber" Width="150" CellTemplate="{StaticResource clm_CurrentBalance}" x:Name="clm_CurrentBalance">
+                            
+                            <GridViewColumn.Header>
+                                <TextBlock>
+                                         <Run Text="{DynamicResource CVaultFillHistory_clm_CurrentBalance}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColNumber" Width="150" CellTemplate="{StaticResource clm_vault_Balance}" x:Name="clm_vault_Balance">
+                           
+                            <GridViewColumn.Header >
+                                <TextBlock>
+                                         <Run Text="{DynamicResource CVaultFillHistory_clm_VaultBalance}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                </TextBlock>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColNumber" Width="160" CellTemplate="{StaticResource clm_FillDate}" x:Name="clm_FillDate">
+                            <GridViewColumnHeader  Tag="Date" Content="{DynamicResource CVaultFillHistory_clm_FillDate}"/>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Uid="ColNumber" Width="Auto" CellTemplate="{StaticResource clm_FillUser}" x:Name="clm_FillUser">
+                            <GridViewColumnHeader   Tag="User" Content="{DynamicResource CVaultFillHistory_clm_FillUser}"/>
+                        </GridViewColumn>
+                        <GridViewColumn x:Uid="ColSource" Width="130"   CellTemplate="{StaticResource clm_Source}" x:Name="clm_Source" >
+                            <GridViewColumnHeader Tag="Source" Content="{DynamicResource CVaultFillHistory_clm_Source}"/>
+                        </GridViewColumn>
+                        <GridViewColumn x:Uid="ColNumber" Width="30" Header="  ">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid x:Uid="Grid_1"   >
+                                        <Border x:Uid="Border_1" BorderBrush="Black" Margin="0" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                                       
+                                    </Grid>
+                                  </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+    </GroupBox>
+</UserControl>

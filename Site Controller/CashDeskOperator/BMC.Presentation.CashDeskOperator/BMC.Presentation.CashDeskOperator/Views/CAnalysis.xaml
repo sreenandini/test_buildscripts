@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="UserControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:win="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" 
+             xmlns:src="clr-namespace:BMC.Presentation.POS" 
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+             mc:Ignorable="d" x:Class="BMC.Presentation.CAnalysis" 
+             xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+             x:Name="UserControl" d:DesignWidth="640" d:DesignHeight="480" Width="870" Height="660" RenderTransformOrigin="0.5,0.5" Loaded="UserControl_Loaded">
+  <UserControl.Resources>
+        <Style x:Uid="Style_27" x:Key="Custom_Button_Small" TargetType="{x:Type Button}">
+            <!--<Setter x:Uid="Setter_214" Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+            <Setter x:Uid="Setter_215" Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}" />
+            <Setter x:Uid="Setter_216" Property="BorderBrush" Value="{StaticResource ButtonBorder}" />-->
+            <Setter x:Uid="Setter_217" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter x:Uid="Setter_218" Property="HorizontalContentAlignment" Value="Center" />
+            <Setter x:Uid="Setter_219" Property="VerticalContentAlignment" Value="Center" />
+            <Setter x:Uid="Setter_220" Property="Focusable" Value="False" />
+            <Setter x:Uid="Setter_221" Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Uid="ControlTemplate_28" TargetType="{x:Type Button}">
+                        <Grid x:Uid="Grid_28" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Grid x:Uid="Grid_29" x:Name="Normal">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition x:Uid="RowDefinition_5" Height="2.664" />
+                                    <RowDefinition x:Uid="RowDefinition_6" Height="*" />
+                                    <RowDefinition x:Uid="RowDefinition_7" Height="4.34" />
+                                </Grid.RowDefinitions>
+                                <Path x:Uid="Path_55" x:Name="Path_55" Stretch="Fill" Data="F1 M 9.99994,59.9998L 100,59.9998C 105.523,59.9998 110,55.5227 110,49.9998L 110,10.0002C 110,4.47729 105.523,0 100,0L 9.99994,0C 4.47708,0 0,4.47729 0,10.0002L 0,49.9998C 0,55.5227 4.47708,59.9998 9.99994,59.9998 Z " Grid.RowSpan="3" Fill="{DynamicResource LeftNav_But_Nor_BG}" />
+                                <Path x:Uid="Path_56" x:Name="Path_56" Stretch="Fill" Data="F1 M 99.0495,58.0195L 10.9505,58.0188C 5.97992,58.0188 1.9505,53.9895 1.9505,49.0188L 1.9505,10.9207C 1.9505,5.94995 5.97992,1.92065 10.9505,1.92065L 99.0495,1.92114C 104.02,1.92114 108.05,5.95068 108.05,10.9211L 108.05,49.0195C 108.05,53.99 104.02,58.0195 99.0495,58.0195 Z " Margin="1.951,1.921,1.95,1.98" Grid.RowSpan="3" Fill="{DynamicResource LeftNav_But_Nor_innerBG}" />
+                                <Path x:Uid="Path_57" x:Name="Path_57" Stretch="Fill" Data="F1 M 1.95068,49.0188L 1.95068,10.9207C 1.95068,5.94995 5.98013,1.92065 10.9507,1.92065L 99.0498,1.92114C 101.821,1.92114 104.3,3.17407 105.951,5.14429C 68.2751,14.4758 33.6504,31.5422 3.85968,54.5618C 2.66357,53.0339 1.95068,51.1096 1.95068,49.0188 Z " Margin="1.951,1.921,4.048,-2.883" Grid.RowSpan="2">
+                                    <Path.Fill>
+                                        <LinearGradientBrush x:Uid="LinearGradientBrush_62" StartPoint="0.999984,0.0605283" EndPoint="-0.00121131,0.0605283">
+                                            <GradientStop x:Uid="GradientStop_225" Color="#34CCF3FF" Offset="0" />
+                                            <GradientStop x:Uid="GradientStop_226" Color="#00CCF3FF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Path.Fill>
+                                </Path>
+                                <TextBlock x:Uid="TextBlock_257" Height="Auto" IsEnabled="True" FontFamily="Segoe UI" FontSize="12" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="#FFFFFFFF" d:LayoutOverrides="Height" Grid.Row="1" FontWeight="Normal" />
+                            </Grid>
+                            <Grid x:Uid="Grid_30" x:Name="MouseOver" Opacity="0" d:IsHidden="True">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition x:Uid="RowDefinition_8" Height="2.922" />
+                                    <RowDefinition x:Uid="RowDefinition_9" Height="*" />
+                                    <RowDefinition x:Uid="RowDefinition_10" Height="4.34" />
+                                </Grid.RowDefinitions>
+                                <Path x:Uid="Path_343" x:Name="Path_5" Stretch="Fill" Data="F1 M 9.99994,59.9998L 100,59.9998C 105.523,59.9998 110,55.5227 110,49.9998L 110,10.0002C 110,4.47729 105.523,0 100,0L 9.99994,0C 4.47708,0 0,4.47729 0,10.0002L 0,49.9998C 0,55.5227 4.47708,59.9998 9.99994,59.9998 Z " Grid.RowSpan="3" Fill="{DynamicResource LeftNav_But_Sel_BG}" />
+                                <Path x:Uid="Path_344" x:Name="Path_6" Stretch="Fill" Data="F1 M 99.0495,58.0195L 10.9505,58.0188C 5.97992,58.0188 1.9505,53.9895 1.9505,49.0188L 1.9505,10.9207C 1.9505,5.94995 5.97992,1.92065 10.9505,1.92065L 99.0495,1.92114C 104.02,1.92114 108.05,5.95068 108.05,10.9211L 108.05,49.0195C 108.05,53.99 104.02,58.0195 99.0495,58.0195 Z " Margin="1.951,1.921,1.95,1.98" Grid.RowSpan="3" Fill="{DynamicResource LeftNav_But_Sel_innerBG}" />
+                                <Path x:Uid="Path_345" x:Name="Path_7" Stretch="Fill" Data="F1 M 1.95068,49.0188L 1.95068,10.9207C 1.95068,5.94995 5.98013,1.92065 10.9507,1.92065L 99.0498,1.92114C 101.821,1.92114 104.3,3.17407 105.951,5.14429C 68.2751,14.4758 33.6504,31.5422 3.85968,54.5618C 2.66357,53.0339 1.95068,51.1096 1.95068,49.0188 Z " Margin="1.951,1.921,4.048,-2.883" Grid.RowSpan="2">
+                                    <Path.Fill>
+                                        <LinearGradientBrush x:Uid="LinearGradientBrush_63" StartPoint="0.999984,0.0605283" EndPoint="-0.00121131,0.0605283">
+                                            <GradientStop x:Uid="GradientStop_227" Color="#34CCF3FF" Offset="0" />
+                                            <GradientStop x:Uid="GradientStop_228" Color="#00CCF3FF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Path.Fill>
+                                </Path>
+                                <TextBlock x:Uid="TextBlock_258" Height="Auto" IsEnabled="True" FontFamily="Segoe UI" FontSize="12" Text="{TemplateBinding Content}" TextAlignment="Center" TextWrapping="Wrap" Foreground="#FF000000" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" d:LayoutOverrides="Height" Grid.Row="1" FontWeight="Normal" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Helper_classes:CurrencyPriceConverter x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+    <XmlDataProvider x:Uid="XmlDataProvider_1" x:Key="RootDS" d:IsDataSource="True" Source="/XMLData/StatisticsData.xml" />
+  
+      
+        <Style TargetType="{x:Type Custom:DataGridCell}" x:Key="BoldCellStyle" BasedOn="{StaticResource ResourceKey={x:Type Custom:DataGridCell}}" >
+            <Style.Triggers>
+                <DataTrigger x:Uid="DataTrigger_9" Binding="{Binding Description}" Value="Net Win">
+                    <Setter x:Uid="Setter_9" Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_10" Binding="{Binding Description}" Value="Rete">
+                    <Setter x:Uid="Setter_10" Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_11" Binding="{Binding Description}" Value="Total Cash In">
+                    <Setter x:Uid="Setter_11" Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_12" Binding="{Binding Description}" Value="Totale Contanti In">
+                    <Setter x:Uid="Setter_12"  Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_13" Binding="{Binding Description}" Value="Total Cash Out">
+                    <Setter x:Uid="Setter_13"  Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_14" Binding="{Binding Description}" Value="Totale Contanti Emesse">
+                    <Setter x:Uid="Setter_14"  Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_15" Binding="{Binding Description}" Value="Vouchers Paid">
+                    <Setter x:Uid="Setter_15" Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_16" Binding="{Binding Description}" Value="Tickets Pagato">
+                    <Setter x:Uid="Setter_16" Property="FontWeight" Value="Bold" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>      
+   
+  </UserControl.Resources>
+  <UserControl.RenderTransform>
+    <TransformGroup x:Uid="TransformGroup_1">
+      <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+      <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+      <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+      <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+    </TransformGroup>
+  </UserControl.RenderTransform>
+  <UserControl.Triggers></UserControl.Triggers>
+  <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Width="870" Height="Auto">
+    <StackPanel x:Uid="pnlButtons" Margin="0,50,0,0" x:Name="pnlButtons" VerticalAlignment="Top" Orientation="Horizontal" Height="79.236" HorizontalAlignment="Left">
+      <RadioButton x:Uid="chkDrop" Content="{DynamicResource CAnalysis_xaml_chkDrop}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkDrop" Width="Auto" Height="Auto" Margin="10,0,0,0" Checked="chkDrop_Checked" />
+      <RadioButton x:Uid="chkDay" Content="{DynamicResource CAnalysis_xaml_chkDay}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkDay" Height="Auto" Margin="10,0,0,0" Checked="chkDay_Checked" />
+      <RadioButton x:Uid="chkWeek" Content="{DynamicResource CAnalysis_xaml_chkWeek}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkWeek" Height="Auto" Margin="10,0,0,0" Checked="chkWeek_Checked" />
+      <RadioButton x:Uid="chkMonth" Content="{DynamicResource CAnalysis_xaml_chkMonth}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkMonth" Height="Auto" Margin="10,0,0,0" Checked="chkMonth_Checked " />
+      <RadioButton x:Uid="chkWeekInvoice" Content="{DynamicResource CAnalysis_xaml_chkWeekInvoice}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkWeekInvoice" Height="Auto" Margin="10,0,0,0" Checked="chkWeekInvoice_Checked" />
+      <!--<RadioButton  Content="Custom" Style="{DynamicResource bmc_General_RADIO_Style_Button}"  FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkCustom" Height="Auto" Margin="10,0,0,0" Checked="chkCustom_Checked " />-->
+    </StackPanel>
+    <Grid x:Uid="OuterGrid" x:Name="OuterGrid" Margin="0,127.731,0,10" Background="{DynamicResource SubFormBG}" Height="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="550*" />
+                <ColumnDefinition Width="100*" />                
+            </Grid.ColumnDefinitions>
+
+
+            <Custom:DataGrid Height="Auto" CanUserSortColumns="False" Grid.Column="0" Grid.RowSpan="2" x:Uid="dgGridView" x:Name="dgGridView"  SelectionUnit="FullRow"   IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" Margin="6,0,7,0" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding}" AutoGenerateColumns="False" 
+                              Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                            VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader">
+                <Custom:DataGrid.Columns>
+                    <Custom:DataGridTextColumn x:Name="gvColumnDescription" CellStyle="{StaticResource BoldCellStyle}"  Header="{DynamicResource CAnalysis_xaml_GridViewColumn_1}" Width="364" Binding="{Binding Description}" >                       
+                    </Custom:DataGridTextColumn>
+
+                    <Custom:DataGridTextColumn x:Name="gvColumnValue"  CellStyle="{StaticResource BoldCellStyle}" Header="{DynamicResource CAnalysis_xaml_GridViewColumn_2}" Width="332" Binding="{Binding Value}" >
+                        <Custom:DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </Custom:DataGridTextColumn.ElementStyle>                       
+                    </Custom:DataGridTextColumn>
+                </Custom:DataGrid.Columns>
+            </Custom:DataGrid>
+
+            <Custom:DataGrid Grid.Column="0"  Grid.RowSpan="2" x:Uid="dgGridWeek"  x:Name="dgGridWeek"  SelectionUnit="FullRow"  IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" Margin="6,0,7,0" Height="496" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding}" AutoGenerateColumns="False" 
+                              Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                            VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader">
+                <Custom:DataGrid.Columns>
+                    <Custom:DataGridTextColumn Width="0"  Binding="{Binding Week_ID}"                           Header="{DynamicResource CAnalysis_xaml_GridViewColumn_3}"/>
+                    <Custom:DataGridTextColumn Width="100" Binding="{Binding WeekNumber}"                       Header="{DynamicResource CAnalysis_xaml_GridViewColumn_4}"/>
+                    <Custom:DataGridTextColumn Width="200" Binding="{Binding StartDate}"                        Header="{DynamicResource CAnalysis_xaml_GridViewColumn_5}"/>
+                    <Custom:DataGridTextColumn Width="100" Binding="{Binding WeekCount}"                        Header="{DynamicResource CAnalysis_xaml_GridViewColumn_6}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=Notes,Converter={StaticResource PriceConverter}}"           Header="{DynamicResource CAnalysis_xaml_GridViewColumn_7}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=Cash_Take,Converter={StaticResource PriceConverter}}"       Header="{DynamicResource CAnalysis_xaml_GridViewColumn_8}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=Coins,Converter={StaticResource PriceConverter}}"           Header="{DynamicResource CAnalysis_xaml_GridViewColumn_9}"/>
+                    <Custom:DataGridTextColumn Width="Auto" Binding="{Binding Path=TicktesIn,Converter={StaticResource PriceConverter}}"      Header="{DynamicResource CAnalysis_xaml_GridViewColumn_10}"/>
+                    <Custom:DataGridTextColumn Width="Auto" Binding="{Binding Path=TicktesOut,Converter={StaticResource PriceConverter}}"     Header="{DynamicResource CAnalysis_xaml_GridViewColumn_11}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=Refills,Converter={StaticResource PriceConverter}}"         Header="{DynamicResource CAnalysis_xaml_GridViewColumn_12}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=Refunds,Converter={StaticResource PriceConverter}}"         Header="{DynamicResource CAnalysis_xaml_GridViewColumn_13}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=Handpay,Converter={StaticResource PriceConverter}}"         Header="{DynamicResource CAnalysis_xaml_GridViewColumn_14}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=Shortpay,Converter={StaticResource PriceConverter}}"        Header="{DynamicResource CAnalysis_xaml_GridViewColumn_15}"/>
+                    <Custom:DataGridTextColumn Width="Auto" Binding="{Binding Path=Void,Converter={StaticResource PriceConverter}}"           Header="{DynamicResource CAnalysis_xaml_GridViewColumn_16}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=NotesVar,Converter={StaticResource PriceConverter}}"        Header="{DynamicResource CAnalysis_xaml_GridViewColumn_17}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=CoinVar,Converter={StaticResource PriceConverter}}"         Header="{DynamicResource CAnalysis_xaml_GridViewColumn_18}"/>
+                    <Custom:DataGridTextColumn Width="Auto" Binding="{Binding Path=TicketVar,Converter={StaticResource PriceConverter}}"      Header="{DynamicResource CAnalysis_xaml_GridViewColumn_19}"/>
+                    <Custom:DataGridTextColumn Width="Auto" Binding="{Binding Path=HandpayVar,Converter={StaticResource PriceConverter}}"     Header="{DynamicResource CAnalysis_xaml_GridViewColumn_20}"/>
+                    <Custom:DataGridTextColumn Width="120" Binding="{Binding Path=TakeVar,Converter={StaticResource PriceConverter}}"         Header="{DynamicResource CAnalysis_xaml_GridViewColumn_21}"/>
+                    <Custom:DataGridTextColumn Width="150" Binding="{Binding Path=HandpayProgressive,Converter={StaticResource PriceConverter}}"        Header="{DynamicResource CAnalysis_xaml_GridViewColumn_22}"/>
+                    <Custom:DataGridTextColumn Width="150" Binding="{Binding Path=HandpayProgressiveVar,Converter={StaticResource PriceConverter}}"     Header="{DynamicResource CAnalysis_xaml_GridViewColumn_23}"/>
+                    <Custom:DataGridTextColumn Binding="{Binding EFTIN}"  Header="{DynamicResource EFTIN}" />
+                    <Custom:DataGridTextColumn Binding="{Binding EFTOut}"  Header="{DynamicResource EFTOUT}" />
+                </Custom:DataGrid.Columns>
+            </Custom:DataGrid>
+        
+      <Button Grid.Column="1" Grid.Row="1" x:Uid="btnPrint" Content="{DynamicResource CAnalysis_xaml_btnPrint}" d:LayoutOverrides="Width, Height" Style="{DynamicResource BMC_Button}" x:Name="btnPrint" Click="btnPrint_Click" Margin="10,20,0,20" VerticalAlignment="Top" Height="55" HorizontalAlignment="Left" Width="100" />
+            <Button Grid.Column="1" Grid.Row="0" x:Uid="btnDetails" Content="{DynamicResource CAnalysis_xaml_btnDetails}" d:LayoutOverrides="Width, Height" Style="{DynamicResource BMC_Button}" x:Name="btnDetails" Margin="10,0,0,20" VerticalAlignment="Bottom"  Height="55" Click="btnDetails_Click"  >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Grid x:Uid="InnerGrid" x:Name="InnerGrid" Margin="38,70,148,0" Height="64" VerticalAlignment="Top" ClipToBounds="True" Background="LightSteelBlue">
+        <WindowsFormsHost x:Uid="WFHostStartTime" Name="WFHostStartTime" Margin="0,0,8,10"></WindowsFormsHost>
+        <WindowsFormsHost x:Uid="WFHostEndTime" Name="WFHostEndTime" Margin="8,-5,10,10"></WindowsFormsHost>
+      </Grid>
+    </Grid>
+      
+    <TextBlock x:Uid="TextBlock_1" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,15,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource CAnalysis_xaml_TextBlock_1}" Foreground="#FFFFFFFF">
+      <TextBlock.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_2">
+          <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+          <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+          <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+          <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+        </TransformGroup>
+      </TextBlock.RenderTransform>
+    </TextBlock>
+    <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+      <Path.Fill>
+        <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+          <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+          <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+        </LinearGradientBrush>
+      </Path.Fill>
+    </Path>
+    <Canvas x:Uid="Canvas_1" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,0">
+        
+      <Label x:Uid="lblStatus" Content="Loading..." Foreground="White" Name="lblStatus" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Center" Height="26" Canvas.Left="28" Canvas.Top="604" Width="248" />
+      <ProgressBar x:Uid="progressBar1" Height="17" Name="progressBar1" Value="100" IsIndeterminate="True" Canvas.Left="0" Canvas.Top="632" Width="725">
+        <ProgressBar.Triggers>
+          <EventTrigger x:Uid="EventTrigger_1" RoutedEvent="ProgressBar.Loaded">
+            <BeginStoryboard x:Uid="BeginStoryboard_1">
+              <Storyboard x:Uid="Storyboard_1">
+                <DoubleAnimation x:Uid="DoubleAnimation_1" Storyboard.TargetName="progressBar1" Storyboard.TargetProperty="Value" From="0" To="100" Duration="0:0:5" />
+              </Storyboard>
+            </BeginStoryboard>
+          </EventTrigger>
+        </ProgressBar.Triggers>
+      </ProgressBar>
+            <Button Name="btncancel" Content="Cancel" Style="{StaticResource  Custom_Button_Small}" Canvas.Left="770" Canvas.Top="621" Click="btncancel_Click"></Button>
+        </Canvas>
+  </Grid>
+</UserControl>

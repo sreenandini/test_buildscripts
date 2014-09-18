@@ -1,0 +1,84 @@
+﻿<Window x:Class="BMC.Presentation.CProfitShare"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="389" Width="543" x:Name="Window" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Background="{DynamicResource MainScreenBG}"
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+
+    <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Width="515" Margin="14,17,14,10" IsEnabled="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="125.752" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="260*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Uid="pnlHeader" x:Name="pnlHeader" Canvas.Left="14.267" Canvas.Top="0" Margin="0,-15,0,35" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M373.472,5122.66 L756.52,5122.66 C759.834,5122.66 762.52,5125.35 762.52,5128.66 L762.52,5155.28 C762.52,5158.6 763.847,5157.8247 763.30535,5161.28 L367.19063,5161.28 C367.03487,5158.7204 367.12818,5160.8766 367.12823,5155.2832 L367.472,5128.66 C367.472,5125.35 370.158,5122.66 373.472,5122.66 z" Fill="{DynamicResource MsgBoxTitleColor}" Canvas.Left="0" Canvas.Top="0" Margin="-15,-9,-19,25" />
+            <TextBlock x:Uid="txtblkProfitShare" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,0,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource CProfitShare_xaml_txtblkProfitShare}" Foreground="#FFFFFFFF">
+                <TextBlock.RenderTransform>
+                    <TransformGroup x:Uid="TransformGroup_3">
+                        <ScaleTransform x:Uid="ScaleTransform_3" ScaleX="1" ScaleY="1" />
+                        <SkewTransform x:Uid="SkewTransform_3" AngleX="0" AngleY="0" />
+                        <RotateTransform x:Uid="RotateTransform_3" Angle="0" />
+                        <TranslateTransform x:Uid="TranslateTransform_3" X="0" Y="0" />
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Grid>
+
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " Margin="22,18,233,20" Grid.ColumnSpan="3">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+
+        <TextBlock Grid.Row="1" x:Uid="txtblkProfitShareGroup" x:Name="txtblkProfitShareGroup" Text="{DynamicResource CProfitShare_xaml_txtblkProfitShareGroup}" Margin="20,9,0,2" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="14" Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="235.752" />
+        <ComboBox x:Uid="cboProfitShareGroup"  IsSynchronizedWithCurrentItem="True" Style="{DynamicResource BMC_ComboBoxStyle}"  
+                          x:Name="cboProfitShareGroup" Margin="26,0,28,0" Grid.Column="2" Grid.Row="1" Foreground="Black" FontSize="14" DisplayMemberPath="ProfitShareGroup_Name"  SelectedValuePath="ProfitShareGroup_ID" Height="35">
+        </ComboBox>
+
+        <TextBlock Grid.Row="2" x:Uid="txtblkExpenseShareGroup" x:Name="txtblkExpenseShareGroup" Text="{DynamicResource CProfitShare_xaml_txtblkExpenseShareGroup}" Margin="20,9,0,2" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="14" Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="235.752" />
+        <ComboBox x:Uid="cboExpenseShareGroup" Margin="26,0,28,0" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource BMC_ComboBoxStyle}" 
+                          x:Name="cboExpenseShareGroup" Grid.Column="2" Grid.Row="2" Foreground="Black" FontSize="14" Height="35" VerticalAlignment="Bottom" SelectionChanged="cboExpenseShareGroup_SelectionChanged">
+        </ComboBox>
+
+        <TextBlock Grid.Row="3" x:Uid="txtblkExpenseShareAmount" x:Name="txtblkExpenseShareAmount" Text="{DynamicResource CProfitShare_xaml_txtblkExpenseShareAmount}" Margin="20,10,0,1" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="14" Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="235.752" />
+        <TextBox Grid.Row="3" Grid.Column="2" x:Uid="txtExpenseShareAmount" Name="txtExpenseShareAmount" VerticalContentAlignment="Center"  
+                 TextWrapping="NoWrap" FontSize="14" Style="{DynamicResource TextBoxStyle1}" Visibility="Visible" MaxLength="13" KeyDown="txtExpenseShareAmount_KeyDown" 
+                 Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" TextChanged="txtExpenseShareAmount_TextChanged"
+                 FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" Margin="26,5.716,28,0" PreviewMouseUp="txtExpenseShareAmount_PreviewMouseUp" PreviewTextInput="txtExpenseShareAmount_PreviewTextInput" />
+
+
+        <TextBlock Grid.Row="4" x:Uid="txtblkWriteOffExpense" x:Name="txtblkWriteOffExpense" Text="{DynamicResource CProfitShare_xaml_txtblkWriteOffExpense}" Margin="20,9,0,2" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="14" Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="235.752" />
+        <TextBox Grid.Row="4" Grid.Column="2" x:Uid="txtWriteOffExpense" Name="txtWriteOffExpense" Text="" TextWrapping="NoWrap" FontSize="14" Style="{DynamicResource TextBoxStyle1}" 
+                 Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" MaxLength="13" KeyDown="txtWriteOffExpense_KeyDown" 
+                 FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" TextChanged="txtWriteOffExpense_TextChanged"
+                 VerticalContentAlignment="Center" Margin="26,2,28,3" Visibility="Visible"  PreviewTextInput="txtWriteoffAmount_PreviewTextInput" PreviewMouseUp="txtWriteOffExpense_PreviewMouseUp"  />
+
+        <TextBlock Grid.Row="5" x:Uid="txtblkCarriedForwareAmount" x:Name="txtblkCarriedForwareAmount" Text="{DynamicResource CProfitShare_xaml_txtblkCarriedForwareAmount}" Margin="20,9,0,2" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="14" Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="235.752" />
+        <TextBox Grid.Row="5" Grid.Column="2" x:Uid="txtCarriedForwardAmount" Name="txtCarriedForwardAmount" Text="" TextWrapping="NoWrap" FontSize="14" Style="{DynamicResource TextBoxStyle1}" 
+                 Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" 
+                 FontFamily="{DynamicResource SegoeUI20}" IsEnabled="False" HorizontalContentAlignment="Left" 
+                 VerticalContentAlignment="Center" Margin="26,2,28,3"  Visibility="Visible" />
+
+        <TextBlock Grid.Row="6" x:Uid="txtblkCalendarPeriod" x:Name="txtblkCalendarPeriod" Text="{DynamicResource CProfitShare_xaml_txtblkCalendarPeriod}" Margin="20,5,0,6" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="14" Visibility="Visible" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="235.752" />
+        <TextBlock Grid.Row="6" x:Uid="txtblkPayPeriod" Name="txtblkPayPeriod" FontFamily="Segoe UI" FontSize="14" Foreground="White" Margin="26,5,28,0" TextWrapping="Wrap" Visibility="Visible" Grid.Column="2" />
+
+        <Button Grid.Row="7" Grid.Column="1" x:Uid="btnOk" HorizontalAlignment="Left"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource CProfitShare_xaml_btnOk}" Visibility="Visible" Margin="18,11,0,5" Grid.ColumnSpan="2" Click="btnOk_Click" />
+        <Button Grid.Row="7" Grid.Column="2" x:Uid="btnCancel" Style="{DynamicResource BMC_Button}" Content="{DynamicResource CProfitShare_xaml_btnCancel}"  Visibility="Visible" Margin="70,11,158,5" Click="btnCancel_Click" />
+    </Grid>
+</Window>

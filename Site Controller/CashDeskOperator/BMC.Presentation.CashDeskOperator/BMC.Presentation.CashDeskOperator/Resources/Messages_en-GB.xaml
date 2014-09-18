@@ -1,0 +1,766 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="MessageID1">Unable to connect to database. Please Configure the application to continue.</system:String>
+    <system:String x:Key="MessageID3">Invalid Login. Please try again.</system:String>
+    <system:String x:Key="MessageID4">Do you want to remove this machine?</system:String>
+    <system:String x:Key="MessageID6">Sorry! You don't have priviliges to do this task</system:String>
+    <system:String x:Key="MessageID7">Asset number @@@@@@ does not exists in the Central System</system:String>
+    <system:String x:Key="MessageID8">Asset @@@@@@ is currently installed in @@@@@@ at Position @@@@@@</system:String>
+    <system:String x:Key="MessageID9">You do not have priviliges to remove the machine</system:String>
+    <system:String x:Key="MessageID10">Are you sure you want to do Factory Reset?</system:String>
+    <system:String x:Key="MessageID11">Factory Reset window already opened.</system:String>
+    <system:String x:Key="MessageID12">This Action will shutdown application and windows, Do you Want to Continue?</system:String>
+    <system:String x:Key="MessageID13">Please give the correct path for the CDM</system:String>
+    <system:String x:Key="MessageID14">Dear @@@@@@, You do not have permission to view this application.</system:String>
+    <system:String x:Key="MessageID15">@@@@@@ Failed</system:String>
+    <system:String x:Key="MessageID16">@@@@@@ Completed</system:String>
+    <system:String x:Key="MessageID17">This action will clear the database. Do you want to proceed with cancelling the @@@@@@ process ?</system:String>
+    <system:String x:Key="MessageID18">Do you want to close the site setup ?</system:String>
+    <system:String x:Key="MessageID20">Should not leave the fields empty.</system:String>
+    <system:String x:Key="MessageID21">Site Code cannot be empty!</system:String>
+    <system:String x:Key="MessageID22">Enterprise URL cannot be empty!</system:String>
+    <system:String x:Key="MessageID23">Connection to enterprise server failed!</system:String>
+    <system:String x:Key="MessageID24">Authorization fails. Please try again!</system:String>
+    <system:String x:Key="MessageID25">Authorization code not valid!</system:String>
+    <system:String x:Key="MessageID27">Authorization code expired!</system:String>
+    <system:String x:Key="MessageID28">Site not configured in the enterprise server!</system:String>
+    <system:String x:Key="MessageID29">The MAC Address(Non Gaming Asset) of the Exchange Server system has not been configured in Enterprise!</system:String>
+    <system:String x:Key="MessageID30">The MAC Address(Non Gaming Asset) of the Exchange Server system has already been configured for a different Site!</system:String>
+    <system:String x:Key="MessageID31">Current site contains data. Do you want to flatten the system?</system:String>
+    <system:String x:Key="MessageID32">System flattened successfully. The application will close now</system:String>
+    <system:String x:Key="MessageID33">System flattening failed. The application will close now</system:String>
+    <system:String x:Key="MessageID34">Site Code cannot be empty!</system:String>
+    <system:String x:Key="MessageID35">Enterprise server cannot be empty!</system:String>
+    <system:String x:Key="MessageID36">Authorization code cannot be empty!</system:String>
+    <system:String x:Key="MessageID37">Selected date range returned no results</system:String>
+    <system:String x:Key="MessageID45">Not a valid DateTime Range</system:String>
+    <system:String x:Key="MessageID47">No items to print</system:String>
+    <system:String x:Key="MessageID48">Not a valid Date Range</system:String>
+    <system:String x:Key="MessageID49">Missing cashdeskreport module</system:String>
+    <system:String x:Key="MessageID54">Details Exported Successfully</system:String>
+    <system:String x:Key="MessageID55">Please select proper path</system:String>
+    <system:String x:Key="MessageID56">No items to export</system:String>
+    <system:String x:Key="MessageID57">Data is now saved</system:String>
+    <system:String x:Key="MessageID59">Unable to Process Attendantpay</system:String>
+    <system:String x:Key="MessageID61">Cancelled</system:String>
+    <system:String x:Key="MessageID62">No Data for the Selected Positions</system:String>
+    <system:String x:Key="MessageID63">An Error has occurred while connecting to Enterprise Server. Please try after some time</system:String>
+    <system:String x:Key="MessageID64">Please select a batch to Collect</system:String>
+    <system:String x:Key="MessageID65">This will accept all outstanding Collections. Are you sure you want to continue?</system:String>
+    <system:String x:Key="MessageID66">Please select a service to clear.</system:String>
+    <system:String x:Key="MessageID67">There are no services to be cleared.</system:String>
+    <system:String x:Key="MessageID68">Please select a service to review.</system:String>
+    <system:String x:Key="MessageID69">There are no services to be reviewed.</system:String>
+    <system:String x:Key="MessageID70">Are you sure you want to escalate this call?</system:String>
+    <system:String x:Key="MessageID71">Can not escalate the call more than once.</system:String>
+    <system:String x:Key="MessageID72">The Service Call @@@@@@ is escalated.</system:String>
+    <system:String x:Key="MessageID73">This call can not be escalated, the downtime falls within the response time.</system:String>
+    <system:String x:Key="MessageID74">This call can not be escalated, Field service manager details were not set up for the depot.</system:String>
+    <system:String x:Key="MessageID75">This call can not be escalated, user is not configured in enterprise.</system:String>
+    <system:String x:Key="MessageID76">Failed while escalating the service call @@@@@@</system:String>
+    <system:String x:Key="MessageID77">Please select a service call to escalate</system:String>
+    <system:String x:Key="MessageID78">There are no service calls to escalate</system:String>
+    <system:String x:Key="MessageID79">Error Occurred!</system:String>
+    <system:String x:Key="MessageID80">Please select a Machine in order to Perform Collection.</system:String>
+    <system:String x:Key="MessageID81">Sorry, another user is modifying installations</system:String>
+    <system:String x:Key="MessageID82">Sorry, another user is performing another operation on the same asset within the collection list</system:String>
+    <system:String x:Key="MessageID82a">Sorry, another user is performing another operation on the asset(s) [@@@@@].</system:String>
+    <system:String x:Key="MessageID83">Please enter only numbers</system:String>
+    <system:String x:Key="MessageID84">Invalid Quantity</system:String>
+    <system:String x:Key="MessageID841">Prize Quantity can not be 0</system:String>
+    <system:String x:Key="MessageID85">Cannot Decrement Prize Quantity</system:String>
+    <system:String x:Key="MessageID86">Please enter only numbers</system:String>
+    <system:String x:Key="MessageID88">Player not found</system:String>
+    <system:String x:Key="MessageID89">Please enter Account Number</system:String>
+    <system:String x:Key="MessageID90">Points are redeemed</system:String>
+    <system:String x:Key="MessageID91">Sorry, Could not redeem points</system:String>
+    <system:String x:Key="MessageID92">Enter a Account Number</system:String>
+    <system:String x:Key="MessageID93">Sorry, Could not redeem points.Prize Quantity Cannot be Empty/Zero</system:String>
+    <system:String x:Key="MessageID94">Sorry, Could not redeem points.Prize Quantity can only be numeric</system:String>
+    <system:String x:Key="MessageID95">Please Enter the Account Number</system:String>
+    <system:String x:Key="MessageID96">Could not add points</system:String>
+    <system:String x:Key="MessageID97">Cannot calculate redeem points</system:String>
+    <system:String x:Key="MessageID98">Please enter only numbers</system:String>
+    <system:String x:Key="MessageID99">From Date cannot be greater than the To Date.</system:String>
+    <system:String x:Key="MessageID100">No data for the selected parameters.</system:String>
+    <system:String x:Key="MessageID101">Sorry,'Total Value' of voucher must be more than zero</system:String>
+    <!--<system:String x:Key="MessageID102">Out of Paper</system:String>-->
+    <system:String x:Key="MessageID102">Unable to Print Voucher</system:String>
+    <system:String x:Key="MessageID103">Voucher printed successfully</system:String>
+    <system:String x:Key="MessageID104">Sorry,Total Value has exceeded maximum value - 999,999.99</system:String>
+    <system:String x:Key="MessageID105">Please enter the Voucher Number</system:String>
+    <system:String x:Key="MessageID106">Are you sure you want to process this transaction?</system:String>
+    <system:String x:Key="MessageID107">Please select a record to process</system:String>
+    <system:String x:Key="MessageID108">There are no records to process</system:String>
+    <system:String x:Key="MessageID109">Are you sure you want to void this transaction?</system:String>
+    <system:String x:Key="MessageID110">Transaction voided.</system:String>
+    <system:String x:Key="MessageID111">This transaction has already been voided.</system:String>
+    <system:String x:Key="MessageID113">Error occurred while voiding this transaction.</system:String>
+    <system:String x:Key="MessageID114">Please select a record to void</system:String>
+    <system:String x:Key="MessageID115">There are no records to void</system:String>
+    <system:String x:Key="MessageID116">Transaction processed, please proceed with the customer payment.</system:String>
+    <system:String x:Key="MessageID117">Attendantpay processing was not completed.</system:String>
+    <system:String x:Key="MessageID119">Manual Attendantpay processing was not completed.</system:String>
+    <system:String x:Key="MessageID1191">Manual Jackpot  processing was not completed.</system:String>
+    <system:String x:Key="MessageID1192">Manual progressive processing was not completed.</system:String>
+    <system:String x:Key="MessageID120">Enter a valid amount to process.</system:String>
+    <system:String x:Key="MessageID121">Only 6 numbers allowed</system:String>
+    <system:String x:Key="MessageID122">Please enter an amount</system:String>
+    <system:String x:Key="MessageID123">Are you sure you want to process this transaction?</system:String>
+    <system:String x:Key="MessageID124">Are you sure you want to void this transaction?</system:String>
+    <system:String x:Key="MessageID125">Transaction voided successfully.</system:String>
+    <system:String x:Key="MessageID126">This transaction has already been voided.</system:String>
+    <system:String x:Key="MessageID127">Error occurred while voiding this transaction.</system:String>
+    <system:String x:Key="MessageID128">This transaction has already been voided.</system:String>
+    <system:String x:Key="MessageID129">Active Vouchers Exported Successfully</system:String>
+    <system:String x:Key="MessageID1291">The file is being used,please use another filename.</system:String>
+    <system:String x:Key="MessageID130">Exported Successfully</system:String>
+    <system:String x:Key="MessageID131">Exception Details Exported Successfully</system:String>
+    <system:String x:Key="MessageID132">Are you sure you wish to activate the voucher '@@@@@@'</system:String>
+    <system:String x:Key="MessageID133">Problem activating voucher !</system:String>
+    <system:String x:Key="MessageID134">Liability Details Exported Successfully</system:String>
+    <system:String x:Key="MessageID135">Promo Vouchers Exported Successfully</system:String>
+    <system:String x:Key="MessageID136">Vouchers Anomalies Exported Successfully</system:String>
+    <system:String x:Key="MessageID137">Void or Cancelled Vouchers Exported Successfully</system:String>
+    <system:String x:Key="MessageID138">Expired Voucher details  Exported Successfully</system:String>
+    <system:String x:Key="MessageID139">Sorry, an existing call for the same problem is outstanding.</system:String>
+    <system:String x:Key="MessageID140">An error occurred while logging a Service call.</system:String>
+    <system:String x:Key="MessageID141">Service Call has been logged in for @@@@@@</system:String>
+    <system:String x:Key="MessageID142">Cancelled</system:String>
+    <system:String x:Key="MessageID143">Please select a remedy to clear the call.</system:String>
+    <system:String x:Key="MessageID144">Please write a note to clear the call.</system:String>
+    <system:String x:Key="MessageID145">Are you sure you want to clear this call?</system:String>
+    <system:String x:Key="MessageID146">Service call cleared successfully.</system:String>
+    <system:String x:Key="MessageID147">Service call was not cleared.</system:String>
+    <system:String x:Key="MessageID148">Failed while clearing the service call.</system:String>
+    <system:String x:Key="MessageID149">Please type a note to add</system:String>
+    <system:String x:Key="MessageID150">Are you sure you want to save a note?</system:String>
+    <system:String x:Key="MessageID151">Note added successfully.</system:String>
+    <system:String x:Key="MessageID152">Failed while adding a note.</system:String>
+    <system:String x:Key="MessageID153">Cancelled</system:String>
+    <system:String x:Key="MessageID154">Config file not found.</system:String>
+    <system:String x:Key="MessageID155">@@@@@@ backup is completed and available in the path @@@@@@</system:String>
+    <system:String x:Key="MessageID156">The backup file for @@@@@@ already exists.</system:String>
+    <system:String x:Key="MessageID157">The backup process for @@@@@@ failed.</system:String>
+    <system:String x:Key="MessageID158">Backup path is not available for @@@@@@</system:String>
+    <system:String x:Key="MessageID159">This process will take a considerable amount of time to finish,Do you want to continue?</system:String>
+    <system:String x:Key="MessageID160">@@@@@@ zip is completed and available in the path @@@@@@</system:String>
+    <system:String x:Key="MessageID161">The zip process for @@@@@@ is failed.</system:String>
+    <system:String x:Key="MessageID162">Zip file name is not available</system:String>
+    <system:String x:Key="MessageID163">Authorization code cannot be empty!</system:String>
+    <system:String x:Key="MessageID164">Authorization fails. Please try again!</system:String>
+    <system:String x:Key="MessageID167">Authorization code expired!</system:String>
+    <system:String x:Key="MessageID168">Site not configured in the enterprise server!</system:String>
+    <system:String x:Key="MessageID169">Please remove all machine installations before doing Factory Reset!</system:String>
+    <system:String x:Key="MessageID170">Exchange data pending to be exported to enterprise. Please try after some time!</system:String>
+    <system:String x:Key="MessageID171">Are you sure you want to proceed with Factory Reset?</system:String>
+    <system:String x:Key="MessageID172">Services list not found.</system:String>
+    <system:String x:Key="MessageID173">Do you want to take back up of database before doing Factory Reset?</system:String>
+    <system:String x:Key="MessageID174">Connection to exchange database cannot be established!</system:String>
+    <system:String x:Key="MessageID176">Back up operation failed!Still do you want to continue Factory Reset process?</system:String>
+    <system:String x:Key="MessageID177">Do you want to zip the database backup before doing Factory Reset?</system:String>
+    <system:String x:Key="MessageID178">Backup zipping operation failed!Still do you want to continue doing Factory Reset?</system:String>
+    <system:String x:Key="MessageID179">Sorry system cannot be flattened!</system:String>
+    <system:String x:Key="MessageID180">Sorry registry cannot be cleared!</system:String>
+    <system:String x:Key="MessageID181">Factory Reset completed successfully. Site controller is shutting down.</system:String>
+    <system:String x:Key="MessageID182">Do you want to close factory reset?</system:String>
+    <system:String x:Key="MessageID183">Enter value for the shortpay to continue</system:String>
+    <system:String x:Key="MessageID184">Enter value for the voucher greater than Zero to continue</system:String>
+    <system:String x:Key="MessageID185">Select the Machine that printed the voucher to continue</system:String>
+    <system:String x:Key="MessageID186">Offline voucher saved in the DB.</system:String>
+    <system:String x:Key="MessageID187">Unable to save Offline voucher in the DB.</system:String>
+    <system:String x:Key="MessageID188">Voucher is not valid.</system:String>
+    <system:String x:Key="MessageID189">Unable to find the selected Installation in DB.</system:String>
+    <system:String x:Key="MessageID190">An error occurred while saving the voucher</system:String>
+    <system:String x:Key="MessageID191">An Error has occurred during load</system:String>
+    <system:String x:Key="MessageID192">Enter value for the shortpay to continue</system:String>
+    <system:String x:Key="MessageID193">Enter value for the voucher greater than Zero to continue</system:String>
+    <system:String x:Key="MessageID194">Select the Machine that printed the voucher to continue</system:String>
+    <system:String x:Key="MessageID195">Select a reason for shortpay to continue</system:String>
+    <system:String x:Key="MessageID196">Enter the Voucher Number to continue</system:String>
+    <system:String x:Key="MessageID197">Shortpay details stored successfully.</system:String>
+    <system:String x:Key="MessageID198">Error Occurred while saving the Shortpay. Please try again later.</system:String>
+    <system:String x:Key="MessageID199">Site is in closed state.You cannot do this process now</system:String>
+    <system:String x:Key="MessageID200">Site AAMS code missing.You cannot do this process now</system:String>
+    <system:String x:Key="MessageID201">Unable to connect to SQL Server. Check connectionstring and make sure SQLServer Service is running.</system:String>
+    <system:String x:Key="MessageID202">Do you want to perform the collection?</system:String>
+    <system:String x:Key="MessageID203">Please check URL available in registry!</system:String>
+    <system:String x:Key="MessageID204">Batch Re-Exported to Enterprise.</system:String>
+    <system:String x:Key="PleaseSelectbatch">Please Select a Batch</system:String>
+    <system:String x:Key="PartCollections">Part Collections</system:String>
+    <system:String x:Key="MessageID205">Unable to print Recipt.</system:String>
+    <system:String x:Key="MessageID206">Remove Machine failure: Database error</system:String>
+    <system:String x:Key="MessageID207">Remove Machine failure: Enterprise WebService Communication Failure</system:String>
+    <system:String x:Key="MessageID208">Remove Machine failure: Unable to remove from Polling List</system:String>
+    <system:String x:Key="MessageID209">Machine Removed Successfully</system:String>
+    <system:String x:Key="MessageID210">VALID VOUCHER</system:String>
+    <system:String x:Key="MessageID211">BLANK VOUCHER</system:String>
+    <system:String x:Key="MessageID212">NO DB CONNECTION</system:String>
+    <system:String x:Key="MessageID213">VOUCHER NOT FOUND</system:String>
+    <system:String x:Key="MessageID214">OFFILNE VOUCHER CLAIMED</system:String>
+    <system:String x:Key="MessageID215">ALREADY CLAIMED</system:String>
+    <system:String x:Key="MessageID216">NON PAYOUT TYPE</system:String>
+    <system:String x:Key="MessageID217">INVALID VOUCHER TYPE</system:String>
+    <system:String x:Key="MessageID218">INVALID VOUCHER</system:String>
+    <system:String x:Key="MessageID219">VOUCHER EXPIRED</system:String>
+    <system:String x:Key="MessageID220">VOUCHER VOIDED</system:String>
+    <system:String x:Key="MessageID221">VOUCHER EXCEPTION</system:String>
+    <system:String x:Key="MessageID222">PROMO VOUCHER</system:String>
+    <system:String x:Key="MessageID223">INVALID - CANCELLED VOUCHER</system:String>
+    <system:String x:Key="MessageID224">UNSPECIFIED ERROR</system:String>
+    <system:String x:Key="MessageID225">Are you sure you want to redeem the voucher?</system:String>
+    <system:String x:Key="AllMachinesSystem">All Machines - System</system:String>
+    <system:String x:Key="Custom">Custom</system:String>
+    <system:String x:Key="SiteRecovery">Site Recovery</system:String>
+    <system:String x:Key="SiteAutoConfiguration">Site Auto Configuration</system:String>
+    <system:String x:Key="MessageID226">This event has already been cleared and cannot be modified anymore!</system:String>
+    <system:String x:Key="MessageID227">Event(s) Cleared Successfully</system:String>
+    <system:String x:Key="MessageID228">Unable to clear Event(s)</system:String>
+    <system:String x:Key="MessageID229">Please select the event(s) to clear</system:String>
+    <system:String x:Key="MessageID230">Are you sure you want to clear the selected event(s)?</system:String>
+    <system:String x:Key="MessageID231">Are you sure you want to clear the machine event(s)?</system:String>
+    <system:String x:Key="MessageID232">Are you sure you want to clear the site event(s)?</system:String>
+    <system:String x:Key="MessageID233">Can not complete Remove Machine. Please complete the final drop and try again</system:String>
+
+    <system:String x:Key="MessageID234">Installation failed : Unable to add the Machine to Polling list</system:String>
+    <system:String x:Key="MessageID235">Installation failed : Unable to access the database or Error in database</system:String>
+    <system:String x:Key="MessageID236">Installation failed : Enterprise Database error</system:String>
+    <system:String x:Key="MessageID237">Installation failed : Unable to contact the Enterprise Web service</system:String>
+    <system:String x:Key="MessageID238">Installation failed : Asset is in use</system:String>
+    <system:String x:Key="MessageID239">Installation failed : Asset not available</system:String>
+    <system:String x:Key="MessageID240">Installation failed : Position locked by another user</system:String>
+    <system:String x:Key="MessageID241">Machine enrolment authorized by Enterprise and pending completion.</system:String>
+    <system:String x:Key="MessageID242">Please enter Base denomination in Numerics</system:String>
+    <system:String x:Key="MessageID243">Please enter Coin Type in Numerics</system:String>
+    <system:String x:Key="MessageID244">Please enter %Payout in Numerics</system:String>
+    <system:String x:Key="MessageID245">Please enter Jackpot in Numerics</system:String>
+    <system:String x:Key="MessageID246">Please enter Asset No</system:String>
+
+    <system:String x:Key="MessageID247">Voucher value cannot exceed the limit</system:String>
+    <system:String x:Key="MessageID248">Site not approved by AAMS. Please try later!</system:String>
+    <system:String x:Key="MessageID249">Enterprise proxy communication down. Please try later!</system:String>
+
+
+    <system:String x:Key="MessageID250">Cash not entered for all machine(s). Are you sure you want to proceed?</system:String>
+    <system:String x:Key="MessageID251">Do you want to print a report?</system:String>
+    <system:String x:Key="MessageID252">Sorry!Could not add Customer</system:String>
+    <system:String x:Key="MessageID253">Customer Added successfully!</system:String>
+    <system:String x:Key="MessageID254">Sorry Customer already exists!</system:String>
+    <system:String x:Key="MessageID255">Sorry Customer does not exist!</system:String>
+
+    <system:String x:Key="MessageID256">Are you sure you want to change the machine state to Maintenance?</system:String>
+    <system:String x:Key="MessageID257">Are you sure you want to remove the machine from Maintenance state?</system:String>
+    <system:String x:Key="MessageID258">Machine state changed to Maintenance successfully</system:String>
+    <system:String x:Key="MessageID259">Machine removed from Maintenance state successfully</system:String>
+    <system:String x:Key="MessageID260">Error Occurred while changing the machine state</system:String>
+
+    <system:String x:Key="MessageID261">There are no records found for the selected criteria!</system:String>
+    <system:String x:Key="MessageID262">Error Occurred while showing the report</system:String>
+    <system:String x:Key="MessageID263">Please select the Title!</system:String>
+
+    <system:String x:Key="MessageID264">Please enter valid voucher number</system:String>
+    <system:String x:Key="MessageID265">Please enter valid voucher value</system:String>
+    <system:String x:Key="MessageID266">Voucher already exist in the list!</system:String>
+
+    <system:String x:Key="MessageID267">Password Expired. Please change password</system:String>
+    <system:String x:Key="MessageID268">First login since reset.Please change password</system:String>
+    <system:String x:Key="MessageID269">Account is locked. Please contact Administrator</system:String>
+    <system:String x:Key="MessageID270">Please enter old password.</system:String>
+    <system:String x:Key="MessageID271">Old password entered is incorrect.</system:String>
+    <system:String x:Key="MessageID272">Please enter new password.</system:String>
+    <system:String x:Key="MessageID273">Password length should be atleast 5 characters.</system:String>
+    <system:String x:Key="MessageID274">Please Confirm the new password</system:String>
+    <system:String x:Key="MessageID276">Old password and new password entered are the same.</system:String>
+    <system:String x:Key="MessageID277">New and Confirm Password do not match.</system:String>
+    <system:String x:Key="MessageID278">Password is weak. Please enter a password which is a combination of the following character groups [a-z],[A-Z],[0-9]</system:String>
+    <system:String x:Key="MessageID279">Password Change Successful.</system:String>
+    <system:String x:Key="MessageID280">This is not a valid voucher</system:String>
+
+    <system:String x:Key="MessageID281">Report date cannot be greater than Current date</system:String>
+    <system:String x:Key="MessageID282">Report Start date time cannot be greater than End date time</system:String>
+    <system:String x:Key="MessageID283">Report Start date time cannot be greater than Current date time</system:String>
+    <system:String x:Key="MessageID284">Report End date time cannot be greater than Current date time</system:String>
+    <system:String x:Key="MessageID285">Issue Date Time cannot be greater than Current Date Time</system:String>
+    <system:String x:Key="MessageID286">From Date Time cannot be greater than To Date Time</system:String>
+    <system:String x:Key="MessageID287">From Date Time cannot be greater than Current Date Time</system:String>
+    <system:String x:Key="MessageID288">To Date Time cannot be greater than Current Date Time</system:String>
+    <system:String x:Key="MessageID289">User doesn't have rights to authorize</system:String>
+
+
+    <system:String x:Key="MessageID290">Are you sure you want to save these settings?</system:String>
+    <system:String x:Key="MessageID291">Saved Settings Successfully</system:String>
+    <system:String x:Key="MessageID292">Error while saving AFT settings</system:String>
+    <system:String x:Key="MessageID293">Are you sure you want to cancel these settings?</system:String>
+    <system:String x:Key="MessageID294">Out of Paper</system:String>
+    <system:String x:Key="MessageID295">Unable to open COM Port. Please check connectivity</system:String>
+
+    <system:String x:Key="MessageID296">Please enter Coin Type Value</system:String>
+    <system:String x:Key="MessageID297">Please enter %Payout</system:String>
+    <system:String x:Key="MessageID298">Please enter Jackpot</system:String>
+
+    <system:String x:Key="MessageID299">Please enter Customer details to redeem voucher</system:String>
+    <system:String x:Key="MessageID300">Please provide asset details to enrol machine</system:String>
+
+    <system:String x:Key="MessageID301">Unable to change password</system:String>
+
+    <system:String x:Key="MessageID302">Select maintenance category</system:String>
+    <system:String x:Key="MessageID303">Select maintenance reason</system:String>
+    <system:String x:Key="MessageID304">Number of open door events and closed door events are not matching, still do you want to proceed further?</system:String>
+    <system:String x:Key="MessageID305">Voucher value is not valid</system:String>
+
+    <system:String x:Key="MessageID306">NON CASHABLE VOUCHER</system:String>
+    <system:String x:Key="MessageID307">Enter comments</system:String>
+    <system:String x:Key="MessageID308">Add atleast one Category and Reason</system:String>
+    <system:String x:Key="MessageID309">Maintenance session started</system:String>
+    <system:String x:Key="MessageID310">Maintenance session closed</system:String>
+    <system:String x:Key="MessageID311">Category and Reason already exist in the list</system:String>
+    <system:String x:Key="MessageID312">Site Code Mismatch</system:String>
+    <system:String x:Key="MessageID313">Unable to proceed as there are outstanding attendantpay transactions yet to be processed</system:String>
+    <system:String x:Key="MessageID314">Invalid amounts entered. Please check and try again.</system:String>
+    <system:String x:Key="MessageID315">Un-cleared events identified, would you like to clear them now?</system:String>
+    <system:String x:Key="MessageID316">Unable to proceed as the game is still in play with game credits</system:String>
+    <system:String x:Key="MessageID316a">Unable to perform final drop for the machine @@@@@@. Please check the GMU connectivity.</system:String>
+    <system:String x:Key="MessageID317">Unable to proceed as there is a player card inserted in the machine</system:String>
+    <system:String x:Key="MessageID318">Please enter a valid refloat value</system:String>
+    <system:String x:Key="MessageID319">Machine Reinstated Successfully</system:String>
+    <system:String x:Key="MessageID320">Unable to Reinstate Machine</system:String>
+    <system:String x:Key="MessageID321">Final</system:String>
+    <system:String x:Key="MessageID322">Standard</system:String>
+    <system:String x:Key="MessageID323">Enrolment of the machine is yet to be completed. Please click on OK if you want to remove this machine.</system:String>
+    <system:String x:Key="MessageID324">No rights to access Position Details.</system:String>
+    <system:String x:Key="MessageID325">The Application will automatically logged off in {0} seconds. Do you wish to cancel?</system:String>
+    <system:String x:Key="MessageID326">One of the selected machine has a open maintenance session, please close it to proceed with full drop.</system:String>
+    <system:String x:Key="MessageID327">@@@@@@ is not available in @@@@@@</system:String>
+    <system:String x:Key="MessageID328">Enrolment of the machine is yet to be completed.</system:String>
+    <system:String x:Key="MessageID329">voucher already closed.</system:String>
+    <system:String x:Key="MessageID330">Invalid device for reset</system:String>
+    <system:String x:Key="MessageID331">Voucher Not Found.</system:String>
+    <system:String x:Key="MessageID332">Unknown Return</system:String>
+    <system:String x:Key="MessageID333">Unable to Clear Events. You do not have enough rights to Clear Events</system:String>
+
+    <system:String x:Key="MessageID334">Do you wish to exit the application?</system:String>
+
+    <system:String x:Key="MessageID335">Slot Port(s) enabled successfully.</system:String>
+    <system:String x:Key="MessageID336">Slot Port(s) disabled successfully.</system:String>
+    <system:String x:Key="MessageID337">Enable Slot Port(s) failed.</system:String>
+    <system:String x:Key="MessageID338">Disable Slot Port(s) failed.</system:String>
+    <system:String x:Key="MessageID339">Machine already in maintenance mode.</system:String>
+
+    <system:String x:Key="MessageID340">Please select the Site to which the machine has to be moved.</system:String>
+    <system:String x:Key="MessageID341">Installation failed : Asset is in transit for another Site</system:String>
+    <system:String x:Key="MessageID342">Asset @@@@@@ is currently in Transit for Site @@@@@@</system:String>
+    <system:String x:Key="MessageID343">No Asset available in Transit for this Site</system:String>
+    <system:String x:Key="MessageID344">Do you want to move this machine to another Site?</system:String>
+    <system:String x:Key="MessageID345">Enrolment of the machine is yet to be completed. Please click on OK if you want move this machine to another site or to Remove this machine.</system:String>
+    <system:String x:Key="MessageID346">Do you want to move this machine to another Site? Clicking on No would remove this machine.</system:String>
+
+    <system:String x:Key="MessageID347">No voucher data is available to process.</system:String>
+    <system:String x:Key="MessageID348">Machine is in Game AAMS/Verification Pending Status. Please click on OK if you want to Remove this machine.</system:String>
+    <system:String x:Key="MessageID349">Port(s) enabled/disabled successfully.</system:String>
+    <system:String x:Key="MessageID350">Port(s) enable/disable failed.</system:String>
+    <system:String x:Key="MessageID351">Installation failed : Unable to update the option file parameter.</system:String>
+    <system:String x:Key="MessageID352">Please remove the Bills and Vouchers from the Currency Counter before clicking on Stop Counter.</system:String>
+    <system:String x:Key="MessageID353">MC300 busy to process the Command. Please try after sometime.</system:String>
+    <system:String x:Key="MessageID354">Do you wish to proceed with the processing?</system:String>
+    <system:String x:Key="MessageID355">Please click on Stop Counter to stop counting.</system:String>
+    <system:String x:Key="MessageID356">No data is available to process.</system:String>
+    <system:String x:Key="MessageID357">No bills data is available to process.</system:String>
+
+    <system:String x:Key="MessageID358">Installation failed : Time Out Occurred</system:String>
+    <system:String x:Key="MessageID359">Unable to Disable Machine. Do you still want to Remove the Machine?</system:String>
+    <system:String x:Key="MessageID360">Unable to Remove Machine.Please check the server connectivity.</system:String>
+    <system:String x:Key="MessageID361">Unable to perform final drop for the machine @@@@@@. Please check the machine connectivity.</system:String>
+    <system:String x:Key="MessageID362">Unable to Reinstate the machine @@@@@@. Please check the machine connectivity.</system:String>
+    <system:String x:Key="MessageID363">Cannot open Bills/Voucher Counter screen. Remove existing vouchers to proceed.</system:String>
+    <system:String x:Key="MessageID364">Unable to sync the Voucher config for the machine @@@@@@. Please check the machine connectivity.</system:String>
+    <system:String x:Key="MessageID365">Do you wish to proceed with updating the Voucher config?</system:String>
+    <system:String x:Key="MessageID366">Updated the Voucher config for the machine @@@@@@ successfully.</system:String>
+    <system:String x:Key="MessageID367">The amount won by the player requires a W2G or 10425 taxation form to be processed. Please use the Player Management System to create and process the required form.</system:String>
+    <system:String x:Key="MessageID368">Processing. Please wait...</system:String>
+    <system:String x:Key="MessageID369">Please select atleast one Asset</system:String>
+    <system:String x:Key="MessageID370">Please enter a value of Advance Retailer</system:String>
+    <system:String x:Key="MessageID371">Are you sure you want to proceed?</system:String>
+    <system:String x:Key="MessageID372">User doesn't have rights</system:String>
+
+    <system:String x:Key="MessageID373">Attendantpay has been locked by another user for processing.</system:String>
+    <system:String x:Key="MessageID374">Unable to access the database or Error in database</system:String>
+    <system:String x:Key="MessageID375">Item locked by another user for processing.</system:String>
+
+    <system:String x:Key="MessageID376">Please set up Kiosk and try again...</system:String>
+    <system:String x:Key="MessageID377">Voucher redeemed successfully</system:String>
+    <system:String x:Key="MessageID378">Please perform Final collection only...</system:String>
+    <system:String x:Key="MessageID379">Please perform a Final collection and Re-enroll the asset as Base Denom or Payout Percentage has been changed.</system:String>
+    <system:String x:Key="MessageID380">Sorry, this record is being processed by another user.</system:String>
+    <system:String x:Key="MessageID381">Sorry, this record is already processed by another user.</system:String>
+    <system:String x:Key="MessageID382">Unable to Process Attendantpay. Please check the machine connectivity.</system:String>
+    <system:String x:Key="MessageID383">There are no records to Generate Slip</system:String>
+    <system:String x:Key="MessageID384">Unable to Clear HandPay Tilt. Do you still want to Process?</system:String>
+
+    <system:String x:Key="MessageID385">Either No transactions are done by the selected user or the user does not have sufficient permissions</system:String>
+    <system:String x:Key="MessageID386">Variance(s) found. Do you still want to finish?</system:String>
+
+    <!-- Cash Dispenser Messages : By A.Vinod Kumar -->
+    <system:String x:Key="MessageID387">Not able to dispense automatically. Do you want to manually dispense?</system:String>
+    <system:String x:Key="MessageID388">Enter a valid amount to dispatch.</system:String>
+
+    <system:String x:Key="MessageID389">Coin Dispenser details saved successfully</system:String>
+    <system:String x:Key="MessageID390">Unable to save the coin dispenser details</system:String>
+    <system:String x:Key="MessageID391">Do you want to aggregate this value with the existing values?</system:String>
+    <system:String x:Key="MessageID392">The requested count should not be greater than available count.</system:String>
+    <!--PLAYER RATING:CPlayerData -->
+    <system:String x:Key="MessageID393">Please provide the card number.</system:String>
+    <system:String x:Key="MessageID394">No data found.</system:String>
+    <system:String x:Key="MessageID395">Are you sure you want to activate this voucher?</system:String>
+    <system:String x:Key="MessageID396">Voucher activated</system:String>
+    <system:String x:Key="MessageID397">Voucher activation failed. Please try again</system:String>
+    <system:String x:Key="MessageID398">Not an Exception Voucher!</system:String>
+    <system:String x:Key="MessageID399">@@@@@@ is not a valid Exception Voucher</system:String>
+    <system:String x:Key="MessageID400">Voucher Number cannot contain anything other than numerals!</system:String>
+
+    <system:String x:Key="MessageID401">Checking.</system:String>
+    <system:String x:Key="MessageID402">Activated.</system:String>
+    <system:String x:Key="MessageID403">Invalid Voucher Number</system:String>
+    <system:String x:Key="MessageID404">Unable to connect the site @@@@@@</system:String>
+    <system:String x:Key="MessageID405">This User is not authorized to declare for the site @@@@@@</system:String>
+    
+   
+    <system:String x:Key="MessageID426">Already Manual Comments Entered</system:String>
+    <system:String x:Key="MessageID427">Already Reason Exists</system:String>
+    <system:String x:Key="MessageID428">Select any Reason to Delete</system:String>
+    <system:String x:Key="MessageID429">Reason Deleted Successfully</system:String>
+    <system:String x:Key="MessageID430">Save changes before Moving Next or Closing.</system:String>
+    <system:String x:Key="MessageID431">First Position reached.</system:String>
+    <system:String x:Key="MessageID432">No more positions to process.</system:String>
+    <system:String x:Key="MessageID433">Please Select Barposition</system:String>
+  
+
+  <!-- PROMOTIONS -->
+
+  <!--PROMOTIONAL : By M.DURGA DEVI-->
+  <system:String x:Key="MessageID406">Error</system:String>
+  <system:String x:Key="MessageID407">The Promotional Name is already Exist</system:String>
+  <system:String x:Key="MessageID408">The Promotional Voucher has been successfully inserted</system:String>
+  <system:String x:Key="MessageID409">Please Enter valid Promotion Name</system:String>
+  <system:String x:Key="MessageID410">Please Enter the valid Number of Promotional Vouchers</system:String>
+  <system:String x:Key="MessageID411">Please Enter the valid Promotional Voucher Amount</system:String>
+  <system:String x:Key="MessageID412">Please Enter the Valid Expiry Date</system:String>
+
+
+  <!-- Promotional print cancel  by Akshaya Sree-->
+
+  <system:String x:Key="MessageID413">Do you want to cancel printing?</system:String>
+  <system:String x:Key="MessageID414">Selected Promotion is Successfully voided</system:String>
+  <system:String x:Key="MessageID415">Host Site rejected Voucher redeem request</system:String>
+  <system:String x:Key="MessageID416">Are you sure you want to activate this voucher?</system:String>
+  <system:String x:Key="MessageID417">Voucher Activated</system:String>
+  <system:String x:Key="MessageID418">Voucher activation failed. Please try again</system:String>
+  <system:String x:Key="MessageID419">Not an Exception Voucher!</system:String>
+  <system:String x:Key="MessageID420">@@@@@@ is not a valid Exception Voucher</system:String>
+  <system:String x:Key="MessageID421">Voucher Number cannot contain anything other than numerals!</system:String>
+
+  <system:String x:Key="MessageID422">Checking.</system:String>
+  <system:String x:Key="MessageID423">Activated.</system:String>
+  <system:String x:Key="MessageID424">Invalid Voucher Number</system:String>
+
+
+  <system:String x:Key="MessageID425">Exception Occured</system:String>
+  
+  
+  
+  
+  
+  
+  <system:String x:Key="MessageID434">Please enter a valid value of Advance Retailer</system:String>
+  <system:String x:Key="MessageID435">Vouchers Successfully Printed</system:String>
+  <system:String x:Key="MessageID436">Are you sure to void the selected Promotion?</system:String>
+  
+
+    <system:String x:Key="MsgPromErr1">Voltage Error</system:String>
+    <system:String x:Key="MsgPromErr2">Printer Head Error</system:String>
+    <system:String x:Key="MsgPromErr3">Out of Paper</system:String>
+    <system:String x:Key="MsgPromErr4">Platen Up</system:String>
+    <system:String x:Key="MsgPromErr5">System Error</system:String>
+    <system:String x:Key="MsgPromErr6">Printer is Busy</system:String>
+    <system:String x:Key="MsgPromErr7">Job Memory off</system:String>
+    <system:String x:Key="MsgPromErr8">Buffer off</system:String>
+
+    <system:String x:Key="MsgPromErr9">Library Load Error</system:String>
+    <system:String x:Key="MsgPromErr10">Printer Data Error</system:String>
+    <system:String x:Key="MsgPromErr11">Library Reference Error</system:String>
+    <system:String x:Key="MsgPromErr12">Temp Error</system:String>
+    <system:String x:Key="MsgPromErr13">Supply Index is Missing</system:String>
+    <system:String x:Key="MsgPromErr14">Flash Program Error</system:String>
+    <system:String x:Key="MsgPromErr15">Paper in Chute</system:String>
+
+    <system:String x:Key="MsgPromErr16">Print library is corrupted.</system:String>
+    <system:String x:Key="MsgPromErr17">Command Error</system:String>
+    <system:String x:Key="MsgPromErr18">Paper low.</system:String>
+    <system:String x:Key="MsgPromErr19">Paper jammed.</system:String>
+    <system:String x:Key="MsgPromErr20">Current Error</system:String>
+
+    <system:String x:Key="MsgPromErr21">Journal Print Error</system:String>
+    <!-- GMUbin update by Rajkumar.R -->
+    <system:String x:Key="MessageID477">No data found.</system:String>
+    <system:String x:Key="MessageID478">An Error has occurred while Burn GMU Bin.</system:String>
+    <system:String x:Key="MessageID479">An Error has occurred while Burn OptionFile.</system:String>
+    <system:String x:Key="MessageID480">An Error has occurred while RebootGMU.</system:String>
+    <system:String x:Key="MessageID481">An Error has occurred in select all chkHeader.</system:String>
+    <system:String x:Key="MessageID482">An Error has occurred while GetIPlist.</system:String>
+    <system:String x:Key="MessageID483">An Error has occurred while Load UserControl.</system:String>
+    <system:String x:Key="MessageID484">An Error has occurred while GetVersionList.</system:String>
+    <system:String x:Key="MessageID485">An Error has occurred while findgmu.</system:String>
+    <system:String x:Key="MessageID486">No IP found for this range.</system:String>
+    <!-- GMUbin update by Rajkumar.R -->
+
+    <!-- Glory Cash Dispenser by Kalaiyarasan.P -->
+    <system:String x:Key="MessageID441">Cash Dispensed Successfully</system:String>
+    <system:String x:Key="MessageID442">Unable to dispense the cash</system:String>
+    <system:String x:Key="MessageID443">Unable to Communicate Glory Server</system:String>
+    <system:String x:Key="MessageID444">Cash Dispenser is not Configured.</system:String>
+    <!--<system:String x:Key="MessageID445">Cash Dispenser Error Occurred.</system:String>-->
+    <system:String x:Key="MessageID446">Account is terminated. Please contact Administrator.</system:String>
+    <system:String x:Key="MessageID447">The 'Stacker Remove' event is not received for the machines : @@@@@@. Do you wish to proceed with manual drop?</system:String>
+    <system:String x:Key="MessageID447a">The 'Stacker Remove' event is not received for the machine : @@@@@@. Do you wish to proceed with manual drop?</system:String>
+    <system:String x:Key="MessageID448">Unable to disable the machines : @@@@@@.</system:String>
+
+    <!-- Site Licensing by Dinesh.R -->
+    <system:String x:Key="MessageID449">The Site does not have a valid License configured. Please enter a valid License Key and activate the License for the Site.</system:String>
+    <system:String x:Key="MessageID450">The License for the Site has expired on {0}. Please enter a valid License Key and activate the License for the Site.</system:String>
+    <system:String x:Key="MessageID451">License has expired on @@@@@@. Please activate a new License for the Site.</system:String>
+    <system:String x:Key="MessageID452">License will be expired on @@@@@@. Please activate a new License for the Site before the expiry date.</system:String>
+    <system:String x:Key="SL_MessageID463">License will be expired on @@@@@@. Next License available from @@@@@@. Please activate a new License for the Site before the expiry date.</system:String>
+    <system:String x:Key="MessageID453">License Key should not be empty.</system:String>
+    <system:String x:Key="MessageID454">An error occurred while verifying the License Key. Please try again later.</system:String>
+    <system:String x:Key="MessageID455">License Key is not valid.</system:String>
+    <system:String x:Key="MessageID456">License Key activated successfully.</system:String>
+    <system:String x:Key="MessageID457">There is no License available for this site.</system:String>
+    <system:String x:Key="MessageID458">License Key is already activated.</system:String>
+    <system:String x:Key="MessageID459">License Key has expired.</system:String>
+    <system:String x:Key="MessageID460">License Key has been cancelled.</system:String>
+    <system:String x:Key="MessageID461">Do you want to close the License Activation screen?</system:String>
+    <system:String x:Key="MessageID462">Partial</system:String>
+
+    <!--CASH ENTRY-->
+    <system:String x:Key="MessageID463">Uncommitted items found. Do you want to Save?</system:String>
+    <system:String x:Key="MessageID464">Saved Successfully.</system:String>
+    <system:String x:Key="MessageID465">Error Saving.</system:String>
+    <system:String x:Key="MessageID466">Drop Session have been completed by another user.</system:String>
+    <system:String x:Key="MessageID466_CashEntry">Invalid coin denom [Actual coin type: {0} {1} ]</system:String>
+
+    <system:String x:Key="MessageID467">Site License has expired on @@@@@@. All Slot Machines are disabled based on the license policy. Please activate a new License for the Site.</system:String>
+
+    <system:String x:Key="MessageID468">Added Successfully</system:String>
+    <system:String x:Key="MessageID469">Already counted</system:String>
+    <system:String x:Key="MessageID470">Removed Successfully</system:String>
+    <system:String x:Key="MessageID471">The Site does not have a valid License configured. The current user doesn't have permission to activate the License for the Site. Please login as an authorized user and activate the License.</system:String>
+    <system:String x:Key="MessageID472">The License for the Site has expired on @@@@@@. The current user doesn't have permission to activate the License for the Site. Please login as an authorized user and activate the License.</system:String>
+    <system:String x:Key="MessageID473">The Active License for the Site was cancelled. The current user doesn't have permission to activate the License for the Site. Please login as an authorized user and activate the License.</system:String>
+    <system:String x:Key="MessageID474">The Active License for the Site was cancelled. Please activate a new License for the Site.</system:String>
+    <system:String x:Key="MessageID475">The Active License for the Site was cancelled. All Slot Machines are disabled based on the license policy. Please activate a new License for the Site.</system:String>
+    <system:String x:Key="MessageID476">The Active License for the Site was cancelled. Please enter a valid License Key and activate the License for the Site.</system:String>
+
+    <system:String x:Key="MessageID487">There are no Read records found for Liquidation.</system:String>
+    <system:String x:Key="MessageID488">Liquidation completed successfully.</system:String>
+    <system:String x:Key="MessageID489">Error occurred in liquidation.</system:String>
+    <system:String x:Key="MessageID490">Please select a Profit Share Group.</system:String>
+    <system:String x:Key="MessageID491">Do you want to print the liquidation summary report?</system:String>
+
+
+    <!--SITE LICENSING-->
+    <system:String x:Key="MessageID492">Verifying with Exchange server...</system:String>
+    <system:String x:Key="MessageID493">Failed</system:String>
+    <system:String x:Key="MessageID494">Success</system:String>
+    <system:String x:Key="MessageID495">Ready</system:String>
+    <system:String x:Key="MessageID496">Verifying with Enterprise server...</system:String>
+
+    <system:String x:Key="MessageID497">You must select atleast one row.</system:String>
+    <system:String x:Key="MessageID498">Liquidation must be performed sequentially.</system:String>
+    <system:String x:Key="MessageID499">Please Select a batch to perform Liquidation.</system:String>
+
+    <!-- Employee card tracking-->
+    <system:String x:Key="MessageID500">Do you wish to continue the with Employee card Sync?</system:String>
+
+    <!--Export Details-->
+    <system:String x:Key="MessageID501">Are you sure, you want to change export status as "SUCCESS" for selected details?</system:String>
+    <system:String x:Key="MessageID502">Please select atleast 1 export detail to update its status.</system:String>
+
+    <system:String x:Key="MessageID503">Please select a Game Title</system:String>
+    <system:String x:Key="MessageID504">Spot Check has been processed successfully for the selected asset (@@@@@@).</system:String>
+    <system:String x:Key="MessageID505">Error occured on the process.</system:String>
+    <system:String x:Key="MessageID522">No Collection To Print Report.</system:String>
+    <!--GMU Number Alteration-->
+
+    <system:String x:Key="MessageID506">GMU Number Updated Successfully.</system:String>
+    <system:String x:Key="MessageID507">GMU Number Updation Failed.</system:String>
+    <system:String x:Key="MessageID508">Unable to add the Machine to Polling list</system:String>
+    <system:String x:Key="MessageID509">Are you sure, you want to update GMU Number?</system:String>
+    <system:String x:Key="MessageID510">The GMU Number You Entered Is Already Exists.</system:String>
+    <system:String x:Key="MessageID511">Unable to Validate GMU Number.</system:String>
+
+    <!-- Void CDO Voucher-->
+    <system:String x:Key="MessageID512">Are you sure want to void the voucher no. @@@@@@ of Amount @@@@@@?</system:String>
+    <system:String x:Key="MessageID513">Voucher Voided Successfully.</system:String>
+    <system:String x:Key="MessageID514">Voucher is not available in System.</system:String>
+    <system:String x:Key="MessageID515">Void is applicable only for Cash Desk Vouchers</system:String>
+    <system:String x:Key="MessageID516">Voucher has already been redeemed.</system:String>
+    <system:String x:Key="MessageID517">Voucher has already been Voided.</system:String>
+    <system:String x:Key="MessageID518">Voucher has expired.</system:String>
+    <system:String x:Key="MessageID519">Please enter or scan a valid Voucher Number.</system:String>
+    <system:String x:Key="MessageID520">Exception occured.</system:String>
+    <system:String x:Key="MessageID521">No Data to Print .</system:String>
+
+    <!-- Auto Drop-->
+    <system:String x:Key="MessageID523">This Action will lose credits for the below machines. Are you sure, you want to continue?</system:String>
+    <!--GMU Number Alteration-->
+    <system:String x:Key="MessageID524">Invalid GMU Number. Only 'NULL' string or numbers are allowed.</system:String>
+    <system:String x:Key="MessageID525">GMU Number shouldn't be greater than 99999.</system:String>
+    <system:String x:Key="MessageID526">There are no Read Liquidation records to Print.</system:String>
+    <system:String x:Key="MessageID527">Please select any record to Print.</system:String>
+    <system:String x:Key="MessageID528">Sorry, Drop initiated in client [@@@@@@] cannot be completed here.</system:String>
+    <!--GMU Number Alteration-->
+    <system:String x:Key="MessageID529">The Combination you entered is already exists in Enterprise.</system:String>
+
+    <system:String x:Key="MessageID530">WriteOffAmount is Greater than Sum of ExpenseShare and CarriedForward Amount</system:String>
+    <system:String x:Key="MessageID531">Amount Greater than W2G Amount Cannot be Processed.</system:String>
+
+<!--Unlock Screen-->
+   <system:String x:Key="MessageID532">Please select Lock(s) to Unlock </system:String>
+   <system:String x:Key="MessageID533">Please select Lock(s) Unlock </system:String>
+   <system:String x:Key="MessageID534">Please select Lock(s) to deselect </system:String>
+   <system:String x:Key="MessageID535">There is no Lock(s) to Unlock </system:String>
+
+
+    <!--Export Details-->               
+  <system:String x:Key="MessageID536">Unable to Stop Service, Please stop it manually and continue processing</system:String>
+  <system:String x:Key="MessageID537">Unable to start Service,Please start it manually</system:String>
+  <system:String x:Key="MessageID538">Unable to Update Status </system:String>
+  <system:String x:Key="MessageID539">Trying to stop BMCExchangeImportExport Service</system:String>
+  <system:String x:Key="MessageID540">BMCExchangeImportExport Service stopped successfully</system:String>
+  <system:String x:Key="MessageID541">Trying to update the Status in Exchange Database</system:String>
+  <system:String x:Key="MessageID542">Data got updated in Exchange Database</system:String>
+  <system:String x:Key="MessageID543">Trying to start BMCExchangeImportExport Service</system:String>
+  <system:String x:Key="MessageID544">BMCExchangeImportExport Service started successfully</system:String>
+  <system:String x:Key="MessageID545">Failled to stop BMCExchangeImportExport Service</system:String>
+  
+<!--Unlock Screen-->
+  <system:String x:Key="MessageID546">No Lock(s) to display</system:String>
+
+    <!--Void Screen-->
+    <system:String x:Key="MessageID547">This transaction has been included in drop. Transaction cannot be void</system:String>
+
+<!--Declaration-->
+<system:String x:Key="MessageID548">Please enter either Standard or Final </system:String>
+
+<system:String x:Key="MessageID549">Factory Reset is not completed in enterprise. Site controller is shutting down.</system:String>
+  <system:String x:Key="MessageID550">There is no records to Print</system:String>
+  <system:String x:Key="MessageID551">Printed Start Date Time cannot be greater than Printed End Date Time</system:String>
+  <system:String x:Key="MessageID554">The Number of Promotional Vouchers exceeds the Maximum limit.</system:String>
+  <system:String x:Key="MessageID555">The Promotional Vouchers Amount exceeds the Maximum limit.</system:String>
+  <system:String x:Key="MessageID556">The Promotional Expiry date exceeds the Maximum Expiry days limit.</system:String>
+  <system:String x:Key="MessageID557">Please Enter only upto 2 decimal places for promtional Voucher Amount.</system:String>   
+ 
+    <!--Hourly Export Messages-->
+    <system:String x:Key="MessageID559">Hourly Details Exported Successfully</system:String>
+    <system:String x:Key="MessageID560">Hourly Details Export Failed</system:String>
+    <system:String x:Key="MessageID561">Hourly Details Export Failed</system:String>
+    
+    <!--Decleration Notes Counter-->
+    <system:String x:Key="MessageID562">Please enter a valid denomination.</system:String>
+    <system:String x:Key="MessageID563">You have entered a maximum amount.</system:String>
+    <!--TIS Changes-->
+    <system:String x:Key="MessageID876">Effective Date Mismatch</system:String>
+    <system:String x:Key="MessageID878">Player Card Required</system:String>
+    <system:String x:Key="MessageID879">Please Enter the Valid Expiry Time</system:String>
+    <system:String x:Key="MessageID880">Printed Start Date Time cannot be greater than Current Date Time </system:String>
+    <system:String x:Key="MessageID881">Printed End Date Time cannot be greater than Current Date Time</system:String>
+    <system:String x:Key="MessageID883">Please Select Promotion</system:String>
+    <system:String x:Key="MessageID884">Printed Start Date Time cannot be greater than Printed End Date Time</system:String>
+    <system:String x:Key="MessageID885">Printed Start Date Time cannot be greater than Current Date Time</system:String>
+    <system:String x:Key="MessageID886">Printed End Date Time cannot be greater than Current Date Time</system:String>
+    <system:String x:Key="MessageID887">Printed Start Date Time cannot be greater than Printed End Date Time</system:String>
+    <!--Vault Messages start-->
+    <system:String x:Key="Vault_MessageID1">Saved successfully</system:String>
+    <system:String x:Key="Vault_MessageID2">Error occured</system:String>
+    <system:String x:Key="Vault_MessageID3">Fill value cannot be 0</system:String>
+    <system:String x:Key="Vault_MessageID4">Bleed value cannot be 0</system:String>
+    <system:String x:Key="Vault_MessageID5">Adjustment value cannot be 0</system:String>
+    <system:String x:Key="Vault_MessageID6">Please select transaction reason</system:String>
+    <system:String x:Key="Vault_MessageID7">Bleed/Negative adjustment amount cannot be greater than current balance</system:String>
+    <system:String x:Key="Vault_MessageID8">Do you want to complete @@@@@@ transaction for @@@@@@ ?</system:String>
+    <system:String x:Key="Vault_MessageID9">Please confirm vault drop?</system:String>
+    <system:String x:Key="Vault_MessageID10">Do you want to print transaction slip?</system:String>
+	<system:String x:Key="Vault_MessageID11">Adjustment value cannot be 0</system:String>
+	<system:String x:Key="Vault_MessageID12">Enrolment of vault: @@@@@ completed successfully</system:String>
+	<system:String x:Key="Vault_MessageID13">Unable to enrol vault:@@@@@</system:String>
+	<system:String x:Key="Vault_MessageID14">No Bill has been added</system:String>
+	<system:String x:Key="Vault_MessageID15">Uncommitted data found, Do you want to save declaration?</system:String>
+	<system:String x:Key="Vault_MessageID16">Please declare the previous drop before proceeding</system:String>
+    <system:String x:Key="Vault_MessageID17">Total amount cannot exceed vault capacity</system:String>
+    <system:String x:Key="Vault_MessageID18">Do you want to proceed with a standard fill?</system:String>
+	<system:String x:Key="Vault_MessageID19">Asset had been terminated.</system:String>
+    <system:String x:Key="Vault_MessageID20">Already Standard Fill exists. Do you want to proceed with the transaction?</system:String>
+    <system:String x:Key="Vault_MessageID21">Existing Standard Fill amount will be updated. Do you want to continue?</system:String>
+    <system:String x:Key="Vault_MessageID22">Do you want to process this transaction?</system:String>
+    <system:String x:Key="Vault_MessageID23">Denom had been modified by another user.</system:String>
+    <system:String x:Key="Vault_MessageID24">Amount entered cannot be greater than capacity @@@@@ for the</system:String>
+    <system:String x:Key="Vault_MessageID25">Sorry, this transaction is already processed by another user.</system:String>
+    <system:String x:Key="Vault_MessageID26">Start date time cannot be greater than End date time</system:String>
+    <system:String x:Key="Vault_MessageID27">Start date time cannot be greater than current date time</system:String>
+    <system:String x:Key="Vault_MessageID28">End date time cannot be greater than current date time</system:String>
+    <system:String x:Key="ApplicationCulture">(C)</system:String>
+
+    <system:String x:Key="VaultCassette_MessageID1">***** value has exceeded maximum fill amount - @@@@@</system:String>
+    <system:String x:Key="VaultCassette_MessageID2">***** value has exceeded maximum bleed amount - @@@@@</system:String>
+    <system:String x:Key="VaultCassette_MessageID3">Vault transaction completed successfully</system:String>
+    <system:String x:Key="VaultCassette_MessageID4">Vault transaction failed</system:String>
+    <system:String x:Key="VaultCassette_MessageID5">@@@@@ amount  should be greater than 0</system:String>
+	<system:String x:Key="VaultCassette_MessageID6">Please select any one cassette or hopper to do transaction</system:String>
+    <system:String x:Key="VaultCassette_MessageID7">Invalid amount entered in @@@@@</system:String>
+    <system:String x:Key="VaultCassette_MessageID8">No cash entered. Do you want to save declaration?</system:String>
+    <system:String x:Key="VaultCassette_MessageID9">Do you want to save declaration?</system:String>
+    <system:String x:Key="VaultCassette_MessageID10">***** adjustment amount should be greater than current inventory - @@@@@</system:String>
+    <system:String x:Key="VaultCassette_MessageID11">***** adjustment amount should be less than current inventory - @@@@@</system:String>
+    <system:String x:Key="VaultCassette_MessageID12">Adjustment amount should not be equal to current inventory</system:String>
+
+    <!--End Vault Messages-->
+    
+    <!--Offline Voucher-->
+    <system:String x:Key="MessageID882">Please select proper printed machine.</system:String>
+
+    <system:String x:Key="MessageID888">Please select only one record.</system:String>
+    <system:String x:Key="MessageID889">Please select a record to process.</system:String>
+    <system:String x:Key="MessageID890">Write off Amount: @@@@ should be less than Fixed Expense Share Amount: ****.</system:String>
+    <system:String x:Key="MessageID891">Liquidation is not performed for selected batch.</system:String>
+    <system:String x:Key="MessageID892">Calendar not assigned to the site.</system:String>
+
+    <!--Multiple Ticket Redeem -->
+    <system:String x:Key="RedeemMultipleTicketConfirmationID1">Are you sure you want to redeem the voucher(s)?</system:String>
+    <system:String x:Key="DisplayTISVoucher">TIS voucher(s) cannot be redeemed</system:String>
+    <!--Multiple Ticket Redeem -->
+    <system:String x:Key="MessageID893">No data found.</system:String>
+    <system:String x:Key="MessageID894">Too many data to show. Filter more to view details.</system:String>
+    <system:String x:Key="MessageID895">Too many data to show, Do you want to continue ?</system:String>
+
+    <system:String x:Key="MessageID896">No Uncleared Event(s) available</system:String>
+    
+    <!-- For Carded Player Voucher Redemption -->
+    <system:String x:Key="PlayerCardRedeem1">Please Enter valid Player Card Number</system:String>
+    <system:String x:Key="PlayerCardRedeem2">Please Enter Player Card Number with 10 digit</system:String>
+    <system:String x:Key="PlayerCardRedeem3">Invalid Player Card number. Try again.</system:String>
+    <system:String x:Key="PlayerCardRedeem4">Thanks for Entering Valid player Card Number.</system:String>
+
+    <system:String x:Key="PlayerCardRedeem5">Invalid Player Card number. Try again.</system:String>
+    <system:String x:Key="PlayerCardRedeem6">Valid Player Card number is not found.</system:String>
+    <system:String x:Key="VoucherDetailsMsg1">Please Enter barcode with valid length.</system:String>
+    <system:String x:Key="MessageID553">Please enter valid details. Total amount exceeds the limit.</system:String>
+    <!-- For Enrollment Screen -->
+    <system:String x:Key="MessageID437">You do not have privileges to Enroll the machine</system:String>
+    <system:String x:Key="MessageID438">Previous part declaration pending for the same slot. Do you want to proceed?</system:String>
+    <system:String x:Key="MessageID439">Complete the pending part declaration for the selected standard declaration for the same slot.</system:String>
+    <system:String x:Key="MessageID440">Previous standard declaration pending for the same slot. Do you want to proceed?</system:String>
+</ResourceDictionary>
+
+    
+    

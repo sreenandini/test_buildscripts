@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="UserControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             mc:Ignorable="d" 
+             x:Class="BMC.Presentation.CKeyboard" x:Name="UserControl" d:DesignHeight="480" Width="839.834" Height="381.713">
+        
+  <Grid x:Uid="Grid_1" Width="839.834" Height="381.713">
+    <Viewbox x:Uid="GroupBG" x:Name="GroupBG" Margin="0,-0.852,0,2.987">
+      <Canvas x:Uid="Canvas_1" Width="839.788" Height="379.578" MouseDown="Canvas_MouseDown">
+        <Path x:Uid="Path" x:Name="Path" Width="839.788" Height="378.726" Canvas.Left="0" Canvas.Top="0.85172" Stretch="Fill" StrokeThickness="0.5" StrokeLineJoin="Round" Stroke="#FF6D6D6D" Data="F1 M 424.914,1.11475C 583.68,1.11755 689.51,0.25061 831.811,12.6134C 836.078,12.6134 839.538,16.2877 839.538,19.019L 839.519,354.387C 839.519,358.654 836.06,362.114 831.793,362.114C 689.496,369.518 616.691,379.326 424.897,379.328C 233.092,379.328 150.284,369.519 7.97681,362.114C 3.70972,362.114 0.25,358.655 0.25,354.387L 0.263184,19.019C 0.263184,16.2877 3.72314,12.6135 7.99072,12.6135C 150.301,0.249939 266.121,1.11475 424.914,1.11475 Z " Fill="{DynamicResource KeyboardBG}" />
+        <Path x:Uid="Path_0" x:Name="Path_0" Width="837.265" Height="365.168" Canvas.Left="1.23145" Canvas.Top="5.78168" Stretch="Fill" Fill="{x:Null}" Data="F1 M 830.771,12.9479C 835.028,12.9479 838.479,16.6127 838.479,19.3327L 838.497,353.81C 838.497,358.06 835.046,361.505 830.788,361.505C 769.816,364.671 738.335,366.815 683.843,370.949C 737.62,366.074 768.526,363.315 828.741,360.2C 832.979,360.2 836.413,356.784 836.413,352.571L 836.395,19.9293C 836.395,17.2328 832.961,13.5869 828.724,13.5869C 753.555,7.09363 736.828,8.63751 677.254,5.78168C 737.839,8.50269 754.727,6.35364 830.771,12.9479 Z M 8.96338,361.505C 4.70557,361.505 1.25439,358.06 1.25439,353.81L 1.23145,19.3326C 1.23145,16.6127 4.68311,12.9478 8.94043,12.9478C 84.9802,6.35406 111.763,8.50299 172.342,5.7821C 112.772,8.63776 86.1528,7.09387 10.9868,13.587C 6.74951,13.587 3.31494,17.2329 3.31494,19.9293L 3.3374,352.571C 3.3374,356.784 6.77197,360.2 11.009,360.2C 71.2261,363.315 112.901,366.074 166.678,370.949C 112.186,366.815 69.9363,364.672 8.96338,361.505 Z " />
+        <Path x:Uid="Path_1" x:Name="Path_1" Width="831.907" Height="19.2122" Canvas.Left="3.93237" Canvas.Top="358.905" Stretch="Fill" Fill="#40000000" Data="F1 M 831.794,360.232C 689.498,368.826 616.691,378.115 424.897,378.118C 233.092,378.118 150.285,368.826 7.97803,360.232C 6.49463,360.232 5.10889,359.747 3.93237,358.905C 137.669,368.219 232.12,374.254 424.899,374.254C 617.664,374.252 702.113,368.218 835.84,358.905C 834.663,359.746 833.277,360.232 831.794,360.232 Z " />
+        <Path x:Uid="Path_2" x:Name="Path_2" Width="833.007" Height="20.7101" Canvas.Left="3.38403" Canvas.Top="1.97041" Stretch="Fill" Fill="#404E6F89" Data="F1 M 424.913,1.98346C 582.533,1.98639 687.445,1.11798 828.72,13.4808C 832.957,13.4808 836.391,17.1552 836.391,19.8865L 836.389,22.68C 836.389,19.8763 832.957,16.1428 828.72,16.1428C 687.445,3.45209 582.533,3.66467 424.913,3.66168C 267.265,3.66174 152.342,3.45166 11.0576,16.1432C 6.82104,16.1432 3.38403,19.8766 3.38403,22.6805L 3.38672,19.8869C 3.38672,17.1556 6.82104,13.4813 11.0576,13.4813C 152.342,1.11761 267.265,1.98352 424.913,1.98346 Z " />
+      </Canvas>
+    </Viewbox>
+    <Canvas x:Uid="Keys" x:Name="Keys" Margin="8,74.39,-8,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+      <Canvas x:Uid="pnlAlphabets" x:Name="pnlAlphabets" Width="633.994" Height="169.952" Canvas.Left="74.001" Canvas.Top="57.016">
+        <Button x:Uid="Button_1" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_1}" Style="{DynamicResource ButtonStyle2}" Canvas.Left="9" Canvas.Top="-2.366" />
+        <Button x:Uid="Button_2" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_2}" Canvas.Left="67" Canvas.Top="-1" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_3" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_3}" Canvas.Left="125" Canvas.Top="-1" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_4" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_4}" Canvas.Left="184" Canvas.Top="-1" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_5" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_5}" Canvas.Left="243" Canvas.Top="-2" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_6" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_6}" Canvas.Left="302" Style="{DynamicResource ButtonStyle2}" Canvas.Top="-2.366" />
+        <Button x:Uid="Button_7" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_7}" Canvas.Left="361" Style="{DynamicResource ButtonStyle2}" Canvas.Top="-2.366" />
+        <Button x:Uid="Button_8" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_8}" Canvas.Left="420" Style="{DynamicResource ButtonStyle2}" Canvas.Top="-2.366" />
+        <Button x:Uid="Button_9" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_9}" Canvas.Left="480" Style="{DynamicResource ButtonStyle2}" Canvas.Top="-2.366" />
+        <Button x:Uid="Button_10" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_10}" Canvas.Left="540" Style="{DynamicResource ButtonStyle2}" Canvas.Top="-2.366" />
+        <Button x:Uid="Button_11" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_11}" Canvas.Left="44" Canvas.Top="55.034" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_12" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_12}" Canvas.Left="104" Canvas.Top="55.081" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_13" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_13}" Canvas.Left="162" Canvas.Top="55" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_14" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_14}" Canvas.Left="220" Canvas.Top="55" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_15" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_15}" Canvas.Left="280" Canvas.Top="55.081" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_16" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_16}" Canvas.Left="339" Canvas.Top="55.068" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_17" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_17}" Canvas.Left="398" Canvas.Top="56" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_18" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_18}" Canvas.Left="456" Canvas.Top="55.068" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_19" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_19}" Canvas.Left="514" Canvas.Top="55.068" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_20" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_20}" Canvas.Left="39" Canvas.Top="112" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_21" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_21}" Canvas.Left="97" Canvas.Top="112" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_22" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_22}" Canvas.Left="155" Canvas.Top="112" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_23" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_23}" Canvas.Left="214" Canvas.Top="112" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_24" FontFamily="Segoe UI" FontSize="32" Width="54" Height="54" Content="{DynamicResource CKeyboard_xaml_Button_24}" Canvas.Left="273" Canvas.Top="112" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_25" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_25}" Canvas.Left="332" Canvas.Top="112.538" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_26" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_26}" Canvas.Left="390" Canvas.Top="112.538" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="btnSpace" x:Name="btnSpace" Style="{DynamicResource KeyboardPadSpaceButton}" Content=" " Canvas.Top="172" Canvas.Left="79.452" Height="54" />
+        <Button x:Uid="Button_27" Canvas.Left="571" Canvas.Top="55" FontFamily="Segoe UI" FontSize="32" Height="54" Style="{DynamicResource ButtonStyle2}" Width="54" IsCancel="False">-</Button>
+        <Button x:Uid="Button_28" Canvas.Left="450" Canvas.Top="112" FontFamily="Segoe UI" FontSize="32" Height="54" IsCancel="False" Style="{DynamicResource ButtonStyle2}" Width="54">\</Button>
+        <Button x:Uid="Button_29" Canvas.Left="598" Canvas.Top="-2" FontFamily="Segoe UI" FontSize="32" Height="54" IsCancel="False" Style="{DynamicResource ButtonStyle2}" Width="54">@</Button>
+        <Button x:Uid="Button_30" Canvas.Left="510" Canvas.Top="112" FontFamily="Segoe UI" FontSize="32" Height="54" IsCancel="False" Style="{DynamicResource ButtonStyle2}" Width="54">_</Button>
+        <Button x:Uid="Button_31" Canvas.Left="568" Canvas.Top="112" FontFamily="Segoe UI" FontSize="32" Height="54" Style="{DynamicResource ButtonStyle2}" Width="54">$</Button>
+      </Canvas>
+      <Canvas x:Uid="pnlNumbers" x:Name="pnlNumbers" Width="633.994" Height="54.973" Canvas.Left="57.318" Canvas.Top="-2.653">
+        <Button x:Uid="Button_32" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_32}" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_33" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_33}" Canvas.Left="57" Canvas.Top="0.014" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_34" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_34}" Canvas.Left="117" Canvas.Top="0.014" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_35" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_35}" Canvas.Left="178" Canvas.Top="0.014" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_36" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_36}" Canvas.Left="239" Canvas.Top="0.993" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_37" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_37}" Canvas.Left="300" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_38" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_38}" Canvas.Left="361" Canvas.Top="-0.014" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_39" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_39}" Canvas.Left="422" Canvas.Top="-0.014" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_40" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_40}" Canvas.Left="483" Canvas.Top="-0.014" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_41" FontFamily="Segoe UI" FontSize="32" Width="54" Height="53.98" Content="{DynamicResource CKeyboard_xaml_Button_41}" Canvas.Left="543" Canvas.Top="-0.014" Style="{DynamicResource ButtonStyle2}" />
+        <Button x:Uid="Button_42" Canvas.Left="603" Canvas.Top="0" FontFamily="Segoe UI" FontSize="32" Height="54" Style="{DynamicResource ButtonStyle2}" Width="54">.</Button>
+            </Canvas>
+      <CheckBox x:Uid="chkCaps" Width="103" Height="53.505" Content="{DynamicResource CKeyboard_xaml_chkCaps}" Canvas.Top="111.854" Style="{DynamicResource KeyboardCapsShiptCheckboxButton}" Checked="CheckBox_Checked" x:Name="chkCaps" Unchecked="chkCaps_Unchecked" Canvas.Left="13" />
+    </Canvas>
+    <TextBox x:Uid="txtDisplay" Height="54" Text="" TextWrapping="Wrap" x:Name="txtDisplay" Margin="0,10.047,0,0" VerticalAlignment="Top" Style="{DynamicResource KeyboardPadTextboxStyle}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+    <CheckBox x:Uid="chkShift" Style="{DynamicResource KeyboardCapsShiptCheckboxButton}" Width="95.994" Height="53.505" Content="{DynamicResource CKeyboard_xaml_chkShift}" x:Name="chkShift" Checked="chkShift_Checked" Unchecked="chkShift_Unchecked" HorizontalAlignment="Left" Margin="21,0,0,84" VerticalAlignment="Bottom" />
+    <Button x:Uid="Button_43" Style="{DynamicResource KeyboardPadBackspaceButton}" Width="113.987" Height="54.105" Content="{DynamicResource CKeyboard_xaml_Button_43}" Click="BackSpace_Click" HorizontalAlignment="Right" Margin="0,0,18,82" VerticalAlignment="Bottom" />
+    <Button x:Uid="btnCancel" Content="{DynamicResource CKeyboard_xaml_btnCancel}" Width="100" Height="64" Style="{DynamicResource KeyboardPadCancelButton}" Click="btnCancel_Click" x:Name="btnCancel" HorizontalAlignment="Right" Margin="0,66,16,0" VerticalAlignment="Top" />
+    <Button x:Uid="btnEnter" Content="{DynamicResource CKeyboard_xaml_btnEnter}" Width="110.232" Style="{DynamicResource KeyboardPadEnter}" Click="Enter_Click" x:Name="btnEnter" HorizontalAlignment="Right" Margin="0,131,18,140" />
+      <Button Content="{DynamicResource CKeyboard_xaml_btnSC}" Height="53.693" HorizontalAlignment="Left" Margin="40,0,0,24.307" Style="{DynamicResource KeyboardSymbolsButton}" VerticalAlignment="Bottom" Width="116" x:Name="btnSC"  Click="btnSC_Click" />
+        <Border x:Uid="pnlSpl" x:Name="pnlSpl" Visibility="Hidden"  SnapsToDevicePixels="true" Width="222" Height="170" HorizontalAlignment="Left" Margin="30.002,119.546,0,87.454">
+            <Border.Background>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_82" EndPoint="0.5,1"  StartPoint="0.5,0">
+                    <GradientStop x:Uid="GradientStop_325" Color="#E5F558" Offset="2.5"  />
+                    <GradientStop x:Uid="GradientStop_326" Color="#C1D115" Offset="0.25" />
+                    <GradientStop x:Uid="GradientStop_327" Color="#9EA364" Offset="0" />
+                    <!--<GradientStop x:Uid="GradientStop_325" Color="#7E0DA3" Offset="1"  />
+                    <GradientStop x:Uid="GradientStop_326" Color="#070608" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_327" Color="#AB2BD6" Offset="0" />-->
+                </LinearGradientBrush>
+            </Border.Background>       
+        <Grid x:Uid="pnlSymbols" x:Name="pnlSymbols"  Visibility="Hidden" Width="219" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" MinHeight="54"></RowDefinition>
+                <RowDefinition Height="auto" MinHeight="54"></RowDefinition>
+                <RowDefinition Height="auto" MinHeight="54"></RowDefinition>
+            </Grid.RowDefinitions>          
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Width="54" HorizontalAlignment="Left" Margin="1,2,0,0" Height="53.5" VerticalAlignment="Top">/</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="55,2,0,0" Height="54.5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="51">#</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="107,2,58,0" Height="53.5" VerticalAlignment="Top">*</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="0,2,2,53" HorizontalAlignment="Right" Width="54" Grid.RowSpan="2">%</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" HorizontalAlignment="Left" Width="53.917" Margin="2,2,0,0" Height="53.5" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2">^</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="56,2,0,0" Height="53.5" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Left" Width="51">,</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="0,2,57,0" Height="53.5" Grid.Row="1" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Right" Width="54">&amp;</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" VerticalAlignment="Top" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="0,2,2,0" HorizontalAlignment="Right" Width="53.917" Grid.RowSpan="2" Grid.Row="1">=</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="2,3,0,2" Grid.Row="2" HorizontalAlignment="Left" Width="53.917" Height="53.75" VerticalAlignment="Top">+</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="56,3,0,2" Grid.Row="2" Height="53.5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="51">-</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="0,3,57,2" Grid.Row="2" Height="53.5" HorizontalAlignment="Right" VerticalAlignment="Top">(</Button>
+            <Button x:Uid="Button_42" FontFamily="Segoe UI" FontSize="32" Style="{DynamicResource ButtonSymbol}" Margin="0,3,1,2" Grid.Row="2" Height="53.5" VerticalAlignment="Top" HorizontalAlignment="Right" Width="53.917">)</Button>
+        </Grid>
+        </Border>
+    </Grid>
+</UserControl>

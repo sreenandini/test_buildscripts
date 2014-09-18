@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PrintTemplates>
+	<PrintTemplate>
+		<FunctionName>Jackpot</FunctionName>
+		<Description>User has won a Jackpot</Description>
+		<HTMLTemplateSource>C:\filename.htm</HTMLTemplateSource>
+		<DefaultSaveLocation>C:\</DefaultSaveLocation>
+		<PrintFormat>
+			<ShowPrintDialogue>false</ShowPrintDialogue>
+			<PrinterName>HP LaserJet 4350 PCL 6(East End) Chn File01</PrinterName>
+			<PageSize>A4</PageSize>
+			<SaveLocalCopy></SaveLocalCopy>
+		</PrintFormat>
+	</PrintTemplate>
+	<PrintTemplate>
+		<FunctionName>HandPay</FunctionName>
+		<Description>Print Voucher for HandPay</Description>
+		<HTMLTemplateSource>C:\filename.htm</HTMLTemplateSource>
+		<PrintFormat>
+			<ShowPrintDialogue>false</ShowPrintDialogue>
+			<PrinterName>HP LaserJet 4350 PCL 6(East End) Chn File01</PrinterName>
+			<PageSize>A4</PageSize>
+			<SaveLocalCopy></SaveLocalCopy>
+		</PrintFormat>
+	</PrintTemplate>
+	<PrintTemplate>
+		<FunctionName>ShortPay</FunctionName>
+		<Description>Print Receipt for Shortpay</Description>
+		<HTMLTemplateSource>C:\PrintTemplate\ShortPay.htm</HTMLTemplateSource>
+		<PrintFormat>
+			<ShowPrintDialogue>false</ShowPrintDialogue>
+			<PrinterName>HP LaserJet 4350 PCL 6(East End) Chn File01</PrinterName>
+			<PageSize>A4</PageSize>
+			<SaveLocalCopy></SaveLocalCopy>
+		</PrintFormat>
+	</PrintTemplate>
+	<PrintTemplate>
+		<FunctionName>VoidTransaction</FunctionName>
+		<Description>Print a VoidTransaction</Description>
+		<HTMLTemplateSource>C:\PrintTemplate\VoidTransaction.htm</HTMLTemplateSource>
+		<PrintFormat>
+			<ShowPrintDialogue>false</ShowPrintDialogue>
+			<PrinterName>HP LaserJet 4350 PCL 6(East End) Chn File01</PrinterName>
+			<PageSize>A4</PageSize>
+			<SaveLocalCopy></SaveLocalCopy>
+		</PrintFormat>
+	</PrintTemplate>
+</PrintTemplates>

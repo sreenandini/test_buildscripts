@@ -1,0 +1,71 @@
+﻿<!--<UserControl x:Class="BMC.Presentation.POS.Views.PromoHistory"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:c="clr-namespace:BMC.Presentation"
+    x:Name="UserCtrlPromoHist" mc:Ignorable="d" xmlns:DragCanvas="clr-namespace:BMC.Presentation.Helper_classes" xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" Width="870" Height="660" RenderTransformOrigin="0.5,0.5" Loaded="UserCtrlPromoHist_Loaded">-->
+<UserControl 
+  x:Uid="UserControl" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  mc:Ignorable="d" xmlns:src="clr-namespace:BMC.Presentation.POS" 
+  xmlns:CustomControl="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+  xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+  x:Class="BMC.Presentation.POS.Views.PromoHistory" 
+  xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+  x:Name="UserCtrlPromoHist" 
+  d:DesignWidth="638" 
+  d:DesignHeight="480" 
+  Width="870" Height="660" 
+  RenderTransformOrigin="0.5,0.5" 
+  Loaded="UserCtrlPromoHist_Loaded"
+  xmlns:corlib="clr-namespace:BMC.CoreLib.WPF.Controls;assembly=BMC.CoreLib">
+    <UserControl.Resources>
+      <Helper_classes:PriceConverterWithSymbol x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+      <CustomControl:DateTimeConverter x:Uid="src:DateConverter_1" x:Key="DateConverter" />
+        
+        <Style x:Key="rightAlignedCurrencyStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>    
+
+    </UserControl.Resources>
+    
+    <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Height="659">      
+
+        <Custom:DataGrid x:Uid="dgPromoHistGridView" x:Name="dgPromoHistGridView"  SelectionUnit="FullRow"  Margin="10,10,12,20"  IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding}" AutoGenerateColumns="False" 
+							 Height="450" SelectionChanged="dgPromoHistGridView_SelectionChanged" SelectionMode="Single" 
+                             Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible" ClipboardCopyMode="IncludeHeader">
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_SerialNo" 	Header="{DynamicResource PromoHist_xaml_GVColumn_SerialNum}" 		Width="Auto" 		    ElementStyle="{StaticResource rightAlignedCurrencyStyle}"     Binding="{Binding Path=SrNo}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_PromoName" 		Header="{DynamicResource PromoHist_xaml_GVColumn_PromoName}" 	Width="Auto"  		        Binding="{Binding Path=PromotionalName}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_PromoType" 		Header="{DynamicResource PromoHist_xaml_GVColumn_PromoType}" 	Width="Auto"		        Binding="{Binding Path=PromotionalTicketType}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_NumofTick" 	Header="{DynamicResource PromoHist_xaml_GVColumn_NumofTick}" 	    Width="Auto" 		     ElementStyle="{StaticResource rightAlignedCurrencyStyle}"    Binding="{Binding Path=TotalTickets}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_Amt" 	Header="{DynamicResource PromoHist_xaml_GVColumn_Amt}"                  Width="Auto" 	        ElementStyle="{StaticResource rightAlignedCurrencyStyle}"        Binding="{Binding Path=PromotionalTicketAmount, Converter={StaticResource PriceConverter}}" />
+                <Custom:DataGridTextColumn x:Uid="GVColumn_TotAmt" 	Header="{DynamicResource PromoHist_xaml_GVColumn_TotAmt}" 		        Width="Auto" 		    ElementStyle="{StaticResource rightAlignedCurrencyStyle}"        Binding="{Binding Path=TotalTicketAmount, Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_PromoStatus" 	Header="{DynamicResource PromoHist_xaml_GVColumn_PromoStatus}" 	Width="Auto" 		        Binding="{Binding Path=PromoStatus}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_PrintedDt" 	Header="{DynamicResource PromoHist_xaml_GVColumn_PrintedDt}"        Width="Auto" 	            Binding="{Binding Path=dtPromoCreation,Converter={StaticResource DateConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_ExpDt" 	Header="{DynamicResource PromoHist_xaml_GVColumn_ExpDt}" 		        Width="Auto" 		        Binding="{Binding Path=dtExpire,Converter={StaticResource DateConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_NumofTickRedem" 		Header="{DynamicResource PromoHist_xaml_GVColumn_NumofTickRedem}"   Width="Auto"  	ElementStyle="{StaticResource rightAlignedCurrencyStyle}" 	Binding="{Binding Path=NoOfRedeemed}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_RedemAmt" 		Header="{DynamicResource PromoHist_xaml_GVColumn_RedemAmt}" 		    Width="Auto"	ElementStyle="{StaticResource rightAlignedCurrencyStyle}" 	Binding="{Binding Path=RedeemedAmount, Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_NumofTickExp" 	Header="{DynamicResource PromoHist_xaml_GVColumn_NumofTickExp}" 	    Width="Auto" 	ElementStyle="{StaticResource rightAlignedCurrencyStyle}" 	Binding="{Binding Path=NoOfTicketExpired}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_ExpAmt" 	Header="{DynamicResource PromoHist_xaml_GVColumn_ExpAmt}" 		                Width="Auto" 	ElementStyle="{StaticResource rightAlignedCurrencyStyle}" 	Binding="{Binding Path=ExpiredAmount, Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_NumofTickVoid" 		Header="{DynamicResource PromoHist_xaml_GVColumn_NumofTickVoid}" 	Width="Auto"  	ElementStyle="{StaticResource rightAlignedCurrencyStyle}" 	Binding="{Binding Path=NoOfTicketsVoid}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_VoidAmt" 		Header="{DynamicResource PromoHist_xaml_GVColumn_VoidAmt}" 		        Width="Auto"	ElementStyle="{StaticResource rightAlignedCurrencyStyle}" 	Binding="{Binding Path=VoidAmount, Converter={StaticResource PriceConverter}}"/>
+                <Custom:DataGridTextColumn x:Uid="GVColumn_VoidAmt1" 	Width="0" Visibility="Hidden" />
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+
+        <Button x:Uid="btnDetails" Margin="296,0,0,111" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" Height="55" Content="{DynamicResource PromoHistVouchers_xaml_Details}" HorizontalAlignment="Left" Width="112" Click="btnDetails_Click" />
+        <Button x:Uid="btnPrint" Margin="0,0,312,111" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" Height="55" Content="{DynamicResource PromoHistVouchers_xaml_BtnPrint}" HorizontalAlignment="Right" Width="112" Click="btnPrint_Click" />
+        <Button Height="40" Margin="0,0,210,121" Name="btnFirstClick" VerticalAlignment="Bottom" FontWeight="Bold"  Foreground="White" Background="Black" FontSize="21" FontFamily="Arial Black" HorizontalAlignment="Right" Width="42" Click="btnFirstClick_Click" >&lt;&lt;</Button>
+        <Button Height="40" HorizontalAlignment="Right" Margin="0,0,160,121" Name="btnPreviousClick" VerticalAlignment="Bottom" Width="40" FontWeight="Bold"  Foreground="White" Background="Black" FontSize="21" FontFamily="Arial Black" Click="btnPreviousClick_Click">&lt;</Button>
+        <Button Height="40" HorizontalAlignment="Right" Margin="0,0,59,121" Name="btnNextClick" VerticalAlignment="Bottom" Width="40" FontWeight="Bold" Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" Click="btnNextClick_Click">&gt;</Button>
+        <Button Height="40" HorizontalAlignment="Right" Margin="0,0,12,121" Name="btnLastClick" VerticalAlignment="Bottom" Width="40" FontWeight="Bold"  Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" Click="btnLastClick_Click">&gt;&gt;</Button>
+        <TextBlock Height="36" HorizontalAlignment="Right" TextAlignment="Center" Margin="0,0,104,121" Name="txtPageNo" VerticalAlignment="Bottom" Width="48" Text="{Binding PageCount}" Foreground="White" FontSize="16" />
+    </Grid>
+</UserControl>

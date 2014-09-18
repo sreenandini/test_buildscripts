@@ -1,0 +1,25 @@
+<Root>
+  <ImageList>
+	  <Image File="../Images/Floor-View.png" Caption="Vista Sala" ValueName="Floor View" Visible ="Y"/>
+	  <Image File="../Images/Tickets.png" Caption="  Cassiere&#xD;transazioni" ValueName="Tickets" Visible ="Y"/>
+	  <!--Vouchers modified-->
+	  <Image File="../Images/Analysis.png" Caption="Rapporti" ValueName="Reports" Visible ="Y"/>
+	  <Image File="../Images/CDM.png" Caption=" Transazioni &#xD;      Storia" ValueName="Cashier&#xD;Transactions" Visible ="Y"/>
+	  <!--cashier Transaction modified-->
+	  <Image File="../Images/Hourly.png" Caption="Dettagli per ora" ValueName="Hourly" Visible ="Y"/>
+	  <Image File="../Images/MachineDropScreen.png" Caption="Macchina, &#xD; raccolta" ValueName="Machine Drop" Visible ="Y"/>
+	  <Image File="../Images/Details.png" Caption="Dettagli" ValueName="Details" Visible ="Y"/>
+	  <Image File="../Images/VLT Status.png" Caption="VLT Stato" ValueName="CurrentStatus" Visible ="Y"/>
+	  <Image File="../Images/Void.png" Caption="Vuoto" ValueName="Void" Visible ="Y"/>
+	  <Image File="../Images/PlayerClub.png" Caption=" Randello del &#xD;   giocatore" ValueName="Player Club" Visible ="Y"/>
+	  <Image File="../Images/Current Calls.png" Caption="Chiamate &#xD; correnti" ValueName="Current Calls" Visible ="Y"/>
+	  <Image File="../Images/Audit.png" Caption="Revisione" ValueName="Audit" Visible ="Y"/>
+	  <Image File="../Images/Custom Report.png" Caption="   Rapporti&#xD;personalizzati" ValueName="CustomReports" Visible ="Y"/>
+	  <Image File="../Images/Settings.png" Caption="Regolazioni" ValueName="Settings" Visible ="Y"/>
+	  <Image File="../Images/AFT settings.png" Caption="AFT Settings" ValueName= "AFTSettings" Visible ="Y"/>
+	  <Image File="../Images/Tickets.png" Caption=" Eccezione &#xD;  biglietto" ValueName="ExceptionVouchers" Visible ="Y"/>
+	  <Image File="../Images/Tickets.png" Caption="Cross Ticketing &#xD;      Settings" ValueName="CrossTicketingSettings" Visible ="Y"/>
+      <Image File="../Images/Updategmipin.png" Caption="Update Gmu Pin" ValueName="Updategmupin" Visible ="Y"/>
+      <Image File="../Images/siteinteg.png" Caption="       sito&#xD;Interrogation" ValueName="SiteInterrogation" Visible ="Y"/>
+  </ImageList>
+</Root>

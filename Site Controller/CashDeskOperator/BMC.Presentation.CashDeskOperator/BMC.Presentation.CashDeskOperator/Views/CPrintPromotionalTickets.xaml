@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.Views.CPrintPromotionalTickets"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+    x:Name="UserControl" d:DesignWidth="640" d:DesignHeight="480"
+    Height="660" Width="870" 
+  HorizontalAlignment="Center">
+
+        <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Height="238">
+      
+            <TextBlock x:Uid="txtHeader" x:Name="txtHeader" TextAlignment="Center" Height="40" Text="{DynamicResource CPrintPromotional_xaml_TextBlock_1}"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="60,12,71,0" Foreground="white" VerticalAlignment="Top"/>
+        <Label Name="lblStatus" Content="Out Of" HorizontalContentAlignment="Center"   Background="Transparent" FontSize="13"  Height="25.377"  VerticalAlignment="Top" Margin="12,72,12,0" FontFamily="Segoe UI"></Label>
+        <Label Name="lblPrintedTicket" HorizontalContentAlignment="Center"   Background="Transparent" FontSize="13"  Height="25.377"  VerticalAlignment="Top" FontFamily="Segoe UI" Margin="60,72,0,0" HorizontalAlignment="Left" Width="82"></Label>
+        <Label Name="lblTotalTicket"  HorizontalContentAlignment="Center"   Background="Transparent" FontSize="13"  Height="25.377"  VerticalAlignment="Top"  FontFamily="Segoe UI" HorizontalAlignment="Right" Width="92" Margin="0,72,47,0"></Label>
+        <ProgressBar Name="pbPrint" Margin="12,105.353,12,106.891"  Value="0" BorderBrush="Transparent" LargeChange="1" SmallChange="1" BorderThickness="1" FlowDirection="LeftToRight">
+            <ProgressBar.Triggers>
+                <EventTrigger RoutedEvent="ProgressBar.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="pbPrint" Storyboard.TargetProperty="Value"  Duration="0:0:5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ProgressBar.Triggers>
+        </ProgressBar>
+        
+        <Button Name="btnCancel"  Style="{DynamicResource BMC_Button}" Width="97" Margin="33,0,0,12" Content="{DynamicResource CPrintPromotional_xaml_btnCancel}" FontFamily="Segoe UI" HorizontalAlignment="Left" Height="59" VerticalAlignment="Bottom" Click="btnCancel_Click"  />
+        <Button Name="btnPause" Style="{DynamicResource BMC_Button}" Content="{DynamicResource CPrintPromotional_xaml_btnPause}" FontFamily="Segoe UI" Margin="0,0,23,12" Height="58" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="98" Click="btnPause_Click"/>
+      
+
+        
+
+        <Label x:Name="lblErrorMsg" Content="" HorizontalContentAlignment="Center"   Background="Transparent" FontSize="14"  Height="25"  VerticalAlignment="Top" Margin="1,367,23,-154" Visibility="Visible" FontFamily="Segoe UI" FontWeight="Bold" Foreground="Red"/>
+    </Grid>
+</UserControl>

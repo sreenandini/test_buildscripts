@@ -1,0 +1,162 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.CDeclareExceptionTickets"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ValidationRules="clr-namespace:BMC.Presentation.POS.Views"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:CashDeskOperator="clr-namespace:BMC.CashDeskOperator;assembly=BMC.CashDeskOperator"
+    xmlns:BallyMultiConnect="clr-namespace:BMC.Presentation"
+    Title="DeclareExceptionTickets" Height="640" Width="698" 
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False" 
+         AllowsTransparency="True" WindowStyle="None" Background="{DynamicResource MainScreenBG}" >
+    <Grid>
+        <Grid x:Uid="pnlHeader" x:Name="pnlHeader" VerticalAlignment="Top" Height="49" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.0,0.0" Margin="0,0,35.5,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38*" />
+                <RowDefinition Height="11*" />
+            </Grid.RowDefinitions>
+            <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M373.472,5122.66 L756.52,5122.66 C759.834,5122.66 762.52,5125.35 762.52,5128.66 L762.52,5155.28 C762.52,5158.6 763.847,5157.8247 763.30535,5161.28 L367.19063,5161.28 C367.03487,5158.7204 367.12818,5160.8766 367.12823,5155.2832 L367.472,5128.66 C367.472,5125.35 370.158,5122.66 373.472,5122.66 z" Fill="{DynamicResource MsgBoxTitleColor}" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.0,0.0" Margin="0,0,-35.5,0" Grid.RowSpan="2" />
+            <TextBlock x:Uid="tbHeader" x:Name="tbHeader" Text="{DynamicResource CDeclareExceptionTickets_Header}" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="20" FontWeight="Bold" Visibility="Visible" Margin="22.5,9,133,0" />
+                <Button x:Uid="btnExit" x:Name="btnExit" Style="{DynamicResource BMC_App_Exit}" RenderTransformOrigin="0.0,0.0" Width="46" Canvas.Left="750" Canvas.Top="0" HorizontalAlignment="Right" Click="btnExit_Click" Margin="0,3,-35.5,-3" Grid.RowSpan="2" />
+            </Grid>
+
+        <ListView x:Name="lstPos" ScrollViewer.HorizontalScrollBarVisibility="Hidden" IsSynchronizedWithCurrentItem="True" FontSize="16" FontFamily="Segoe UI" SelectionMode="Single" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" Margin="22.5,66,35.5,82" MouseDoubleClick="lstPos_MouseDoubleClick" MouseUp="lstPos_MouseUp">
+            <ListView.View>
+                <GridView x:Uid="GridView_1">
+					<GridViewColumn x:Uid="GridViewColumn_AssetNo" Header="{DynamicResource CDeclareExceptionTickets_Col_AssetNo}"  Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="DataTemplate_2">
+                                <Grid x:Uid="Grid_3" Height="35">
+                                    <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="TextBlock_2" Text="{Binding Stock_No}" HorizontalAlignment="Left" VerticalAlignment="Center"  TextAlignment="Left" Margin="0,0,0,0" />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Uid="GridViewColumn_2" Header="{DynamicResource CDeclareExceptionTickets_Col_Pos}"  Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="DataTemplate_2">
+                                <Grid x:Uid="Grid_3" Height="35">
+                                    <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="TextBlock_2" Text="{Binding bar_pos_name}" HorizontalAlignment="Left" VerticalAlignment="Center"  TextAlignment="Left" Margin="0,0,0,0" />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Uid="GridViewColumn_1" Header="{DynamicResource CDeclareExceptionTicketsCol_TicketIn}" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="DataTemplate_1">
+                                <Grid x:Uid="Grid_2" Height="35">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="TextBlock_1" Text="{Binding collection_rdc_tickets_inserted_value}" HorizontalAlignment="Right" Padding="20" VerticalAlignment="Center"   TextAlignment="Right" Margin="0,0,0,0" />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Uid="GridViewColumn_1" Header="{DynamicResource CDeclareExceptionTickets_Col_DecTicketIn}" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="DataTemplate_1">
+                                <Grid x:Uid="Grid_2" Height="35">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="TextBlock_1" Text="{Binding TicketsIN}" HorizontalAlignment="Right" Padding="20" VerticalAlignment="Center"   TextAlignment="Right" Margin="0,0,0,0" />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Uid="GridViewColumn_1" Header="{DynamicResource CDeclareExceptionTickets_Col_Variance}" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="DataTemplate_1" >
+                                <Grid x:Uid="Grid_2" Height="35">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="TextBlock_1" Text="{Binding Variance}" HorizontalAlignment="Right" Padding="20" VerticalAlignment="Center"   TextAlignment="Right" Margin="0,0,0,0" />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Uid="GridViewColumn_1" Header="" Width="0">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="DataTemplate_1" >
+                                <Grid x:Uid="Grid_2" Height="35">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="TextBlock_1" Text="{Binding Collection_No}" HorizontalAlignment="Right" Padding="20" VerticalAlignment="Center"   TextAlignment="Right" Margin="0,0,0,0" />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lstVouchers" ScrollViewer.HorizontalScrollBarVisibility="Auto"  IsSynchronizedWithCurrentItem="True" FontSize="16" FontFamily="Segoe UI" SelectionMode="Single" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" Margin="13,66,21,82" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="ChkBox" x:Uid="ChkBox" >
+                        <HeaderedContentControl>
+                            <CheckBox Height="30" HorizontalAlignment="Center"  Name="chk_CheckAll" VerticalAlignment="Center" Width="35" Checked="chk_CheckAll_Checked" Unchecked="chk_CheckAll_Unchecked">CheckBox</CheckBox>
+                        </HeaderedContentControl> 
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="checkBoxTemplate">
+                                <Grid x:Uid="Grid_1">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <CheckBox Name="chkVoucherChecked" VerticalAlignment="Center"  IsChecked="{Binding Path=IsChecked}"  HorizontalAlignment="left" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="hrBarcode" Header="{DynamicResource CDeclareExceptionTickets_clmBarcode}" Width="190">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="Name" >
+                                <Grid x:Uid="Grid_2" >
+                                   <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="strBarcode" FontSize="16"  Text="{Binding strBarcode}" HorizontalAlignment="Center"   />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="Amount" x:Uid="Amount" Header="{DynamicResource CDeclareExceptionTickets_clmAmount}" Width="130">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="Amount">
+                                <Grid x:Uid="Grid_3">
+                             <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="iAmount" FontWeight="Bold" FontSize="16" Text="{Binding iAmount}" HorizontalAlignment="Right"  />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="hrError" x:Uid="hrError" Header="{DynamicResource CDeclareExceptionTickets_clmError}" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="ErrorCode">
+                                <Grid x:Uid="Grid_4">
+                              <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="ErrCode" FontWeight="Bold"  FontSize="16" Text="{Binding ErrCode}" HorizontalAlignment="Right"  />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="hrError_Description" x:Uid="hrError_Description" Header="{DynamicResource CDeclareExceptionTickets_clmError_Desc}" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="Device">
+                                <Grid x:Uid="Grid_5">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,0" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="Error_Description" FontWeight="Bold" MinWidth="200"  FontSize="16" Text="{Binding Error_Description}" HorizontalAlignment="Left" />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="hrDevice" x:Uid="hrDevice" Header="{DynamicResource CCDeclareExceptionTickets_clmBar_Pos}" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="Device">
+                                <Grid x:Uid="Grid_4">
+                                    <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="Device" FontWeight="Bold"  FontSize="16" MinWidth="100" Text="{Binding Device}" HorizontalAlignment="Center"  />
+                                            </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Uid="btnProcess" Name="btnProcess" Margin="200,0,0,14" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom"
+                Height="54" Content="{DynamicResource CDeclareExceptionTickets_Process}"  HorizontalAlignment="Left" Width="102" Click="btnProcess_Click" />
+        <Button x:Uid="btnVoucherClose" Name="btnVoucherClose" Margin="311,0,263,14.129" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom"
+                Height="54" Content="{DynamicResource CDeclareExceptionTickets_Close}"  Click="btnVoucherClose_Click" />
+    </Grid>
+</Window>

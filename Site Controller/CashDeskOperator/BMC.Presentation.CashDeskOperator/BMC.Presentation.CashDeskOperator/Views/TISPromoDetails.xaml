@@ -1,0 +1,66 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.TISPromoDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:PromotionStatusConverter="clr-namespace:BMC.Presentation.POS.Helper_classes"    
+        x:Name="Window"
+        xmlns:CustomControl="clr-namespace:BMC.Presentation.POS.Helper_classes"
+        xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+        Width="930" Height="650" AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="{DynamicResource MainScreenBG}" 
+Title="TISPromoDetails" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" HorizontalAlignment="Center" ShowInTaskbar="False">
+
+
+    <Window.Resources>
+      <Helper_classes:PriceConverterWithSymbol x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+      <CustomControl:DateTimeConverter x:Uid="src:DateConverter_1" x:Key="DateConverter" />
+      <PromotionStatusConverter:PromotionStatusColor x:Key="PromotionStatusColor"/>
+
+        <Style x:Key="StatusToForegroundCurrencyStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+            <Setter Property="Foreground" >
+                <Setter.Value>
+                    <Binding Path="VoucherStatus" Converter="{StaticResource PromotionStatusColor}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StatusToForegroundStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" >
+                <Setter.Value>
+                    <Binding Path="VoucherStatus" Converter="{StaticResource PromotionStatusColor}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>            
+    </Window.Resources>
+
+    
+    <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Margin="0,0,0,0">
+
+        <TextBlock x:Uid="txtHeader" x:Name="txtHeader" TextAlignment="Center" Height="40" Text="{DynamicResource PromoTISDetails_xaml_GVColumn_PageTitle}"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="112,12,123,0" Foreground="white" VerticalAlignment="Top"/>
+
+        <Custom:DataGrid x:Uid="dgTISPromoDetailsGridView" x:Name="dgTISPromoDetailsGridView"  SelectionUnit="FullRow"  Margin="8,65,8,83" IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding Mode=Default}"  AutoGenerateColumns="False" 
+							 Height="500" SelectionMode="Extended" 
+                             Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader">
+            <Custom:DataGrid.Columns>
+                    <Custom:DataGridTextColumn x:Uid="GVColumn_BarCode" 		Header="{DynamicResource PromoHistDetails_xaml_GVColumn_BarCode}" 		Width="158" 	ElementStyle="{StaticResource StatusToForegroundStyle}"				Binding="{Binding Path=BarCode}"/>
+                    <Custom:DataGridTextColumn x:Uid="GVColumn_Type" 			Header="{DynamicResource PromoHistDetails_xaml_GVColumn_Type}" 			Width="100"  	ElementStyle="{StaticResource StatusToForegroundStyle}"				Binding="{Binding Path=PromotionalTicketType}"/>
+                    <Custom:DataGridTextColumn x:Uid="GVColumn_Amount" 			Header="{DynamicResource PromoHistDetails_xaml_GVColumn_Amount}" 		MinWidth ="120" Width="Auto"		ElementStyle="{StaticResource StatusToForegroundCurrencyStyle}"		Binding="{Binding Path=PromotionalTicketAmount, Converter={StaticResource PriceConverter}}" />
+                    <Custom:DataGridTextColumn x:Uid="GVColumn_PrintedDate" 	Header="{DynamicResource PromoHistDetails_xaml_GVColumn_PrintedDate}" 	Width="140" 	ElementStyle="{StaticResource StatusToForegroundStyle}"				Binding="{Binding Path=dtPrinted, Converter={StaticResource DateConverter}}" />
+                    <Custom:DataGridTextColumn x:Uid="GVColumn_ExpiryDate" 		Header="{DynamicResource PromoHistDetails_xaml_GVColumn_ExpiryDate}" 	Width="140" 	ElementStyle="{StaticResource StatusToForegroundStyle}"				Binding="{Binding Path=dtExpire, Converter={StaticResource DateConverter}}" />
+                    <Custom:DataGridTextColumn x:Uid="GVColumn_EffectiveDate" 	Header="{DynamicResource PromoHistDetails_xaml_GVColumn_EffectiveDate}" Width="140" 	ElementStyle="{StaticResource StatusToForegroundStyle}"				Binding="{Binding Path=dtEffectiveDate, Converter={StaticResource DateConverter}}"/>
+                    <Custom:DataGridTextColumn x:Uid="GVColumn_VoucherStatus" 	Header="{DynamicResource PromoHistDetails_xaml_GVColumn_VoucherStatus}" Width="106" 	ElementStyle="{StaticResource StatusToForegroundStyle}"				Binding="{Binding Path=VoucherStatus}"/>
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+
+        <Button Name="btnExit" Width="58" Height="65"  HorizontalAlignment="Right" VerticalAlignment="Top" Content="{DynamicResource promhistdetails_btnexit}" Style="{DynamicResource BMC_App_Exit}" Grid.Column="1" Margin="0,0,12,0" Click="btnExit_click"></Button>
+        <Button Height="40" Margin="0,0,197,24" Name="btnFirst" VerticalAlignment="Bottom" FontWeight="Bold"  Foreground="White" Background="Black" FontSize="21" FontFamily="Arial Black" HorizontalAlignment="Right" Width="42" Click="btnFirst_Click">&lt;&lt;</Button>
+        <Button Height="40" HorizontalAlignment="Right" Margin="0,0,151,24" Name="btnPrevious" VerticalAlignment="Bottom" Width="40" FontWeight="Bold" Click="btnPrevious_Click" Foreground="White" Background="Black" FontSize="21" FontFamily="Arial Black">&lt;</Button>
+        <Button Height="40" HorizontalAlignment="Right" Margin="0,0,48,24" Name="btnNext" VerticalAlignment="Bottom" Width="40" FontWeight="Bold" Click="btnNext_Click" Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black">&gt;</Button>
+        <Button Height="40" HorizontalAlignment="Right" Margin="0,0,3,24" Name="btnLast" VerticalAlignment="Bottom" Width="40" FontWeight="Bold" Click="btnLast_Click" Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black">&gt;&gt;</Button>
+        <TextBlock Height="36" HorizontalAlignment="Right" TextAlignment="Center" Margin="0,0,97,24" Name="txtPageNo" VerticalAlignment="Bottom" Width="48" Text="{Binding PageCount}" Foreground="White" FontSize="16" />
+        <Button Content="{DynamicResource PromTISdetails_btnPrint}" HorizontalAlignment="Left" Margin="2,0,0,24" Name="btnPrint" Width="147" VerticalAlignment="Bottom" Click="btnPrint_Click" Style="{DynamicResource BMC_Button}"/>
+    </Grid>
+</Window>

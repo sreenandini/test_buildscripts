@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.UserControls.SlotMachineGroup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="47" Width="617" x:Name="ctlSlotMachineGroup" HorizontalAlignment="Stretch">
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="4" Background="{Binding ElementName=ctlSlotMachineGroup, Path=OuterColor}">
+        <TextBlock Text="{Binding ElementName=ctlSlotMachineGroup, Path=DisplayText}" HorizontalAlignment="Left" Padding="10,0,0,0" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="{Binding ElementName=ctlSlotMachineGroup, Path=OuterForeColor}" />
+    </Border>
+</UserControl>

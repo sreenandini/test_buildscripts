@@ -1,0 +1,12 @@
+﻿<Window
+	x:Uid="Keyboard1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="BMC.Presentation.KeyboardInterface"
+	x:Name="Keyboard1"
+	Title=""
+	Width="839.469" Height="379.174" xmlns:BMC.Presentation="clr-namespace:BMC.Presentation" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="#00FFFFFF">
+
+	<Grid x:Uid="LayoutRoot" x:Name="LayoutRoot">
+		<BMC.Presentation:CKeyboard HorizontalAlignment="Left" VerticalAlignment="Top" EnterClicked="CKeyboard_EnterClicked" x:Name="objKeyboard" CancelClicked="objKeyboard_CancelClicked" MoveKeyboard="objKeyboard_MoveKeyboard"/>
+	</Grid>
+</Window>

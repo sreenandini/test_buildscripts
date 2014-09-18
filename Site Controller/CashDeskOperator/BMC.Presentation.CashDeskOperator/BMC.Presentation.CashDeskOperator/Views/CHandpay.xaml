@@ -1,0 +1,148 @@
+﻿<UserControl x:Class="BMC.Presentation.CHandpay"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Name="UserControl"         
+    xmlns:BMC_Presentation="clr-namespace:BMC.Presentation"    
+    d:DesignWidth="640" d:DesignHeight="480" Width="828" Height="732" RenderTransformOrigin="0.5,0.5"
+     Loaded="UserControl_Loaded">
+      <UserControl.Resources>
+                <DataTemplate x:Key="TreasuryTemplate">
+                    <Grid MinWidth="0">
+                        <Border BorderBrush="Black" Margin="0,0,0,0" BorderThickness="0,0,1,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{Binding Treasury_No}"/>
+			        </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="DateTemplate">
+                    <Grid MinWidth="10">
+                        <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,1,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{Binding Date}"/>
+			        </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="TypeTemplate">
+                    <Grid MinWidth="10">
+                        <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,1,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{Binding Type}"/>
+			        </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="PositionTemplate">
+                    <Grid MinWidth="25">
+                        <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,1,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{Binding Bar_Pos_Name}" HorizontalAlignment="Right" Margin="0,0,3,0"/>
+			        </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="GameTitleTemplate">
+                    <Grid MinWidth="10">
+                        <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{Binding Name}"/>
+			        </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="AmountTemplate">
+                    <Grid MinWidth="10">
+                        <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{Binding Amount}" HorizontalAlignment="Right" Margin="0,0,3,0" />
+			        </Grid>
+                </DataTemplate>
+        </UserControl.Resources>
+        <UserControl.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="0" Y="0"/>
+            </TransformGroup>
+        </UserControl.RenderTransform>
+        <UserControl.Triggers>
+        </UserControl.Triggers>
+
+        <Grid Height="686" Width="818" Name="MainGrid">
+          <Grid  Background="{x:Null}" RenderTransformOrigin="0.5,0.5" x:Name="GHandpay" Margin="0,0,0,9">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" CornerRadius="5,5,5,5" Background="#19CDDD98"/>
+            <Button Style="{DynamicResource BMC_Button}" Height="54" Content="Manual Entry" HorizontalAlignment="Right" FontFamily="Segoe UI" Margin="0,3,20,0" VerticalAlignment="Top" Width="107" Name="btnManualHandpay" Click="btnManualHandpay_Click" />
+            <!--<Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" CornerRadius="5,5,5,5" Background="#19CDDD98"/>-->    
+            <ListView Name="lvUnprocessedHandpays" GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler" Loaded="GetUnprocessedHandpays" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  SelectionChanged="lvUnprocessedHandpays_SelectionChanged"   Margin="13,59,22,113" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource Bmc_ListViewStyle}" FontSize="13" FontFamily="Segoe UI"  ItemsSource="{Binding Mode=Default}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}">
+                    <ListView.View>
+                        <GridView>
+                          <GridViewColumn Header="Date" Width="180" CellTemplate="{StaticResource DateTemplate}" />
+                          <GridViewColumn Header="Type"  Width="220" CellTemplate = "{StaticResource TypeTemplate}" />
+                          <GridViewColumn Header="Position"  Width="100" CellTemplate = "{StaticResource PositionTemplate}" />
+                          <GridViewColumn Header="Machine"  Width="160" CellTemplate = "{StaticResource GameTitleTemplate}"/>
+                          <GridViewColumn Header="Amount"  Width="120" CellTemplate = "{StaticResource AmountTemplate}"/>
+                    </GridView>
+                    </ListView.View>
+                
+                </ListView>
+            
+            <TextBlock Text="Selected Value" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="0,0,191,57" d:LayoutOverrides="Height" Height="39" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="164" />
+            <TextBox TextWrapping="NoWrap" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" Canvas.Left="468.002" Canvas.Top="392.167" FontSize="16" Margin="0,0,23,65" x:Name="txtSelectedValue" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" TabIndex="0" Height="33" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="191" TextAlignment="Right" Text="0.00" />
+            <Button FontFamily="Segoe UI" Height="61.143" HorizontalAlignment="Left" Margin="13,0,0,43" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" Width="115" Name="btnProcess" Click="btnProcess_Click">Process</Button>
+            <Button FontFamily="Segoe UI" Height="61.143" Margin="119,0,0,43" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="115" Name="btnVoid" Click="btnVoid_Click">Void</Button>
+           
+            <TextBlock TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,15,0,0" RenderTransformOrigin="0.5,0.5" x:Name="lblHeader" Text="Handpays" Foreground="#FFFFFFFF"><TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform></TextBlock>
+                <Path Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                            <GradientStop Color="#FFC4CFBE" Offset="0"/>
+                            <GradientStop Color="#00C4CFBE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+            </Grid>
+            <Grid Name="GridManualHandpay"  Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Grid.RenderTransform>      
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <TextBlock TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,15,0,0" RenderTransformOrigin="0.5,0.5" x:Name="lblManualheader" Text="Manual Handpay" Foreground="#FFFFFFFF"><TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform></TextBlock>
+            <BMC_Presentation:ValueCalcComp x:Name="ucValueCalcComp" Margin="0,138,15,151" ValueChanged="ValueCalcComp_ValueChanged" HorizontalAlignment="Right" Width="335"></BMC_Presentation:ValueCalcComp>
+           
+            <Button Style="{DynamicResource BMC_Button}" Height="61.143" Content="Process" Name="btnSave" HorizontalAlignment="Left" FontFamily="Segoe UI" VerticalAlignment="Bottom" Width="115" Margin="13,0,0,73" Click="btnSave_Click" />
+                <!--<Button Height="23" HorizontalAlignment="Left" Margin="14,0,0,21" Name="btnProcess" VerticalAlignment="Bottom" Width="75" Click="btnProcess_Click">Process</Button>-->
+                <Button Style="{DynamicResource BMC_Button}" Height="61.143" Content="Cancel" Name="btnCancel" FontFamily="Segoe UI" VerticalAlignment="Bottom" Margin="119,0,0,73" Click="btnCancel_Click" HorizontalAlignment="Left" Width="103" />
+                 <ListView Name="lvMachines" Loaded="FillMachines" Margin="19,138,0,149" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource Bmc_ListViewStyle}" FontSize="13" FontFamily="Segoe UI"  ItemsSource="{Binding Mode=Default}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" HorizontalAlignment="Left" Width="361">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Position" Width="180" CellTemplate="{StaticResource PositionTemplate}"/>
+                        <GridViewColumn Header="Game Title" Width="180" CellTemplate="{StaticResource GameTitleTemplate}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Margin="-3,-24,325,0" x:Name="pnlButtons" d:LayoutOverrides="Height" Orientation="Horizontal" Height="147" VerticalAlignment="Top">
+                <RadioButton Height="57" Style="{DynamicResource bmc_General_RADIO_Style_Button}" HorizontalAlignment="Left" Margin="18,70,0,0" Name="optHandpay" VerticalAlignment="Top" FontFamily="verdana" FontSize="15" Padding="0" Checked="optHandpay_Checked">Handpay</RadioButton>
+                <RadioButton Height="57" Style="{DynamicResource bmc_General_RADIO_Style_Button}" Margin="19,70,0,0" Name="optJackpot" VerticalAlignment="Top" FontFamily="verdana" FontSize="15" HorizontalAlignment="Left" Padding="0" Checked="optJackpot_Checked">Jackpot</RadioButton>
+                <RadioButton Height="57" Style="{DynamicResource bmc_General_RADIO_Style_Button}" Margin="19,70,0,0" Name="optProgressive" VerticalAlignment="Top" FontFamily="verdana" FontSize="15" HorizontalAlignment="Left" Width="Auto" Padding="0" Checked="optProgressive_Checked">Progressive</RadioButton>
+                <!--<RadioButton Content="Print Ticket"  FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkPrint" Width="Auto" Height="Auto" IsChecked="False" Margin="10,0,0,-1" Checked="chkPrint_Checked"></RadioButton>-->
+            </StackPanel>
+            <TextBlock Margin="16,105,350,0" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Text="Select Machine" Foreground="#FFFFFFFF"/>
+           
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Uid="Window_1" x:Class="BMC.Presentation.POS.Views.CRedeemOfflineTicket" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:BallyMultiConnect="clr-namespace:BMC.Presentation" Height="768" WindowStartupLocation="CenterScreen" Width="1024" Topmost="True" ResizeMode="NoResize" Title="Offline Voucher Details" Background="#66000000" HorizontalAlignment="Left" VerticalAlignment="Top" AllowsTransparency="True" WindowStyle="None">
+  <Grid x:Uid="Grid_1" Height="600" Width="622" Background="{DynamicResource MainScreenBG}">
+    <Button x:Uid="btnExit" HorizontalAlignment="Right" Width="58" Content="{DynamicResource CRedeemOfflineTicket_xaml_btnExit}" Style="{DynamicResource BMC_App_Exit}" RenderTransformOrigin="0.455,0.272" x:Name="btnExit" Click="btnExit_Click_1" Height="65" VerticalAlignment="Top" Margin="0,-5,0,0"></Button>
+        <TextBlock x:Uid="TextBlock_1" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25,10,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource CRedeemOfflineTicket_xaml_Header}" Foreground="#FFFFFFFF">
+            <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_1">
+                    <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="25,34,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <ListView x:Uid="lstInstallation" Name="lstInstallation" Style="{DynamicResource Bmc_ListViewStyle}" ItemsSource="{Binding Path=Table}" Width="264" Canvas.Top="69" FontSize="18" HorizontalAlignment="Left" Margin="7,80,0,118" SelectionChanged="lstInstallation_SelectionChanged" >
+      <ListView.View>
+        <GridView x:Uid="GridView_1">
+          <GridViewColumn x:Uid="GridViewColumn_1" Header="{DynamicResource CRedeemOfflineTicket_xaml_GridViewColumn_1}" DisplayMemberBinding="{Binding Installation_No}" Width="0" />
+          <GridViewColumn x:Uid="GridViewColumn_2" Header="{DynamicResource CRedeemOfflineTicket_xaml_GridViewColumn_2}" DisplayMemberBinding="{Binding Stock_No}" Width="80" />
+          <GridViewColumn x:Uid="GridViewColumn_3" Header="{DynamicResource CRedeemOfflineTicket_xaml_GridViewColumn_3}" DisplayMemberBinding="{Binding Name}" Width="125" />
+          <GridViewColumn x:Uid="GridViewColumn_4" Header="{DynamicResource CRedeemOfflineTicket_xaml_GridViewColumn_4}" DisplayMemberBinding="{Binding Bar_Pos_Name}" />
+        </GridView>
+      </ListView.View>
+    </ListView>
+        <BallyMultiConnect:ValueCalcComp x:Uid="objValueCalc" x:Name="objValueCalc" Canvas.Left="282" Canvas.Top="69" Margin="264.5,80,-21.5,118"></BallyMultiConnect:ValueCalcComp>
+    <Button x:Uid="btnConfirm" Style="{DynamicResource BMC_Button}" Name="btnConfirm" Click="btnConfirm_Click" Height="61.143" Content="{DynamicResource CRedeemOfflineTicket_xaml_btnConfirm}" HorizontalAlignment="Left" FontFamily="Segoe UI" Canvas.Left="136" Canvas.Top="474.857" Width="110" Margin="97,0,0,35" VerticalAlignment="Bottom" FontSize="18" />
+    <Button x:Uid="btnCancel" Style="{DynamicResource BMC_Button}" Name="btnCancel" Click="btnCancel_Click" Height="61.143" Content="{DynamicResource CRedeemOfflineTicket_xaml_btnCancel}" HorizontalAlignment="Right" FontFamily="Segoe UI" Canvas.Left="295" Canvas.Top="474.728" Width="110" Margin="0,0,102,35" VerticalAlignment="Bottom" FontSize="18" />
+    <Label x:Uid="label1" Foreground="#FFFFFFFF" Canvas.Left="0" Canvas.Top="16" Height="30" Width="Auto"  Name="label1" FontSize="13" Margin="7,50,8,0" VerticalAlignment="Top" Content="{DynamicResource CRedeemOfflineTicket_xaml_Title}" ></Label>
+  </Grid>
+</Window>

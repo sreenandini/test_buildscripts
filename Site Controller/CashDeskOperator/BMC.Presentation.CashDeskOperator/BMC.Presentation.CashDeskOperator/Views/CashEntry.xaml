@@ -1,0 +1,391 @@
+﻿<Window x:Class="BMC.Presentation.POS.Views.CashEntry"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="CashEntry"
+    WindowStartupLocation="CenterScreen" ShowInTaskbar="False" 
+    Height="768" Width="1024"  
+    AllowsTransparency="True" 
+    WindowStyle="None" Background="{DynamicResource MainScreenBG}"
+    xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+    xmlns:CashDeskOperator="clr-namespace:BMC.CashDeskOperator;assembly=BMC.CashDeskOperator"  Loaded="Window_Loaded"
+    >
+    <Window.Resources>
+        <Helper_classes:DecimalValueConverter x:Uid="source:DecimalValueConverter" x:Key="DecimalValueConverter" />
+        <Helper_classes:WeekBatchGridVisibility x:Uid="source:WeekBatchGridVisibility" x:Key="WeekBatchGridVisibility" />
+        <Helper_classes:ReasonConverter x:Uid="source:ReasonConverter" x:Key="ReasonConverter" />
+        <DataTemplate x:Key="DTBill">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2"  BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding Bill}" HorizontalAlignment="Right" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTValue">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBox x:Uid="TextBlock_1" Text="{Binding Value}" HorizontalAlignment="Right" Width="75" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+      
+        <DataTemplate x:Key="DTDelete">
+            <Grid x:Uid="Grid_3">
+                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+                <Button FontSize="14" FontWeight="Bold" FontFamily="Segoe UI"  Click="btn_DeleteVoucher_Click"  Width="30" Height="30" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="..\Images\delete.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTCanUpdate">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+               <CheckBox x:Uid="chkIsSelected"  IsChecked="{Binding IsSelected, Mode=TwoWay}" Visibility="{Binding CanUpdate,Mode=OneWay, Converter={StaticResource WeekBatchGridVisibility}}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTVoucher">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding strBarcode}" Margin="0,0,0,0"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTStatus">
+            <Grid MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock  Text="{Binding Status}"  Margin="0,0,0,0"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTAmount">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" TextAlignment="Right" Text="{Binding iAmount,Converter={StaticResource DecimalValueConverter}}" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DTReason">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" Text="{Binding Reasonid,Converter={StaticResource ReasonConverter}}" Margin="0,0,0,0" />
+            </Grid>
+        </DataTemplate>
+        <Style TargetType="{x:Type TextBlock}" x:Key="myTextBlock">
+            <Setter Property="Margin" Value="5,0,0,0" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground"  Value="Red" />
+        </Style>
+    </Window.Resources>
+
+    <Grid VerticalAlignment="Top"  Name="grdMain" Height="750" Width="1001">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="20"></RowDefinition>
+            <RowDefinition Height="71" MinHeight="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!-- HEADER-->
+        <Grid  Grid.Row="0" Margin="0,0,0,0" Name="grdHeader">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Uid="txtHeader" x:Name="txtHeader" Margin="9,5,11,16.727" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource BillsTicketCounter_xaml_txtHeader}" Foreground="#FFFFFFFF" />
+            <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+                <Path.Fill>
+                    <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                        <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                        <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <TextBlock x:Uid="txtSiteInfo" Grid.Row="0" TextAlignment="Center" Grid.Column="1"  x:Name="txtSiteInfo" Margin="9,5,11,16.727"  FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource BillsTicketCounter_xaml_txtHeader}" Foreground="#FFFFFFFF" />
+           
+            <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" x:Uid="btnExit" Width="54.728" Height="58.725" Content="{DynamicResource Login_xaml_btnExit}" Style="{DynamicResource BMC_App_Exit}" x:Name="btnExit" VerticalAlignment="Top"  Margin="0,5,5,0" Click="btnExit_Click"  />
+        </Grid>
+        <!--Asset Details-->
+        <Grid Grid.Row="1"  Background="{DynamicResource LoginInputBG}"  Margin="0,0,0,0" Name="grdAssetDetails" Height="65" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                 <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="lblPosition"  Grid.Column="0"  Text="{DynamicResource BillsTicketCounter_xaml_lblPosition}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Stretch"  ClipToBounds="False" TextAlignment="Center" MinWidth="50" MaxHeight="50" VerticalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="lblAsset"  Grid.Column="2" Text="{DynamicResource BillsTicketCounter_xaml_lblAsset}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Stretch" ClipToBounds="False" TextAlignment="Center" MinWidth="50" MaxHeight="50" VerticalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="lblGame"  Grid.Column="4"  Text="{DynamicResource BillsTicketCounter_xaml_lblGame}" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Stretch"  ClipToBounds="False" TextAlignment="Center" MinWidth="50" MaxHeight="50" VerticalAlignment="Center"></TextBlock>
+            <!--<TextBox Grid.Column="1"  x:Uid="txtPosition" VerticalContentAlignment="Center"  TextWrapping="NoWrap" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Height="25.6" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txtPosition" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True" Margin="18,6.1,13,12.2" />-->
+         
+            <!--<ComboBox FontSize="16" x:Uid="cmbPosition"  Grid.Column="1" Style="{DynamicResource BMC_ComboBoxStyle}"  DisplayMemberPath="Position" 
+                          x:Name="cmbPosition" SelectionChanged="cmbPosition_SelectionChanged" Margin="0,19.843,0,18.86"></ComboBox>-->
+
+            <ComboBox x:Uid="cmbPosition" PreviewMouseDown="cmbPosition_PreviewMouseDown" Grid.Column="1" Margin="0,0,0,0" Height="30" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource BMC_ComboBoxStyle}"  DisplayMemberPath="Position" 
+                          x:Name="cmbPosition" KeyboardNavigation.TabIndex="0" PreviewKeyDown="EnterClicked">
+            </ComboBox>
+
+            <TextBox FontSize="18" Text="{Binding Path=AssetNo}"  Grid.Column="3" x:Uid="txtAsset" VerticalContentAlignment="Center"  TextWrapping="NoWrap" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" x:Name="txtAsset" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True"  ClipToBounds="False"  VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Left" />
+            <TextBox  FontSize="18" Text="{Binding Path=GameTitle}"   Grid.Column="5"  x:Uid="txtGame" TextWrapping="NoWrap" Background="{DynamicResource TextBoxDIsableGradient}" VerticalContentAlignment="Center" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" x:Name="txtGame" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" IsReadOnly="True" ClipToBounds="False" Grid.ColumnSpan="2" Margin="0,17.53,27,17.53" />
+        </Grid>
+        <!--Cash Entry-->
+        <Grid Grid.Row="2" Name="grdCashEntry" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"></ColumnDefinition>
+                <ColumnDefinition Width="303"></ColumnDefinition>
+                <ColumnDefinition Width="428*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="Auto" MinHeight="400"></RowDefinition>
+                <RowDefinition  Height="Auto" MinHeight="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--DATA LISTS-->
+            <GroupBox x:Uid="GroupBox_1" Name="grp_bills" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="400" VerticalAlignment="Top" Margin="0,0,8,0">
+                <GroupBox.Header x:Uid="GroupBox_1_Header" >
+                    <GroupItem FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="38.867" Width="Auto">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch"> 
+                            <Label Margin="5,-3,0,0"  Content="{DynamicResource BillsTicketCounter_xaml_Bills_Counted}" Width="180"></Label>
+                            <Button Height="26" Name="btn_ClearBils" Foreground="White" Background="Black"  Click="btn_ClearBils_Click" Content="{DynamicResource CashEntry_xaml_btnClear}" Width="60"></Button>
+                        </StackPanel>
+                    </GroupItem>
+                </GroupBox.Header>
+                    <Grid VerticalAlignment="Top" ShowGridLines="False" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"></ColumnDefinition>
+                            <ColumnDefinition Width="60*"></ColumnDefinition>
+                            <ColumnDefinition Width="121*"></ColumnDefinition>
+                            <!--<ColumnDefinition Width="10*"></ColumnDefinition>-->
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="41" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto"  ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                        </Grid.RowDefinitions>
+  
+                        <TextBlock  Grid.Row="0" Background="#182E3D" Height="30" Foreground="White" FontSize="14" TextAlignment="Center"   Visibility="Visible" Grid.Column="0"  Name="lblDenomheader"   Margin="0,0,0,0" Text="{DynamicResource CashEntry_lblDenomheader}" TextWrapping="Wrap"  VerticalAlignment="Bottom"  />
+                        <TextBlock Grid.Column="1" Background="#182E3D" Height="30" Foreground="White"  FontSize="14" TextAlignment="Center" Visibility="Visible" Grid.Row="0" Name="lblCountHeader"   Margin="1,0,0,0" Text="{DynamicResource CashEntry_lblCountHeader}"  TextWrapping="Wrap"  VerticalAlignment="Bottom"  />
+                        <TextBlock Grid.Column="2" Background="#182E3D" Height="30" Foreground="White"  FontSize="14" TextAlignment="Center" Visibility="Visible" Grid.Row="0" Name="lblAmountHeader"  Margin="1,0,0,0" Text="{DynamicResource CashEntry_lblAmountHeader}"  TextWrapping="Wrap"  VerticalAlignment="Bottom"  />
+                  
+                        <TextBlock  Grid.Row="9" Visibility="Collapsed" Grid.Column="0" Name="lbl_Ones"   Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap"  VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="8" Visibility="Collapsed" Grid.Column="0" Name="lbl_Twos"   Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap"  VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="7" Visibility="Collapsed" Grid.Column="0" Name="lbl_Fives"  Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap"  VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="6" Visibility="Collapsed" Grid.Column="0" Name="lbl_Tens"  Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap" VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="5" Visibility="Collapsed" Grid.Column="0" Name="lbl_Twenties"  Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap" VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="4" Visibility="Collapsed" Grid.Column="0" Name="lbl_Fifties"  Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap"  VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="3" Visibility="Collapsed" Grid.Column="0" Name="lbl_Hundreds"  Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap"  VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="2" Visibility="Collapsed" Grid.Column="0" Name="lbl_TwoHundreds"  Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap"  VerticalAlignment="Center"  />
+                        <TextBlock Grid.Row="1" Visibility="Collapsed" Grid.Column="0" Name="lbl_FiveHundreds" Margin="5,0,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap" VerticalAlignment="Center"  />
+                        <!--<TextBlock Grid.Row="9" Visibility="Visible" Grid.Column="0" Name="lbl_BillTotal" Margin="5,0,0,0" Text="{DynamicResource BillsTicketCounter_xaml_lblTotal}" TextWrapping="Wrap" VerticalAlignment="Center"  />-->
+                        <TextBlock Grid.Row="11" Visibility="Visible" Grid.Column="0" Name="lbl_CoinsTotal" Margin="5,0,0,0" Text="{DynamicResource CashEntry_xaml_lbl_TotalCoins}" TextWrapping="Wrap" VerticalAlignment="Center"  />
+                        
+                    <TextBox Grid.Row="9" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="9" Name="txt_Onescnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap"  Height="25" VerticalAlignment="Top" Width="50" />
+                    <TextBox Grid.Row="8" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="8" Name="txt_Twoscnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50"/>
+                    <TextBox Grid.Row="7" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="7" Name="txt_Fivescnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50" />
+                    <TextBox Grid.Row="6" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="6" Name="txt_Tenscnt"  Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50"/>
+                    <TextBox Grid.Row="5" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="5" Name="txt_Twentiescnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50" />
+                    <TextBox Grid.Row="4" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="4" Name="txt_Fiftiescnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50" />
+                    <TextBox Grid.Row="3" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="3" Name="txt_Hundredscnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50" />
+                    <TextBox Grid.Row="2" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="2" Name="txt_TwoHundredscnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50"/>
+                    <TextBox Grid.Row="1" Visibility="Collapsed"  PreviewMouseUp="txtNumber_PreviewMouseUp" PreviewTextInput="NumericOnly"  MaxLength="5" TextChanged="txt_TextChanged" Grid.Column="1" KeyboardNavigation.TabIndex="1" Name="txt_FiveHundredscnt" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" Height="25" VerticalAlignment="Top" Width="50"/>
+                    <!--<TextBox Grid.Row="9"   Grid.Column="1" Name="txt_BillsTotal" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" />-->
+
+                    <TextBox  Grid.Row="9" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="5" GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"  Text="{Binding Path=P100, Mode=OneWay }"  Grid.Column="2" Name="txt_Ones" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="9"/>
+                    <TextBox Grid.Row="8"  Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="6" GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"  Text="{Binding Path=P200, Mode=OneWay}" Grid.Column="2" Name="txt_Twos" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="8"/>
+                    <TextBox Grid.Row="7" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="6"  GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"   Text="{Binding Path=P500, Mode=OneWay}" Grid.Column="2" Name="txt_Fives" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="7"/>
+                    <TextBox Grid.Row="6" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="6"  GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"  Text="{Binding Path=P1000, Mode=OneWay}" Grid.Column="2" Name="txt_Tens"  Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="6"/>
+                    <TextBox Grid.Row="5" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="7"  GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"  Text="{Binding Path=P2000, Mode=OneWay}" Grid.Column="2" Name="txt_Twenties" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="5"/>
+                    <TextBox Grid.Row="4" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="7"  GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"  Text="{Binding Path=P5000, Mode=OneWay}" Grid.Column="2" Name="txt_Fifties" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="4"/>
+                    <TextBox Grid.Row="3" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="7"  GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"  Text="{Binding Path=P10000, Mode=OneWay}"  Grid.Column="2" Name="txt_Hundreds" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="3"/>
+                    <TextBox Grid.Row="2" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="8"  GotFocus="GetFocused" KeyUp="txt_Ones_KeyUp"  Text="{Binding Path=P20000, Mode=OneWay}"  Grid.Column="2" Name="txt_TwoHundreds" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="2"/>
+                    <TextBox Grid.Row="1" Visibility="Collapsed" PreviewMouseUp="txAmount_PreviewMouseUp"  PreviewTextInput="NumericOnly" MaxLength="8" GotFocus="GetFocused"  KeyUp="txt_Ones_KeyUp"   Text="{Binding Path=P50000, Mode=OneWay}"  Grid.Column="2" Name="txt_FiveHundreds" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="1"/>
+                        <!--<TextBox Grid.Row="9"   Grid.Column="1" Name="txt_BillsTotal" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" />-->
+                    <TextBox Grid.Row="11"  Grid.Column="2" Name="txt_CoinsTotal" PreviewTextInput="CurrencyOnly" MaxLength="8"  Text="{Binding Path=TotalCoinsValueAsCurrency, Mode=OneWay}"  Background="{DynamicResource TextBoxGradient}" TextChanged="txt_CoinsChanged"  BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="1,6,1,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Width="100" KeyDown="txt_CoinsTotal_KeyDown" PreviewMouseUp="txt_CoinsTotal_PreviewMouseUp" GotFocus="GetFocused" LostFocus="txt_CoinsTotal_LostFocus" PreviewKeyDown="EnterClicked" KeyboardNavigation.TabIndex="10"/>
+
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblFiveHundreds" Width="15" Margin="0,6,105,0" Grid.Row="1" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblTwoHundreds" Width="15" Margin="0,6,105,0" Grid.Row="2" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblHundreds" Width="15" Margin="0,6,105,0" Grid.Row="3" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblFifties" Width="15" Margin="0,6,105,0" Grid.Row="4" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblTwenties" Width="15" Margin="0,6,105,0" Grid.Row="5" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblTens" Width="15" Margin="0,6,105,0" Grid.Row="6" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblFives" Width="15" Margin="0,6,105,0" Grid.Row="7" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblTwos" Width="15" Margin="0,6,105,0" Grid.Row="8" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblOnes" Width="15" Margin="0,6,105,0" Grid.Row="9" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+                    <TextBlock Height="25" Visibility="Collapsed" Focusable="True" FontWeight="Bold" Foreground="Red" Name="lblTotalCoins" Width="15" Margin="0,6,105,0" Grid.Row="11" Grid.Column="2">
+                        <Run Text="*" />
+                    </TextBlock>
+
+
+                    <!--<TextBlock  Grid.Row="0" Visibility="Collapsed" Text="!" Grid.Column="3" Name="lbl_Ones_Err" Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="1" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_Twos_Err"  Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="2" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_Fives_Err" Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="3" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_Tens_Err" Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="4" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_ties_Err" Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="5" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_Fifties_Err" Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="6" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_Hundreds_Err" Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="7" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_TwoHundreds_Err" Style="{StaticResource myTextBlock}"  />
+                        <TextBlock Grid.Row="8" Visibility="Collapsed" Text="!"  Grid.Column="3" Name="lbl_FiveHundreds_Err" Style="{StaticResource myTextBlock}"  />-->
+                    </Grid>
+            </GroupBox>
+            <GroupBox Grid.Column="1"  Grid.Row="0" x:Uid="GroupBox_2" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="400" Width="303"   VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2">
+                <GroupBox.Header x:Uid="GroupBox_2_Header" >
+                    <GroupItem  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="38.867" Width="Auto">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="5,0,0,0"  Content="{DynamicResource BillsTicketCounter_xaml_Valid_Vouchers_Counted}" Width="210"></Label>
+                            <Button  Foreground="White" Background="Black"  Height="26" Name="btn_ClearVouchers"  Content="{DynamicResource CashEntry_xaml_btnClear}" Click="btn_ClearVouchers_Click" Width="60" ></Button>
+                        </StackPanel>
+                    </GroupItem>
+                </GroupBox.Header>
+                <Grid>
+                    <ListView x:Uid="lvTickets" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" 
+                   x:Name="lvTickets" Style="{DynamicResource Bmc_ListViewStyleFixedLock}"
+                  ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}"   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                  BorderBrush="Black" VirtualizingStackPanel.IsVirtualizing="True" Margin="0,10,0,1.323">
+                        <ListView.View>
+                            <GridView x:Uid="GridView_Tickets" x:Name="GridView_Tickets" >
+                                
+                                <GridViewColumn x:Uid="GVC_Voucher" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Voucher}" Width="150" CellTemplate="{StaticResource DTVoucher}"/>
+                                <!--<GridViewColumn x:Uid="GVC_Status" Header="Status" Width="0" CellTemplate="{StaticResource DTStatus}"/>-->
+                                <GridViewColumn x:Uid="GVC_Amount" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Amount}" Width="80" CellTemplate="{StaticResource DTAmount}"/>
+                                <GridViewColumn x:Uid="GVC_DeletVoucher" Header="" Width="50" CellTemplate="{StaticResource DTDelete}"/>                                
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Column="2"  Grid.Row="0" x:Uid="GroupBox_3" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="400" Width="410" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <GroupBox.Header x:Uid="GroupBox_3_Header" >
+                    <GroupItem  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="32.867" Width="Auto">
+                        <TextBlock Text="{DynamicResource BillsTicketCounter_xaml_InValid_Vouchers_Counted}" Margin="5,3,0,0" ></TextBlock>
+                    </GroupItem>
+                </GroupBox.Header>
+                <Grid>
+                    <ListView x:Uid="lvInValidTickets" IsSynchronizedWithCurrentItem="True" FontSize="13" FontFamily="Segoe UI" 
+                   x:Name="lvInValidTickets" Style="{DynamicResource Bmc_ListViewStyleFixedLock}"
+                  ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}"   ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single"
+                  BorderBrush="Black" VirtualizingStackPanel.IsVirtualizing="True"  Margin="6.5,10,6.5,1.323">
+                        <ListView.View>
+                            <GridView x:Uid="GVInValidTickets" x:Name="GVInValidTickets" >
+                                <GridViewColumn x:Uid="GVC_Reject"   Width="50" CellTemplate="{StaticResource DTCanUpdate}">
+                                    <GridViewColumnHeader>
+                                        <CheckBox Name="chk_CheckAllInvalidVouchers"  Unchecked="chk_CheckAllInvalidVouchers_Checked" Checked="chk_CheckAllInvalidVouchers_Checked"/>
+                                    </GridViewColumnHeader>
+                                </GridViewColumn>
+                                <GridViewColumn x:Uid="GVC_Voucher" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Voucher}" Width="150" CellTemplate="{StaticResource DTVoucher}"/>
+                                <!--<GridViewColumn x:Uid="GVC_Status" Header="Status" Width="0" CellTemplate="{StaticResource DTStatus}"/>-->
+                                <GridViewColumn x:Uid="GVC_Reject" Header="{DynamicResource BillsTicketCounter_xaml_GVC_Reject}" Width="220" CellTemplate="{StaticResource DTReason}"/>
+                                <!--CanUpdate-->
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </GroupBox>
+            <!--Total Values -->
+             <Grid Background="{DynamicResource LoginInputBG}" Name="grp_Total" Grid.Row="1" Height="120" VerticalAlignment="Top" Margin="0,0,8,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="77*"></ColumnDefinition>
+                    <ColumnDefinition Width="58*"></ColumnDefinition>
+                    <ColumnDefinition Width="116*"></ColumnDefinition>
+                    <!--<ColumnDefinition Width="10*"></ColumnDefinition>-->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" MinHeight="31"></RowDefinition>
+                    <RowDefinition Height="Auto" MinHeight="31"></RowDefinition>
+                    <RowDefinition Height="Auto" MinHeight="31"></RowDefinition>
+                </Grid.RowDefinitions>
+                 
+                    <TextBlock Grid.ColumnSpan="2" Margin="9,6,1,0"   FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"   Name="lblTotal"  Text="{DynamicResource CashEntry_xaml_lbl_BillsTotal}"   TextWrapping="Wrap" VerticalAlignment="Top" Height="18.62" />
+                    <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Margin="9,12.38,1,0"    FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Name="lbl_VoucherTotal" Text="{DynamicResource CashEntry_xaml_lbl_VoucherTotal}"  TextWrapping="Wrap"  VerticalAlignment="Top" Height="18.62" />
+                    <TextBlock Grid.Row="2" Margin="9,12.38,1,0"   Grid.ColumnSpan="2"  FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Name="lbl_GrandTotal" Text="{DynamicResource CashEntry_xaml_lbl_GrandTotal}" TextWrapping="Wrap"  VerticalAlignment="Top" Height="18.62" />
+                 
+                    <TextBox  Grid.Column="2" Grid.Row="0"  Margin="1,6,1,0"   FontFamily="Segoe UI" FontSize="14" Text="{Binding Path=TotalAmountAsCurrency, Mode=OneWay}" FontWeight="Normal" Name="txtTotal"  Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Top" Width="108.805" HorizontalAlignment="Center" />
+                    <TextBox Grid.Column="2" Grid.Row="1" Margin="1,6,1,0"   FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Name="txt_VoucherTotal" Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}" IsReadOnly="True"  Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Width="108.805" HorizontalAlignment="Center" />
+                    <TextBox Grid.Column="2" Grid.Row="2" Margin="1,6,1,0"   Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" IsReadOnly="True"  Name="txt_GrandTotal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="108.806" /> 
+                 
+            </Grid>
+            <Grid HorizontalAlignment="Left"  Background="{DynamicResource LoginInputBG}"  Width="303" Grid.Row="1" Grid.Column="1">
+                <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Name="lbl_AddVoucher"  Text="{DynamicResource CashEntry_lbl_AddVoucher}"   Margin="45,4.62,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="100" />
+                <TextBox  FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"    Name="txt_AddVoucher" KeyDown="txt_AddVoucher_KeyDown" PreviewMouseUp="txt_AddVoucher_PreviewMouseUp"  PreviewTextInput="NumericOnly"  Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="False" Margin="145,1,6,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" TextChanged="txt_AddVoucher_TextChanged" Height="30" VerticalAlignment="Top"  KeyboardNavigation.TabIndex="11" PreviewKeyDown="EnterClicked"/>
+                <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Name="lbl_VoucherQuantity"  Text="{DynamicResource BillsTicketCounter_xaml_lblQuantity}"   Margin="67,33,0,0" TextWrapping="Wrap" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="82" />
+                <TextBox  FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"    Name="txt_VoucherQuantity"  Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="0,33,8,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" HorizontalAlignment="Right" Width="101" Height="26" VerticalAlignment="Top" />
+            </Grid>
+            <Grid HorizontalAlignment="Right"  Background="{DynamicResource LoginInputBG}"  Grid.Row="1" Grid.Column="2"  Width="410" >
+                <Button Margin="6,5,0,0" Style="{DynamicResource BMC_Button}" Content="{DynamicResource CashEntry_btn_Resolve}" Name="btnProcessException" Click="btnProcessException_Click" HorizontalAlignment="Left" Width="126" Height="52" VerticalAlignment="Top"></Button>
+                <TextBlock  FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"  Name="lbl_InvalidVoucherQuantity"  Text="{DynamicResource BillsTicketCounter_xaml_lblQuantity}"   Margin="192,3.924,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="82" />
+                <TextBox  FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"   Name="txt_InvalidVoucherQuantity"  Background="{DynamicResource TextBoxDIsableGradient}" BorderBrush="{DynamicResource TextBoxOutline}"  IsReadOnly="True" Margin="0,2,13,0" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="108" />
+                <Button Margin="7,62,0,3" Name="btn_SearchVoucher" Style="{DynamicResource BMC_Button}" Content="{DynamicResource CashEntry_xaml_btn_SearchVoucher}" Click="btn_SearchVoucher_Click" HorizontalAlignment="Left" Width="125" />
+                <TextBox PreviewMouseUp="txt_SearchVoucher_PreviewMouseUp" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" PreviewTextInput="NumericOnly" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="30" IsReadOnly="False" Margin="192,0,0,14.238" Name="txt_SearchVoucher" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="167"  />
+                
+                
+               
+            </Grid>
+        </Grid>
+        <!--Counter Controls-->
+        <Grid Grid.Column="0" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="169" ></ColumnDefinition>
+                <ColumnDefinition Width="81*" />
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="351*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.ColumnSpan="4" Background="{DynamicResource LoginInputBG}"  Orientation="Horizontal" VerticalAlignment="Top" Height="24" >
+                <TextBlock x:Name="lblcounterWarning" Foreground="Red"  FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="20,0,0,0"></TextBlock>
+            </StackPanel>
+            <Button Grid.Row="1"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource BillsTicketCounter_xaml_btnClearAll}" Name="btnClearAll" Click="btnClearAll_Click" Margin="11,3,49,3"></Button>
+            <Button Margin="0,3,6,3" Grid.Row="1" Style="{DynamicResource BMC_Button}" Content="{DynamicResource BillsTicketCounter_xaml_btnStart}" Name="btnStart" Click="btnStart_Click" HorizontalAlignment="Right" Width="109" Grid.ColumnSpan="2"></Button>
+            <StackPanel Grid.Row="1" Grid.Column="2" Name="stk_Navigation" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15">
+                <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" VerticalAlignment="Center" Height="30" Width="55" Content="&lt;&lt;" Name="btnFirst" Click="btnFirst_Click"></Button>
+                <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" VerticalAlignment="Center" Height="30" Width="55" Content="&lt;" Name="btnPrevious" Margin="10,0,0,0" Click="btnPrevious_Click"  ></Button>
+                <TextBox x:Uid="txt_CurrentCollection" IsEnabled="False" TextAlignment="Center"  VerticalContentAlignment="Center" Height="30" Width="94" Margin="10,0,0,0" TextWrapping="NoWrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Foreground="{DynamicResource TextBoxForeground}" FontSize="16" x:Name="txt_CurrentCollection" Style="{DynamicResource TextBoxStyle1}" FontFamily="Segoe UI" />
+                <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black" VerticalAlignment="Center" Height="30" Width="55" Content="&gt;" Name="btnMoveNext" Margin="10,0,0,0" Click="btnMoveNext_Click" KeyboardNavigation.TabIndex="12" PreviewKeyDown="EnterClicked"></Button>
+                <Button Foreground="White" Background="Black" FontSize="21" FontFamily="Arial black"  VerticalAlignment="Center" Height="30" Width="55" Content="&gt;&gt;" Name="btnLast" Margin="10,0,0,0" Click="btnLast_Click"></Button>
+             </StackPanel>
+            <Button  Grid.Row="1" Grid.Column="3"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource BillsTicketCounter_xaml_btnApply}" Name="btnApply" Click="btnApply_Click" Margin="118,3,124,3" KeyboardNavigation.TabIndex="13"></Button>
+            <Button Grid.Row="1" Grid.Column="3" Style="{DynamicResource BMC_Button}" Content="{DynamicResource BillsTicketCounter_xaml_btnCancel}" Name="btn_Close"  Margin="0,2.5,6,2.5" Click="btn_Close_Click" HorizontalAlignment="Right" Width="109"  Height="54" KeyboardNavigation.TabIndex="14" KeyDown="btn_Close_KeyDown" ></Button>
+                
+
+        </Grid>
+    </Grid>
+</Window>

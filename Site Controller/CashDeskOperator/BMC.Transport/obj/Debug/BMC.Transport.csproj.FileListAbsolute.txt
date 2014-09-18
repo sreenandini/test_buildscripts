@@ -1,0 +1,7 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\CashDeskOperator\BMC.Transport\bin\Debug\BMC.Transport.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\CashDeskOperator\BMC.Transport\bin\Debug\BMC.Transport.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\CashDeskOperator\BMC.Transport\bin\Debug\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\CashDeskOperator\BMC.Transport\bin\Debug\BMC.Common.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\CashDeskOperator\BMC.Transport\obj\Debug\BMC.Transport.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\CashDeskOperator\BMC.Transport\obj\Debug\BMC.Transport.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\CashDeskOperator\BMC.Transport\obj\Debug\BMC.Transport.pdb

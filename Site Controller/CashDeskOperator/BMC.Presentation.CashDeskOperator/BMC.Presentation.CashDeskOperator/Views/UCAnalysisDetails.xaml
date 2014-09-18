@@ -1,0 +1,656 @@
+﻿<UserControl x:Uid="UserControl_1" x:Class="BMC.Presentation.POS.Views.UCAnalysisDetails" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:src="clr-namespace:BMC.Presentation.POS" 
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:ComponentModel="clr-namespace:BMC.Presentation.POS.Helper_classes" mc:Ignorable="d" >
+    <UserControl.Resources>
+        <Helper_classes:CurrencyPriceConverterWithSymbol x:Uid="src:PriceConverter_1" x:Key="CurrencyPriceConverter" />
+
+        <Style x:Key="rightAlignedCurrencyStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+        
+        <!--<ComponentModel:PriceConverter x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+        <ComponentModel:CurrencyPriceConverter x:Key="CurrencyPriceConverter" x:Uid="CurrencyPriceConverter123"></ComponentModel:CurrencyPriceConverter>-->
+        <DataTemplate x:Uid="DataTemplate_1" x:Key="GMUtoServerTemplate">
+            <Grid x:Uid="Grid_1" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="GMUToServer" x:Name="GMUToServer" Text="{Binding Path=GMUtoServer}" HorizontalAlignment="Center" Margin="0,0,0,0" />
+            </Grid>
+           
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_2" x:Key="GMUtoMachineTemplate">
+            <Grid x:Uid="Grid_2" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="GMUtoMachine" x:Name="GMUtoMachine" Text="{Binding Path=GMUtoMachine}" HorizontalAlignment="Center" Margin="0,0,0,0" />
+            </Grid>
+            <DataTemplate.Triggers>
+                <DataTrigger x:Uid="DataTrigger_4" Binding="{Binding GMUtoMachine}" Value="ERROR">
+                    <Setter x:Uid="Setter_4" TargetName="GMUtoMachine" Property="Foreground" Value="Red" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_5" Binding="{Binding GMUtoMachine}" Value="OK">
+                    <Setter x:Uid="Setter_5" TargetName="GMUtoMachine" Property="Foreground" Value="Green" />
+                </DataTrigger>
+                <DataTrigger x:Uid="DataTrigger_6" Binding="{Binding GMUtoMachine}" Value="UNKNOWN">
+                    <Setter x:Uid="Setter_6" TargetName="GMUtoMachine" Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+      
+
+        <DataTemplate x:Uid="DataTemplate_NoofMachine" x:Key="NoofMachinesTemplate">
+            <Grid x:Uid="Grid_3" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_NoofMachine" Text="{Binding Path=NoofMachine}" HorizontalAlignment="Center" Margin="0,0,0,0" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_3" x:Key="PositionTemplate">
+            <Grid x:Uid="Grid_3" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" Text="{Binding Path=Bar_Pos_Name}" HorizontalAlignment="Center" Margin="0,0,0,0" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_4" x:Key="HandleTemplate">
+            <Grid x:Uid="Grid_4" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_4" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_2" Text="{Binding Path=Handle,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_Payout" x:Key="PayoutTemplate">
+            <Grid x:Uid="Grid_4" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_Payout" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_Payout" Text="{Binding Path=Payout}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_5" x:Key="AssetTemplate">
+            <Grid x:Uid="Grid_5" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_5" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_3" Text="{Binding Path=Stock_No}" HorizontalAlignment="Left" Margin="0,0,0,0" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_6" x:Key="NameTemplate">
+            <Grid x:Uid="Grid_6" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_6" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_4" Text="{Binding Path=Name}" HorizontalAlignment="Left" Margin="0,0,0,0" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_6" x:Key="MeterUpdateTemplate">
+            <Grid x:Uid="Grid_6" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_6" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_4" Text="{Binding Path=LastMeterUpdate}" HorizontalAlignment="Left" Margin="0,0,0,0" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_7" x:Key="CashInTemplate">
+            <Grid x:Uid="Grid_7" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_7" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_5" Text="{Binding Path=Cash_In,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_8" x:Key="CashOutTemplate">
+            <Grid x:Uid="Grid_8" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_8" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_6" Text="{Binding Path=Cash_Out,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_9" x:Key="NetWinTemplate">
+            <Grid x:Uid="Grid_9" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_9" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_7" Text="{Binding Path=NetWin,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="Auto" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Uid="DataTemplate_Won" x:Key="WonTemplate">
+            <Grid x:Uid="Grid_Won" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_Won" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_Won" Text="{Binding Path=Won,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="Auto" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_CashRef" x:Key="Cash_RefillsTemplate">
+            <Grid x:Uid="Grid_CashRef" MinWidth="10" HorizontalAlignment="Stretch">
+                <Border x:Uid="Border_CashRef" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_CashRef" Text="{Binding Path=Cash_Refills,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Margin="0,0,0,0" Width="Auto" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Uid="DataTemplate_10" x:Key="AvgWinTemplate">
+            <Grid x:Uid="Grid_10">
+                <Border x:Uid="Border_10" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_8" Text="{Binding Path=MDA,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_11" x:Key="AvgBetTemplate">
+            <Grid x:Uid="Grid_11">
+                <Border x:Uid="Border_11" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_9" Text="{Binding Path=AvgBet,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_12" x:Key="BillsIn">
+            <Grid x:Uid="Grid_12">
+                <Border x:Uid="Border_12" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_10" Text="{Binding Path=Bills_In,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_13" x:Key="CoinsIn">
+            <Grid x:Uid="Grid_13">
+                <Border x:Uid="Border_13" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_11" Text="{Binding Path=Coin_In,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_14" x:Key="CashDrop">
+            <Grid x:Uid="Grid_14">
+                <Border x:Uid="Border_14" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_12" Text="{Binding Path=Cash_Drop,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_15" x:Key="TicketsIn">
+            <Grid x:Uid="Grid_15">
+                <Border x:Uid="Border_15" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_13" Text="{Binding Path=Tickets_In,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_16" x:Key="CoinOut">
+            <Grid x:Uid="Grid_16">
+                <Border x:Uid="Border_16" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_14" Text="{Binding Path=Coin_Out,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_16" x:Key="Drop">
+            <Grid x:Uid="Grid_Drop">
+                <Border x:Uid="Border_Drop" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_Drop" Text="{Binding Path=Drop,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_17" x:Key="TicketsOut">
+            <Grid x:Uid="Grid_17">
+                <Border x:Uid="Border_17" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_15" Text="{Binding Path=Tickets_Out,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_18" x:Key="Handpay">
+            <Grid x:Uid="Grid_18">
+                <Border x:Uid="Border_18" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_16" Text="{Binding Path=Handpay,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_19" x:Key="Jackpot">
+            <Grid x:Uid="Grid_19">
+                <Border x:Uid="Border_19" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_17" Text="{Binding Path=Jackpot,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_20" x:Key="Proghandpay">
+            <Grid x:Uid="Grid_20">
+                <Border x:Uid="Border_20" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_18" Text="{Binding Path=Prog_Handpay,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" Width="Auto" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <!--For week Details grid-->
+        <DataTemplate x:Uid="DataTemplate_21" x:Key="ZoneTemp">
+            <Grid x:Uid="Grid_21">
+                <Border x:Uid="Border_21" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_19" Text="{Binding Path=ZoneName}" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_22" x:Key="PosTemp">
+            <Grid x:Uid="Grid_22">
+                <Border x:Uid="Border_22" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_20" Text="{Binding Path=PosName}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_23" x:Key="GameTemp">
+            <Grid x:Uid="Grid_23">
+                <Border x:Uid="Border_23" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_21" Text="{Binding Path=MachineName}" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_24" x:Key="AssetTemp">
+            <Grid x:Uid="Grid_24">
+                <Border x:Uid="Border_24" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_22" Text="{Binding Path=StockNo}" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_25" x:Key="DaysTemp">
+            <Grid x:Uid="Grid_25">
+                <Border x:Uid="Border_25" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_23" Text="{Binding Path=Collection_Days}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_26" x:Key="WinLossTemp">
+            <Grid x:Uid="Grid_26">
+                <Border x:Uid="Border_26" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_24" Text="{Binding Path=Cash_Take,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_27" x:Key="MeterWLTemp">
+            <Grid x:Uid="Grid_27">
+                <Border x:Uid="Border_27" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_25" Text="{Binding Path=RDC_Take,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_28" x:Key="WinLossVarTemp">
+            <Grid x:Uid="Grid_28">
+                <Border x:Uid="Border_28" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_26" Text="{Binding Path=Take_Var,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_29" x:Key="HandleTemp">
+            <Grid x:Uid="Grid_29">
+                <Border x:Uid="Border_29" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_27" Text="{Binding Path=Handle,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_30" x:Key="PayoutTemp">
+            <Grid x:Uid="Grid_30">
+                <Border x:Uid="Border_30" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_28" Text="{Binding Path=Payout,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_31" x:Key="HoldTemp">
+            <Grid x:Uid="Grid_31">
+                <Border x:Uid="Border_31" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_29" Text="{Binding Path=Hold,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right"  Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_32" x:Key="GrossCoinTemp">
+            <Grid x:Uid="Grid_32">
+                <Border x:Uid="Border_32" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_30" Text="{Binding Path=Declared_Coins,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_33" x:Key="DefloatTemp">
+            <Grid x:Uid="Grid_33">
+                <Border x:Uid="Border_33" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_31" Text="{Binding Path=Defloat,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_34" x:Key="RefillsTemp">
+            <Grid x:Uid="Grid_34">
+                <Border x:Uid="Border_34" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_32" Text="{Binding Path=Refills,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_35" x:Key="RefundsTemp">
+            <Grid x:Uid="Grid_35">
+                <Border x:Uid="Border_35" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_33" Text="{Binding Path=Refunds,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_36" x:Key="NetCoinTemp">
+            <Grid x:Uid="Grid_36">
+                <Border x:Uid="Border_36" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_34" Text="{Binding Path=Net_Coin,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right"  Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_37" x:Key="MeterCoinTemp">
+            <Grid x:Uid="Grid_37">
+                <Border x:Uid="Border_37" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_35" Text="{Binding Path=RDC_Coins,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_38" x:Key="CoinVarTemp">
+            <Grid x:Uid="Grid_38">
+                <Border x:Uid="Border_38" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_36" Text="{Binding Path=Coin_Var,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_39" x:Key="BillsTemp">
+            <Grid x:Uid="Grid_39">
+                <Border x:Uid="Border_39" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_37" Text="{Binding Path=Declared_Notes,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_40" x:Key="MeterBillsTemp">
+            <Grid x:Uid="Grid_40">
+                <Border x:Uid="Border_40" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_38" Text="{Binding Path=RDC_Notes,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_41" x:Key="BillsVarTemp">
+            <Grid x:Uid="Grid_41">
+                <Border x:Uid="Border_41" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_39" Text="{Binding Path=Note_Var,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_42" x:Key="TicketsTemp">
+            <Grid x:Uid="Grid_42">
+                <Border x:Uid="Border_42" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_40" Text="{Binding Path=Ticket_Balance,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_43" x:Key="ShortpayTemp">
+            <Grid x:Uid="Grid_43">
+                <Border x:Uid="Border_43" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_41" Text="{Binding Path=Shortpay,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_44" x:Key="VoidTemp">
+            <Grid x:Uid="Grid_44">
+                <Border x:Uid="Border_44" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_42" Text="{Binding Path=Void,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_45" x:Key="MeterTicketTemp">
+            <Grid x:Uid="Grid_45">
+                <Border x:Uid="Border_45" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_43" Text="{Binding Path=RDC_Ticket_Balance,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_46" x:Key="TicketVarTemp">
+            <Grid x:Uid="Grid_46">
+                <Border x:Uid="Border_46" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_44" Text="{Binding Path=Ticket_Var,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_47" x:Key="HandpayTemp">
+            <Grid x:Uid="Grid_47">
+                <Border x:Uid="Border_47" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_45" Text="{Binding Path=DecHandpay,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_48" x:Key="MeterHandpayTemp">
+            <Grid x:Uid="Grid_48">
+                <Border x:Uid="Border_48" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_46" Text="{Binding Path=RDCHandpay,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_49" x:Key="HandpayVarTemp">
+            <Grid x:Uid="Grid_49">
+                <Border x:Uid="Border_49" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_47" Text="{Binding Path=Handpay_Var,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_50" x:Key="HpayProgTemp">
+            <Grid x:Uid="Grid_50">
+                <Border x:Uid="Border_50" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_48" Text="{Binding Path=Progressive_Value_Declared,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_51" x:Key="MeterHpayProgTemp">
+            <Grid x:Uid="Grid_51">
+                <Border x:Uid="Border_51" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_49" Text="{Binding Path=Progressive_Value_Meter,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_52" x:Key="HpayProgVarTemp">
+            <Grid x:Uid="Grid_52">
+                <Border x:Uid="Border_52" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_50" Text="{Binding Path=Progressive_Value_Variance,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right"  Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_53" x:Key="DurationTemp">
+            <Grid x:Uid="Grid_53">
+                <Border x:Uid="Border_53" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_51" Text="{Binding Path=Duration}" HorizontalAlignment="Right" TextAlignment="Right"  Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_54" x:Key="FaultTemp">
+            <Grid x:Uid="Grid_54">
+                <Border x:Uid="Border_54" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_52" Text="{Binding Path=Total_Fault_Events}" HorizontalAlignment="Right" TextAlignment="Right"  Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_55" x:Key="DoorTemp">
+            <Grid x:Uid="Grid_55">
+                <Border x:Uid="Border_55" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_53" Text="{Binding Path=Total_Door_Events}" HorizontalAlignment="Right" TextAlignment="Right"  Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_56" x:Key="PowerTemp">
+            <Grid x:Uid="Grid_56">
+                <Border x:Uid="Border_56" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_54" Text="{Binding Path=Total_Power_Events}" HorizontalAlignment="Right" TextAlignment="Right"  Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+
+
+        <DataTemplate x:Uid="DataTemplate_57" x:Key="CashableEFTInTemplate">
+            <Grid x:Uid="Grid_57">
+                <Border x:Uid="Border_57" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_55" Text="{Binding Path=CashableEFTIn,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_58" x:Key="CashableEFTOutTemplate">
+            <Grid x:Uid="Grid_58">
+                <Border x:Uid="Border_58" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_55" Text="{Binding Path=CashableEFTOut,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_59" x:Key="NonCashableEFTInTemplate">
+            <Grid x:Uid="Grid_59">
+                <Border x:Uid="Border_59" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_56" Text="{Binding Path=NonCashableEFTIn,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_60" x:Key="NonCashableEFTOutTemplate">
+            <Grid x:Uid="Grid_60">
+                <Border x:Uid="Border_60" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_57" Text="{Binding Path=NonCashableEFTOut,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_61" x:Key="WATInTemplate">
+            <Grid x:Uid="Grid_61">
+                <Border x:Uid="Border_61" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_58" Text="{Binding Path=WATIn,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_62" x:Key="WATOutTemplate">
+            <Grid x:Uid="Grid_62">
+                <Border x:Uid="Border_62" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_59" Text="{Binding Path=WATOut,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_63" x:Key="NonCashableTicketsIn">
+            <Grid x:Uid="Grid_63">
+                <Border x:Uid="Border_63" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_60" Text="{Binding Path=Non_Cashable_Tickets_In,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_64" x:Key="NonCashableTicketsOut">
+            <Grid x:Uid="Grid_64">
+                <Border x:Uid="Border_64" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_61" Text="{Binding Path=Non_Cashable_Tickets_Out,Converter={StaticResource CurrencyPriceConverter}}" HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Uid="DataTemplate_Blank" x:Key="BlankTemplate">
+            <Grid x:Uid="Grid_Blank">
+                <Border x:Uid="Border_Blank" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Right" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_Blank" Text=" " HorizontalAlignment="Right" TextAlignment="Right" Width="Auto"/>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid x:Uid="Grid_57" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Uid="lblViewBy" 
+                    x:Name="lblViewBy" Content="{DynamicResource UCSiteIntegorration_xaml_lblViewBy}"
+                    FontFamily="{DynamicResource SegoeUI20}" FontSize="16"                   
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0"
+                    Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"  Grid.Column="0" Height="Auto" />
+            <ComboBox x:Uid="cmbView" Name="cmbView" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" Height="35"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1" Margin="5,0,5,0"   />
+            <Label x:Uid="lblFilter" 
+                    x:Name="lblFilter" Content="{DynamicResource UCSiteIntegorration_xaml_lblFilter}"
+                    FontFamily="{DynamicResource SegoeUI20}" FontSize="16" Margin="0,0,10,0"                  
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="{DynamicResource FormLabelForegroundColour}"  FontWeight="Bold"  Grid.Column="2" Height="Auto" />
+            <ComboBox x:Uid="cmbFilter" Name="cmbFilter" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" Height="35" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="3" Margin="5,0,5,0" />
+            <Button x:Uid="btnGo" Style="{DynamicResource ButtonStyle1}" Name="btnGo" FontFamily="Segoe UI" 
+                    Content="{DynamicResource UCSiteIntegorration_xaml_btnGo}" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="45" Grid.Column="4" Click="btnGo_Click" />
+        </Grid>
+        <Custom:DataGrid Grid.Row="1"  Sorting="lstAnalysisDetails_Sorting_1"  
+                         x:Uid="lstAnalysisDetails" 
+                         Name="lstAnalysisDetails" 
+                         HorizontalAlignment="Stretch" 
+                         VerticalAlignment="Stretch" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                         ScrollViewer.CanContentScroll="True"  
+                         ItemsSource="{Binding Path=Table}" 
+                         FontSize="14"  
+                         SelectionUnit="Cell" 
+                         IsReadOnly="True" 
+                         IsTextSearchEnabled="False" 
+                         TabIndex="1" 
+                         AutoGenerateColumns="False"
+                         ClipboardCopyMode="IncludeHeader"    
+                         Style="{DynamicResource dgstyle}"      
+                         RowBackground="{DynamicResource RowBG}"   
+                         HorizontalGridLinesBrush="#FF6B747A" 
+                         VerticalGridLinesBrush="#FF6B747A" >
+            <Custom:DataGrid.RowStyle>
+                <Style TargetType="Custom:DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsTotalRow}" Value="True">
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Custom:DataGrid.RowStyle>
+                    <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn  Header="Installation_No" Visibility="Hidden" Binding="{Binding Path=Installation_No}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_1}"   Binding="{Binding Path=Bar_Pos_Name}"/>
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_3}" Width="Auto"  Binding="{Binding Path=Stock_No}"/>
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_2}"  Width="Auto" Binding="{Binding Path=Name}"/>
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_20}"  Width="Auto" Binding="{Binding Path=Zone_Name}"/>
+                    <!--<Custom:DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid x:Uid="Grid_3" MinWidth="10" HorizontalAlignment="Stretch">
+                                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" VerticalAlignment="Stretch" />
+                                <TextBlock x:Uid="TextBlock_Zone" Text="{Binding Path=Zone_Name}" HorizontalAlignment="Center" Margin="0,0,0,0" Width="Auto" />
+                            </Grid>
+                        </DataTemplate>
+                    </Custom:DataGridTextColumn.HeaderTemplate>
+                </Custom:DataGridTextColumn>-->
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_NumMC}" Width="Auto" Binding="{Binding Path=NoofMachine}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumnHeader_5" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_3}" Width="Auto" Binding="{Binding Path=GMUtoServer}">
+                    <Custom:DataGridTextColumn.CellStyle>
+                        <Style TargetType="Custom:DataGridCell">
+                            <Style.Triggers>
+                                <DataTrigger x:Uid="DataTrigger_1" Binding="{Binding GMUtoServer}" Value="ERROR">
+                                    <Setter x:Uid="Setter_1"  Property="Foreground" Value="Red" />
+                                </DataTrigger>
+                                <DataTrigger x:Uid="DataTrigger_2" Binding="{Binding GMUtoServer}" Value="OK">
+                                    <Setter x:Uid="Setter_2"  Property="Foreground" Value="Green" />
+                                </DataTrigger>
+                                <DataTrigger x:Uid="DataTrigger_3" Binding="{Binding GMUtoServer}" Value="UNKNOWN">
+                                    <Setter x:Uid="Setter_3" Property="Foreground" Value="Red" />
+                                </DataTrigger>                                
+                            </Style.Triggers>                                
+                        </Style>
+                    </Custom:DataGridTextColumn.CellStyle>
+                </Custom:DataGridTextColumn>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumnHeader_6" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_4}" Width="Auto" Binding="{Binding Path=GMUtoMachine}">
+                    <Custom:DataGridTextColumn.CellStyle>
+                        <Style TargetType="Custom:DataGridCell">
+                            <Style.Triggers>
+                                <DataTrigger x:Uid="DataTrigger_4" Binding="{Binding GMUtoMachine}" Value="ERROR">
+                                    <Setter x:Uid="Setter_4"  Property="Foreground" Value="Red" />
+                                </DataTrigger>
+                                <DataTrigger x:Uid="DataTrigger_5" Binding="{Binding GMUtoMachine}" Value="OK">
+                                    <Setter x:Uid="Setter_5" Property="Foreground" Value="Green" />
+                                </DataTrigger>
+                                <DataTrigger x:Uid="DataTrigger_6" Binding="{Binding GMUtoMachine}" Value="UNKNOWN">
+                                    <Setter x:Uid="Setter_6"  Property="Foreground" Value="Red" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Custom:DataGridTextColumn.CellStyle>
+                </Custom:DataGridTextColumn>
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_56}"  Width="Auto" Binding="{Binding Path=LastMeterUpdate}"/>
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_11}" Width="Auto"  Binding="{Binding Path=Bills_In}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_13}"  Width="Auto" Binding="{Binding Path=Coin_In}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_15}" Width="Auto"  Binding="{Binding Path=Coin_Out}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_Drop}" Width="Auto"  Binding="{Binding Path=Drop}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_12}"  Width="Auto" Binding="{Binding Path=Tickets_In}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_14}" Width="Auto"  Binding="{Binding Path=Tickets_Out}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_24}"  Width="Auto" Binding="{Binding Path=Non_Cashable_Tickets_In}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_25}" Width="Auto"  Binding="{Binding Path=Non_Cashable_Tickets_Out}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_16}"  Width="Auto" Binding="{Binding Path=Handpay}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_17}"  Width="Auto" Binding="{Binding Path=Jackpot}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_26}" Width="Auto"  Binding="{Binding Path=Prog_Handpay}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  x:Name="gvColCashableEFTIn" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_18}" Width="Auto"  Binding="{Binding Path=CashableEFTIn}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  x:Name="gvColCashableEFTOut" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_19}"  Width="Auto"  Binding="{Binding Path=CashableEFTOut}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  x:Name="gvColNonCashableEFTIn" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_20}" Width="Auto"  Binding="{Binding Path=NonCashableEFTIn}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  x:Name="gvColNonCashableEFTOut" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_21}" Width="Auto"  Binding="{Binding Path=NonCashableEFTOut}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  x:Name="gvColWATIn" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_22}"  Width="Auto" Binding="{Binding Path=WATIn}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  x:Name="gvColWATOut" Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_23}"  Width="Auto" Binding="{Binding Path=WATOut}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_5}"  Width="Auto" Binding="{Binding Path=Cash_In}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_6}"  Width="Auto" Binding="{Binding Path=Cash_Out}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_8}"  Width="Auto" Binding="{Binding Path=Handle}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_Payout}"  Width="Auto" Binding="{Binding Path=Payout}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_9}"  Width="Auto" Binding="{Binding Path=MDA}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_10}"  Width="Auto" Binding="{Binding Path=AvgBet}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_7}" Width="Auto"  Binding="{Binding Path=NetWin}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_Won}" Width="Auto"  Binding="{Binding Path=Won}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumnHeader_CashRef}" Width="Auto"  Binding="{Binding Path=Cash_Refills}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                <Custom:DataGridTextColumn  Width="Auto" Binding="{Binding Path=Blank}" />
+             </Custom:DataGrid.Columns>
+           </Custom:DataGrid>
+        <Custom:DataGrid Grid.Row="1" x:Uid="lstCollectionDetails" Name="lstCollectionDetails" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"  ItemsSource="{Binding Path=Table}" FontSize="14" SelectionUnit="Cell" IsReadOnly="True" IsTextSearchEnabled="False" TabIndex="1" AutoGenerateColumns="False"
+                         Style="{DynamicResource dgstyle}"     RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" >
+                <Custom:DataGrid.Columns>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_20}" Binding="{Binding Path=ZoneName}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_21}" Binding="{Binding Path=PosName}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_22}" Binding="{Binding Path=MachineName}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_23}" Binding="{Binding Path=StockNo}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_24}" Binding="{Binding Path=Collection_Days}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_25}" Binding="{Binding Path=Cash_Take}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_26}" Binding="{Binding Path=RDC_Take}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_27}" Binding="{Binding Path=Take_Var}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_28}" Binding="{Binding Path=Handle}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_29}" Binding="{Binding Path=Payout}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_30}" Binding="{Binding Path=Hold}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_31}" Binding="{Binding Path=Declared_Coins}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_32}" Binding="{Binding Path=Defloat}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_33}" Binding="{Binding Path=Refills}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_34}" Binding="{Binding Path=Refunds}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_35}" Binding="{Binding Path=Net_Coin}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_36}" Binding="{Binding Path=RDC_Coins}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_37}" Binding="{Binding Path=Coin_Var}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_38}" Binding="{Binding Path=Declared_Notes}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_39}" Binding="{Binding Path=RDC_Notes}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_40}" Binding="{Binding Path=Note_Var}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_41}" Binding="{Binding Path=Ticket_Balance}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_42}" Binding="{Binding Path=Shortpay}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_43}" Binding="{Binding Path=Void}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_44}" Binding="{Binding Path=RDC_Ticket_Balance}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_45}" Binding="{Binding Path=Ticket_Var}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_46}" Binding="{Binding Path=DecHandpay}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_47}" Binding="{Binding Path=RDCHandpay}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_48}" Binding="{Binding Path=Handpay_Var}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_49}" Binding="{Binding Path=Progressive_Value_Declared}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_51}" Binding="{Binding Path=Progressive_Value_Variance}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_52}" Binding="{Binding Path=Duration}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_53}" Binding="{Binding Path=Total_Fault_Events}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_54}" Binding="{Binding Path=Total_Door_Events}"/>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CAanalysisDetails_xaml_GridViewColumn_55}" Binding="{Binding Path=Total_Power_Events}"/>
+                </Custom:DataGrid.Columns>
+        </Custom:DataGrid>  
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="2">
+            <Button x:Uid="btnRefresh" Content="{DynamicResource CAanalysisDetails_xaml_btnRefresh}" d:LayoutOverrides="Width, Height" Style="{DynamicResource BMC_Button}" x:Name="btnRefresh" VerticalAlignment="Center" Height="55" Width="100" Cursor="Hand" Margin="30,5,5,5" Click="btnRefresh_Click" />
+            <Button x:Uid="btnPrint" Content="{DynamicResource CAanalysisDetails_xaml_btnPrint}" d:LayoutOverrides="Width, Height" Style="{DynamicResource BMC_Button}" x:Name="btnPrint" VerticalAlignment="Center" Height="55" Width="100" Cursor="Hand" Margin="30,5,5,5" Click="btnPrint_Click" />
+            <Button x:Uid="btnExport" Content="{DynamicResource CAanalysisDetails_xaml_btnExport}" d:LayoutOverrides="Width, Height" Style="{DynamicResource BMC_Button}" x:Name="btnExport" VerticalAlignment="Center" Height="55" Width="100" Cursor="Hand" Margin="30,5,5,5" Click="btnExport_Click" />
+        </StackPanel>
+        <!--<TextBlock x:Uid="txtHeader" x:Name="txtHeader" TextAlignment="Center" Height="40" Text="{DynamicResource CAanalysisDetails_xaml_txtHeader}"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="112,12,123,0" Foreground="white" VerticalAlignment="Top" />
+        <TextBlock x:Uid="txtHeader1" x:Name="txtHeader1" TextAlignment="Center" Height="40" Text="{DynamicResource CAanalysisDetails_xaml_txtHeader1}"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="112,12,123,0" Foreground="white" VerticalAlignment="Top" />-->    
+    </Grid>
+</UserControl>

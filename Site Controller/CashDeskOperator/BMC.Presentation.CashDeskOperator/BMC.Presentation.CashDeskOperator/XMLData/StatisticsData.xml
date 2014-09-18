@@ -1,0 +1,46 @@
+<Root>
+	<StatisticItem>
+		<Description>Coins In</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description>Bills In</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description>Tickets In</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description>Total Cash In</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description></Description>
+		<Value></Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description>Coins Out</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description>Tickets Out</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description>Handpays</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+		<StatisticItem>
+		<Description>Total Cash Out</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description></Description>
+		<Value></Value>
+	</StatisticItem>
+	<StatisticItem>
+		<Description>Win/Loss</Description>
+		<Value>0.0</Value>
+	</StatisticItem>
+</Root>

@@ -1,0 +1,410 @@
+<Window x:Class="BMC.Presentation.POS.Views.ManualCashEntry"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ValidationRules="clr-namespace:BMC.Presentation.POS.Views"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:CashDeskOperator="clr-namespace:BMC.CashDeskOperator;assembly=BMC.CashDeskOperator"
+    xmlns:BallyMultiConnect="clr-namespace:BMC.Presentation"
+    Title="ManualCashEntry" Height="640" Width="620" 
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False" 
+         AllowsTransparency="True" WindowStyle="None" Background="{DynamicResource MainScreenBG}" Loaded="Window_Loaded">
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="{x:Static ValidationRules:ManualCashEntry.ValidateEntryCommand}"
+            Executed="CommandBinding_Executed"
+            CanExecute="CommandBinding_CanExecute" />
+    </Window.CommandBindings>
+    <Window.Resources>        
+        <ValidationRules:ManualCashEntryModel x:Key="ViewModelDataSource">
+        </ValidationRules:ManualCashEntryModel>
+        <ControlTemplate
+            x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock 
+                    Foreground="Red"
+                    FontSize="25"><Run
+                        Text="!" />
+                </TextBlock>
+                <AdornedElementPlaceholder />
+            </DockPanel>
+        </ControlTemplate>
+        <Style x:Key="BlankButton" TargetType="{x:Type TextBox}">
+            <Setter x:Uid="Setter_168" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter x:Uid="Setter_169" Property="BorderBrush" Value="{StaticResource ListBorder}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="AllowDrop" Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Uid="ControlTemplate_23" TargetType="{x:Type TextBox}">
+                        <Border x:Uid="Border_6" x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5,5,5,5" Background="{DynamicResource TextBoxGradient}">
+                            <ScrollViewer x:Uid="ScrollViewer_4" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" FontFamily="Segoe UI" FontSize="20" FontWeight="Normal"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger x:Uid="Trigger_56" Property="IsEnabled" Value="false">
+                                <Setter x:Uid="Setter_178" Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                                <Setter x:Uid="Setter_179" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter x:Uid="Setter_180" Property="FontFamily" Value="Segoe UI" />
+            <Setter x:Uid="Setter_181" Property="FontSize" Value="20" />
+        </Style>
+        <Style x:Key="BlinkButton" x:Name="BlinkButton" TargetType="{x:Type TextBox}">
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <OuterGlowBitmapEffect GlowColor="Transparent" GlowSize="8" Opacity="1">
+                    </OuterGlowBitmapEffect>
+                </Setter.Value>
+            </Setter>
+            <Setter x:Uid="Setter_168" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter x:Uid="Setter_169" Property="BorderBrush" Value="{StaticResource ListBorder}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="AllowDrop" Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate x:Uid="ControlTemplate_23" TargetType="{x:Type TextBox}">
+                        <Border x:Uid="Border_6" x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5,5,5,5" Background="{DynamicResource TextBoxGradient}">
+                            <ScrollViewer x:Uid="ScrollViewer_4" x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" FontFamily="Segoe UI" FontSize="20" FontWeight="Normal"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger x:Uid="Trigger_56" Property="IsEnabled" Value="false">
+                                <Setter x:Uid="Setter_178" Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                                <Setter x:Uid="Setter_179" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter x:Uid="Setter_180" Property="FontFamily" Value="Segoe UI" />
+            <Setter x:Uid="Setter_181" Property="FontSize" Value="20" />
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="TextBox.GotFocus">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation 
+                                    Duration="0:0:.3" 
+                                    From="Transparent" 
+                                    To="Red"
+                                    Storyboard.TargetProperty="(UIElement.BitmapEffect).(OuterGlowBitmapEffect.GlowColor)"
+                                    >
+                                </ColorAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="TextBox.LostFocus">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation 
+                                    Duration="0:0:.3" 
+                                    From="Red" 
+                                    To="Transparent"
+                                    Storyboard.TargetProperty="(UIElement.BitmapEffect).(OuterGlowBitmapEffect.GlowColor)"
+                                    >
+                                </ColorAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="TextBox.ToolTip" Value=""/>
+                </Trigger>
+            </Style.Triggers>
+
+
+        </Style>
+    </Window.Resources>
+    <StackPanel x:Name="MainEntryScreen" >
+        <StackPanel x:Name="TicketEntryScreen" Orientation="Vertical" Height="700" Width="568">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="568">
+                <Grid x:Uid="pnlHeader1" x:Name="pnlHeader1" VerticalAlignment="Top" Height="53" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.0,0.0" Margin="0,0,0,0" Width="568" >
+                    <TextBlock x:Uid="tbHeader1" x:Name="tbHeader1" Text="{DynamicResource ManualCashEntry_xaml_TicketEntryScreen}" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="0,40,0,0">
+                        <Path.Fill>
+                            <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                                <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                                <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid Height="58">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition Width="360"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <!--<RowDefinition Height="58"></RowDefinition>-->
+                        <RowDefinition Height="0*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Uid="lblTicketNumber" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource ManualCashEntry_xaml_lblTicketNumber}" Grid.Row="0" Grid.Column="0" Foreground="#FFFFFFFF"></TextBlock>
+                    <!--<TextBlock x:Uid="lblTicketValue" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5"  Foreground="#FFFFFFFF" Text="{DynamicResource ManualCashEntry_xaml_lblTicketValue}" Grid.Row="1" Margin="48,14.36,97,14.36"></TextBlock>-->
+                    <TextBox x:Name="txtScanedTicket" HorizontalAlignment="Left"  Grid.Column="1"  Grid.Row="0" FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="360" Height="30" PreviewMouseUp="txtScanedTicket_PreviewMouseUp" KeyDown="txtScanedTicket_KeyDown" Style="{StaticResource BlankButton}" PreviewTextInput="txtScanedTicket_PreviewTextInput" KeyUp="txtScanedTicket_KeyUp"></TextBox>
+                    <!--<TextBox x:Name="txtTicketValue" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="200" Height="30" AcceptsTab="False" AcceptsReturn="False" PreviewMouseUp="txtTicketValue_PreviewMouseUp" KeyDown="txtTicketValue_KeyDown"  Style="{StaticResource BlankButton}" TextChanged="txtTicketValue_TextChanged" >
+                        <Validation.ValidationAdornerSite>
+                            <DependencyObject />
+                        </Validation.ValidationAdornerSite>
+                    </TextBox>-->
+                    <!--<Button x:Uid="btnAddTicket" x:Name="btnAddTicket" Grid.Column="1" Grid.Row="1" Width="100" HorizontalAlignment="Right" Content="{DynamicResource ManualCashEntry_xaml_btnAddTicket}" Style="{DynamicResource BMC_Button}" Click="AddButton_Click_1"></Button>-->
+                </Grid>
+                <Label Height="10"></Label>
+                <Grid>
+                    <ListView x:Name="lstTicketsIn" ScrollViewer.HorizontalScrollBarVisibility="Hidden" IsSynchronizedWithCurrentItem="True" FontSize="16" FontFamily="Segoe UI" SelectionMode="Single" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" Height="427" Width="auto" >
+                        <ListView.View>
+                            <GridView x:Uid="GridView_1">
+                                <GridViewColumn x:Uid="GridViewColumn_2" Header="" Width="Auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate x:Uid="DataTemplate_2">
+                                            <Grid x:Uid="Grid_3">
+                                                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+                                                <Button FontSize="14" FontWeight="Bold" FontFamily="Segoe UI" Click="DeleteTicket" Width="30" Height="30" >
+                                                    <Button.Background>
+                                                        <ImageBrush ImageSource="..\Images\delete.png"></ImageBrush>
+                                                    </Button.Background>
+                                                </Button>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Uid="GridViewColumn_2" Header="{DynamicResource ManualCashEntry_xaml_GridViewColumn_2}"  Width="350">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate x:Uid="DataTemplate_2">
+                                            <Grid x:Uid="Grid_3">
+                                                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <TextBlock x:Uid="TextBlock_2" Text="{Binding BarCode}" HorizontalAlignment="Left" VerticalAlignment="Center"  TextAlignment="Left" Margin="0,0,0,0" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Uid="GridViewColumn_1" Header="{DynamicResource ManualCashEntry_xaml_GridViewColumn_1}" Width="165">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate x:Uid="DataTemplate_1">
+                                            <Grid x:Uid="Grid_2">
+                                                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0.5,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                                <TextBlock x:Uid="TextBlock_1" Text="{Binding FormatedValue}" HorizontalAlignment="Right" Padding="20" VerticalAlignment="Center"   TextAlignment="Right" Margin="0,0,0,0" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+                <Label Height="5"></Label>
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock  x:Uid="lblTotal" Text="{DynamicResource ManualCashEntry_xaml_lblTotal}"  TextAlignment="Center" Foreground="#FFFFFFFF" Width="Auto" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" ></TextBlock>
+                        <Label Width="5"></Label>
+                        <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="180" Height="30" IsReadOnly="True" x:Name="txtTicketsTotalAmount" Style="{StaticResource BlankButton}" ></TextBox>
+                        <Label Width="5"></Label>
+                        <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="50" Height="30" IsReadOnly="True" x:Name="txtTicketsTotalCount" IsEnabled="False" Style="{StaticResource BlankButton}" ></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Button x:Uid="btnAccept" Style="{DynamicResource BMC_Button}" Width="121" Height="55" HorizontalAlignment="Right" Content="{DynamicResource ManualCashEntry_xaml_btnAccept}" VerticalAlignment="Bottom" Click="btnTicketsAccept_Click" x:Name="btnTicketsAccept"></Button>
+                        <Button x:Uid="btnCancel" Style="{DynamicResource BMC_Button}" Width="121" Height="55" HorizontalAlignment="Right" Content="{DynamicResource ManualCashEntry_xaml_btnCancel}" VerticalAlignment="Bottom" Click="btnTicketsCancel_Click" x:Name="btnTicketsCancel"></Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="CashEntryScreen" Orientation="Vertical" Height="600" Width="605">
+            <Grid x:Uid="pnlHeader" x:Name="pnlHeader" VerticalAlignment="Top" Height="53" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.0,0.0" Width="605" Margin="0,0,0,0" >
+                <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M373.472,5122.66 L756.52,5122.66 C759.834,5122.66 762.52,5125.35 762.52,5128.66 L762.52,5155.28 C762.52,5158.6 763.847,5157.8247 763.30535,5161.28 L367.19063,5161.28 C367.03487,5158.7204 367.12818,5160.8766 367.12823,5155.2832 L367.472,5128.66 C367.472,5125.35 370.158,5122.66 373.472,5122.66 z" Fill="{DynamicResource MsgBoxTitleColor}" Canvas.Left="0" Canvas.Top="0" RenderTransformOrigin="0.0,0.0" Margin="-5,0,0,0" />
+                <TextBlock x:Uid="tbHeader" x:Name="tbHeader" Text="{DynamicResource ManualCashEntry_xaml_txtManualCashEntry}" TextWrapping="NoWrap" Foreground="White" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button x:Uid="btnExit" x:Name="btnExit" Style="{DynamicResource BMC_App_Exit}" RenderTransformOrigin="0.0,0.0" Width="50" Canvas.Left="750" Canvas.Top="0" HorizontalAlignment="Right" Click="btnExit_Click" Margin="0,7,-3,-7" />
+            </Grid>
+            <TextBlock Height="30"></TextBlock>
+            <Grid  VerticalAlignment="Bottom" DataContext="{Binding Source={StaticResource ViewModelDataSource}}" Height="512">
+                <Grid Margin="0,0,174,73">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="lbl500" Padding="18" Width="250" Height="40"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18"  Grid.Row="0"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="500" Foreground="White"></TextBlock>
+                    <TextBlock x:Name="lbl200" Padding="18" Width="250" Height="40" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="1"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="200" Foreground="White"></TextBlock>
+                    <TextBlock x:Name="lbl100" Padding="18" Width="250" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="2"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="100" Foreground="White"></TextBlock>
+                    <TextBlock x:Name="lbl50" Padding="18" Width="250" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="3"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="50" Foreground="White"></TextBlock>
+                    <TextBlock x:Name="lbl20" Padding="18" Width="250" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="4"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="20" Foreground="White"></TextBlock>
+                    <TextBlock x:Name="lbl10" Padding="18" Width="250" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="10" Foreground="White"></TextBlock>
+                    <TextBlock x:Name="lbl5" Padding="18" Width="250" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="6"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="5" Foreground="White"></TextBlock>
+                    <TextBlock Width="250" Padding="18" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="7"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="2" Name="lblDoller2" Foreground="White"></TextBlock>
+                    <TextBlock Width="250" Padding="18" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="8"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="1" Name="lblDoller1" Foreground="White"></TextBlock>
+                    <TextBlock x:Uid="lblTotalCoinin" Name="lblTotalCoinin" Padding="18" Width="Auto" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="9"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{DynamicResource ManualCashEntry_xaml_lblTotalCoinin}" Foreground="White"></TextBlock>
+                    <TextBlock x:Uid="lblTicketsIn" Name="lblTicketsIn" Padding="18" Width="Auto" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{DynamicResource ManualCashEntry_xaml_lblTicketsIn}" Foreground="White"></TextBlock>
+                    <TextBlock x:Uid="lblTotalAmt" Name="lblTotalAmt"  Padding="18" Width="Auto" Height="Auto" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{DynamicResource ManualCashEntry_xaml_lblTotalAmt}" Foreground="White"></TextBlock>
+
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="0"  Grid.Column="1" Name="txt500" Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus"  Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C500" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C500">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="1"  Grid.Column="1" Name="txt200" Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C200" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C200">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="2"  Grid.Column="1" Name="txt100" Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C100" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C100">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="3"  Grid.Column="1" Name="txt50"  Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C50" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C50">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="4"  Grid.Column="1" Name="txt20"  Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C20" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C20">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="5"  Grid.Column="1" Name="txt10"  Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C10" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C10">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="6"  Grid.Column="1" Name="txt5"   Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C5" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C5">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="7"  Grid.Column="1" Name="txt2"   Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C2" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C2">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="8"  Grid.Column="1" Name="txt1"   Style="{StaticResource BlinkButton}" IsReadOnly="True"   GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="C1" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="C1">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="9"  Grid.Column="1" Name="txtTotalCoins"  Style="{StaticResource BlinkButton}" IsReadOnly="True" GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="Coins" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <ValidationRules:ManualCashEntryValidationRule FieldName="Coins">
+                                </ValidationRules:ManualCashEntryValidationRule>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="10"  Grid.Column="1" Name="txtTicketsIn"  Style="{StaticResource BlinkButton}" IsReadOnly="True" GotFocus="txt_GotFocus"  LostFocus="txt_LostFocus" Validation.ErrorTemplate="{StaticResource validationTemplate}">
+                        <Binding Path="TicketsIn" 
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
+                        </Binding>
+                    </TextBox>
+                    <TextBox FontFamily="Segoe UI" FontSize="22" TextAlignment="Right" TextWrapping="NoWrap" Width="130" Height="30" Grid.Row="11" Grid.Column="1" Name="txtAmount" IsReadOnly="True" Style="{StaticResource BlankButton}"></TextBox>
+                </Grid>
+                <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,101" Width="auto" Height="auto" Button.Click="Grid_Click">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="0" Grid.Row="0" Content="7" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="1" Grid.Row="0" Content="8" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="2" Grid.Row="0" Content="9" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="0" Grid.Row="1" Content="4" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="1" Grid.Row="1" Content="5" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="2" Grid.Row="1" Content="6" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="0" Grid.Row="2" Content="1" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="1" Grid.Row="2" Content="2" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="2" Grid.Row="2" Content="3" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="0" Grid.Row="3" Content="0" FontSize="24" FontWeight="Bold" Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" ></Button>
+                    <Button Grid.Column="1" Grid.Row="3" Content="." FontSize="24" FontWeight="Bold" Visibility="Hidden"  Width="Auto" Height="Auto" FontFamily="Segoe UI" Style="{DynamicResource CalcKeyButton}" Name="btnDot" ></Button>
+                    <Button x:Uid="Arrow" Grid.Column="2" Grid.Row="3" Content="f" FontSize="24" FontWeight="Bold"  Width="Auto" Height="Auto" Style="{DynamicResource CalcKeyButton}" FontFamily="Wingdings 3"></Button>
+                </Grid>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Button Visibility="Hidden" x:Uid="btnNotesCounter"  Content ="Notes Counter" Style="{DynamicResource BMC_Button}" Width="126" Height="55" VerticalAlignment="Bottom" Name="btnNoteCounter" Click="btnNoteCounter_Click"></Button>
+                        <Button x:Uid="btnAddManualCash" Content ="{DynamicResource ManualCashEntry_xaml_btnAddManualCash}" Style="{DynamicResource BMC_Button}" Width="126" Height="55" VerticalAlignment="Bottom" Command="{x:Static ValidationRules:ManualCashEntry.ValidateEntryCommand}" Name="btnManualCashEntry"></Button>
+                        <Button x:Uid="btnCancelManualCash" Content ="{DynamicResource ManualCashEntry_xaml_btnCancelManualCash}" Style="{DynamicResource BMC_Button}" Width="121" Height="55" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click"></Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>        
+    </StackPanel>
+</Window>

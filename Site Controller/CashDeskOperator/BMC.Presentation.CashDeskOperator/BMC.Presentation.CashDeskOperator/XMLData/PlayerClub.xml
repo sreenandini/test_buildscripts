@@ -1,0 +1,56 @@
+<Root>
+  <PrizeInfo>
+    <AwardUsed>0.00</AwardUsed>
+    <PrizeName>60 Food</PrizeName>
+    <BonusPoints>0</BonusPoints>
+    <RedeemPoints>16800</RedeemPoints>
+    <BasePoints>0</BasePoints>
+    <AuthAward>9055.53</AuthAward>
+    <PrizeId>60 Food</PrizeId>
+  </PrizeInfo>
+  <PrizeInfo>
+    <AwardUsed>100.00</AwardUsed>
+    <PrizeName>100 Cash</PrizeName>
+    <BonusPoints>0</BonusPoints>
+    <RedeemPoints>3000</RedeemPoints>
+    <BasePoints>0</BasePoints>
+    <AuthAward>100.00</AuthAward>
+    <PrizeId>100Cash</PrizeId>
+  </PrizeInfo>
+  <PrizeInfo>
+    <AwardUsed>10.00</AwardUsed>
+    <PrizeName>10 Cash</PrizeName>
+    <BonusPoints>0</BonusPoints>
+    <RedeemPoints>5000</RedeemPoints>
+    <BasePoints>0</BasePoints>
+    <AuthAward>10</AuthAward>
+    <PrizeId>10Cash</PrizeId>
+  </PrizeInfo>
+  <PrizeInfo>
+    <AwardUsed>0.00</AwardUsed>
+    <PrizeName>Bonus Prize</PrizeName>
+    <BonusPoints>25</BonusPoints>
+    <RedeemPoints>0</RedeemPoints>
+    <BasePoints>0</BasePoints>
+    <AuthAward>0.00</AuthAward>
+    <PrizeId>BnsPrz</PrizeId>
+  </PrizeInfo>
+  <PrizeInfo>
+    <AwardUsed>0.00</AwardUsed>
+    <PrizeName>Car</PrizeName>
+    <BonusPoints>0</BonusPoints>
+    <RedeemPoints>960</RedeemPoints>
+    <BasePoints>0</BasePoints>
+    <AuthAward>0</AuthAward>
+    <PrizeId>Car</PrizeId>
+  </PrizeInfo>
+  <PrizeInfo>
+    <AwardUsed>5.00</AwardUsed>
+    <PrizeName>5.00 Cigars</PrizeName>
+    <BonusPoints>0</BonusPoints>
+    <RedeemPoints>1000</RedeemPoints>
+    <BasePoints>0</BasePoints>
+    <AuthAward>10</AuthAward>
+    <PrizeId>Cig05/C</PrizeId>
+  </PrizeInfo>
+</Root>

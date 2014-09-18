@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.Views.CExportDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+             x:Name="UserControl"             
+              xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:Custom1="http://schemas.AvalonControls/AvalonControlsLibrary/Controls" 
+               RenderTransformOrigin="0.5,0.5" Loaded="UserControl_Loaded"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15,10,15,10"  Background="{x:Null}" RenderTransformOrigin="0.5,0.5" >
+
+        <TextBlock Grid.Row="0"  x:Uid="txtHeader" x:Name="txtHeader" Margin="18,20,350,0" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource CExportDetails_xaml_txtHeader}" Foreground="#FFFFFFFF" />
+
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+              
+        <Border x:Uid="Border_3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="5,5,5,5" Background="#19CDDD98"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"></RowDefinition>
+                <RowDefinition Height="450" ></RowDefinition>
+                <RowDefinition Height="55" ></RowDefinition>
+                <RowDefinition Height="40" ></RowDefinition>
+                <RowDefinition Height="40" ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ListView Grid.Row="1" Grid.ColumnSpan="5"  ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Uid="lvUnExportData" x:Name="lvUnExportData" Margin="7,8,24,13" 
+                  VerticalAlignment="Stretch" IsSynchronizedWithCurrentItem="True"  Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontSize="13" FontFamily="Segoe UI" ItemsSource="{Binding Mode=Default}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" SelectionMode="Single">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="clmnExport_ID" Width="0" Header="{DynamicResource CExportDetails_xaml_clmnExport_ID}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate x:Uid="T9">
+                                    <Grid x:Uid="G0" MinWidth="10">
+                                        <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                        <TextBlock x:Uid="Export_ID"   Text="{Binding ID}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Name="clmnisSelected">
+                            <GridViewColumnHeader>
+                                <CheckBox Name="chk_CheckAllDetails"  Unchecked="chk_CheckAllDetails_Checked" Checked="chk_CheckAllDetails_Checked"/>
+                            </GridViewColumnHeader>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate x:Uid="T9">
+                                    <Grid x:Uid="G0" MinWidth="10">
+                                        <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                        <CheckBox x:Uid="chkIsSelected"  IsChecked="{Binding IsSelected, Mode=TwoWay}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Name="clmnExport_Date" Header="{DynamicResource CExportDetails_xaml_clmnExport_Date}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate x:Uid="T9">
+                                    <Grid x:Uid="G0" MinWidth="10">
+                                        <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                        <TextBlock x:Uid="Export_Date"   Text="{Binding Date}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Name="clmnExport_Type" Header="{DynamicResource CExportDetails_xaml_clmnExport_Type}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate x:Uid="T9">
+                                    <Grid x:Uid="G0" Width="Auto">
+                                        <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                        <TextBlock x:Uid="Export_Type"   Text="{Binding ExportType}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn x:Name="clmnExport_Status" Header="{DynamicResource CExportDetails_xaml_clmnExport_Status}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate x:Uid="T9">
+                                    <Grid x:Uid="G0" MinWidth="10">
+                                        <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                        <TextBlock x:Uid="Export_Status"   Text="{Binding Status}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button  Grid.Column="0" Grid.Row="2"  HorizontalAlignment="Center" x:Uid="btn_Refresh" 
+                     Style="{DynamicResource BMC_Button}" Name="btn_Refresh"
+                     Content="{DynamicResource CExportDetails_xaml_btn_Refresh}"
+                     Width="137" Height="55" VerticalAlignment="Top"
+                     Click="btn_Refresh_Click" ></Button>
+
+            <Label Grid.Column="1" Grid.Row="2" FontWeight="Bold" FontSize="18" FontFamily="Segoe UI"  Foreground="White"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" Name="lblExportType" x:Uid="lblExportType"
+                   Content="{DynamicResource CExportDetails_xaml_lbStatusType}" Grid.ColumnSpan="3" Margin="0,11,0,10" Width="260"/>
+
+            <ComboBox Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"  DisplayMemberPath="Description" SelectedValuePath="Type"
+                      Style="{DynamicResource BMC_ComboBoxStyle}" Height="30" Name="cmbStatusType" Grid.ColumnSpan="2" Margin="0,13,30,12" Width="98" />
+
+            <Button Grid.Column="4" Grid.Row="2"  HorizontalAlignment="Center" x:Uid="btn_Update" 
+                    Style="{DynamicResource BMC_Button}" Name="btn_Update" 
+                    Content="{DynamicResource CExportDetails_xaml_btn_Update}" 
+                    Width="137" Height="55" VerticalAlignment="Top"
+                    Click="btn_Update_Click"/>
+
+            <ProgressBar x:Uid="pgBarExportDetails" x:Name="pgBarExportDetails" HorizontalAlignment="Center" VerticalAlignment="Bottom" Minimum="0" Maximum="100" Height="20" Width="290" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" d:LayoutOverrides="GridBox" />
+            <TextBlock x:Uid="txtPGStatusExportDetails" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" x:Name="txtPGStatusExportDetails" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" d:LayoutOverrides="GridBox" Foreground="White"/>
+        </Grid>
+    </Grid>
+</UserControl>

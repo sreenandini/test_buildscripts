@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Exchange" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=WS-IN469;Initial Catalog=Exchange;User ID=sa" SettingsObjectName="BMC.DBInterface.CashDeskOperator.Properties.Settings" SettingsPropertyName="ExchangeConnectionString2" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.usp_UpdateFinalStatusTicketException" Method="usp_UpdateFinalStatusTicketException">
+    <Parameter Name="TEID" Parameter="tEID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_VoidTreasury_CreateNegTran" Method="usp_VoidTreasury_CreateNegTran">
+    <Parameter Name="TreasuryNo" Parameter="treasuryNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dDate" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dTime" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UserNo" Parameter="userNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OutVal" Parameter="outVal" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.rsp_GetInstallationList" Method="rsp_GetInstallationList">
+    <ElementType Name="rsp_GetInstallationListResult">
+      <Column Name="Bar_Pos_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stock_No" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Installation_Reference" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Installation_No" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_InsertTreasury" Method="usp_InsertTreasury">
+    <Parameter Name="Installation_No" Parameter="installation_No" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Collection_No" Parameter="collection_No" Type="System.Int32" DbType="Int" />
+    <Parameter Name="User_ID" Parameter="user_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Treasury_Type" Parameter="treasury_Type" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Treasury_Reason" Parameter="treasury_Reason" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Treasury_Amount" Parameter="treasury_Amount" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Treasury_Allocated" Parameter="treasury_Allocated" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Treasury_Membership_No" Parameter="treasury_Membership_No" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Treasury_Reason_Code" Parameter="treasury_Reason_Code" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Treasury_Issuer_User_No" Parameter="treasury_Issuer_User_No" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Treasury_Temp" Parameter="treasury_Temp" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Treasury_Float_Issued_By" Parameter="treasury_Float_Issued_By" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Treasury_Actual_Date" Parameter="treasury_Actual_Date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="CustomerID" Parameter="customerID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="TreasuryNo" Parameter="treasuryNo" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.rsp_GetGMUPosDetails" Method="GetGMUPosDetails">
+    <Parameter Name="IPList" Parameter="iPList" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="rsp_GetGMUPosDetailsResult">
+      <Column Name="IsChecked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BarPostion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

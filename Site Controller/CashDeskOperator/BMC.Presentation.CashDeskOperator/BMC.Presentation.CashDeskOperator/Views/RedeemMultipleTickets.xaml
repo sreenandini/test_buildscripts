@@ -1,0 +1,275 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.Views.RedeemMultipleTickets"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
+        Height="553" Width="863" 
+        xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+         
+             BorderThickness="1.5" BorderBrush="{DynamicResource MainScreenBG}" 
+        Background="{DynamicResource SubFormBG}" Loaded="Window_Loaded" Unloaded="Window_Unloaded"  >
+    <UserControl.Resources>
+
+        <Helper_classes:MultiTicketsColorConverter x:Uid="src:PriceConverter_2" x:Key="ColorConverter"/>
+
+        <Helper_classes:WeekBatchGridVisibility x:Uid="src:VisibilityConverter" x:Key="VisibilityConverter"/>
+        
+        <Style x:Key="GlassButton" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="ButtonBorder" 
+CornerRadius="5,5,5,5" 
+BorderThickness="2,2,2,2" 
+Background="#AA000000" 
+BorderBrush="#99FFFFFF"
+RenderTransformOrigin="0.5,0.5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="1.7*"/>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" CornerRadius="6,6,0,0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <GradientStop Color="#08FFFFFF" Offset="0"/>
+                                            <GradientStop Color="#88FFFFFF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <ContentPresenter x:Name="ButtonContentPresenter"
+VerticalAlignment="Center" 
+Grid.RowSpan="2" 
+HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform" TargetName="ButtonBorder">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Black" TargetName="ButtonBorder">
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#999999" TargetName="ButtonBorder">
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <Grid  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  >
+        <Grid.RowDefinitions >
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="320"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--For the Header-->
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="41"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Uid="txtHeader" Margin="15,10,0,0" Grid.Column="0" x:Name="txtHeader" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.274,0.476" Text="{DynamicResource CRedeemMultipleVoucherScreenTitle}" Foreground="#FFFFFFFF" Height="21" Width="250" Grid.ColumnSpan="2" />
+            <Path x:Uid="Path_1" Grid.Column="0" Margin="15,40,0,0" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998"  Grid.ColumnSpan="2">
+                <Path.Fill>
+                    <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                        <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                        <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <!--<Button x:Uid="btnExit" HorizontalAlignment="Right" Grid.Column="2"  Width="44"  Style="{DynamicResource BMC_App_Exit}"  x:Name="btnExit" Click="btnExit_Click" />-->
+        </Grid>
+
+        <!-- for the label -->
+        <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="41"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="510" ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="10,9,0,0"  x:Uid="lblBarcode" x:Name="lblBarcode" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"   Text="{DynamicResource MultipleTicketsLabel}" Foreground="Black" Height="40" Width="510" />
+            <TextBox Uid="txtBarcodeVal" HorizontalAlignment="Stretch" Name="txtBarcodeVal" TextAlignment="Left" FontFamily="Segoe UI" FontSize="16" FontWeight="Black" Grid.Row="0" Grid.Column="1" Style="{DynamicResource TextBoxStyle1}"  Height="30" Width="327" Margin="0,0,0,0"  PreviewMouseUp="txtBarcodeVal_PreviewMouseUp" TextChanged="txtBarcodeVal_TextChanged" KeyUp="txtBarcodeVal_KeyUp" PreviewTextInput="txtBarcodeVal_PreviewTextInput"/>
+        </Grid>
+
+        <!--For the Grid and ListView-->
+
+        <ListView Grid.Row="2"  ScrollViewer.HorizontalScrollBarVisibility="Auto"  VerticalAlignment="Top"                  
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" x:Uid="lvTickets" x:Name="lvTickets" 
+                      IsSynchronizedWithCurrentItem="True"  Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontSize="13"
+                      FontFamily="Segoe UI" ItemsSource="{Binding Mode=Default}" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" 
+                      SelectionMode="Single"  Height="340" Width="825" Margin="10,0,0,0" Grid.RowSpan="2" >
+            <ListView.View>
+                <GridView x:Uid="gd_Tickets">
+
+                    <GridViewColumn x:Name="clmnTicketNumber" Header="{DynamicResource CRedeemMultipleTicketBarcode}" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="T0">
+                                <Grid x:Uid="G0" MinWidth="10">
+                                    <Border x:Uid="Border_1" BorderBrush="Black"   BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="TxtTickNo" Name="TxtTickNo"  Text="{Binding Barcode,Mode=TwoWay}" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="clmnAmount"  Width="150">
+
+                        <GridViewColumn.Header>
+                            <TextBlock>
+                            <Run Text="{DynamicResource CRedeemMultipleTicketAmount}"></Run>
+                            <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                            </TextBlock>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="T4">
+                                <Grid x:Uid="G3" MinWidth="10">
+                                    <Border x:Uid="Border_1" BorderBrush="Black"   BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="txtTicketAmount" Name="txtTicketAmount"  Text="{Binding Amount, Mode=TwoWay,StringFormat=0.00}" TextAlignment="Right" Padding="5"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="clmnProcessingState" Header="{DynamicResource CRedeemMultipleTicketprocessingStatus}" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="T1">
+                                <Grid x:Uid="G1" MinWidth="10">
+                                    <Border x:Uid="Border_1" BorderBrush="Black"   BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <TextBlock x:Uid="txtStatus"  Foreground="{Binding Path=TicketStatus,Converter={StaticResource ColorConverter}}"  Name="txtStatus"  Text="{Binding Status, Mode=TwoWay}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn x:Name="clmnCancel"  Width="156.6">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate x:Uid="T2">
+                                <Grid x:Uid="G2" MinWidth="10">
+                                    <Border x:Uid="Border_1" BorderBrush="Black"   BorderThickness="0,0,0.5,0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <!--<Button x:Uid="btnRemove" HorizontalAlignment="Stretch" Style="{StaticResource GlassButton}"  Margin="0,0,10,0"
+                                            Content="Remove"  x:Name="btnRemove" Click="btnRemove_Click" IsEnabled="{Binding  IsRemoveVoucherEnable}" 
+                                            />-->
+                                    <Image  Height="30" Width="30"  HorizontalAlignment="Center"   Source="/Resources/CloseBox.png" Visibility="{Binding Path=IsRemoveVoucherEnable, Converter={StaticResource VisibilityConverter}}" MouseDown="Image_MouseDown" ></Image>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Grid.Row="3">
+            <StackPanel x:Uid="ticketsummary" x:Name="ticketsummary" Orientation="Horizontal" Background="#122633" Height="35" Margin="25,10,15,5">
+                <Grid x:Uid="grdSummary" MinWidth="5">
+                    <Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border x:Uid="Border_9" x:Name="Border_9" Margin="0,0,-1,-1" Background="#FFD8EAF3" BorderBrush="White" BorderThickness="0.5,0,0.5,0"/>
+                    <TextBlock x:Uid="txtAmount" Padding="5,0,0,0" TextAlignment="Left"  Grid.Row="0" Grid.Column="0" Height="35"
+                               Width="200" x:Name="txtAmount" FontSize="13" FontFamily="Segoe UI" FontWeight="Bold" Background="#122633" Foreground="White">
+                        <Run Text="{DynamicResource CRedeemMultipleTicketTotalAmount}"></Run>
+                        <Run Text="{DynamicResource App_CurrencyCulture}"></Run> 
+                    </TextBlock>
+
+                    <TextBox  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch"  x:Uid="txtAmountVal" x:Name="txtAmountVal" 
+                               TextAlignment="Right" Background="#122633" FontFamily="Segoe UI" 
+                              FontWeight="ExtraBold" FontSize="14" VerticalAlignment="Top"   Text=""  Height="35" Width="150" IsReadOnly="True" Foreground="White"
+                              Visibility="Visible" Margin="1,0,0,0"/>
+                    
+                    <TextBlock  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                                x:Uid="txtCount" x:Name="txtCount" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="ExtraBold" 
+                                FontSize="14"   Text="{DynamicResource CRedeemMultipleTicketTotalCount}" Foreground="White" Height="35" 
+                                Visibility="Visible"  Width="180" Padding="5,0,0,0" Margin="75,0,0,0"/>
+
+                    <TextBox  Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch"  x:Uid="txtCountVal" x:Name="txtCountVal" 
+                               TextAlignment="Right" Background="#122633" FontFamily="Segoe UI" 
+                              FontWeight="ExtraBold" FontSize="14" VerticalAlignment="Top"   Text=""  Height="35" Width="150" IsReadOnly="True" Foreground="White"
+                              Visibility="Visible" Padding="5,0,0,0" Margin="53,0,0,0"/>
+
+                </Grid>
+            </StackPanel>     
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="0">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"></ColumnDefinition>
+                <ColumnDefinition Width="57*"></ColumnDefinition>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Uid="txtFinalStatus" Grid.Column="0" Name="txtFinalStatus" Text="{DynamicResource CRedeemMultipleTicketErrorStatus}" 
+                    Grid.Row="0" Width="150" Height="30"  FontFamily="Segeo UI" VerticalAlignment="Stretch"
+                   FontSize="16" FontStyle="Normal" FontWeight="Bold" Foreground="Black" Margin="50,10,0,0" HorizontalAlignment="Center"> 
+            </TextBlock>
+
+            <TextBox Uid="txtErrorStatus" Name="txtErrorStatus" Text="{Binding UIProcess, Mode=TwoWay}"
+                 Grid.Row="0" FontFamily="Segeo UI" TextAlignment="Left" Height="30" Width="550" HorizontalAlignment="Center"
+                 FontSize="16" FontStyle="Normal" FontWeight="Bold" Foreground="Red" Style="{DynamicResource TextBoxStyle1}" IsReadOnly="True"
+                     Margin="220,10,0,0" Grid.ColumnSpan="3"/>
+        </Grid>
+
+
+        <Grid   Grid.Column="0" Grid.Row="5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"></ColumnDefinition>
+                <ColumnDefinition Width="272*"/>
+                <ColumnDefinition Width="286*"></ColumnDefinition>
+                <ColumnDefinition Width="287*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Uid="btnStopRedeem"    Content="{DynamicResource StopMultipleRedeeming}" 
+                Style="{DynamicResource BMC_Button}"  x:Name="btnStopRedeem" 
+                HorizontalAlignment="Center" Click="btnStopRedeem_Click" Width="100" VerticalAlignment="Bottom" 
+                Grid.Column="1" Grid.Row="0" Margin="79,0,93,0" />
+
+            <Button x:Uid="btnClearRedeem"   Content="{DynamicResource ClearMultipleRedeeming}" 
+                Style="{DynamicResource BMC_Button}"  x:Name="btnClearRedeem" 
+                HorizontalAlignment="Center" Grid.Row="0"  Click="btnClearRedeem_Click" Width="100"  VerticalAlignment="Bottom" 
+                Grid.Column="2" Margin="93,0"  />
+            <Button x:Uid="btnRedeemTickets"   Content="{DynamicResource RedeemTicketButton}" 
+                Style="{DynamicResource BMC_Button}"  x:Name="btnRedeemTickets" 
+                HorizontalAlignment="Center" Grid.Row="0"  Click="btnRedeemTickets_Click" Width="100" VerticalAlignment="Bottom"   
+                Grid.Column="3" Margin="93,0,94,0" />
+
+        </Grid>
+       
+    </Grid>
+</UserControl>

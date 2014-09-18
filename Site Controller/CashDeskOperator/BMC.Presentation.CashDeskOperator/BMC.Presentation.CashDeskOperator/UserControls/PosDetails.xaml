@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="ucPosDetails" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="BMC.Presentation.PosDetails" xmlns:BMC.Presentation="clr-namespace:BMC.Presentation" x:Name="ucPosDetails" Width="850" Height="645" Background="{DynamicResource MainScreenBG}" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+    <Grid x:Uid="LayoutRoot" Width="850" Height="645" x:Name="LayoutRoot">
+        <Grid x:Uid="pnlHeader" x:Name="pnlHeader" Height="83.242" Margin="5,6,5,0" DockPanel.Dock="Top" VerticalAlignment="Top">
+            <Canvas x:Uid="Canvas_1" Margin="0,0,0,-14">
+                <StackPanel Canvas.Left="270" Canvas.Top="6" Orientation="Horizontal" Width="190">
+                    <TextBlock x:Uid="TextBlock_5" Width="80" Height="20" FontSize="13" Foreground="#FFFFFFFF" Text="{DynamicResource EnrollmentWnd_xaml_PercentagePayOut}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Bold" d:LayoutOverrides="Height" />
+                    <TextBlock x:Uid="lblPercentagePayout" FontFamily="Segoe UI" FontSize="13" x:Name="lblPercentagePayout" Foreground="#FFFFFFFF" d:LayoutOverrides="Height" Width="100" Height="20" Margin="0" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Canvas.Left="66" Canvas.Top="6" Width="200" Height="19">
+                    <TextBlock x:Uid="TextBlock_3" Width="96" Height="20" FontSize="13" Foreground="#FFFFFFFF" Text="{DynamicResource PosDetails_xaml_TextBlock_3}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Bold" />
+                    <TextBlock x:Uid="lblAsset" FontFamily="Segoe UI" FontSize="13" Foreground="#FFFFFFFF"  x:Name="lblAsset" Width="100" Height="17"/>
+                </StackPanel>
+
+                <StackPanel Canvas.Left="270" Canvas.Top="30" Orientation="Horizontal" Width="190">
+                    <TextBlock x:Uid="TextBlock_4" Width="80" Height="20" Text="{DynamicResource EnrollmentWnd_xaml_BaseDenom}" TextWrapping="Wrap" Foreground="#FFFFFFFF" FontSize="13" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Bold" Canvas.Left="325" Canvas.Top="30" />
+                    <TextBlock  x:Uid="lblBaseDenom"  FontFamily="Segoe UI" FontSize="13" x:Name="lblBaseDenom" Foreground="#FFFFFFFF" Height="17" Width="100" Canvas.Left="416" Canvas.Top="30" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Canvas.Left="465" Canvas.Top="31" Width="326" Height="20">
+                    <TextBlock x:Uid="TextBlock_6" Width="192" Height="28" FontSize="13" Foreground="#FFFFFFFF" Text="{DynamicResource EnrollmentWnd_xaml_MaxBet}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Bold" />
+                    <TextBlock x:Uid="lblMaxBet" FontFamily="Segoe UI" FontSize="13" TextAlignment="Left" Foreground="#FFFFFFFF" x:Name="lblMaxBet" Width="65" Height="17" Canvas.Left="739" Canvas.Top="31" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Canvas.Left="270" Canvas.Top="55" Width="190" Height="19.5">
+                    <TextBlock x:Uid="txtCreditValue" Width="80" Height="20" Text="{DynamicResource EnrollmentWnd_xaml_CoinValue}" TextWrapping="Wrap"  Foreground="#FFFFFFFF" FontSize="13" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Bold" />
+                    <TextBlock x:Uid="lblCreditValue" FontFamily="Segoe UI" FontSize="13" x:Name="lblCreditValue" Foreground="#FFFFFFFF" Width="100" Height="17" TextWrapping="WrapWithOverflow" />                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Canvas.Left="270" Canvas.Top="80" Width="190" Height="19.5" Visibility="Collapsed">
+                    <TextBlock x:Uid="lblRoute" Name="lblRoute"  Width="80" Height="20" Text="{DynamicResource PosDetails_xaml_Route}" TextWrapping="Wrap" Foreground="#FFFFFFFF" FontSize="13" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Bold" />
+                    <TextBlock x:Uid="txtRoute" FontFamily="Segoe UI" FontSize="13" x:Name="txtRoute" Foreground="#FFFFFFFF" TextWrapping="WrapWithOverflow"  Width="130" Height="17"/>                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Canvas.Left="66" Canvas.Top="31" Width="200">
+                    <TextBlock FontFamily="{DynamicResource SegoeUI20}" FontSize="13" FontWeight="Bold" Foreground="White" Height="20" Text="{DynamicResource EnrollmentWnd_xaml_SerialNo}" TextWrapping="Wrap" Width="96"  />
+                    <TextBlock x:Uid="lblSerialNo" x:Name="lblSerialNo" FontFamily="Segoe UI" FontSize="13" Foreground="White" Height="17" Width="100" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Canvas.Left="465" Canvas.Top="80" Width="264" Height="17.242">
+                    <TextBlock FontFamily="{DynamicResource SegoeUI20}" FontSize="13" FontWeight="Bold" Foreground="White" Height="39" Text="{DynamicResource EnrollmentWnd_xaml_Manufacturer}" TextWrapping="Wrap" Width="100" />
+                    <TextBlock x:Uid="lblManufacturer" x:Name="lblManufacturer" TextAlignment="Left"  FontFamily="Segoe UI" FontSize="13" Foreground="White" Height="36" Width="166" TextWrapping="Wrap" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Canvas.Left="66" Canvas.Top="54" Width="200">
+                    <TextBlock FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="White" Height="39" Text="{DynamicResource PosDetails_xaml_AssetNo}" TextWrapping="Wrap" Width="96" FontWeight="Bold" />
+                    <TextBlock x:Uid="lblActAsset" x:Name="lblActAsset" FontFamily="Segoe UI" FontSize="13" Foreground="White" Height="37" Width="100" TextWrapping="Wrap" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Canvas.Left="66" Canvas.Top="82" Width="200">
+                    <TextBlock FontFamily="{DynamicResource SegoeUI20}" FontSize="13" FontWeight="Bold" Foreground="White" Height="39" Text="{DynamicResource MachineRemoval_xaml_TextBlock_4}" TextWrapping="Wrap" Width="96" />
+                    <TextBlock x:Uid="lblGMU" x:Name="lblGMU" FontFamily="Segoe UI" FontSize="13" Foreground="White" Height="37" Width="100" TextWrapping="Wrap" />
+                </StackPanel>
+                
+                <Button x:Uid="btnExit" Width="42" Content="{DynamicResource PosDetails_xaml_Button_Exit}" Style="{DynamicResource BMC_App_Exit}" RenderTransformOrigin="0.455,0.272" x:Name="btnExit" Height="64" IsCancel="False" Click="btn_Exit" Canvas.Left="797" />
+                <BMC.Presentation:SlotMachine Width="60" InnerRoundColor="#FFC6C6C6" x:Name="ucSlotMachine" Height="62" Canvas.Top="16.052" />
+                <StackPanel Orientation="Horizontal" Canvas.Left="465" Canvas.Top="56.25" Width="328" Height="31.75">
+                    <TextBlock FontFamily="{DynamicResource SegoeUI20}" FontSize="13" FontWeight="Bold" Foreground="White" Height="32" Text="{DynamicResource EnrollmentWnd_xaml_ZoneName}" TextWrapping="Wrap" Width="192" />
+                    <TextBlock x:Uid="lblZoneName" x:Name="lblZoneName"  TextAlignment="Left" FontFamily="Segoe UI" FontSize="13" Foreground="White" Height="31" Width="138" TextWrapping="Wrap" />
+                </StackPanel>
+            </Canvas>
+        </Grid>
+        <Grid x:Uid="Grid_1" Margin="0,95,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Uid="ColumnDefinition_1" Width="750*" />
+            </Grid.ColumnDefinitions>
+            <Grid x:Uid="Grid_2" HorizontalAlignment="Left" Width="120" Margin="0,7,0,-7">
+                <ScrollViewer Template="{DynamicResource LeftNav_ScrollViewer}" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,4,0,-4">
+                    <StackPanel x:Uid="StackPanel_1" Orientation="Vertical" Grid.RowSpan="10">
+                        <RadioButton x:Uid="rbHandpay" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbHandpay}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="Handpay_Click" Name="rbHandpay"/>
+                        <RadioButton x:Uid="rbPlayerClub" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbPlayerClub}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="PlayerClub_Click" Name="rbPlayerClub" />
+                        <RadioButton x:Uid="rbFieldService" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbFieldService}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="FldService_Click" Name="rbFieldService" />
+                        <RadioButton x:Uid="rbEvents" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbEvents}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="Events_Click" Name="rbEvents" />
+                        <!--<RadioButton HorizontalAlignment="Center" VerticalAlignment="Top" Content="Machine Enroll" d:LayoutOverrides="Height" Margin="0,290,0,8" Style="{DynamicResource BMC_RadioStyle}" Click="MCEnroll_Click" Name="rbMachineEnroll" />-->
+                        <RadioButton x:Uid="rbMachineMeters" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbMachineMeters}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="MCMeters_Click" Name="rbMachineMeters" />
+                        <RadioButton x:Uid="rbCurrentMeters" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbCurrentMeters}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="MCCurrentMeters_Click" Name="rbCurrentMeters" />
+                        <RadioButton x:Uid="rbRemoveMachine" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbRemoveMachine}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="RemoveMachine_Click" Name="rbRemoveMachine" />
+                        <RadioButton x:Uid="rbMachineMaintenance" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbMachineMaintenance}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Name="rbMachineMaintenance" Click="rbMachineMaintenance_Click"/>
+                        <RadioButton x:Uid="rbReInstateMachine" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbReInstateMachine}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Name="rbReInstateMachine" Click="rbReInstateMachine_Click" />
+                        <RadioButton x:Uid="rbSyncTicketExpire" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Content="{DynamicResource PosDetails_xaml_rbSyncTicketExpire}" d:LayoutOverrides="Height" Style="{DynamicResource BMC_RadioStyle}" Click="SyncTicketExpire_Click" Name="rbSyncTicketExpire" />
+                        <!--<RadioButton HorizontalAlignment="Center" VerticalAlignment="Top" Content="Coin Fills and Credits" d:LayoutOverrides="Height" Margin="0,430,0,8" Style="{DynamicResource BMC_RadioStyle}" Click="FillsCredits_Click" Name="rbFillsCredits" />-->
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            <Grid x:Uid="pnlContent" Loaded="pnlContent_Loaded" Margin="120,13,0,-10" x:Name="pnlContent" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup x:Uid="TransformGroup_1">
+                        <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+                        <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+                        <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+                        <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+                    </TransformGroup>
+                </Grid.RenderTransform>
+            </Grid>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Height="18.5" Width="326" HorizontalAlignment="Right"  Margin="0,13.5,54,0"  VerticalAlignment="Top">
+            <TextBlock x:Uid="TextBlock_2" Width="192" Height="20" FontSize="13" Foreground="#FFFFFFFF" Text="{DynamicResource PosDetails_xaml_TextBlock_2}" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontWeight="Bold" d:LayoutOverrides="Height" />
+                    <TextBlock x:Uid="lblGame" TextAlignment="Left" FontFamily="Segoe UI" FontSize="13" x:Name="lblGame" Foreground="#FFFFFFFF" d:LayoutOverrides="Height" Width="136" Height="17" />
+                
+                </StackPanel>
+    </Grid>
+</UserControl>

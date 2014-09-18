@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Exchange" Class="CashDispenserDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ws-in009;Initial Catalog=Exchange;Persist Security Info=True;User ID=sa" SettingsObjectName="BMC.CashDispenser.Core.Properties.Settings" SettingsPropertyName="ExchangeConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.rsp_GetCashDispenserItems" Method="GetCashDispenserItems">
+    <ElementType Name="rsp_GetCashDispenserItemsResult">
+      <Column Name="CassetteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CassetteName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CassetteAlias" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Denomination" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalValue" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IssuedValue" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="RejectedValue" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_UpdateCashDispenserItemValues" Method="UpdateCashDispenserItemValues">
+    <Parameter Name="CassetteID" Parameter="cassetteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IssuedValue" Parameter="issuedValue" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="RejectedValue" Parameter="rejectedValue" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="IssuedValueOut" Parameter="issuedValueOut" Type="System.Decimal" DbType="Decimal(18,0)" Direction="InOut" />
+    <Parameter Name="RejectedValueOut" Parameter="rejectedValueOut" Type="System.Decimal" DbType="Decimal(18,0)" Direction="InOut" />
+    <Parameter Name="Result" Parameter="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdateCashDispenserItem" Method="UpdateCashDispenserItem">
+    <Parameter Name="CassetteID" Parameter="cassetteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CassetteAlias" Parameter="cassetteAlias" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Denomination" Parameter="denomination" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TotalValue" Parameter="totalValue" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="User_ID" Parameter="user_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="User_Name" Parameter="user_Name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Result" Parameter="result" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

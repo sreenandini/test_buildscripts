@@ -1,0 +1,344 @@
+﻿<UserControl x:Uid="UserControl" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:c="clr-namespace:BMC.Presentation"
+            xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+             x:Class="BMC.Presentation.CGridView" x:Name="UserControl" mc:Ignorable="d" xmlns:DragCanvas="clr-namespace:BMC.Presentation.Helper_classes" xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" Width="870" Height="660" RenderTransformOrigin="0.5,0.5" Loaded="UserControl_Loaded"
+             >
+    <UserControl.Resources>
+        <Helper_classes:PriceConverterWithSymbol x:Key="PriceConverterWithSymbol" />
+        <Helper_classes:GridRowBackColor x:Uid="Helper_classes:GridRowBackColor" x:Key="GridRowBackColor" />
+
+        <Style x:Key="rightAlignedCurrencyStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+
+    </UserControl.Resources>
+    <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" >
+        <TextBlock TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Margin="13,14,0,0" RenderTransformOrigin="0.5,0.5" Text="Grid View Details" Foreground="#FFFFFFFF" Height="29" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform></TextBlock>
+        <Path x:Uid="Path_1" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " VerticalAlignment="Top" Height="1.998" Margin="10,40,658.025,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+
+        <Grid x:Uid="GridRoot" x:Name="GridRoot">
+
+
+            <Custom:DataGrid x:Uid="dgGridView" SelectionUnit="Cell"   IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" x:Name="dgGridView"  Margin="6,47,7,0" Height="542" VerticalAlignment="Top"  ItemsSource="{Binding}" AutoGenerateColumns="False" 
+                                 Style="{DynamicResource dgstyle}"     RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" Sorting="dgGridView_Sorting" >
+                <Custom:DataGrid.RowStyle>
+                    <Style TargetType="Custom:DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsTotalRow}" Value="True">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Custom:DataGrid.RowStyle>
+                <Custom:DataGrid.Columns>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_Position}" Width="80" Binding="{Binding Path=Position}">
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =Position}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_Asset}" Width="100" Binding="{Binding Path=Asset_No}">
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =Asset_No}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+
+                    <Custom:DataGridTextColumn Header="{DynamicResource CGridView_xaml_GVColumn_Zone}" Width="100" Binding="{Binding Path=Zone}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =Zone}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn Header="{DynamicResource CGridView_xaml_GVColumn_GameTitle}" Width="100" Binding="{Binding Path=Game_Title}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =Game_Title}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn Header="{DynamicResource CGridView_xaml_GVColumn_GMUNo}" Width="100" Binding="{Binding Path=GMUNo}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =GMUNo}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn Header="{DynamicResource CGridView_xaml_GVColumn_Maufacturer}" Width="100" Binding="{Binding Path=Maufacturer}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =Maufacturer}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_Category}" Width="100" Binding="{Binding Path=Category}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =Category}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_Base_Denom}" Width="100" Binding="{Binding Path=Base_Denom}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =Base_Denom}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_CoinValue}" Width="100" Binding="{Binding Path=CoinValue}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =CoinValue}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_PayoutPer}" Width="100" Binding="{Binding Path=PayoutPer}" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =PayoutPer}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_BillValStatus}" Width="180" Binding="{Binding Path=BillValStatus}" >
+                        <Custom:DataGridTextColumn.CellStyle>
+                            <Style TargetType="Custom:DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding Path =BillValStatus}"></Setter>
+                            </Style>
+
+                        </Custom:DataGridTextColumn.CellStyle>
+                    </Custom:DataGridTextColumn>
+                    <!--<Custom:DataGridTextColumn  Header="{DynamicResource CGridView_xaml_GVColumn_GameCapping}" Width="80" Binding="{Binding Path=GameCapping}" />-->
+                    <Custom:DataGridTemplateColumn Header="{DynamicResource CGridView_xaml_GVColumn_GameCapping}" ClipboardContentBinding="{Binding GameCapping}" SortMemberPath="GameCapping" Width="135">
+                        <Custom:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:Uid="PlayStatusTemplate">
+                                <Grid x:Uid="grdPlayStatusTemplate" MinWidth="5">
+                                    <Border x:Uid="Border_4" BorderBrush="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <Image x:Uid="Image1" Height="18" Width="18" x:Name="Image1" Visibility="Collapsed" Source="..\Images\GameCapping.png" />
+                                </Grid>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger x:Uid="DataTrigger_3" Binding="{Binding Path=GameCapping}" Value="1">
+                                        <Setter x:Uid="Setter_2" TargetName="Image1" Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </Custom:DataGridTemplateColumn.CellTemplate>
+                    </Custom:DataGridTemplateColumn>
+                    <Custom:DataGridTemplateColumn  Header="{DynamicResource CGridView_xaml_GVColumn_EventStatus}" ClipboardContentBinding="{Binding Event_Status}" SortMemberPath="Event_Status" Width="80">
+                        <Custom:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid x:Uid="grdEventStatusTemplate" MinWidth="5">
+                                    <Border x:Uid="Border_3" BorderBrush="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <Image x:Uid="Image1" Height="16" Width="16" x:Name="Image1" Visibility="Collapsed" Source="..\Images\Failure.PNG" />
+                                    <Image x:Uid="Image2" Height="16" Width="16" x:Name="Image2" Visibility="Collapsed" Source="..\Images\Success.PNG" />
+                                </Grid>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger x:Uid="DataTrigger_1" Binding="{Binding Path=Event_Status}" Value="true">
+                                        <Setter x:Uid="Setter_1" TargetName="Image1" Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger x:Uid="DataTrigger_2" Binding="{Binding Path=Event_Status}" Value="false">
+                                        <Setter x:Uid="Setter_2" TargetName="Image2" Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </Custom:DataGridTemplateColumn.CellTemplate>
+                    </Custom:DataGridTemplateColumn>
+
+                    <Custom:DataGridTemplateColumn  Header="{DynamicResource CGridView_xaml_GVColumn_PlayStatus}" ClipboardContentBinding="{Binding Play_Status}" SortMemberPath="Play_Status" Width="80">
+                        <Custom:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:Uid="PlayStatusTemplate">
+                                <Grid x:Uid="grdPlayStatusTemplate" MinWidth="5">
+                                    <Border x:Uid="Border_4" BorderBrush="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <Image x:Uid="Image1" Height="16" Width="16" x:Name="Image1" Visibility="Collapsed" Source="..\Images\CardedPlay.png" />
+                                    <Image x:Uid="Image2" Height="16" Width="16" x:Name="Image2" Visibility="Collapsed" Source="..\Images\UncardedPlay.png" />
+                                </Grid>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger x:Uid="DataTrigger_2" Binding="{Binding Path=Play_Status}" Value="2">
+                                        <Setter x:Uid="Setter_1" TargetName="Image1" Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger x:Uid="DataTrigger_3" Binding="{Binding Path=Play_Status}" Value="1">
+                                        <Setter x:Uid="Setter_2" TargetName="Image2" Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </Custom:DataGridTemplateColumn.CellTemplate>
+                    </Custom:DataGridTemplateColumn>
+
+                    <Custom:DataGridTemplateColumn  Header="{DynamicResource CGridView_xaml_GVColumn_DropStatus}" ClipboardContentBinding="{Binding Drop_Status}" SortMemberPath="Drop_Status" Width="100" >
+                        <Custom:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:Uid="DropStatusTemplate">
+                                <Grid x:Uid="grdDropStatusTemplate" MinWidth="5">
+                                    <Border x:Uid="Border_5" BorderBrush="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <Image x:Uid="Image4" Height="20" Width="20" x:Name="Image4" Visibility="Collapsed" Source="..\Images\moneybag.png" />
+                                </Grid>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger x:Uid="DataTrigger_12" Binding="{Binding Path=Drop_Status}" Value="2">
+                                        <Setter x:Uid="Setter_1" TargetName="Image4" Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </Custom:DataGridTemplateColumn.CellTemplate>
+                    </Custom:DataGridTemplateColumn>
+                    <Custom:DataGridTemplateColumn  Header="{DynamicResource CGridView_xaml_GVColumn_TotalBuyIn}" ClipboardContentBinding="{Binding Total_BuyIn}" SortMemberPath="Total_BuyIn" Width="142" >
+                        <Custom:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:Uid="TotalBuyInTemplate">
+                                <Grid x:Uid="grdTotalBuyInTemplate" MinWidth="5" >
+                                    <Border x:Uid="Border_6" BorderBrush="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Path=Total_BuyIn_Color, Converter={StaticResource GridRowBackColor}}"/>
+                                    <TextBlock x:Uid="Total_BuyIn" TextAlignment="Right" Text="{Binding Path=Total_BuyIn,Converter={StaticResource PriceConverterWithSymbol}}" x:Name="Total_BuyIn" >
+                                        <TextBlock.ToolTip>
+                                            <TextBlock Text="{Binding Path=Total_BuyIn}"/>
+                                        </TextBlock.ToolTip>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </Custom:DataGridTemplateColumn.CellTemplate>
+                    </Custom:DataGridTemplateColumn>
+                    <Custom:DataGridTemplateColumn  Header="{DynamicResource CGridView_xaml_GVColumn_WinLoss}" Width="142" ClipboardContentBinding="{Binding Win_Loss}" SortMemberPath="Win_Loss" >
+                        <Custom:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:Uid="WinLossTemplate">
+                                <Grid x:Uid="grdWinLossTemplate" MinWidth="5">
+                                    <Border x:Uid="Border_7" BorderBrush="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Path=Win_Loss_Color, Converter={StaticResource GridRowBackColor}}"/>
+                                    <TextBlock x:Uid="Win_Loss" TextAlignment="Right" Text="{Binding Path=Win_Loss,Converter={StaticResource PriceConverterWithSymbol}}" x:Name="Win_Loss" >
+                                        <TextBlock.ToolTip>
+                                            <TextBlock Text="{Binding Path=Win_Loss}"/>
+                                        </TextBlock.ToolTip>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </Custom:DataGridTemplateColumn.CellTemplate>
+                    </Custom:DataGridTemplateColumn>
+                    <Custom:DataGridTemplateColumn  Header="{DynamicResource CGridView_xaml_GVColumn_TimePlayed}" Width="95" ClipboardContentBinding="{Binding Time_Played}" SortMemberPath="Time_Played">
+                        <Custom:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate x:Uid="TimePlayedTemplate" >
+                                <Grid x:Uid="grdTimePlayedTemplate" MinWidth="5">
+                                    <Border x:Uid="Border_8" BorderBrush="Black"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding Path=Time_Played_Color, Converter={StaticResource GridRowBackColor}}"/>
+                                    <TextBlock x:Uid="Time_Played" TextAlignment="Right" Text="{Binding Path=Time_Played}" x:Name="Time_Played" >
+                                        <TextBlock.ToolTip>
+                                            <TextBlock Text="{Binding Path=Time_Played}"/>
+                                        </TextBlock.ToolTip>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </Custom:DataGridTemplateColumn.CellTemplate>
+                    </Custom:DataGridTemplateColumn>
+                </Custom:DataGrid.Columns>
+            </Custom:DataGrid>
+        </Grid>
+
+
+        <StackPanel Width="270" Height="0"  Name="spPanel" VerticalAlignment="Bottom" Background="Gray" Margin="450,0,0,69">
+            <StackPanel Orientation="Horizontal">
+                <Label Width="8"></Label>
+                <Image x:Uid="CardedEvent" x:Name="CardedEvent" Width="25" Height="30" Source="../Images/CardedPlay.png" />
+                <Label Width="4"></Label>
+                <TextBlock Text="{DynamicResource CGridView_xaml_chkCarded}" FontSize="13" Width="198" Margin="0,7,0,0" Foreground="White" HorizontalAlignment="Left"></TextBlock>
+                <CheckBox x:Name="chkCarded" HorizontalAlignment="Right" Width="Auto" Foreground="#5CABD8" 
+                          Style="{DynamicResource bmc_General_Selected_State_Button_Style}"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=Carded, Mode=TwoWay}"></CheckBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Width="8"></Label>
+                <Image x:Uid="NonCardedEvent" x:Name="NonCardedEvent" Width="25" Height="30" Source="../Images/UncardedPlay.png" />
+                <Label Width="4"></Label>
+                <TextBlock Text="{DynamicResource CGridView_xaml_chkNonCarded}" FontSize="13" Width="198" Margin="0,7,0,0" Foreground="White" HorizontalAlignment="Left"></TextBlock>
+                <CheckBox x:Name="chkNonCarded" HorizontalAlignment="Right" Width="Auto" Foreground="#5CABD8" 
+                          Style="{DynamicResource bmc_General_Selected_State_Button_Style}"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=GamePlay, Mode=TwoWay}"></CheckBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Width="8"></Label>
+                <Image x:Uid="FloatCollection" x:Name="FloatCollectionImage" Width="25" Height="30" Source="../Images/moneybag.png" />
+                <Label Width="4"></Label>
+                <TextBlock Text="{DynamicResource CGridView_xaml_chkFloatUnDelared}" FontSize="13" Margin="0,7,0,0" Foreground="White" HorizontalAlignment="Left" Width="198"></TextBlock>
+                <CheckBox x:Name="chkFloatUnDelared" HorizontalAlignment="Right" Width="Auto" Foreground="Chocolate" 
+                          Style="{DynamicResource bmc_General_Selected_State_Button_Style}"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=FloatUnDeclared, Mode=TwoWay}"></CheckBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Width="8"></Label>
+                <Image x:Uid="UnclearedEvent" x:Name="UnclearedImageEvent" Width="25" Height="30" Source="../Images/Failure.png" />
+                <Label Width="4"></Label>
+                <TextBlock Text="{DynamicResource CGridView_xaml_chkUnclearedEvent}" FontSize="13" Width="198" Margin="0,7,0,0" Foreground="White" HorizontalAlignment="Left"></TextBlock>
+                <CheckBox x:Name="chkUnclearedEvent" HorizontalAlignment="Right" Width="Auto" Foreground="DarkRed" 
+                          Style="{DynamicResource bmc_General_Selected_State_Button_Style}"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=UnclearedEvent, Mode=TwoWay}"></CheckBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Width="8"></Label>
+                <Image x:Uid="ClearedEvent" x:Name="ClearedImageEvent" Width="25" Height="30" Source="../Images/Success.png" />
+                <Label Width="4"></Label>
+                <TextBlock Text="{DynamicResource CGridView_xaml_chkClearedEvent}" FontSize="13" Width="198" Margin="0,7,0,0" Foreground="White" HorizontalAlignment="Left"></TextBlock>
+                <CheckBox x:Name="chkClearedEvent" HorizontalAlignment="Right" Width="Auto" Foreground="DarkGreen" 
+                          Style="{DynamicResource bmc_General_Selected_State_Button_Style}"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=ClearedEvent, Mode=TwoWay}"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="8"></Label>
+                <Image x:Uid="GameCapping" x:Name="GameCappingImage" Width="25" Height="30" Source="../Images/GameCapping.png" />
+                <Label Width="4"></Label>
+                <TextBlock Text="{DynamicResource CGridView_xaml_chkGameCapping}" FontSize="13" Width="198" Margin="0,7,0,0" Foreground="White" HorizontalAlignment="Left"></TextBlock>
+                <CheckBox x:Name="chkGameCapping" HorizontalAlignment="Right" Width="Auto" Foreground="DarkBlue" 
+                          Style="{DynamicResource bmc_General_Selected_State_Button_Style}"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=GameCapping, Mode=TwoWay}"></CheckBox>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" Orientation="Vertical" Height="94">
+            <Label x:Uid="lblHelp" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="32" Margin="0,0,30,0" Content="{DynamicResource CGridView_xaml_lblHelp}" Style="{DynamicResource Gen_Style_Balloon}" Width="255" x:Name="lblHelp" Opacity="0" />
+            <Grid x:Uid="Grid_2" x:Name="OptionsGrid" Margin="8,0,8,13" VerticalAlignment="Bottom" Height="Auto">
+                <Border x:Uid="Border_1" x:Name="Border_Bottom" Height="Auto" Width="850" Margin="0,0,0,0" OpacityMask="{x:Null}" Background="#33000000" CornerRadius="10,10,10,0" d:LayoutOverrides="Height" />
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                        <StackPanel>
+                            <Button x:Uid="btnRefresh" Height="55" Content="{DynamicResource CGridView_xaml_btnRefresh}" Margin="0,0,0,0" x:Name="btnRefresh" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Click="btnRefresh_Click" />
+                        </StackPanel>
+                        <Grid x:Uid="StackPanel_2" HorizontalAlignment="Center" Margin="80,0,0,0" Width="Auto" Height="58" VerticalAlignment="Center">
+
+                            <Button x:Uid="lblOrderBy" x:Name="txtLegend" HorizontalAlignment="Right"  VerticalAlignment="Bottom"   Height="55" Style="{DynamicResource BMC_Button}"  Content="{DynamicResource CGridView_xaml_lblLegend}" Click ="txtLegend_Click" Margin="0,0,-658,0"/>
+                            <Button x:Uid="lblOrderBy_" x:Name="txtLegend_"   VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{DynamicResource BMC_Button}" Height="55" Content="{DynamicResource CGridView_xaml_lblLegend}" Foreground="#FFFFFFFF" Click="txtLegend__Click"  Visibility="Hidden" Margin="0,0,-658,0" />
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+    <!--</Grid>-->
+</UserControl>
+
+    

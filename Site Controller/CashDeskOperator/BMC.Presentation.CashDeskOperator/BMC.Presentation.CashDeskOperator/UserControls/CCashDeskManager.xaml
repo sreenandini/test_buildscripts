@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="UserControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="BMC.Presentation.CCashDeskManager"
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+             x:Name="UserControl" d:DesignWidth="640" d:DesignHeight="720" Width="900" Height="781"
+             xmlns:BMC_Presentation="clr-namespace:BMC.Presentation" 
+             xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" FontFamily="Segoe UI" FontSize="14" xmlns:Custom1="http://schemas.AvalonControls/AvalonControlsLibrary/Controls" Loaded="UserControl_Loaded" RenderTransformOrigin="0.5,0.5" Unloaded="UserControl_Unloaded">
+    <UserControl.Resources>
+        <Helper_classes:CurrencyConverter x:Uid="source:CurrencyPriceConverter_1" x:Key="CurrencyPriceConverter" />
+        <Helper_classes:IntToStringConverter x:Uid="source:IntToStringConverter_1" x:Key="IntToStringConverter" />
+        <DataTemplate x:Uid="DataTemplate_1" x:Key="Type">
+            <Grid x:Uid="Grid_1" MinWidth="10">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" Text="{Binding Type}" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_2" x:Key="Position">
+            <Grid x:Uid="Grid_2" MinWidth="10">
+                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_2" Text="{Binding Position}" Margin="0,0,3,0" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_3" x:Key="Date">
+            <Grid x:Uid="Grid_3" MinWidth="10">
+                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_3" Text="{Binding PrintDate}" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_4" x:Key="Ticket">
+            <Grid x:Uid="Grid_4" MinWidth="10">
+                <Border x:Uid="Border_4" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_4" Text="{Binding Ticket}" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_5" x:Key="Value">
+            <Grid x:Uid="Grid_5" MinWidth="10">
+                <Border x:Uid="Border_5" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_5" Text="{Binding Value}" TextAlignment="Right" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_6" x:Key="Asset">
+            <Grid x:Uid="Grid_6" MinWidth="10">
+                <Border x:Uid="Border_6" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_6" Text="{Binding Asset}" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_7" x:Key="CreateCompleted">
+            <Grid x:Uid="Grid_7" MinWidth="10">
+                <Border x:Uid="Border_7" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_7" Text="{Binding CreateCompleted}" TextAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_1">
+            <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+            <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+            <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+            <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <!--Background="{x:Null}"-->
+    <Border x:Uid="Border_10" CornerRadius="0,0,0,0" Background="#19CDDD98" Margin="0,0,0,0" Grid.ColumnSpan="2">
+
+        <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot" Background="#19FFFFFF" RenderTransformOrigin="0.5,0.5" Height="779" Width="903">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="863*" />
+                <ColumnDefinition Width="40*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_2">
+                    <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+                </TransformGroup>
+            </Grid.RenderTransform>
+
+            <Grid x:Uid="LayoutRoot_Copy" x:Name="LayoutRoot_Copy" Grid.ColumnSpan="2" Margin="0,102,32,13">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Uid="ColumnDefinition_1" Width="10" />
+                    <ColumnDefinition x:Uid="ColumnDefinition_2" Width="148*" />
+                    <ColumnDefinition Width="287.506*" />
+                    <ColumnDefinition x:Uid="ColumnDefinition_3" Width="0" />
+                    <ColumnDefinition x:Uid="ColumnDefinition_4" Width="425*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Uid="RowDefinition_1" Height="Auto" MinHeight="100.32" />
+                    <RowDefinition x:Uid="RowDefinition_2" Height="582.68*" />
+                </Grid.RowDefinitions>
+                <Grid x:Uid="Grid_8" Margin="8,50,20,133" Grid.RowSpan="2" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Uid="ColumnDefinition_5" Width="149*" />
+                        <ColumnDefinition x:Uid="ColumnDefinition_6" Width="124.729" />
+                        <ColumnDefinition x:Uid="ColumnDefinition_7" Width="137.777" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Uid="RowDefinition_3" Height="Auto" MinHeight="166" />
+                        <RowDefinition x:Uid="RowDefinition_4" Height="Auto" MinHeight="171" />
+                        <RowDefinition x:Uid="RowDefinition_5" Height="Auto" />
+                        <RowDefinition x:Uid="RowDefinition_6" Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <GroupBox x:Uid="GroupBox_1" FontFamily="Segoe UI" FontSize="12" Grid.ColumnSpan="3" FontWeight="Bold" Margin="0,-7,-3,-90" Grid.RowSpan="4">
+                        <GroupBox.Header>
+                            <Grid x:Uid="Grid_9" MinHeight="20" Height="30" Margin="0,0,-12,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Uid="ColumnDefinition_8" Width="200" />
+                                    <ColumnDefinition x:Uid="ColumnDefinition_9" Width="119" />
+                                    <ColumnDefinition x:Uid="ColumnDefinition_10" Width="72" />
+                                    <ColumnDefinition x:Uid="ColumnDefinition_11" Width="58" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Uid="TextBlock_8" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_8}" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="188,4,0,10" Grid.ColumnSpan="2"/>
+                                <TextBlock x:Uid="TextBlock_9" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_9}" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI" FontSize="12"   Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="91,4,0,10"/>
+                                <TextBlock x:Uid="TextBlock_10" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_10}" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI"  FontSize="11" VerticalAlignment="Center" Margin="9,5,114,10" Grid.ColumnSpan="2"/>
+                                <CheckBox IsChecked="True" x:Name="chkALLCD" Padding="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,-2,0,2" Checked="chkALLCD_Checked" Unchecked="chkALLCD_Unchecked" Height="30" Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid x:Uid="Grid_10" Margin="10,12,2,0" Width="396">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Uid="ColumnDefinition_12" Width="147*" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_13" Width="119" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_14" Width="72" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_15" Width="46.91" />
+                                <ColumnDefinition Width="11.09"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Uid="RowDefinition_7" Height="Auto" />
+                                <RowDefinition x:Uid="RowDefinition_8" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_9" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_10" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_11" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_12" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_13" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_14" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_15" Height="Auto" MinHeight="35" />
+                                <RowDefinition x:Uid="RowDefinition_16" Height="Auto" MinHeight="35" />
+                            </Grid.RowDefinitions>
+                            <TextBox x:Uid="txtCashDeskTicketInVal" Margin="141,7,13,0" VerticalAlignment="Top" Height="25"  TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketInVal" Grid.Row="1" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Text="{Binding Path=CDPaidAmount , Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}" Grid.ColumnSpan="2" />
+                            <TextBlock x:Uid="lblHandpays" Margin="-2,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_lblHandpays}" TextWrapping="Wrap" Grid.Row="1" x:Name="lblHandpays"/>
+                            <TextBox x:Uid="txtCashDeskTicketOutVal" Margin="141,7,13,0" Text="{Binding Path=CDPrintedAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketOutVal" Grid.Row="2" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                            <TextBlock x:Uid="lblVouchersIssued" Margin="-2,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_lblProgHandpays}" TextWrapping="Wrap" Grid.Row="2" x:Name="lblVouchersIssued" />
+                            <TextBlock x:Uid="lblProgHandpays" Margin="-2,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_lblJackpot}" TextWrapping="Wrap" Grid.Row="3" x:Name="lblJackpot"/>
+                            <!--<Button Margin="5,5,5,5" Style="{DynamicResource Control_ViewDetailsStyle}" VerticalAlignment="Stretch"
+                            Width="25" Height="25" Padding="2,2,2,2" Grid.Column="3" Grid.Row="1" x:Name="btnHandpayDetails">
+						<ContentControl Width="Auto" Height="Auto" Content="ContentControl" HorizontalContentAlignment="Center" Template="{DynamicResource Vector_ViewDetails}" VerticalContentAlignment="Center"/>
+					</Button>-->
+                            <CheckBox x:Uid="chkCashDeskTicketIn" Content="{DynamicResource CCashDeskManager_xaml_chkCashDeskTicketIn}" Padding="2,2,2,2" Grid.Column="3" Grid.Row="1" IsChecked="True" Margin="9,5,6,0" Name="chkCashDeskTicketIn" Height="32" VerticalAlignment="Top" />
+                            <TextBox x:Uid="txtCashDeskTicketInQty" Margin="117,7,12,0"  TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketInQty" Grid.Column="1" Grid.Row="1" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" Text="{Binding Path=CDPaidCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"
+ />
+                            <TextBox x:Uid="txtCashDeskTicketOutQty" Margin="117,7,12,0" Text="{Binding Path=CDPrintedCount, Mode=OneWay, StringFormat=F0}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketOutQty" Grid.Column="1" Grid.Row="2" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                            <!--<Button Margin="5,5,5,5" Style="{DynamicResource Control_ViewDetailsStyle}" VerticalAlignment="Stretch" Width="25" Height="25" Padding="2,2,2,2" Grid.Column="3" Grid.Row="2" x:Name="btnProgHandpayDetails">
+						<ContentControl Width="Auto" Height="Auto" Content="ContentControl" HorizontalContentAlignment="Center" Template="{DynamicResource Vector_ViewDetails}" VerticalContentAlignment="Center"/>
+					</Button>-->
+                            <CheckBox x:Uid="chkCashDeskTicketOut" Content="{DynamicResource CCashDeskManager_xaml_chkCashDeskTicketOut}" Padding="2,2,2,2" Grid.Column="3" Grid.Row="2" IsChecked="True" Margin="9,5,6,0" Name="chkCashDeskTicketOut" Height="32" VerticalAlignment="Top" />
+                            <TextBox x:Uid="txtHandpayVal" Margin="141,7,13,0" Text="{Binding Path=HandPayAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtHandpayVal" Grid.Row="3" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                            <TextBox x:Uid="txtHandpayQty" Margin="117,7,12,0" Text="{Binding Path=HandPayCount, Mode=OneWay, StringFormat=F0}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtHandpayQty" Grid.Column="1" Grid.Row="3" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                            <!--<Button Margin="5,5,5,5" Style="{DynamicResource Control_ViewDetailsStyle}" Width="Auto" Height="25" Padding="2,2,2,2" Grid.Column="3" Grid.Row="3" x:Name="btnJackpotDetails">
+						<ContentControl Width="Auto" Height="Auto" Content="ContentControl" HorizontalContentAlignment="Center" Template="{DynamicResource Vector_ViewDetails}" VerticalContentAlignment="Center"/>
+					</Button>-->
+                            <CheckBox x:Uid="chkHandpays" Content="{DynamicResource CCashDeskManager_xaml_chkHandpays}" Padding="2,2,2,2" Grid.Column="3" Grid.Row="3" x:Name="chkHandpays" IsChecked="True" Margin="9,5,6,0" Height="32" VerticalAlignment="Top" />
+                            <TextBlock x:Uid="lblJackpot" Grid.Row="4" Margin="-2,7,12,0" Name="textBlock1" Text="{DynamicResource CCashDeskManager_xaml_textBlock1}" TextWrapping="Wrap"/>
+                            <TextBox x:Uid="txtJackpotVal" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Row="4" IsEnabled="True" IsReadOnly="True" Margin="141,7,13,0" x:Name="txtJackpotVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=JackpotAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}" Grid.ColumnSpan="2" />
+                            <TextBox x:Uid="txtJackPotQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="4" IsEnabled="True" IsReadOnly="True" Margin="117,7,12,0" x:Name="txtJackPotQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=JackpotCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"/>
+                            <CheckBox x:Uid="chkjackpot" Grid.Column="3" Grid.Row="4" IsChecked="True" Margin="9,5,6,0" Name="chkjackpot" Padding="2" Height="32" VerticalAlignment="Top">Caps</CheckBox>
+                            <TextBlock x:Uid="textBlock2" Grid.Row="5" Margin="-2,7,12,0" Name="textBlock2" Text="{DynamicResource CCashDeskManager_xaml_textBlock2}" TextWrapping="Wrap"/>
+                            <TextBox x:Uid="txtProgHandpayVal" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Row="5" Height="25" IsEnabled="True" IsReadOnly="True" Margin="141,7,13,0" x:Name="txtProgHandpayVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=ProgAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}" Grid.ColumnSpan="2"/>
+                            <TextBox x:Uid="txtProgHandpayQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="5" Height="25" IsEnabled="True" IsReadOnly="True" Margin="117,7,12,0" x:Name="txtProgHandpayQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=ProgCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2" />
+                            <CheckBox x:Uid="chkProghandpays" Grid.Column="3" Grid.Row="5" Height="32" IsChecked="True" Margin="10,5,5,0" Padding="2" VerticalAlignment="Top" Name="chkProghandpays">Caps</CheckBox>
+                            <TextBox x:Uid="txtVoidQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="6" Height="25" IsEnabled="True" IsReadOnly="True" Margin="117,7,12,0" Name="txtVoidQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=VoidCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"></TextBox>
+                            <CheckBox x:Uid="chkVoidTransactions" Name="chkVoidTransactions"  Grid.Column="3" Grid.Row="6" Height="32" IsChecked="True" Margin="9,5,6,0" Padding="2" VerticalAlignment="Top">Caps</CheckBox>
+                            <TextBlock x:Uid="textBlock4" Grid.Row="6" Margin="-2,7,12,0" Name="textBlock4" Text="{DynamicResource CCashDeskManager_xaml_textBlock4}" TextWrapping="Wrap" />
+                            <TextBox x:Uid="txtVoidTransactions" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Row="6" Height="25" IsEnabled="True" IsReadOnly="True" Margin="141,7,13,0" Name="txtVoidTransaction" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Path=VoidAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}" Grid.ColumnSpan="2"/>
+                            <TextBox x:Uid="txtCashDeskShortPayQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="7" IsEnabled="True" IsReadOnly="True" Margin="117,7,12,0" x:Name="txtCashDeskShortPayQty" Style="{DynamicResource TextBoxStyle1}" Text="{Binding Path=ShortPayCount, Mode=OneWay, StringFormat=F0}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                            <CheckBox x:Uid="chkShortPays" Grid.Column="3" Grid.Row="7" IsChecked="True" Margin="9,5,6,0" Name="chkShortPays" Padding="2" Height="32" VerticalAlignment="Top">Caps</CheckBox>
+                            <TextBlock x:Uid="textBlock3" Grid.Row="7" Margin="-2,7,12,0" Name="textBlock3" Text="{DynamicResource CCashDeskManager_xaml_textBlock3}" TextWrapping="Wrap" />
+                            <TextBox x:Uid="txtCashDeskShortPaysVal" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Row="7" IsEnabled="True" IsReadOnly="True" Margin="141,7,13,0" x:Name="txtCashDeskShortPaysVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Text="{Binding Path=ShortPayAmount, Mode=OneWay , Converter={StaticResource CurrencyPriceConverter}}" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+
+                             <!-- VOID VOUCHERS-->
+                            <TextBlock x:Uid="textBlock41" Grid.Row="8" Margin="-2,7,12,0" Name="textBlock41" Text="{DynamicResource CCashDeskManager_xaml_textBlock41}" TextWrapping="Wrap" />
+                            <TextBox x:Uid="txtCashDeskVoidVoucherValue" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Row="8" IsEnabled="True" IsReadOnly="True" Margin="141,7,13,0" x:Name="txtCashDeskVoidVoucherValue" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Text="{Binding Path=VoidVoucherAmount, Mode=OneWay , Converter={StaticResource CurrencyPriceConverter}}" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                            <TextBox x:Uid="txtCashDeskVoidVoucherQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="8" IsEnabled="True" IsReadOnly="True" Margin="117,7,12,0" x:Name="txtCashDeskVoidVoucherQty" Style="{DynamicResource TextBoxStyle1}" Text="{Binding Path=VoidVoucherCount, Mode=OneWay, StringFormat=F0}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                            <CheckBox x:Uid="chkVoidVoucher" Grid.Column="3" Grid.Row="8" IsChecked="True" Margin="9,5,6,0" Name="chkVoidVoucher" Padding="2" Height="32" VerticalAlignment="Bottom">Caps</CheckBox>
+                            <!-- VOID VOUCHERS-->
+
+                            <!-- OFFLINE VOUCHERS-->
+                            <TextBlock Grid.Row="9" x:Name="lblOfflinevoucher" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_30}" TextWrapping="Wrap" Margin="-2,7,12,0"/>
+                            <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Row="9" IsEnabled="True" IsReadOnly="True" x:Name="txtOfflinevoucher" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding OfflineVoucherAmount, Converter={StaticResource CurrencyPriceConverter}, Mode=OneWay}"
+Margin="141,7,13,0"  Grid.ColumnSpan="2" />
+                            <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="9" IsEnabled="True" IsReadOnly="True" x:Name="txtOfflinevoucher1" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding OfflineVoucherCount, Mode=OneWay, StringFormat=F0}" 
+Margin="117,7,12,0" Grid.ColumnSpan="2"  />
+                            <CheckBox Grid.Row="9" IsChecked="True" x:Name="chkOfflinevoucher" Padding="2" Height="32" VerticalAlignment="Top" Content="Caps" Margin="9,5,6,0" Grid.Column="3"/>
+                            <!-- OFFLINE VOUCHERS-->
+                            
+                            <!--<StackPanel Grid.Column="3" Grid.RowSpan="7" HorizontalAlignment="Right" Margin="0,-41,-448,-124" Width="425" Background="{DynamicResource LoginInputBG}" Orientation="Vertical">-->
+                            <GroupBox x:Uid="GroupBox_2" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Grid.Column="4" Grid.RowSpan="10" HorizontalAlignment="Right" Margin="0,-48,-448,-53" Width="422" >
+                                <GroupBox.Header>
+                                    <Grid x:Uid="Grid_15" VerticalAlignment="Stretch"  MinHeight="20" Margin="0,0,-12,0" Height="32">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition x:Uid="ColumnDefinition_27" Width="3.134" />
+                                            <ColumnDefinition Width="164.866"/>
+                                            <ColumnDefinition x:Uid="ColumnDefinition_28" Width="144" />
+                                            <ColumnDefinition x:Uid="ColumnDefinition_29" Width="59" />
+                                            <ColumnDefinition x:Uid="ColumnDefinition_30" Width="34" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock x:Uid="TextBlock_16" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_16}" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI" FontSize="12" Margin="0,6,59,10" Grid.Column="2" HorizontalAlignment="Right"  Width="41" VerticalAlignment="Center"/>
+                                        <TextBlock x:Uid="TextBlock_17" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_17}" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI" FontSize="11" Margin="2.866,6,45,7" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1"/>
+                                        <TextBlock x:Uid="TextBlock_18" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_9}" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI" FontSize="12" Margin="6,4,6,12" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+                                        <CheckBox IsChecked="True" x:Name="chkALLMC" Checked="chkALLMC_Checked" Unchecked="chkALLMC_Unchecked" Grid.ColumnSpan="2" Grid.Column="3" Margin="62,-2,0,2"/>
+                                    </Grid>
+                                </GroupBox.Header>
+                                <Grid x:Uid="Grid_16" Margin="2,8,3,-6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition x:Uid="ColumnDefinition_31" Width="168*" />
+                                        <ColumnDefinition x:Uid="ColumnDefinition_32" Width="144.088" />
+                                        <ColumnDefinition x:Uid="ColumnDefinition_33" Width="0*" />
+                                        <ColumnDefinition x:Uid="ColumnDefinition_34" Width="0*" />
+                                        <ColumnDefinition x:Uid="ColumnDefinition_35" Width="46.866" />
+                                        <ColumnDefinition Width="45.134"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition x:Uid="RowDefinition_21" Height="Auto" MinHeight="5" />
+                                        <RowDefinition x:Uid="RowDefinition_22" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_23" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_24" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_25" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_26" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_27" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_28" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_29" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_30" Height="Auto" MinHeight="36" />
+                                        <RowDefinition x:Uid="RowDefinition_31" Height="Auto" MinHeight="36" />
+                                    </Grid.RowDefinitions>
+                                    <TextBox x:Uid="txtMachineTicketOutVal" Margin="3,7,6,0" VerticalAlignment="Top" Height="25" Text="{Binding Path=MCPrintAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtMachineTicketOutVal" Grid.Column="1" Grid.Row="2" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" />
+                                    <TextBlock x:Uid="TextBlock_19" Margin="5,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_19}" TextWrapping="Wrap" Grid.Row="1"/>
+                                    <TextBox x:Uid="txtActiveVal" Margin="3,7,6,0"  TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" x:Name="txtActiveVal" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="3" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" Text="{Binding Path=ActiveCashableVoucherAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+/>
+                                    <TextBlock x:Uid="TextBlock_20" Margin="5,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_20}" TextWrapping="Wrap" Grid.Row="3" />
+                                    <TextBlock x:Uid="TextBlock_21" Margin="5,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_21}" TextWrapping="Wrap" Grid.Row="4" />
+                                    <TextBlock x:Uid="TextBlock_22" Margin="5,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_22}" TextWrapping="Wrap" Grid.Row="5" />
+                                    <!--<TextBlock x:Uid="lblPromocashableVouchers" x:Name="lblPromocashableVouchers" Margin="5,10,0,9" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_23}" TextWrapping="Wrap" Grid.Row="7" VerticalAlignment="Center" />-->
+                                    <TextBox x:Uid="txtVoidval" Margin="3,7,6,0" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtVoidval" Grid.Column="1" Grid.Row="4" TextAlignment="Right" IsEnabled="False" IsReadOnly="True" Height="25" VerticalAlignment="Top">
+                                        <TextBox.Text >
+                                            <MultiBinding StringFormat=" {0}/{1}" Mode="OneWay" >
+                                                <Binding Path="VoidTicketsAmount" Converter="{StaticResource CurrencyPriceConverter}"  />
+                                                <Binding Path="CancelledAmount" Converter="{StaticResource CurrencyPriceConverter}" />
+                                            </MultiBinding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBox x:Uid="txtExpiredVal" Margin="3,7,6,0" Text="{Binding Path=ExpiredAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtExpiredVal" Grid.Column="1" Grid.Row="5" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" />
+                                    <!--<TextBox x:Uid="txtPromoCashableVal" Margin="3,5,6,0" Text="{Binding Path=PromoCashableAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtPromoCashableVal" Grid.Column="1" Grid.Row="7" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" VerticalAlignment="Top" />-->
+                                    <TextBox x:Uid="txtMachineTicketInVal" Margin="3,7,6,0" Text="{Binding Path=MCPaidAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+ TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" x:Name="txtMachineTicketInVal" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" VerticalAlignment="Top" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="25" Grid.Row="1"/>
+                                    <TextBlock x:Uid="TextBlock_24" Margin="5,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_24}" TextWrapping="Wrap" Grid.Row="2" />
+                                    <TextBox x:Uid="txtMachineTicketInQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Height="25" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtMachineTicketInQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="4" Grid.Row="1" Text="{Binding Path=MCPaidCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"
+/>
+                                    <TextBox x:Uid="txtMachineTicketOutQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Height="25" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtMachineTicketOutQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="4" Grid.Row="2" Text="{Binding Path=MCPrintCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"
+/>
+                                    <TextBox x:Uid="txtActiveQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtActiveQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Grid.Column="4" Grid.Row="3" Height="25" VerticalAlignment="Top" Text="{Binding Path=ActiveCashableVoucherCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"
+/>
+                                    <TextBox x:Uid="txtVoidTranQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="False" IsReadOnly="True" Margin="1,7,36,0" Name="txtVoidTranQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Grid.Column="4" Grid.Row="4" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+                                        <TextBox.Text >
+                                            <MultiBinding StringFormat=" {0}/{1}" Mode="OneWay">
+                                                <Binding Path="VoidTicketsCount"  Converter="{StaticResource IntToStringConverter}"  />
+                                                <Binding Path="CancelledCount"  Converter="{StaticResource IntToStringConverter}" />
+                                            </MultiBinding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBox x:Uid="txtExpiredQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtExpiredQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Grid.Column="4" Grid.Row="5" Height="25" VerticalAlignment="Top" Text="{Binding Path=ExpiredCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"
+/>
+                                    <!--<TextBox x:Uid="txtPromoQty" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="True" IsReadOnly="True" Margin="1,6,36,0" Name="txtPromoQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Grid.Column="4" Grid.Row="7" Height="25" VerticalAlignment="Top" Text="{Binding Path=PromoCashableCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"/>-->
+                                    <CheckBox x:Uid="chkTicketOut" Margin="16,5,-2,0" x:Name="chkTicketOut" IsChecked="True" Padding="2,2,2,2" Grid.Column="5" Height="32" Grid.Row="2" VerticalAlignment="Top">Caps</CheckBox>
+                                    <CheckBox x:Uid="chkTicketIn" Margin="16,5,-2,0" x:Name="chkTicketIn" IsChecked="True"  Padding="2,2,2,2" Grid.Row="1" Grid.Column="5" Height="32" VerticalAlignment="Top">Caps</CheckBox>
+                                    <TextBlock Margin="5,7,6,0" Name="lblNoncashableVoucherIn" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_27}" TextWrapping="Wrap" Grid.Row="8"/>
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" IsEnabled="True" IsReadOnly="True" Margin="3,7,6,0" Name="txtNCInVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Grid.Row="8" VerticalAlignment="Top" Text="{Binding Path=NonCashableINAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+ />
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="4" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtNCInQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Grid.Row="8" VerticalAlignment="Top" Text="{Binding Path=NonCashableINCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"
+/>
+                                    <CheckBox Grid.Column="5" IsChecked="True" Margin="16,5,-2,0" Name="chkNCTicketIn" Padding="2" Height="32" Grid.Row="8" VerticalAlignment="Top">Caps</CheckBox>
+                                    <TextBlock Grid.Row="9" Margin="5,7,0,0" Name="lblNoncashableVoucherOut" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_28}" TextWrapping="Wrap"/>
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="9" IsEnabled="True" IsReadOnly="True" Margin="3,7,6,0" Name="txtNCOutVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=NonCashableOutAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+/>
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="4" Grid.Row="9" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtNCOutQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=NonCashableOutCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2" 
+/>
+                                    <CheckBox Grid.Column="5" Grid.Row="9" IsChecked="True" Margin="16,5,-2,0" Name="chkNCTicketOut" Padding="2" Height="32" VerticalAlignment="Top">Caps</CheckBox>
+
+                                    <TextBlock Grid.Row="10" Margin="5,7,0,0" Name="lblUnprocessedHandpay" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_31}" TextWrapping="Wrap"/>
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="10" IsEnabled="True" IsReadOnly="True" Margin="3,7,6,0" Name="txtUnprocessedHandpayVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=OutstandingHandpaysAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"/>
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="4" Grid.Row="10" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtUnprocessedHandpayQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=OutstandingHandpaysCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"/>
+                                    <CheckBox Grid.Column="5" Grid.Row="10" IsChecked="True" Margin="16,5,-2,0" Name="chkUnprocessedHandpay" Padding="2" Height="32" VerticalAlignment="Top">Caps</CheckBox>
+
+                                    <TextBlock Margin="5,7,0,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_25}" TextWrapping="Wrap" Grid.Row="6"  />
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" IsEnabled="False" IsReadOnly="True" Margin="3,7,6,0" Name="txtExcepVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Grid.Row="6" VerticalAlignment="Top">
+                                        <TextBox.Text>
+                                            <MultiBinding StringFormat=" {0}/{1}" Mode="OneWay">
+                                                <Binding Path="TicketInExceptionAmount" Converter="{StaticResource CurrencyPriceConverter}"  />
+                                                <Binding Path="TicketOutExceptionAmount" Converter="{StaticResource CurrencyPriceConverter}"/>
+                                            </MultiBinding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                    <TextBlock Grid.Row="7" Margin="5,7,12,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_26}" TextWrapping="Wrap" />
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="1" Grid.Row="7" IsEnabled="True" IsReadOnly="True" Margin="3,7,6,0" Name="txtLiabilityVal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=CashableVoucherLiabilityAmount, Mode=OneWay, Converter={StaticResource CurrencyPriceConverter}}"
+/>
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="4" IsEnabled="False" IsReadOnly="True" Margin="1,7,36,0" Name="txtExcepQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Grid.Row="6" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                                        <TextBox.Text>
+                                            <MultiBinding StringFormat=" {0}/{1}" Mode="OneWay">
+                                                <Binding Path="TicketInExceptionCount"  Converter="{StaticResource IntToStringConverter}" />
+                                                <Binding Path="TicketOutExceptionCount" Converter="{StaticResource IntToStringConverter}" />
+                                            </MultiBinding>
+                                        </TextBox.Text>
+                                    </TextBox>
+
+                                    <TextBox Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" Grid.Column="4" Grid.Row="7" IsEnabled="True" IsReadOnly="True" Margin="1,7,36,0" Name="txtLiabilityQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" VerticalAlignment="Top" Text="{Binding Path=CashableVoucherLiabilityCount, Mode=OneWay, StringFormat=F0}" Grid.ColumnSpan="2"
+/>
+                                    <CheckBox IsChecked="True" Margin="16,5,-2,0" Name="chkActive" Padding="2" Grid.Column="5" Height="32" Grid.Row="3" VerticalAlignment="Top">Caps</CheckBox>
+                                    <CheckBox IsChecked="True" Margin="16,5,-2,0" Name="chkVoidCancel" Padding="2" Grid.Column="5" Height="32" Grid.Row="4" VerticalAlignment="Top">Caps</CheckBox>
+                                    <CheckBox IsChecked="True" Margin="16,5,-2,0" Name="chkExpired" Padding="2" Grid.Column="5" Height="32" Grid.Row="5" VerticalAlignment="Top">Caps</CheckBox>
+                                    <CheckBox IsChecked="True" Margin="16,5,-2,0" Name="chkException" Padding="2" Grid.Column="5" Height="32" Grid.Row="6" VerticalAlignment="Top">Caps</CheckBox>
+                                    <CheckBox IsChecked="True" Margin="16,5,-2,0" Name="chkLiability" Padding="2" Grid.Column="5" Height="32" Grid.Row="7" VerticalAlignment="Top">Caps</CheckBox>
+                                    <!--<CheckBox IsChecked="True" Margin="16,3,-1,0" Name="chkPromo" Padding="2" Grid.Column="5" Height="30" Grid.Row="7" VerticalAlignment="Top">Caps</CheckBox>-->
+                                </Grid>
+                                <!--</StackPanel>-->
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Uid="grpCoinHopper" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Bottom" Margin="2,0,-2,-116" Height="44" Name="grpCoinHopper" Visibility="Collapsed">
+                        <GroupBox.Header>
+                            <Grid x:Uid="Grid_11" MinHeight="20" Width="401" Height="20" Margin="86,0,-83,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Uid="ColumnDefinition_16" Width="76*" />
+                                    <ColumnDefinition Width="40*" />
+                                    <ColumnDefinition x:Uid="ColumnDefinition_17" Width="150" />
+                                    <ColumnDefinition x:Uid="ColumnDefinition_18" Width="76" />
+                                    <ColumnDefinition x:Uid="ColumnDefinition_19" Width="59" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Uid="TextBlock_11" HorizontalAlignment="Right" Width="46" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_11}" TextWrapping="Wrap" FontWeight="Normal" FontFamily="Segoe UI" FontSize="14" Margin="0,0,0,1" Grid.Column="2" />
+                                <TextBlock x:Uid="TextBlock_12" Width="Auto" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_12}" TextWrapping="Wrap" FontWeight="Normal" FontFamily="Segoe UI" FontSize="14" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Column="3" d:LayoutOverrides="Width" />
+                                <TextBlock x:Uid="TextBlock_13" HorizontalAlignment="Left" Width="0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_13}" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Margin="5,0,0,0" d:LayoutOverrides="Height" VerticalAlignment="Center" Height="18.62" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid x:Uid="Grid_12" Margin="0,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Uid="ColumnDefinition_20" Width="110*" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_21" Width="150" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_22" Width="59" />
+                                <ColumnDefinition x:Uid="ColumnDefinition_23" Width="81" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Uid="RowDefinition_14" Height="Auto" />
+                                <RowDefinition x:Uid="RowDefinition_15" Height="Auto" MinHeight="40" />
+                                <RowDefinition x:Uid="RowDefinition_16" Height="Auto" MinHeight="40" />
+                                <RowDefinition x:Uid="RowDefinition_17" Height="Auto" MinHeight="47" />
+                            </Grid.RowDefinitions>
+                            <TextBox x:Uid="txtRefundVal" Margin="5,5,5,4.38" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtRefundVal" Grid.Column="1" Grid.Row="1" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" />
+                            <TextBlock x:Uid="lblRefunds" Margin="5,0,5,0" Text="{DynamicResource CCashDeskManager_xaml_lblRefunds}" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1" x:Name="lblRefunds" />
+                            <TextBox x:Uid="txtFillsVal" Margin="5,5,5,4.38" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtFillsVal" Grid.Column="1" Grid.Row="2" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" />
+                            <TextBlock x:Uid="lblFills" Margin="5,8,5,7.76" Text="{DynamicResource CCashDeskManager_xaml_lblFills}" TextWrapping="Wrap" Grid.Row="2" d:LayoutOverrides="Height" VerticalAlignment="Center" x:Name="lblFills" />
+                            <TextBlock x:Uid="lblCashDeskFloat" Margin="5,5,5,5" Text="{DynamicResource CCashDeskManager_xaml_lblCashDeskFloat}" TextWrapping="Wrap" Grid.Row="3" VerticalAlignment="Center" d:LayoutOverrides="Height" x:Name="lblCashDeskFloat" />
+                            <!--<Button Margin="5,5,5,5" Style="{DynamicResource Control_ViewDetailsStyle}" VerticalAlignment="Stretch" Width="25" Height="25" Padding="2,2,2,2" Grid.Column="3" Grid.Row="1" x:Name="btnRefundDetails">
+						<ContentControl Width="Auto" Height="Auto" Content="ContentControl" HorizontalContentAlignment="Center" Template="{DynamicResource Vector_ViewDetails}" VerticalContentAlignment="Center"/>
+					</Button>-->
+                            <CheckBox x:Uid="chkRefunds" Width="Auto" Height="Auto" Content="{DynamicResource CCashDeskManager_xaml_chkRefunds}" Padding="2,2,2,2" Grid.Column="3" Grid.Row="1" x:Name="chkRefunds" IsChecked="True" Margin="5,5,5,5" />
+                            <TextBox x:Uid="txtRefundQty" Margin="5,5,5,5" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtRefundQty" Grid.Column="2" Grid.Row="1" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" />
+                            <TextBox x:Uid="txtFillsQty" Margin="5,5,5,5" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtFillsQty" Grid.Column="2" Grid.Row="2" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" />
+                            <!--<Button Margin="5,5,5,5" Style="{DynamicResource Control_ViewDetailsStyle}" VerticalAlignment="Stretch" Width="25" Height="25" Padding="2,2,2,2" Grid.Column="3" Grid.Row="2" x:Name="btnFillsDetails">
+						<ContentControl Width="Auto" Height="Auto" Content="ContentControl" HorizontalContentAlignment="Center" Template="{DynamicResource Vector_ViewDetails}" VerticalContentAlignment="Center"/>
+					</Button>-->
+                            <CheckBox x:Uid="chkRefills" Width="Auto" Height="Auto" Content="{DynamicResource CCashDeskManager_xaml_chkRefills}" Padding="2,2,2,2" Grid.Column="3" Grid.Row="2" x:Name="chkRefills" IsChecked="True" Margin="5,5,5,5" />
+                            <TextBox x:Uid="txtCashDeskFloatVal" Margin="5,5,5,0" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskFloatVal" Grid.Column="1" Grid.Row="3" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="32" VerticalAlignment="Top" />
+                            <TextBox x:Uid="txtCashDeskFloatQty" Margin="5,5,5,0" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskFloatQty" Grid.Column="2" Grid.Row="3" TextAlignment="Right" IsEnabled="True" IsReadOnly="True" Height="29" VerticalAlignment="Top" />
+                            <!--<Button Margin="5,5,5,5" Style="{DynamicResource Control_ViewDetailsStyle}" Width="Auto" Height="25" Padding="2,2,2,2" Grid.Column="3" Grid.Row="3" x:Name="btnCashDeskFloatDetails">
+						<ContentControl Width="Auto" Height="Auto" Content="ContentControl" HorizontalContentAlignment="Center" Template="{DynamicResource Vector_ViewDetails}" VerticalContentAlignment="Center"/>
+					</Button>-->
+                            <CheckBox x:Uid="chkCashDeskFloat" Width="Auto" Height="Auto" Content="{DynamicResource CCashDeskManager_xaml_chkCashDeskFloat}" Padding="2,2,2,2" Grid.Column="3" Grid.Row="3" x:Name="chkCashDeskFloat" IsChecked="True" Margin="5,5,5,5" />
+                        </Grid>
+                    </GroupBox>
+                    <Button Name="btnPrint" FontFamily="Segoe UI" FontSize="14" Height="55" Content="{DynamicResource CCashDeskManager_xaml_btnPrint}" Style="{DynamicResource BMC_Button}" Grid.Column="1" Margin="56,0,103,-156" Grid.Row="3" VerticalAlignment="Bottom" Click="btnPrint_Click" Grid.ColumnSpan="2" RenderTransformOrigin="0.506,0.688"/>
+                    <Button Name="btnTicketAnomalies" FontFamily="Segoe UI" FontSize="14" Height="55" Content="{DynamicResource CCashDeskManager_xaml_btnTicketAnomalies}" Style="{DynamicResource BMC_Button}" Grid.Column="2" Margin="37,0,-3,-156" Grid.Row="3" VerticalAlignment="Bottom" Click="btnTicketAnomalies_Click" />
+
+                </Grid>
+                <!--<Grid x:Uid="Grid_13" Margin="11,96,0,274.706" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition x:Uid="ColumnDefinition_24" Width="144*" />
+        <ColumnDefinition x:Uid="ColumnDefinition_25" Width="133.223" />
+        <ColumnDefinition x:Uid="ColumnDefinition_26" Width="137.777" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition x:Uid="RowDefinition_18" Height="472*" MinHeight="256" />
+        <RowDefinition Height="236*" MinHeight="236" />
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="161*" MinHeight="161" />
+                <RowDefinition Height="109.25*" />
+      </Grid.RowDefinitions>
+        </Grid>-->
+                <Grid x:Uid="pnlHeader" x:Name="pnlHeader" Grid.ColumnSpan="5" Height="46" VerticalAlignment="Top" Margin="0,-22,7,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Uid="RowDefinition_19" Height="Auto" MinHeight="36" />
+                        <RowDefinition x:Uid="RowDefinition_20" Height="Auto" MinHeight="45.16" />
+                    </Grid.RowDefinitions>
+                    <StackPanel x:Uid="StackPanel_2" Orientation="Horizontal" Height="37" VerticalAlignment="Top" Margin="5,-1,0,0">
+                        <TextBlock x:Uid="TextBlock_14" VerticalAlignment="Center" Foreground="#FFFFFFFF" Padding="0,0,5,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_14}"  TextWrapping="Wrap" Width="65" Height="30" />
+                        <Viewbox  x:Uid="vbStartDate" Width="175" Height="37" Stretch="Fill" x:Name="vbStartDate">
+                            <Custom:DatePicker x:Uid="dtpStartDate" Width="120" Height="25" CalendarStyle="{DynamicResource CalendarStyle}" FontFamily="Segoe UI" VerticalContentAlignment="Center" FontSize="11" x:Name="dtpStartDate" SelectedDateChanged="dtpStartDate_SelectedDateChanged" IsTodayHighlighted="False" Background="Transparent" />
+                        </Viewbox>
+                        <TextBox  TextAlignment="Left" FontSize="16"  x:Uid="txtStartDate" Width="136" Margin="-175,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtStartDate"  IsEnabled="True" IsReadOnly="True" />
+                        <Custom1:TimePicker x:Uid="tmpStartTime" Margin="5,0,0,0" Style="{DynamicResource TimePickerStyle}" VerticalAlignment="Center" Width="166" Height="36" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="1,1,1,1" FontSize="16" x:Name="tmpStartTime" SelectedTimeChanged="tmpStartTime_SelectedTimeChanged"/>
+                        <TextBlock x:Uid="TextBlock_15" Foreground="#FFFFFFFF" Padding="15,0,5,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_15}" TextWrapping="Wrap" Margin="5,0,0,0" VerticalAlignment="Center" Width="65" Height="27" HorizontalAlignment="Right"/>
+                        <Viewbox x:Uid="vbStartDate_Copy" Width="175" Height="34" Stretch="Fill" x:Name="vbStartDate_Copy" Margin="5,0,0,0">
+                            <Custom:DatePicker x:Uid="dtpEndDate" Width="120" Height="25" CalendarStyle="{DynamicResource CalendarStyle}" FontFamily="Segoe UI" VerticalContentAlignment="Center" FontSize="11" x:Name="dtpEndDate" SelectedDateChanged="dtpEndDate_SelectedDateChanged" IsTodayHighlighted="False" DisplayDate="2011-07-07" />
+                        </Viewbox>
+                        <TextBox TextAlignment="Left"  FontSize="16"  x:Uid="txtEndDate" Width="136" Margin="-175,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtEndDate"  IsEnabled="True" IsReadOnly="True" />
+                        <Custom1:TimePicker x:Uid="dtpEndtime" Style="{DynamicResource TimePickerStyle}" Width="166" Height="36" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="1,1,1,1" FontSize="16" Margin="5,0,0,0" x:Name="dtpEndtime" SelectedTimeChanged="dtpEndtime_SelectedTimeChanged" />
+                    </StackPanel>
+                </Grid>
+                <Grid x:Uid="Grid_14" Grid.Row="1" Margin="6,0,10,35" Grid.ColumnSpan="5" Height="25" VerticalAlignment="Bottom">
+                    <ProgressBar x:Uid="prgViewAll" Name="prgViewAll" Value="0" Visibility="Hidden" Margin="0,-6,0,6"></ProgressBar>
+                </Grid>
+                <Button x:Uid="btnDebug" FontFamily="Segoe UI" FontSize="14" Height="55" Name="btnDebug" Padding="0,0,0,0" Style="{DynamicResource BMC_Button}" Visibility="Hidden" Margin="189,0,0,84.5" Grid.Column="4" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100.494">Debug</Button>
+                <StackPanel x:Uid="StackPanel_5" Height="75" Orientation="Horizontal" Width="108" Grid.Column="4" HorizontalAlignment="Right" Margin="0,0,21.494,78" Grid.Row="1" VerticalAlignment="Bottom">
+                    <Button x:Uid="btnAnomalies" FontFamily="Segoe UI" FontSize="14" Height="55" Name="btnAnomalies" Padding="0,0,0,0" Style="{DynamicResource BMC_Button}" Width="Auto" Margin="5,10,5,5" Visibility="Hidden" Click="btnAnomalies_Click">Voucher Anomalies</Button>
+                </StackPanel>
+                <Button x:Uid="btnPrint_Copy" Click="btnPrint_Copy_Click" FontFamily="Segoe UI" FontSize="14" Height="55" Name="btnPrint_Copy" Content="{DynamicResource CCashDeskManager_xaml_btnDetails}" Style="{DynamicResource BMC_Button}" Grid.Column="1" Margin="103,0,232,120" Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2"></Button>
+                <Button Name="btnProcess" FontFamily="Segoe UI" FontSize="14" Height="55" Content="{DynamicResource CCashDeskManager_xaml_btnProcess}" Style="{DynamicResource BMC_Button}" Margin="8,0,49,120" Grid.Row="1" VerticalAlignment="Bottom" Click="btnProcess_Click" Grid.ColumnSpan="2"/>
+
+                <StackPanel x:Uid="StackPanel_1" Orientation="Horizontal" Margin="38,0,53,114" d:LayoutOverrides="Height" Height="74.68" VerticalAlignment="Bottom" Grid.Column="4" Grid.Row="1">
+                    <Button x:Uid="btnReconciliation" Style="{DynamicResource BMC_NewButton}" Width="Auto" Height="Auto" Content="{DynamicResource CCashDeskManager_xaml_btnReconciliation}" x:Name="btnReconciliation" FontFamily="Segoe UI" FontSize="14" Margin="5,10,5,5" VerticalAlignment="Top" Click="btnReconciliation_Click" />
+                    <Button x:Uid="btnMovement" Style="{DynamicResource BMC_NewButton}" Width="Auto" Height="Auto" Content="{DynamicResource CCashDeskManager_xaml_btnMovement}" x:Name="btnMovement" FontFamily="Segoe UI" FontSize="14" Margin="5,10,5,5" VerticalAlignment="Top" Click="btnMovement_Click" />
+                    <Button x:Uid="btnBalancing" Style="{DynamicResource BMC_NewButton}" Width="Auto" Height="Auto" Content="{DynamicResource CCashDeskManager_xaml_btnBalancing}" x:Name="btnBalancing" FontFamily="Segoe UI" FontSize="14" Margin="5,10,5,5" VerticalAlignment="Top" Click="btnBalancing_Click" />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock x:Uid="txtHeader" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" 
+                   VerticalAlignment="Top" Margin="21,7,371,0" RenderTransformOrigin="0.5,0.5" 
+                   Text="{DynamicResource CCashDeskManager_xaml_txtHeader}" Foreground="#FFFFFFFF" Height="26">
+                <TextBlock.RenderTransform>
+                    <TransformGroup x:Uid="TransformGroup_3">
+                        <ScaleTransform x:Uid="ScaleTransform_3" ScaleX="1" ScaleY="1" />
+                        <SkewTransform x:Uid="SkewTransform_3" AngleX="0" AngleY="0" />
+                        <RotateTransform x:Uid="RotateTransform_3" Angle="0" />
+                        <TranslateTransform x:Uid="TranslateTransform_3" X="0" Y="0" />
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Uid="txtUser" TextAlignment="Left" FontFamily="Segoe UI" VerticalAlignment="Top" Margin="5,49,799,0" RenderTransformOrigin="0.5,0.5" 
+                   Text="{DynamicResource CCashDeskManager_xaml_TextBlock_29}" Foreground="#FFFFFFFF" Height="26" TextWrapping="Wrap" ></TextBlock>
+
+
+            <TextBlock x:Uid="txtPage" Name="txtPage" TextAlignment="Right" FontFamily="Segoe UI" FontWeight="Normal" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,60,83,0" RenderTransformOrigin="0.5,0.5" Foreground="#FFFFFFFF" Height="15.96" Width="0">
+                <TextBlock.RenderTransform>
+                    <TransformGroup x:Uid="TransformGroup_4">
+                        <ScaleTransform x:Uid="ScaleTransform_4" ScaleX="1" ScaleY="1" />
+                        <SkewTransform x:Uid="SkewTransform_4" AngleX="0" AngleY="0" />
+                        <RotateTransform x:Uid="RotateTransform_4" Angle="0" />
+                        <TranslateTransform x:Uid="TranslateTransform_4" X="0" Y="0" />
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Path x:Uid="Path_2" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+                <Path.Fill>
+                    <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                        <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                        <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <ComboBox x:Uid="cboUser" Height="28" Name="cboUser" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" Margin="0,48,628,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="170" />
+
+            <TextBlock x:Uid="txtRoute" Foreground="#FFFFFFFF" Padding="15,0,5,0" Text="{DynamicResource CCashDeskManager_xaml_txtRoute}" TextWrapping="Wrap" Margin="0,48,377,704" VerticalAlignment="Center" Width="65" Height="27" HorizontalAlignment="Right"/>
+            <ComboBox x:Uid="cboRoute" Height="28" Name="cboRoute" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" Margin="0,48,203,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="170"  SelectionChanged="cboRoute_SelectionChanged"/>
+            <BMC_Presentation:ControlBoxButtons HorizontalAlignment="Right" PreviewMouseLeftButtonUp="btnRefreshTime_PreviewMouseLeftButtonUp" FontFamily="Segoe UI" Height="39" x:Name="btnRefreshTime" ImagePath="/BMC.Presentation.POS;component/Resources/Refresh2.png" VerticalAlignment="Top" Width="Auto" Margin="0,36,26,0"/>
+
+        </Grid>
+    </Border>
+</UserControl>

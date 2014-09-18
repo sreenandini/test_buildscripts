@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="UserControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d
+             " xmlns:src="clr-namespace:BMC.Presentation.POS" xmlns:CustomControl="clr-namespace:BMC.Presentation.POS.Helper_classes"
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" x:Class="BMC.Presentation.CCoinDispenser"
+             x:Name="UserControl" d:DesignWidth="638" d:DesignHeight="480" Width="800" Height="600" RenderTransformOrigin="0.5,0.5" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Helper_classes:PriceConverterWithSymbol x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+        <CustomControl:DateTimeConverter x:Uid="src:DateConverter_1" x:Key="DateConverter" />
+        <!--<CustomControl:CurrencyPriceConverter x:Uid="CustomControl:CurrencyPriceConverter" x:Key="CurrencyPriceConverter"></CustomControl:CurrencyPriceConverter>-->
+        <!--<XmlDataProvider x:Key="RootDS" Source="/XMLData/VoidData.xml" d:IsDataSource="True"/>-->
+        <DataTemplate x:Uid="DataTemplate_3" x:Key="SnoTemplate">
+            <Grid x:Uid="Grid_1" MinWidth="0">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="0,0,0,0" BorderThickness="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_3" Text="{Binding SNo}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_4" x:Key="CassetteTemplate">
+            <Grid x:Uid="Grid_2" MinWidth="10">
+                <Border x:Uid="Border_2" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_4" Text="{Binding CassetteAlias}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_5" x:Key="DenomTemplate">
+            <Grid x:Uid="Grid_3" MinWidth="10">
+                <Border x:Uid="Border_3" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_5" Text="{Binding Denimination}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="DataTemplate_6" x:Key="TotalTemplate">
+            <Grid x:Uid="Grid_4" MinWidth="25">
+                <Border x:Uid="Border_4" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_6" Text="{Binding TotalValue}" HorizontalAlignment="Right" Margin="0,0,3,0" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_1">
+            <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1" />
+            <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0" />
+            <RotateTransform x:Uid="RotateTransform_1" Angle="0" />
+            <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0" />
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <UserControl.Triggers></UserControl.Triggers>
+    <Grid x:Uid="LayoutRoot" x:Name="LayoutRoot"  RenderTransformOrigin="0.5,0.5" Height="Auto" Width="Auto"
+      Background="{x:Null}">
+
+        <Grid.RenderTransform>
+            <TransformGroup x:Uid="TransformGroup_2">
+                <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Border x:Uid="Border_10" CornerRadius="5,5,5,5" 
+                Background="#19CDDD98" Margin="0,0,23,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="White" Height="34" HorizontalAlignment="Right" Margin="0,49,84,0" Name="lblRemaining" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource ManualCashDispenser_xaml_Lbl_Remaining}" TextAlignment="Right" Uid="lblTotal" VerticalAlignment="Top" Width="108" />
+                <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Height="32" HorizontalAlignment="Right" Margin="0,105,85,0" Name="txtRemaining1" PreviewMouseUp="txtRemaining1_PreviewMouseUp" TextAlignment="Right" VerticalAlignment="Top" Width="108" IsReadOnly="True" />
+                <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Height="32" HorizontalAlignment="Right" Margin="0,155,85,0" Name="txtRemaining2" PreviewMouseUp="txtRemaining2_PreviewMouseUp" TextAlignment="Right" Uid="txtTotal2" VerticalAlignment="Top" Width="106" IsReadOnly="True" />
+            </Grid>
+        </Border>
+        
+        <TextBlock Uid="lblDeck1" x:Name="lblDeck1" 
+                            TextAlignment="Right" FontFamily="Segoe UI" 
+                           FontWeight="Bold"   FontSize="12" VerticalAlignment="Top" Margin="29,110,0,0"
+                           RenderTransformOrigin="0.5,0.5" Foreground="#FFFFFFFF" Height="32" 
+                           HorizontalAlignment="Left" Width="162"></TextBlock>
+
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" Foreground="White" Height="32" Uid="lblCassetAliasHeader" Name="lblCassetAliasHeader"
+                   HorizontalAlignment="Left" Margin="212,53,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource ManualCashDispenser_xaml_cassetteAlias}"  TextAlignment="Right" VerticalAlignment="Top" Width="123" />
+        <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  x:Uid="txtCassetteAlias" Height="32" Margin="212,108,0,0" TextAlignment="Right" Name="txtCassetteAlias"
+                         VerticalAlignment="Top" HorizontalAlignment="Left" Width="123" IsReadOnly="True" PreviewMouseUp="txtCassetteAlias_PreviewMouseUp" FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12"  />
+
+        <TextBlock Uid="lblDenom" x:Name="lblDenom"
+                           Text="{DynamicResource ManualCashDispenser_xaml_Denom}" TextAlignment="Right" FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12" VerticalAlignment="Top" Margin="346,53,349,0"
+                           RenderTransformOrigin="0.5,0.5" Foreground="#FFFFFFFF" Height="32"></TextBlock>
+
+        <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  x:Uid="txtDenom" Height="32" Margin="347,108,348,0" IsReadOnly="True" TextAlignment="Right" Name="txtDenom" VerticalAlignment="Top" PreviewMouseUp="txtDenom_PreviewMouseUp"  FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12" />
+        <TextBlock Uid="lblTotal" x:Name="lblTotal"
+                           Text="{DynamicResource ManualCashDispenser_xaml_Lbl_Total}" TextAlignment="Right" FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,51,229,0"
+                           RenderTransformOrigin="0.5,0.5" Foreground="#FFFFFFFF" Height="34" Width="108"></TextBlock>
+
+        <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  x:Uid="txtTotalValue" Height="32" Margin="0,107,230,0" TextAlignment="Right" Name="txtTotalValue"
+                         VerticalAlignment="Top"  HorizontalAlignment="Right" Width="108" PreviewMouseUp="txtTotalValue_PreviewMouseUp" FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12"  />
+
+        <TextBlock FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="White" Height="32" 
+                           HorizontalAlignment="Left" Margin="29,156,0,0" Name="lblDeck2" RenderTransformOrigin="0.5,0.5" 
+                           TextAlignment="Right" Uid="lblDeck2" VerticalAlignment="Top" Width="162" />
+
+        <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  x:Uid="txtCassetteAlias2" Height="32" Margin="213,158,0,0" TextAlignment="Right" Name="txtCassetteAlias2"
+                             VerticalAlignment="Top" HorizontalAlignment="Left" Width="123" IsReadOnly="True" PreviewMouseUp="txtCassetteAlias2_PreviewMouseUp" FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12"  />
+
+        <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  Height="32" Margin="346,157,347,0" Name="txtDenom2" Uid="txtDenom2" IsReadOnly="True" 
+                         TextAlignment="Right" VerticalAlignment="Top" PreviewMouseUp="txtDenom2_PreviewMouseUp" FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12" />
+
+        <TextBox Background="{DynamicResource TextBoxGradient}" 
+                 BorderBrush="{DynamicResource TextBoxOutline}" 
+                 Foreground="{DynamicResource TextBoxForeground}"
+                 Style="{DynamicResource TextBoxStyle1}"  Height="32" Margin="0,157,230,0" Name="txtTotal2" Uid="txtTotal2"
+                         TextAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Right" Width="106" PreviewMouseUp="txtTotal2_PreviewMouseUp" FontFamily="Segoe UI"
+                           FontWeight="Bold" FontSize="12" />
+
+
+        <Button x:Uid="btnSave" Name="btnSave" VerticalAlignment="Bottom" 
+                 Content="{DynamicResource ViewClearServiceCall_xaml_btnSave}" d:LayoutOverrides="Height" Margin="260,0,354,320" 
+                 Style="{DynamicResource BMC_Button}" Click="btnSave_Click" Height="58" />
+
+        <Button x:Uid="btnClose" Content="{DynamicResource TestCashDispenser_xaml_btnCancel}" d:LayoutOverrides="Height"
+                Style="{DynamicResource BMC_Button}" Name="btnClose" Height="58" Width="123" HorizontalAlignment="Right"
+                Margin="0,0,202,320" VerticalAlignment="Bottom" Click="btnClose_Click" />
+
+        <TextBlock x:Uid="TextBlock_13" TextAlignment="Left" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" VerticalAlignment="Top" 
+                HorizontalAlignment="Left" Margin="20,15,0,0" RenderTransformOrigin="0.5,0.5" Text="{DynamicResource ManualCashDispenser_xaml_Header}" 
+                Foreground="#FFFFFFFF">
+      <TextBlock.RenderTransform>
+        <TransformGroup x:Uid="TransformGroup_4">
+          <ScaleTransform x:Uid="ScaleTransform_4" ScaleX="1" ScaleY="1" />
+          <SkewTransform x:Uid="SkewTransform_4" AngleX="0" AngleY="0" />
+          <RotateTransform x:Uid="RotateTransform_4" Angle="0" />
+          <TranslateTransform x:Uid="TranslateTransform_4" X="0" Y="0" />
+        </TransformGroup>
+      </TextBlock.RenderTransform>
+        </TextBlock>
+        <Path x:Uid="Path_2" Stretch="Fill" Data="F1 M 1065.21,1764.57L 1263.19,1764.57C 1263.74,1764.57 1264.19,1765.02 1264.19,1765.57L 1264.19,1765.57C 1264.19,1766.12 1263.74,1766.57 1263.19,1766.57L 1065.21,1766.57C 1064.66,1766.57 1064.21,1766.12 1064.21,1765.57L 1064.21,1765.57C 1064.21,1765.02 1064.66,1764.57 1065.21,1764.57 Z " HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.975" Height="1.998" Margin="20,40,0,0">
+            <Path.Fill>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="-1.22086e-006,0.499939" EndPoint="0.999997,0.499939">
+                    <GradientStop x:Uid="GradientStop_1" Color="#FFC4CFBE" Offset="0" />
+                    <GradientStop x:Uid="GradientStop_2" Color="#00C4CFBE" Offset="1" />
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+    </Grid>
+</UserControl>

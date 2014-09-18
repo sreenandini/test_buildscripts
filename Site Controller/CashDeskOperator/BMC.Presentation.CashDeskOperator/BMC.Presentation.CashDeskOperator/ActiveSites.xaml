@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Uid="ActiveSite" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="BMC.Presentation.ActiveSites" 
+        x:Name="ActiveSite" Title="ActiveSites" Width="Auto" Height="Auto" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+        WindowStyle="None" Background="{x:Null}" AllowsTransparency="True"  WindowStartupLocation="CenterScreen" Icon="BMC_Icon_16x16.png" Loaded="ActiveSites_Loaded">
+        <Canvas x:Uid="pnlMain" x:Name="pnlMain" Width="416" Height="240" Background="{DynamicResource LoginInputBG}">
+          
+            <GroupBox x:Uid="GroupBox_1" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="220" Width="395" Margin="10,10,10,10" VerticalAlignment="Top" HorizontalAlignment="left" >
+            <GroupBox.Header x:Uid="GroupBox_1_Header">
+                <GroupItem FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="32.867" Width="Auto" >
+                    <TextBlock Margin="10,0,0,0" Text="{DynamicResource ActiveSites_xaml_txtActiveSites}"></TextBlock>
+                </GroupItem>
+            </GroupBox.Header>
+            <StackPanel Orientation="Horizontal" Height="55" Margin="0,-60,0,10">
+                <TextBlock x:Uid="txtSite" x:Name="txtSite" Margin="10,0,0,0" TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="15" Text="{DynamicResource ActiveSites_xaml_txtSite}" VerticalAlignment="Center"></TextBlock>
+                <Label Width="50"></Label>
+                <ComboBox x:Uid="cmbActiveSites" x:Name="cmbActiveSites" FontSize="15" Width="200" Style="{DynamicResource BMC_ComboBoxStyle}" IsSynchronizedWithCurrentItem="True" FontFamily="Segoe UI" ItemsSource="{DynamicResource Table}" DisplayMemberPath="SiteName" Margin="-40,0,0,0"></ComboBox>
+            </StackPanel>
+        </GroupBox>    
+        <Button Style="{DynamicResource BMC_Button}"  x:Uid="btnOK" Width="100" Height="55" Content="{DynamicResource ActiveSites_xaml_btnOK}" Canvas.Left="80" Canvas.Top="160" FontSize="15" FontFamily="Segoe UI" FontWeight="Normal" Cursor="Hand" x:Name="btnOK" TabIndex="2" Click="OK_Button_Click"/>
+         <Button Style="{DynamicResource BMC_Button}"  x:Uid="btnCancel" Width="100" Height="55" Content="{DynamicResource ActiveSites_xaml_btnCancel}" Canvas.Left="210" Canvas.Top="160" FontSize="15" FontFamily="Segoe UI" FontWeight="Normal" Cursor="Hand" x:Name="btnCancel" TabIndex="2" Click="Cancel_Button_Click" />
+            
+        </Canvas>
+</Window>

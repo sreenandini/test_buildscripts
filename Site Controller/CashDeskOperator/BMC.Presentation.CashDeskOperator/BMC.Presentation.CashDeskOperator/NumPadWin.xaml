@@ -1,0 +1,18 @@
+﻿<Window
+	x:Uid="Window" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:BallyMultiConnect="clr-namespace:BMC.Presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="BMC.Presentation.NumPadWin"
+	x:Name="Window"
+	Title="NumPadWin"
+	Width="320" Height="470" HorizontalAlignment="Left" VerticalAlignment="Top" WindowStyle="None" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:BMC_Presentation="clr-namespace:BMC.Presentation" MouseDown="Drag_Event" WindowStartupLocation="CenterScreen" Background="{DynamicResource TicketBGBrush}"
+    AllowsTransparency="True">
+    <StackPanel x:Uid="LayoutRoot" x:Name="LayoutRoot" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Orientation="Vertical">
+        <!--<BallyMultiConnect:ValueCalcComp x:Uid="vcValueCalcComp" x:Name="vcValueCalcComp" HorizontalAlignment="Left" Width="Auto" Height="Auto"></BallyMultiConnect:ValueCalcComp>-->
+        <BallyMultiConnect:ValueCalcComp x:Name="vcValueCalcComp"></BallyMultiConnect:ValueCalcComp>        
+        <StackPanel x:Uid="pnlButtons" HorizontalAlignment="Center" x:Name="pnlButtons" VerticalAlignment="Center" Width="Auto" Height="Auto" Orientation="Horizontal">
+            <Button x:Uid="Button_11" x:Name="Button_11" Content="{DynamicResource CTicketEntry_xaml_Button_11}" Style="{DynamicResource CompSplButton}" Width="110" Height="Auto" FontFamily="Segoe UI" Click="EnterClick" />
+            <Button x:Uid="Button_12" x:Name="Button_12" Content="{DynamicResource CTicketEntry_xaml_Button_12}" Style="{DynamicResource bmc_Cancel_Button}" Height="Auto" Width="110" FontFamily="Segoe UI" d:LayoutOverrides="Height" Click="CancelClick" />
+        </StackPanel>
+    </StackPanel>
+</Window>

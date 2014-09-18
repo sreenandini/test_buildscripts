@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.Views.UCSiteIntegorration"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   
+             xmlns:src="clr-namespace:BMC.Presentation.POS" 
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"
+             Background="{DynamicResource MainScreenBG}" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ComponentModel="clr-namespace:BMC.Presentation.POS.Helper_classes" mc:Ignorable="d"
+            xmlns:local="clr-namespace:BMC.Presentation.POS.Views" Loaded="UserControl_Loaded" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58" />
+           
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Uid="txtHeader" x:Name="txtHeader" TextAlignment="Center" Height="40" Text="{DynamicResource UCSiteIntegorration_xaml_Header}"  TextWrapping="Wrap" FontFamily="Segoe UI" FontWeight="Bold" FontSize="18" Foreground="white" VerticalAlignment="Center" />
+       
+        <local:UCAnalysisDetails Margin="5" x:Name="ucDetails" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  RefreshVisibility="False" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Uid="DropHistoryControl" x:Class="BMC.Presentation.CDropHistory" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" x:Name="DropHistoryControl" d:DesignWidth="640" d:DesignHeight="480" Width="863" Height="553" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:CashDeskOperator="clr-namespace:BMC.CashDeskOperator;assembly=BMC.CashDeskOperator" 
+             xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes"        
+             xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:corlib="clr-namespace:BMC.CoreLib.WPF.Controls;assembly=BMC.CoreLib">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Uid="ObjectDataProvider_1" x:Key="FullWeekDataSource" ObjectType="{x:Type CashDeskOperator:CollectionHelper}" MethodName="GetCollectionWeekData"></ObjectDataProvider>
+        <ObjectDataProvider x:Uid="ObjectDataProvider_2" x:Key="FullBatchDataSource" ObjectType="{x:Type CashDeskOperator:CollectionHelper}" MethodName="GetCollectionBatchData">
+            <ObjectDataProvider.MethodParameters>
+                <system:Boolean x:Uid="system:Boolean_1">true</system:Boolean>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Helper_classes:WeekBatchGridVisibility x:Uid="Helper_classes:WeekBatchGridVisibility_1" x:Key="WeekBatchVisibilityConvertor" />
+        <Helper_classes:DateConverter x:Uid="Helper_classes:dateBatchGridVisibility_1" x:Key="DateConvertor" />
+
+        <Style x:Key="rightAlignedCurrencyStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid x:Uid="Grid_15">       
+
+        <Grid x:Uid="Grid_16" Visibility="{Binding ElementName=chkFullCount, Path=IsChecked, Converter={StaticResource WeekBatchVisibilityConvertor}}">
+            
+            <StackPanel Orientation="Vertical" Margin="10,20,0,0" >
+                <StackPanel Orientation="Horizontal" Visibility="Collapsed">
+                    <RadioButton x:Uid="chkFullCount" Content="{DynamicResource CDropHistory_xaml_chkFullCount}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkFullCount" Width="Auto" Height="Auto" IsChecked="True" VerticalAlignment="Top" GroupName="CountType" />
+                    <Label  Height="10"></Label>
+                    <!--<RadioButton x:Uid="chkPartCount" Content="{DynamicResource CDropHistory_xaml_chkPartCount}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkPartCount" Width="Auto" Height="Auto" IsChecked="False" VerticalAlignment="Top" GroupName="CountType" />					-->
+                </StackPanel>
+                <Label  Height="10"></Label>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton x:Uid="chkWeek" Checked="chkWeek_Checked" Content="{DynamicResource CDropHistory_xaml_chkWeek}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkWeek" Width="Auto" Height="Auto" IsChecked="False" VerticalAlignment="Top" GroupName="FullCountView" />
+                    <Label  Height="10"></Label>
+                    <RadioButton x:Uid="chkBatch" Checked="chkBatch_Checked" Content="{DynamicResource CDropHistory_xaml_chkBatch}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkBatch" Width="Auto" Height="Auto" IsChecked="False" VerticalAlignment="Top" GroupName="FullCountView" />
+                    <Label  Height="10"></Label>				
+					<RadioButton x:Uid="chkPartCount" Visibility = "Collapsed" Checked="chkPartCount_Checked" Unchecked="chkPartCount_UnChecked" Content="{DynamicResource CDropHistory_xaml_chkPartCount}" Style="{DynamicResource bmc_General_RADIO_Style_Button}" FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" x:Name="chkPartCount" Width="Auto" Height="Auto" IsChecked="False" VerticalAlignment="Top" GroupName="FullCountView"  />							
+					<Label Height="10"></Label>
+                    <!--<StackPanel Orientation="Vertical">-->
+                    <Grid Height="67">
+                        <CheckBox x:Uid="chkLast20" HorizontalAlignment="Left" Content="{DynamicResource CDropHistory_xaml_chkLast20}" Foreground="#FF000000" VerticalContentAlignment="Center" x:Name="chkLast20" Height="30" VerticalAlignment="Top" FontSize="14" Width="275" Checked="chkLast20_Checked" Unchecked="chkLast20_Unchecked"/>
+                        <ComboBox x:Uid="cboWeek" Height="30" x:Name="cboWeek" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="88" SelectionChanged="cboWeek_SelectionChanged" Style="{DynamicResource BMC_ComboBoxStyle}" Padding="2,0,0,0" RenderTransformOrigin="-0.242,0.557">
+                            <ComboBoxItem x:Uid="ComboBoxItem_2" Tag="1" Content="1"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_3" Tag="2" Content="2"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_4" Tag="3" Content="3"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_5" Tag="4" Content="4"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_6" Tag="5" Content="5"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_7" Tag="6" Content="6" />
+                            <ComboBoxItem x:Uid="ComboBoxItem_8" Tag="12" IsSelected="True" Content="12"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_9" Tag="24" Content="24"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_10" Tag="48" Content="48"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_11" Tag="60" Content="60"/>
+                            <ComboBoxItem x:Uid="ComboBoxItem_11" Tag="90" Content="90"/>
+                        </ComboBox>
+                        <ComboBox x:Uid="cboSiteCode" IsSynchronizedWithCurrentItem="True" Style="{DynamicResource BMC_ComboBoxStyle}"  DisplayMemberPath="SiteCode" 
+                          x:Name="cboSiteCode" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom"  
+                          Width="131" SelectionChanged="cboSiteCode_SelectionChanged" Margin="0,0,0,4">
+                        </ComboBox>
+                    </Grid>
+                    <!--</StackPanel>-->
+
+                    <!--<Grid x:Uid="Grid_17" Visibility="{Binding ElementName=chkPartCount, Path=IsChecked, Converter={StaticResource WeekBatchVisibilityConvertor}}">					
+                        <CheckBox x:Uid="chkLast20Part" Content="{DynamicResource CDropHistory_xaml_chkLast20Part}" Foreground="#FF000000" VerticalContentAlignment="Center" d:LayoutOverrides="Height" x:Name="chkLast20Part" Height="37" VerticalAlignment="Top" FontSize="14">
+                            <CheckBox.IsChecked>
+                                <Binding x:Uid="Binding_2" Source="{StaticResource PartCountDataSource}" Path="MethodParameters[0]" BindsDirectlyToSource="True" Mode="OneWayToSource" />
+                            </CheckBox.IsChecked>
+                        </CheckBox>
+                    </Grid> -->
+                    <Label  Height="10" Width="20"></Label>
+                    <Button Content="{DynamicResource CDropHistory_xaml_btnDetails}" Name="btnDetails" HorizontalAlignment="Left" Visibility="{Binding ElementName=chkFullCount, Path=IsChecked, Converter={StaticResource WeekBatchVisibilityConvertor}}" Style="{DynamicResource BMC_Button}" Click="btnDetails_Click"></Button>
+                </StackPanel>
+                <Label  Height="10"></Label>
+
+                <Custom:DataGrid x:Uid="dgFullBatchHistory" x:Name="dgFullBatchHistory"  SelectionUnit="FullRow"  Margin="-4,-5,10,83" IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding Mode=Default}"  AutoGenerateColumns="False" 
+							 Height="430"  Visibility="{Binding ElementName=chkBatch, Path=IsChecked, Converter={StaticResource WeekBatchVisibilityConvertor}}"
+                             Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader" SelectionMode="Single">
+                    <Custom:DataGrid.Columns>
+                        <Custom:DataGridTextColumn x:Uid="ColNumber" 		  	Header="{DynamicResource CDropHistory_xaml_ColNumber}" 	        Width="99" 	        Binding="{Binding Path=Number}"/>
+                        <Custom:DataGridTextColumn x:Uid="ColRoute" 	  		Header="{DynamicResource CDropHistory_xaml_ColRoute}" 	        Width="Auto" 	    Binding="{Binding Path=Route}"   MinWidth="300"/>
+                        <Custom:DataGridTextColumn x:Uid="ColGaming" 	  		Header="{DynamicResource CDropHistory_xaml_ColGaming}" 	        Width="210"		    Binding="{Binding Path=GamingDate, Converter={StaticResource DateConvertor}}"    />
+                        <Custom:DataGridTextColumn x:Uid="ColDateCollected" 	Header="{DynamicResource CDropHistory_xaml_ColDateCollected}"   Width="210" 	    Binding="{Binding Path=DateCollected, Converter={StaticResource DateConvertor}}" 	 />
+                    </Custom:DataGrid.Columns>
+                </Custom:DataGrid>
+
+                <Custom:DataGrid x:Uid="dgFullWeekHistory" x:Name="dgFullWeekHistory"  SelectionUnit="FullRow"  Margin="-4, -5,10,83" IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding Mode=Default}"  AutoGenerateColumns="False" 
+							 Height="430"  Visibility="{Binding ElementName=chkWeek, Path=IsChecked, Converter={StaticResource WeekBatchVisibilityConvertor}}"
+                             Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader" SelectionMode="Single">
+                    <Custom:DataGrid.Columns>
+                        <Custom:DataGridTextColumn x:Uid="ColWeek" 		  Header="{DynamicResource CDropHistory_xaml_ColWeek}" 			Width="90" 		Binding="{Binding Path=WeekNumber}"/>
+                        <Custom:DataGridTextColumn x:Uid="ColDates" 	  Header="{DynamicResource CDropHistory_xaml_ColDates}" 		Width="230"  	Binding="{Binding Path=Dates}"/>
+                        <Custom:DataGridTextColumn x:Uid="ColDrops" 	  Header="{DynamicResource CDropHistory_xaml_ColDrops}" 		Width="85"		Binding="{Binding Path=NoOfMachineDrops}"   ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                        <Custom:DataGridTextColumn x:Uid="ColWinLoss" 	  Header="{DynamicResource CDropHistory_xaml_ColWinLoss}" 		Width="215" 	Binding="{Binding Path=WinLoss}" 			ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                        <Custom:DataGridTextColumn x:Uid="ColWinLossVar"  Header="{DynamicResource CDropHistory_xaml_ColWinLossVar}" 	Width="215" 	Binding="{Binding Path=WinLossVariance}" 	ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                    </Custom:DataGrid.Columns>
+                </Custom:DataGrid>
+
+                <StackPanel Orientation= "Horizontal">
+					<StackPanel Orientation= "Horizontal">
+
+                        <Custom:DataGrid x:Uid="dgPartCountHistory" x:Name="dgPartCountHistory"  SelectionUnit="FullRow" Margin="-4,-5,10,83" IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding Mode=Default}"  AutoGenerateColumns="False" 
+							 Height="430" Width="600" Visibility="{Binding ElementName=chkPartCount, Path=IsChecked, Converter={StaticResource WeekBatchVisibilityConvertor}}"
+                             Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader"  SelectionMode="Single">
+                            <Custom:DataGrid.Columns>
+                                <Custom:DataGridTextColumn x:Uid="ColBarPos" 	Header="{DynamicResource CDropHistory_xaml_ColBarPos}" 		Width="85" 	    Binding="{Binding Path=BarPosition}"/>
+                                <Custom:DataGridTextColumn x:Uid="ColMachine" 	Header="{DynamicResource CDropHistory_xaml_ColMachine}" 	Width="Auto" 	Binding="{Binding Path=Machine}"    MinWidth="150" />
+                                <Custom:DataGridTextColumn x:Uid="ColDate" 		Header="{DynamicResource CDropHistory_xaml_ColDate}" 		Width="100"		Binding="{Binding Path=Date}"/>
+                                <Custom:DataGridTextColumn x:Uid="ColTime" 		Header="{DynamicResource CDropHistory_xaml_ColTime}" 		Width="100" 	Binding="{Binding Path=Time}" />
+                                <Custom:DataGridTextColumn x:Uid="ColCash" 		Header="{DynamicResource CDropHistory_xaml_ColCash}" 		Width="Auto" 	Binding="{Binding Path=Cash}" MinWidth="154" ElementStyle="{StaticResource rightAlignedCurrencyStyle}" />
+                            </Custom:DataGrid.Columns>
+                        </Custom:DataGrid>
+
+                    </StackPanel>	
+					<StackPanel Orientation = "Vertical">
+						<Label  Height="10" Width="20"></Label>
+						<TextBlock Name="TodayTotal" Margin="5,10,0,0"  Text="{DynamicResource CDropHistory_xaml_TodayTotal}"  FontWeight="Bold" TextAlignment="Right" Height ="25" VerticalAlignment="Center" Width="Auto"></TextBlock>
+                        <TextBlock Name="TodayTotalQuantity" Margin="5,7,0,0" Text="{DynamicResource CDropHistory_xaml_TodayQuantity}"  FontWeight="Bold" TextAlignment="Right" Height ="25" VerticalAlignment="Center" Width="Auto"></TextBlock>
+                        <Label  Height="20" Width="20"></Label>
+                        <TextBlock Name="TotalCash" Margin="5,6,0,0" Text="{DynamicResource CDropHistory_xaml_TotalCash}" FontWeight="Bold" TextAlignment="Right" Height ="25" VerticalAlignment="Center" Width="Auto"></TextBlock>
+                        <TextBlock Name="Quantity" Margin="5,5,0,0"  Text="{DynamicResource CDropHistory_xaml_Quantity}"  FontWeight="Bold" TextAlignment="Right" Height ="25" VerticalAlignment="Center" Width="Auto"></TextBlock>                        
+					</StackPanel>	
+					<StackPanel Orientation = "Vertical">
+                        <Label  Height="10" Width="20"></Label>
+						<!--<TextBox x:Name="txtTodayTotal" IsReadOnly="True" Margin="25,15,0,0" TextWrapping="Wrap" FontSize="16" Style="{StaticResource textBoxInError}" Validation.ErrorTemplate="{StaticResource validationTemplate}" VerticalAlignment="Center" Height="35" FontWeight="Normal" Grid.Row="5" Width="100" HorizontalAlignment="Left"></TextBox>-->
+						<TextBox Background="{DynamicResource TextBoxGradient}" FontSize="12" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="True" IsReadOnly="True" Margin="7,5,5,0" Name="txtTodayTotal" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Width="135" VerticalAlignment="Top" />
+                        <TextBox Background="{DynamicResource TextBoxGradient}" FontSize="12" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="True" IsReadOnly="True" Margin="7,5,5,0" Name="txtTodayTotalQty" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Width="135" VerticalAlignment="Top" />
+                        <Label  Height="20" Width="20"></Label>                            
+                        <TextBox Background="{DynamicResource TextBoxGradient}" FontSize="12" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="True" IsReadOnly="True" Margin="7,5,5,0" Name="txtTotalCash" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Width="135" VerticalAlignment="Top" />
+                        <TextBox Background="{DynamicResource TextBoxGradient}" FontSize="12" BorderBrush="{DynamicResource TextBoxOutline}" IsEnabled="True" IsReadOnly="True" Margin="7,5,5,0" Name="txtQuantity" Style="{DynamicResource TextBoxStyle1}" TextAlignment="Right" TextWrapping="Wrap" Height="25" Width="135" VerticalAlignment="Top" />
+						<!--<TextBlock Name="TodayTot" Margin="25,15,0,0"  Text ="Test" FontSize="16" FontWeight="Bold" TextAlignment="Right" Height="22.542" VerticalAlignment="Top" Width="Auto"></TextBlock>-->
+                        <Label  Height="50" Width="20"></Label>
+                        <Button Content="{DynamicResource CDropHistory_xaml_btnPartCollReport}" Margin="7,5,5,0" Name="btnPartCollReport" Visibility = "Collapsed" HorizontalAlignment="Left" Style="{DynamicResource BMC_Button}" Click="btnPartCollReport_Click"></Button>
+                    </StackPanel>	
+				</StackPanel>			
+            </StackPanel>
+        </Grid>
+        
+        
+    </Grid>
+</UserControl>

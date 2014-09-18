@@ -1,0 +1,248 @@
+﻿<UserControl x:Class="BMC.Presentation.POS.Views.CVaultEvents"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:BMC_Presentation="clr-namespace:BMC.Presentation" 
+     Width="863" Height="553" 
+             xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" 
+             xmlns:Custom1="http://schemas.AvalonControls/AvalonControlsLibrary/Controls" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+
+        <DataTemplate x:Uid="clm_TransactionType" x:Key="clm_TransactionType">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding TypeName}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_Event_ID" x:Key="clm_Event_ID">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding Event_ID}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_Amount" x:Key="clm_Amount">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1"  HorizontalAlignment="Right" Text="{Binding Amount}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_Description" x:Key="clm_Description">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding Event_Detail}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_PrintedAsset" x:Key="clm_PrintedAsset">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding Printed_Asset}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_TranDate" x:Key="clm_TranDate">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding Print_Date}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_ReceiveDate" x:Key="clm_ReceiveDate">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding CreatedDate}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_RedeemDate" x:Key="clm_RedeemDate">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding Redeem_Date}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Uid="clm_ExpDate" x:Key="clm_ExpDate">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding Expired_Date}"  />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Uid="clm_InventoryType" x:Key="clm_InventoryType">
+            <Grid x:Uid="Grid_1" MinWidth="15">
+                <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Uid="TextBlock_1" HorizontalAlignment="Left" Text="{Binding InverntoryMethod}"  />
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <GroupBox x:Uid="grpVaultEvents"  Margin="8,8,8,15" Name="grpVaultEvents"  FontFamily="Segoe UI" FontSize="14">
+	<GroupBox.Header >
+                <GroupItem FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Width="Auto">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <Label Margin="5,-3,0,0"  Content="{DynamicResource CVault_xaml_grp_VaultEvents}" Width="Auto"></Label>
+                    </StackPanel>
+                </GroupItem>
+            </GroupBox.Header>
+    <Grid>
+        
+            <Grid.RowDefinitions>
+           
+                <RowDefinition Height="125" />
+                <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Row="0" Grid.Column="0"   x:Name="grdAssetDetails" Height="120" Margin="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                
+                <RowDefinition />
+                 <RowDefinition />
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width=".80*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                   
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>             
+             
+          
+                <Rectangle Grid.ColumnSpan="8" Opacity="100"   Grid.Row="0" Grid.RowSpan="2"  Stroke="#21394B" StrokeThickness="1" RadiusX="5" RadiusY="5" Fill="WhiteSmoke"  VerticalAlignment="Stretch" Margin="5,0,0,0">
+                </Rectangle>
+           
+         
+            <Label  Margin="2,0,0,0"  Grid.Column="0"   Name="lbl_SelectTop" HorizontalAlignment="Left"  VerticalAlignment="Center"  Content="{DynamicResource CVaultFillHistory_lbl_SelectTop}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" Background="#00000000" />
+            <ComboBox   Margin="0" Grid.Column="1"  x:Uid="cmb_SelectTop" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="100" Height="28" Name="cmb_SelectTop" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" ClipToBounds="False"  />
+            <Label  Margin="0"  Grid.Column="2"   Name="lbl_EventType" HorizontalAlignment="Left"  VerticalAlignment="Center"  Content="{DynamicResource CVaultEvents_lbl_EventType}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" Background="#00000000" />
+            <ComboBox  Margin="0" Grid.Column="3"  x:Uid="cmb_Type" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="100" Height="28" Name="cmb_Type" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" ClipToBounds="False"  />            
+            <TextBox x:Name="txt_description" Margin="2,0,5,0" Height="28" Grid.Column="4" FontFamily="{DynamicResource SegoeUI20}" FontSize="14" PreviewMouseUp="txt_description_PreviewMouseUp">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="{DynamicResource CVaultEvents_lbl_Des}" Foreground="DarkGray" FontSize="14" FontStyle="Italic" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            <Button  Grid.ColumnSpan="2" Grid.Column="5" Margin="2,2,5,2"  Style="{DynamicResource BMC_Button}"  VerticalAlignment="Center" Content="{DynamicResource CVaultFillHistory_btn_ResetVault}" Name="btn_ResetVault" Click="btn_ResetVault_Click"></Button>
+            <Button  Grid.Column="6" Style="{DynamicResource BMC_Button}"  VerticalAlignment="Center" HorizontalAlignment="Right" Content="{DynamicResource CVaultEvents_btn_Print}" Name = "btn_PrintEvent" Click = "btn_PrintEvent_Click"></Button>
+                <StackPanel x:Uid="StackPanel_2" Orientation="Horizontal" Height="37" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="7" Margin="10,12.5,10,0">
+                    <TextBlock x:Uid="TextBlock_14" VerticalAlignment="Center"  Padding="0,0,5,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_14}"  FontWeight="Bold" TextWrapping="Wrap" Width="55" Height="30" />
+                    <Viewbox  x:Uid="vbStartDate" Width="175" Height="37" Stretch="Fill" x:Name="vbStartDate">
+                        <Custom:DatePicker x:Uid="dtpStartDate" Width="120" Height="25"  FontFamily="Segoe UI" VerticalContentAlignment="Center" FontSize="11" x:Name="dtpStartDate" SelectedDateChanged="dtpStartDate_SelectedDateChanged" IsTodayHighlighted="False" Background="Transparent" />
+                    </Viewbox>
+                    <TextBox  TextAlignment="Left" FontSize="16"  x:Uid="txtStartDate" Width="136" Margin="-175,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtStartDate"  IsEnabled="True" IsReadOnly="True" />
+                    <Custom1:TimePicker x:Uid="dtpStartTime" Margin="5,0,0,0" Style="{DynamicResource TimePickerStyle}" VerticalAlignment="Center" Width="166" Height="34" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="1,1,1,1" FontSize="16" x:Name="dtpStartTime" SelectedTimeChanged="dtpStartTime_SelectedTimeChanged"/>
+                    <TextBlock x:Uid="TextBlock_15"  FontWeight="Bold" Padding="15,0,5,0" Text="{DynamicResource CCashDeskManager_xaml_TextBlock_15}" TextWrapping="Wrap" Margin="5,0,0,0" VerticalAlignment="Center" Width="55" Height="27" HorizontalAlignment="Right"/>
+                    <Viewbox x:Uid="vbStartDate_Copy" Width="175" Height="34" Stretch="Fill" x:Name="vbStartDate_Copy" Margin="5,0,0,0">
+                        <Custom:DatePicker x:Uid="dtpEndDate" Width="120" Height="25"  FontFamily="Segoe UI" VerticalContentAlignment="Center" FontSize="11" x:Name="dtpEndDate" SelectedDateChanged="dtpEndDate_SelectedDateChanged" IsTodayHighlighted="False" DisplayDate="2011-07-07" />
+                    </Viewbox>
+                    <TextBox TextAlignment="Left"  FontSize="16"  x:Uid="txtEndDate" Width="136" Margin="-175,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtEndDate"  IsEnabled="True" IsReadOnly="True" />
+                    <Custom1:TimePicker x:Uid="dtpEndtime" Style="{DynamicResource TimePickerStyle}" Width="166" Height="36" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" BorderThickness="1,1,1,1" FontSize="16" Margin="5,0,0,0" x:Name="dtpEndtime" SelectedTimeChanged="dtpEndtime_SelectedTimeChanged" />
+                </StackPanel>
+            </Grid>
+          
+        <Grid Grid.Row="1" Grid.Column="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListView Grid.ColumnSpan="1" Grid.Row="1" x:Uid="lst_Events" Name="lst_Events" Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontFamily="Segoe UI" ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single" Margin="5,0,5,5">
+                <ListView.View>
+                    <GridView x:Uid="GridView_1" >
+                            <GridViewColumn Width="Auto" Header="{DynamicResource CVaultCashEntry_xaml_lbl_VaultName}">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate  >
+                                        <Grid x:Uid="Grid_1">
+                                            <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                            <TextBlock x:Uid="TextBlock_1"  Text="{Binding Vault_Name}" TextAlignment="Center" Margin="0,0,0,0" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="Auto" Header="{DynamicResource CVaultCashEntry_xaml_lbl_Manufacturer}">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate  >
+                                        <Grid x:Uid="Grid_1">
+                                            <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                            <TextBlock x:Uid="TextBlock_1"  Text="{Binding Manufacturer}"  TextAlignment="Center" Margin="0,0,0,0"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="Auto" Header="{DynamicResource CVaultCashEntry_xaml_lbl_TypePrefix}">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate  >
+                                        <Grid x:Uid="Grid_1" >
+                                            <Border x:Uid="Border_1" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                            <TextBlock x:Uid="TextBlock_1" Text="{Binding Vault_Type}" TextAlignment="Center" Margin="0,0,0,0" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn  Width="150" CellTemplate="{StaticResource clm_TransactionType}" x:Name="clm_TransactionType">
+                            <GridViewColumnHeader Content="{DynamicResource CVaultEvents_clm_TransactionType}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="100" CellTemplate="{StaticResource clm_Event_ID}" x:Name="clm_Event_ID">
+                            <GridViewColumnHeader Content="{DynamicResource CVaultEvents_clm_Event_ID}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="200" CellTemplate="{StaticResource clm_Amount}" x:Name="clm_Amount">                           
+                                <GridViewColumn.Header>
+                                    <TextBlock>
+                                         <Run Text="{DynamicResource CVaultEvents_clm_Amount}"></Run>
+                                         <Run Text="{DynamicResource App_CurrencyCulture}"></Run>
+                                    </TextBlock>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                        <GridViewColumn  Width="200" CellTemplate="{StaticResource clm_Description}" x:Name="clm_Description">
+                            <GridViewColumnHeader  Content="{DynamicResource CVaultEvents_clm_Description}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="200" CellTemplate="{StaticResource clm_PrintedAsset}" x:Name="clm_PrintedAsset">
+                            <GridViewColumnHeader  Content="{DynamicResource CVaultEvents_clm_PrintedAsset}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="200" CellTemplate="{StaticResource clm_TranDate}" x:Name="clm_TranDate">
+                            <GridViewColumnHeader  Content="{DynamicResource CVaultEvents_clm_TranDate}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="200" CellTemplate="{StaticResource clm_ReceiveDate}" x:Name="clm_ReceiveDate">
+                            <GridViewColumnHeader  Content="{DynamicResource CVaultEvents_clm_ReceiveDate}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="200" CellTemplate="{StaticResource clm_RedeemDate}" x:Name="clm_RedeemDate">
+                            <GridViewColumnHeader  Content="{DynamicResource CVaultEvents_clm_RedeemDate}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="200" CellTemplate="{StaticResource clm_ExpDate}" x:Name="clm_ExpDate">
+                            <GridViewColumnHeader  Content="{DynamicResource CVaultEvents_clm_ExpDate}"/>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="150" CellTemplate="{StaticResource clm_InventoryType}" x:Name="clm_InventoryType">
+                            <GridViewColumnHeader  Content="{DynamicResource CVaultEvents_clm_InventoryType}"/>
+                        </GridViewColumn>
+
+
+                        <!--Amount	Description	Printed Assets	Transaction Date/Time	
+                    Receivied Date/Time	Redeem Date/Time	Expired Date/Time	Inventory Calcuation Method-->
+
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</GroupBox>
+</UserControl>

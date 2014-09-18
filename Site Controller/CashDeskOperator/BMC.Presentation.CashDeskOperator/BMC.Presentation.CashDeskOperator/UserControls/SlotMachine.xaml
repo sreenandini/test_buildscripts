@@ -1,0 +1,138 @@
+﻿<UserControl
+	x:Uid="UserControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="BMC.Presentation.SlotMachine"
+	x:Name="UserControl"
+    xmlns:CustomControl="clr-namespace:BMC.Presentation.POS.Helper_classes" 
+	d:DesignWidth="640" d:DesignHeight="480" Width="62" Height="62" Cursor="Hand">
+    <UserControl.Resources>
+        <CustomControl:AssetNumberSubStringConverter x:Uid="src:AssetNumberSubStringConverter_1" x:Key="AssetNumberSubStringConverter" />
+        <Storyboard x:Uid="Storyboard_1" x:Key="Green_HandPay" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames x:Uid="ColorAnimationUsingKeyFrames_1" BeginTime="00:00:00" Storyboard.TargetName="Path_536" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_1" KeyTime="00:00:00.2000000" Value="#FFA8DF20"/>
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_2" KeyTime="00:00:00.6000000" Value="#3FA8DF20"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames x:Uid="ColorAnimationUsingKeyFrames_2" BeginTime="00:00:00" Storyboard.TargetName="Path_549" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_3" KeyTime="00:00:00" Value="#FFABCC57"/>
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_4" KeyTime="00:00:00.2000000" Value="#FFA8DF20"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames x:Uid="DoubleAnimationUsingKeyFrames_1" BeginTime="00:00:00" Storyboard.TargetName="Path_549" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Offset)">
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_1" KeyTime="00:00:00" Value="0.42"/>
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_2" KeyTime="00:00:00.2000000" Value="0.679"/>
+                <SplineDoubleKeyFrame x:Uid="SplineDoubleKeyFrame_3" KeyTime="00:00:00.6000000" Value="0.58"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames x:Uid="ColorAnimationUsingKeyFrames_3" BeginTime="00:00:00" Storyboard.TargetName="Path_549" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_5" KeyTime="00:00:00.2000000" Value="#FEADE02C"/>
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_6" KeyTime="00:00:00.6000000" Value="#FFB7FF00"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Uid="Storyboard_2" x:Key="RotateGloss" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames x:Uid="ColorAnimationUsingKeyFrames_4" BeginTime="00:00:00" Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_7" KeyTime="00:00:00" Value="#FFBBBBBB"/>
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_8" KeyTime="00:00:00.2000000" Value="#FFFF0000"/>
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_9" KeyTime="00:00:00.3000000" Value="#FFFF0000"/>
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_10" KeyTime="00:00:00.5000000" Value="#FFBBBBBB"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Uid="Storyboard_3" x:Key="StopAnimation">
+            <ColorAnimationUsingKeyFrames x:Uid="ColorAnimationUsingKeyFrames_5" BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame x:Uid="SplineColorKeyFrame_11" KeyTime="00:00:00" Value="#FFBBBBBB"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <SolidColorBrush x:Uid="SolidColorBrush_1" x:Key="HandPayColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_2" x:Key="HandPayColorInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_3" x:Key="HandPayColorOuterColor" Color="#FFBE0000"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_4" x:Key="EmptyPositionInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_5" x:Key="EmptyPositionOuterColor" Color="#FFE6CA08"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_6" x:Key="NotInPlayInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_7" x:Key="NotInPlayOuterColor" Color="#FF1688D8"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_8" x:Key="MachineInPlayInnerColor" Color="#FFC6C6C6"/>
+        <!--<LinearGradientBrush x:Key="MachineInPlayInnerColor" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF000000" Offset="0"/>
+            <GradientStop Color="#FF81FF00" Offset="1"/>
+            <GradientStop Color="#FFC8C8C8" Offset="0"/>
+        </LinearGradientBrush>-->
+        <SolidColorBrush x:Uid="SolidColorBrush_9" x:Key="MachineInPlayOuterColor" Color="#FFBE0000"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_10" x:Key="CardedPlayInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_11" x:Key="CardedPlayOuterColor" Color="Green"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_10" x:Key="EmpCardedPlayInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_20" x:Key="EmpCardedPlayOuterColor" Color="#F38E2E"/>
+       
+        <SolidColorBrush x:Uid="SolidColorBrush_12" x:Key="GoldClubCardedPlayInnerColor" Color="Green"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_13" x:Key="GoldClubCardedPlayOuterColor" Color="#FFE6CA08"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_14" x:Key="VLTInstallationAAMSPendingInnerColor" Color="LightYellow"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_15" x:Key="VLTInstallationAAMSPendingOuterColor" Color="Bisque"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_16" x:Key="GameInstallationAAMSPendingInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_17" x:Key="GameInstallationAAMSPendingOuterColor" Color="Aqua"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_18" x:Key="VLTunderMaintenanceInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_19" x:Key="VLTunderMaintenanceOuterColor" Color="Yellow"/>
+		<SolidColorBrush x:Uid="SolidColorBrush_22" x:Key="GMUConnectivityInnerColor" Color="#FFC6C6C6"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_23" x:Key="GMUConnectivityOuterColor" Color="#FF800080"/>
+
+        <SolidColorBrush x:Uid="SolidColorBrush_10" x:Key="ComsDownInnerColor" Color="Brown"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_20" x:Key="ComsDownOuterColor" Color="Tomato"/>
+
+        <SolidColorBrush x:Uid="SolidColorBrush_10" x:Key="GameDownInnerColor" Color="Brown"/>
+        <SolidColorBrush x:Uid="SolidColorBrush_20" x:Key="GameDownOuterColor" Color="Yellow"/>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+    </UserControl.Triggers>
+
+
+    <Viewbox x:Uid="Viewbox_1" Width="Auto" Height="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" Stretch="Uniform">
+        <Grid x:Uid="Grid_1">
+            <Grid x:Uid="Grid_2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                <Path x:Uid="Path_610" x:Name="Path_610" Stretch="Fill" Fill="#FF000000" Data="F1 M 30.018,0C 46.5965,0 60.036,13.4395 60.036,30.0176C 60.036,46.5962 46.5965,60.0356 30.018,60.0356C 13.4395,60.0356 0,46.5962 0,30.0176C 0,13.4395 13.4395,0 30.018,0 Z " Margin="0,0,1.964,0.214"/>
+                <Path x:Uid="OuterRoundBG" x:Name="OuterRoundBG" Stretch="Fill" Data="F1 M 30.0181,1.25635C 45.903,1.25635 58.7803,14.1333 58.7803,30.0181C 58.7803,45.9033 45.903,58.7803 30.0181,58.7803C 14.1331,58.7803 1.25586,45.9033 1.25586,30.0181C 1.25586,14.1333 14.1331,1.25635 30.0181,1.25635 Z " Fill="{Binding Path=OuterRoundColor, ElementName=UserControl, Mode=Default}" Margin="1.256,1.256,3.22,1.47"/>
+                <Path x:Uid="Path_612" x:Name="Path_612" Stretch="Fill" Fill="#7FE9E9E9" Data="F1 M 30.0181,7.35156C 17.4999,7.35156 7.35199,17.499 7.35199,30.0176C 7.35199,42.5356 17.4999,52.6836 30.0181,52.6836C 42.5362,52.6836 52.6841,42.5356 52.6841,30.0176C 52.6841,17.499 42.5362,7.35156 30.0181,7.35156 Z " Margin="7.352,7.352,9.316,7.566"/>
+                <Path x:Uid="Path_613" x:Name="Path_613" Stretch="Fill" Fill="#FF000000" Data="F1 M 30.0182,51.397C 18.2119,51.397 8.64107,41.8262 8.64107,30.0195C 8.64107,18.2134 18.2119,8.64258 30.0182,8.64258C 41.8245,8.64258 51.3954,18.2134 51.3954,30.0195C 51.3954,41.8262 41.8245,51.397 30.0182,51.397 Z " Margin="8.641,8.643,10.605,8.853"/>
+                <Path x:Uid="InnerBG" x:Name="InnerBG" Stretch="Fill" Data="F1 M 30.0182,50.3462C 18.7918,50.3462 9.69093,41.2461 9.69093,30.0195C 9.69093,18.793 18.7918,9.69189 30.0182,9.69189C 41.2446,9.69189 50.3455,18.793 50.3455,30.0195C 50.3455,41.2461 41.2446,50.3462 30.0182,50.3462 Z " Fill="{Binding Path=InnerRoundColor, ElementName=UserControl, Mode=Default}" Margin="9.691,9.692,11.655,9.904" />
+                <Ellipse x:Uid="RED" x:Name="RED" Fill="red" Stroke="red"  Width="42" Height="42" Visibility="Hidden" />
+                <Ellipse x:Uid="ellipse" Fill="#00000000" Stroke="#FF000000" x:Name="ellipse" Margin="9.191,9.442,10.809,8.808" />
+                <Image x:Uid="UnclearedEvent" x:Name="UnclearedImageEvent" Margin="0,30,30,0" Width="25" Height="25" Source="../Images/Failure.png" Visibility="Hidden" />
+                <Image x:Uid="ClearedEvent" x:Name="ClearedImageEvent" Margin="0,30,30,0" Width="25" Height="25" Source="../Images/Success.png" Visibility="Hidden" />
+                <Image x:Uid="FloatCollection" x:Name="FloatCollectionImage" Margin="30,0,0,30" Width="25" Height="25" Source="../Images/moneybag.png" Visibility="Hidden" />
+                <Path x:Uid="Glass_Icon_Small" x:Name="Glass_Icon_Small" Width="3.131" Height="2.912" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 43.2628,43.6846C 42.5135,44.2617 41.5564,44.2744 41.1248,43.7139C 40.6934,43.1533 40.951,42.2314 41.7002,41.6548C 42.4495,41.0781 43.4067,41.0649 43.8382,41.6255C 44.2697,42.186 44.0121,43.1079 43.2628,43.6846 Z " HorizontalAlignment="Right" Margin="0,0,17.953,16.124" VerticalAlignment="Bottom"/>
+                <Path x:Uid="Gloss" x:Name="Gloss" Stretch="Fill" Data="F1 M 30.0183,50.3467C 18.7919,50.3467 9.6911,41.2461 9.6911,30.02C 9.6911,18.7935 18.7919,9.69238 30.0183,9.69238C 41.2448,9.69238 50.3456,18.7935 50.3456,30.02C 50.3456,41.2461 41.2448,50.3467 30.0183,50.3467 Z " RenderTransformOrigin="0.5,0.5" Margin="9.691,9.692,11.654,9.903">
+                    <Path.RenderTransform>
+                        <TransformGroup x:Uid="TransformGroup_1">
+                            <ScaleTransform x:Uid="ScaleTransform_1" ScaleX="1" ScaleY="1"/>
+                            <SkewTransform x:Uid="SkewTransform_1" AngleX="0" AngleY="0"/>
+                            <RotateTransform x:Uid="RotateTransform_1" Angle="0"/>
+                            <TranslateTransform x:Uid="TranslateTransform_1" X="0" Y="0"/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                    <Path.Fill>
+                        <RadialGradientBrush x:Uid="RadialGradientBrush_1" RadiusX="1.03576" RadiusY="1.03576" Center="0.210314,0.0709945" GradientOrigin="0.210314,0.0709945">
+                            <RadialGradientBrush.RelativeTransform>
+                                <TransformGroup x:Uid="TransformGroup_2">
+                                    <RotateTransform x:Uid="RotateTransform_2" CenterX="0.210314" CenterY="0.0709945" Angle="45.0002"/>
+                                </TransformGroup>
+                            </RadialGradientBrush.RelativeTransform>
+                            <GradientStop x:Uid="GradientStop_1" Color="#80FFFFFF" Offset="0"/>
+                            <GradientStop x:Uid="GradientStop_2" Color="#60FFFFFF" Offset="0.152542"/>
+                            <GradientStop x:Uid="GradientStop_3" Color="#40FFFFFF" Offset="0.334746"/>
+                            <GradientStop x:Uid="GradientStop_4" Color="#00FFFFFF" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <Path x:Uid="Glass_Icon_Big" x:Name="Glass_Icon_Big" Width="6.691" Height="5.866" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 20.1123,17.6372C 18.4202,18.9399 16.4476,19.2153 15.7066,18.2529C 14.9655,17.29 15.7366,15.4536 17.4288,14.1514C 19.1209,12.8486 21.0934,12.5728 21.8345,13.5356C 22.5755,14.4985 21.8045,16.3345 20.1123,17.6372 Z " HorizontalAlignment="Left" Margin="15.425,12.961,0,0" VerticalAlignment="Top"/>
+                <Viewbox x:Uid="Group_618" x:Name="Group_618" Margin="13.318,18.827,15.282,19.037">
+                    <Grid x:Uid="Grid_3" Width="Auto" Height="Auto">
+                        <TextBlock x:Uid="TextBlock_1" Width="Auto" Height="Auto" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" Margin="0,0,0,0" Text="{Binding Path=SlotNumber, ElementName=UserControl, Mode=Default}" VerticalAlignment="Center"/>
+				    </Grid>
+                </Viewbox>
+            </Grid>
+            <Viewbox x:Uid="viewbox1" Margin="0,0,1.964,-14" Name="viewbox1" Height="13" VerticalAlignment="Bottom">
+                <Grid x:Uid="Grid_4" Height="Auto" Width="Auto">
+                    <TextBlock x:Uid="TextBlock_2" FontFamily="Segoe UI" FontSize="18" FontWeight="Bold" Height="Auto" HorizontalAlignment="Center" Margin="0" 
+                               Text="{Binding Path=AssetNumber, ElementName=UserControl, Mode=Default, Converter={StaticResource AssetNumberSubStringConverter}}" 
+                               ToolTip="{Binding Path=AssetNumber, ElementName=UserControl, Mode=Default}" 
+                               TextAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Width="Auto" /></Grid>
+            </Viewbox>
+         </Grid>
+    </Viewbox>
+</UserControl>

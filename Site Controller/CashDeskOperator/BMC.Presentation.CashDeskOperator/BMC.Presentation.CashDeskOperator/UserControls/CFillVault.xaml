@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="BMC.Presentation.CFillVault"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:BMC_Presentation="clr-namespace:BMC.Presentation" 
+     Width="869" Height="553" Loaded="UserControl_Loaded"   >
+    <Grid Name="cfillVault">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40" ></RowDefinition>
+            <RowDefinition Height="25" ></RowDefinition>
+            <RowDefinition Height="100" ></RowDefinition>
+        </Grid.RowDefinitions>
+      
+                <GroupBox Grid.Row="1" x:Uid="GroupBox_1"  Name="grp_bills" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Margin="0,0,8,10">
+                <GroupBox.Header x:Uid="GroupBox_1_Header" >
+                    <GroupItem FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="38.867" Width="Auto">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <Label Margin="5,-3,0,0"  Content="{DynamicResource CFillVault_grp_bills}" Width="180"></Label>
+                        </StackPanel>
+                    </GroupItem>
+                </GroupBox.Header>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                    <ColumnDefinition Width="60*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Name="lbl_DeviceName"  Grid.Column="0" Grid.Row="1" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lbl_DeviceName}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <!--<TextBox Name="txt_DeviceName" Grid.Column="1" Grid.Row="1" IsReadOnly="True"  Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>-->
+                <ComboBox x:Uid="cmb_DeviceName"   DisplayMemberPath="Name" SelectedValuePath="Vault_ID"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Height="28" Name="cmb_DeviceName" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" Margin="10,0,10,0" VerticalAlignment="Top" ClipToBounds="False" SelectionChanged="cmb_DeviceName_SelectionChanged" />
+                
+                <Label Name="lbl_SerialNo"  Grid.Column="0" Grid.Row="2" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lbl_SerialNo}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <TextBox Name="txt_SerialNo" Grid.Column="1" Grid.Row="2" IsReadOnly="True"  Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>
+
+                <Label Name="lbl_AlertLevel"  Grid.Column="0" Grid.Row="3" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lbl_AlertLevel}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <TextBox Name="txt_AlertLevel" Grid.Column="1" Grid.Row="3" IsReadOnly="True"  Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>
+
+                <Label Name="lbl_Manufacturer"  Grid.Column="0" Grid.Row="4" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lbl_Manufacturer}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <TextBox Name="txt_Manufacturer" Grid.Column="1" Grid.Row="4" IsReadOnly="True"  Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>
+
+                <Label Name="lbl_Type"  Grid.Column="0" Grid.Row="5" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lbl_Type}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <TextBox Name="txt_Type" Grid.Column="1" Grid.Row="5" IsReadOnly="True"  Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>
+
+                
+                <!--<Label Name="lbl_FillAmount"  Grid.Column="0" Grid.Row="4" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="Latest Fill Amount" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <TextBox Name="txt_FillAmount" Grid.Column="1" Grid.Row="4" Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>
+               
+                <Label Name="lbl_TotalFillAmount"  Grid.Column="0" Grid.Row="5" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="Total Amount" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <TextBox Name="txt_TotalFillAmount" Grid.Column="1" Grid.Row="5" Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>-->
+
+                <Label Name="lbl_CurrentBalance"  Grid.Column="0" Grid.Row="6" Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lbl_CurrentBalance}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                
+                <TextBox Name="txt_CurrentBalance" Grid.Column="1" Grid.Row="6" IsReadOnly="True"  Margin="10,0,10,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" IsEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  ></TextBox>
+                <Button   Grid.Column="1" Grid.Row="7"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource CFillVault_btn_PrintSlip}" Name="btn_PrintSlip" Margin="75,2,123,5" Click="btn_PrintSlip_Click"  ></Button>
+                
+                
+                <Button Grid.Column="0"  Grid.Row="7" Style="{DynamicResource BMC_Button}" Content="{DynamicResource CFillVault_btn_RefreshBalance}" Name="btn_RefreshBalance" Margin="50,2,50,5" Click="btn_RefreshBalance_Click"></Button>
+            </Grid>
+        </GroupBox>
+        
+        <BMC_Presentation:CTicketEntry Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" x:Uid="ucValueCalc" MaxLength="15"  isCurrencyPad="True" Margin="5,0,5,7" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="ucValueCalc" MouseDown="ucValueCalc_MouseDown" />
+        <Grid  Grid.Column="0" Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" ></ColumnDefinition>
+                <ColumnDefinition Width="75*"></ColumnDefinition>
+            
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Name="lblTransactionReason"  Grid.Column="0" Grid.Row="1" Foreground="White" Margin="10,5,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lblTransactionReason}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+
+  		    <ComboBox x:Uid="cmbTransactionReason"   Height="28"  DisplayMemberPath="Reason_Description" SelectedValuePath="Reason_ID"    Grid.Column="1" Name="cmbTransactionReason" FontSize="16" Style="{DynamicResource BMC_ComboBoxStyle}" Margin="0,0,5,0" ClipToBounds="False" SelectionChanged="cmbTransactionReason_SelectionChanged" />
+        </Grid>
+
+        <StackPanel Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2"   Background="{DynamicResource LoginInputBG}" Width="869"  Orientation="Horizontal"  VerticalAlignment="Top"  HorizontalAlignment="Left"  Height="24" Margin="-10,0,0,0">
+            <TextBlock x:Name="lbl_Status" Foreground="Red" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Height="21.6" VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="15,0,0,0"/>
+        </StackPanel>
+
+        <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*" ></ColumnDefinition>
+                <ColumnDefinition  Width="13*"></ColumnDefinition>
+                <ColumnDefinition Width="13*"></ColumnDefinition>
+                <ColumnDefinition  Width="25*"></ColumnDefinition>
+                <ColumnDefinition Width="25*"></ColumnDefinition>
+                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button  Grid.Row="0" Grid.Column="0"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource CFillVault_btn_StandardFill}" Name="btn_StandardFill" Margin="10,25,5,5"  Click="btn_StandardFill_Click"  ></Button>               
+            <Button  Grid.Row="0" Grid.Column="1"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource CFillVault_btn_FillVault_Click}" Name="btn_FillVault" Margin="10,25,5,5" Click="btn_FillVault_Click" ></Button>
+            <Button  Grid.Row="0" Grid.Column="2"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource CFillVault_btn_Bleed_Click}" Name="btn_Bleed" Margin="10,25,5,5" Click="btn_Bleed_Click"  ></Button>
+            <!--<Button  Grid.Row="0" Grid.Column="3"  Style="{DynamicResource BMC_Button}" Content="Adjust Balance" Name="btn_Adjustment" Margin="10,2,10,5" Click="btn_Adjustment_Click"></Button>-->
+                <Grid  Margin="0,0,5,0" Grid.Row="0" x:Name="gd_adjustment" Grid.Column="3"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25">
+                        </RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                <Rectangle Grid.ColumnSpan="2" Opacity="0.25"  Grid.RowSpan="1"  Stroke="White" StrokeThickness="1" RadiusX="5" RadiusY="5" Fill="Gray"  Margin="7,2,7,2">
+                </Rectangle>
+                <Rectangle Grid.ColumnSpan="2" Opacity="0.25"  Grid.RowSpan="2"  Stroke="White"  StrokeThickness="2" RadiusX="5" RadiusY="5" Fill="LightSlateGray"   Margin="5,0,5,15">
+                  </Rectangle>  
+                    <Label Name="lbl_Adjustment"  Foreground="White"  HorizontalAlignment="Center" Grid.ColumnSpan="2"  Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_lbl_Adjustment}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <Button  Grid.Row="1" Grid.Column="0" FontSize="40" FontWeight="ExtraBold"  Content="+"  Style="{DynamicResource BMC_Button_SizeSpec}"  Name="btn_Adjustment_Positive" Margin="20,2,2,20" Click="btn_Adjustment_Positive_Click" >
+                </Button>
+                <Button  Grid.Row="1" Grid.Column="1" FontSize="40"  Content="-" Style="{DynamicResource BMC_Button_SizeSpec}"  Name="btn_Adjustment_Negative" Margin="2,2,20,20" Click="btn_Adjustment_Negative_Click" >
+                    </Button>
+                </Grid>
+            <!--<Button  Grid.Row="0" Grid.Column="5"  Style="{DynamicResource BMC_Button}" Content="{DynamicResource CFillVault_btn_Drop_Click}" Name="btn_Drop" Margin="10,25,10,5" Click="btn_Drop_Click"></Button>-->
+            <Grid  Margin="0,0,5,0" Grid.Row="0" x:Name="gd_Drop" Grid.Column="4" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25">
+                    </RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.ColumnSpan="2" Opacity="0.25"  Grid.RowSpan="1"  Stroke="White" StrokeThickness="1" RadiusX="5" RadiusY="5" Fill="Gray"  Margin="7,2,7,2">
+                </Rectangle>
+                <Rectangle Grid.ColumnSpan="2" Opacity="0.25"  Grid.RowSpan="2"  Stroke="White"  StrokeThickness="2" RadiusX="5" RadiusY="5" Fill="LightSlateGray"   Margin="5,0,5,15">
+                </Rectangle>
+                <Label Name="lbl_Drop"  Foreground="White"  HorizontalAlignment="Center" Grid.ColumnSpan="2"  Margin="10,0,10,0" VerticalAlignment="Top" Height="26" Content="{DynamicResource CFillVault_btn_Drop_Click}" FontWeight="Bold" FontFamily="{DynamicResource SegoeUI20}" FontSize="13" Background="#00000000" />
+                <Button  Grid.Row="1" Grid.Column="0" FontSize="30"   Content="{DynamicResource CFillVault_btn_StandardDrop_Click}"  Style="{DynamicResource BMC_Button}"  Name="btn_StandardDrop" Margin="13,2,3,20" Click="btn_StandardDrop_Click"  ></Button>
+
+                <Button  Grid.Row="1" Grid.Column="1" FontSize="30"  Content="{DynamicResource CFillVault_btn_FinalDrop_Click}"  Style="{DynamicResource BMC_Button}"  Name="btn_FinalDrop" Margin="5,2,13,20" Click="btn_FinalDrop_Click"></Button>
+        </Grid>
+                    </Grid>
+        </Grid>
+</UserControl>

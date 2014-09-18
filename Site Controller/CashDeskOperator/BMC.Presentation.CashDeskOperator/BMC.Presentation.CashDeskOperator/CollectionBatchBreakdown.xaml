@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Uid="Window_1" x:Class="BMC.Presentation.POS.BatchBreakdown" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+        xmlns:src="clr-namespace:BMC.Presentation.POS" Title="BatchBreakdown" Height="740" Width="1020" 
+        HorizontalAlignment="Left" VerticalAlignment="Top" AllowsTransparency="True" WindowStyle="None" Background="{DynamicResource MainScreenBG}" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Helper_classes="clr-namespace:BMC.Presentation.POS.Helper_classes" mc:Ignorable="d" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" >
+    <Window.Resources>
+        <Helper_classes:PriceConverterWithSymbol x:Uid="src:PriceConverter_1" x:Key="PriceConverter" />
+        <Helper_classes:PriceConverter x:Uid="src:PriceConverter_2" x:Key="PriceConverterWithoutSymbol"/>
+        <ControlTemplate x:Uid="ControlTemplate_1" x:Key="DoorImage">
+            <Image x:Uid="Image_1" Source="Images/door.png" Width="20" Height="20" />
+        </ControlTemplate>
+        <ControlTemplate x:Uid="ControlTemplate_2" x:Key="FaultImage">
+            <Image x:Uid="Image_2" Source="Images/fault.png" Width="20" Height="20" />
+        </ControlTemplate>
+        <ControlTemplate x:Uid="ControlTemplate_3" x:Key="PowerImage">
+            <Image x:Uid="Image_3" Source="Images/power.png" Width="20" Height="20" />
+        </ControlTemplate>
+        <Style x:Key="rightAlignedColumn" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
+
+        
+    </Window.Resources>
+   
+    <Grid x:Uid="Grid_40" Margin="10,10,0,0">
+       
+        <Rectangle x:Uid="rectangle2" Height="100" Margin="284,18,46,0" Name="rectangle2" Stroke="White" VerticalAlignment="Top" />
+        <Rectangle x:Uid="rectangle4" Height="126" Margin="28,0,0,70" Name="rectangle4" Stroke="White" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="420"  />
+        <Rectangle x:Uid="rectangle3" Margin="28,122,47,224" Name="rectangle3" Stroke="White" />
+        <Rectangle x:Uid="rectangle1" Height="100" HorizontalAlignment="Left" Margin="28,18,0,0" Name="rectangle1" Stroke="White" VerticalAlignment="Top" Width="252" />
+        <Rectangle x:Uid="rectangle5" Height="168" Margin="456,0,44,26" Name="rectangle5" Stroke="White" VerticalAlignment="Bottom" />
+        
+        <Button x:Uid="btnExit" HorizontalAlignment="Right" Width="58" Style="{DynamicResource BMC_App_Exit}" RenderTransformOrigin="0.455,0.272" x:Name="btnExit" Click="btn_Exit" Height="65" VerticalAlignment="Top" Margin="0,-4,-9,0"></Button>
+        <TextBlock x:Uid="TextBlock_1" TextAlignment="Left" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="27,-6,0,0" RenderTransformOrigin="0.5,0.5" Foreground="#FFE3E4DC" Width="218" Text="Drop Batch BreakDown " FontSize="16" FontWeight="Bold">
+            <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_2">
+                    <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+
+        </TextBlock>
+        <Label x:Uid="lblBatchNo" Height="25" Margin="27,12,0,0" Name="lblBatchNo" VerticalAlignment="Top" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblNo}" HorizontalAlignment="Left" Width="62"></Label>
+        <Label x:Uid="txtNo" Height="23" HorizontalAlignment="Left" Margin="87,11,0,0" Name="txtNo" VerticalAlignment="Top" Width="64" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></Label>
+        <Label x:Uid="lblUser" Height="25" HorizontalAlignment="Left" Margin="120,12,0,0" Name="lblUser" VerticalAlignment="Top" Width="45" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblUser}"></Label>
+        <Label x:Uid="txtUser" Height="34" HorizontalAlignment="Right" Margin="0,12,738,0" Name="txtUser" VerticalAlignment="Top" Width="114" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></Label>
+        
+        <Label x:Uid="lblRoute" Height="26" Margin="27,36,0,0" Name="lblRoute" VerticalAlignment="Top" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblRoute}" HorizontalAlignment="Left" Width="95"></Label>
+        <Label x:Uid="txtRoute" Height="23" HorizontalAlignment="Left" Margin="120,36,0,0" Name="txtRoute" VerticalAlignment="Top" Width="151" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" ></Label>
+        
+        <Label x:Uid="lblGamingDay" Height="26" Margin="27,59,0,0" Name="lblGamingDay" VerticalAlignment="Top" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblGamingDay}" HorizontalAlignment="Left" Width="95"></Label>
+        <Label x:Uid="txtGamingDay" Height="23" HorizontalAlignment="Left" Margin="120,61,0,0" Name="txtGamingDay" VerticalAlignment="Top" Width="151" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" ></Label>
+        <Label x:Uid="lblDate" Height="27" Margin="27,83,867,0" Name="lblDate" VerticalAlignment="Top" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblDropDate}"></Label>
+        <Label x:Uid="txtDate" Height="25" HorizontalAlignment="Left" Margin="120,84,0,0" Name="txtDate" VerticalAlignment="Top" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" ></Label>
+        <Label x:Uid="lblGrossCoin" Height="25" HorizontalAlignment="Left" Margin="284,23,0,0" Name="lblGrossCoin" VerticalAlignment="Top" Width="85" Foreground="White" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblGrossCoin}"></Label>
+        <Label x:Uid="lblBills" Height="25" HorizontalAlignment="Left" Margin="286,57,0,0" Name="lblBills" VerticalAlignment="Top" Width="74" Foreground="White" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblBills}"></Label>
+        <Label x:Uid="lblDrops" Height="25" HorizontalAlignment="Left" Margin="286,87,0,0" Name="lblDrops" VerticalAlignment="Top" Width="80" Foreground="White" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblDrops}"></Label>
+        <TextBox x:Uid="txtGrossCoin" Height="23" Margin="372,23,0,0" TextAlignment="Right" Name="txtGrossCoin" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Text="{Binding Path=GrossCoin,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtBills" Height="23" HorizontalAlignment="Left" TextAlignment="Right" Margin="371,57,0,0" Name="txtBills" VerticalAlignment="Top" Width="76" Text="{Binding Path=NotesSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtDrops" Height="23" HorizontalAlignment="Left" Margin="371,87,0,0" TextAlignment="Right" Name="txtDrops" VerticalAlignment="Top" Width="76" Text="{Binding Path=NoofCollections}" IsReadOnly="True" />
+        <TextBlock x:Uid="lblFloat" Height="17" Margin="456,25,0,0" Name="lblFloat" VerticalAlignment="Top" Foreground="White" Text="{DynamicResource CollectionBatchBreakdown_xaml_lblFloatRec}" TextWrapping="Wrap" HorizontalAlignment="Left" Width="80"></TextBlock>
+        <Label x:Uid="lblTickets" Height="25" Margin="452,55,468,0" Name="lblTickets" VerticalAlignment="Top" Foreground="White" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblTickets}"></Label>
+        <Label x:Uid="lblShortpay" Height="25" Margin="452,83,468,0" Name="lblShortpay" VerticalAlignment="Top" Foreground="White" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblShortpay}"></Label>
+        <TextBox x:Uid="txtFloat" Height="23" HorizontalAlignment="Right" Margin="0,23,379,0" Name="txtFloat" TextAlignment="Right" VerticalAlignment="Top" Width="84" Text="{Binding Path=FloatRec,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtTickets" Height="23" HorizontalAlignment="Right" Margin="0,57,379,0" Name="txtTickets" TextAlignment="Right" VerticalAlignment="Top" Width="84" Text="{Binding Path=TicketBalanceSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtShortpay" Height="23" HorizontalAlignment="Right" Margin="0,86,379,0" Name="txtShortpay" VerticalAlignment="Top" TextAlignment="Right" Width="84" Text="{Binding Path=Shortpay,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <Label x:Uid="lblRefiils" Foreground="White" Height="25" HorizontalAlignment="Right" Margin="0,20,316,0" Name="lblRefiils" VerticalAlignment="Top" Width="58" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblRefills}"></Label>
+        <Label x:Uid="lblHandpay" Foreground="White" Height="25" HorizontalAlignment="Right" Margin="0,55,307,0" Name="lblHandpay" VerticalAlignment="Top" Width="69" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblHandpay}"></Label>
+        <Label x:Uid="lblPayout" Foreground="White" Height="25" HorizontalAlignment="Right" Margin="0,81,316,0" Name="lblPayout" VerticalAlignment="Top" Width="58" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblPayout}"></Label>
+        <TextBox x:Uid="txtRefills" Height="23" TextAlignment="Right" HorizontalAlignment="Right" Margin="0,23,223,0" Name="txtRefills" VerticalAlignment="Top" Width="84" Text="{Binding Path=RefillsSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtHandpay" Height="23" HorizontalAlignment="Right" TextAlignment="Right" Margin="0,57,223,0" Name="txtHandpay" VerticalAlignment="Top" Width="84" Text="{Binding Path=HandpaySum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtPayout" Height="23" HorizontalAlignment="Right" TextAlignment="Right" Margin="0,86,223,0" Name="txtPayout" VerticalAlignment="Top" Width="84" Text="{Binding Path=dPayoutSum,Converter={StaticResource PriceConverterWithoutSymbol}}" IsReadOnly="True" />
+        <Label x:Uid="lblNetCoin" Foreground="White" Height="25" HorizontalAlignment="Right" Margin="0,21,140,0" Name="lblNetCoin" VerticalAlignment="Top" Width="80" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblNetCoin}"></Label>
+        <TextBlock x:Uid="lblWinLoss" Foreground="White" Height="25" HorizontalAlignment="Right" Margin="0,53,139,0" Name="lblWinLoss" VerticalAlignment="Top" Width="77" Text="{DynamicResource CollectionBatchBreakdown_xaml_lblDecWinLoss}" TextWrapping="Wrap"></TextBlock>
+        <Label x:Uid="lblHandle" Foreground="White" Height="25" HorizontalAlignment="Right" Margin="0,83,139,0" Name="lblHandle" VerticalAlignment="Top" Width="80" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblHandle}"></Label>
+        <TextBox x:Uid="txtNetCoin" Height="23" HorizontalAlignment="Right" Margin="0,25,51,0" TextAlignment="Right" Name="txtNetCoin" VerticalAlignment="Top" Width="84" Text="{Binding Path=NetCoinSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtWinLoss" Height="23" HorizontalAlignment="Right" Margin="0,55,54,0" TextAlignment="Right" Name="txtWinLoss" VerticalAlignment="Top" Width="84" Text="{Binding Path=CashTakeSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtHandle" Height="23" HorizontalAlignment="Right" Margin="0,87,54,0" Name="txtHandle" TextAlignment="Right" VerticalAlignment="Top" Width="84" Text="{Binding Path=VTPSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBlock x:Uid="TextBlock_1" TextAlignment="Left" FontFamily="Segoe UI" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,510,0,0" RenderTransformOrigin="0.5,0.5" Text="Variance Summary:" Foreground="#FFE3E4DC" Width="218" FontWeight="Bold">
+            <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_2">
+                    <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+
+        </TextBlock>
+        <TextBlock x:Uid="TextBlock_1" TextAlignment="Left" FontFamily="Segoe UI" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="466,512,0,0" RenderTransformOrigin="0.5,0.5" Text="Position Events:" Foreground="#FFE3E4DC" Width="218" FontWeight="Bold">
+            <TextBlock.RenderTransform>
+                <TransformGroup x:Uid="TransformGroup_2">
+                    <ScaleTransform x:Uid="ScaleTransform_2" ScaleX="1" ScaleY="1" />
+                    <SkewTransform x:Uid="SkewTransform_2" AngleX="0" AngleY="0" />
+                    <RotateTransform x:Uid="RotateTransform_2" Angle="0" />
+                    <TranslateTransform x:Uid="TranslateTransform_2" X="0" Y="0" />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+
+        </TextBlock>
+        <Label x:Uid="lblCoinvar" Foreground="White" Height="25" HorizontalAlignment="Left" Margin="33,0,0,171" Name="lblCoinvar" VerticalAlignment="Bottom" Width="89" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblCoinVar}"></Label>
+        <Label x:Uid="lblBillVar" Foreground="White" Height="25" HorizontalAlignment="Left" Margin="33,0,0,141" Name="lblBillVar" VerticalAlignment="Bottom" Width="89" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblBillsVar}"></Label>
+        <Label x:Uid="lblProgVar" Foreground="White" Height="25" HorizontalAlignment="Left" Margin="33,0,0,102" Name="lblProgVar" VerticalAlignment="Bottom" Width="93" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblProgVar}"></Label>
+        <TextBox x:Uid="txtCoinVar" TextAlignment="Right" Height="23" HorizontalAlignment="Left" Margin="127,0,0,171" Name="txtCoinVar" VerticalAlignment="Bottom" Width="100" Text="{Binding Path=CoinVarSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtBillVar" TextAlignment="Right" Height="23" HorizontalAlignment="Left" Margin="127,0,0,141" Name="txtBillVar" VerticalAlignment="Bottom" Width="100" Text="{Binding Path=NotesVarSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtProgVar" Height="23" TextAlignment="Right" HorizontalAlignment="Left" Margin="127,0,0,104" Name="txtProgVar" VerticalAlignment="Bottom" Width="100" Text="{Binding Path=ProgressiveVarSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <Label x:Uid="lblHandpayVar" Foreground="White" Height="25" HorizontalAlignment="Left" Margin="233,0,0,171" Name="lblHandpayVar" VerticalAlignment="Bottom" Width="91" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblHandpayVar}"></Label>
+        <Label x:Uid="lblTicketVar" Foreground="White" Height="25" HorizontalAlignment="Left" Margin="232,0,0,141" Name="lblTicketVar" VerticalAlignment="Bottom" Width="105" Content="{DynamicResource CollectionBatchBreakdown_xaml_lblTicketsVar}"></Label>
+        <TextBox x:Uid="txtHandpayVar" Height="23" TextAlignment="Right" HorizontalAlignment="Left" Margin="329,0,0,171" Name="txtHandpayVar" VerticalAlignment="Bottom" Width="100" Text="{Binding Path=HandpayVarSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+        <TextBox x:Uid="txtTicketVar" Height="23" TextAlignment="Right" HorizontalAlignment="Left" Margin="329,0,0,141" Name="txtTicketVar" VerticalAlignment="Bottom" Width="100" Text="{Binding Path=TicketsVarSum,Converter={StaticResource PriceConverter}}" IsReadOnly="True" />
+
+
+        <Custom:DataGrid x:Uid="dgBatchBreakdown" x:Name="dgBatchBreakdown"  SelectionUnit="FullRow"  Margin="35,122,54,0"  IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionMode="Single" 
+	                         Style="{DynamicResource dgstyle}" Height="383" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  ClipboardCopyMode="IncludeHeader" SelectionChanged="dgBatchBreakdown_SelectionChanged">
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_1" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_1}" 	Binding="{Binding Path=CollectionKey}" Width="0" Visibility="Hidden"  />
+                <Custom:DataGridTemplateColumn x:Uid="GridViewColumn_2" ClipboardContentBinding="{Binding Zone}" SortMemberPath="Zone" Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_2}" MinWidth="60" Width="Auto">
+                    <Custom:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Uid="DataTemplate_Zone">
+                            <Grid x:Uid="Grid_2" MinWidth="15">                               
+                                <StackPanel x:Uid="StackPanel_1" Orientation="Horizontal">
+                                    <Image x:Uid="Image_4" Source="Images/moneybag.png" Width="20" Height="20"></Image>
+                                    <TextBlock x:Uid="TextBlock_2" x:Name="txtZone" Text="{Binding Path=Zone}" />
+                                </StackPanel>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger x:Uid="DataTrigger_1" Binding="{Binding Zone}" Value="UNDECLARED">
+                                    <Setter x:Uid="Setter_1" TargetName="txtZone" Property="Foreground" Value="Red" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </Custom:DataGridTemplateColumn.CellTemplate>
+                </Custom:DataGridTemplateColumn>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_3" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_3}"  Width="Auto" 	Binding="{Binding Path=Pos}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_37" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_37}" Width="Auto"  	Binding="{Binding Path=Asset}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_4" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_4}"  Width="Auto"		Binding="{Binding Path=Game}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_5" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_5}"  Width="Auto" 	Binding="{Binding Path=WinLoss,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_6" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_6}"  Width="Auto" 	Binding="{Binding Path=WinLossMeter,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_7" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_7}"  Width="Auto" 	Binding="{Binding Path=WinLossVar,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_8" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_8}"  Width="Auto" 	Binding="{Binding Path=GrossCoin,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_9" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_9}"  Width="Auto" 	Binding="{Binding Path=CoinNet,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_10" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_10}"  Width="Auto" 	Binding="{Binding Path=CoinMeter,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_11" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_11}"  Width="Auto" 	Binding="{Binding Path=CoinVar,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_12" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_12}"  Width="Auto" 	Binding="{Binding Path=Bills,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_13" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_13}"  Width="Auto" 	Binding="{Binding Path=BillsMeter,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_14" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_14}"  Width="Auto" 	Binding="{Binding Path=BillsVar,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_15" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_15}"  Width="Auto" 	Binding="{Binding Path=Tickets,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_16" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_16}"  Width="Auto" 	Binding="{Binding Path=Shortpay,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_17" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_17}"  Width="Auto" 	Binding="{Binding Path=VoidTicket,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_18" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_18}"  Width="Auto" 	Binding="{Binding Path=TicketsMeter,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_19" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_19}"  Width="Auto" 	Binding="{Binding Path=TicketsVar,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_20" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_20}"  Width="Auto" 	Binding="{Binding Path=HandpayNonTruncated,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_21" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_21}"  Width="Auto" 	Binding="{Binding Path=HandpayMeter,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_22" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_22}"  Width="Auto" 	Binding="{Binding Path=HandpayVar,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_23" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_23}"  Width="Auto" 	Binding="{Binding Path=Progressive,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_24" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_24}"  Width="Auto" 	Binding="{Binding Path=ProgressiveMeter,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_25" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_25}"  Width="Auto" 	Binding="{Binding Path=ProgressiveVar,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_26" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_26}"  Width="Auto" 	Binding="{Binding Path=Handle,Converter={StaticResource PriceConverter}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_27" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_27}"  Width="Auto" 	Binding="{Binding Path=PercentPayout,Converter={StaticResource PriceConverterWithoutSymbol}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_28" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_28}"  Width="Auto" 	Binding="{Binding Path=PercentHold,Converter={StaticResource PriceConverterWithoutSymbol}}" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_29" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_29}"  Width="Auto" 	Binding="{Binding Path=Faults}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_30" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_30}"  Width="Auto" 	Binding="{Binding Path=Door}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_31" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_31}"  Width="Auto" 	Binding="{Binding Path=Power}"/>
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+
+            <Custom:DataGrid x:Uid="dgEvents" x:Name="dgEvents"  SelectionUnit="FullRow"  Margin="456,0,58,31"  IsReadOnly="True" IsSynchronizedWithCurrentItem="True"   FontSize="13" FontFamily="Segoe UI" 
+                             VerticalAlignment="Bottom" ScrollViewer.CanContentScroll="True" ItemsSource="{Binding}" AutoGenerateColumns="False" 
+							 Height="165" 
+                             Style="{DynamicResource dgstyle}" BorderBrush="AliceBlue" BorderThickness="5" RowBackground="{DynamicResource RowBG}"   HorizontalGridLinesBrush="#FF6B747A" VerticalGridLinesBrush="#FF6B747A" 
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" ClipboardCopyMode="IncludeHeader">
+            <Custom:DataGrid.Columns>
+                <Custom:DataGridTemplateColumn x:Uid="GridViewColumn_32" ClipboardContentBinding="{Binding Type}" SortMemberPath="Type" Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_32}" MinWidth="120" Width="Auto">
+                    <Custom:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Uid="DataTemplate_Type">
+                            <Grid x:Uid="Grid_35" MinWidth="15">
+                                <Border x:Uid="Border_35" BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                <StackPanel x:Uid="StackPanel_2" Orientation="Horizontal">
+                                    <Control x:Uid="icon" x:Name="icon" />
+                                    <TextBlock x:Uid="TextBlock_34" Text="{Binding Path=Type}" />
+                                </StackPanel>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger x:Uid="DataTrigger_2" Binding="{Binding Path=Type}" Value="Door">
+                                    <Setter x:Uid="Setter_2" TargetName="icon" Property="Template" Value="{StaticResource DoorImage}" />
+                                </DataTrigger>
+                                <DataTrigger x:Uid="DataTrigger_3" Binding="{Binding Path=Type}" Value="Fault">
+                                    <Setter x:Uid="Setter_3" TargetName="icon" Property="Template" Value="{StaticResource FaultImage}" />
+                                </DataTrigger>
+                                <DataTrigger x:Uid="DataTrigger_4" Binding="{Binding Path=Type}" Value="Power On">
+                                    <Setter x:Uid="Setter_4" TargetName="icon" Property="Template" Value="{StaticResource PowerImage}" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </Custom:DataGridTemplateColumn.CellTemplate>
+                </Custom:DataGridTemplateColumn>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_33" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_33}" Width="70" 	Binding="{Binding Path=Date}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_34" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_34}" Width="70"  	Binding="{Binding Path=Time}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_35" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_35}" Width="Auto"		Binding="{Binding Path=Duration}"/>
+                <Custom:DataGridTextColumn x:Uid="GridViewColumn_36" 	Header="{DynamicResource CollectionBatchBreakdown_xaml_GridViewColumn_36}" MinWidth="158.6" Width="Auto" 	Binding="{Binding Path=Description}"/>
+            </Custom:DataGrid.Columns>
+        </Custom:DataGrid>
+        <ProgressBar x:Uid="pgLoading" x:Name="pgLoading" VerticalAlignment="Top" Margin="370,302,351,0" Height="30" IsIndeterminate="True" />
+        <TextBlock x:Uid="txtPGStatus" FontFamily="Segoe UI" FontSize="15" x:Name="txtPGStatus" TextAlignment="Center" VerticalAlignment="Top" Margin="370,304,351,0" Height="30" />
+        <Button x:Uid="btnWinLossReport" HorizontalAlignment="left" Visibility="Visible" Content="{DynamicResource CollectionBatchBreakdown_xaml_btnWinLossReport}" d:LayoutOverrides="Height" Margin="28,0,0,0" Style="{DynamicResource BMC_Button}" Name="btnWinLossReport" Height="64" VerticalAlignment="Bottom" Width="123" Click="btnWinLossReport_Click" />
+        <Button x:Uid="btnReturn" HorizontalAlignment="left" Visibility="Visible" Content="{DynamicResource CollectionBatchBreakdown_xaml_btnExceptionreport}" d:LayoutOverrides="Height" Margin=
+"353,0,0,0" Style="{DynamicResource BMC_Button}" Name="btnReturn" Height="64" VerticalAlignment="Bottom" Width="100" Click="btnReturn_Click" />
+        <Button HorizontalAlignment="left" Content="{DynamicResource CollectionBatchBreakdown_xaml_btnExport}"   d:LayoutOverrides="Height" Margin="249,0,0,-19" Style="{DynamicResource BMC_Button}" Name="btnExport" Height="83" VerticalAlignment="Bottom" Width="100" Click="btnExport_Click" />
+        <Button Height="81" HorizontalAlignment="Left" Content="{DynamicResource CollectionBatchBreakdown_xaml_btnDetails}" Margin="139,0,0,-18" Name="btnDetails" Style="{DynamicResource BMC_Button}" VerticalAlignment="Bottom" Width="100" Click="btnDetails_Click"></Button>
+        
+    </Grid>
+</Window>

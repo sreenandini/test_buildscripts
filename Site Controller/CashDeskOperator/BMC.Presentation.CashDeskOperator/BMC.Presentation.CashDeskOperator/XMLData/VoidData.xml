@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <TicketData>
+    <Date>12/10/2008</Date>
+    <Type>Manual</Type>
+    <Position>476</Position>
+    <GameTitle>Winning Times</GameTitle>
+    <Amount>2000.00</Amount>
+  </TicketData>
+  <TicketData>
+    <Date>12/10/2008</Date>
+    <Type>Manual</Type>
+    <Position>406</Position>
+    <GameTitle>Winning Times</GameTitle>
+    <Amount>2000.00</Amount>
+  </TicketData>
+  <TicketData>
+    <Date>12/10/2008</Date>
+    <Type>Manual</Type>
+    <Position>123</Position>
+    <GameTitle>Winning Times</GameTitle>
+    <Amount>2000.00</Amount>
+  </TicketData>
+  <TicketData>
+    <Date>12/10/2008</Date>
+    <Type>Manual</Type>
+    <Position>450</Position>
+    <GameTitle>Winning Times</GameTitle>
+    <Amount>2000.00</Amount>
+  </TicketData>
+  <TicketData>
+    <Date>12/10/2008</Date>
+    <Type>Manual</Type>
+    <Position>111</Position>
+    <GameTitle>Winning Times</GameTitle>
+    <Amount>2000.00</Amount>
+  </TicketData>
+</Root>
