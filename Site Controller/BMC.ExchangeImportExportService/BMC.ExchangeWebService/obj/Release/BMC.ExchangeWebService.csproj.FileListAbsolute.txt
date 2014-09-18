@@ -1,0 +1,10 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.ExchangeWebService.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.ExchangeWebService.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.Monitoring.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\bin\BMC.Monitoring.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\obj\Release\BMC.ExchangeWebService.csprojResolveAssemblyReference.cache
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\obj\Release\BMC.ExchangeWebService.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.ExchangeImportExportService\BMC.ExchangeWebService\obj\Release\BMC.ExchangeWebService.pdb

@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="BMC.ExComms.Simulator.Views.Request.AxEvents"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:ctls="http://ballytech.com/bmc/core/controls"
+             xmlns:ff="clr-namespace:BMC.ExComms.Contracts.DTO.Freeform;assembly=BMC.ExComms.Contracts"
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Event Information" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0">
+            <Grid HorizontalAlignment="Stretch " VerticalAlignment="Stretch" Margin="0,9,0,-9">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="380"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Event Category :" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <ComboBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                          ItemsSource="{Binding Path=GmuEventCategories}" DisplayMemberPath="Description"/>
+                <Label Grid.Row="1" Content="Event Type :" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                          ItemsSource="{Binding Path=GmuEventTypes}" DisplayMemberPath="Description"/>
+                <Grid HorizontalAlignment="Stretch " VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Post Event" Command="{Binding Path=PostEventCommand}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,5" />
+                </Grid>
+                <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >
+                    <TabItem Header="Non Priority">
+                        <WrapPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Button Height="28" Padding="5,0,5,0" Content="Machine Paid External Bonus Win" Command="{Binding Path=PostEventCommand}" CommandParameter="204" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Attendant Paid External Bonus Win" Command="{Binding Path=PostEventCommand}" CommandParameter="206" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Periodic" Command="{Binding Path=PostEventCommand}" CommandParameter="97" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Forced Periodic" Command="{Binding Path=PostEventCommand}" CommandParameter="96" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Instant Periodic" Command="{Binding Path=PostEventCommand}" CommandParameter="207" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Game Power Up" Command="{Binding Path=PostEventCommand}" CommandParameter="171" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Power Reset" Command="{Binding Path=PostEventCommand}" CommandParameter="86" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Zero Credit" Command="{Binding Path=PostEventCommand}" CommandParameter="224" Margin="5,5,0,5" />                            
+                        </WrapPanel>
+                    </TabItem>
+                    <TabItem Header="Priority">
+                        <WrapPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Button Height="28" Padding="5,0,5,0" Content="Zero Credit" Command="{Binding Path=PostEventCommand}" CommandParameter="205" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Non Zero Credit" Command="{Binding Path=PostEventCommand}" CommandParameter="210" Margin="5,5,0,5" />
+                        </WrapPanel>
+                    </TabItem>
+                    <TabItem Header="Comms">
+                        <WrapPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Button Height="28" Padding="5,0,5,0" Content="Machine Data Comms Down" Command="{Binding Path=PostEventCommand}" CommandParameter="172" Margin="5,5,0,5" />
+                            <Button Height="28" Padding="5,0,5,0" Content="Machine Data Comms Up" Command="{Binding Path=PostEventCommand}" CommandParameter="173" Margin="5,5,0,5" />
+                        </WrapPanel>
+                    </TabItem>
+                </TabControl>
+
+                <!--<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      Grid.Row="4" Grid.ColumnSpan="3">
+                    <DataGrid x:Name="dgvTickets"
+                      Style="{StaticResource gridDefaultStyle}"
+                        IsReadOnly="True" Margin="0,1,0,-1"
+                        ItemsSource="{Binding Path=ProcessedTickets}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="S.No" Binding="{Binding Path=SNo}" Width="40"  />
+                            <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="Barcode" Binding="{Binding Path=Barcode}" Width="Auto" />
+                            <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="Amount" Binding="{Binding Path=Amount}" Width="Auto" />
+                            <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="Process Type" Binding="{Binding Path=ProcessType}" Width="Auto" />
+                            <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="Ticket Type" Binding="{Binding Path=TicketType}" Width="Auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>-->
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

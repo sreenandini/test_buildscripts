@@ -1,0 +1,52 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="BMC.ExComms.Simulator.GIMDetails"
+	x:Name="UserControl"
+	d:DesignWidth="470" d:DesignHeight="350"
+	Background="White">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />			
+			<RowDefinition Height="*" />
+			<RowDefinition Height="40" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Label Name="lblAssetNumber" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_Asset Number :" Margin="2" />
+		<TextBox Name="txtAssetNumber" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="12345" />
+		<Label Name="lblGMUNumber" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_GMU Number :" />
+        <TextBox Name="txtGMUNumber" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="00002" />
+		<Label Name="lblSerialNumber" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_Serial Number :" />
+        <TextBox Name="txtSerialNumber" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="000000012345" />
+		<Label Name="lblManufacturerID" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_Manufacturer ID :" />
+        <TextBox Name="txtManufacturerID" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="4239" />
+		<Label Name="lblMACAddress" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="MAC _Address :" />
+        <TextBox Name="txtMACAddress" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="00:16:80:01:47:4D" />
+		<Label Name="lblGMUVersion" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="GMU _Version :" />
+        <TextBox Name="txtGMUVersion" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="Oct 18 2013 15:52:17 Ver-300.05.14a Options" />
+		<Label x:Name="lblSASVersion" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="S_AS Version :" />
+        <TextBox Name="txtSASVersion" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="601" />
+        <Grid Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnSave" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2">Save</Button>
+            <Button Name="btnSend" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2" Click="btnSend_Click">Send</Button>
+        </Grid>
+	</Grid>
+</UserControl>

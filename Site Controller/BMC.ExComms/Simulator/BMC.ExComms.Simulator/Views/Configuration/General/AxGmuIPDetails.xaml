@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="BMC.ExComms.Simulator.Views.Configuration.General.AxGmuIPDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!-- GMU Starting IP Address -->
+        <Label Name="lblGmuStartIPAddress" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="GMU Starting IP :" Margin="2" />
+        <TextBox Name="txtGmuStartIPAddress" Text="{Binding Path=GmuIpGeneration.StartingIPAddress}" Grid.Row="0" Grid.Column="1" Width="120" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" MaxLength="17" />
+        <Label Name="lblTotalGmus" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Total GMUs :" Margin="2" />
+        <TextBox Name="txtTotalGmus" Text="{Binding Path=GmuIpGeneration.TotalGMUs}" Grid.Row="0" Grid.Column="3" Width="120" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" MaxLength="5" />
+        <!-- Subnet Mask -->
+        <Label Name="lblSubnetMask" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Subnet Mask :" Margin="2" />
+        <TextBox Name="txtSubnetMask" Text="{Binding Path=GmuIpGeneration.SubnetMask}" Grid.Row="1" Grid.Column="1" Width="120" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" MaxLength="17" />
+        <!-- Subnet Mask -->
+        <Label Name="lblNetworkInterfaces" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Network Interface :" Margin="2" />
+        <ComboBox Name="cboNetworkInterfces" ItemsSource="{Binding Path=GmuIpGeneration.NetworkInterfaces}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Width="400" 
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2"
+                  ItemTemplate="{StaticResource dtNetworkInterface}"/>
+        <Grid Margin="0,5,0,5" HorizontalAlignment="Stretch " VerticalAlignment="Stretch" Grid.Row="3" Grid.ColumnSpan="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnPopulateIPs" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2" 
+                    Command="{Binding Path=PopulateIPCommand}" CommandParameter="{Binding}">Populate IPs</Button>
+            <Button Name="btnGenerateIPs" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2" 
+                    Command="{Binding Path=GenerateIPCommand}" CommandParameter="{Binding}">Generate IPs</Button>
+        </Grid>
+    </Grid>
+</UserControl>

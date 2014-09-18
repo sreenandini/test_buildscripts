@@ -1,0 +1,45 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d" Name="axGIMDetails"
+	x:Class="BMC.ExComms.Simulator.Views.Configuration.GMU.GIMDetails" 
+	d:DesignWidth="383" d:DesignHeight="259"
+	Background="White" DataContext="{Binding Path=GIMInformation}">
+    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Name="lblIPAddress" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="IP Address :" Margin="2" />
+            <TextBox Name="txtIPAddress" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=IPAddress}" MaxLength="50" />
+            <Label Name="lblAssetNumber" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_Asset Number :" Margin="2" />
+            <TextBox Name="txtAssetNumber" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=AssetNo}" MaxLength="50" />
+            <Label Name="lblGMUNumber" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_GMU Number :" />
+            <TextBox Name="txtGMUNumber" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=GmuNo}" MaxLength="50" />
+            <Label Name="lblSerialNumber" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_Serial Number :" />
+            <TextBox Name="txtSerialNumber" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=SerialNo}" MaxLength="50" />
+            <Label Name="lblManufacturerID" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="_Manufacturer ID :" />
+            <TextBox Name="txtManufacturerID" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=ManufacturerID}" MaxLength="50" />
+            <Label Name="lblMACAddress" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="MAC _Address :" />
+            <TextBox Name="txtMACAddress" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=MACAddress}" MaxLength="20" />
+            <Label Name="lblGMUVersion" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="GMU _Version :" />
+            <TextBox Name="txtGMUVersion" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=GMUVersion}" MaxLength="100" />
+            <Label x:Name="lblSASVersion" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="S_AS Version :" />
+            <TextBox Name="txtSASVersion" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2" Text="{Binding Path=SASVersion}" MaxLength="50" />
+        </Grid>
+    </ScrollViewer>
+</UserControl>

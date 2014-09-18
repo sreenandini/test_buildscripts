@@ -1,0 +1,8 @@
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\bin\Release\BMC.EnterpriseProxy.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\bin\Release\BMC.EnterpriseProxy.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\bin\Release\BMC.Common.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\bin\Release\BMC.DataAccess.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\bin\Release\BMC.DataAccess.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\obj\Release\BMC.EnterpriseProxy.dll
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\obj\Release\BMC.EnterpriseProxy.pdb
+C:\starteam\projects\Bally MultiConnect\12.5\Coding\Source\Site Controller\BMC.EnterpriseProxy\BMC.EnterpriseProxy\obj\Release\BMC.EnterpriseProxy.csprojResolveAssemblyReference.cache

@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="BMC.ExComms.Simulator.Views.AxMainRequest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:req="clr-namespace:BMC.ExComms.Simulator.Views.Request"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid HorizontalAlignment="Stretch " VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Stretch " VerticalAlignment="Stretch" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>            
+            <TabControl Margin="5,5,5,0" Name="tabContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1">
+                <!--<TabItem Header="Execution Steps">
+                    <req:AxExecutionSteps HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </TabItem>-->
+                <TabItem Header="Raw Request">
+                    <req:AxRawRequest HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </TabItem>
+                <TabItem Header="Events">
+                    <req:AxEvents HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </TabItem>
+                <TabItem Header="Tickets">
+                    <req:AxTicketRequest HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </TabItem>
+                <TabItem Header="E-Cash">
+                    <req:AxECashRequest HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</UserControl>

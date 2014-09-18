@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADD1395A-60A3-42E0-B231-81F1BADFC28A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.ExComms.Contracts</RootNamespace>
+    <AssemblyName>BMC.ExComms.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ExchangeConfigStore.cs" />
+    <Compile Include="Configuration\ExCommServerConfigStore.cs" />
+    <Compile Include="Configuration\ExMonitorServerConfigStore.cs" />
+    <Compile Include="DTO\ExCommMessageKnownType.cs" />
+    <Compile Include="DTO\Freeform\Factory\FreeformEncryptionFactory.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Encrypted\Encrypted.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GameMessage\GameMessage.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\TaggedStatus.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\TaggedStatus\Time.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\TaggedStatus\Date.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUVarAction\GMUVariableAction.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUVarAction\Ticket.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUVarAction\TicketOfflineText.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUVarAction\TicketSlotID.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUVarAction\TimeOfDay.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\PID\RSAQuerySystem.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\PID\PID.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\PID\GetParameter.cs" />
+    <Compile Include="DTO\Freeform\FreeformUniqueKeys.cs" />
+    <Compile Include="DTO\Freeform\Targets\Clients\ClearHandPay.cs" />
+    <Compile Include="DTO\Freeform\Targets\Clients\Client.cs" />
+    <Compile Include="DTO\Freeform\Targets\Clients\UDPList.cs" />
+    <Compile Include="DTO\Freeform\Targets\Encrypted\Encrypted.cs" />
+    <Compile Include="DTO\Freeform\Targets\Game Message\EnableDisable.cs" />
+    <Compile Include="DTO\Freeform\Targets\Game Message\LongPollCommand.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\TaggedStatus.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\TaggedStatus\DateTime.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUVarAction\GMUVariableAction.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUVarAction\Ticket.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUVarAction\TicketEnablePR.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUVarAction\TicketOfflineText.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUVarAction\TicketSlotID.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUVarAction\TimeOfDay.cs" />
+    <Compile Include="DTO\Freeform\Targets\HandpayJackpot\HandpayJackpot.cs" />
+    <Compile Include="DTO\Freeform\Targets\LongPoll\ForcePeriodic.cs" />
+    <Compile Include="DTO\Freeform\Targets\LongPoll\InstantPeriodic.cs" />
+    <Compile Include="DTO\Freeform\Targets\LongPoll\LongPoll.cs" />
+    <Compile Include="DTO\Freeform\Targets\PID\RSAQueryGMU.cs" />
+    <Compile Include="DTO\Freeform\Targets\PID\SetParameter.cs" />
+    <Compile Include="DTO\Freeform\Targets\PID\GetParameter.cs" />
+    <Compile Include="DTO\Freeform\Targets\PID\PID.cs" />
+    <Compile Include="DTO\Freeform\Targets\Server\Comms.cs" />
+    <Compile Include="DTO\ICommsEntity.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Messages\MonMsgParser.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\MonParser.cs" />
+    <Compile Include="DTO\Freeform\Targets\AckNack.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\AckNack.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Clients\AddUDPToList.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Clients\ClearHandPay.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Clients\EnableDisableMachine.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Clients\RemoveUDPFromList.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\EFT\Balance.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\EFT\EnableDisable.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\EFT\Deposit.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\EFT\Withdrawal.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\EPI\EPI.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\EPI\SystemToEPI.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\GIM\GameIDInfo.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\GMUVarAction\Ticket.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\GMUVarAction\TicketSlotID.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\GMUVarAction\TimeOfDay.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\HandpayJackpot\HandpayJackpot.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\GetExtendedGameInfo.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\GetGameInfo.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\LongPollCommand.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\TotalGames.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\GameMachineInfo.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\HandpayInfo.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\CurrentCredits.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\ForcePeriodic.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\LongPoll\InstantPeriodic.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Meter\Meter.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\MonTgtParser.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\MonTgtParserAttribute.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Precommitment\Enrollment.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Precommitment\Notification.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Precommitment\Status.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Server\Comms.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\Bonus.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\DescriptionBase.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\GMUHeartBeat.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\MachineDataComms.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\ErrorEventCategory.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\GameOrGMUEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\GeneralInfoEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\HopperEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\DeviceFaultEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\DoorEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\EmployeeCard.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\ErrorEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\PlayerCard.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\Credit.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\Periodic.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\Power.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\PrinterEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\StatusBlock.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\StatusBlock\TiltEvent.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Tickets\TicketPrinted.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Tickets\TicketRedemption.cs" />
+    <Compile Include="DTO\Monitor\Factory\Parsers\Targets\Tickets\TicketVoid.cs" />
+    <Compile Include="DTO\Monitor\MonitorEntityFactory.cs" />
+    <Compile Include="DTO\Monitor\Targets\AckNack.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\AddUDPToList.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\ClearHandpayLock.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\EmployeeCard.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\EnableDisableAFT.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\EnableDisableAFTNW.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\EnableDisableMachine.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\EnableDisableMachineNW.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\EnableDisableNoteAcceptor.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\GetGameInfo.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\ManageSlotPorts.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\MeterForcePeriodic.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\RemoveUDPFromList.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\UpdateOptionFileParameter.cs" />
+    <Compile Include="DTO\Monitor\Targets\Clients\UpdateTicketConfig.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Auto_Download_TopUp.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Balance.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Cashless.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Deposit.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\EFT_Transactions.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\OfferList.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Phishing.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Pin.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Player.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\SystemEnableDisable.cs" />
+    <Compile Include="DTO\Monitor\Targets\EFT Transactions\Withdrawel.cs" />
+    <Compile Include="DTO\Monitor\Targets\EPI\EPI.cs" />
+    <Compile Include="DTO\Monitor\Targets\GameCapping\GameCapping.cs" />
+    <Compile Include="DTO\Monitor\Targets\GIM\AuxNetworkEnableDisable.cs" />
+    <Compile Include="DTO\Monitor\Targets\GIM\GameIDInfo.cs" />
+    <Compile Include="DTO\Monitor\Targets\GIM\GameIDRequest.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\GMUVarAction.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\MaximumOfflineTicket.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\RestrictedExpirationTicket.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\Ticket.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\TicketEnablePR.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\TicketOfflineText.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\TicketPrintDate.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\TicketSlotID.cs" />
+    <Compile Include="DTO\Monitor\Targets\GMUVarAction\TimeOfDay.cs" />
+    <Compile Include="DTO\Monitor\Targets\HandpayJackpot\HandpayJackpot.cs" />
+    <Compile Include="DTO\Monitor\Targets\LongPoll\ForcePeriodic.cs" />
+    <Compile Include="DTO\Monitor\Targets\LongPoll\InstantPeriodic.cs" />
+    <Compile Include="DTO\Monitor\Targets\LongPoll\LongPoll.cs" />
+    <Compile Include="DTO\Monitor\Targets\Meter\Meter.cs" />
+    <Compile Include="DTO\Monitor\Targets\Meter\MeterType.cs" />
+    <Compile Include="DTO\Monitor\Targets\Precommitment\Enrollment.cs" />
+    <Compile Include="DTO\Monitor\Targets\Precommitment\Notification.cs" />
+    <Compile Include="DTO\Monitor\Targets\Precommitment\Precommitment.cs" />
+    <Compile Include="DTO\Monitor\Targets\Precommitment\Status.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\CardBase.cs" />
+    <Compile Include="DTO\Monitor\Targets\Server\Comms.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\Bonus.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\DescriptionBase.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\GMUHeartBeat.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\MachineDataComms.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\DeviceFaultEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\DoorEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\EmployeeCard.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\Credit.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\ErrorEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\GameOrGMUEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\GeneralInfoEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\HopperEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\NovoTicketCreate.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\Periodic.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\PlayerCard.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\Power.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\PrinterEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\StatusBlock\TiltEvent.cs" />
+    <Compile Include="DTO\Monitor\Targets\Tickets\TicketAttribute.cs" />
+    <Compile Include="DTO\Monitor\Targets\Tickets\TicketInfo.cs" />
+    <Compile Include="DTO\Monitor\Targets\Tickets\TicketingEnablement.cs" />
+    <Compile Include="DTO\Monitor\Targets\Tickets\TicketPrinted.cs" />
+    <Compile Include="DTO\Monitor\Targets\Tickets\TicketRedemption.cs" />
+    <Compile Include="DTO\Monitor\Targets\Tickets\TicketSequenceNumber.cs" />
+    <Compile Include="DTO\Monitor\Targets\Tickets\TicketVoid.cs" />
+    <Compile Include="DTO\PlayerFlags.cs" />
+    <Compile Include="Hosting\ExCommsHostingType.cs" />
+    <Compile Include="DTO\Freeform\Factory\FFactory_SoftGMU.cs" />
+    <Compile Include="DTO\Freeform\Factory\FFactory_MC400.cs" />
+    <Compile Include="DTO\Freeform\Factory\FFactory_MC350.cs" />
+    <Compile Include="DTO\Freeform\Factory\FreeformEntityFactory.cs" />
+    <Compile Include="DTO\Freeform\Factory\FFactory_Generic.cs" />
+    <Compile Include="DTO\Freeform\Factory\FFactory_MC300.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\FFEnumParsers.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\FFParser.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Messages\B2B_Message_Generic.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Messages\H2G_Message_MC300.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Messages\H2G_Message_Generic.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Messages\G2H_Message_Generic.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Messages\G2H_Message_MC300.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\AppQualifierEcho\AppQualiferEchoParser.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\CodeDownload\BaudRate.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\CodeDownload\ChangeVersion.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\CodeDownload\CodeDownload.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\CodeDownload\CRCResults.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\CodeDownload\FileDownload.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\CodeDownload\GMUData.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\Balance.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\Cashless.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\Deposit.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\EFT_Transactions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\OfferList.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\Phishing.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\Pin.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\Player.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\SystemEnableDisable.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EFT Transactions\Withdrawal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EPI\EPI.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\EPI\SystemToEPI.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GIM\GameIDRequest.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GIM\AuxNetworkEnableDisable.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GIM\GameIDInfo.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GIM\GIM.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\Coupon.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\EFT.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\GMUEvent.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\NoteAcceptor.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\Printer.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\Standard.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\GMUEvent\Ticket.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\H2G_Target.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\G2H_Target.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Meters\G2H_Meter.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Meters\G2H_MeterID.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Meters\G2H_MeterSourceID.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Printer\SystemPrinter.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Roulette\Roulette.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Security\BMCAuthentication.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Security\BMCEncryptAuth.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Security\BMCEncryption.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Security\IndexKeyExchange.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Security\KeyExchange.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Security\Security.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Tickets\TicketAttribute.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Tickets\TicketInfo.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Tickets\TicketingEnablement.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Tickets\TicketPrinted.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Tickets\TicketRedemption.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Tickets\TicketSequenceNumber.cs" />
+    <Compile Include="DTO\Freeform\Factory\Parsers\Targets\Tickets\TicketVoid.cs" />
+    <Compile Include="DTO\Freeform\FreeformConstants.cs" />
+    <Compile Include="DTO\Freeform\FreeformDataTypes.cs" />
+    <Compile Include="DTO\Freeform\FreeformEntity.cs" />
+    <Compile Include="DTO\Freeform\FreeformEntityIds.cs" />
+    <Compile Include="DTO\Freeform\FreeformEntityMessage.cs" />
+    <Compile Include="DTO\Freeform\FreeformEntityMetadata.cs" />
+    <Compile Include="DTO\Freeform\FreeformEntityTargets.cs" />
+    <Compile Include="DTO\Freeform\FreeformEnumerations.cs" />
+    <Compile Include="DTO\Freeform\FreeformHelper.cs" />
+    <Compile Include="DTO\Freeform\Messages\H2GMessage.cs" />
+    <Compile Include="DTO\Freeform\Messages\G2HMessage.cs" />
+    <Compile Include="DTO\Freeform\ProcessMessageDto.cs" />
+    <Compile Include="DTO\Freeform\Targets\Application\ApplicationQualifier.cs" />
+    <Compile Include="DTO\Freeform\Targets\Application\ApplicationResponseConfig.cs" />
+    <Compile Include="DTO\Freeform\Targets\Application\ApplicationResponseEcho.cs" />
+    <Compile Include="DTO\Freeform\Targets\Code Download\BaudRate.cs" />
+    <Compile Include="DTO\Freeform\Targets\Code Download\ChangeVersion.cs" />
+    <Compile Include="DTO\Freeform\Targets\Code Download\CodeDownload.cs" />
+    <Compile Include="DTO\Freeform\Targets\Code Download\CRCResults.cs" />
+    <Compile Include="DTO\Freeform\Targets\Code Download\FileDownload.cs" />
+    <Compile Include="DTO\Freeform\Targets\Code Download\GMUData.cs" />
+    <Compile Include="DTO\Freeform\Targets\Credit Key Off\Authorization.cs" />
+    <Compile Include="DTO\Freeform\Targets\Default IO\DefaultIO.cs" />
+    <Compile Include="DTO\Freeform\Targets\Default IO\DisplayText.cs" />
+    <Compile Include="DTO\Freeform\Targets\Default IO\InitiateQuestion.cs" />
+    <Compile Include="DTO\Freeform\Targets\Default IO\PlayerQuery.cs" />
+    <Compile Include="DTO\Freeform\Targets\Default IO\QuestionRequest.cs" />
+    <Compile Include="DTO\Freeform\Targets\Default IO\QuestionsOver.cs" />
+    <Compile Include="DTO\Freeform\Targets\Default IO\SetLockout.cs" />
+    <Compile Include="DTO\Freeform\Targets\EmployeeCard\EmployeeCardIn.cs" />
+    <Compile Include="DTO\Freeform\Targets\Feature Support\GMUFeatureSupportrequest.cs" />
+    <Compile Include="DTO\Freeform\Targets\Feature Support\SDSFeatureSupportRequest.cs" />
+    <Compile Include="DTO\Freeform\Targets\Game Message\Message.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUAuthentication\Authentication.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUAuthentication\AuthenticationQuery.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUAuthentication\AuthenticationResult.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUAuthentication\AuthenticationStatus.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUAuthentication\InitiateAuthentication.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Auto_Download_TopUp.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Balance.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Cashless.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Deposit.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\EFT_Transactions.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\OfferList.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Phishing.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Pin.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Player.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\SystemEnableDisable.cs" />
+    <Compile Include="DTO\Freeform\Targets\EFT Transactions\Withdrawal.cs" />
+    <Compile Include="DTO\Freeform\Targets\EPI\EPI.cs" />
+    <Compile Include="DTO\Freeform\Targets\EPI\SystemToEPI.cs" />
+    <Compile Include="DTO\Freeform\Targets\GameCapping\GameCapping.cs" />
+    <Compile Include="DTO\Freeform\Targets\GameInfo\GameInfo.cs" />
+    <Compile Include="DTO\Freeform\Targets\GIM\AuxNetworkEnableDisable.cs" />
+    <Compile Include="DTO\Freeform\Targets\GIM\GameIDInfo.cs" />
+    <Compile Include="DTO\Freeform\Targets\GIM\GameIDRequest.cs" />
+    <Compile Include="DTO\Freeform\Targets\GIM\GIM.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\NoteAcceptor.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\Printer.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\Coupon.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\EFT.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\GMUEvent.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\Standard.cs" />
+    <Compile Include="DTO\Freeform\Targets\GMUEvent\Ticket.cs" />
+    <Compile Include="DTO\Freeform\Targets\Jackpot Slip Processing\Jackpot.cs" />
+    <Compile Include="DTO\Freeform\Targets\Meters\Meter.cs" />
+    <Compile Include="DTO\Freeform\Targets\Meters\Meters.cs" />
+    <Compile Include="DTO\Freeform\Targets\Power Card\BalanceInquiry.cs" />
+    <Compile Include="DTO\Freeform\Targets\Power Card\BalanceInquiryResponse.cs" />
+    <Compile Include="DTO\Freeform\Targets\Power Card\RedeemSytem.cs" />
+    <Compile Include="DTO\Freeform\Targets\Precommitment\Enrollment.cs" />
+    <Compile Include="DTO\Freeform\Targets\Precommitment\Notification.cs" />
+    <Compile Include="DTO\Freeform\Targets\Precommitment\Precommitment.cs" />
+    <Compile Include="DTO\Freeform\Targets\Precommitment\Status.cs" />
+    <Compile Include="DTO\Freeform\Targets\Printer\SystemPrinter.cs" />
+    <Compile Include="DTO\Freeform\Targets\Remote ShutDown\RemoteShutDownRequest.cs" />
+    <Compile Include="DTO\Freeform\Targets\Remote ShutDown\RemoteShutDownresponse.cs" />
+    <Compile Include="DTO\Freeform\Targets\Roulette\Roulette.cs" />
+    <Compile Include="DTO\Freeform\Targets\Security\BMCEncryptAuth.cs" />
+    <Compile Include="DTO\Freeform\Targets\Security\BMCEncryption.cs" />
+    <Compile Include="DTO\Freeform\Targets\Security\BMCAuthentication.cs" />
+    <Compile Include="DTO\Freeform\Targets\Security\IndexKeyExchange.cs" />
+    <Compile Include="DTO\Freeform\Targets\Security\KeyExchange.cs" />
+    <Compile Include="DTO\Freeform\Targets\Security\Security.cs" />
+    <Compile Include="DTO\Freeform\Targets\System Log\SystemLog.cs" />
+    <Compile Include="DTO\Freeform\Targets\Tickets\TicketAttribute.cs" />
+    <Compile Include="DTO\Freeform\Targets\Tickets\TicketInfo.cs" />
+    <Compile Include="DTO\Freeform\Targets\Tickets\TicketingEnablement.cs" />
+    <Compile Include="DTO\Freeform\Targets\Tickets\TicketPrinted.cs" />
+    <Compile Include="DTO\Freeform\Targets\Tickets\TicketRedemption.cs" />
+    <Compile Include="DTO\Freeform\Targets\Tickets\TicketSequenceNumber.cs" />
+    <Compile Include="DTO\Freeform\Targets\Tickets\TicketVoid.cs" />
+    <Compile Include="DTO\Freeform\UdpFreeformEntity.cs" />
+    <Compile Include="DTO\Monitor\Messages\H2G_Message.cs" />
+    <Compile Include="DTO\Monitor\Messages\G2H_Message.cs" />
+    <Compile Include="DTO\Monitor\MonitorEntity.cs" />
+    <Compile Include="DTO\Monitor\MonitorEntityMessage.cs" />
+    <Compile Include="DTO\Monitor\MonitorEntityTargets.cs" />
+    <Compile Include="DTO\Monitor\MonitorEnumerations.cs" />
+    <Compile Include="DTO\Monitor\MonitorFaultSourceTypes.cs" />
+    <Compile Include="DTO\Monitor\ProcessMessageDto.cs" />
+    <Compile Include="DTO\Monitor\Targets\GameInfo.cs" />
+    <Compile Include="DTO\ProcessMessageDto.cs" />
+    <Compile Include="Hosting\ExCommsHosting.cs" />
+    <Compile Include="Interfaces\ExCommsServer.cs" />
+    <Compile Include="Interfaces\ExMonitorServer.cs" />
+    <Compile Include="Native\SDGTicketGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxies\ExCommsServerProxy.cs" />
+    <Compile Include="Proxies\ExMonitorServerRouterProxy.cs" />
+    <Compile Include="Proxies\ExMonitorClientProxy.cs" />
+    <Compile Include="Proxies\ExMonitorServerProxy.cs" />
+    <Compile Include="Proxies\ProxyHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\BMC.Common\BMC.Common.csproj">
+      <Project>{4d507c5e-48b8-4e3f-8de1-a233c43e97e8}</Project>
+      <Name>BMC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.CoreLib\BMC.CoreLib.csproj">
+      <Project>{8bd66a0a-49f9-497f-914c-bf8926336848}</Project>
+      <Name>BMC.CoreLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\Freeform\Factory\Parsers\Targets\Clients\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DTO\Freeform\Targets\GMUEvent\GMUEvent.cd" />
+    <None Include="DTO\Freeform\Targets\Meters\Meter.cd" />
+    <None Include="DTO\Freeform\Targets\Security\Security.cd" />
+    <None Include="DTO\Freeform\Targets\Tickets\Ticket.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

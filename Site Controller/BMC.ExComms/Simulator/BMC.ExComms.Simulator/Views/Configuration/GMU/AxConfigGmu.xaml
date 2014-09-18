@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="BMC.ExComms.Simulator.Views.Configuration.GMU.AxConfigGmu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:views_gmu="clr-namespace:BMC.ExComms.Simulator.Views.Configuration.GMU"
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid HorizontalAlignment="Stretch " VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Margin="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Available GMUs :" FontWeight="Bold" VerticalAlignment="Center" />
+                <Button Name="btnAddGMU" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Grid.Column="1" Content="+" Command="{Binding Path=AddGmuCommand}"/>
+                <Button Name="btnRemoveGMU" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Grid.Column="2" Content="-" Command="{Binding Path=RemoveGmuCommand}"/>
+            </Grid>
+            <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                      Grid.Row="1" BorderBrush="Black" BorderThickness="1"
+                      ItemsSource="{Binding Path=GIMInformationsView}"
+                      ItemTemplate="{StaticResource dtGIMInfo}">
+            </ListBox>
+        </Grid>
+        <TabControl Margin="5,5,5,0" Name="tabContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1">
+            <TabItem Header="GIM Information">
+                <views_gmu:GIMDetails HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22268C54-CF80-4DB9-B2E5-9BE686B68A15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.BusinessClasses</RootNamespace>
+    <AssemblyName>BMC.BusinessClasses</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogic\AlertDetails.cs" />
+    <Compile Include="BusinessLogic\BMCExchangeImportExport.cs" />
+    <Compile Include="BusinessLogic\CDOCentralServer.cs" />
+    <Compile Include="BusinessLogic\DataHelper.cs" />
+    <Compile Include="BusinessLogic\FloorStatus.cs" />
+    <Compile Include="BusinessLogic\MachineManagerInterface.cs" />
+    <Compile Include="BusinessLogic\SiteLicensingExpiryChecker.cs" />
+    <Compile Include="BusinessLogic\STMExportDetails.cs" />
+    <Compile Include="Interfaces\IBMCExchangeImportExport.cs" />
+    <Compile Include="Interfaces\ISTMExportDetails.cs" />
+    <Compile Include="ObjectFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\BMC.Common\BMC.Common.csproj">
+      <Project>{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}</Project>
+      <Name>BMC.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\BMC.CoreLib\BMC.CoreLib.csproj">
+      <Project>{8bd66a0a-49f9-497f-914c-bf8926336848}</Project>
+      <Name>BMC.CoreLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\BMC.DataAccess\BMC.DataAccess.csproj">
+      <Project>{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}</Project>
+      <Name>BMC.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\BMC.Security\BMC.Security.csproj">
+      <Project>{71855481-D14B-470A-86AE-466991820B2E}</Project>
+      <Name>BMC.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\BMCEventsTransmitter\BMCEventsTransmitter.csproj">
+      <Project>{F9442793-0332-47D0-9095-2E9A9E7603ED}</Project>
+      <Name>BMCEventsTransmitter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\BMC.EnterpriseProxy\BMC.EnterpriseProxy\BMC.EnterpriseProxy.csproj">
+      <Project>{D2A9F84A-6802-44AC-94E7-80078D25032E}</Project>
+      <Name>BMC.EnterpriseProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CashDeskOperator\BMC.CashDeskOperator\BMC.CashDeskOperator.csproj">
+      <Project>{c6def75f-d7c8-4961-85a2-616077f01b6e}</Project>
+      <Name>BMC.CashDeskOperator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CashDeskOperator\BMC.Transport\BMC.Transport.csproj">
+      <Project>{53304E7F-B3E7-41CE-B142-A26861E8F3C0}</Project>
+      <Name>BMC.Transport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MSMQ\BMCIPC\BMCIPC.csproj">
+      <Project>{8FED1C3D-BE00-45C9-8014-4970BDEB0328}</Project>
+      <Name>BMCIPC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ComExchangeLib">
+      <Guid>{DA653477-8D24-4AB5-9D8F-5729D2954413}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

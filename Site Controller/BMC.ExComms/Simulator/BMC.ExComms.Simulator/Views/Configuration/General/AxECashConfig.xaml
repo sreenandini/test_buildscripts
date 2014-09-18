@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="BMC.ExComms.Simulator.Views.Configuration.General.AxECashConfig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctls="http://ballytech.com/bmc/core/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:model="clr-namespace:BMC.ExComms.Simulator.Models"
+             DataContext="{Binding}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="dtEditCardNumber" DataType="{x:Type model:CardInfoModel}">
+            <Grid Margin="2">
+                <TextBox Text="{Binding Path=CardNo}" HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                         Width="250" MaxLength="20"
+                         BorderThickness="1" BorderBrush="Black"/>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="gridStyle" TargetType="DataGrid" BasedOn="{StaticResource gridDefaultStyle}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="SelectionMode" Value="Single" />
+            <Setter Property="IsReadOnly" Value="False" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="CanUserDeleteRows" Value="False" />
+            <Setter Property="CanUserReorderColumns" Value="False" />
+        </Style>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Stretch " VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="5,5,0,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="200" />
+            </Grid.RowDefinitions>
+            <Grid Margin="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Available Player Card's :" FontWeight="Bold" VerticalAlignment="Center" />
+                <Button Name="btnAddPlayerCard" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Grid.Column="1" Content="+" Command="{Binding Path=AddPlayerCardCommand}"/>
+                <Button Name="btnRemovePlayerCard" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Grid.Column="2" Content="-" Command="{Binding Path=RemovePlayerCardCommand}"/>
+            </Grid>
+            <DataGrid x:Name="dgvPlayerCards" Grid.Row="1"                       
+                      ItemsSource="{Binding Path=PlayerCardInfosEditView}"                      
+                      Style="{StaticResource gridStyle}" Margin="0,0,0,5">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="" Binding="{Binding Path=IsSelected}" Width="32" />
+                    <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="Card No" Binding="{Binding Path=CardNo}" Width="120" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <GroupBox Grid.Row="2" Grid.Column="0" Header="Options">
+                <DataGrid Style="{StaticResource gridDefaultStyle}" 
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                          ItemsSource="{Binding Path=ECashTextValues}" Margin="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" ctls:DataGridExtensions.SingleClickEdit="True" Header="S.No" Binding="{Binding Path=SNo}" Width="40"  />
+                        <DataGridTextColumn IsReadOnly="True" ctls:DataGridExtensions.SingleClickEdit="True" Header="Description" Binding="{Binding Path=Text}" Width="Auto" />
+                        <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="Value" Binding="{Binding Path=Value}" Width="Auto" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+        </Grid>
+        <Grid Margin="5,5,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Margin="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Available Employee Card's :" FontWeight="Bold" VerticalAlignment="Center" />
+                <Button Name="btnAddEmployeeCard" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Grid.Column="1" Content="+" Command="{Binding Path=AddEmployeeCardCommand}"/>
+                <Button Name="btnRemoveEmployeeCard" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                        Grid.Column="2" Content="-" Command="{Binding Path=RemoveEmployeeCardCommand}"/>
+            </Grid>
+            <DataGrid x:Name="dgvEmployeeCards" Grid.Row="1" 
+                      ItemsSource="{Binding Path=EmployeeCardInfosEditView}"                       
+                      Style="{StaticResource gridStyle}"
+                      PreparingCellForEdit="dgvEmployeeCards_PreparingCellForEdit">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="" Binding="{Binding Path=IsSelected}" Width="32" />
+                    <DataGridTextColumn ctls:DataGridExtensions.SingleClickEdit="True" Header="Card No" Binding="{Binding Path=CardNo}" Width="120" />
+                    <DataGridComboBoxColumn Header="GMU Detail" Width="120" 
+                                            ItemsSource="{Binding Path=GIMInformationsForCard}"
+                                            DisplayMemberPath="DisplayText"
+                                            SelectedItemBinding="{Binding Path=DisplayText, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

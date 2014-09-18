@@ -1,0 +1,14 @@
+﻿<Window x:Class="MonitorClientTesting.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btnAddToUDPList" Content="Add To UDP List" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="146" Click="btnAddToUDPList_Click" Height="41"/>
+        <Button x:Name="btnRemoveToUDPList" Content="Remove UDP From List" HorizontalAlignment="Left" Margin="161,10,0,0" VerticalAlignment="Top" Click="btnRemoveToUDPList_Click" Height="41" Width="146"/>
+        <Button x:Name="btnEnableMachine" Content="Enable Machine" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Click="btnEnableMachine_Click" Height="41" Width="146"/>
+        <Button x:Name="btnDisableMachine" Content="Disable Machine" HorizontalAlignment="Left" Margin="161,56,0,0" VerticalAlignment="Top" Click="btnDisableMachine_Click" Height="41" Width="146"/>
+        <Button x:Name="btnEnableAFT" Content="Enable AFT" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Click="btnEnableAFT_Click" Height="41" Width="146"/>
+        <Button x:Name="btnDisableAFT" Content="Disable AFT" HorizontalAlignment="Left" Margin="161,102,0,0" VerticalAlignment="Top" Click="btnDisableAFT_Click" Height="41" Width="146"/>
+        <Button x:Name="btnLPTotalGames" Content="Total Games" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Click="btnLPTotalGames_Click" Height="41" Width="146"/>
+    </Grid>
+</Window>
