@@ -1,0 +1,13 @@
+<Root>
+  <ImageList>
+    <!--<Image File="../Images/Floor-View.png" Caption="Liability"/>-->
+    <Image File="../Images/Tickets.png" Caption="Main"/>
+    <Image File="../Images/Void.png" Caption="Debug"/>
+    <Image File="../Images/Analysis.png" Caption="Reconcilation"/>
+    <Image File="../Images/Analysis.png" Caption="Movement"/>
+    <Image File="../Images/Analysis.png" Caption="System &#xA;Balancing"/>
+    <Image File="../Images/PlayerClub.png" Caption="Ticket&#xA;Anomalies"/>
+    <!--<Image File="../Images/Current Calls.png" Caption="UnClaimed Tickets"/>
+    <Image File="../Images/Current Calls.png" Caption="VoidnExpired"/>-->
+  </ImageList>  
+</Root>

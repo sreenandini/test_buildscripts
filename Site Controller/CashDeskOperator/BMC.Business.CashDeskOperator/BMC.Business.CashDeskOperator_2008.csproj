@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC202CEA-39A4-468F-B1F4-AB38C6D76011}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BMC.Business.CashDeskOperator</RootNamespace>
+    <AssemblyName>BMC.Business.CashDeskOperator</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/BMC.Business.CashDeskOperator/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AFTSettings.cs" />
+    <Compile Include="Analysis.cs" />
+    <Compile Include="AuditBusiness.cs" />
+    <Compile Include="Batch.cs" />
+    <Compile Include="CashDeskmanagerCommon.cs" />
+    <Compile Include="cGameCappingBiz.cs" />
+    <Compile Include="CommonUtilities.cs" />
+    <Compile Include="csApplicationLockBiz.cs" />
+    <Compile Include="csExportDetailBiz.cs" />
+    <Compile Include="EmployeeMasterCard.cs" />
+    <Compile Include="EnableDisableMachineBiz.cs" />
+    <Compile Include="ExceptionVoucher.cs" />
+    <Compile Include="GMUPingBiz.cs" />
+    <Compile Include="IBmcCashDispenser.cs" />
+    <Compile Include="IssueTicketCage.cs" />
+    <Compile Include="HandPayCage.cs" />
+    <Compile Include="CustomerDetails.cs" />
+    <Compile Include="Declaration.cs" />
+    <Compile Include="Drop.cs" />
+    <Compile Include="Enrollment.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="FactoryReset.cs" />
+    <Compile Include="FieldService.cs" />
+    <Compile Include="HandPay.cs" />
+    <Compile Include="HourlyDetails.cs" />
+    <Compile Include="IssueTicket.cs" />
+    <Compile Include="Kiosk.cs" />
+    <Compile Include="Liquidation.cs" />
+    <Compile Include="MachineManagerInterface.cs" />
+    <Compile Include="MachineManagerLazyInitializer.cs" />
+    <Compile Include="MeterLife.cs" />
+    <Compile Include="Observers.cs" />
+    <Compile Include="PlayerDataBusinessObject.cs" />
+    <Compile Include="PrintCageSlip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PrintUtility.cs" />
+    <Compile Include="PrizeInfoDTO.cs" />
+    <Compile Include="ProfitShareBusiness.cs" />
+    <Compile Include="Promotional.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadBasedLiquidationBusiness.cs" />
+    <Compile Include="ReadLiquidationBusiness.cs" />
+    <Compile Include="ReadLiquidationDetailsBusiness.cs" />
+    <Compile Include="RedeemOfflineTicket.cs" />
+    <Compile Include="RedeemTicket.cs" />
+    <Compile Include="Reports.cs" />
+    <Compile Include="SettingsDetails.cs" />
+    <Compile Include="ShortPay.cs" />
+    <Compile Include="SiteLicensing.cs" />
+    <Compile Include="SiteSetup.cs" />
+    <Compile Include="SpotCheckBusiness.cs" />
+    <Compile Include="ThreadDispatcher.cs" />
+    <Compile Include="TreasuryTransactions.cs" />
+    <Compile Include="UpdateGMUNoBiz.cs" />
+    <Compile Include="Updategmusettings.cs" />
+    <Compile Include="VaultBiz.cs" />
+    <Compile Include="VaultSlip.cs" />
+    <Compile Include="VirtualizingCollection.cs" />
+    <Compile Include="VoidTransaction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\BMC.CommonLiquidation\BMC.CommonLiquidation_2008.csproj">
+      <Project>{CD3E8F84-E7B8-4175-B3E1-B00BCB96ACAA}</Project>
+      <Name>BMC.CommonLiquidation_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.Common\BMC.Common_2008.csproj">
+      <Project>{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}</Project>
+      <Name>BMC.Common_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.CoreLib\BMC.CoreLib_2008.csproj">
+      <Project>{8BD66A0A-49F9-497F-914C-BF8926336848}</Project>
+      <Name>BMC.CoreLib_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.DataAccess\BMC.DataAccess_2008.csproj">
+      <Project>{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}</Project>
+      <Name>BMC.DataAccess_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BMC.Security\BMC.Security_2008.csproj">
+      <Project>{71855481-D14B-470A-86AE-466991820B2E}</Project>
+      <Name>BMC.Security_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AuditViewer\Audit.Transport\Audit.Transport_2008.csproj">
+      <Project>{CA65745D-44CB-431A-BF12-1E47E753FF93}</Project>
+      <Name>Audit.Transport_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AuditViewer\AuditBusiness\Audit.BusinessClasses_2008.csproj">
+      <Project>{9CCC92BD-6595-4E79-80D3-CF7E0E1662B0}</Project>
+      <Name>Audit.BusinessClasses_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.EnterpriseProxy\BMC.EnterpriseProxy\BMC.EnterpriseProxy_2008.csproj">
+      <Project>{D2A9F84A-6802-44AC-94E7-80078D25032E}</Project>
+      <Name>BMC.EnterpriseProxy_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BMC.Monitoring\BMC.Monitoring_2008.csproj">
+      <Project>{48B6523E-61A6-4063-AA7D-C8AB905238E5}</Project>
+      <Name>BMC.Monitoring_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MSMQ\BMC.PlayerGateway\BMC.PlayerGateway\BMC.PlayerGateway_2008.csproj">
+      <Project>{01E1F132-B8DD-42C5-8160-094ECD839B70}</Project>
+      <Name>BMC.PlayerGateway_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TicketingClient\TicketingClient_2008.csproj">
+      <Project>{8461ED48-3CD6-422C-9C27-133E58A16D29}</Project>
+      <Name>TicketingClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.DBInterface.CashDeskOperator\BMC.DBInterface.CashDeskOperator_2008.csproj">
+      <Project>{C55F8EA3-AF28-48FD-ADFE-534117600677}</Project>
+      <Name>BMC.DBInterface.CashDeskOperator_2008</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMC.Transport\BMC.Transport_2008.csproj">
+      <Project>{53304E7F-B3E7-41CE-B142-A26861E8F3C0}</Project>
+      <Name>BMC.Transport_2008</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{00000206-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="ComExchangeLib">
+      <Guid>{DA653477-8D24-4AB5-9D8F-5729D2954413}</Guid>
+      <VersionMajor>0</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Gen2PrinterLib">
+      <Guid>{ECA92136-75EE-46C2-9161-B38D1EF67982}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="NoteCumTktScanLib">
+      <Guid>{3DA5504B-F12A-429F-A73A-E867636AC142}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="PrinterCommLib">
+      <Guid>{100214C8-9095-443F-8CAC-484FCAFD6BDE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SDGTicketGen">
+      <Guid>{7948F5F3-D14A-4EC3-B312-59F95E60E7FB}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SDGTicketGenLib">
+      <Guid>{BBA80A2B-BDB9-4D3A-978A-1E6D7E3A5A48}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

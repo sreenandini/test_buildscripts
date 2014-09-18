@@ -1,0 +1,223 @@
+﻿<UserControl x:Class="BMC.Presentation.CashDeskManager.UserControls.CReport"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    Width="970" Height="646.299" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <DataTemplate x:Key="Prize">
+            <Grid MinWidth="10">
+                <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Text="{Binding PrizeName}" TextAlignment="Left"/>
+			</Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="UnitPointValue">
+            <Grid MinWidth="10">
+                <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Text="{Binding RedeemPoints}" Margin="0,0,3,0" TextAlignment="Right"/>
+			</Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="UnitCashValue">
+            <Grid MinWidth="10">
+                <Border BorderBrush="Black" Margin="-7,-2,-5.5,-2" BorderThickness="0,0,0.5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <TextBlock Text="{Binding AuthAward}" TextAlignment="Right"/>
+			</Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform ScaleX="1" ScaleY="1"/>
+            <SkewTransform AngleX="0" AngleY="0"/>
+            <RotateTransform Angle="0"/>
+            <TranslateTransform X="0" Y="0"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <UserControl.Triggers>
+    </UserControl.Triggers>
+    <Grid Name="MyGrid" Margin="0,20,0,0" Height="611.757" Width="1039.896">
+        <GroupBox HorizontalAlignment="Left" Width="261" Height="203" VerticalAlignment="Top" Margin="0,5,0,0">
+            <Canvas Name="canvas" Height="207.252" Width="250.884">
+                <Label HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="39" Height="24" Content="From:" Canvas.Left="-10" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"/>
+                <ComboBox Name="cmbDatePickerFrom" Margin="62,2,0,0" Width="93" Canvas.Left="-31" Height="20"></ComboBox>
+                <WindowsFormsHost Name="WFHDatePickerFrom" Width="93" Grid.Column="0" Grid.Row="0" Margin="62,0,0,0" Canvas.Left="-28" Height="15" Canvas.Top="4">
+                    <wf:DateTimePicker x:Name="wfDatePickerFrom" Format="Long" Margin="62,0,0,0" ValueChanged="wfDatePickerFrom_ValueChanged" />
+                </WindowsFormsHost>
+
+                <Label HorizontalAlignment="Left" Margin="250,0,0,0"  VerticalAlignment="Top" Width="39" Height="22" Canvas.Left="-128" Content="From:" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"/>
+                <ListBox Name="lstTimePickerFrom"  Margin="265,2,0,0"  ScrollViewer.VerticalScrollBarVisibility="Visible" Width="93" Height="21" Canvas.Left="-109" ></ListBox>
+                <WindowsFormsHost Name="WFHTimePickerFrom" Grid.Column="0" Grid.Row="0"  Margin="265,2,0,0" Width="93"  Height="20" Canvas.Top="1" Canvas.Left="-107" >
+                    <wf:DateTimePicker x:Name="wfTimePickerFrom" Format="Time" Width="129" Margin="265,2,0,0" ShowUpDown="True"  ValueChanged="wfTimePickerFrom_ValueChanged"/>
+                </WindowsFormsHost>
+                 
+                <Label HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="41" Height="24" Content="To:" Canvas.Left="-10"   FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"  />
+                <ComboBox Name="cmbDatePickerTo" Margin="62,45,0,0" Width="93" Height="20"  Canvas.Top="-13" Canvas.Left="-32"></ComboBox>
+                <WindowsFormsHost Name="WFHDatePickerTo" Grid.Column="0" Grid.Row="0" Margin="62,45,0,0"  Width="93" Height="15"  Canvas.Top="-11" Canvas.Left="-31">
+                    <wf:DateTimePicker x:Name="wfDatePickerTo" Format="Long"  Margin="45,45,0,0"  ValueChanged="wfDatePickerTo_ValueChanged"  />
+                </WindowsFormsHost>
+
+               
+
+                <Label HorizontalAlignment="Left" Margin="250,30,0,0" VerticalAlignment="Top" Width="31" Height="Auto" Content="To:" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Canvas.Left="-128" />
+                <ListBox Name="lstTimePickerTo" Margin="265,45,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="93" Height="21"  Canvas.Top="-14" Canvas.Left="-109" ></ListBox>
+                <WindowsFormsHost Name="WFHTimePickerTo" Grid.Column="0" Grid.Row="0" Margin="265,45,0,0"  Width="93"  Height="21" Canvas.Top="-13" Canvas.Left="-110">
+                    <wf:DateTimePicker x:Name="wfTimePickerTo" Format="Time" Width="129" Margin="265,45,0,0" ShowUpDown="True"  ValueChanged="wfTimePickerTo_ValueChanged"/>
+                </WindowsFormsHost>
+
+                <GroupBox Margin="0,70,0,0" Height="23" Width="85">
+                    <RadioButton Name="optDropRoute" VerticalAlignment="Center" Width="77.265" Height="16.362">
+                        <TextBlock Text="Drop Route" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Height="21.816" Width="63.63"></TextBlock>
+                    </RadioButton>
+                </GroupBox>
+                <GroupBox Margin="120,70,0,0" Height="23" Width="71" Canvas.Left="-28">
+                    <RadioButton Name="optPosition" VerticalAlignment="Center"  Width="64" Height="13">
+                        <TextBlock Text="Position" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                    </RadioButton>
+                </GroupBox>
+                <GroupBox Margin="230,70,0,0" Height="23" Width="73" Canvas.Left="-59">
+                    <RadioButton Name="optCategory" VerticalAlignment="Center" Width="72.72" Height="19.998">
+                        <TextBlock Text="Category" TextWrapping="Wrap" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Height="20.907"></TextBlock>
+                    </RadioButton>
+                </GroupBox>
+                <ComboBox Canvas.Left="6" Canvas.Top="102" Height="29" Name="cmbRouteFilter" Width="239"/>
+                <Button Width="79" Height="41" Content="Process" Style="{DynamicResource ButtonStyle1}" FontSize="14" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold" Cursor="Hand" x:Name="btnProcess" Background="{DynamicResource ListBorder}" TabIndex="2"  Canvas.Left="6" Canvas.Top="134" Click="btnProcess_Click" />
+                <Button Width="81" Height="41" Content="Print" Style="{DynamicResource ButtonStyle1}" FontSize="14" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold" Cursor="Hand" x:Name="btnPrint" Background="{DynamicResource ListBorder}" TabIndex="2" Margin="110,0,0,0" Canvas.Left="-18" Canvas.Top="134" />
+                <Button Width="73" Height="41" Content="Export" Style="{DynamicResource ButtonStyle1}" FontSize="14" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold" Cursor="Hand" x:Name="btnExport" Background="{DynamicResource ListBorder}" TabIndex="2" Margin="220,0,0,0" Canvas.Left="-42" Canvas.Top="134" />
+            </Canvas>
+        </GroupBox>
+        <GroupBox Margin="264,2,0,0" Height="206" VerticalAlignment="Top" HorizontalAlignment="Left" Width="191.799"></GroupBox>
+        <GroupBox Height="208" VerticalAlignment="Top" Margin="452.682,1,381.075,0"></GroupBox>
+        <Grid Margin="0,223,39,132">    
+            <ListView IsSynchronizedWithCurrentItem="True"  Style="{DynamicResource Bmc_ListViewStyleFixedLock}" FontSize="13" 
+                  FontFamily="Segoe UI" 
+                   x:Name="lvRedeemPrizeList"               
+                  ItemContainerStyle="{DynamicResource BMC_ListView_ListViewItemStyle}" Margin="0,0,16,-139.986" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Date / Time" Width = "93" CellTemplate="{StaticResource Prize}"/>
+                        <GridViewColumn Header="Transaction Type"  Width = "133"  CellTemplate="{StaticResource UnitPointValue}"/>
+                        <GridViewColumn Header="Zone"  Width = "60" CellTemplate="{StaticResource UnitCashValue}"/>
+                        <GridViewColumn Header="Pos - Ter"  Width = "60" CellTemplate="{StaticResource UnitCashValue}"/>
+                        <GridViewColumn Header="Game Title"  Width = "103" CellTemplate="{StaticResource UnitCashValue}"/>
+                        <GridViewColumn Header="Value"  Width = "143" CellTemplate="{StaticResource UnitCashValue}"/>
+                        <GridViewColumn Header="Ticket Printed"  Width = "143" CellTemplate="{StaticResource UnitCashValue}"/>
+                        <GridViewColumn Header="Details"  Width = "140" CellTemplate="{StaticResource UnitCashValue}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Margin="-30.81,-57.267,-280.196,33.633">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9.999*" />
+                <RowDefinition Height="13.635*" />
+                <RowDefinition Height="611.757*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*" />
+                <ColumnDefinition Width="1091.818*" />
+                <ColumnDefinition Width="0*" />
+                <ColumnDefinition Width="188.163*" />
+            </Grid.ColumnDefinitions>
+            <Grid Height="211" VerticalAlignment="Top" Width="237.249" Grid.Column="1" HorizontalAlignment="Right" Margin="0,34.701,223.614,0" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*" />
+                    <RowDefinition Height="211*" />
+                </Grid.RowDefinitions>
+                <Label VerticalAlignment="Top" Height="24" Content="General" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Normal" HorizontalAlignment="Left" Width="99" Grid.Row="1" />
+                <Label Margin="66.357,10,106.353,0" VerticalAlignment="Top" Height="24" Content="Value:" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Grid.Row="1" />
+                <Label HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="24" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Margin="0,10,67.266,0" Grid.Row="1" />
+                <Label Margin="0,30.554,0,0" VerticalContentAlignment="Top" Height="35.451" VerticalAlignment="Top" HorizontalAlignment="Left" Width="66" Grid.Row="1">
+                    <TextBlock Text="Excep.(In/Out)" TextWrapping="Wrap" Height="27.27" Width="54.54" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                </Label>
+                <TextBox Margin="64.539,32.724,115.443,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtExcepInOut" Grid.Row="1" />
+                <TextBox HorizontalAlignment="Right" Margin="0,32.724,70.902,0" VerticalAlignment="Top" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtExcepInOutQty" Grid.Row="1" />
+                <Button Width="40" Height="24" Name="btnExceptions" Content="" Margin="0,32.724,28.179,0" Style="{DynamicResource ButtonStyle1}" FontSize="10" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold"  Cursor="Hand" Background="{DynamicResource ListBorder}" TabIndex="2" Canvas.Top="134" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Click="btnExceptions_Click" />
+                <Label Margin="0,64,0,0" Content="Active" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="66" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Grid.Row="1"></Label>
+                <TextBox Margin="63.63,65,116.352,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtActive" Grid.Row="1" />
+                <TextBox HorizontalAlignment="Right" Margin="0,65.448,70.902,0" VerticalAlignment="Top" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtActiveQty" Grid.Row="1" />
+                <Button Width="40" Height="24" Name="btnActiveTickets" Content="" Margin="0,64.539,28.179,0" Style="{DynamicResource ButtonStyle1}" FontSize="10" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold"  Cursor="Hand" Background="{DynamicResource ListBorder}" TabIndex="2" Canvas.Top="134" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Click="btnActiveTickets_Click" />
+                <Label Content="Liability" Margin="0,96,0,86" VerticalContentAlignment="Top" HorizontalAlignment="Left" Width="66" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Grid.Row="1"></Label>
+                <TextBox Margin="64.539,99,115.443,88" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtLiabilityValue" Grid.Row="1" />
+                <TextBox HorizontalAlignment="Right" Margin="0,99,69.993,88" Width="40.909" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtLiabilityQty" Grid.Row="1" />
+                <Button Width="40" Content="" Name="btnLiability" Margin="0,99,27.27,88" Style="{DynamicResource ButtonStyle1}" FontSize="10" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold"  Cursor="Hand" Background="{DynamicResource ListBorder}" TabIndex="2" Canvas.Top="134" HorizontalAlignment="Right" Grid.Row="1" Click="btnLiability_Click" />
+                <Label Margin="0,0,0,45.446" Height="38.554" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="59.54" Grid.Row="1">
+                    <TextBlock TextWrapping="Wrap" Text="Void /Cancelled" Height="38.178" Width="58.176" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                </Label>
+                <TextBox Margin="64.539,0,115.443,56" VerticalAlignment="Bottom" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtVoidCancelledValue" Grid.Row="1" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,68.175,57" VerticalAlignment="Bottom" Width="43.636" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtVoidCancelledQty" Grid.Row="1" />
+                <Button Width="40" Height="24" Content="" Name="btnVoidCancelled" Margin="0,0,26.361,57" Style="{DynamicResource ButtonStyle1}" FontSize="10" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold"  Cursor="Hand" Background="{DynamicResource ListBorder}" TabIndex="2" Canvas.Top="134" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" Click="btnVoidCancelled_Click" />
+                <Label Margin="0,0,0,26" Height="24" Content="Expired" VerticalContentAlignment="Top" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Left" Width="66" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></Label>
+                <TextBox Margin="65.448,0,114.534,24" VerticalAlignment="Bottom" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtExpiredValue" Grid.Row="1" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,67.266,24" VerticalAlignment="Bottom" Width="43.636" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtExpiredQty" Grid.Row="1" />
+                <Button Width="40" Height="24" Name="btnExpired" Content="" Margin="0,0,25.452,27" Style="{DynamicResource ButtonStyle1}" FontSize="10" FontFamily="{DynamicResource SegoeUI20}"  FontWeight="Bold" Cursor="Hand" Background="{DynamicResource ListBorder}" TabIndex="2" Canvas.Top="134" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" Click="btnExpired_Click" />
+            </Grid>
+            <Grid Height="211" VerticalAlignment="Top" Width="191.799" Grid.Column="1" HorizontalAlignment="Left" Margin="298.152,35.255,0,0" Grid.Row="2">
+                <Label VerticalAlignment="Top" Height="24" Content="Other" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Normal" HorizontalAlignment="Left" Width="99" />
+                <Label Margin="90,10,57,0" VerticalAlignment="Top" Height="24" Content="Value:" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" />
+                <Label HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="24" Content="Qty:" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Margin="0,10,12.726,0" />
+                <CheckBox Name="chkHandpays" Margin="0,33,0,0" IsChecked="True" VerticalContentAlignment="Top" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="66">
+                    <TextBlock TextWrapping="Wrap" Text="Handpays" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                </CheckBox>
+                
+                <TextBox Margin="70,31,57,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtHandpayValue" />
+                <TextBox HorizontalAlignment="Right" Margin="0,33,12.726,0" VerticalAlignment="Top" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtHandpayQty" />
+                <CheckBox Name="chkProgHandpays" Margin="0,60,0,0" Height="24" IsChecked="True" VerticalAlignment="Top" HorizontalAlignment="Left" Width="66">
+                    <TextBlock TextWrapping="Wrap" Text="Prog Handpays" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,65,57,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtProgHandpayValue" />
+                <TextBox HorizontalAlignment="Right" Margin="0,64,12.726,0" VerticalAlignment="Top" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtProgHandpayQty" />
+                <Label Content="Coin Hopper" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Normal" Margin="0,90,12.726,101" />
+                <CheckBox Name="chkRefunds" Margin="0,0,0,80" IsChecked="True" VerticalContentAlignment="Top" HorizontalAlignment="Left" Width="84" Height="21" VerticalAlignment="Bottom">
+                    <TextBlock TextWrapping="Wrap" Text="Refunds" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,0,57,76" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtRefundValue" Height="24" VerticalAlignment="Bottom" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,12.726,76" Width="40" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtRefundQty" Height="24" VerticalAlignment="Bottom" />
+                <CheckBox Name="chkRefills" Margin="0,0,0,46" IsChecked="True" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="74">
+                    <TextBlock TextWrapping="Wrap" Text="Refills" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,0,57,45" VerticalAlignment="Bottom" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtRefillValue" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,12.726,45.45" VerticalAlignment="Bottom" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtRefillQty" />
+                <CheckBox Name="chkCashDeskFloat" Margin="0,0,0,15" Height="24" IsChecked="True" HorizontalAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Bottom" Width="85.74">
+                    <TextBlock TextWrapping="Wrap" Text="Cash Desk Float" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,0,57,14" VerticalAlignment="Bottom" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskFloatValue" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,12.726,14" VerticalAlignment="Bottom" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskFloatQty" />
+            </Grid>
+            <Grid Height="211" VerticalAlignment="Top" Grid.Column="1" Margin="493.587,35.149,471.771,0" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="201*" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+                <Label VerticalAlignment="Top" Height="24" Content="Machine Ticket" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Normal" HorizontalAlignment="Left" Width="99" />
+                <Label Margin="80,10,57,0" VerticalAlignment="Top" Height="24" Content="Value:" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" />
+                <Label HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="24" Content="Qty:" FontFamily="{DynamicResource SegoeUI20}" FontSize="12" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Margin="0,10,1,0" />
+                <CheckBox Name="chkTicketOut" Margin="0,34,0,0" IsChecked="True" VerticalContentAlignment="Top" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="66">
+                    <TextBlock TextWrapping="Wrap" Text="Ticket Out" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Height="23.634" Width="47.268"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,31,57,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtTicketOut" />
+                <TextBox HorizontalAlignment="Right" Margin="0,33,14.544,0" VerticalAlignment="Top" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtTicketOutQty" />
+                <CheckBox Name="chkTicketIn" Margin="0,66,0,0" Height="24" IsChecked="True" VerticalAlignment="Top" HorizontalAlignment="Left" Width="66">
+                    <TextBlock TextWrapping="Wrap" Text="Ticket In" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Height="29.088" Width="50.904"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,65,57,0" VerticalAlignment="Top" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtTicketInValue" />
+                <TextBox HorizontalAlignment="Right" Margin="0,64,13.635,0" VerticalAlignment="Top" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtTicketInQty" />
+                <Label Content="Cash Desk Ticket" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Normal" Margin="0,90,13.635,91" />
+                <CheckBox Name="chkCashDeskTicketOut" Margin="0,0,0,67" IsChecked="True" VerticalContentAlignment="Top" HorizontalAlignment="Left" Width="70.944" Height="21" VerticalAlignment="Bottom">
+                    <TextBlock TextWrapping="Wrap" Text="Ticket Out" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Height="20.907" Width="52.722"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,0,57,66" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketOutValue" Height="24" VerticalAlignment="Bottom" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,12.726,66" Width="40" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketOutQty" Height="24" VerticalAlignment="Bottom" />
+                <CheckBox Name="chkCashDeskTicketIn" Margin="0,0,0,33" IsChecked="True" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="74">
+                    <TextBlock TextWrapping="Wrap" Text="Ticket In" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Height="25.452" Width="54.54"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,0,57,35" VerticalAlignment="Bottom" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketInValue" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,12.726,35" VerticalAlignment="Bottom" Width="40" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskTicketInQty" />
+                <CheckBox Name="chkCashDeskShortpays" Margin="0,0,0,1" Height="24"  IsChecked="True" HorizontalAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Bottom" Width="85.74">
+                    <TextBlock TextWrapping="Wrap" Text="ShortPays" FontFamily="{DynamicResource SegoeUI20}" FontSize="11" Foreground="{DynamicResource FormLabelForegroundColour}" FontWeight="Bold" Height="22.725" Width="58.176"></TextBlock>
+                </CheckBox>
+                <TextBox Margin="70,0,57,4" VerticalAlignment="Bottom" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskShortpaysValue" />
+                <TextBox HorizontalAlignment="Right" Margin="0,0,12.726,4" VerticalAlignment="Bottom" Width="40.909" Height="24" Text="" TextWrapping="Wrap" Style="{DynamicResource TextBoxStyle1}" Background="{DynamicResource TextBoxGradient}" BorderBrush="{DynamicResource TextBoxOutline}" x:Name="txtCashDeskShortpaysQty" />
+            </Grid>
+            <GroupBox Height="208" Width="218.16" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,34.255,242.703,0" Grid.Column="1" Grid.Row="2"></GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

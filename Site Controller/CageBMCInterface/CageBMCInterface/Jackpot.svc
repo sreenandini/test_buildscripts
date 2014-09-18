@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost  Language="C#" Debug="true" Service="CageBMCInterface.Jackpot" CodeBehind="Jackpot.svc.cs" %>
