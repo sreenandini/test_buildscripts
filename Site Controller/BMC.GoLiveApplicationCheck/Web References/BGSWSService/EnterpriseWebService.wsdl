@@ -1,0 +1,2836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ImportData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticationInformation" type="tns:AuthenticationInformation" />
+      <s:complexType name="AuthenticationInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EnterprisePassKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExchangePassKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="ImportCompressedData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="compressedData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportCompressedDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportCompressedDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogSiteEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sEventXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogSiteEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogSiteEventResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWebService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recieve" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWebServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HelloWebServiceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportHourlyStatisticsData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportHourlyStatisticsDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportHourlyStatisticsDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertTreasuryEntries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertTreasuryEntriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertTreasuryEntriesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRead">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertReadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertReadResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInstallation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="installationData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInstallationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateInstallationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnhancedEnrollmentForOffline">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXML" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="installType" type="tns:InstallationType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="InstallationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NewInstallation" />
+          <s:enumeration value="GmuChange" />
+          <s:enumeration value="ConvertInstallation" />
+          <s:enumeration value="RemoveInstallation" />
+          <s:enumeration value="PlannedConversion" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="EnhancedEnrollmentForOfflineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnhancedEnrollmentForOfflineResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseInstallation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstallationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseInstallationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseInstallationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConvertInstallation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OldInstallationXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewInstallationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConvertInstallationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConvertInstallationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SwapInstallation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstallationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SwapInstallationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SwapInstallationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportInstallationUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="installationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportInstallationUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportInstallationUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstallationNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstallationNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInstallationNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportMeterHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportMeterHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportMeterHistoryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBarPositionCentralStatusBySiteID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="exportHistoryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBarPositionCentralStatusBySiteIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateBarPositionCentralStatusBySiteIDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSiteStatsInEnterprise">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSiteName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStatusXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSiteStatsInEnterpriseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSiteStatsInEnterpriseResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlannedConversion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assetNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlannedConversionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlannedConversionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlannedConversion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="installationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlannedConversionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PlannedConversionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentServiceCalls">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStartBarPosNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLastBarPosNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentServiceCallsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentServiceCallsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenServiceCalls">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="barPos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenServiceCallsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpenServiceCallsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jobID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceNotesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseServiceCall">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serviceID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="remedy" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseServiceCallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseServiceCallResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertServiceNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jobID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertServiceNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertServiceNotesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EscalateService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jobID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EscalateServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EscalateServiceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBarPositionStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBarPositionStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBarPositionStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeeklyCollectionDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSiteCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iWeekID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iNoOfRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeeklyCollectionDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWeeklyCollectionDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHqInstallationID">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetHqInstallationIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHqInstallationIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashDeskServiceFaults">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCashDeskServiceFaultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCashDeskServiceFaultsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRemedies">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRemediesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRemediesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInstallationGame">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strInstallationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInstallationGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateInstallationGameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="assetNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssetDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportSiteSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportSiteSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportSiteSettingsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportVoucherDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXMLData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportVoucherDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportVoucherDetailsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportTicketExceptionDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXMLData" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iSiteCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportTicketExceptionDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportTicketExceptionDetailsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportDeviceDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXMLData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportDeviceDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportDeviceDetailsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertHandpay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertHandpayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertHandpayResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitiateWebService">
+        <s:complexType />
+      </s:element>
+      <s:element name="InitiateWebServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InitiateWebServiceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTransactionKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Site_Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTransactionKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckTransactionKeyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Site_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstallationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstallationDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInstallationDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZonesData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetZonesDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetZonesDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBarPositionsData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBarPositionsDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBarPositionsDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMachineDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMachineDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestMeterHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strInstallationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestMeterHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestMeterHistoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestSiteBatchID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="XDays" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestSiteBatchIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestSiteBatchIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iSiteCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteTicketsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteTicketsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteTicketExceptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iSiteCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteTicketExceptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteTicketExceptionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteDeviceDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iSiteCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteDeviceDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteDeviceDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHandpays">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iSiteCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHandpaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHandpaysResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashDeskTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strInstallationXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashDeskTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCashDeskTransactionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCollections">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BatchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCollectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCollectionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyReads">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Site_Code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="xDays" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDailyReadsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDailyReadsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHourly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Site_Code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="xDays" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHourlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHourlyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Site_Code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="xWeeks" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllEventsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Site_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemSettingsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSiteStatusEnterprise">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Site_Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSiteStatusEnterpriseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetSiteStatusEnterpriseResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImportDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportData" />
+  </wsdl:message>
+  <wsdl:message name="ImportDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportDataAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportCompressedDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportCompressedData" />
+  </wsdl:message>
+  <wsdl:message name="ImportCompressedDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportCompressedDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportCompressedDataAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="LogSiteEventSoapIn">
+    <wsdl:part name="parameters" element="tns:LogSiteEvent" />
+  </wsdl:message>
+  <wsdl:message name="LogSiteEventSoapOut">
+    <wsdl:part name="parameters" element="tns:LogSiteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogSiteEventAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="HelloWebServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWebService" />
+  </wsdl:message>
+  <wsdl:message name="HelloWebServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWebServiceAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportHourlyStatisticsDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportHourlyStatisticsData" />
+  </wsdl:message>
+  <wsdl:message name="ImportHourlyStatisticsDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportHourlyStatisticsDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportHourlyStatisticsDataAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="InsertTreasuryEntriesSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertTreasuryEntries" />
+  </wsdl:message>
+  <wsdl:message name="InsertTreasuryEntriesSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertTreasuryEntriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertTreasuryEntriesAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="InsertReadSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRead" />
+  </wsdl:message>
+  <wsdl:message name="InsertReadSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertReadAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="CreateInstallationSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateInstallation" />
+  </wsdl:message>
+  <wsdl:message name="CreateInstallationSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateInstallationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateInstallationAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="EnhancedEnrollmentForOfflineSoapIn">
+    <wsdl:part name="parameters" element="tns:EnhancedEnrollmentForOffline" />
+  </wsdl:message>
+  <wsdl:message name="EnhancedEnrollmentForOfflineSoapOut">
+    <wsdl:part name="parameters" element="tns:EnhancedEnrollmentForOfflineResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnhancedEnrollmentForOfflineAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="CloseInstallationSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseInstallation" />
+  </wsdl:message>
+  <wsdl:message name="CloseInstallationSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseInstallationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseInstallationAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ConvertInstallationSoapIn">
+    <wsdl:part name="parameters" element="tns:ConvertInstallation" />
+  </wsdl:message>
+  <wsdl:message name="ConvertInstallationSoapOut">
+    <wsdl:part name="parameters" element="tns:ConvertInstallationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConvertInstallationAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="SwapInstallationSoapIn">
+    <wsdl:part name="parameters" element="tns:SwapInstallation" />
+  </wsdl:message>
+  <wsdl:message name="SwapInstallationSoapOut">
+    <wsdl:part name="parameters" element="tns:SwapInstallationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SwapInstallationAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportInstallationUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportInstallationUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ImportInstallationUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportInstallationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportInstallationUpdateAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInstallationNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInstallationNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationNumberAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportMeterHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:ImportMeterHistory" />
+  </wsdl:message>
+  <wsdl:message name="ImportMeterHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:ImportMeterHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportMeterHistoryAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBarPositionCentralStatusBySiteIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBarPositionCentralStatusBySiteID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBarPositionCentralStatusBySiteIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBarPositionCentralStatusBySiteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBarPositionCentralStatusBySiteIDAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSiteStatsInEnterpriseSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSiteStatsInEnterprise" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSiteStatsInEnterpriseSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSiteStatsInEnterpriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSiteStatsInEnterpriseAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetPlannedConversionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlannedConversion" />
+  </wsdl:message>
+  <wsdl:message name="GetPlannedConversionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlannedConversionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlannedConversionAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="PlannedConversionSoapIn">
+    <wsdl:part name="parameters" element="tns:PlannedConversion" />
+  </wsdl:message>
+  <wsdl:message name="PlannedConversionSoapOut">
+    <wsdl:part name="parameters" element="tns:PlannedConversionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlannedConversionAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentServiceCallsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentServiceCalls" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentServiceCallsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentServiceCallsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentServiceCallsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenServiceCallsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpenServiceCalls" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenServiceCallsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpenServiceCallsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenServiceCallsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceNotes" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceNotesAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="CloseServiceCallSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseServiceCall" />
+  </wsdl:message>
+  <wsdl:message name="CloseServiceCallSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseServiceCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseServiceCallAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="InsertServiceNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertServiceNotes" />
+  </wsdl:message>
+  <wsdl:message name="InsertServiceNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertServiceNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertServiceNotesAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="EscalateServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:EscalateService" />
+  </wsdl:message>
+  <wsdl:message name="EscalateServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:EscalateServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="EscalateServiceAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetBarPositionStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBarPositionStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetBarPositionStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBarPositionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBarPositionStatusAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetWeeklyCollectionDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWeeklyCollectionDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetWeeklyCollectionDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWeeklyCollectionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWeeklyCollectionDetailsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetHqInstallationIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHqInstallationID" />
+  </wsdl:message>
+  <wsdl:message name="GetHqInstallationIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHqInstallationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHqInstallationIDAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDeskServiceFaultsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashDeskServiceFaults" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDeskServiceFaultsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCashDeskServiceFaultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDeskServiceFaultsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetRemediesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRemedies" />
+  </wsdl:message>
+  <wsdl:message name="GetRemediesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRemediesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRemediesAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInstallationGameSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInstallationGame" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInstallationGameSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInstallationGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInstallationGameAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssetDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssetDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetDetailsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportSiteSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportSiteSettings" />
+  </wsdl:message>
+  <wsdl:message name="ImportSiteSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportSiteSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportSiteSettingsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportVoucherDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportVoucherDetails" />
+  </wsdl:message>
+  <wsdl:message name="ImportVoucherDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportVoucherDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportVoucherDetailsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportTicketExceptionDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportTicketExceptionDetails" />
+  </wsdl:message>
+  <wsdl:message name="ImportTicketExceptionDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportTicketExceptionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportTicketExceptionDetailsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="ImportDeviceDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportDeviceDetails" />
+  </wsdl:message>
+  <wsdl:message name="ImportDeviceDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportDeviceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportDeviceDetailsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="InsertHandpaySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertHandpay" />
+  </wsdl:message>
+  <wsdl:message name="InsertHandpaySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertHandpayResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertHandpayAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="InitiateWebServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:InitiateWebService" />
+  </wsdl:message>
+  <wsdl:message name="InitiateWebServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:InitiateWebServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckTransactionKeySoapIn">
+    <wsdl:part name="parameters" element="tns:CheckTransactionKey" />
+  </wsdl:message>
+  <wsdl:message name="CheckTransactionKeySoapOut">
+    <wsdl:part name="parameters" element="tns:CheckTransactionKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckTransactionKeyAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDetailsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInstallationData" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInstallationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstallationDataAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetZonesDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetZonesData" />
+  </wsdl:message>
+  <wsdl:message name="GetZonesDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetZonesDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetZonesDataAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetBarPositionsDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBarPositionsData" />
+  </wsdl:message>
+  <wsdl:message name="GetBarPositionsDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBarPositionsDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBarPositionsDataAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMachineData" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMachineDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMachineDataAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestMeterHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestMeterHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestMeterHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestMeterHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestMeterHistoryAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestSiteBatchIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestSiteBatchID" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestSiteBatchIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestSiteBatchIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestSiteBatchIDAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteTickets" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteTicketsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteTicketExceptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteTicketExceptions" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteTicketExceptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteTicketExceptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteTicketExceptionsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDeviceDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteDeviceDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDeviceDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteDeviceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteDeviceDetailsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetHandpaysSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHandpays" />
+  </wsdl:message>
+  <wsdl:message name="GetHandpaysSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHandpaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHandpaysAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDeskTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashDeskTransactions" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDeskTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCashDeskTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashDeskTransactionsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetCollectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCollections" />
+  </wsdl:message>
+  <wsdl:message name="GetCollectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCollectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCollectionsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyReadsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDailyReads" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyReadsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDailyReadsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDailyReadsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetHourlySoapIn">
+    <wsdl:part name="parameters" element="tns:GetHourly" />
+  </wsdl:message>
+  <wsdl:message name="GetHourlySoapOut">
+    <wsdl:part name="parameters" element="tns:GetHourlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHourlyAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEventsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemSettingsAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetSiteStatusEnterpriseSoapIn">
+    <wsdl:part name="parameters" element="tns:SetSiteStatusEnterprise" />
+  </wsdl:message>
+  <wsdl:message name="SetSiteStatusEnterpriseSoapOut">
+    <wsdl:part name="parameters" element="tns:SetSiteStatusEnterpriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetSiteStatusEnterpriseAuthenticationInformation">
+    <wsdl:part name="AuthenticationInformation" element="tns:AuthenticationInformation" />
+  </wsdl:message>
+  <wsdl:portType name="EnterpriseWebServiceSoap">
+    <wsdl:operation name="ImportData">
+      <wsdl:input message="tns:ImportDataSoapIn" />
+      <wsdl:output message="tns:ImportDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportCompressedData">
+      <wsdl:input message="tns:ImportCompressedDataSoapIn" />
+      <wsdl:output message="tns:ImportCompressedDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogSiteEvent">
+      <wsdl:input message="tns:LogSiteEventSoapIn" />
+      <wsdl:output message="tns:LogSiteEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWebService">
+      <wsdl:input message="tns:HelloWebServiceSoapIn" />
+      <wsdl:output message="tns:HelloWebServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportHourlyStatisticsData">
+      <wsdl:input message="tns:ImportHourlyStatisticsDataSoapIn" />
+      <wsdl:output message="tns:ImportHourlyStatisticsDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTreasuryEntries">
+      <wsdl:input message="tns:InsertTreasuryEntriesSoapIn" />
+      <wsdl:output message="tns:InsertTreasuryEntriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRead">
+      <wsdl:input message="tns:InsertReadSoapIn" />
+      <wsdl:output message="tns:InsertReadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInstallation">
+      <wsdl:input message="tns:CreateInstallationSoapIn" />
+      <wsdl:output message="tns:CreateInstallationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnhancedEnrollmentForOffline">
+      <wsdl:input message="tns:EnhancedEnrollmentForOfflineSoapIn" />
+      <wsdl:output message="tns:EnhancedEnrollmentForOfflineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseInstallation">
+      <wsdl:input message="tns:CloseInstallationSoapIn" />
+      <wsdl:output message="tns:CloseInstallationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertInstallation">
+      <wsdl:input message="tns:ConvertInstallationSoapIn" />
+      <wsdl:output message="tns:ConvertInstallationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SwapInstallation">
+      <wsdl:input message="tns:SwapInstallationSoapIn" />
+      <wsdl:output message="tns:SwapInstallationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportInstallationUpdate">
+      <wsdl:input message="tns:ImportInstallationUpdateSoapIn" />
+      <wsdl:output message="tns:ImportInstallationUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationNumber">
+      <wsdl:input message="tns:GetInstallationNumberSoapIn" />
+      <wsdl:output message="tns:GetInstallationNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportMeterHistory">
+      <wsdl:input message="tns:ImportMeterHistorySoapIn" />
+      <wsdl:output message="tns:ImportMeterHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBarPositionCentralStatusBySiteID">
+      <wsdl:input message="tns:UpdateBarPositionCentralStatusBySiteIDSoapIn" />
+      <wsdl:output message="tns:UpdateBarPositionCentralStatusBySiteIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSiteStatsInEnterprise">
+      <wsdl:input message="tns:UpdateSiteStatsInEnterpriseSoapIn" />
+      <wsdl:output message="tns:UpdateSiteStatsInEnterpriseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlannedConversion">
+      <wsdl:input message="tns:GetPlannedConversionSoapIn" />
+      <wsdl:output message="tns:GetPlannedConversionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlannedConversion">
+      <wsdl:input message="tns:PlannedConversionSoapIn" />
+      <wsdl:output message="tns:PlannedConversionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentServiceCalls">
+      <wsdl:input message="tns:GetCurrentServiceCallsSoapIn" />
+      <wsdl:output message="tns:GetCurrentServiceCallsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenServiceCalls">
+      <wsdl:input message="tns:GetOpenServiceCallsSoapIn" />
+      <wsdl:output message="tns:GetOpenServiceCallsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceNotes">
+      <wsdl:input message="tns:GetServiceNotesSoapIn" />
+      <wsdl:output message="tns:GetServiceNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseServiceCall">
+      <wsdl:input message="tns:CloseServiceCallSoapIn" />
+      <wsdl:output message="tns:CloseServiceCallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertServiceNotes">
+      <wsdl:input message="tns:InsertServiceNotesSoapIn" />
+      <wsdl:output message="tns:InsertServiceNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EscalateService">
+      <wsdl:input message="tns:EscalateServiceSoapIn" />
+      <wsdl:output message="tns:EscalateServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBarPositionStatus">
+      <wsdl:input message="tns:GetBarPositionStatusSoapIn" />
+      <wsdl:output message="tns:GetBarPositionStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyCollectionDetails">
+      <wsdl:input message="tns:GetWeeklyCollectionDetailsSoapIn" />
+      <wsdl:output message="tns:GetWeeklyCollectionDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHqInstallationID">
+      <wsdl:input message="tns:GetHqInstallationIDSoapIn" />
+      <wsdl:output message="tns:GetHqInstallationIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDeskServiceFaults">
+      <wsdl:input message="tns:GetCashDeskServiceFaultsSoapIn" />
+      <wsdl:output message="tns:GetCashDeskServiceFaultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemedies">
+      <wsdl:input message="tns:GetRemediesSoapIn" />
+      <wsdl:output message="tns:GetRemediesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInstallationGame">
+      <wsdl:input message="tns:UpdateInstallationGameSoapIn" />
+      <wsdl:output message="tns:UpdateInstallationGameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetDetails">
+      <wsdl:input message="tns:GetAssetDetailsSoapIn" />
+      <wsdl:output message="tns:GetAssetDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSiteSettings">
+      <wsdl:input message="tns:ImportSiteSettingsSoapIn" />
+      <wsdl:output message="tns:ImportSiteSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportVoucherDetails">
+      <wsdl:input message="tns:ImportVoucherDetailsSoapIn" />
+      <wsdl:output message="tns:ImportVoucherDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportTicketExceptionDetails">
+      <wsdl:input message="tns:ImportTicketExceptionDetailsSoapIn" />
+      <wsdl:output message="tns:ImportTicketExceptionDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportDeviceDetails">
+      <wsdl:input message="tns:ImportDeviceDetailsSoapIn" />
+      <wsdl:output message="tns:ImportDeviceDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHandpay">
+      <wsdl:input message="tns:InsertHandpaySoapIn" />
+      <wsdl:output message="tns:InsertHandpaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitiateWebService">
+      <wsdl:input message="tns:InitiateWebServiceSoapIn" />
+      <wsdl:output message="tns:InitiateWebServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTransactionKey">
+      <wsdl:input message="tns:CheckTransactionKeySoapIn" />
+      <wsdl:output message="tns:CheckTransactionKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteDetails">
+      <wsdl:input message="tns:GetSiteDetailsSoapIn" />
+      <wsdl:output message="tns:GetSiteDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationData">
+      <wsdl:input message="tns:GetInstallationDataSoapIn" />
+      <wsdl:output message="tns:GetInstallationDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZonesData">
+      <wsdl:input message="tns:GetZonesDataSoapIn" />
+      <wsdl:output message="tns:GetZonesDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBarPositionsData">
+      <wsdl:input message="tns:GetBarPositionsDataSoapIn" />
+      <wsdl:output message="tns:GetBarPositionsDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineData">
+      <wsdl:input message="tns:GetMachineDataSoapIn" />
+      <wsdl:output message="tns:GetMachineDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestMeterHistory">
+      <wsdl:input message="tns:GetLatestMeterHistorySoapIn" />
+      <wsdl:output message="tns:GetLatestMeterHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestSiteBatchID">
+      <wsdl:input message="tns:GetLatestSiteBatchIDSoapIn" />
+      <wsdl:output message="tns:GetLatestSiteBatchIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTickets">
+      <wsdl:input message="tns:GetSiteTicketsSoapIn" />
+      <wsdl:output message="tns:GetSiteTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTicketExceptions">
+      <wsdl:input message="tns:GetSiteTicketExceptionsSoapIn" />
+      <wsdl:output message="tns:GetSiteTicketExceptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteDeviceDetails">
+      <wsdl:input message="tns:GetSiteDeviceDetailsSoapIn" />
+      <wsdl:output message="tns:GetSiteDeviceDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHandpays">
+      <wsdl:input message="tns:GetHandpaysSoapIn" />
+      <wsdl:output message="tns:GetHandpaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDeskTransactions">
+      <wsdl:input message="tns:GetCashDeskTransactionsSoapIn" />
+      <wsdl:output message="tns:GetCashDeskTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollections">
+      <wsdl:input message="tns:GetCollectionsSoapIn" />
+      <wsdl:output message="tns:GetCollectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyReads">
+      <wsdl:input message="tns:GetDailyReadsSoapIn" />
+      <wsdl:output message="tns:GetDailyReadsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHourly">
+      <wsdl:input message="tns:GetHourlySoapIn" />
+      <wsdl:output message="tns:GetHourlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvents">
+      <wsdl:input message="tns:GetAllEventsSoapIn" />
+      <wsdl:output message="tns:GetAllEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemSettings">
+      <wsdl:input message="tns:GetSystemSettingsSoapIn" />
+      <wsdl:output message="tns:GetSystemSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSiteStatusEnterprise">
+      <wsdl:input message="tns:SetSiteStatusEnterpriseSoapIn" />
+      <wsdl:output message="tns:SetSiteStatusEnterpriseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EnterpriseWebServiceSoap" type="tns:EnterpriseWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportData">
+      <soap:operation soapAction="http://tempuri.org/ImportData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportCompressedData">
+      <soap:operation soapAction="http://tempuri.org/ImportCompressedData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportCompressedDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogSiteEvent">
+      <soap:operation soapAction="http://tempuri.org/LogSiteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogSiteEventAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWebService">
+      <soap:operation soapAction="http://tempuri.org/HelloWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:HelloWebServiceAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportHourlyStatisticsData">
+      <soap:operation soapAction="http://tempuri.org/ImportHourlyStatisticsData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportHourlyStatisticsDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTreasuryEntries">
+      <soap:operation soapAction="http://tempuri.org/InsertTreasuryEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertTreasuryEntriesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRead">
+      <soap:operation soapAction="http://tempuri.org/InsertRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertReadAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInstallation">
+      <soap:operation soapAction="http://tempuri.org/CreateInstallation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnhancedEnrollmentForOffline">
+      <soap:operation soapAction="http://tempuri.org/EnhancedEnrollmentForOffline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EnhancedEnrollmentForOfflineAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseInstallation">
+      <soap:operation soapAction="http://tempuri.org/CloseInstallation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CloseInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertInstallation">
+      <soap:operation soapAction="http://tempuri.org/ConvertInstallation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConvertInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwapInstallation">
+      <soap:operation soapAction="http://tempuri.org/SwapInstallation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SwapInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInstallationUpdate">
+      <soap:operation soapAction="http://tempuri.org/ImportInstallationUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportInstallationUpdateAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationNumber">
+      <soap:operation soapAction="http://tempuri.org/GetInstallationNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInstallationNumberAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportMeterHistory">
+      <soap:operation soapAction="http://tempuri.org/ImportMeterHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportMeterHistoryAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBarPositionCentralStatusBySiteID">
+      <soap:operation soapAction="http://tempuri.org/UpdateBarPositionCentralStatusBySiteID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateBarPositionCentralStatusBySiteIDAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSiteStatsInEnterprise">
+      <soap:operation soapAction="http://tempuri.org/UpdateSiteStatsInEnterprise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateSiteStatsInEnterpriseAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlannedConversion">
+      <soap:operation soapAction="http://tempuri.org/GetPlannedConversion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPlannedConversionAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlannedConversion">
+      <soap:operation soapAction="http://tempuri.org/PlannedConversion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PlannedConversionAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentServiceCalls">
+      <soap:operation soapAction="http://tempuri.org/GetCurrentServiceCalls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCurrentServiceCallsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenServiceCalls">
+      <soap:operation soapAction="http://tempuri.org/GetOpenServiceCalls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOpenServiceCallsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceNotes">
+      <soap:operation soapAction="http://tempuri.org/GetServiceNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetServiceNotesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseServiceCall">
+      <soap:operation soapAction="http://tempuri.org/CloseServiceCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CloseServiceCallAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertServiceNotes">
+      <soap:operation soapAction="http://tempuri.org/InsertServiceNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertServiceNotesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EscalateService">
+      <soap:operation soapAction="http://tempuri.org/EscalateService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EscalateServiceAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBarPositionStatus">
+      <soap:operation soapAction="http://tempuri.org/GetBarPositionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBarPositionStatusAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyCollectionDetails">
+      <soap:operation soapAction="http://tempuri.org/GetWeeklyCollectionDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWeeklyCollectionDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHqInstallationID">
+      <soap:operation soapAction="http://tempuri.org/GetHqInstallationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHqInstallationIDAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDeskServiceFaults">
+      <soap:operation soapAction="http://tempuri.org/GetCashDeskServiceFaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCashDeskServiceFaultsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemedies">
+      <soap:operation soapAction="http://tempuri.org/GetRemedies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRemediesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInstallationGame">
+      <soap:operation soapAction="http://tempuri.org/UpdateInstallationGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateInstallationGameAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetDetails">
+      <soap:operation soapAction="http://tempuri.org/GetAssetDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAssetDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSiteSettings">
+      <soap:operation soapAction="http://tempuri.org/ImportSiteSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportSiteSettingsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportVoucherDetails">
+      <soap:operation soapAction="http://tempuri.org/ImportVoucherDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportVoucherDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTicketExceptionDetails">
+      <soap:operation soapAction="http://tempuri.org/ImportTicketExceptionDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportTicketExceptionDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportDeviceDetails">
+      <soap:operation soapAction="http://tempuri.org/ImportDeviceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ImportDeviceDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHandpay">
+      <soap:operation soapAction="http://tempuri.org/InsertHandpay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertHandpayAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitiateWebService">
+      <soap:operation soapAction="http://tempuri.org/InitiateWebService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTransactionKey">
+      <soap:operation soapAction="http://tempuri.org/CheckTransactionKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckTransactionKeyAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteDetails">
+      <soap:operation soapAction="http://tempuri.org/GetSiteDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSiteDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationData">
+      <soap:operation soapAction="http://tempuri.org/GetInstallationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInstallationDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZonesData">
+      <soap:operation soapAction="http://tempuri.org/GetZonesData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetZonesDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBarPositionsData">
+      <soap:operation soapAction="http://tempuri.org/GetBarPositionsData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBarPositionsDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineData">
+      <soap:operation soapAction="http://tempuri.org/GetMachineData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMachineDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestMeterHistory">
+      <soap:operation soapAction="http://tempuri.org/GetLatestMeterHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetLatestMeterHistoryAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestSiteBatchID">
+      <soap:operation soapAction="http://tempuri.org/GetLatestSiteBatchID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetLatestSiteBatchIDAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTickets">
+      <soap:operation soapAction="http://tempuri.org/GetSiteTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSiteTicketsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTicketExceptions">
+      <soap:operation soapAction="http://tempuri.org/GetSiteTicketExceptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSiteTicketExceptionsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteDeviceDetails">
+      <soap:operation soapAction="http://tempuri.org/GetSiteDeviceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSiteDeviceDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHandpays">
+      <soap:operation soapAction="http://tempuri.org/GetHandpays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHandpaysAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDeskTransactions">
+      <soap:operation soapAction="http://tempuri.org/GetCashDeskTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCashDeskTransactionsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollections">
+      <soap:operation soapAction="http://tempuri.org/GetCollections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCollectionsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyReads">
+      <soap:operation soapAction="http://tempuri.org/GetDailyReads" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDailyReadsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHourly">
+      <soap:operation soapAction="http://tempuri.org/GetHourly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHourlyAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvents">
+      <soap:operation soapAction="http://tempuri.org/GetAllEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllEventsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemSettings">
+      <soap:operation soapAction="http://tempuri.org/GetSystemSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSystemSettingsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSiteStatusEnterprise">
+      <soap:operation soapAction="http://tempuri.org/SetSiteStatusEnterprise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetSiteStatusEnterpriseAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EnterpriseWebServiceSoap12" type="tns:EnterpriseWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportData">
+      <soap12:operation soapAction="http://tempuri.org/ImportData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportCompressedData">
+      <soap12:operation soapAction="http://tempuri.org/ImportCompressedData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportCompressedDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogSiteEvent">
+      <soap12:operation soapAction="http://tempuri.org/LogSiteEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogSiteEventAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWebService">
+      <soap12:operation soapAction="http://tempuri.org/HelloWebService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HelloWebServiceAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportHourlyStatisticsData">
+      <soap12:operation soapAction="http://tempuri.org/ImportHourlyStatisticsData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportHourlyStatisticsDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTreasuryEntries">
+      <soap12:operation soapAction="http://tempuri.org/InsertTreasuryEntries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertTreasuryEntriesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRead">
+      <soap12:operation soapAction="http://tempuri.org/InsertRead" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertReadAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInstallation">
+      <soap12:operation soapAction="http://tempuri.org/CreateInstallation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnhancedEnrollmentForOffline">
+      <soap12:operation soapAction="http://tempuri.org/EnhancedEnrollmentForOffline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EnhancedEnrollmentForOfflineAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseInstallation">
+      <soap12:operation soapAction="http://tempuri.org/CloseInstallation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CloseInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertInstallation">
+      <soap12:operation soapAction="http://tempuri.org/ConvertInstallation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConvertInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwapInstallation">
+      <soap12:operation soapAction="http://tempuri.org/SwapInstallation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SwapInstallationAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportInstallationUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ImportInstallationUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportInstallationUpdateAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetInstallationNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetInstallationNumberAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportMeterHistory">
+      <soap12:operation soapAction="http://tempuri.org/ImportMeterHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportMeterHistoryAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBarPositionCentralStatusBySiteID">
+      <soap12:operation soapAction="http://tempuri.org/UpdateBarPositionCentralStatusBySiteID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateBarPositionCentralStatusBySiteIDAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSiteStatsInEnterprise">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSiteStatsInEnterprise" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateSiteStatsInEnterpriseAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlannedConversion">
+      <soap12:operation soapAction="http://tempuri.org/GetPlannedConversion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPlannedConversionAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlannedConversion">
+      <soap12:operation soapAction="http://tempuri.org/PlannedConversion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PlannedConversionAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentServiceCalls">
+      <soap12:operation soapAction="http://tempuri.org/GetCurrentServiceCalls" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCurrentServiceCallsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenServiceCalls">
+      <soap12:operation soapAction="http://tempuri.org/GetOpenServiceCalls" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOpenServiceCallsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceNotes">
+      <soap12:operation soapAction="http://tempuri.org/GetServiceNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetServiceNotesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseServiceCall">
+      <soap12:operation soapAction="http://tempuri.org/CloseServiceCall" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CloseServiceCallAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertServiceNotes">
+      <soap12:operation soapAction="http://tempuri.org/InsertServiceNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertServiceNotesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EscalateService">
+      <soap12:operation soapAction="http://tempuri.org/EscalateService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EscalateServiceAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBarPositionStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetBarPositionStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBarPositionStatusAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyCollectionDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetWeeklyCollectionDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWeeklyCollectionDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHqInstallationID">
+      <soap12:operation soapAction="http://tempuri.org/GetHqInstallationID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHqInstallationIDAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDeskServiceFaults">
+      <soap12:operation soapAction="http://tempuri.org/GetCashDeskServiceFaults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCashDeskServiceFaultsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemedies">
+      <soap12:operation soapAction="http://tempuri.org/GetRemedies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRemediesAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInstallationGame">
+      <soap12:operation soapAction="http://tempuri.org/UpdateInstallationGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateInstallationGameAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetAssetDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAssetDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSiteSettings">
+      <soap12:operation soapAction="http://tempuri.org/ImportSiteSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportSiteSettingsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportVoucherDetails">
+      <soap12:operation soapAction="http://tempuri.org/ImportVoucherDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportVoucherDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportTicketExceptionDetails">
+      <soap12:operation soapAction="http://tempuri.org/ImportTicketExceptionDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportTicketExceptionDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportDeviceDetails">
+      <soap12:operation soapAction="http://tempuri.org/ImportDeviceDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ImportDeviceDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHandpay">
+      <soap12:operation soapAction="http://tempuri.org/InsertHandpay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertHandpayAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitiateWebService">
+      <soap12:operation soapAction="http://tempuri.org/InitiateWebService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTransactionKey">
+      <soap12:operation soapAction="http://tempuri.org/CheckTransactionKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckTransactionKeyAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSiteDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationData">
+      <soap12:operation soapAction="http://tempuri.org/GetInstallationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetInstallationDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZonesData">
+      <soap12:operation soapAction="http://tempuri.org/GetZonesData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetZonesDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBarPositionsData">
+      <soap12:operation soapAction="http://tempuri.org/GetBarPositionsData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBarPositionsDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMachineData">
+      <soap12:operation soapAction="http://tempuri.org/GetMachineData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetMachineDataAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestMeterHistory">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestMeterHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetLatestMeterHistoryAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestSiteBatchID">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestSiteBatchID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetLatestSiteBatchIDAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTickets">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSiteTicketsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTicketExceptions">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteTicketExceptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSiteTicketExceptionsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteDeviceDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteDeviceDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSiteDeviceDetailsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHandpays">
+      <soap12:operation soapAction="http://tempuri.org/GetHandpays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHandpaysAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashDeskTransactions">
+      <soap12:operation soapAction="http://tempuri.org/GetCashDeskTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCashDeskTransactionsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollections">
+      <soap12:operation soapAction="http://tempuri.org/GetCollections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCollectionsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDailyReads">
+      <soap12:operation soapAction="http://tempuri.org/GetDailyReads" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDailyReadsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHourly">
+      <soap12:operation soapAction="http://tempuri.org/GetHourly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHourlyAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetAllEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAllEventsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemSettings">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSystemSettingsAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSiteStatusEnterprise">
+      <soap12:operation soapAction="http://tempuri.org/SetSiteStatusEnterprise" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetSiteStatusEnterpriseAuthenticationInformation" part="AuthenticationInformation" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EnterpriseWebService">
+    <wsdl:port name="EnterpriseWebServiceSoap" binding="tns:EnterpriseWebServiceSoap">
+      <soap:address location="http://localhost/BMC.EnterpriseWebService/EnterpriseWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EnterpriseWebServiceSoap12" binding="tns:EnterpriseWebServiceSoap12">
+      <soap12:address location="http://localhost/BMC.EnterpriseWebService/EnterpriseWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

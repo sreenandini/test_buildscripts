@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC GoLiveApplication Check", "BMC GoLiveApplication Check_2008.csproj", "{219D4F0E-5E33-4851-8908-7B110ADDFA31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{219D4F0E-5E33-4851-8908-7B110ADDFA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{219D4F0E-5E33-4851-8908-7B110ADDFA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{219D4F0E-5E33-4851-8908-7B110ADDFA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{219D4F0E-5E33-4851-8908-7B110ADDFA31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		Association = ; :1-2005 R2; BMC GoLiveApplication Check.csproj; ; ; BMC GoLiveApplication Check.sln; starteam01.ad.agi:49201; Bally MultiConnect; Bally MultiConnect; Bally MultiConnect\BMC 11.5\Coding\Source\Site Controller\BMC.GoLiveApplicationCheck\; ; 
+	EndGlobalSection
+	GlobalSection(Borland Source Code Provider) = preSolution
+		IsAssociated = True
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{5974E8AB-A8FC-4506-98C8-CBA4214802DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{D878811A-EA30-4060-949F-7B3929318C77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.VaultWebService", "BMC.VaultWebService\BMC.VaultWebService_2008.csproj", "{5155B798-24F9-417D-9FFE-478B1B971A6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.VaultInterface.Business", "BMC.VaultInterface.Business\BMC.VaultInterface.Business_2008.csproj", "{490156E3-70A1-4DDB-973E-178522F17BD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.Common", "..\..\Common\BMC.Common\BMC.Common_2008.csproj", "{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMC.DataAccess", "..\..\Common\BMC.DataAccess\BMC.DataAccess_2008.csproj", "{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5155B798-24F9-417D-9FFE-478B1B971A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5155B798-24F9-417D-9FFE-478B1B971A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5155B798-24F9-417D-9FFE-478B1B971A6B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5155B798-24F9-417D-9FFE-478B1B971A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5155B798-24F9-417D-9FFE-478B1B971A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5155B798-24F9-417D-9FFE-478B1B971A6B}.Release|x86.ActiveCfg = Release|Any CPU
+		{490156E3-70A1-4DDB-973E-178522F17BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{490156E3-70A1-4DDB-973E-178522F17BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490156E3-70A1-4DDB-973E-178522F17BD2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{490156E3-70A1-4DDB-973E-178522F17BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{490156E3-70A1-4DDB-973E-178522F17BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{490156E3-70A1-4DDB-973E-178522F17BD2}.Release|x86.ActiveCfg = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|x86.ActiveCfg = Debug|x86
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Debug|x86.Build.0 = Debug|x86
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|x86.ActiveCfg = Release|x86
+		{4D507C5E-48B8-4E3F-8DE1-A233C43E97E8}.Release|x86.Build.0 = Release|x86
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Debug|x86.ActiveCfg = Debug|x86
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Debug|x86.Build.0 = Debug|x86
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Release|x86.ActiveCfg = Release|x86
+		{C4F3AC89-4EBE-461D-82B3-0F7850A5A41B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{490156E3-70A1-4DDB-973E-178522F17BD2} = {5974E8AB-A8FC-4506-98C8-CBA4214802DF}
+		{5155B798-24F9-417D-9FFE-478B1B971A6B} = {D878811A-EA30-4060-949F-7B3929318C77}
+	EndGlobalSection
+EndGlobal
