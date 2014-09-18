@@ -1,0 +1,6 @@
+SCC = This is a Source Code Control file
+
+[BMC.CashDeskOperator.csproj]
+SCC_Aux_Path = vssr:ProdVSS
+SCC_Project_Name = $/BMC 11.5/CashDeskOperator/BMC.CashDeskOperator
+
